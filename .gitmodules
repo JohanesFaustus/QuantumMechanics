@@ -1,0 +1,3 @@
+[submodule "PhysicalMathematics"]
+	path = PhysicalMathematics
+	url = https://github.com/JohanesFaustus/PhysicalMathematics.git

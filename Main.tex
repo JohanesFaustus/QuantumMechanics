@@ -1,0 +1,52 @@
+\documentclass[10pt]{report} 
+
+\usepackage[paperheight=25.5 cm ,paperwidth=14.25cm,left=1.75cm,right=1.75cm,top=1.5cm,bottom=1.5cm]{geometry}
+\usepackage{amsmath, esdiff, esint, indentfirst, titlesec, mathdots, amssymb, upgreek, amsthm, graphicx, subfiles, caption, longtable, csquotes,amsopn, braket, relsize, mathtools,romannum, array }
+
+\graphicspath{{./Rss/}}
+\newcommand{\normfig}[1]{\includegraphics[width=0.5\textwidth]{#1}}
+\newcommand{\normfigL}[1]{\includegraphics[width=0.8\textwidth]{#1}}
+\newcommand{\dfig}[1]{\includegraphics[width=0.3\textwidth]{#1}}
+
+\newtheorem{definition}{Definition}[section]
+
+\def\rcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../Rss/Mathematics/ScriptR.pdf}}}$}}}
+\def\brcurs{{\mbox{$\resizebox{.08in}{.08in}{\includegraphics{{../Rss/Mathematics/BoldR.pdf}}}$}}}
+\def\hrcurs{{\mbox{$\hat \brcurs$}}}
+
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\x}{\mathbf{\hat{x}}}
+\newcommand{\y}{\mathbf{\hat{y}}}
+\newcommand{\z}{\mathbf{\hat{z}}}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{./export.bib}
+
+\allowdisplaybreaks
+
+\titleformat{\chapter}[hang]{\thispagestyle{empty}\centering \Huge \bfseries}{}{}{}[\clearpage]
+\titleformat{\section}[hang]{\bfseries\Large\centering}{}{}{}[\vspace{0.5cm}]
+\titleformat{\subsection}[hang]{\bfseries\large}{}{}{}[\noindent\rule{\textwidth}{0.4pt}]
+\titleformat{\subsubsection}[runin]{\bfseries}{}{}{\indent}
+\begin{document}
+\chapter*{Mathematics}
+\section*{Linear Algebra}
+\subfile{./PhysicalMathematics/Section/LinearAlgbra/LineAlg.tex}\clearpage
+
+\section*{Vector Analysis}
+\subfile{./PhysicalMathematics/Section/VectorAnalysis/VA.tex}\clearpage
+
+\section*{Variation Calculus}
+\subfile{./PhysicalMathematics/Section/VariationCalculus/Var.tex}\clearpage
+
+\chapter*{Classical Mechanics}
+\section*{Unasorted Classical Mechanics Topics}
+\subfile{./Chapter/CM/etc/file.tex}
+
+%\chapter*{Quantum Mechanics}
+
+%\chapter*{Nuclear Physical}
+\end{document}
+
