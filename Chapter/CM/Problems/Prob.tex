@@ -1,0 +1,71 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection*{Incline Problem}
+Consider:
+\begin{quotation}
+    A block of mass $m$ is observed accelerating from rest down an incline that has coefficient of friction $\mu$ and is at angle $\theta$ from the horizontal. How far will it travel in time $t$?
+\end{quotation}
+\begin{figure*}[h]
+    \centering
+    \dfig{../Rss/CM/Problem/Incline}
+    \dfig{../Rss/CM/Problem/Incline-1}
+\end{figure*}
+
+First we define the direction of displacement as positive $x$ axis and the normal force as positive $y$ axis. The resultant force in $y$ axis written as 
+\begin{equation*}
+    \sum F_y=N-mg\cos\theta=0 \implies N=mg\cos \theta
+\end{equation*}
+and $x$ axis
+\begin{equation*}
+    \sum F_x=mg\sin\theta -f= mg\sin\theta -\mu mg\cos \theta=m\ddot{x}
+\end{equation*}
+we then solve for $x$ by 
+\begin{align*}
+    \ddot{x}&=g\left(\sin\theta -\mu \cos \theta\right)\\
+    \dot{x}&=g\left(\sin\theta -\mu \cos \theta\right)t\\
+    x(t)&=\frac{1}{2}g\left(\sin\theta -\mu \cos \theta\right)t^2
+\end{align*}
+Since the block stared from rest, its constant of integration is zero.
+
+\subsection*{Central Force Problem}
+Consider also:
+\begin{quotation}
+    A "half-pipe" at a skateboard park consists of a concrete trough with a semicircular cross section of radius $R = 5 $m. I hold a frictionless skateboard on the side of the trough pointing down toward the bottom and release it. Find the equation of motion for this system.
+\end{quotation}
+
+\begin{figure*}[h]
+    \centering
+    \normfig{../Rss/CM/Problem/CF.png}
+\end{figure*}
+
+In this case $r$ is held constant, thus the expression for resultant force in polar coordinate reads
+\begin{equation*}
+    \mathbf{F}=-m\dot{\phi}^2R\;\mathbf{\hat{r}}+ mR\ddot{\phi} \;\boldsymbol{ \hat{\phi}}
+\end{equation*}
+We also know that the acting force in this system are the normal and the skateboard weigh. Applying this force into equation above
+\begin{equation*}
+    \left(mg\cos\phi-N\right) \;\mathbf{\hat{r}}-mg\sin\phi\; \boldsymbol{ \hat{\phi}}=-m\dot{\phi}^2R\;\mathbf{\hat{r}}+ mR\ddot{\phi} \;\boldsymbol{ \hat{\phi}}
+\end{equation*}
+We can't do anything with the radial component, we only use the angular component
+\begin{align*}
+    mR\ddot{\phi} = mg\sin\phi \\
+    \ddot{\phi} = {\frac{g}{R}} \sin\phi
+\end{align*}
+This differential equation is solved by 
+\begin{equation*}
+    \phi(t)=A\sin \sqrt{\frac{g}{R}}t +B\cos \sqrt{\frac{g}{R}}t
+\end{equation*}
+Since this is released from rest, we have the initial condition of $\phi(0)=\phi_0$ and $\dot{\phi}(0)=0$. Apllying the first condition
+\begin{equation*}
+    \phi_0=B
+\end{equation*}
+and the second
+\begin{align*}
+    \dot{\phi}(t)&=A\sqrt{\frac{g}{R}} \cos \sqrt{\frac{g}{R}}t -\phi_0\sqrt{\frac{g}{R}}\sin \sqrt{\frac{g}{R}}t\\
+    \dot{\phi}(0)&=0=A\sqrt{\frac{g}{R}}
+\end{align*}
+Hence the equation of motion reads
+\begin{equation*}
+    \phi(t)=\phi_0\cos \sqrt{\frac{g}{R}}t
+\end{equation*}
+\end{document}

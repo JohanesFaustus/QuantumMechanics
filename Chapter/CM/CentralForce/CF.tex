@@ -1,0 +1,63 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection*{Newton's Second Law in Polar Coordinate}
+Acceleration in polar coordinate expressed as
+\begin{equation*}
+    \mathbf{\ddot{r}}=\left(\ddot{r}-r\dot{\phi}^2\right) \; \mathbf{\hat{r}} + \left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right) \;\boldsymbol{ \hat{\phi}}
+\end{equation*}
+and velocity as 
+\begin{equation*}
+    \mathbf{v}=\dot{r}\;\mathbf{\hat{r}} +r\dot{\phi}\;\boldsymbol{ \hat{\phi}}
+\end{equation*}
+Hence Newton's law transform into
+\begin{equation*}
+    \mathbf{F}=m\mathbf{a}=\begin{cases}
+        F_r&=m\left(\ddot{r}-r\dot{\phi}^2\right) \\
+        F_\phi&=m\left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right)
+    \end{cases}
+\end{equation*}
+
+\subsection*{Derivation}
+\begin{figure*}[h]
+    \centering
+    \normfigL{../Rss/CM/CentralForce/drValue.png}
+    \normfigL{../Rss/CM/CentralForce/dphiValue.png}
+    \caption*{The value of $d\mathbf{\hat{r}}$ and $d\boldsymbol{\hat{\phi}}$.}
+\end{figure*}
+
+From the figure, we have 
+\begin{equation*}
+    d\mathbf{\hat{r}}=d\phi\;\boldsymbol{\hat{\phi}},\quad d\boldsymbol{\hat{\phi}}=-d\phi\;\mathbf{\hat{r}}
+\end{equation*}
+or equivalently
+\begin{equation*}
+    \frac{d\mathbf{\hat{r}}}{dt}=\dot{\phi}\;\boldsymbol{\hat{\phi}},\quad \frac{d\boldsymbol{\hat{\phi}}}{dt}=-\dot{\phi}\;\mathbf{\hat{r}}
+\end{equation*}
+Using these we can now proceed to derive the Newton's law in polar coordinate. In cartesian coordinate, position vector can be writen as 
+\begin{equation*}
+    \mathbf{r}=x\;\mathbf{\hat{x}} + y\;\mathbf{\hat{y}}
+\end{equation*}
+converting it into polar
+\begin{equation*}
+    \mathbf{r}=r\;\mathbf{\hat{r}} 
+\end{equation*} 
+Next, we determine the velocity as 
+\begin{equation*}
+    \mathbf{\dot{r}}=\frac{d}{dt}r\;\mathbf{\hat{r}}=\dot{r}\;\mathbf{\hat{r}} +r\frac{d\mathbf{\hat{r}}}{dt}= \dot{r}\;\mathbf{\hat{r}} +r\dot{\phi}\;\boldsymbol{\hat{\phi}}
+\end{equation*}
+and acceleration as 
+\begin{multline*}
+    \ddot{r}=\frac{d}{dt}\left(\dot{r}\;\mathbf{\hat{r}} +r\dot{\phi}\;\boldsymbol{\hat{\phi}}\right)
+    = \ddot{r}\;\mathbf{\hat{r}}+ \dot{r}\dot{\phi}\;\boldsymbol{\hat{\phi}} +r\frac{d}{dt}\left(\dot{\phi}\;\boldsymbol{\hat{\phi}}\right)\\
+    =\ddot{r}\mathbf{\hat{r}}+ 2\dot{r}\dot{\phi}\;\boldsymbol{\hat{\phi}}+r\left( \ddot{\phi}\;\boldsymbol{\hat{\phi}}-\dot{\phi}\mathbf{\hat{ r}}\right)\\
+    = \left(\ddot{r}-r\dot{\phi}^2\right) \; \mathbf{\hat{r}} + \left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right) \;\boldsymbol{ \hat{\phi}}
+\end{multline*}
+Finally
+\begin{equation*}
+    F=F_r\;\mathbf{\hat{r}} + F_\phi\;\boldsymbol{ \hat{\phi}}
+    \begin{cases}
+        F_r&=m\left(\ddot{r}-r\dot{\phi}^2\right) \\
+        F_\phi&=m\left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right)
+    \end{cases}
+\end{equation*}
+\end{document}
