@@ -1,0 +1,52 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection*{Normalization Problem}
+\subsubsection*{Ex 1.} Find the value of $A$ such that the following wavefunction particle inside potential well is normalized.
+\begin{equation*}
+    \psi=\frac{1}{\sqrt{10a}}\sin \left(\frac{\pi x}{a}\right) + A\frac{2}{a}\sin \left(\frac{2\pi x}{a}\right) + \frac{3}{\sqrt{5a}}\sin \left(\frac{3\pi x}{a}\right)
+\end{equation*}
+
+The wavefunction of said particle is written in the form 
+\begin{equation*}
+    \psi_n=\sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{a}\right)
+\end{equation*}
+Hence we write the wavefunction as 
+\begin{equation*}
+    \psi=\sqrt{\frac{1}{20}}\psi_1+A\psi_2 + \sqrt{\frac{9}{10}}\psi_3
+\end{equation*}
+We then normalized the wavefunction by 
+\begin{equation*}
+    \braket{\psi|\psi}=\bigg\langle {\sqrt{\frac{1}{20}}\psi_1+A\psi_2 + \sqrt{\frac{9}{10}}\psi_3\bigg|\sqrt{\frac{1}{20}}\psi_1+A\psi_2 + \sqrt{\frac{9}{10}}\psi_3}\bigg\rangle
+\end{equation*}
+Since the wavefunction is orthonormal to itself and orthogonal to another, therefore 
+\begin{equation*}
+    \braket{\psi|\psi}=\frac{1}{20}\braket{\psi_1|\psi_1}+ A^2\braket{\psi_2|\psi_2} + \frac{9}{10}\braket{\psi_3|\psi_3}= A^2+\frac{19}{20}
+\end{equation*}
+Thus 
+\begin{equation*}
+    A=\sqrt{\frac{1}{20}}
+\end{equation*}
+
+\subsection*{Expectation Value Problem}
+\subsubsection*{Ex 1.} From the first normalization problem, find the expectation value of the energy. We have the normalized wavefunction
+\begin{equation*}
+    \psi=\sqrt{\frac{1}{20}}\sin\left(\frac{\pi x}{a}\right) + \sqrt{\frac{1}{20}}\sin\left(\frac{2 \pi x}{a}\right)  +  \sqrt{\frac{9}{10}}\sin\left(\frac{3\pi x}{a}\right) 
+\end{equation*}
+or simply
+\begin{equation*}
+    \psi=\sqrt{\frac{1}{20}}\psi_1 + \sqrt{\frac{1}{20}}\psi_2 +  \sqrt{\frac{9}{10}}\psi_2
+\end{equation*}
+All that left is to do the algebra
+\begin{multline*}
+    \braket{\psi|\hat{E}|\psi}=\bigg\langle \sqrt{\frac{1}{20}}\psi_1 \bigg| \hat{E}\bigg| \sqrt{\frac{1}{20}} \psi_1\bigg\rangle +
+    \bigg\langle \sqrt{\frac{1}{20}}\psi_2 \bigg| \hat{E}\bigg| \sqrt{\frac{1}{20}} \psi_2\bigg\rangle \\
+    +\bigg\langle \sqrt{\frac{9}{10}}\psi_3 \bigg| \hat{E}\bigg| \sqrt{\frac{9}{10}} \psi_3\bigg\rangle 
+\end{multline*}
+Factoring the constant
+\begin{align*}
+    \braket{\psi|\hat{E}|\psi}&=\frac{1}{20}\bigg\langle \psi_1 \bigg| \hat{E}\bigg|  \psi_1\bigg\rangle +
+    \frac{1}{20}\bigg\langle \psi_2 \bigg| \hat{E}\bigg|  \psi_2\bigg\rangle
+    +\frac{9}{10}\bigg\langle \psi_3 \bigg| \hat{E}\bigg|  \psi_3\bigg\rangle\\
+    &=\frac{1}{20}E_1 + \frac{1}{20}E_2 +\frac{9}{10}E_3=\frac{1}{20}\frac{h^2}{8m a^2} + \frac{1}{20}\frac{4h^2}{8m a^2} +\frac{9}{10}\frac{9h^2}{8m a^2}
+\end{align*}
+\end{document}
