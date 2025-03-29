@@ -1,7 +1,7 @@
 \documentclass[10pt]{report} 
 
 \usepackage[paperheight=25.5 cm ,paperwidth=14.25cm,left=1.75cm,right=1.75cm,top=1.5cm,bottom=1.5cm]{geometry}
-\usepackage{amsmath, esdiff, esint, indentfirst, titlesec, mathdots, amssymb, upgreek, amsthm, graphicx, subfiles, caption, longtable, csquotes,amsopn, braket, relsize, mathtools,romannum, array, mathtools }
+\usepackage{amsmath, esdiff, esint, indentfirst, titlesec, mathdots, amssymb, upgreek, amsthm, graphicx, subfiles, caption, longtable, csquotes,amsopn, braket, relsize, mathtools,mhchem, array, mathtools }
 
 \graphicspath{{./Rss/}}
 \newcommand{\normfig}[1]{\includegraphics[width=0.5\textwidth]{#1}}
@@ -33,6 +33,8 @@
 \titleformat{\subsubsection}[runin]{\bfseries}{}{}{\indent}
 \begin{document}
 \chapter*{Mathematics}
+\pagestyle{empty}
+
 \section*{Linear Algebra}
 \subfile{./PhysicalMathematics/Section/LinearAlgbra/LineAlg.tex}\clearpage
 
@@ -55,6 +57,6 @@
 
 \chapter*{Nuclear Physics}
 \subfile{./Chapter/Nuclear/etc/file.tex}\clearpage
-\subfile{./Chapter/Nuclear/NuclearModel/NM.tex}
+%\subfile{./Chapter/Nuclear/NuclearModel/NM.tex}
 \end{document}
 

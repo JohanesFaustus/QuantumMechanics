@@ -301,3 +301,5 @@ TSWLatexianTemp*
 #*Notes.bib
 PhysicalMathematics
 .vscode/ltex.dictionary.en-US.txt
+/Chapter/**/*.pdf
+.vscode/ltex.disabledRules.en-US.txt

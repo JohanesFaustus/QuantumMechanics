@@ -50,7 +50,7 @@ This approximation comes from assuming the radius is proportional to the volume 
     B(A,Z)=Nm_nc^2+Zm_pc^2-m(A,Z)c^2
 \end{equation*} 
 
-\subsubsection*{Mass.} Three unit most common are atomic mass unit (u), the kilogram (kg), and the electron-volt (eV). The atomic mass unti id defined as the mass of $^{12}$C atom divided by 12
+\subsubsection*{Mass.} Three unit most common are atomic mass unit (u), the kilogram (kg), and the electron-volt (eV). The atomic mass unit is defined as the mass of $^{12}$C atom divided by 12
 \begin{equation*}
     1\;\text{u}=\frac{m (^{12}C)}{12}
 \end{equation*}
@@ -72,4 +72,56 @@ electron volt is defined as the kinetic energy of an electron after being accele
     ^{14}\text{C}_6\quad\text{and}\quad    ^{16}\text{O}_8
 \end{equation*}
 
+
+\subsection*{Nuclear Decay}
+
+\subsubsection*{Alpha decay.} Occur when parent nucleon decay distribute among daughter nuclei 
+\begin{equation*}
+    \ce{^A_ZP}\rightarrow\ce{^{A-4}_{Z-2}D}+\ce{^4_2He}
+\end{equation*}
+The $Q$ value, which is defined as the total released in a given nuclear decay, of alpha decay is 
+\begin{align*}
+    Q&=\left[m\left(\ce{^A_ZP}\right)-m(\ce{^{A-4}_{Z-2}D})-m\left(\ce{^4_2He}\right)\right]c^2\\
+    Q&=K_D+K_\alpha=\frac{A}{A-4}K_\alpha
+\end{align*}
+$Q$ can be determined by applying the energy conservation into given nuclear reaction. 
+
+\subsubsection*{Beta decay.} Two example are electron capture and neutrino capture 
+\begin{equation*}
+    e^-+p\leftrightarrow \nu_e+n
+\end{equation*} 
+Other interaction can be found by moving particle to different side and changing them to their anti particle, such as 
+\begin{equation*}
+    \bar{\nu_e}+p\leftrightarrow e^++n
+\end{equation*}
+where the anti particle of electron $e^-$ and electron neutrino $\nu_e$ are positron $e^+$ and electron antineutrino $\bar{\nu_e}$. Another example is beta negative decay
+\begin{equation*}
+    \ce(^A_ZP)\rightarrow\ce{^A_{Z+1}D}+e^-+\bar{\nu_e}
+\end{equation*} 
+which is the neutron decay inside isotope, and beta positive decay
+\begin{equation*}
+    \ce(^A_ZP)\rightarrow\ce{^A_{Z-1}D}+e^-+{\nu_e}
+\end{equation*}
+which is the proton decay inside isotope. Electron capture inside inside isotope takes the form of 
+\begin{equation*}
+    \ce(^A_ZP)+e^-\rightarrow \ce{^A_{Z-1}}+\nu_e
+\end{equation*}
+The $Q$ value of beta negative is 
+\begin{equation*}
+    Q=\left[m\left(\ce(^A_ZP)\right)-m(\ce{^A_{Z-1}D})+m_e+m_{\nu_e}\right]
+\end{equation*}
+and beta negative decay 
+\begin{equation*}
+    Q=\left[m\left(\ce(^A_ZP)\right)-m(\ce{^A_{Z-1}D})+m_e+m_{\bar{\nu_e}}\right]
+\end{equation*}
+
+
+\subsection*{Nuclear Stability}
+\subsubsection*{Valley of stability.}  Consist of long-lived isotope that do not mutinously decay.
+
+\subsubsection*{Below the valley of stability.} Consist of isotope with more $N$ than those of the valley of stability, thus it decay with beta ne
+\begin{figure*}
+    \centering
+    \fullfig{../Rss/Nuclear/NuclearStability/NZfig.png}
+\end{figure*}
 \end{document}
