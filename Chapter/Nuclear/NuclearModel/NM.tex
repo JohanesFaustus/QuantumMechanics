@@ -1,4 +1,37 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
 \subsection*{Liquid Drop Model}
+The binding energy by this model is given by 
+\begin{equation*}
+    B(A,Z)=a_VA- a_sA^{2/3}- a_C\frac{Z^2}{A^{1/3}}-a_a\frac{(N-Z)^2}{A} +\delta(A)
+\end{equation*}
+where
+\begin{align*}
+    a_V&= 15.753 \\
+    a_s&= 17.804 \\
+    a_C&= 0.7103 \\
+    a_a&= 23.69 \\
+    \delta(A)&= \begin{cases}
+        33.6 A^{-3/4}& \text{if $N$ and $Z$ are even}\\
+        -33.6 A^{-3/4}& \text{if $N$ and $Z$ are odd}\\
+        0 & \text{if $A=N+Z$ is odd}
+    \end{cases}
+\end{align*}
+
+\subsubsection*{Volume term.} Recall that the volume of nucleon is proportional to $A$; on using this we have obtained $r=r_0A^{1/3}$, which means that nuclei have constant density, like a drop of water. 
+
+Experiment shows that the binding energy per nucleon is rougly constant, $B/A\approx 8$ MeV. The overshoot of the volem term, then, require corection that will lower the value of the binding energy.
+
+\subsubsection*{Surface term.} Like water molecule, internal nucleon experience isotropic force, while surface nucleon only from inside. This resulting the force, and consequentl the energy, to be proportional to area $4\pi r^2\approx a_sA^{1/3}$, with $r=r_0A^{1/3}$.
+
+\subsubsection*{Columb term.} The binding energy due to charged particle is proportional to $Q^2/R\approx Z^2/A^{1/3}$.
+
+\subsubsection*{Asymmetry term.} By The Pauli exclusion principle, the configuration with different $N$ and $Z$ will have more energy than that with the same due to the different nucleon will simply occupy the higher energy state. This is the basis of $N-Z$ term.
+
+\subsubsection*{Quantum pairing term.} This term captures the effect of spin coupling. Odd-odd nuclei tend to undergo beta decay to an adjacent even-even nucleus by changing an $N$ to a $Z$ or vice versa.
+
+\subsubsection*{Stable nuclei.} By setting the derivative of $B$ with respect to $Z$ to zero, we have the maximum binding energy, that is the most state nuclei. If we ignore the quantum pairing term, or we are considering the case of odd $A$,we have 
+\begin{equation*}
+    Z(A)=\frac{A}{2+a_cA^{2/3}/2a_a}\approx\frac{A/2}{1+0.0075\;A^{2/3}}
+\end{equation*} 
 \end{document}
