@@ -11,6 +11,7 @@ Consider:
     \dfig{../Rss/CM/Problem/Incline-1}
 \end{figure*}
 
+\subsubsection*{Force approach.}
 First we define the direction of displacement as positive $x$ axis and the normal force as positive $y$ axis. The resultant force in $y$ axis written as 
 \begin{equation*}
     \sum F_y=N-mg\cos\theta=0 \implies N=mg\cos \theta
@@ -26,6 +27,24 @@ we then solve for $x$ by
     x(t)&=\frac{1}{2}g\left(\sin\theta -\mu \cos \theta\right)t^2
 \end{align*}
 Since the block stared from rest, its constant of integration is zero.
+
+\subsubsection*{Energy approach.}
+Here define the zero potential energy at the bottom of the incline. 
+Using the work energy theorem for non-conservative force
+\begin{align*}
+    \Delta T+\Delta U&=W_\text{fric}\\
+    \frac{1}{2}mv^2-mgh&=-fd\\
+    \frac{1}{2}mv^2-mgd\sin\theta&=-\mu mg\cos\theta d\\
+    v&=\sqrt{2gd(\sin\theta-\mu\cos\theta)}
+\end{align*}
+Using the kinematics relation $v(t)^2=v_i^2+2a\Delta x$ 
+\begin{equation*}
+    v^2=2gd(\sin\theta-\mu\cos\theta)=2ad\implies a=g(\sin\theta-\mu\cos\theta)
+\end{equation*}
+and the relation $v(t)=v_i+at$, we are able to rewrite it as the previous form
+\begin{equation*}
+   v=g(\sin\theta-\mu\cos\theta)t 
+\end{equation*}
 
 \subsection*{Central Force Problem}
 Consider also:
