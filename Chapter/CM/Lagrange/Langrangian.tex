@@ -24,13 +24,11 @@ Now the action integral reads
   S=\int_{t_1}^{t_2}\mathcal{L}(q_1,q_2,q_3,\dot{q}_1,\dot{q}_2,\dot{q}_3,t)\;dt
 \end{equation*}
 Therefore we have three Euler-Lagrange equation that must be satisfied by the particle
-\begin{equation*}
-  \begin{cases}
-    \dfrac{\partial \mathcal{L}}{\partial q_1}=\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot{q}_1} \\
-    \dfrac{\partial \mathcal{L}}{\partial q_2}=\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot{q}_2} \\
-    \dfrac{\partial \mathcal{L}}{\partial q_3}=\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot{q}_3} \\
-  \end{cases}
-\end{equation*}
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial q_1}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_1}, \quad
+    \frac{\partial \mathcal{L}}{\partial q_2}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}, \quad
+    \frac{\partial \mathcal{L}}{\partial q_3}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_3}
+\end{align*}
 This is the case of one unconstrained particle. For $N$ unconstrained particle, then, we shall have $3N$ Lagrange equation
 \begin{equation*}
     \frac{\partial\mathcal{L}}{\partial q_i}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_i}\qquad i=1,\dots,3N
@@ -38,7 +36,7 @@ This is the case of one unconstrained particle. For $N$ unconstrained particle, 
 
 The Lagrangian equation 
 \begin{equation*}
-  \dfrac{\partial \mathcal{L}}{\partial q_i}=\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot{q}_i}
+  \frac{\partial \mathcal{L}}{\partial q_i}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_i}
 \end{equation*}
 takes the form
 \begin{equation*}
@@ -52,4 +50,30 @@ and
 \begin{equation*}
     \frac{\partial \mathcal{L}}{\partial \dot{q}_i}=i\text{-th component of the Generalized momentum}
 \end{equation*}
+
+\subsection*{Newton Law in 2D Cartesian}
+The Lagrangian in this case is 
+\begin{equation*}
+  \mathcal{L}(x,y,\dot{x},\dot{y})=\frac{1}{2}m(\dot{x}^2+\dot{y}^2)-U(x,y)
+\end{equation*}
+Here we have two Euler-Lagrange equation
+\begin{equation*}
+  \frac{\partial \mathcal{L}}{\partial x}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}},\qquad
+  \frac{\partial \mathcal{L}}{\partial y}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}}
+\end{equation*}
+The derivative with respect to position is force
+\begin{align*}
+  \frac{\partial \mathcal{L}}{\partial x}=-\frac{\partial U}{\partial x}=F_x,\qquad
+  \frac{\partial \mathcal{L}}{\partial y}=-\frac{\partial U}{\partial y}=F_y
+\end{align*}
+while the derivative with respect to velocity is momentum
+\begin{align*}
+  \frac{\partial\mathcal{L}}{\partial \dot{x}}=\frac{\partial T}{\partial \dot{x}}=m\dot{x}, \qquad
+  \frac{\partial\mathcal{L}}{\partial \dot{y}}=\frac{\partial T}{\partial \dot{y}}=m\dot{y}
+\end{align*}
+Substituting this result in the two Euler-Lagrange equation, we have 
+\begin{equation*}
+  F_x=m\ddot{x},\qquad F_y=m\ddot{y}
+\end{equation*}
+which are the two component of Newton second law $\mathbf{F}=m\mathbf{\ddot{r}}$.
 \end{document}
