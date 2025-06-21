@@ -1,0 +1,55 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+The Lagrangian is defined as
+\begin{equation*}
+  \mathcal{L}=T-U
+\end{equation*}
+which mean that the Lagrangian is a function of position and velocity.
+The path of particle is determined by Hamilton's principle
+\begin{equation*}
+  S=\int_{t_1}^{t_2}\mathcal{L}\;dt
+\end{equation*}
+that is, the particle's path is such that the action integral $S$ is stationary.
+
+We can express the coordinate in other generalized coordinate
+\begin{equation*}
+  \mathbf{r}=\mathbf{r}(q_1,q_2,q_2)
+\end{equation*}
+And the same for velocity
+\begin{equation*}
+  \mathbf{v}=\mathbf{v}(\dot{q}_1,\dot{q}_2,\dot{q}_3)
+\end{equation*}
+Now the action integral reads
+\begin{equation*}
+  S=\int_{t_1}^{t_2}\mathcal{L}(q_1,q_2,q_3,\dot{q}_1,\dot{q}_2,\dot{q}_3,t)\;dt
+\end{equation*}
+Therefore we have three Euler-Lagrange equation that must be satisfied by the particle
+\begin{equation*}
+  \begin{cases}
+    \dfrac{\partial \mathcal{L}}{\partial q_1}=\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot{q}_1} \\
+    \dfrac{\partial \mathcal{L}}{\partial q_2}=\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot{q}_2} \\
+    \dfrac{\partial \mathcal{L}}{\partial q_3}=\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot{q}_3} \\
+  \end{cases}
+\end{equation*}
+This is the case of one unconstrained particle. For $N$ unconstrained particle, then, we shall have $3N$ Lagrange equation
+\begin{equation*}
+    \frac{\partial\mathcal{L}}{\partial q_i}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_i}\qquad i=1,\dots,3N
+\end{equation*}
+
+The Lagrangian equation 
+\begin{equation*}
+  \dfrac{\partial \mathcal{L}}{\partial q_i}=\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot{q}_i}
+\end{equation*}
+takes the form
+\begin{equation*}
+    \text{Generalized force}=\text{Rate of change of Generalized momentum}
+\end{equation*}
+where 
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial q_i}=i\text{-th component of the Generalized force}
+\end{equation*}
+and
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial \dot{q}_i}=i\text{-th component of the Generalized momentum}
+\end{equation*}
+\end{document}
