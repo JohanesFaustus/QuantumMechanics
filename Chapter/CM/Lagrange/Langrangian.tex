@@ -76,4 +76,35 @@ Substituting this result in the two Euler-Lagrange equation, we have
   F_x=m\ddot{x},\qquad F_y=m\ddot{y}
 \end{equation*}
 which are the two component of Newton second law $\mathbf{F}=m\mathbf{\ddot{r}}$.
+
+\subsection*{Newton Law in Polar Coordinate}
+The Lagrangian is 
+\begin{equation*}
+  \mathcal{L}(r,\phi,\dot{r},\dot{\phi})=\frac{1}{2}m(\dot{r}^2+r^2\dot{\phi}^2)-U(r,\phi)
+\end{equation*}
+which result into two Euler-Lagrange equation
+\begin{equation*}
+  \frac{\partial\mathcal{L}}{\partial r}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{r}}\qquad\frac{\partial\mathcal{L}}{\partial \phi}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{\phi}}
+\end{equation*}
+Before moving into evaluating the derivative with respect to $r$ and $\phi$, recall the gradient of potential energy in polar coordinate
+\begin{equation*}
+  \nabla U=\frac{\partial U}{\partial r}\mathbf{\hat{{r}}}+ \frac{1}{r}\frac{\partial U}{\partial \phi}\boldsymbol{\hat{\phi}}-F_r\mathbf{\hat{r}}-F_{\phi}\boldsymbol{\hat{\phi}}
+\end{equation*} 
+
+Evaluating the radial derivative
+\begin{align*}
+  mr\dot{\phi}-\frac{\partial U}{\partial r}&=m\ddot{r}\\
+  F_r&=m(\ddot{r}+r\dot{\phi})
+\end{align*}
+which is simply the radial component of the Newton's second law in polar coordinate. 
+Evaluating the angular derivative
+\begin{align*}
+  -\frac{\partial U}{\partial \phi}&=\frac{d}{dt}mr^2\dot{\phi}=m(2r\dot{r}\dot{\phi}+r^2\ddot{\phi})\\
+  -\frac{1}{r}\frac{\partial U}{\partial \phi}&=m(2\dot{r}\dot{\phi}+r^2\ddot{\phi})\\
+  F_\phi&=m(2\dot{r}\dot{\phi}+r\ddot{\phi})
+\end{align*}
+which is, as previously mentioned, the angular component of Newton's second law. It should be noted that the quantity $mr^2\dot{\phi}$ can be recognized as angular momentum $L$, and the rate of change of it is torque $\Gamma$
+\begin{equation*}
+  \Gamma=F_\phi r=\frac{dL}{dt}=\frac{d}{dt}mr^2\dot{\phi}
+\end{equation*} 
 \end{document}
