@@ -55,10 +55,17 @@ Set of generalized coordinates that minimize the number of Euler-Langrange equat
 This implies that natural coordinate also have minimum degree of freedom, that is the number of coordinate that can be varied independently.
 System with $n$ degree of freedom that can be described by $n$ generalized coordinate is called holonomic.
 In general 
-\begin{equation*}
-  \text{DoF}=\text{No. of Coordinate}-\text{No. constraint}
+\begin{equation*}  \text{DoF}=\text{No. of Coordinate}-\text{No. Constraint}
 \end{equation*}
-For example, double pendulum have 4 coordinates and two constraint, thus having two degree of freedom
+For example, double pendulum have 4 coordinates and two constraint, thus having two degree of freedom.
+
+The steps to solve problem using Lagrangian formalism are as follows.
+\begin{enumerate}
+  \item Write down the Lagrangian $\mathcal{L}=T-U$.
+  \item Choose generalized $n$ coordinate $q_n$ and $\dot{q}_n$.
+  \item Rewrite $\mathcal{L}$ in terms of $q_n$ and $\dot{q}_n$.
+  \item Write $n$ Lagrange equation.
+\end{enumerate}
 
 \subsection*{Newton Law in 2D Cartesian}
 The Lagrangian in this case is 
