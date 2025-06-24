@@ -94,4 +94,79 @@ This mean that the angular momentum $L=mR^2\dot{\phi}$ is conserved and the part
     \caption*{Figure: Particle constrained to move on a cylinder}
 \end{figure*}
 
+\subsection*{Application: Sliding Block on a Frictionless Wedge}
+The block (mass $m$) is free to slide on the wedge, and the wedge (mass $M$) can slide on the horizontal table, both with negligible friction. 
+The block is released from the top of the wedge, with both initially at rest.
+
+The system has two coordinates and no constraint whatsoever, so it has two degree of freedom.
+We choose $q_1$ and $q_2$ as our generalized coordinate which denote the distance form the block from the top of the wedge and the distance of the wedge from convenient fixed point on the table.
+We also define positive $x$ displacement to the right and downward as positive $y$ displacement.
+
+The kinetic energy is 
+\begin{equation*}
+    T=\frac{1}{2}mv_m^2+\frac{1}{2}Mv_M^2
+\end{equation*}
+The wedge velocity is simply 
+\begin{equation*}
+    v_M=\dot{q}_2
+\end{equation*}
+Meanwhile, the block velocity have two component, which are 
+\begin{equation*}
+    \mathbf{v}_m=\left(\dot{q}_2+\dot{q}_1\cos\alpha\right)\;\mathbf{\hat{x}}+\dot{q}_2\sin\alpha\;\mathbf{\hat{y}}
+\end{equation*} 
+In terms of generalized coordinate, the kinetic energy reads
+\begin{align*}
+    T&=\frac{1}{2}m\left[\left(\dot{q}_2+\dot{q}_1\cos\alpha\right)^2+\dot{q}_2\sin\alpha^2\right]+\frac{1}{2}m\dot{q}_2^2\\
+    &=\frac{1}{2}m\left[\dot{q}_1^2+\dot{q}_2^2+\dot{q}_1\dot{q}_2\cos\alpha+\right]+\frac{1}{2}M\dot{q}_2^2\\
+    T&=\frac{1}{2}(m+M)\dot{q}_2^2+\frac{1}{2}m\left(\dot{q}_1^2+2\dot{q}_1\dot{q}_2\cos\alpha\right)
+\end{align*}
+In other hand, we defined downward as positive displacement, so the potential energy reads
+\begin{equation*}
+    U=-mgy=-mgq_1\sin\alpha
+\end{equation*}
+The Lagrangian can be evaluated as 
+\begin{equation*}
+    \mathcal{L}=\frac{1}{2}(m+M)\dot{q}_2^2+\frac{1}{2}m\left(\dot{q}_1^2+2\dot{q}_1\dot{q}_2\cos\alpha\right)+mgq_1\sin\alpha
+\end{equation*}
+
+With the generalized coordinates we used, we have two Euler-Lagrange equation
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial q_1}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}\qquad\frac{\partial \mathcal{L}}{\partial q_2}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}
+\end{equation*}
+The $q_1$ equation yield 
+\begin{align*}
+    mg\sin\alpha&=\frac{d}{dt}\left[m(\dot{q}_1+\dot{q}_2\cos\alpha)\right]\\
+    g\sin\alpha&=\ddot{q}_1+\ddot{q}_2\cos\alpha
+\end{align*}
+while the $q_2$ equation yield
+\begin{align*}
+    0&=\frac{d}{dt}\left[(M+m)\dot{q}_2+m(\dot{q}_2+\dot{q}_1\cos\alpha)\right]\\
+    &=(M+m)\ddot{q}_2+m(\ddot{q}_2+\ddot{q}_1\cos\alpha)\\
+    \ddot{q}_2&=-\frac{m}{M+m}\ddot{q}_1\cos\alpha
+\end{align*}
+which is just conservation of momentum in the $x$ direction
+\begin{equation*}
+    m\dot{q}_2+m\left(\dot{q_2}+\dot{q}_1\cos\alpha\right)=\text{Constant}
+\end{equation*}
+Now, combining the $q_1$ and $q_2$ result in 
+\begin{align*}
+    \ddot{q}_1&=g\sin\alpha+\frac{m}{M+m}\ddot{q}_1\cos^2\alpha\\
+    \ddot{q}_1&=\frac{g\sin\alpha}{1-\frac{m}{M+m}\cos^2\alpha}
+\end{align*}
+Suppose we want to determine the time it took for the block to reach the bottom of wedge, we can use the kinematic relation $x(t)=x_i+v_it+at^2/2$ or $t=\sqrt{2l/a}$, with $l$ as the length of the slope, to obtain
+\begin{equation*}
+    t=\left(2l\frac{1-\frac{m}{M+m}\cos^2\alpha}{g\sin\alpha}\right)^{1/2}
+\end{equation*}
+
+As a sanity check, consider the case for $\alpha=90^\circ$. 
+The acceleration $\ddot{q}_1=g$, which is correct.
+Another is the case for $M\rightarrow\infty$. 
+The acceleration $\ddot{q}_1=g\sin\alpha$, which is the acceleration for a block on a fixed incline.  
+
+\begin{figure*}
+    \centering
+    \dfig{../../../Rss/CM/Lagrange/WedgeIncline.png}
+    \caption*{Figure: Block slide on a wedge which is free to move without friction}
+\end{figure*}
+
 \end{document}
