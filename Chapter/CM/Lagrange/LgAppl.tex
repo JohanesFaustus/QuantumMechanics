@@ -4,169 +4,204 @@
 Atwood's machine consist of  masses $m_1$ and $m_2$ are suspended by an in extensible string (length $l$) which passes over a massless pulley with frictionless bearings and radius $R$.
 The length of the string acts as constraint
 \begin{equation*}
-    x+y+2\pi R=l
-\end{equation*} 
-This implies $y=-x+C$ and $\dot{y}=-\dot{x}$. 
+	x+y+2\pi R=l
+\end{equation*}
+This implies $y=-x+C$ and $\dot{y}=-\dot{x}$.
 Thus, the kinetic energy of both mass
 \begin{equation*}
-    T=\frac{1}{2}m_1\dot{x}^2+\frac{1}{2}m_2\dot{y}^2=\frac{1}{2}(m_1+m_2)\dot{x}^2
+	T=\frac{1}{2}m_1\dot{x}^2+\frac{1}{2}m_2\dot{y}^2=\frac{1}{2}(m_1+m_2)\dot{x}^2
 \end{equation*}
-We define the downward displacement of $m_1$ and upward displacement of $m_2$ as positive displacement in our generalized coordinate $x$. 
+We define the downward displacement of $m_1$ and upward displacement of $m_2$ as positive displacement in our generalized coordinate $x$.
 This is the same case of upward acceleration of $m_2$ being the same as downward acceleration of $m_1$.
-In any case, the potential energy is 
+In any case, the potential energy is
 \begin{equation*}
-    U=-m_1gx-m_2gy=-(m_1-m_2)gx+C_2
+	U=-m_1gx-m_2gy=-(m_1-m_2)gx+C_2
 \end{equation*}
-We can now write the Lagrangian as 
+We can now write the Lagrangian as
 \begin{equation*}
-    \mathcal{L}=\frac{1}{2}(m_1+m_2)\dot{x}^2+(m_1-m_2)gx
+	\mathcal{L}=\frac{1}{2}(m_1+m_2)\dot{x}^2+(m_1-m_2)gx
 \end{equation*}
 With only one generalized coordinate, we only have one Euler-Lagrange equation
 \begin{equation*}
-    \frac{\partial \mathcal{L}}{\partial x}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}}
+	\frac{\partial \mathcal{L}}{\partial x}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}}
 \end{equation*}
 which on substituting the Lagrangian yield
 \begin{align*}
-    (m_1-m_2)g=(m_1+m_2)\ddot{x}\\
-    \ddot{x}=\frac{m_1-m_2}{m_1+m_2}g
+	(m_1-m_2)g=(m_1+m_2)\ddot{x} \\
+	\ddot{x}=\frac{m_1-m_2}{m_1+m_2}g
 \end{align*}
 
 Now let's compare it with Newtonian approach, we should obtain the same result.
-Considering the acceleration direction for both masses, the net forces on both $m_1$ and $m_2$ respectively are 
+Considering the acceleration direction for both masses, the net forces on both $m_1$ and $m_2$ respectively are
 \begin{align*}
-    m_1g-F_t&=m_1\ddot{x}\\
-    F_t-m_2g&=m_2\ddot{x}
+	m_1g-F_t & =m_1\ddot{x} \\
+	F_t-m_2g & =m_2\ddot{x}
 \end{align*}
 Adding both equation
 \begin{align*}
-    (m_1-m_2)g&=(m_1+m_2)\ddot{x}\\
-    \ddot{x}&=\frac{m_1-m_2}{m_1+m_2}g
+	(m_1-m_2)g & =(m_1+m_2)\ddot{x}        \\
+	\ddot{x}   & =\frac{m_1-m_2}{m_1+m_2}g
 \end{align*}
 
 \begin{figure*}
-    \centering
-    \dfig{../../../Rss/CM/Lagrange/Atwood.png}
-    \caption*{Figure: Atwood's machine configuration}
+	\centering
+	\dfig{../../../Rss/CM/Lagrange/Atwood.png}
+	\caption*{Figure: Atwood's machine configuration}
 \end{figure*}
 
 \subsection*{Application: Particle Constrained on a Cylinder}
-Consider a particle of mass $m$ constrained to move on a frictionless cylinder of radius $R$. 
-Besides the force of constraint, the only force on the mass is a force $\mathbf{F}= -k\mathbf{r}$ directed toward the origin. 
+Consider a particle of mass $m$ constrained to move on a frictionless cylinder of radius $R$.
+Besides the force of constraint, the only force on the mass is a force $\mathbf{F}= -k\mathbf{r}$ directed toward the origin.
 With $\mathbf{r}$ as the position vector of the particle, this force is the three dimension version of Hooke's law.
 
 We shall use cylindrical coordinate to solve this problem.
 It is known that the radius component is fixed $\rho=R$, so we use $(\phi, z)$ as our generalized coordinate.
-The kinetic energy is 
+The kinetic energy is
 \begin{equation*}
-    T=\frac{1}{2}mv^2=\frac{1}{2}m(R^2\dot{\phi}^2+\dot{x}^2)
+	T=\frac{1}{2}mv^2=\frac{1}{2}m(R^2\dot{\phi}^2+\dot{x}^2)
 \end{equation*}
 Recall $\mathbf{F}=-\nabla U$, hence the potential energy
 \begin{align*}
-    -\frac{dU}{dr}\;\mathbf{\hat{r}}&=-kr\;\mathbf{\hat{r}}\\
-    U&=\frac{1}{2}kr^2
+	-\frac{dU}{dr}\;\mathbf{\hat{r}} & =-kr\;\mathbf{\hat{r}} \\
+	U                                & =\frac{1}{2}kr^2
 \end{align*}
-The distance of particle from origin is given by $r^2=R^2+z^2$, so 
+The distance of particle from origin is given by $r^2=R^2+z^2$, so
 \begin{equation*}
-    U=\frac{1}{2}k(z^2+R^2)
+	U=\frac{1}{2}k(z^2+R^2)
 \end{equation*}
-Therefore, the Lagrangian is 
+Therefore, the Lagrangian is
 \begin{equation*}
-    \mathcal{L}=\frac{1}{2}m(R^2\dot{\phi}^2+\dot{z}^2)-\frac{1}{2}k(R^2+z^2)
+	\mathcal{L}=\frac{1}{2}m(R^2\dot{\phi}^2+\dot{z}^2)-\frac{1}{2}k(R^2+z^2)
 \end{equation*}
 We use two generalized coordinates, thus we have two Euler-Lagrangian equation
 \begin{equation*}
-    \frac{\partial \mathcal{L}}{\partial z}=\frac{d}{dt}\frac{\partial \mathcal{text}}{\partial \dot{z}},\qquad\frac{\partial\mathcal{L}}{\partial \phi}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{\phi}}
+	\frac{\partial \mathcal{L}}{\partial z}=\frac{d}{dt}\frac{\partial \mathcal{text}}{\partial \dot{z}},\qquad\frac{\partial\mathcal{L}}{\partial \phi}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{\phi}}
 \end{equation*}
-The $z$ equation is 
+The $z$ equation is
 \begin{equation*}
-    -kz=m\ddot{z}\implies z=A\cos(\omega t-\delta)
+	-kz=m\ddot{z}\implies z=A\cos(\omega t-\delta)
 \end{equation*}
-This mean that the mass perform simple harmonic motion in the $z$ direction. 
+This mean that the mass perform simple harmonic motion in the $z$ direction.
 Now, the $\phi$ equation
 \begin{align*}
-    0=\frac{d}{dt}mR^2\dot{\phi}
+	0=\frac{d}{dt}mR^2\dot{\phi}
 \end{align*}
 This mean that the angular momentum $L=mR^2\dot{\phi}$ is conserved and the particle rotate in constant velocity $\dot{\phi}$.
 
 \begin{figure*}
-    \centering
-    \dfig{../../../Rss/CM/Lagrange/Cyllinder.png}
-    \caption*{Figure: Particle constrained to move on a cylinder}
+	\centering
+	\dfig{../../../Rss/CM/Lagrange/Cyllinder.png}
+	\caption*{Figure: Particle constrained to move on a cylinder}
 \end{figure*}
 
 \subsection*{Application: Sliding Block on a Frictionless Wedge}
-The block (mass $m$) is free to slide on the wedge, and the wedge (mass $M$) can slide on the horizontal table, both with negligible friction. 
+The block (mass $m$) is free to slide on the wedge, and the wedge (mass $M$) can slide on the horizontal table, both with negligible friction.
 The block is released from the top of the wedge, with both initially at rest.
 
 The system has two coordinates and no constraint whatsoever, so it has two degree of freedom.
 We choose $q_1$ and $q_2$ as our generalized coordinate which denote the distance form the block from the top of the wedge and the distance of the wedge from convenient fixed point on the table.
 We also define positive $x$ displacement to the right and downward as positive $y$ displacement.
 
-The kinetic energy is 
+The kinetic energy is
 \begin{equation*}
-    T=\frac{1}{2}mv_m^2+\frac{1}{2}Mv_M^2
+	T=\frac{1}{2}mv_m^2+\frac{1}{2}Mv_M^2
 \end{equation*}
-The wedge velocity is simply 
+The wedge velocity is simply
 \begin{equation*}
-    v_M=\dot{q}_2
+	v_M=\dot{q}_2
 \end{equation*}
-Meanwhile, the block velocity have two component, which are 
+Meanwhile, the block velocity have two component, which are
 \begin{equation*}
-    \mathbf{v}_m=\left(\dot{q}_2+\dot{q}_1\cos\alpha\right)\;\mathbf{\hat{x}}+\dot{q}_2\sin\alpha\;\mathbf{\hat{y}}
-\end{equation*} 
+	\mathbf{v}_m=\left(\dot{q}_2+\dot{q}_1\cos\alpha\right)\;\mathbf{\hat{x}}+\dot{q}_2\sin\alpha\;\mathbf{\hat{y}}
+\end{equation*}
 In terms of generalized coordinate, the kinetic energy reads
 \begin{align*}
-    T&=\frac{1}{2}m\left[\left(\dot{q}_2+\dot{q}_1\cos\alpha\right)^2+\dot{q}_2\sin\alpha^2\right]+\frac{1}{2}m\dot{q}_2^2\\
-    &=\frac{1}{2}m\left[\dot{q}_1^2+\dot{q}_2^2+\dot{q}_1\dot{q}_2\cos\alpha+\right]+\frac{1}{2}M\dot{q}_2^2\\
-    T&=\frac{1}{2}(m+M)\dot{q}_2^2+\frac{1}{2}m\left(\dot{q}_1^2+2\dot{q}_1\dot{q}_2\cos\alpha\right)
+	T & =\frac{1}{2}m\left[\left(\dot{q}_2+\dot{q}_1\cos\alpha\right)^2+\dot{q}_2\sin\alpha^2\right]+\frac{1}{2}m\dot{q}_2^2 \\
+	  & =\frac{1}{2}m\left[\dot{q}_1^2+\dot{q}_2^2+\dot{q}_1\dot{q}_2\cos\alpha+\right]+\frac{1}{2}M\dot{q}_2^2              \\
+	T & =\frac{1}{2}(m+M)\dot{q}_2^2+\frac{1}{2}m\left(\dot{q}_1^2+2\dot{q}_1\dot{q}_2\cos\alpha\right)
 \end{align*}
 In other hand, we defined downward as positive displacement, so the potential energy reads
 \begin{equation*}
-    U=-mgy=-mgq_1\sin\alpha
+	U=-mgy=-mgq_1\sin\alpha
 \end{equation*}
-The Lagrangian can be evaluated as 
+The Lagrangian can be evaluated as
 \begin{equation*}
-    \mathcal{L}=\frac{1}{2}(m+M)\dot{q}_2^2+\frac{1}{2}m\left(\dot{q}_1^2+2\dot{q}_1\dot{q}_2\cos\alpha\right)+mgq_1\sin\alpha
+	\mathcal{L}=\frac{1}{2}(m+M)\dot{q}_2^2+\frac{1}{2}m\left(\dot{q}_1^2+2\dot{q}_1\dot{q}_2\cos\alpha\right)+mgq_1\sin\alpha
 \end{equation*}
 
 With the generalized coordinates we used, we have two Euler-Lagrange equation
 \begin{equation*}
-    \frac{\partial \mathcal{L}}{\partial q_1}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}\qquad\frac{\partial \mathcal{L}}{\partial q_2}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}
+	\frac{\partial \mathcal{L}}{\partial q_1}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}\qquad\frac{\partial \mathcal{L}}{\partial q_2}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}
 \end{equation*}
-The $q_1$ equation yield 
+The $q_1$ equation yield
 \begin{align*}
-    mg\sin\alpha&=\frac{d}{dt}\left[m(\dot{q}_1+\dot{q}_2\cos\alpha)\right]\\
-    g\sin\alpha&=\ddot{q}_1+\ddot{q}_2\cos\alpha
+	mg\sin\alpha & =\frac{d}{dt}\left[m(\dot{q}_1+\dot{q}_2\cos\alpha)\right] \\
+	g\sin\alpha  & =\ddot{q}_1+\ddot{q}_2\cos\alpha
 \end{align*}
 while the $q_2$ equation yield
 \begin{align*}
-    0&=\frac{d}{dt}\left[(M+m)\dot{q}_2+m(\dot{q}_2+\dot{q}_1\cos\alpha)\right]\\
-    &=(M+m)\ddot{q}_2+m(\ddot{q}_2+\ddot{q}_1\cos\alpha)\\
-    \ddot{q}_2&=-\frac{m}{M+m}\ddot{q}_1\cos\alpha
+	0          & =\frac{d}{dt}\left[(M+m)\dot{q}_2+m(\dot{q}_2+\dot{q}_1\cos\alpha)\right] \\
+	           & =(M+m)\ddot{q}_2+m(\ddot{q}_2+\ddot{q}_1\cos\alpha)                       \\
+	\ddot{q}_2 & =-\frac{m}{M+m}\ddot{q}_1\cos\alpha
 \end{align*}
 which is just conservation of momentum in the $x$ direction
 \begin{equation*}
-    m\dot{q}_2+m\left(\dot{q_2}+\dot{q}_1\cos\alpha\right)=\text{Constant}
+	m\dot{q}_2+m\left(\dot{q_2}+\dot{q}_1\cos\alpha\right)=\text{Constant}
 \end{equation*}
-Now, combining the $q_1$ and $q_2$ result in 
+Now, combining the $q_1$ and $q_2$ result in
 \begin{align*}
-    \ddot{q}_1&=g\sin\alpha+\frac{m}{M+m}\ddot{q}_1\cos^2\alpha\\
-    \ddot{q}_1&=\frac{g\sin\alpha}{1-\frac{m}{M+m}\cos^2\alpha}
+	\ddot{q}_1 & =g\sin\alpha+\frac{m}{M+m}\ddot{q}_1\cos^2\alpha \\
+	\ddot{q}_1 & =\frac{g\sin\alpha}{1-\frac{m}{M+m}\cos^2\alpha}
 \end{align*}
 Suppose we want to determine the time it took for the block to reach the bottom of wedge, we can use the kinematic relation $x(t)=x_i+v_it+at^2/2$ or $t=\sqrt{2l/a}$, with $l$ as the length of the slope, to obtain
 \begin{equation*}
-    t=\left(2l\frac{1-\frac{m}{M+m}\cos^2\alpha}{g\sin\alpha}\right)^{1/2}
+	t=\left(2l\frac{1-\frac{m}{M+m}\cos^2\alpha}{g\sin\alpha}\right)^{1/2}
 \end{equation*}
 
-As a sanity check, consider the case for $\alpha=90^\circ$. 
+As a sanity check, consider the case for $\alpha=90^\circ$.
 The acceleration $\ddot{q}_1=g$, which is correct.
-Another is the case for $M\rightarrow\infty$. 
-The acceleration $\ddot{q}_1=g\sin\alpha$, which is the acceleration for a block on a fixed incline.  
+Another is the case for $M\rightarrow\infty$.
+The acceleration $\ddot{q}_1=g\sin\alpha$, which is the acceleration for a block on a fixed incline.
 
 \begin{figure*}
-    \centering
-    \dfig{../../../Rss/CM/Lagrange/WedgeIncline.png}
-    \caption*{Figure: Block slide on a wedge which is free to move without friction}
+	\centering
+	\dfig{../../../Rss/CM/Lagrange/WedgeIncline.png}
+	\caption*{Figure: Block slides on a wedge which is free to move without friction}
+\end{figure*}
+
+\subsection*{Application: Simple Pendulum}
+A bob of mass $m$ is fixed to a massless rod length $l=\sqrt{x^2+y^2}$, which is pivoted at $O$ and free to swing without friction in the $xy$ plane.
+One way to integrate the constraint into the Lagrangian is by expressing both coordinate in terms single generalized coordinate $\phi$ or by writing one of them in terms other variable, say  $y=\sqrt{l^2-x^2}$.
+
+In terms of $\phi$,the kinetic energy is 
+\begin{equation*}
+    T=\frac{1}{2}ml^2\dot{\phi}^2
+\end{equation*}
+and the potential energy 
+\begin{equation*}
+    U=mg(l-l\cos\phi)=mgl(1-\cos\phi)
+\end{equation*}
+So, the Lagrangian reads
+\begin{equation*}
+    \mathcal{L}=\frac{1}{2}ml^2\dot{\phi}^2-mgl(1-\cos\phi)
+\end{equation*}
+In this case, we only have one Euler-Lagrange equation
+\begin{equation*}
+    \frac{\partial\mathcal{L}}{\partial \phi}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{\phi}}
+\end{equation*}
+Substituting the Lagrangian
+\begin{align*}
+    -mgl\sin\phi&=ml^2\ddot{\phi}\\
+    \sin\phi&=-\frac{l}{g}\ddot{\phi}
+\end{align*}
+This is the differential equation describing simple pendulum motion, which, on assuming small angle $\phi$, has the solution $\phi=A\cos(\omega t+\delta)$. 
+Also, recall $\ddot{\phi}$ is the angular acceleration. 
+This mean that the Euler-Lagrange equation reproduce the formula for torque $\Gamma=I\alpha=ml^2\ddot{\phi}$ or $\Gamma=Fr=-mgl\sin\phi$. 
+
+\begin{figure*}
+	\centering
+	\dfig{../../../Rss/CM/Lagrange/Pendulum.png}
+	\caption*{Figure: A simple pendulum}
 \end{figure*}
 
 \end{document}
