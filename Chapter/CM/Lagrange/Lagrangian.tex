@@ -53,7 +53,7 @@ and
 
 Set of generalized coordinates that minimize the number of Euler-Lagrangian equation and be able to uniquely describe said system is said to be natural.
 This implies that natural coordinate also have minimum degree of freedom, that is the number of coordinate that can be varied independently.
-In natural coordinate, the generalized coordinate has no time dependence with its Cartesian relative. 
+In natural coordinate, the generalized coordinate has no time dependence with its Cartesian relative.
 
 System with $n$ degree of freedom that can be described by $n$ generalized coordinate is called holonomic.
 In general
@@ -119,31 +119,31 @@ on the first term
 \begin{equation*}
 	\delta S=-\int_{t_1}^{t_2}\boldsymbol{\epsilon}\cdot\left[m\ddot{\mathbf{r}}+\nabla U\right]\;dt+m\dot{\mathbf{r}}\boldsymbol{\epsilon}\bigg|_{t_1}^{t^2}
 \end{equation*}
-The difference of $\boldsymbol{\epsilon}$ is zero between two end point, so 
+The difference of $\boldsymbol{\epsilon}$ is zero between two end point, so
 \begin{equation*}
 	\delta S=-\int_{t_1}^{t_2}\boldsymbol{\epsilon}\cdot\left[m\ddot{\mathbf{r}}+\nabla U\right]\;dt
 \end{equation*}
-The path $\mathbf{r}(t)$ satisﬁes Newton second law, thus $m\ddot{\mathbf{r}}=\mathbf{F}_\text{tot}$. 
+The path $\mathbf{r}(t)$ satisﬁes Newton second law, thus $m\ddot{\mathbf{r}}=\mathbf{F}_\text{tot}$.
 Meanwhile, the gradient of potential energy is the negative of non constraint force
 \begin{equation*}
 	\delta S=-\int_{t_1}^{t_2}\boldsymbol{\epsilon}\cdot\left[\mathbf{F}_\text{tot}-\mathbf{F}\right]\;dt=i\int_{t_1 }^{t_2}\boldsymbol{\epsilon}\cdot \mathbf{F}_\text{cstr}\;dt
 \end{equation*}
-Note that the constraint force is normal to the particle path and the $\boldsymbol{\epsilon}$, which lies to the same surface of particle path. 
-Therefore, their dot product is zero 
+Note that the constraint force is normal to the particle path and the $\boldsymbol{\epsilon}$, which lies to the same surface of particle path.
+Therefore, their dot product is zero
 \begin{equation*}
-  \delta S=0
+	\delta S=0
 \end{equation*}
 and the action integral is stationary.
 
-This justifies the Lagrange equation for system with two degree of freedom where its constraint lie in the same surface as the particle path. 
+This justifies the Lagrange equation for system with two degree of freedom where its constraint lie in the same surface as the particle path.
 In other words, it only applies to particle, or particles in that case, constrained to move in two dimension.
-Accordingly, the action integral in this case is written as 
+Accordingly, the action integral in this case is written as
 \begin{equation*}
-  S=\int_{t_1}^{t_2}\mathcal{L}(q_1,q_2,\dot{q}_1,\dot{q}_2,t)\;dt
-\end{equation*}  
+	S=\int_{t_1}^{t_2}\mathcal{L}(q_1,q_2,\dot{q}_1,\dot{q}_2,t)\;dt
+\end{equation*}
 which will result in two Euler-Lagrange equation
 \begin{equation*}
-  \frac{\partial \mathcal{L}}{\partial q_1}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_1},\qquad\frac{\partial \mathcal{L}}{\partial q_2}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}
+	\frac{\partial \mathcal{L}}{\partial q_1}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_1},\qquad\frac{\partial \mathcal{L}}{\partial q_2}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}
 \end{equation*}
 \subsection*{Newton Law in 2D Cartesian}
 The Lagrangian in this case is
@@ -203,11 +203,49 @@ which is, as previously mentioned, the angular component of Newton's second law.
 \end{equation*}
 
 \subsection*{Lagrangian with Explicit Constraint Forces Using Lagrange Multipliers}
-The modified Euler-Lagrangian that include constraining force can be obtained by Lagrange Multipliers. 
+The modified Euler-Lagrangian that include constraining force can be obtained by Lagrange Multipliers.
 For two dimension Lagrangian $\mathcal{L}(x,\dot{x},y,\dot{y},t)$ with one constraint $f(x,y)=C$, we must solve two modified Lagrange equation plus one for the constraint
 \begin{align*}
-	\frac{\partial \mathcal{L}}{\partial x}+\lambda\frac{\partial f}{\partial x}&=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}}\\
-	\frac{\partial \mathcal{L}}{\partial y}+\lambda\frac{\partial f}{\partial y}&=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}}\\
+	\frac{\partial \mathcal{L}}{\partial x}+\lambda\frac{\partial f}{\partial x} & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}} \\
+	\frac{\partial \mathcal{L}}{\partial y}+\lambda\frac{\partial f}{\partial y} & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}} \\
 	f(x,y)=\text{Constant}
 \end{align*}
+
+\subsubsection*{Derivation.}
+We consider the case of two dimension Lagrange.
+Then deviate the correct path $x(t)$ and $y(t)$ into
+\begin{align*}
+	x(t) & \rightarrow x(t)+\delta x \\
+	y(t) & \rightarrow y(t)+\delta y
+\end{align*}
+With the Lagrangian of $\mathcal{L}(x,\dot{x},y,\dot{y})$, the action integral takes the form
+\begin{equation*}
+	S=\int_{t_1}^{t_2}\mathcal{L}\;dt
+\end{equation*}
+Assuming the constraint is consisted with the displacement, then, as proved before, the integral is unchanged and $\delta S=0$. In other words
+\begin{equation*}
+	\int\left(\frac{\partial \mathcal{L}}{\partial x}\delta x+\frac{\partial\mathcal{L}}{\partial \dot{x}}\delta \dot{x}+\frac{\partial\mathcal{L}}{\partial y}\delta y+\frac{\partial\mathcal{L}}{\partial\dot{y}}\delta \dot{y}\right)\;dt=0
+\end{equation*}
+Using integration by part on second and fourth term to move the derivative sign
+\begin{equation*}
+	\int\left(\frac{\partial\mathcal{L}}{\partial x}-\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{x}}\right)\delta x\;dt+\int \left(\frac{\partial\mathcal{L}}{\partial y}-\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{y}}\right)\delta y\;dt=0
+\end{equation*}
+For displacement $\delta x$ and $\delta y$, the terms inside parenthesis must be zero for the integral to be zero.
+Now, this is just the proof of Euler-Lagrange equation.
+However, we want to explicitly including the constraint, which can be achieved by multiplying the deviation of the constraint equation $\delta f$ with Lagrange multipliers
+\begin{align*}
+	\delta f & =\frac{\partial f}{\partial x}\delta x +\frac{\partial f}{\partial y}\delta y               \\
+	0        & =\lambda\frac{\partial f}{\partial x}\delta x +\lambda\frac{\partial f}{\partial y}\delta y \\
+\end{align*}
+This step is justified because the value is zero anyway.
+Then we can add it into the integral of $\delta S$ without changing the integral itself
+\begin{equation*}
+	\int\left(\frac{\partial\mathcal{L}}{\partial x}+\lambda\frac{\partial f}{\partial x}-\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{x}}\right)\delta x\;dt+\int \left(\frac{\partial\mathcal{L}}{\partial y}+\lambda\frac{\partial f}{\partial \y}-\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{y}}\right)\delta y\;dt=	0
+\end{equation*}
+Since the multipliers is arbitrary, we define Lagrange multipliers such that the terms inside parenthesis is zero, thus resulting in two modified Euler-Lagrange equation written previously
+\begin{align*}
+	\frac{\partial \mathcal{L}}{\partial x}+\lambda\frac{\partial f}{\partial x} & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}} \\
+	\frac{\partial \mathcal{L}}{\partial y}+\lambda\frac{\partial f}{\partial y} & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}} \\
+\end{align*}
+Now we add the constraint equation since we need three equation to find three equation in three unknown.
 \end{document}
