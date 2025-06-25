@@ -211,6 +211,11 @@ For two dimension Lagrangian $\mathcal{L}(x,\dot{x},y,\dot{y},t)$ with one const
 	f(x,y)=\text{Constant}
 \end{align*}
 
+Lagrange multiplier is not simply mathematical technique, in fact given partial derivatives of the constraint function $f (x, y)$, the Lagrange multiplier $f(x,y)$ gives the corresponding components of the constraint force
+\begin{equation*}
+	\lambda\frac{\partial f}{\partial q_i}=F_i^{\text{cstr}}
+\end{equation*}
+
 \subsubsection*{Derivation.}
 We consider the case of two dimension Lagrange.
 Then deviate the correct path $x(t)$ and $y(t)$ into
@@ -248,6 +253,19 @@ Since the multipliers is arbitrary, we define Lagrange multipliers such that the
 	\frac{\partial \mathcal{L}}{\partial y}+\lambda\frac{\partial f}{\partial y} & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}} \\
 \end{align*}
 Now we add the constraint equation since we need three equation to find three equation in three unknown.
+
+\subsubsection*{Lagrange multipliers physical meaning.}
+Given that the kinetic energy of the system does not depend on the position and the potential energy does not depend on velocity, the modified Euler-Lagrange equation reads
+\begin{align*}
+	-\frac{\partial U}{\partial q_i}+\lambda\frac{\partial d}{\partial q_i}&=m\ddot{q}_i\\
+	\lambda\frac{\partial f}{\partial q_i}&=m\ddot{q}_i+\frac{\partial U}{\partial q_i}
+\end{align*}
+Recall that the negative gradient of potential energy is the non constraint force, while the product of mass and generalized acceleration is total force. 
+The total force is the sum of non constraint force and constraint force, so 
+\begin{equation*}
+	\lambda\frac{\partial f}{\partial q_i}=F_i^{\text{cstr}}	
+\end{equation*}
+
 
 \subsubsection*{Comparison with the usual function optimization using Lagrange multipliers.}
 Let us compare the optimization method of Lagrange multipliers when the function we are concerned is $f(x,y)$ instead of the previous case of action integral $S$.
