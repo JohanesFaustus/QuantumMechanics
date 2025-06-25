@@ -49,6 +49,41 @@ Adding both equation
 	\caption*{Figure: Atwood's machine configuration}
 \end{figure*}
 
+Now suppose we explicitly include the constraint using Lagrange multipliers.
+Here, the constraint is the wire and the constraining force is the tension, which takes the form 
+\begin{equation*}
+    f(x,y)=x+y=\text{Constant}
+\end{equation*}
+Since we do not need to reduce the number of coordinate, we express the Lagrangian as 
+\begin{equation*}
+    \mathcal{L}=\frac{1}{2}m_1\dot{x}^2+\frac{1}{2}m_2\dot{y}^2+m_1gx+m_2gy
+\end{equation*}
+
+Then the equations that wee need to solve are as follows
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial x}&=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{x}}\\
+    \frac{\partial \mathcal{L}}{\partial y}&=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{y}}\\
+    x+y=\text{Constant}
+\end{align*}
+The first two equation yield
+\begin{equation*}
+    m_1g+\lambda=m_1\ddot{x},\qquad m_2g+\lambda=m_2\ddot{y}
+\end{equation*}
+Performing second derivative to the third equation with respect to time results
+\begin{equation*}
+    \ddot{x}=-\ddot{y}
+\end{equation*}
+Using this and subtracting the first equation by the second 
+\begin{align*}
+    (m_1+m_2)\ddot{x}&=(m_1-m_2)g\\
+    \ddot{x}&=\frac{m_1-m_2}{m_1+m_2}g
+\end{align*}
+which is the same result. 
+It can be seen that, by comparing to the Newtonian result, that the Lagrange multipliers gives
+\begin{equation*}
+    \lambda=-F_t
+\end{equation*} 
+
 \subsection*{Application: Particle Constrained on a Cylinder}
 Consider a particle of mass $m$ constrained to move on a frictionless cylinder of radius $R$.
 Besides the force of constraint, the only force on the mass is a force $\mathbf{F}= -k\mathbf{r}$ directed toward the origin.
