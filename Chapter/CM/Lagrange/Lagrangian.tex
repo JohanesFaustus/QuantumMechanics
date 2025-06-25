@@ -248,4 +248,25 @@ Since the multipliers is arbitrary, we define Lagrange multipliers such that the
 	\frac{\partial \mathcal{L}}{\partial y}+\lambda\frac{\partial f}{\partial y} & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}} \\
 \end{align*}
 Now we add the constraint equation since we need three equation to find three equation in three unknown.
+
+\subsubsection*{Comparison with the usual function optimization using Lagrange multipliers.}
+Let us compare the optimization method of Lagrange multipliers when the function we are concerned is $f(x,y)$ instead of the previous case of action integral $S$.
+To optimize $f(x,y)$, set its derivative to zero
+\begin{equation*}
+	\frac{\partial f}{\partial x}=0,\qquad\frac{\partial f}{\partial y}=0
+\end{equation*}
+while to optimize $S$, we use the Euler-Lagrange equation
+\begin{equation*}
+	\frac{\partial \mathcal{L}}{\partial x}-\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{x}}=0,\qquad\frac{\partial\mathcal{L}}{\partial y}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}}=0
+\end{equation*}
+If we include constraint $\phi(x,y)$, we construct function $F=f+\lambda\phi$ such that the multipliers is defined
+\begin{equation*}
+	\frac{\partial f}{\partial x}+\lambda\frac{\partial \phi}{\partial x}=0,\qquad\frac{\partial f}{\partial y}+\lambda\frac{\partial \phi}{\partial y}=0
+\end{equation*}
+while in the action integral case
+\begin{equation*}
+	\frac{\partial \mathcal{L}}{\partial x}+\lambda\frac{\partial\phi}{\partial x}-\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{x}}=0,
+	\qquad\frac{\partial\mathcal{L}}{\partial y}+\lambda\frac{\partial\phi}{\partial y}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}}=0
+\end{equation*}
+In any case, we need to solve those two resulting function alongside the constraint equation.
 \end{document}
