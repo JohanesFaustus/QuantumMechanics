@@ -53,7 +53,7 @@ and
 
 Set of generalized coordinates that minimize the number of Euler-Lagrangian equation and be able to uniquely describe said system is said to be natural.
 This implies that natural coordinate also have minimum degree of freedom, that is the number of coordinate that can be varied independently.
-In natural coordinate, the generalized coordinate has no time dependence with its cartesian 
+In natural coordinate, the generalized coordinate has no time dependence with its Cartesian relative. 
 
 System with $n$ degree of freedom that can be described by $n$ generalized coordinate is called holonomic.
 In general
@@ -201,4 +201,13 @@ which is, as previously mentioned, the angular component of Newton's second law.
 \begin{equation*}
 	\Gamma=F_\phi r=\frac{dL}{dt}=\frac{d}{dt}mr^2\dot{\phi}
 \end{equation*}
+
+\subsection*{Lagrangian with Explicit Constraint Forces Using Lagrange Multipliers}
+The modified Euler-Lagrangian that include constraining force can be obtained by Lagrange Multipliers. 
+For two dimension Lagrangian $\mathcal{L}(x,\dot{x},y,\dot{y},t)$ with one constraint $f(x,y)=C$, we must solve two modified Lagrange equation plus one for the constraint
+\begin{align*}
+	\frac{\partial \mathcal{L}}{\partial x}+\lambda\frac{\partial f}{\partial x}&=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}}\\
+	\frac{\partial \mathcal{L}}{\partial y}+\lambda\frac{\partial f}{\partial y}&=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}}\\
+	f(x,y)=\text{Constant}
+\end{align*}
 \end{document}
