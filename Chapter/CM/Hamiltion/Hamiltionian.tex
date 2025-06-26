@@ -1,33 +1,37 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-The Hamiltonian is defined as 
+The Hamiltonian is defined as
 \begin{equation*}
-    \mathcal{H}=\sum_{i=1}^{n}p_i\dot{q}_1-\mathcal{L}
+	\mathcal{H}=\sum_{i=1}^{n}p_i\dot{q}_1-\mathcal{L}
+\end{equation*}
+The Hamilton equation derived from this is
+\begin{equation*}
+	\dot{q}_i=\frac{\partial\mathcal{H}}{\partial p_i},\qquad\dot{p}_i=-\frac{\partial\mathcal{H}}{\partial \dot{q}_i}
 \end{equation*}
 
 The conservation of Hamiltonian is stated as follows
 \begin{equation*}
-    \frac{\partial\mathcal{L}}{\partial t}=0\implies\frac{dH}{dt}=0
+	\frac{\partial\mathcal{L}}{\partial t}=0\implies\frac{dH}{dt}=0
 \end{equation*}
 
 In the case of natural coordinate, that is the relation between the generalized coordinates and Cartesian is time-independent, the Hamiltonian takes the simple form $\mathcal{H}=T+U$
 \begin{equation*}
-    q_i=q_i(\mathbf{q})\implies\mathcal{H}=T+U
+	q_i=q_i(\mathbf{q})\implies\mathcal{H}=T+U
 \end{equation*}
 
 \subsection*{Notation}
 To avoid clutter, we define the following notation.
-The $n$-dimension system with $n$-generalized coordinate is represented by 
+The $n$-dimension system with $n$-generalized coordinate is represented by
 \begin{equation*}
-    \mathbf{q}\equiv(q_1,\dots,q_n)
+	\mathbf{q}\equiv(q_1,\dots,q_n)
 \end{equation*}
 while $n$-generalized velocity
 \begin{equation*}
-    \dot{\mathbf{q}}\equiv(\dot{q}_1,\dots,\dot{q}_n)
+	\dot{\mathbf{q}}\equiv(\dot{q}_1,\dots,\dot{q}_n)
 \end{equation*}
 and generalized momentum
 \begin{equation*}
-    \mathbf{p}\equiv(p_1,\dots,p_n)
+	\mathbf{p}\equiv(p_1,\dots,p_n)
 \end{equation*}
 In this case, $\mathbf{p}$ and $\mathbf{p}$ are $n$-dimensional vectors in the space of generalized position and generalized momentum.
 
@@ -35,62 +39,119 @@ In this case, $\mathbf{p}$ and $\mathbf{p}$ are $n$-dimensional vectors in the s
 The definition Hamiltonian comes from Lagrangian.
 To see this, consider the change of Lagrangian $\mathcal{L}(\mathbf{q},\dot{\mathbf{q}},t)$ as the time increase
 \begin{align*}
-    \frac{d\mathcal{L}}{dt}&=\frac{\partial\mathcal{L}}{\partial q_1}\frac{\partial q_1}{\partial t}\dots+\frac{\partial\mathcal{L}}{\partial q_n}\frac{\partial q_n}{\partial t}+\frac{\partial\mathcal{L}}{\partial \dot{q}_1}\frac{\partial \dot{q}_2}{\partial t}+\dots+\frac{\partial \mathcal{L}}{\partial \dot{q_n}}\frac{\partial\dot{q}_n}{\partial t}+\frac{\partial\mathcal{L}}{\partial t}\frac{\partial t}{\partial t}\\
-    &=\sum_{i=1}^{n}\left(\frac{\partial \mathcal{L}}{\partial q_i}\dot{q}_i+\frac{\partial\mathcal{L}}{\partial\dot{q}_i}\ddot{q}_i\right)+\frac{\partial \mathcal{L}}{\partial t}\\
-    &=\sum_{i=1}^{n}\left(\dot{p}_i\dot{q}_i+p_i\ddot{q}_i\right)+\frac{\partial \mathcal{L}}{\partial t}\\
-    \frac{d\mathcal{L}}{dt}&=\frac{d}{dt}\sum_{i=1}^{n}\left(p_i\dot{q}_i\right)+\frac{\partial\mathcal{L}}{\partial t}
+	\frac{d\mathcal{L}}{dt} & =\frac{\partial\mathcal{L}}{\partial q_1}\frac{\partial q_1}{\partial t}\dots+\frac{\partial\mathcal{L}}{\partial q_n}\frac{\partial q_n}{\partial t}+\frac{\partial\mathcal{L}}{\partial \dot{q}_1}\frac{\partial \dot{q}_2}{\partial t}+\dots+\frac{\partial \mathcal{L}}{\partial \dot{q_n}}\frac{\partial\dot{q}_n}{\partial t}+\frac{\partial\mathcal{L}}{\partial t}\frac{\partial t}{\partial t} \\
+	                        & =\sum_{i=1}^{n}\left(\frac{\partial \mathcal{L}}{\partial q_i}\dot{q}_i+\frac{\partial\mathcal{L}}{\partial\dot{q}_i}\ddot{q}_i\right)+\frac{\partial \mathcal{L}}{\partial t}                                                                                                                                                                                                                          \\
+	                        & =\sum_{i=1}^{n}\left(\dot{p}_i\dot{q}_i+p_i\ddot{q}_i\right)+\frac{\partial \mathcal{L}}{\partial t}                                                                                                                                                                                                                                                                                                    \\
+	\frac{d\mathcal{L}}{dt} & =\frac{d}{dt}\sum_{i=1}^{n}\left(p_i\dot{q}_i\right)+\frac{\partial\mathcal{L}}{\partial t}
 \end{align*}
-If we assume the Lagrangian does not depend explicitly on time, say in the case of $T=T(\mathbf{q},\dot{\mathbf{q}})$ and $U=U(\mathbf{q})$, the $\partial\mathcal{L}/\partial t$ term is zero. 
+If we assume the Lagrangian does not depend explicitly on time, say in the case of $T=T(\mathbf{q},\dot{\mathbf{q}})$ and $U=U(\mathbf{q})$, the $\partial\mathcal{L}/\partial t$ term is zero.
 Thus, the quantity
 \begin{equation*}
-    \frac{d}{dt}\left(\sum_{i=1}^{n}p_i\dot{q}_i-\mathcal{L}\right)=0
+	\frac{d}{dt}\left(\sum_{i=1}^{n}p_i\dot{q}_i-\mathcal{L}\right)=0
 \end{equation*}
 which is defined as Hamiltonian, is conserved. In other words,
 \begin{equation*}
-    \frac{\partial\mathcal{L}}{\partial t}=0\implies\frac{dH}{dt}=0
+	\frac{\partial\mathcal{L}}{\partial t}=0\implies\frac{dH}{dt}=0
 \end{equation*}
 
 \subsection*{Special Case of Hamiltonian}
 The special case we are referring is $\mathcal{H}=T+U$, which occur when the coordinates are natural
 \begin{equation*}
-    \mathbf{r}_\alpha=\mathbf{r}_\alpha(\mathbf{q})
+	\mathbf{r}_\alpha=\mathbf{r}_\alpha(\mathbf{q})
 \end{equation*}
-where the $\alpha$ subscript used to denote the coordinate as $\alpha$-th particle's coordinate. 
+where the $\alpha$ subscript used to denote the coordinate as $\alpha$-th particle's coordinate.
 We first begin by expressing the generalized velocity in terms of generalized coordinates, which can be obtained by performing partial derivative with respect to the generalized coordinate
 \begin{equation*}
-    \frac{\partial\mathbf{r}_\alpha}{\partial t}=\frac{\partial\mathbf{r}_\alpha}{\partial q_1}\frac{\partial q_1}{\partial t}\dots+\frac{\partial \mathbf{r}_\alpha}{\partial q_n}\frac{\partial q_n}{\partial t}=\sum_{i=1}^{n}\frac{\partial \mathbf{r}_\alpha}{\partial q}\dot{q}_i
+	\frac{\partial\mathbf{r}_\alpha}{\partial t}=\frac{\partial\mathbf{r}_\alpha}{\partial q_1}\frac{\partial q_1}{\partial t}\dots+\frac{\partial \mathbf{r}_\alpha}{\partial q_n}\frac{\partial q_n}{\partial t}=\sum_{i=1}^{n}\frac{\partial \mathbf{r}_\alpha}{\partial q}\dot{q}_i
 \end{equation*}
 Then its square is just the dot product with itself
 \begin{equation*}
-    \left(\frac{\partial\mathbf{r}_\alpha}{\partial t}\right)^2=\sum_{j=1}^{n}\frac{\partial\mathbf{r}_\alpha}{\partial q_i}\dot{q}_i\cdot\sum_{k=1}^{n}\frac{\partial\mathbf{r}_\alpha}{\partial q_j}\dot{q}_j
+	\left(\frac{\partial\mathbf{r}_\alpha}{\partial t}\right)^2=\sum_{j=1}^{n}\frac{\partial\mathbf{r}_\alpha}{\partial q_i}\dot{q}_i\cdot\sum_{k=1}^{n}\frac{\partial\mathbf{r}_\alpha}{\partial q_j}\dot{q}_j
 \end{equation*}
 The kinetic energy is then product of triple sum
 \begin{equation*}
-    T=\frac{1}{2}\sum_{\alpha}m_\alpha\mathbf{r}_\alpha=\frac{1}{2}\sum_{\alpha}m_\alpha\sum_j\frac{\partial \mathbf{r}_\alpha}{\partial q_j}\dot{q}_j\cdot\sum_k\frac{\partial\mathbf{r_\alpha}}{\partial q_k}\dot{q}_k
+	T=\frac{1}{2}\sum_{\alpha}m_\alpha\mathbf{r}_\alpha=\frac{1}{2}\sum_{\alpha}m_\alpha\sum_j\frac{\partial \mathbf{r}_\alpha}{\partial q_j}\dot{q}_j\cdot\sum_k\frac{\partial\mathbf{r_\alpha}}{\partial q_k}\dot{q}_k
 \end{equation*}
-If we define 
+If we define
 \begin{equation*}
-    A_{jk}=\sum_\alpha m_\alpha\frac{\partial\mathbf{r}_\alpha}{\partial q_j}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_k}
+	A_{jk}=\sum_\alpha m_\alpha\frac{\partial\mathbf{r}_\alpha}{\partial q_j}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_k}
 \end{equation*}
-The expression for kinetic energy simplifies into 
+The expression for kinetic energy simplifies into
 \begin{equation*}
-    T=\frac{1}{2}\sum_{j,k}A_{jk}\dot{q}_j\dot{q}_k
+	T=\frac{1}{2}\sum_{j,k}A_{jk}\dot{q}_j\dot{q}_k
 \end{equation*}
 
-If we assume kinetic energy $T=T(\mathbf{q},\dot{\mathbf{q}})$ and potential energy $U=U(\mathbf{q})$, which is what natural coordinates imply anyway, then 
+If we assume kinetic energy $T=T(\mathbf{q},\dot{\mathbf{q}})$ and potential energy $U=U(\mathbf{q})$, which is what natural coordinates imply anyway, then
 \begin{equation*}
-    \frac{\partial \mathcal{L}}{\partial \dot{q}_i}=\frac{\partial T}{\partial \dot{q}_i}=p_i
+	\frac{\partial \mathcal{L}}{\partial \dot{q}_i}=\frac{\partial T}{\partial \dot{q}_i}=p_i
 \end{equation*}
 To evaluate partial derivative, we need the following relation
 \begin{equation*}
-    \frac{d}{dv_i}\sum_{j,k}A_{jk}v_jv_k=2\sum_{j,k}A_{ij}v_j\quad\text{if }A_{jk}=A_{kj}
+	\frac{d}{dv_i}\sum_{j,k}A_{jk}v_jv_k=2\sum_{j,k}A_{ij}v_j\quad\text{if }A_{jk}=A_{kj}
 \end{equation*}
-Applying the identity 
+Applying the identity
 \begin{equation*}
-    p_i=\frac{\partial}{\partial \dot{q}_i}\left(\frac{1}{2}\sum_{jk}A_{jk}\dot{q}_j\dot{q}_k\right)=\sum_jA_{ij}\dot{q}_j\end{equation*}
+	p_i=\frac{\partial}{\partial \dot{q}_i}\left(\frac{1}{2}\sum_{jk}A_{jk}\dot{q}_j\dot{q}_k\right)=\sum_jA_{ij}\dot{q}_j\end{equation*}
 Therefore, the Hamiltonian now reads
 \begin{align*}
-    \mathcal{H}&=\sum_ip_i\dot{q}_i-\mathcal{L}=\sum_i\sum_jA_{ij}\dot{q}_i\dot{q}_j-(T-U)\\
-    \mathcal{H}&=2T-T+U=T+U
+	\mathcal{H} & =\sum_ip_i\dot{q}_i-\mathcal{L}=\sum_i\sum_jA_{ij}\dot{q}_i\dot{q}_j-(T-U) \\
+	\mathcal{H} & =2T-T+U=T+U
 \end{align*}
+
+\subsection*{Hamilton Equation Derivation}
+The assumption that must be satisfied first are the constraint must be holonomic--the number of degree of freedom matches the number of generalized coordinates--and that the non constraint force must be derivable from potential energy $\mathbf{F}=-\nabla U$.
+In principle, to obtain Hamilton equation of motion, we differentiate the Hamiltonian $\mathcal{H}(\mathbf{q},\mathbf{p})$ with both variable $q_i$ and $p_i$.
+To evaluate the derivative, we need to express the Hamiltonian
+\begin{equation*}
+	\mathcal{H}=\sum_{i=1}^{n}p_i\dot{q}_1-\mathcal{L}
+\end{equation*}
+in terms of $\mathbf{q}$ and $\mathbf{p}$
+
+First note that the generalized momentum is a function of generalized velocity and perhaps time, which can be seen from
+\begin{equation*}
+	p_i=\frac{\partial}{\partial \dot{q}_i}\mathcal{L}(\mathbf{q},\dot{q}_i,t)\implies p_i=p_i\left(\dot{q},t\right)
+\end{equation*}
+Therefore, in principle, we can solve $p_i$ to express $\dot{q}_i$ in terms of variables $\mathbf{p}$ and $\mathbf{q}$, also time perhaps
+\begin{equation*}
+	\dot{q}_i=\dot{q}_i(\mathbf{q},\mathbf{p}_i,t)
+\end{equation*}
+
+Then the next step is to actually perform the differentiation.
+First we differentiate with respect to $q_i$
+\begin{equation*}
+	\frac{\partial \mathcal{H}}{\partial q_i}=\frac{\partial}{\partial q_i}\sum_{j=1}^{n}p_j\dot{q}_j-\frac{\partial \mathcal{L}}{\partial q_i}
+\end{equation*}
+The sum differentiation can be evaluated as follows
+\begin{equation*}
+	\frac{\partial}{\partial q_i}\sum_{j}p_j\dot{q}_j=\sum_j\left(\dot{q}_j\frac{\partial p_j}{\partial q_i}+p_j\frac{\partial\dot{q}_j}{\partial q_i}\right)=\sum_jp_j\frac{\partial \dot{q}_j}{\partial q_i}
+\end{equation*}
+While the Lagrangian term
+\begin{align*}
+	\frac{\partial \mathcal{L}}{\partial q_i} & =\frac{\partial \mathcal{L}}{\partial q_1}\frac{\partial q_1}{\partial q_i}+\dots\frac{\partial\mathcal{L}}{\partial q_n}\frac{\partial q_n}{\partial q_i}+\frac{\partial\mathcal{L}}{\partial \dot{q}_1}\frac{\partial\dot{q}_1}{\partial \dot{q}_i}+\dots+\frac{\partial \mathcal{L}}{\partial \dot{q}_n}\frac{\partial \dot{q}_n}{\partial q_i}+\frac{\partial\mathcal{L}}{\partial t}\frac{\partial t}{\partial q_i} \\
+	                                          & =\sum_j\left(\frac{\partial\mathcal{L}}{\partial q_j}\frac{\partial q_j}{\partial q_i}+\frac{\partial\mathcal{L}}{\partial \dot{q}_j}\frac{\partial \dot{q}_j}{\partial q_i}\right)                                                                                                                                                                                                                                      \\
+	\frac{\partial \mathcal{L}}{\partial q_i} & =\frac{\partial\mathcal{L}}{\partial q_i}+\sum_jp_i\frac{\partial \dot{q}_j}{\partial q_i}
+\end{align*}
+Substituting into the Hamiltonian
+\begin{equation*}
+	\frac{\partial \mathcal{H}}{\partial q_i}=\sum_jp_i\frac{\partial \dot{q}_j}{\partial q_i}-\frac{\partial \mathcal{L}}{\partial q_i}-\frac{\partial \dot{q}_j}{\partial q_i}=-\frac{\partial \mathcal{L}}{\partial q_i}=-\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{q_i}}=-\dot{p}_i
+\end{equation*}
+
+Next is the derivative with respect to $p_i$
+\begin{equation*}
+	\frac{\partial \mathcal{H}}{\partial p_i}=\frac{\partial}{\partial p_i}\sum_{j=1}^{n}p_i\dot{q}_1-\frac{\partial \mathcal{L}}{\partial p_i}
+\end{equation*}
+The sum differentiation can be evaluated as follows
+\begin{equation*}
+	\frac{\partial}{\partial p_i}\sum_{j}p_j\dot{q}_j=\sum_j\left(\dot{q}_j\frac{\partial p_j}{\partial p_i}+p_j\frac{\partial\dot{q}_j}{\partial p_i}\right)=\dot{q}_i+\sum_jp_j\frac{\partial \dot{q}_j}{\partial p_j}
+\end{equation*}
+While the Lagrangian term
+\begin{align*}
+	\frac{\partial \mathcal{L}}{\partial p_i} & =\frac{\partial \mathcal{L}}{\partial q_1}\frac{\partial q_1}{\partial p_i}+\dots\frac{\partial\mathcal{L}}{\partial q_n}\frac{\partial q_n}{\partial p_i}+\frac{\partial\mathcal{L}}{\partial \dot{q}_1}\frac{\partial\dot{q}_1}{\partial p_i}+\dots+\frac{\partial \mathcal{L}}{\partial \dot{q}_n}\frac{\partial \dot{q}_n}{\partial p_i}+\frac{\partial\mathcal{L}}{\partial t}\frac{\partial t}{\partial p_i} \\
+	                                          & =\sum_j\left(\frac{\partial\mathcal{L}}{\partial q_j}\frac{\partial q_j}{\partial p_i}+\frac{\partial\mathcal{L}}{\partial \dot{q}_j}\frac{\partial \dot{q}_j}{\partial p_i}\right)                                                                                                                                                                                                                                      \\
+	\frac{\partial \mathcal{L}}{\partial p_i} & =\sum_jp_j\frac{\partial \dot{q}_j}{\partial p_i}
+\end{align*}
+Substituting into the Hamiltonian
+\begin{equation*}
+	\frac{\partial \mathcal{H}}{\partial q_i}=\dot{q}_i+\sum_jp_j\frac{\partial \dot{q}_j}{\partial p_j}-\sum_jp_j\frac{\partial \dot{q}_j}{\partial p_i}=\dot{q}_i
+\end{equation*}
 \end{document}
