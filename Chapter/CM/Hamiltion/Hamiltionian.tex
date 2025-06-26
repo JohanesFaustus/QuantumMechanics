@@ -5,11 +5,21 @@ The Hamiltonian is defined as
     \mathcal{H}=\sum_{i=1}^{n}p_i\dot{q}_1-\mathcal{L}
 \end{equation*}
 
-\subsubsection*{Notation}
-To avoid clutter, we define the following notation.
-The $n$-dimensional system with $n$-generalized coordinate is represented by 
+The conservation of Hamiltonian is stated as follows
 \begin{equation*}
-    \mathbf{r}\equiv(q_1,\dots,wq_n)
+    \frac{\partial\mathcal{L}}{\partial t}=0\implies\frac{dH}{dt}=0
+\end{equation*}
+
+In the case of natural coordinate, that is the relation between the generalized coordinates and Cartesian is time-independent, the Hamiltonian takes the simple form $\mathcal{H}=T+U$
+\begin{equation*}
+    q_i=q_i(\mathbf{q})\implies\mathcal{H}=T+U
+\end{equation*}
+
+\subsection*{Notation}
+To avoid clutter, we define the following notation.
+The $n$-dimension system with $n$-generalized coordinate is represented by 
+\begin{equation*}
+    \mathbf{q}\equiv(q_1,\dots,q_n)
 \end{equation*}
 while $n$-generalized velocity
 \begin{equation*}
@@ -19,9 +29,9 @@ and generalized momentum
 \begin{equation*}
     \mathbf{p}\equiv(p_1,\dots,p_n)
 \end{equation*}
-This $\mathbf{p}$ and $\mathbf{p}$ are $n$-dimensional vectors in the space of generalized position and generalized momentum.
+In this case, $\mathbf{p}$ and $\mathbf{p}$ are $n$-dimensional vectors in the space of generalized position and generalized momentum.
 
-\subsubsection*{Definition}
+\subsection*{Definition}
 The definition Hamiltonian comes from Lagrangian.
 To see this, consider the change of Lagrangian $\mathcal{L}(\mathbf{q},\dot{\mathbf{q}},t)$ as the time increase
 \begin{align*}
@@ -30,13 +40,57 @@ To see this, consider the change of Lagrangian $\mathcal{L}(\mathbf{q},\dot{\mat
     &=\sum_{i=1}^{n}\left(\dot{p}_i\dot{q}_i+p_i\ddot{q}_i\right)+\frac{\partial \mathcal{L}}{\partial t}\\
     \frac{d\mathcal{L}}{dt}&=\frac{d}{dt}\sum_{i=1}^{n}\left(p_i\dot{q}_i\right)+\frac{\partial\mathcal{L}}{\partial t}
 \end{align*}
-If we assume the Lagrangian does not depend explicitly on time, say in the case of $T=T(\mathbf{q},\dot{\mathbf{q}})$ and $U=U(\mathbf{q})$, the $\partial\mathcal{L}/\partial t=0$. 
+If we assume the Lagrangian does not depend explicitly on time, say in the case of $T=T(\mathbf{q},\dot{\mathbf{q}})$ and $U=U(\mathbf{q})$, the $\partial\mathcal{L}/\partial t$ term is zero. 
 Thus, the quantity
 \begin{equation*}
     \frac{d}{dt}\left(\sum_{i=1}^{n}p_i\dot{q}_i-\mathcal{L}\right)=0
 \end{equation*}
-which defined as Hamiltonian, is conserved. In other words,
+which is defined as Hamiltonian, is conserved. In other words,
 \begin{equation*}
     \frac{\partial\mathcal{L}}{\partial t}=0\implies\frac{dH}{dt}=0
 \end{equation*}
+
+\subsection*{Special Case of Hamiltonian}
+The special case we are referring is $\mathcal{H}=T+U$, which occur when the coordinates are natural
+\begin{equation*}
+    \mathbf{r}_\alpha=\mathbf{r}_\alpha(\mathbf{q})
+\end{equation*}
+where the $\alpha$ subscript used to denote the coordinate as $\alpha$-th particle's coordinate. 
+We first begin by expressing the generalized velocity in terms of generalized coordinates, which can be obtained by performing partial derivative with respect to the generalized coordinate
+\begin{equation*}
+    \frac{\partial\mathbf{r}_\alpha}{\partial t}=\frac{\partial\mathbf{r}_\alpha}{\partial q_1}\frac{\partial q_1}{\partial t}\dots+\frac{\partial \mathbf{r}_\alpha}{\partial q_n}\frac{\partial q_n}{\partial t}=\sum_{i=1}^{n}\frac{\partial \mathbf{r}_\alpha}{\partial q}\dot{q}_i
+\end{equation*}
+Then its square is just the dot product with itself
+\begin{equation*}
+    \left(\frac{\partial\mathbf{r}_\alpha}{\partial t}\right)^2=\sum_{j=1}^{n}\frac{\partial\mathbf{r}_\alpha}{\partial q_i}\dot{q}_i\cdot\sum_{k=1}^{n}\frac{\partial\mathbf{r}_\alpha}{\partial q_j}\dot{q}_j
+\end{equation*}
+The kinetic energy is then product of triple sum
+\begin{equation*}
+    T=\frac{1}{2}\sum_{\alpha}m_\alpha\mathbf{r}_\alpha=\frac{1}{2}\sum_{\alpha}m_\alpha\sum_j\frac{\partial \mathbf{r}_\alpha}{\partial q_j}\dot{q}_j\cdot\sum_k\frac{\partial\mathbf{r_\alpha}}{\partial q_k}\dot{q}_k
+\end{equation*}
+If we define 
+\begin{equation*}
+    A_{jk}=\sum_\alpha m_\alpha\frac{\partial\mathbf{r}_\alpha}{\partial q_j}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_k}
+\end{equation*}
+The expression for kinetic energy simplifies into 
+\begin{equation*}
+    T=\frac{1}{2}\sum_{j,k}A_{jk}\dot{q}_j\dot{q}_k
+\end{equation*}
+
+If we assume kinetic energy $T=T(\mathbf{q},\dot{\mathbf{q}})$ and potential energy $U=U(\mathbf{q})$, which is what natural coordinates imply anyway, then 
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial \dot{q}_i}=\frac{\partial T}{\partial \dot{q}_i}=p_i
+\end{equation*}
+To evaluate partial derivative, we need the following relation
+\begin{equation*}
+    \frac{d}{dv_i}\sum_{j,k}A_{jk}v_jv_k=2\sum_{j,k}A_{ij}v_j\quad\text{if }A_{jk}=A_{kj}
+\end{equation*}
+Applying the identity 
+\begin{equation*}
+    p_i=\frac{\partial}{\partial \dot{q}_i}\left(\frac{1}{2}\sum_{jk}A_{jk}\dot{q}_j\dot{q}_k\right)=\sum_jA_{ij}\dot{q}_j\end{equation*}
+Therefore, the Hamiltonian now reads
+\begin{align*}
+    \mathcal{H}&=\sum_ip_i\dot{q}_i-\mathcal{L}=\sum_i\sum_jA_{ij}\dot{q}_i\dot{q}_j-(T-U)\\
+    \mathcal{H}&=2T-T+U=T+U
+\end{align*}
 \end{document}
