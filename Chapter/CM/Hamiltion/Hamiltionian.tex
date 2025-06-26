@@ -20,4 +20,23 @@ and generalized momentum
     \mathbf{p}\equiv(p_1,\dots,p_n)
 \end{equation*}
 This $\mathbf{p}$ and $\mathbf{p}$ are $n$-dimensional vectors in the space of generalized position and generalized momentum.
+
+\subsubsection*{Definition}
+The definition Hamiltonian comes from Lagrangian.
+To see this, consider the change of Lagrangian $\mathcal{L}(\mathbf{q},\dot{\mathbf{q}},t)$ as the time increase
+\begin{align*}
+    \frac{d\mathcal{L}}{dt}&=\frac{\partial\mathcal{L}}{\partial q_1}\frac{\partial q_1}{\partial t}\dots+\frac{\partial\mathcal{L}}{\partial q_n}\frac{\partial q_n}{\partial t}+\frac{\partial\mathcal{L}}{\partial \dot{q}_1}\frac{\partial \dot{q}_2}{\partial t}+\dots+\frac{\partial \mathcal{L}}{\partial \dot{q_n}}\frac{\partial\dot{q}_n}{\partial t}+\frac{\partial\mathcal{L}}{\partial t}\frac{\partial t}{\partial t}\\
+    &=\sum_{i=1}^{n}\left(\frac{\partial \mathcal{L}}{\partial q_i}\dot{q}_i+\frac{\partial\mathcal{L}}{\partial\dot{q}_i}\ddot{q}_i\right)+\frac{\partial \mathcal{L}}{\partial t}\\
+    &=\sum_{i=1}^{n}\left(\dot{p}_i\dot{q}_i+p_i\ddot{q}_i\right)+\frac{\partial \mathcal{L}}{\partial t}\\
+    \frac{d\mathcal{L}}{dt}&=\frac{d}{dt}\sum_{i=1}^{n}\left(p_i\dot{q}_i\right)+\frac{\partial\mathcal{L}}{\partial t}
+\end{align*}
+If we assume the Lagrangian does not depend explicitly on time, say in the case of $T=T(\mathbf{q},\dot{\mathbf{q}})$ and $U=U(\mathbf{q})$, the $\partial\mathcal{L}/\partial t=0$. 
+Thus, the quantity
+\begin{equation*}
+    \frac{d}{dt}\left(\sum_{i=1}^{n}p_i\dot{q}_i-\mathcal{L}\right)=0
+\end{equation*}
+which defined as Hamiltonian, is conserved. In other words,
+\begin{equation*}
+    \frac{\partial\mathcal{L}}{\partial t}=0\implies\frac{dH}{dt}=0
+\end{equation*}
 \end{document}
