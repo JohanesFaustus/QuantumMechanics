@@ -6,7 +6,7 @@ The Hamiltonian is defined as
 \end{equation*}
 The Hamilton equation derived from this is
 \begin{equation*}
-	\dot{q}_i=\frac{\partial\mathcal{H}}{\partial p_i},\qquad\dot{p}_i=-\frac{\partial\mathcal{H}}{\partial \dot{q}_i}
+	\dot{q}_i=\frac{\partial\mathcal{H}}{\partial p_i},\qquad\dot{p}_i=-\frac{\partial\mathcal{H}}{\partial q_i}
 \end{equation*}
 
 The conservation of Hamiltonian is stated as follows
@@ -27,7 +27,7 @@ The steps to solve problem using Hamilton formalism are as follows.
     \item Solve for $\dot{\mathbf{q}}$ in terms $(\mathbf{q},\mathbf{p})$.
     \item Write $\mathcal{H}$ in terms $(\mathbf{q},\mathbf{p})$.
     \item Write the Hamilton equation for motion.
-\end{enumerate}A
+\end{enumerate}
 
 \subsection*{Notation}
 To avoid clutter, we define the following notation.
@@ -178,4 +178,24 @@ The total derivative $d\mathcal{H}/d t$ denote the actual changes as $t$ moves f
 In other hand, the partial derivative $\partial\mathcal{H}/\partial t$ denote the change of the Hamilton as $t$ moves forward with $(\mathbf{q},\mathbf{p})$ being held constant. 
 This will be zero if $\mathcal{H}$ does not explicitly depend on $t$.
 Thus, if $\mathcal{H}$ does not explicitly depend on $t$, then $\mathcal{H}$ is conserved.
+
+\subsection*{Newton's Law in 2D}
+Since we are using 2D Cartesian, the Hamiltonian is simply the system energy
+\begin{equation*}
+	\mathcal{H}=\frac{1}{2}m(\dot{x}^2+\dot{y}^2)+U(x,y)=\frac{1}{2m}\left(p_x^2+p_y^2\right)+U(x,y)
+\end{equation*}
+The $x$-th component reads 
+\begin{equation*}
+	\dot{x}=\frac{\partial \mathcal{H}}{\partial p_x}=\frac{p_x}{m}\qquad\dot{p}_x=-\frac{\partial \mathcal{H}}{\partial x}=-\frac{\partial U}{\partial x}
+\end{equation*}
+while the $y$-th component 
+\begin{equation*}
+	\dot{y}=\frac{\partial \mathcal{H}}{\partial p_y}=\frac{p_y}{m}\qquad\dot{p}_y=-\frac{\partial \mathcal{H}}{\partial y}=-\frac{\partial U}{\partial y}
+\end{equation*}
+Combining both, we obtain the Newton's definition of momentum and force 
+\begin{equation*}
+	\mathbf{p}=m\mathbf{r}\qquad\mathbf{F}=\frac{d\mathbf{p}}{dt}
+\end{equation*}
+
+
 \end{document}
