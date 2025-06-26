@@ -154,4 +154,18 @@ Substituting into the Hamiltonian
 \begin{equation*}
 	\frac{\partial \mathcal{H}}{\partial q_i}=\dot{q}_i+\sum_jp_j\frac{\partial \dot{q}_j}{\partial p_j}-\sum_jp_j\frac{\partial \dot{q}_j}{\partial p_i}=\dot{q}_i
 \end{equation*}
+
+\subsection*{Hamiltonian Dependence on Time}
+Consider the total derivative of the Hamiltonian with respect to time 
+\begin{equation*}
+    \frac{d\mathcal{H}}{\partial t}=\sum_{i}\left(\frac{\partial\mathcal{H}}{\partial q_i}\dot{q}+\frac{\partial\mathcal{H}}{\partial p_i}\dot{p}_i\right)+\frac{\partial\mathcal{H}}{\partial t}
+\end{equation*}
+Then using the Hamilton equation of motion
+\begin{equation*}
+    \frac{d\mathcal{H}}{dt}=\frac{\partial\mathcal{H}}{\partial t}
+\end{equation*}
+The total derivative $d\mathcal{H}/d t$ denote the actual changes as $t$ moves forward, which will changes both variables $(\mathbf{q},\mathbf{p})$ also.
+In other hand, the partial derivative $\partial\mathcal{H}/\partial t$ denote the change of the Hamilton as $t$ moves forward with $(\mathbf{q},\mathbf{p})$ being held constant. 
+This will be zero if $\mathcal{H}$ does not explicitly depend on $t$.
+Thus, if $\mathcal{H}$ does not explicitly depend on $t$, then $\mathcal{H}$ is conserved.
 \end{document}
