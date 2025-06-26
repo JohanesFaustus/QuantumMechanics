@@ -197,5 +197,36 @@ Combining both, we obtain the Newton's definition of momentum and force
 	\mathbf{p}=m\mathbf{r}\qquad\mathbf{F}=\frac{d\mathbf{p}}{dt}
 \end{equation*}
 
+\subsubsection*{Newton's Law in Polar Coordinate}
+As previously, the Hamiltonian is the system energy
+\begin{equation*}
+	\mathcal{H}(r,\phi,\dot{r},\dot{\phi})=\frac{1}{2}m\left(\dot{r}^2+r^2\dot{\phi}^2\right)-U(r)
+\end{equation*}
+Next, we evaluate the momenta
+\begin{equation*}
+	p_r=\frac{\partial \mathcal{L}}{\partial\dot{r}}=m\dot{r},\qquad p_\phi=\frac{\partial\mathcal{L}}{\partial \dot{\phi}}=mr^2\dot{\phi}
+\end{equation*}
+and solve for generalized velocity
+\begin{equation*}
+	\dot{r}=\frac{p_r}{m}\qquad\dot{\phi}=\frac{p_\phi}{mr^2}
+\end{equation*}
+Then rewrite the Hamiltonian in terms of coordinate and momenta 
+\begin{equation*}
+	\mathcal{H}=\frac{1}{2}m\left(\frac{p_r^2}{m^2}+\frac{p_\phi^2}{m^2r^2}\right)+U(r)=\frac{1}{2}\left(p_r^2+\frac{p_\phi^2}{r^2}\right)+U(r)
+\end{equation*}
+The radial components are 
+\begin{equation*}
+	\dot{r}=\frac{\partial\mathcal{H}}{\partial p_r}=\frac{p_r}{m}\qquad p_r=-\frac{\partial\mathcal{H}}{\partial r}=\frac{p_\phi^2}{mr^3}-\frac{\partial U}{\partial r}
+\end{equation*}
+Combining both, we obtain
+\begin{equation*}
+	m\ddot{\mathbf{r}}=\frac{p_\phi^2}{mr^3}-\frac{\partial U}{\partial r}
+\end{equation*}
+which is the definition of total force $m\mathbf{\ddot{r}}$ as the sum of radial force $-\partial U/\partial r$ and centrifugal force $p_\phi^2/mr^3$.
+Then the angular component
+\begin{equation*}
+	\dot{\phi}=\frac{\partial\mathcal{H}}{\partial p_\phi}=\frac{p_\phi}{mr^2}\qquad \dot{p}_\phi=-\frac{\partial\mathcal{H}}{\partial \phi}=0
+\end{equation*}
+which reproduce the definition of angular momentum and conservation of angular momentum.
 
 \end{document}
