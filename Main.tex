@@ -31,9 +31,13 @@
 \titleformat{\section}[hang]{\bfseries\Large\centering}{}{}{}[\vspace{0.5cm}]
 \titleformat{\subsection}[hang]{\bfseries\large}{}{}{}[\noindent\rule{\textwidth}{0.4pt}]
 \titleformat{\subsubsection}[runin]{\bfseries}{}{}{\indent}
+
 \begin{document}
-\chapter*{Mathematics}
 \pagestyle{empty}
+
+\subfile{./Chapter/COV/Cover.tex}\clearpage
+
+\chapter*{Mathematics}
 
 %\section*{Linear Algebra}
 %\subfile{./PhysicalMathematics/Section/LinearAlgbra/LineAlg.tex}\clearpage
@@ -65,7 +69,8 @@
 \subfile{./Chapter/CM/Lagrange/LgAppl.tex}\clearpage
 
 \section*{Hamiltonian Mechanics}
-\subfile{./Chapter/CM/Hamiltion/Hamiltionian.tex}\clearpage
+\subfile{./Chapter/CM/Hamiltion/Hamiltonian.tex}\clearpage
+\subfile{./Chapter/CM/Hamiltion/ApplHamltn.tex}\clearpage
 
 \chapter*{Quantum Mechanics}
 \subfile{./Chapter/QM/etc/file.tex}\clearpage
