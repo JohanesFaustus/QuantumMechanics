@@ -2,7 +2,7 @@
 \begin{document}
 The Hamiltonian is defined as
 \begin{equation*}
-	\mathcal{H}=\sum_{i=1}^{n}p_i\dot{q}_1-\mathcal{L}
+	\mathcal{H}=\sum_{i=1}^{n}p_i\dot{q}_i-\mathcal{L}
 \end{equation*}
 The Hamilton equation derived from this is
 \begin{equation*}
@@ -236,12 +236,84 @@ The Hamiltonian is
 \end{equation*}
 From this, we obtain the two equation of motion 
 \begin{equation*}
-	\dot{\mathbf{q}}=\frac{1 }{m }\left( \mathbf{p }-q \mathbf{A } \right) \qquad\text{and }\qquad \dot{\mathbf{p }}=q \left( \dot{\mathbf{q}}\cdot \nabla  \right)\mathbf{A }-q \nabla  V 
+	\dot{\mathbf{r}}=\frac{1 }{m }\left( \mathbf{p }-q \mathbf{A } \right) \qquad\text{and }\qquad \dot{\mathbf{p }}=q \left( \dot{\mathbf{r}}\cdot \nabla  \right)\mathbf{A }-q \nabla  V 
 \end{equation*}
 The momentum evolution is consistent with the Lorentz force law 
 \begin{equation*}
 	\mathbf{F }=q \left( \mathbf{E }+\mathbf{v }\times \mathbf{B } \right) 
 \end{equation*}
 
+\subsubsection*{Derivation.}
+By definition, Hamiltonian in three dimension is 
+\begin{equation*}
+	\mathcal{H }=\sum_{i=1 }^{3 }q_ip_i-\mathcal{L }=\mathbf{p} \cdot \dot{\mathbf{r}}- \mathcal{L}
+\end{equation*}
+With the known Lagrangian of a particle in electromagnetic field
+\begin{equation*}
+	\mathcal{L}=\frac{1}{2}m\dot{\mathbf{r}}^2-q(V-\dot{\mathbf{r}}\cdot \mathbf{A})
+\end{equation*}
+and known canonical momentum
+\begin{equation*}
+	\mathbf{p }=m \dot{\mathbf{r }}+q \mathbf{A}
+\end{equation*}
+the Hamiltonian reads 
+\begin{align*}
+	\mathcal{H }&=m \dot{\mathbf{r }}\cdot \dot{\mathbf{r }}+q \mathbf{A }\cdot \dot{\mathbf{r }}-\frac{1 }{2 }m \dot{\mathbf{r }}\cdot \dot{\mathbf{r }} +q \left( V-\dot{\mathbf{r }}\cdot \mathbf{A} \right) \\
+	\mathcal{H }&= \frac{1 }{2 }m \dot{\mathbf{r }}\cdot \dot{\mathbf{r }}+qV 
+\end{align*}
+Expressing the change of coordinate as momentum
+\begin{equation*}
+	\mathcal{H }=\frac{1 }{2m }\left( \mathbf{p }-q \mathbf{A} \right) ^2+qV
+\end{equation*}
 
+For the first equation of motion, consider
+\begin{equation*}
+	\dot{\mathbf{r }}=\frac{\partial \mathcal{H }}{\partial \mathbf{p }}=\frac{1 }{2m }2 \left( \mathbf{p } -q \mathbf{A }	\right)=\frac{1 }{m }\left( \mathbf{p }-q \mathbf{A } \right)  
+\end{equation*}
+On multiplying both side with $m$, we obtain the kinetic momentum $\pi =m \dot{\mathbf{r }}$, as opposed to canonical momentum $\pi=m \dot{\mathbf{r }}+q \mathbf{A}$.
+
+Next we move to its conjugate.
+Consider 
+\begin{align*}
+	\dot{\mathbf{p }}&=-\frac{\partial \mathcal{ H }}{\partial \mathbf{r }}=\frac{1 }{2m }2 \left( \mathbf{p }-q \mathbf{A } \right) q \cdot  \frac{\partial \mathbf{A 		}}{\partial \mathbf{r }	}-1 \frac{\partial V }{\partial \mathbf{r }}\\
+	\dot{\mathbf{p }}&=\frac{q }{m}\left( \mathbf{p } -q \mathbf{A }	\right)\cdot \nabla \mathbf{A } -q \nabla V
+\end{align*}
+Substituting the value of kinetic momentum obtained previously
+\begin{equation*}
+	\dot{\mathbf{p }}=\frac{q }{m }m \dot{\mathbf{r }}\cdot \nabla \mathbf{A }-q \nabla V=q \dot{\mathbf{r }}\cdot \mathbf{A }	-q \nabla \mathbf{A }
+\end{equation*}
+Writing the first equation of motion as 
+\begin{align*}
+	m \dot{\mathbf{r }}&=\mathbf{p}-q \mathbf{A }\\
+	m \ddot{\mathbf{r }} &= \dot{\mathbf{p }}-q \frac{d\mathbf{A }}{d t}
+\end{align*}
+and substituting it back 
+\begin{align*}
+	m \ddot{\mathbf{r }}+q \frac{\partial \mathbf{A }}{\partial t }&=  q \dot{\mathbf{r }}\cdot \nabla \mathbf{A }-q \nabla \mathbf{A }\\
+	m \ddot{\mathbf{r }}&=q \dot{\mathbf{r }}\cdot \nabla \mathbf{A } -q \nabla V -q \frac{d \mathbf{A }}{dt}
+\end{align*}
+The total derivative of $\mathbf{A}(\mathbf{r },t)$ with respect to time has two part: spatial variation and explicit dependence on time
+\begin{equation*}
+	\frac{d\mbox{A }}{dt}=\sum_i \frac{\partial \mathbf{A }}{\partial q_i}\frac{\partial q_i }{\partial t }+\frac{\partial \mathbf{A }}{\partial t }=\sum_i \dot{q}_i \frac{\partial }{\partial q_i }\mathbf{A}+ \frac{\partial \mathbf{A }}{\partial t }= \left( \dot{\mathbf{r }}\cdot \nabla\right)\mathbf{A}+ \frac{\partial \mathbf{A }}{\partial t}
+\end{equation*}
+Hence we write
+\begin{equation*}
+	\mathbf{F }=-q \left( \nabla  V+\frac{\partial \mathbf{A }}{\partial t} \right) +q \left[ \nabla \left( \dot{\mathbf{r }\cdot \mathbf{A }} \right)-\left( \dot{\mathbf{r}}\cdot \nabla   \right)\mathbf{A}   \right] 
+\end{equation*}
+Recalling the vector triple product
+\begin{equation*}
+	\dot{\mathbf{r }}\times \left( \nabla \times \mathbf{A }  \right)=\nabla \left( \dot{\mathbf{r }}\cdot \mathbf{A} \right)  -\left( \dot{\mathbf{r }}\cdot \nabla   \right) \mathbf{A}
+\end{equation*}
+to write it as 
+\begin{equation*}
+	\mathbf{F }=-q \left( \nabla V+\frac{\partial \mathbf{A }}{\partial t } \right) +q \dot{\mathbf{r }}\times \left( \nabla \times \mathbf{A} \right) 
+\end{equation*}
+In terms of potential, both electromagnetic field maybe expressed as
+\begin{equation*}
+	\mathbf{E}=-\nabla V-\frac{\partial \mathbf{A }}{\partial t}\qquad \text{and}\qquad \mathbf{B} =\nabla \times \mathbf{A}
+\end{equation*} 
+Hence, we obtain our desired result
+\begin{equation*}
+	\mathbf{F}=q \left( \mathbf{E}+\dot{\mathbf{r}}\times \mathbf{B} \right) 
+\end{equation*}
 \end{document}
