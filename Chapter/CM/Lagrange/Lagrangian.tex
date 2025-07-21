@@ -55,6 +55,17 @@ Set of generalized coordinates that minimize the number of Euler-Lagrangian equa
 This implies that natural coordinate also have minimum degree of freedom, that is the number of coordinate that can be varied independently.
 In natural coordinate, the generalized coordinate has no time dependence with its Cartesian relative.
 
+Consider the Lagrangian 
+\begin{equation*}
+	\mathcal{L }=\mathcal{L }\left( \mathbf{q}, \dot{\mathbf{q }},t \right) 
+\end{equation*}
+If the Lagrangian does not depend on the coordinate $q_i$, the coordinate is said to be cyclic.
+Correspondingly, the canonical momentum $p_i= \partial \mathcal{L }/\partial q_i$ is conserved.
+The condition for $q_i$ to be cyclic can be written as 
+\begin{equation*}
+	\frac{\partial \mathcal{L }}{\partial q_i }=0
+\end{equation*}
+
 System with $n$ degree of freedom that can be described by $n$ generalized coordinate is called holonomic.
 In general
 \begin{equation*}
@@ -250,7 +261,7 @@ Then we can add it into the integral of $\delta S$ without changing the integral
 Since the multipliers is arbitrary, we define Lagrange multipliers such that the terms inside parenthesis is zero, thus resulting in two modified Euler-Lagrange equation written previously
 \begin{align*}
 	\frac{\partial \mathcal{L}}{\partial x}+\lambda\frac{\partial f}{\partial x} & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}} \\
-	\frac{\partial \mathcal{L}}{\partial y}+\lambda\frac{\partial f}{\partial y} & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}} \\
+	\frac{\partial \mathcal{L}}{\partial y}+\lambda\frac{\partial f}{\partial y} & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{y}} 
 \end{align*}
 Now we add the constraint equation since we need three equation to find three equation in three unknown.
 
