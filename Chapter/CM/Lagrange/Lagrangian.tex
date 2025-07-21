@@ -174,11 +174,11 @@ which are the two component of Newton second law $\mathbf{F}=m\mathbf{\ddot{r}}$
 \subsection*{Newton Law in Polar Coordinate}
 The Lagrangian is
 \begin{equation*}
-	\mathcal{L}(r,\phi,\dot{r},\dot{\phi})=\frac{1}{2}m(\dot{r}^2+r^2\dot{\phi}^2)-U(r,\phi)
+	\mathcal{L}(r,\phi,\dot{\mathbf{r}},\dot{\phi})=\frac{1}{2}m(\dot{\mathbf{r}}^2+r^2\dot{\phi}^2)-U(r,\phi)
 \end{equation*}
 which result into two Euler-Lagrange equation
 \begin{equation*}
-	\frac{\partial\mathcal{L}}{\partial r}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{r}}\qquad\frac{\partial\mathcal{L}}{\partial \phi}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{\phi}}
+	\frac{\partial\mathcal{L}}{\partial r}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{\mathbf{r}}}\qquad\frac{\partial\mathcal{L}}{\partial \phi}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{\phi}}
 \end{equation*}
 Before moving into evaluating the derivative with respect to $r$ and $\phi$, recall the gradient of potential energy in polar coordinate
 \begin{equation*}
@@ -193,9 +193,9 @@ Evaluating the radial derivative
 which is simply the radial component of the Newton's second law in polar coordinate.
 Evaluating the angular derivative
 \begin{align*}
-	-\frac{\partial U}{\partial \phi}            & =\frac{d}{dt}mr^2\dot{\phi}=m(2r\dot{r}\dot{\phi}+r^2\ddot{\phi}) \\
-	-\frac{1}{r}\frac{\partial U}{\partial \phi} & =m(2\dot{r}\dot{\phi}+r^2\ddot{\phi})                             \\
-	F_\phi                                       & =m(2\dot{r}\dot{\phi}+r\ddot{\phi})
+	-\frac{\partial U}{\partial \phi}            & =\frac{d}{dt}mr^2\dot{\phi}=m(2r\dot{\mathbf{r}}\dot{\phi}+r^2\ddot{\phi}) \\
+	-\frac{1}{r}\frac{\partial U}{\partial \phi} & =m(2\dot{\mathbf{r}}\dot{\phi}+r^2\ddot{\phi})                             \\
+	F_\phi                                       & =m(2\dot{\mathbf{r}}\dot{\phi}+r\ddot{\phi})
 \end{align*}
 which is, as previously mentioned, the angular component of Newton's second law. It should be noted that the quantity $mr^2\dot{\phi}$ can be recognized as angular momentum $L$, and the rate of change of it is torque $\Gamma$
 \begin{equation*}
@@ -288,9 +288,55 @@ while in the action integral case
 \end{equation*}
 In any case, we need to solve those two resulting function alongside the constraint equation.
 
-\subsubsection*{Lagrangian for a Charge in an Electromagnetic Field}
+\subsection*{Lagrangian for a Charge in an Electromagnetic Field}
 The Lagrangian is 
 \begin{equation*}
 	\mathcal{L}=\frac{1}{2}m\dot{\mathbf{r}}^2-q(V-\dot{\mathbf{r}}\cdot \mathbf{A})
+\end{equation*}
+This Lagrangian is defined is such way to produce the Lorentz force law
+\begin{equation*}
+	\mathbf{F}=q \left( \mathbf{E}+\dot{\mathbf{r}}\times \mathbf{B} \right) 
+\end{equation*}
+
+\subsubsection*{Derivation.}
+The derivation of Lagrangian for particle in electromagnetic field assumes you know field and gauge theory.
+Since you didn't, we shall only prove that the Lagrangian does give the correct equation of motion.
+
+First we write the Euler-Lagrangian equation in three dimension as 
+\begin{equation*}
+	\frac{d }{dt }\frac{\partial \mathcal{L }}{\partial \dot{\mathbf{r}}}=\frac{\partial \mathcal{L }}{\partial \mathbf{r}}
+\end{equation*}
+where both scalar and vector potential are a function of space and time.
+Feeding the given Lagrangian
+\begin{equation*}
+	\frac{d }{dt }\left( m \dot{\mathbf{r}}+q \mathbf{A} \right) =-q \nabla \left( V-\dot{\mathbf{r} }\cdot\mathbf{A} \right) 
+\end{equation*}
+then rewriting it as such
+\begin{align*}
+	\frac{d }{dt }\left( m \dot{\mathbf{r}} \right) =-q \nabla V-q \frac{d \mathbf{A }}{dt }+ q \nabla \left( \dot{\mathbf{r }}\cdot \mathbf{A} \right) 
+\end{align*}
+The total derivative of $\mathbf{A}(\mathbf{r },t)$ with respect to time has two part: spatial variation and explicit dependence on time
+\begin{equation*}
+	\frac{d\mbox{A }}{dt}=\sum_i \frac{\partial \mathbf{A }}{\partial q_i}\frac{\partial q_i }{\partial t }+\frac{\partial \mathbf{A }}{\partial t }=\sum_i \dot{q}_i \frac{\partial }{\partial q_i }\mathbf{A}+ \frac{\partial \mathbf{A }}{\partial t }= \left( \dot{\mathbf{r }}\cdot \nabla\right)\mathbf{A}+ \frac{\partial \mathbf{A }}{\partial t}
+\end{equation*}
+Now we have 
+\begin{equation*}
+	\mathbf{F }=-q \left( \nabla  V+\frac{\partial \mathbf{A }}{\partial t} \right) +q \left[ \nabla \left( \dot{\mathbf{r }\cdot \mathbf{A }} \right)-\left( \dot{\mathbf{r}}\cdot \nabla   \right)\mathbf{A}   \right] 
+\end{equation*}
+Recalling the vector triple product
+\begin{equation*}
+	\dot{\mathbf{r }}\times \left( \nabla \times \mathbf{A }  \right)=\nabla \left( \dot{\mathbf{r }}\cdot \mathbf{A} \right)  -\left( \dot{\mathbf{r }}\cdot \nabla   \right) \mathbf{A}
+\end{equation*}
+to write it as 
+\begin{equation*}
+	\mathbf{F }=-q \left( \nabla V+\frac{\partial \mathbf{A }}{\partial t } \right) +q \dot{\mathbf{r }}\times \left( \nabla \times \mathbf{A} \right) 
+\end{equation*}
+In terms of potential, both electromagnetic field maybe expressed as
+\begin{equation*}
+	\mathbf{E}=-\nabla V-\frac{\partial \mathbf{A }}{\partial t}\qquad \text{and}\qquad \mathbf{B} =\nabla \times \mathbf{A}
+\end{equation*} 
+Hence, we obtain our desired result
+\begin{equation*}
+	\mathbf{F}=q \left( \mathbf{E}+\dot{\mathbf{r}}\times \mathbf{B} \right) 
 \end{equation*}
 \end{document}
