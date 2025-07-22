@@ -327,4 +327,18 @@ Hence, we obtain our desired result
 \begin{equation*}
 	\mathbf{F}=q \left( \mathbf{E}+\dot{\mathbf{r}}\times \mathbf{B} \right) 
 \end{equation*}
+
+\subsection*{Poisson Bracket}
+Poisson bracket between two variable $\omega(q,p)$ and $\lambda(q,p)$ is defined as 
+\begin{equation*}
+	\left\{ \omega,\lambda \right\}\equiv \sum_i \left( \frac{\partial \omega }{\partial q_i }\frac{\partial \lambda }{\partial p_i }-\frac{\partial \omega }{\partial p_i }\frac{\partial \lambda }{\partial q_i} \right) 
+\end{equation*}
+
+Key properties of Poisson bracket are as follows.
+\begin{enumerate}
+	\item \textbf{Bilinearity.} $\left\{ af+bg, \right\}=a \left\{ f,h  \right\}+b \left\{ g,h  \right\}$
+	\item \textbf{Antisymmetry.} $\left\{ f,g  \right\}=-\left\{ g,f \right\}$
+	\item \textbf{Jacobi identity.} $\left\{ f, \left\{ g,h  \right\} \right\}+ \left\{ g, \left\{ h,f  \right\} \right\}+\left\{ h,\left\{ f,g \right\} \right\}=0$
+	\item \textbf{Leibniz rule.} $\left\{ fg,h  \right\}=f \left\{ g,h  \right\}	+\left\{ f,h  \right\}g$
+\end{enumerate}
 \end{document}
