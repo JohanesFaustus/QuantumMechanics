@@ -341,4 +341,20 @@ Key properties of Poisson bracket are as follows.
 	\item \textbf{Jacobi identity.} $\left\{ f, \left\{ g,h  \right\} \right\}+ \left\{ g, \left\{ h,f  \right\} \right\}+\left\{ h,\left\{ f,g \right\} \right\}=0$
 	\item \textbf{Leibniz rule.} $\left\{ fg,h  \right\}=f \left\{ g,h  \right\}	+\left\{ f,h  \right\}g$
 \end{enumerate}
+
+\subsubsection*{Time evolution.}
+In Hamiltionian mechanics, any variable that does not depend on explicitly with time $\omega(\mathbf{q},\mathbf{p}) 	$ whose Poisson brackets with $\mathcal{H }$ vanish 
+\begin{equation*}
+	\left\{ \omega,\mathcal{H } \right\}=0
+\end{equation*}
+is conserved.
+Its time evolution is given by the same Poisson brakets, for we can write 
+\begin{align*}
+	\frac{d \omega}{dt}&= \sum_i \left( \frac{\partial \omega }{\partial q_i }\dot{q}_q+\frac{\partial \omega }{\partial p_i}\dot{p}_i \right) = \sum_i \left( \frac{\partial \omega }{\partial q_i }\frac{\partial \mathcal{H}}{\partial p_i 	}-\frac{\partial\omega }{\partial p_i }\frac{\partial \mathcal{H }}{\partial q_i } \right) =\left\{ \omega,\mathcal{H} \right\}
+\end{align*}
+
+For variable that depend on explicitly with time $\omega(\mathbf{q}, \mathbf{p },t )$, the time evolution is given by 
+\begin{equation*}
+	\frac{d \omega }{dt}=\left\{ \omega,\mathcal{H } \right\}+\frac{\partial \omega }{\partial t}
+\end{equation*}
 \end{document}
