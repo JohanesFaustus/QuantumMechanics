@@ -343,12 +343,12 @@ Key properties of Poisson bracket are as follows.
 \end{enumerate}
 
 \subsubsection*{Time evolution.}
-In Hamiltionian mechanics, any variable that does not depend on explicitly with time $\omega(\mathbf{q},\mathbf{p}) 	$ whose Poisson brackets with $\mathcal{H }$ vanish 
+In Hamiltonian mechanics, any variable that does not depend on explicitly with time $\omega(\mathbf{q},\mathbf{p}) 	$ whose Poisson brackets with $\mathcal{H }$ vanish 
 \begin{equation*}
 	\left\{ \omega,\mathcal{H } \right\}=0
 \end{equation*}
 is conserved.
-Its time evolution is given by the same Poisson brakets, for we can write 
+Its time evolution is given by the same Poisson brackets, for we can write 
 \begin{align*}
 	\frac{d \omega}{dt}&= \sum_i \left( \frac{\partial \omega }{\partial q_i }\dot{q}_q+\frac{\partial \omega }{\partial p_i}\dot{p}_i \right) = \sum_i \left( \frac{\partial \omega }{\partial q_i }\frac{\partial \mathcal{H}}{\partial p_i 	}-\frac{\partial\omega }{\partial p_i }\frac{\partial \mathcal{H }}{\partial q_i } \right) =\left\{ \omega,\mathcal{H} \right\}
 \end{align*}
@@ -357,4 +357,17 @@ For variable that depend on explicitly with time $\omega(\mathbf{q}, \mathbf{p }
 \begin{equation*}
 	\frac{d \omega }{dt}=\left\{ \omega,\mathcal{H } \right\}+\frac{\partial \omega }{\partial t}
 \end{equation*}
+
+\subsubsection*{Canonically conjugate.}
+Phase space coordinates that satisﬁes the following equations are called canonically conjugate.
+\begin{equation*}
+	\left\{ q_i,q_j  \right\}=0\qquad \left\{ p_i,p_j  \right\}=0\qquad \left\{ q_i,p_j  \right\}=\delta_{ij}
+\end{equation*}
+To see why that is the case, consider the expanded form of Poisson bracket
+\begin{align*}
+	\left\{ q_i,q_j  \right\}&= \sum_i \left( \frac{\partial q_i}{\partial q_i }\frac{\partial q_j }{\partial p_i }-\frac{\partial q_i }{\partial p_i }\frac{\partial q_j }{\partial q_i} \right) =0\\
+	\left\{ p_i,p_j  \right\}&= \sum_i \left( \frac{\partial p_i}{\partial q_i }\frac{\partial p_j }{\partial p_i }-\frac{\partial p_i }{\partial p_i }\frac{\partial p_j }{\partial q_i} \right) =0\\
+	\left\{ q_i,p_j  \right\}&= \sum_i \left( \frac{\partial q_i}{\partial q_i }\frac{\partial p_j }{\partial p_i }-\frac{\partial q_i }{\partial p_i }\frac{\partial p_j }{\partial q_i} \right) =\delta_{ij}\\
+\end{align*}
+Note that $(\mathbf{q },\mathbf{p })$ are independent variables.
 \end{document}
