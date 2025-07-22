@@ -370,4 +370,16 @@ To see why that is the case, consider the expanded form of Poisson bracket
 	\left\{ q_i,p_j  \right\}&= \sum_i \left( \frac{\partial q_i}{\partial q_i }\frac{\partial p_j }{\partial p_i }-\frac{\partial q_i }{\partial p_i }\frac{\partial p_j }{\partial q_i} \right) =\delta_{ij}\\
 \end{align*}
 Note that $(\mathbf{q },\mathbf{p })$ are independent variables.
+
+\subsection*{Canonical Transformation}
+In short, canonical transformation from $(q,p)$ to $(\bar{q}, \bar{p})$ is a change of coordinates that preserves the canonical structure of Hamiltonian mechanics.
+By this requirement, they must satisfy the Hamiltonian equation
+\begin{equation*}
+	\dot{\bar{q }}_i=\frac{\partial \mathcal{H }}{\partial \bar{p}_i}\qquad \dot{\bar{p }}_i=-\frac{\partial \mathcal{H }}{\partial \bar{q }_i}
+\end{equation*}
+where $\mathcal{H }=\mathcal{H}(\bar{q },\bar{p})$.
+Since the original coordinate is canonically conjugate, the new coordinate must also be canonically conjugate, which the conditions are given by
+\begin{equation*}
+	\left\{ \bar{q}_i,\bar{q}_j  \right\}=0\qquad \left\{ \bar{p}_i,\bar{p}_j  \right\}=0\qquad \left\{ \bar{q}_i,\bar{p}_j  \right\}=\delta_{ij}
+\end{equation*}
 \end{document}
