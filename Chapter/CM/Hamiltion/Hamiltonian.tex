@@ -19,25 +19,25 @@ In the case of natural coordinate, that is the relation between the generalized 
 	q_i=q_i(\mathbf{q})\implies\mathcal{H}=T+U
 \end{equation*}
 
-Consider the Hamiltonian 
+Consider the Hamiltonian
 \begin{equation*}
-	\mathcal{H }=\mathcal{H }\left( \mathbf{q}, \mathbf{p},t \right) 
+	\mathcal{H }=\mathcal{H }\left( \mathbf{q}, \mathbf{p},t \right)
 \end{equation*}
 If the Hamiltonian does not depend on the coordinate $q_i$, the coordinate is said to be cyclic.
 Correspondingly, the canonical momentum $p_i= \partial \mathcal{L }/\partial q_i$ is conserved.
-The condition for $q_i$ to be cyclic can be written as 
+The condition for $q_i$ to be cyclic can be written as
 \begin{equation*}
 	\frac{\partial \mathcal{H }}{\partial q_i }=0
 \end{equation*}
 
 The steps to solve problem using Hamilton formalism are as follows.
 \begin{enumerate}
-    \item Choose the generalized coordinate $\mathbf{q}$.
-    \item Write the $T$ and $U$ in terms of $(\mathbf{q},\dot{\mathbf{q}})$.
-    \item Find the generalized momenta $p_i=\partial\mathbf{L}/\partial \dot{q}_i$.
-    \item Solve for $\dot{\mathbf{q}}$ in terms $(\mathbf{q},\mathbf{p})$.
-    \item Write $\mathcal{H}$ in terms $(\mathbf{q},\mathbf{p})$.
-    \item Write the Hamilton equation for motion.
+	\item Choose the generalized coordinate $\mathbf{q}$.
+	\item Write the $T$ and $U$ in terms of $(\mathbf{q},\dot{\mathbf{q}})$.
+	\item Find the generalized momenta $p_i=\partial\mathbf{L}/\partial \dot{q}_i$.
+	\item Solve for $\dot{\mathbf{q}}$ in terms $(\mathbf{q},\mathbf{p})$.
+	\item Write $\mathcal{H}$ in terms $(\mathbf{q},\mathbf{p})$.
+	\item Write the Hamilton equation for motion.
 \end{enumerate}
 
 \subsection*{Notation}
@@ -168,7 +168,7 @@ The sum differentiation can be evaluated as follows
 While the Lagrangian term
 \begin{align*}
 	\frac{\partial \mathcal{L}}{\partial p_i} & =\frac{\partial \mathcal{L}}{\partial q_1}\frac{\partial q_1}{\partial p_i}+\dots\frac{\partial\mathcal{L}}{\partial q_n}\frac{\partial q_n}{\partial p_i}+\frac{\partial\mathcal{L}}{\partial \dot{q}_1}\frac{\partial\dot{q}_1}{\partial p_i}+\dots+\frac{\partial \mathcal{L}}{\partial \dot{q}_n}\frac{\partial \dot{q}_n}{\partial p_i}+\frac{\partial\mathcal{L}}{\partial t}\frac{\partial t}{\partial p_i} \\
-	                                          & =\sum_j\left(\frac{\partial\mathcal{L}}{\partial q_j}\frac{\partial q_j}{\partial p_i}+\frac{\partial\mathcal{L}}{\partial \dot{q}_j}\frac{\partial \dot{q}_j}{\partial p_i}\right)                                                                                                                                                                                                                                      \\
+	                                          & =\sum_j\left(\frac{\partial\mathcal{L}}{\partial q_j}\frac{\partial q_j}{\partial p_i}+\frac{\partial\mathcal{L}}{\partial \dot{q}_j}\frac{\partial \dot{q}_j}{\partial p_i}\right)                                                                                                                                                                                                                                \\
 	\frac{\partial \mathcal{L}}{\partial p_i} & =\sum_jp_j\frac{\partial \dot{q}_j}{\partial p_i}
 \end{align*}
 Substituting into the Hamiltonian
@@ -177,16 +177,16 @@ Substituting into the Hamiltonian
 \end{equation*}
 
 \subsection*{Hamiltonian Dependence on Time}
-Consider the total derivative of the Hamiltonian with respect to time 
+Consider the total derivative of the Hamiltonian with respect to time
 \begin{equation*}
-    \frac{d\mathcal{H}}{\partial t}=\sum_{i}\left(\frac{\partial\mathcal{H}}{\partial q_i}\dot{q}+\frac{\partial\mathcal{H}}{\partial p_i}\dot{p}_i\right)+\frac{\partial\mathcal{H}}{\partial t}
+	\frac{d\mathcal{H}}{\partial t}=\sum_{i}\left(\frac{\partial\mathcal{H}}{\partial q_i}\dot{q}+\frac{\partial\mathcal{H}}{\partial p_i}\dot{p}_i\right)+\frac{\partial\mathcal{H}}{\partial t}
 \end{equation*}
 Then using the Hamilton equation of motion
 \begin{equation*}
-    \frac{d\mathcal{H}}{dt}=\frac{\partial\mathcal{H}}{\partial t}
+	\frac{d\mathcal{H}}{dt}=\frac{\partial\mathcal{H}}{\partial t}
 \end{equation*}
 The total derivative $d\mathcal{H}/d t$ denote the actual changes as $t$ moves forward, which will changes both variables $(\mathbf{q},\mathbf{p})$ also.
-In other hand, the partial derivative $\partial\mathcal{H}/\partial t$ denote the change of the Hamilton as $t$ moves forward with $(\mathbf{q},\mathbf{p})$ being held constant. 
+In other hand, the partial derivative $\partial\mathcal{H}/\partial t$ denote the change of the Hamilton as $t$ moves forward with $(\mathbf{q},\mathbf{p})$ being held constant.
 This will be zero if $\mathcal{H}$ does not explicitly depend on $t$.
 Thus, if $\mathcal{H}$ does not explicitly depend on $t$, then $\mathcal{H}$ is conserved.
 
@@ -195,15 +195,15 @@ Since we are using 2D Cartesian, the Hamiltonian is simply the system energy
 \begin{equation*}
 	\mathcal{H}=\frac{1}{2}m(\dot{x}^2+\dot{y}^2)+U(x,y)=\frac{1}{2m}\left(p_x^2+p_y^2\right)+U(x,y)
 \end{equation*}
-The $x$-th component reads 
+The $x$-th component reads
 \begin{equation*}
 	\dot{x}=\frac{\partial \mathcal{H}}{\partial p_x}=\frac{p_x}{m}\qquad\dot{p}_x=-\frac{\partial \mathcal{H}}{\partial x}=-\frac{\partial U}{\partial x}
 \end{equation*}
-while the $y$-th component 
+while the $y$-th component
 \begin{equation*}
 	\dot{y}=\frac{\partial \mathcal{H}}{\partial p_y}=\frac{p_y}{m}\qquad\dot{p}_y=-\frac{\partial \mathcal{H}}{\partial y}=-\frac{\partial U}{\partial y}
 \end{equation*}
-Combining both, we obtain the Newton's definition of momentum and force 
+Combining both, we obtain the Newton's definition of momentum and force
 \begin{equation*}
 	\mathbf{p}=m\mathbf{r}\qquad\mathbf{F}=\frac{d\mathbf{p}}{dt}
 \end{equation*}
@@ -221,11 +221,11 @@ and solve for generalized velocity
 \begin{equation*}
 	\dot{r}=\frac{p_r}{m}\qquad\dot{\phi}=\frac{p_\phi}{mr^2}
 \end{equation*}
-Then rewrite the Hamiltonian in terms of coordinate and momenta 
+Then rewrite the Hamiltonian in terms of coordinate and momenta
 \begin{equation*}
 	\mathcal{H}=\frac{1}{2}m\left(\frac{p_r^2}{m^2}+\frac{p_\phi^2}{m^2r^2}\right)+U(r)=\frac{1}{2}\left(p_r^2+\frac{p_\phi^2}{r^2}\right)+U(r)
 \end{equation*}
-The radial components are 
+The radial components are
 \begin{equation*}
 	\dot{r}=\frac{\partial\mathcal{H}}{\partial p_r}=\frac{p_r}{m}\qquad p_r=-\frac{\partial\mathcal{H}}{\partial r}=\frac{p_\phi^2}{mr^3}-\frac{\partial U}{\partial r}
 \end{equation*}
@@ -241,21 +241,21 @@ Then the angular component
 which reproduce the definition of angular momentum and conservation of angular momentum.
 
 \subsection*{Hamiltonian of a Charge in an Electromagnetic Field}
-The Hamiltonian is 
+The Hamiltonian is
 \begin{equation*}
 	\mathcal{H }=\frac{1 }{2m }\left( \mathbf{p }-q \mathbf{A } \right) ^2+qV
 \end{equation*}
-From this, we obtain the two equation of motion 
+From this, we obtain the two equation of motion
 \begin{equation*}
-	\dot{\mathbf{r}}=\frac{1 }{m }\left( \mathbf{p }-q \mathbf{A } \right) \qquad\text{and }\qquad \dot{\mathbf{p }}=q \left( \dot{\mathbf{r}}\cdot \nabla  \right)\mathbf{A }-q \nabla  V 
+	\dot{\mathbf{r}}=\frac{1 }{m }\left( \mathbf{p }-q \mathbf{A } \right) \qquad\text{and }\qquad \dot{\mathbf{p }}=q \left( \dot{\mathbf{r}}\cdot \nabla  \right)\mathbf{A }-q \nabla  V
 \end{equation*}
-The momentum evolution is consistent with the Lorentz force law 
+The momentum evolution is consistent with the Lorentz force law
 \begin{equation*}
-	\mathbf{F }=q \left( \mathbf{E }+\mathbf{v }\times \mathbf{B } \right) 
+	\mathbf{F }=q \left( \mathbf{E }+\mathbf{v }\times \mathbf{B } \right)
 \end{equation*}
 
 \subsubsection*{Derivation.}
-By definition, Hamiltonian in three dimension is 
+By definition, Hamiltonian in three dimension is
 \begin{equation*}
 	\mathcal{H }=\sum_{i=1 }^{3 }q_ip_i-\mathcal{L }=\mathbf{p} \cdot \dot{\mathbf{r}}- \mathcal{L}
 \end{equation*}
@@ -267,10 +267,10 @@ and known canonical momentum
 \begin{equation*}
 	\mathbf{p }=m \dot{\mathbf{r }}+q \mathbf{A}
 \end{equation*}
-the Hamiltonian reads 
+the Hamiltonian reads
 \begin{align*}
-	\mathcal{H }&=m \dot{\mathbf{r }}\cdot \dot{\mathbf{r }}+q \mathbf{A }\cdot \dot{\mathbf{r }}-\frac{1 }{2 }m \dot{\mathbf{r }}\cdot \dot{\mathbf{r }} +q \left( V-\dot{\mathbf{r }}\cdot \mathbf{A} \right) \\
-	\mathcal{H }&= \frac{1 }{2 }m \dot{\mathbf{r }}\cdot \dot{\mathbf{r }}+qV 
+	\mathcal{H } & =m \dot{\mathbf{r }}\cdot \dot{\mathbf{r }}+q \mathbf{A }\cdot \dot{\mathbf{r }}-\frac{1 }{2 }m \dot{\mathbf{r }}\cdot \dot{\mathbf{r }} +q \left( V-\dot{\mathbf{r }}\cdot \mathbf{A} \right) \\
+	\mathcal{H } & = \frac{1 }{2 }m \dot{\mathbf{r }}\cdot \dot{\mathbf{r }}+qV
 \end{align*}
 Expressing the change of coordinate as momentum
 \begin{equation*}
@@ -279,29 +279,29 @@ Expressing the change of coordinate as momentum
 
 For the first equation of motion, consider
 \begin{equation*}
-	\dot{\mathbf{r }}=\frac{\partial \mathcal{H }}{\partial \mathbf{p }}=\frac{1 }{2m }2 \left( \mathbf{p } -q \mathbf{A }	\right)=\frac{1 }{m }\left( \mathbf{p }-q \mathbf{A } \right)  
+	\dot{\mathbf{r }}=\frac{\partial \mathcal{H }}{\partial \mathbf{p }}=\frac{1 }{2m }2 \left( \mathbf{p } -q \mathbf{A }	\right)=\frac{1 }{m }\left( \mathbf{p }-q \mathbf{A } \right)
 \end{equation*}
 On multiplying both side with $m$, we obtain the kinetic momentum $\pi =m \dot{\mathbf{r }}$, as opposed to canonical momentum $\pi=m \dot{\mathbf{r }}+q \mathbf{A}$.
 
 Next we move to its conjugate.
-Consider 
+Consider
 \begin{align*}
-	\dot{\mathbf{p }}&=-\frac{\partial \mathcal{ H }}{\partial \mathbf{r }}=\frac{1 }{2m }2 \left( \mathbf{p }-q \mathbf{A } \right) q \cdot  \frac{\partial \mathbf{A 		}}{\partial \mathbf{r }	}-1 \frac{\partial V }{\partial \mathbf{r }}\\
-	\dot{\mathbf{p }}&=\frac{q }{m}\left( \mathbf{p } -q \mathbf{A }	\right)\cdot \nabla \mathbf{A } -q \nabla V
+	\dot{\mathbf{p }} & =-\frac{\partial \mathcal{ H }}{\partial \mathbf{r }}=\frac{1 }{2m }2 \left( \mathbf{p }-q \mathbf{A } \right) q \cdot  \frac{\partial \mathbf{A 		}}{\partial \mathbf{r }	}-1 \frac{\partial V }{\partial \mathbf{r }} \\
+	\dot{\mathbf{p }} & =\frac{q }{m}\left( \mathbf{p } -q \mathbf{A }	\right)\cdot \nabla \mathbf{A } -q \nabla V
 \end{align*}
 Substituting the value of kinetic momentum obtained previously
 \begin{equation*}
 	\dot{\mathbf{p }}=\frac{q }{m }m \dot{\mathbf{r }}\cdot \nabla \mathbf{A }-q \nabla V=q \dot{\mathbf{r }}\cdot \mathbf{A }	-q \nabla \mathbf{A }
 \end{equation*}
-Writing the first equation of motion as 
+Writing the first equation of motion as
 \begin{align*}
-	m \dot{\mathbf{r }}&=\mathbf{p}-q \mathbf{A }\\
-	m \ddot{\mathbf{r }} &= \dot{\mathbf{p }}-q \frac{d\mathbf{A }}{d t}
+	m \dot{\mathbf{r }}  & =\mathbf{p}-q \mathbf{A }                      \\
+	m \ddot{\mathbf{r }} & = \dot{\mathbf{p }}-q \frac{d\mathbf{A }}{d t}
 \end{align*}
-and substituting it back 
+and substituting it back
 \begin{align*}
-	m \ddot{\mathbf{r }}+q \frac{\partial \mathbf{A }}{\partial t }&=  q \dot{\mathbf{r }}\cdot \nabla \mathbf{A }-q \nabla \mathbf{A }\\
-	m \ddot{\mathbf{r }}&=q \dot{\mathbf{r }}\cdot \nabla \mathbf{A } -q \nabla V -q \frac{d \mathbf{A }}{dt}
+	m \ddot{\mathbf{r }}+q \frac{\partial \mathbf{A }}{\partial t } & =  q \dot{\mathbf{r }}\cdot \nabla \mathbf{A }-q \nabla \mathbf{A }                  \\
+	m \ddot{\mathbf{r }}                                            & =q \dot{\mathbf{r }}\cdot \nabla \mathbf{A } -q \nabla V -q \frac{d \mathbf{A }}{dt}
 \end{align*}
 The total derivative of $\mathbf{A}(\mathbf{r },t)$ with respect to time has two part: spatial variation and explicit dependence on time
 \begin{equation*}
@@ -309,29 +309,29 @@ The total derivative of $\mathbf{A}(\mathbf{r },t)$ with respect to time has two
 \end{equation*}
 Hence we write
 \begin{equation*}
-	\mathbf{F }=-q \left( \nabla  V+\frac{\partial \mathbf{A }}{\partial t} \right) +q \left[ \nabla \left( \dot{\mathbf{r }\cdot \mathbf{A }} \right)-\left( \dot{\mathbf{r}}\cdot \nabla   \right)\mathbf{A}   \right] 
+	\mathbf{F }=-q \left( \nabla  V+\frac{\partial \mathbf{A }}{\partial t} \right) +q \left[ \nabla \left( \dot{\mathbf{r }\cdot \mathbf{A }} \right)-\left( \dot{\mathbf{r}}\cdot \nabla   \right)\mathbf{A}   \right]
 \end{equation*}
 Recalling the vector triple product
 \begin{equation*}
 	\dot{\mathbf{r }}\times \left( \nabla \times \mathbf{A }  \right)=\nabla \left( \dot{\mathbf{r }}\cdot \mathbf{A} \right)  -\left( \dot{\mathbf{r }}\cdot \nabla   \right) \mathbf{A}
 \end{equation*}
-to write it as 
+to write it as
 \begin{equation*}
-	\mathbf{F }=-q \left( \nabla V+\frac{\partial \mathbf{A }}{\partial t } \right) +q \dot{\mathbf{r }}\times \left( \nabla \times \mathbf{A} \right) 
+	\mathbf{F }=-q \left( \nabla V+\frac{\partial \mathbf{A }}{\partial t } \right) +q \dot{\mathbf{r }}\times \left( \nabla \times \mathbf{A} \right)
 \end{equation*}
 In terms of potential, both electromagnetic field maybe expressed as
 \begin{equation*}
 	\mathbf{E}=-\nabla V-\frac{\partial \mathbf{A }}{\partial t}\qquad \text{and}\qquad \mathbf{B} =\nabla \times \mathbf{A}
-\end{equation*} 
+\end{equation*}
 Hence, we obtain our desired result
 \begin{equation*}
-	\mathbf{F}=q \left( \mathbf{E}+\dot{\mathbf{r}}\times \mathbf{B} \right) 
+	\mathbf{F}=q \left( \mathbf{E}+\dot{\mathbf{r}}\times \mathbf{B} \right)
 \end{equation*}
 
 \subsection*{Poisson Bracket}
-Poisson bracket between two variable $\omega(q,p)$ and $\lambda(q,p)$ is defined as 
+Poisson bracket between two variable $\omega(q,p)$ and $\lambda(q,p)$ is defined as
 \begin{equation*}
-	\left\{ \omega,\lambda \right\}\equiv \sum_i \left( \frac{\partial \omega }{\partial q_i }\frac{\partial \lambda }{\partial p_i }-\frac{\partial \omega }{\partial p_i }\frac{\partial \lambda }{\partial q_i} \right) 
+	\left\{ \omega,\lambda \right\}\equiv \sum_i \left( \frac{\partial \omega }{\partial q_i }\frac{\partial \lambda }{\partial p_i }-\frac{\partial \omega }{\partial p_i }\frac{\partial \lambda }{\partial q_i} \right)
 \end{equation*}
 
 Key properties of Poisson bracket are as follows.
@@ -343,17 +343,17 @@ Key properties of Poisson bracket are as follows.
 \end{enumerate}
 
 \subsubsection*{Time evolution.}
-In Hamiltonian mechanics, any variable that does not depend on explicitly with time $\omega(\mathbf{q},\mathbf{p}) 	$ whose Poisson brackets with $\mathcal{H }$ vanish 
+In Hamiltonian mechanics, any variable that does not depend on explicitly with time $\omega(\mathbf{q},\mathbf{p}) 	$ whose Poisson brackets with $\mathcal{H }$ vanish
 \begin{equation*}
 	\left\{ \omega,\mathcal{H } \right\}=0
 \end{equation*}
 is conserved.
-Its time evolution is given by the same Poisson brackets, for we can write 
+Its time evolution is given by the same Poisson brackets, for we can write
 \begin{align*}
-	\frac{d \omega}{dt}&= \sum_i \left( \frac{\partial \omega }{\partial q_i }\dot{q}_q+\frac{\partial \omega }{\partial p_i}\dot{p}_i \right) = \sum_i \left( \frac{\partial \omega }{\partial q_i }\frac{\partial \mathcal{H}}{\partial p_i 	}-\frac{\partial\omega }{\partial p_i }\frac{\partial \mathcal{H }}{\partial q_i } \right) =\left\{ \omega,\mathcal{H} \right\}
+	\frac{d \omega}{dt} & = \sum_i \left( \frac{\partial \omega }{\partial q_i }\dot{q}_q+\frac{\partial \omega }{\partial p_i}\dot{p}_i \right) = \sum_i \left( \frac{\partial \omega }{\partial q_i }\frac{\partial \mathcal{H}}{\partial p_i 	}-\frac{\partial\omega }{\partial p_i }\frac{\partial \mathcal{H }}{\partial q_i } \right) =\left\{ \omega,\mathcal{H} \right\}
 \end{align*}
 
-For variable that depend on explicitly with time $\omega(\mathbf{q}, \mathbf{p },t )$, the time evolution is given by 
+For variable that depend on explicitly with time $\omega(\mathbf{q}, \mathbf{p },t )$, the time evolution is given by
 \begin{equation*}
 	\frac{d \omega }{dt}=\left\{ \omega,\mathcal{H } \right\}+\frac{\partial \omega }{\partial t}
 \end{equation*}
@@ -365,9 +365,9 @@ Phase space coordinates that satisﬁes the following equations are called canon
 \end{equation*}
 To see why that is the case, consider the expanded form of Poisson bracket
 \begin{align*}
-	\left\{ q_i,q_j  \right\}&= \sum_i \left( \frac{\partial q_i}{\partial q_i }\frac{\partial q_j }{\partial p_i }-\frac{\partial q_i }{\partial p_i }\frac{\partial q_j }{\partial q_i} \right) =0\\
-	\left\{ p_i,p_j  \right\}&= \sum_i \left( \frac{\partial p_i}{\partial q_i }\frac{\partial p_j }{\partial p_i }-\frac{\partial p_i }{\partial p_i }\frac{\partial p_j }{\partial q_i} \right) =0\\
-	\left\{ q_i,p_j  \right\}&= \sum_i \left( \frac{\partial q_i}{\partial q_i }\frac{\partial p_j }{\partial p_i }-\frac{\partial q_i }{\partial p_i }\frac{\partial p_j }{\partial q_i} \right) =\delta_{ij}\\
+	\left\{ q_i,q_j  \right\} & = \sum_i \left( \frac{\partial q_i}{\partial q_i }\frac{\partial q_j }{\partial p_i }-\frac{\partial q_i }{\partial p_i }\frac{\partial q_j }{\partial q_i} \right) =0           \\
+	\left\{ p_i,p_j  \right\} & = \sum_i \left( \frac{\partial p_i}{\partial q_i }\frac{\partial p_j }{\partial p_i }-\frac{\partial p_i }{\partial p_i }\frac{\partial p_j }{\partial q_i} \right) =0           \\
+	\left\{ q_i,p_j  \right\} & = \sum_i \left( \frac{\partial q_i}{\partial q_i }\frac{\partial p_j }{\partial p_i }-\frac{\partial q_i }{\partial p_i }\frac{\partial p_j }{\partial q_i} \right) =\delta_{ij} \\
 \end{align*}
 Note that $(\mathbf{q },\mathbf{p })$ are independent variables.
 
@@ -380,6 +380,63 @@ By this requirement, they must satisfy the Hamiltonian equation
 where $\mathcal{H }=\mathcal{H}(\bar{q },\bar{p})$.
 Since the original coordinate is canonically conjugate, the new coordinate must also be canonically conjugate, which the conditions are given by
 \begin{equation*}
-	\left\{ \bar{q}_i,\bar{q}_j  \right\}=0\qquad \left\{ \bar{p}_i,\bar{p}_j  \right\}=0\qquad \left\{ \bar{q}_i,\bar{p}_j  \right\}=\delta_{ij}
+	\left\{ \bar{q}_i,\bar{q }_j  \right\}=0\qquad \left\{ \bar{p}_i,\bar{p}_j  \right\}=0\qquad \left\{ \bar{q}_i,\bar{p}_j  \right\}=\delta_{ij}
 \end{equation*}
+
+\subsubsection*{Proof.}
+We shall proof that the new transformed coordinate still obeys the Hamiltonian equation.
+
+First note by performing the transformation, the Hamiltonian in Hamilton equation is expressed as a function of the new coordinate $\mathcal{H }=\mathcal{H }(\mathbf{\bar{q} },\mathbf{\bar{p} })$.
+Its partial derivative with respect to both variable, then, may be expressed as
+\begin{equation*}
+	\frac{\partial \mathcal{H }}{\partial p_i }=
+	\sum_k \left( \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\frac{\partial \bar{q }_k }{\partial p_i }-\frac{\partial \mathcal{H }}{\partial \bar{p }_k }\frac{\partial \bar{p }_k }{\partial p_i } \right)
+\end{equation*}
+and
+\begin{equation*}
+	\frac{\partial \mathcal{H }}{\partial q_i}=
+	\sum_k \left( \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\frac{\partial \bar{q }_k }{\partial q_i }-\frac{\partial \mathcal{H }}{\partial \bar{p }_k }\frac{\partial \bar{p }_k }{\partial q_i } \right)
+\end{equation*}
+
+Next we begin the proof for the $\bar{q}_i$.
+Using Poisson bracket, we express its time evolution as
+\begin{equation*}
+	\dot{\bar{q}}_j=\left\{ \bar{q }_j,\mathcal{H} \right\}=\sum_i \left( \frac{\partial \bar{q }_j }{\partial q_i }\frac{\partial \mathcal{H } }{\partial p_i }-\frac{\partial \bar{q }_j }{\partial p_i }\frac{\partial \mathcal{H } }{\partial q_i} \right)
+\end{equation*}
+Inserting the expression for the partial derivative of the Hamiltonian
+\begin{align*}
+	\dot{\bar{q }}_j & = \sum_i \frac{\partial \bar{q }_j }{\partial q_i } 	\sum_k \left( \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\frac{\partial \bar{q }_k }{\partial p_i }-\frac{\partial \mathcal{H }}{\partial \bar{p }_k }\frac{\partial \bar{p }_k }{\partial p_i } \right)     \\
+	                 & \qquad-\sum_i \frac{\partial \bar{q }_j }{\partial p_i }	\sum_k \left( \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\frac{\partial \bar{q }_k }{\partial q_i }-\frac{\partial \mathcal{H }}{\partial \bar{p }_k }\frac{\partial \bar{p }_k }{\partial q_i } \right) \\
+	                 & = \sum_k \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\sum_i \frac{\partial \bar{q }_j }{\partial q_i}\frac{\partial \bar{q }_k }{\partial p_i}
+	+ \sum_k \frac{\partial \mathcal{H }}{\partial \bar{p }_k }\sum_i \frac{\partial \bar{q }_j }{\partial q_i}\frac{\partial \bar{p }_k }{\partial p_i}                                                                                                                                        \\
+	                 & \qquad
+	-\sum_k \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\sum_i \frac{\partial \bar{q }_j }{\partial p_i}\frac{\partial \bar{q }_k }{\partial q_i}
+	-\sum_k \frac{\partial \mathcal{H }}{\partial \bar{p }_k }\sum_i \frac{\partial \bar{q }_j }{\partial p_i}\frac{\partial \bar{p }_k }{\partial q_i}                                                                                                                                         \\
+	                 & = \sum_k \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\sum_i 	\left( \frac{\partial \bar{q }_j }{\partial q_i }\frac{\partial \bar{q }_k }{\partial p_i} -\frac{\partial \bar{q }_j }{\partial p_i }\frac{\partial \bar{q }_k }{\partial q_i}\right)                \\
+	                 & \qquad+\sum_k \frac{\partial \mathcal{H }}{\partial \bar{p }_k }\sum_i 	\left( \frac{\partial \bar{q }_j }{\partial q_i }\frac{\partial \bar{p }_k }{\partial p_i} -\frac{\partial \bar{q }_j }{\partial p_i }\frac{\partial \bar{p }_k }{\partial q_i}\right)           \\
+	                 & = \sum_k \left( \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\left\{ \bar{q }_j,\bar{q }_k  \right\}+\frac{\partial \mathcal{H }}{\partial \bar{p }_k }\left\{ \bar{q }_j,\bar{p }_k \right\} \right)                                                               \\
+	                 & = \sum_k \frac{\partial \mathcal{H }}{\partial \bar{p }_k }\delta_{jk }                                                                                                                                                                                                  \\
+	\dot{\bar{q }}_j & =\frac{\partial \mathcal{H }}{\partial \bar{p }_j}
+\end{align*}
+
+Moving to the proof for the $\bar{p }_i$, which on expressing using Poisson bracket reads
+\begin{equation*}
+	\dot{\bar{i}}_j=\left\{ \bar{p }_j,\mathcal{H} \right\}=\sum_i \left( \frac{\partial \bar{p }_j }{\partial q_i }\frac{\partial \mathcal{H } }{\partial p_i }-\frac{\partial \bar{p }_j }{\partial p_i }\frac{\partial \mathcal{H } }{\partial q_i} \right)
+\end{equation*}
+With the same step as the $\bar{q }_i $, we write
+\begin{align*}
+	\dot{\bar{p }}_j & = \sum_i \frac{\partial \bar{p }_j }{\partial q_i } 	\sum_k \left( \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\frac{\partial \bar{q }_k }{\partial p_i }-\frac{\partial \mathcal{H }}{\partial \bar{p }_k }\frac{\partial \bar{p }_k }{\partial p_i } \right)     \\
+	                 & \qquad-\sum_i \frac{\partial \bar{p }_j }{\partial p_i }	\sum_k \left( \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\frac{\partial \bar{q }_k }{\partial q_i }-\frac{\partial \mathcal{H }}{\partial \bar{p }_k }\frac{\partial \bar{p }_k }{\partial q_i } \right) \\
+	                 & = \sum_k \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\sum_i \frac{\partial \bar{p }_j }{\partial q_i}\frac{\partial \bar{q }_k }{\partial p_i}
+	+ \sum_k \frac{\partial \mathcal{H }}{\partial \bar{p }_k }\sum_i \frac{\partial \bar{p }_j }{\partial q_i}\frac{\partial \bar{p }_k }{\partial p_i}                                                                                                                                        \\
+	                 & \qquad
+	-\sum_k \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\sum_i \frac{\partial \bar{p }_j }{\partial p_i}\frac{\partial \bar{q }_k }{\partial q_i}
+	-\sum_k \frac{\partial \mathcal{H }}{\partial \bar{p }_k }\sum_i \frac{\partial \bar{p }_j }{\partial p_i}\frac{\partial \bar{p }_k }{\partial q_i}                                                                                                                                         \\
+	                 & = \sum_k \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\sum_i 	\left( \frac{\partial \bar{p }_j }{\partial q_i }\frac{\partial \bar{q }_k }{\partial p_i} -\frac{\partial \bar{p }_j }{\partial p_i }\frac{\partial \bar{q }_k }{\partial q_i}\right)                \\
+	                 & \qquad+\sum_k \frac{\partial \mathcal{H }}{\partial \bar{p }_k }\sum_i 	\left( \frac{\partial \bar{p }_j }{\partial q_i }\frac{\partial \bar{p }_k }{\partial p_i} -\frac{\partial \bar{p }_j }{\partial p_i }\frac{\partial \bar{p }_k }{\partial q_i}\right)           \\
+	                 & = \sum_k \left( \frac{\partial \mathcal{H }}{\partial \bar{q }_k }\left\{ \bar{p }_j,\bar{q }_k  \right\}+\frac{\partial \mathcal{H }}{\partial \bar{p }_k }\left\{ \bar{p }_j,\bar{p }_k \right\} \right)                                                               \\
+	                 & = \sum_k \frac{\partial \mathcal{H }}{\partial \bar{p }_k }\left(-\delta_{kj }\right)                                                                                                                                                                                    \\
+	\dot{\bar{p }}_j & =-\frac{\partial \mathcal{H }}{\partial \bar{p }_j}
+\end{align*}
+
 \end{document}
