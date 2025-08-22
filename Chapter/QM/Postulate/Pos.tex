@@ -39,6 +39,16 @@ Compare it with the classical mechanics postulate via Hamiltonian formalism
     Every dynamical variable $\omega$ is a function of $x$ and $p$, that is $\omega=\omega(x,p)$.
 \end{quotation}
 
+\section{Discussion: ambiguity of operator.}
+The definition $        \Omega(X,P)=\omega \left( x\rightarrow X, p\rightarrow P \right) $ is ambiguous.
+Suppose $\omega=xp$.
+We do not know $\Omega=PX$ or $\Omega=XP$ since $px=xp$ classically.
+The rule is to use symmetric sum
+\begin{equation*}
+    \Omega=\frac{XP+PX }{2}
+\end{equation*}
+which also render $\Omega$ Hermitian.
+
 \subsection{Third Postulate}
 As the following
 \begin{quotation}
@@ -90,7 +100,7 @@ Compare it with the classical mechanics postulate via Hamiltonian formalism
 \begin{quotation}
 The state variables change with time according to Hamilton's equations
 \begin{equation*}
-    \dot{x}=\frac{\partial \mathcal{H }}{\partial p}\qquad \dot{p }=\frac{\partial \mathcal{H }}{\partial x}
+    \dot{x}=\frac{\partial \mathcal{H }}{\partial p}\qquad \dot{p }=-\frac{\partial \mathcal{H }}{\partial x}
 \end{equation*}
 \end{quotation}
 
