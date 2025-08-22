@@ -63,6 +63,20 @@ Suppose there exist state described by
 \end{equation*}
 Measurement can either yield $\omega_1$ or $\omega_2$ with the probabilities $|\alpha^2|/(\alpha^2+\beta^2)$ and $|\beta^2|/(\alpha^2+\beta^2)$ respectively.
 
+\subsubsection{Discussion: change of basis.}
+Suppose our interest switch to measuring $\Lambda$ from the measurement of $\Omega$--note that this does not mean a successive measurement.
+Recall that to obtain the probability of $\omega$, we need to $\ket{\psi}$ in the $\Omega$ basis.
+To obtain the probability of $\lambda$, then, we can do the same; but there is no need to expand $\ket{\psi}$ in $\Lambda$ given we already expanded $\ket{\psi}$ in $\Omega$ basis.
+Working in $\Omega$ basis, we have 
+\begin{equation*}
+    \ket{\psi }=\sum_i \ket{\omega_i } \braket{\omega_i |\psi}\qquad\text{and}\quad P(\omega_i)=|\braket{\omega_i|\psi}|^2
+\end{equation*}
+If we wanted the probability of $\lambda$, we can simply project $\ket{\psi}$ in the eigenvectors $\ket{\lambda}$
+\begin{equation*}
+    \braket{\lambda_i|\psi}=\sum_j \braket{\lambda_i|\omega_j}\braket{\omega_j|\psi}
+\end{equation*}
+
+
 \subsection{Fourth Postulate}
 As the following
 \begin{quotation}
