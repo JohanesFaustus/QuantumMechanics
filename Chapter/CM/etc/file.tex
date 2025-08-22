@@ -1,16 +1,16 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-\subsection*{Newton's Law}
-\subsubsection*{First law.} In the absence of an external force, when viewed from an inertial frame, an object at rest remains at rest and an object in uniform motion in a straight line maintains that motion.
+\subsection{Newton's Law}
+\subsubsection{First law.} In the absence of an external force, when viewed from an inertial frame, an object at rest remains at rest and an object in uniform motion in a straight line maintains that motion.
 
-\subsubsection*{Second law.} Simply put 
+\subsubsection{Second law.} Simply put 
 \begin{equation*}
     \mathbf{F}=\frac{d\mathbf{p}}{dt}
 \end{equation*}
 
-\subsubsection*{Third law.} States that if two objects interact, the force exerted by object 1 on object 2 is equal in magnitude and opposite in direction to the force exerted by object 2 on object 1.
+\subsubsection{Third law.} States that if two objects interact, the force exerted by object 1 on object 2 is equal in magnitude and opposite in direction to the force exerted by object 2 on object 1.
 
-\subsection*{Particle Under Constant Acceleration}
+\subsection{Particle Under Constant Acceleration}
 Here's some kinematics equation for position
 \begin{align*}
     x(t)&=x_i+\frac{1}{2}(v_i+v_f)t\\
@@ -22,7 +22,7 @@ and for velocity
     v(t)^2&=v_i^2+2a(x_f-x_i)
 \end{align*}
 
-\subsection*{Particle in Uniform Circular Motion}
+\subsection{Particle in Uniform Circular Motion}
 If a particle moves in a circular path of radius $r$ with a constant speed $v$, the magnitude of its centripetal acceleration is given by
 \begin{equation*}
     a_r=\frac{v^2}{r}
@@ -36,7 +36,7 @@ Applying Newton's second law
     \sum F=ma_r=m\frac{v^2}{r}
 \end{equation*}
 
-\subsection*{Rigid Object Under Constant Angular Acceleration} Analogous to those for translational motion of a particle under constant acceleration
+\subsection{Rigid Object Under Constant Angular Acceleration} Analogous to those for translational motion of a particle under constant acceleration
 \begin{align*}
     \omega(t)&=\omega_i+\alpha t\\
     \omega(t)^2&=\omega_i^2+2\alpha(\theta_t-\theta_i)\\
@@ -44,54 +44,54 @@ Applying Newton's second law
     \theta(t)&=\theta_i+\frac{1}{2}(\omega_i+\omega_f)t
 \end{align*}
 
-\subsection*{Relation of Linear and Rotational Motion}
+\subsection{Relation of Linear and Rotational Motion}
 The following equations show the relation of linear and rotational motion
 \begin{equation*}
     s=r\theta,\quad v=r\omega,\quad a_t=r\alpha
 \end{equation*}
 
-\subsection*{Torque}
+\subsection{Torque}
 The torque associated with a force $\mathbf{F}$ acting on an object
 \begin{equation*}
     \boldsymbol{\tau}=\mathbf{r}\times\mathbf{F}=I \mathbf{\alpha} =\frac{d\mathbf{L}}{dt}
 \end{equation*}
 
-\subsection*{Moment of Inertia}
+\subsection{Moment of Inertia}
 The moment of inertia of a rigid object is 
 \begin{equation*}
     I=\sum mr^2=\int r^2 dm
 \end{equation*}
 
-\subsubsection*{Parallel Axis Theorem.} To calculate the moment inertia from any axis, we use parallel axis theorem 
+\subsubsection{Parallel Axis Theorem.} To calculate the moment inertia from any axis, we use parallel axis theorem 
 \begin{equation*}
     I=I_\text{CM}+Md^2
 \end{equation*}
 
-\subsection*{Terminal velocity}
-\subsubsection*{$\boldsymbol{r\propto v}$.} The velocity as a function of time is 
+\subsection{Terminal velocity}
+\subsubsection{$\boldsymbol{r\propto v}$.} The velocity as a function of time is 
 \begin{equation*}
     v=\frac{mg}{b}\left[1-\exp\left(-\frac{bt}{m}\right)\right]=v_T\left[1-\exp\left(-\frac{bt}{m}\right)\right]
 \end{equation*}
 where $b$ is a resistive constant whose value depends on the properties of the medium.
-\subsubsection*{$\boldsymbol{r\propto v^2}$.} Given by 
+\subsubsection{$\boldsymbol{r\propto v^2}$.} Given by 
 \begin{equation*}
     v_T=\sqrt{\frac{2mg}{D\rho A}}
 \end{equation*}
 where $D$ is a dimensionless empirical quantity called the drag coefficient, $\rho$ is the density of air, and $A$ is the cross-sectional area of the moving object.
 
-\subsubsection*{Escape velocity.} The speed required by an object to escape from any planet orbit is 
+\subsubsection{Escape velocity.} The speed required by an object to escape from any planet orbit is 
 \begin{equation*}
     v_\text{esc}=\sqrt{\frac{2GM}{R}}
 \end{equation*}
 
-\subsection*{Work Energy Theorem}
+\subsection{Work Energy Theorem}
 It states that if work is done on a system by external forces and
 the only change in the system is in its speed,
 \begin{equation*}
     W=\Delta T
 \end{equation*}
 
-\subsection*{Kinetic Energy}
+\subsection{Kinetic Energy}
 For an object in linear motion, the kinetic energy of said object is 
 \begin{equation*}
     T=\frac{1}{2}mv^2
@@ -105,7 +105,7 @@ Hence the total kinetic energy of a rigid object rolling on a rough surface with
     T=\frac{1}{2}mv_\text{CM}^2+\frac{1}{2}I\omega_\text{CM}^2
 \end{equation*}
 
-\subsection*{Potential Energy Function}
+\subsection{Potential Energy Function}
 For conservative energy $\mathbf{F}$, applies
 \begin{equation*}
     V_f-V_i=-\int_{\mathbf{r_i}}^{\mathbf{r_f}}\mathbf{F}\cdot d\mathbf{r}
@@ -120,7 +120,7 @@ and elastic potential stored in spring
     V=\frac{1}{2}kx^2
 \end{equation*}
 
-\subsection*{Effective potential}
+\subsection{Effective potential}
 Effective potential energy $U_\text{eff} (r)$ is the sum of the actual potential energy $U(r)$ and the centrifugal $U_\text{cf} (r)$:
 \begin{equation*}
     U_\text{eff} (r)=U(r)+\frac{l^2}{2\mu r^2}
@@ -130,13 +130,13 @@ where $l$ is the angular momentum and $\mu$ is the reduced mass
     \mu=\frac{m_1m_2}{m_1+m_2}
 \end{equation*}
 
-\subsection*{Momentum Impulse}
+\subsection{Momentum Impulse}
 The linear momentum and impulse are defined as 
 \begin{equation*}
     \mathbf{p}=m\mathbf{v},\quad \mathbf{I}=\int_{t_i}^{t_f}\sum \mathbf{F}\;dt
 \end{equation*}
 
-\subsubsection*{Angular Momentum} 
+\subsubsection{Angular Momentum} 
 The angular momentum about an axis through the origin of a particle having linear momentum
 \begin{equation*}
     \mathbf{L}=\mathbf{r}\times \mathbf{p}
@@ -147,7 +147,7 @@ The $z$ component of angular momentum of a rigid object rotating about a fixed $
 \end{equation*}
 
 
-\subsection*{Center of Mass and Velocity}
+\subsection{Center of Mass and Velocity}
 The position vector of the center of mass of a system of particles is defined as
 \begin{equation*}
     \mathbf{r}_\text{CM}=\frac{1}{M}\sum m\mathbf{r}=\frac{1}{M}\int \mathbf{r}\;dm
@@ -157,27 +157,27 @@ where $M$ is the total mass. The velocity of the center of mass for a system of 
     \mathbf{v}_\text{CM}=\frac{1}{M}\sum m\mathbf{v}=
 \end{equation*}
 
-\subsection*{Collision}
-\subsubsection*{Inelastic collision.} One for which the total kinetic energy of the system of colliding particles is not conserved.
+\subsection{Collision}
+\subsubsection{Inelastic collision.} One for which the total kinetic energy of the system of colliding particles is not conserved.
 
-\subsubsection*{Elastic collision.} One in which the kinetic energy of the
+\subsubsection{Elastic collision.} One in which the kinetic energy of the
 system is conserved.
 
-\subsubsection*{Perfectly inelastic.} A collision which the colliding particles stick together after the collision.
+\subsubsection{Perfectly inelastic.} A collision which the colliding particles stick together after the collision.
 
-\subsubsection*{Rocket Propulsion} The expression for rocket propulsion
+\subsubsection{Rocket Propulsion} The expression for rocket propulsion
 is 
 \begin{equation*}
     v_f-v_i=v_e\ln\frac{M_i}{M_f}
 \end{equation*}
 
-\subsection*{Power}
+\subsection{Power}
 The rate at which work is done by an external force, called power, is
 \begin{equation*}
     P=\frac{dE}{dt}=Fv=\tau\omega
 \end{equation*}
 
-\subsection*{Newton's Law on Gravity}
+\subsection{Newton's Law on Gravity}
 \begin{equation*}
     \mathbf{F}=G\frac{m_1m_2}{r^2}\mathbf{\hat{r}}
 \end{equation*}
@@ -191,21 +191,21 @@ In general, the gravitational field experienced by mass $m$ is
 \end{equation*}
 
 
-\subsection*{Kepler's Law}
-\subsubsection*{First Law.} All planets move in elliptical orbits with the Sun at one focus.
-\subsubsection*{Second Law} The radius vector drawn from the Sun to a planet sweeps out equal areas in equal time intervals.
-\subsubsection*{Third Law} Simply put 
+\subsection{Kepler's Law}
+\subsubsection{First Law.} All planets move in elliptical orbits with the Sun at one focus.
+\subsubsection{Second Law} The radius vector drawn from the Sun to a planet sweeps out equal areas in equal time intervals.
+\subsubsection{Third Law} Simply put 
 \begin{equation*}
     T^2=\frac{4\pi^2a^3}{GM_S}
 \end{equation*}
 where $a$ is semimajor axis and $M_S$ is the mass of the sun. 
 
-\subsection*{Energy of Gravitational system}
-\subsubsection*{Potential energy.} The gravitational potential energy associated with a system of two particles is
+\subsection{Energy of Gravitational system}
+\subsubsection{Potential energy.} The gravitational potential energy associated with a system of two particles is
 \begin{equation*}
     V=-\frac{Gm_1m_2}{r}
 \end{equation*}
-\subsubsection*{Total energy.} The total energy of the system is the sum
+\subsubsection{Total energy.} The total energy of the system is the sum
 of the kinetic and potential energies
 \begin{equation*}
     E=\frac{1}{2}mv^2-G\frac{Mm}{r}=-\frac{GMm}{2r}

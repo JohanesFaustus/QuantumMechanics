@@ -27,66 +27,105 @@
 
 \allowdisplaybreaks
 
-\titleformat{\chapter}[hang]{\thispagestyle{empty}\centering \Huge \bfseries}{}{}{}[\clearpage]
-\titleformat{\section}[hang]{\bfseries\Large\centering}{}{}{}[\vspace{0.5cm}]
-\titleformat{\subsection}[hang]{\bfseries\large}{}{}{}[\noindent\rule{\textwidth}{0.4pt}]
-\titleformat{\subsubsection}[runin]{\bfseries}{}{}{\indent}
+\usepackage{hyperref}
+\hypersetup{bookmarksopen=true}
+
+\usepackage{etoolbox}
+\makeatletter
+\makeatother
+
+\titleformat{\chapter}[display]
+  {\thispagestyle{empty}\centering \Huge \bfseries} % format
+  {}                                                % label (empty = no number)
+  {0pt}                                             % sep
+  {}                                                % before-code
+\titlespacing*{\chapter}{0pt}{\fill}{\fill}
+
+\titleformat{\section}[hang]
+  {\bfseries\Large\centering}
+  {} % empty = no section number
+  {0pt}
+  {}
+  [\vspace{0.5cm}]
+
+\titleformat{\subsection}[hang]
+  {\bfseries\large}
+  {} % empty = no subsection number
+  {0pt}
+  {}
+  [\noindent\rule{\textwidth}{0.4pt}]
+
+\titleformat{\subsubsection}[runin]
+  {\bfseries}
+  {} % empty = no subsubsection number
+  {0pt}
+  {\indent}
+
+\titleformat{\paragraph}[runin]
+  {\itshape}
+  {} % empty = no paragraph number
+  {0pt}
+  {\indent}
+
+
 
 \begin{document}
 \pagestyle{empty}
 
 \subfile{./Chapter/COV/Cover.tex}\clearpage
 
-\chapter*{Mathematics}
+\chapter{Mathematics}\clearpage
 
-\section*{Linear Algebra}
+\section{Linear Algebra}
 \subfile{./PhysicalMathematics/Section/LinearAlgbra/LinAlg.tex}\clearpage
 
-\section*{Vector Analysis}
+\section{Vector Analysis}
 \subfile{./PhysicalMathematics/Section/VectorAnalysis/VA.tex}\clearpage
 
-\section*{Partial Derivative}
+\section{Partial Derivative}
 \subfile{./PhysicalMathematics/Section/PartialDerivative/PD.tex}\clearpage
 \subfile{./PhysicalMathematics/Section/PartialDerivative/PDAppend.tex}\clearpage
 
-\section*{Variation Calculus}
+\section{Variation Calculus}
 \subfile{./PhysicalMathematics/Section/VariationCalculus/Var.tex}\clearpage
 \subfile{./PhysicalMathematics/Section/VariationCalculus/VarAppl.tex}\clearpage
 
-\chapter*{Classical Mechanics}
-\section*{Unasorted Classical Mechanics Topics}
+\chapter{Classical Mechanics}\clearpage
+
+\section{Unasorted Classical Mechanics Topics}
 \subfile{./Chapter/CM/etc/file.tex}\clearpage
 \subfile{./Chapter/CM/Problems/Prob.tex}\clearpage
 
-\section*{Central Force}
+\section{Central Force}
 \subfile{./Chapter/CM/CentralForce/CF.tex}\clearpage
 
-\section*{Energy}
+\section{Energy}
 \subfile{./Chapter/CM/Energy/Energy.tex}\clearpage
 
-\section*{Lagrangian Mechanics}
+\section{Lagrangian Mechanics}
 \subfile{./Chapter/CM/Lagrange/Lagrangian.tex}\clearpage
 \subfile{./Chapter/CM/Lagrange/LgAppl.tex}\clearpage
 
-\section*{Hamiltonian Mechanics}
+\section{Hamiltonian Mechanics}
 \subfile{./Chapter/CM/Hamiltion/Hamiltonian.tex}\clearpage
 \subfile{./Chapter/CM/Hamiltion/ApplHamltn.tex}\clearpage
 
-\chapter*{Quantum Mechanics}
+\chapter{Quantum Mechanics}\clearpage
+\section{Unasorted Quantum Mechanics Topics}
 \subfile{./Chapter/QM/etc/file.tex}\clearpage
 \subfile{./Chapter/QM/etc/fileAppend.tex}\clearpage
 
-\chapter*{Nuclear Physics}
-\section*{Introduction}
+\chapter{Nuclear Physics}\clearpage
+\section{Introduction}
 \subfile{./Chapter/Nuclear/etc/file.tex}\clearpage
 
-\section*{Radioactivity}
+\section{Radioactivity}
 \subfile{./Chapter/Nuclear/Radioactive/Rad.tex}\clearpage
 
-\section*{Particle Physics}
+\section{Particle Physics}
 \subfile{./Chapter/Nuclear/Elementary/Element.tex}\clearpage
 
-\section*{Nuclear Model}
+\section{Nuclear Model}
 \subfile{./Chapter/Nuclear/NuclearModel/NM.tex}
 %\printbibliography
 \end{document}

@@ -40,7 +40,7 @@ The steps to solve problem using Hamilton formalism are as follows.
 	\item Write the Hamilton equation for motion.
 \end{enumerate}
 
-\subsection*{Notation}
+\subsection{Notation}
 To avoid clutter, we define the following notation.
 The $n$-dimension system with $n$-generalized coordinate is represented by
 \begin{equation*}
@@ -56,7 +56,7 @@ and generalized momentum
 \end{equation*}
 In this case, $\mathbf{p}$ and $\mathbf{p}$ are $n$-dimensional vectors in the space of generalized position and generalized momentum.
 
-\subsection*{Definition}
+\subsection{Definition}
 The definition Hamiltonian comes from Lagrangian.
 To see this, consider the change of Lagrangian $\mathcal{L}(\mathbf{q},\dot{\mathbf{q}},t)$ as the time increase
 \begin{align*}
@@ -75,7 +75,7 @@ which is defined as Hamiltonian, is conserved. In other words,
 	\frac{\partial\mathcal{L}}{\partial t}=0\implies\frac{dH}{dt}=0
 \end{equation*}
 
-\subsection*{Special Case of Hamiltonian}
+\subsection{Special Case of Hamiltonian}
 The special case we are referring is $\mathcal{H}=T+U$, which occur when the coordinates are natural
 \begin{equation*}
 	\mathbf{r}_\alpha=\mathbf{r}_\alpha(\mathbf{q})
@@ -119,7 +119,7 @@ Therefore, the Hamiltonian now reads
 	\mathcal{H} & =2T-T+U=T+U
 \end{align*}
 
-\subsection*{Hamilton Equation Derivation}
+\subsection{Hamilton Equation Derivation}
 The assumption that must be satisfied first are the constraint must be holonomic--the number of degree of freedom matches the number of generalized coordinates--and that the non constraint force must be derivable from potential energy $\mathbf{F}=-\nabla U$.
 In principle, to obtain Hamilton equation of motion, we differentiate the Hamiltonian $\mathcal{H}(\mathbf{q},\mathbf{p})$ with both variable $q_i$ and $p_i$.
 To evaluate the derivative, we need to express the Hamiltonian
@@ -176,7 +176,7 @@ Substituting into the Hamiltonian
 	\frac{\partial \mathcal{H}}{\partial q_i}=\dot{q}_i+\sum_jp_j\frac{\partial \dot{q}_j}{\partial p_j}-\sum_jp_j\frac{\partial \dot{q}_j}{\partial p_i}=\dot{q}_i
 \end{equation*}
 
-\subsection*{Hamiltonian Dependence on Time}
+\subsection{Hamiltonian Dependence on Time}
 Consider the total derivative of the Hamiltonian with respect to time
 \begin{equation*}
 	\frac{d\mathcal{H}}{\partial t}=\sum_{i}\left(\frac{\partial\mathcal{H}}{\partial q_i}\dot{q}+\frac{\partial\mathcal{H}}{\partial p_i}\dot{p}_i\right)+\frac{\partial\mathcal{H}}{\partial t}
@@ -190,7 +190,7 @@ In other hand, the partial derivative $\partial\mathcal{H}/\partial t$ denote th
 This will be zero if $\mathcal{H}$ does not explicitly depend on $t$.
 Thus, if $\mathcal{H}$ does not explicitly depend on $t$, then $\mathcal{H}$ is conserved.
 
-\subsection*{Newton's Law in 2D}
+\subsection{Newton's Law in 2D}
 Since we are using 2D Cartesian, the Hamiltonian is simply the system energy
 \begin{equation*}
 	\mathcal{H}=\frac{1}{2}m(\dot{x}^2+\dot{y}^2)+U(x,y)=\frac{1}{2m}\left(p_x^2+p_y^2\right)+U(x,y)
@@ -208,7 +208,7 @@ Combining both, we obtain the Newton's definition of momentum and force
 	\mathbf{p}=m\mathbf{r}\qquad\mathbf{F}=\frac{d\mathbf{p}}{dt}
 \end{equation*}
 
-\subsubsection*{Newton's Law in Polar Coordinate}
+\subsubsection{Newton's Law in Polar Coordinate}
 As previously, the Hamiltonian is the system energy
 \begin{equation*}
 	\mathcal{H}(r,\phi,\dot{r},\dot{\phi})=\frac{1}{2}m\left(\dot{r}^2+r^2\dot{\phi}^2\right)-U(r)
@@ -240,7 +240,7 @@ Then the angular component
 \end{equation*}
 which reproduce the definition of angular momentum and conservation of angular momentum.
 
-\subsection*{Hamiltonian of a Charge in an Electromagnetic Field}
+\subsection{Hamiltonian of a Charge in an Electromagnetic Field}
 The Hamiltonian is
 \begin{equation*}
 	\mathcal{H }=\frac{1 }{2m }\left( \mathbf{p }-q \mathbf{A } \right) ^2+qV
@@ -254,7 +254,7 @@ The momentum evolution is consistent with the Lorentz force law
 	\mathbf{F }=q \left( \mathbf{E }+\mathbf{v }\times \mathbf{B } \right)
 \end{equation*}
 
-\subsubsection*{Derivation.}
+\subsubsection{Derivation.}
 By definition, Hamiltonian in three dimension is
 \begin{equation*}
 	\mathcal{H }=\sum_{i=1 }^{3 }q_ip_i-\mathcal{L }=\mathbf{p} \cdot \dot{\mathbf{r}}- \mathcal{L}
@@ -328,7 +328,7 @@ Hence, we obtain our desired result
 	\mathbf{F}=q \left( \mathbf{E}+\dot{\mathbf{r}}\times \mathbf{B} \right)
 \end{equation*}
 
-\subsection*{Poisson Bracket}
+\subsection{Poisson Bracket}
 Poisson bracket between two variable $\omega(q,p)$ and $\lambda(q,p)$ is defined as
 \begin{equation*}
 	\left\{ \omega,\lambda \right\}\equiv \sum_i \left( \frac{\partial \omega }{\partial q_i }\frac{\partial \lambda }{\partial p_i }-\frac{\partial \omega }{\partial p_i }\frac{\partial \lambda }{\partial q_i} \right)
@@ -342,7 +342,7 @@ Key properties of Poisson bracket are as follows.
 	\item \textbf{Leibniz rule.} $\left\{ fg,h  \right\}=f \left\{ g,h  \right\}	+\left\{ f,h  \right\}g$
 \end{enumerate}
 
-\subsubsection*{Time evolution.}
+\subsubsection{Time evolution.}
 In Hamiltonian mechanics, any variable that does not depend on explicitly with time $\omega(\mathbf{q},\mathbf{p}) 	$ whose Poisson brackets with $\mathcal{H }$ vanish
 \begin{equation*}
 	\left\{ \omega,\mathcal{H } \right\}=0
@@ -358,7 +358,7 @@ For variable that depend on explicitly with time $\omega(\mathbf{q}, \mathbf{p }
 	\frac{d \omega }{dt}=\left\{ \omega,\mathcal{H } \right\}+\frac{\partial \omega }{\partial t}
 \end{equation*}
 
-\subsubsection*{Canonically conjugate.}
+\subsubsection{Canonically conjugate.}
 Phase space coordinates that satisﬁes the following equations are called canonically conjugate.
 \begin{equation*}
 	\left\{ q_i,q_j  \right\}=0\qquad \left\{ p_i,p_j  \right\}=0\qquad \left\{ q_i,p_j  \right\}=\delta_{ij}
@@ -371,7 +371,7 @@ To see why that is the case, consider the expanded form of Poisson bracket
 \end{align*}
 Note that $(\mathbf{q },\mathbf{p })$ are independent variables.
 
-\subsection*{Canonical Transformation}
+\subsection{Canonical Transformation}
 In short, canonical transformation from $(q,p)$ to $(\bar{q}, \bar{p})$ is a change of coordinates that preserves the canonical structure of Hamiltonian mechanics.
 By this requirement, they must satisfy the Hamiltonian equation
 \begin{equation*}
@@ -383,7 +383,7 @@ Since the original coordinate is canonically conjugate, the new coordinate must 
 	\left\{ \bar{q}_i,\bar{q }_j  \right\}=0\qquad \left\{ \bar{p}_i,\bar{p}_j  \right\}=0\qquad \left\{ \bar{q}_i,\bar{p}_j  \right\}=\delta_{ij}
 \end{equation*}
 
-\subsubsection*{Proof.}
+\subsubsection{Proof.}
 We shall proof that the new transformed coordinate still obeys the Hamiltonian equation.
 
 First note by performing the transformation, the Hamiltonian in Hamilton equation is expressed as a function of the new coordinate $\mathcal{H }=\mathcal{H }(\mathbf{\bar{q} },\mathbf{\bar{p} })$.

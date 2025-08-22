@@ -81,7 +81,7 @@ The steps to solve problem using Lagrangian formalism are as follows.
 	\item Write $n$ Lagrange equation.
 \end{enumerate}
 
-\subsection*{Proof of Lagrange Equation with Constraint}
+\subsection{Proof of Lagrange Equation with Constraint}
 Suppose a particle has two degree of freedom with two kinds of forces act on it:
 constraint force $\mathbf{F}_\text{cstr}$, say interatomic forces that bind rigid body atom together;
 and the is non constraint conservative forces $\mathbf{F}$, which at minimum must be able to be derived from potential energy $F=-\nabla U(\mathbf{r},t)$, say gravitational force.
@@ -156,7 +156,7 @@ which will result in two Euler-Lagrange equation
 \begin{equation*}
 	\frac{\partial \mathcal{L}}{\partial q_1}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_1},\qquad\frac{\partial \mathcal{L}}{\partial q_2}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}
 \end{equation*}
-\subsection*{Newton Law in 2D Cartesian}
+\subsection{Newton Law in 2D Cartesian}
 The Lagrangian in this case is
 \begin{equation*}
 	\mathcal{L}(x,y,\dot{x},\dot{y})=\frac{1}{2}m(\dot{x}^2+\dot{y}^2)-U(x,y)
@@ -182,7 +182,7 @@ Substituting this result in the two Euler-Lagrange equation, we have
 \end{equation*}
 which are the two component of Newton second law $\mathbf{F}=m\mathbf{\ddot{r}}$.
 
-\subsection*{Newton Law in Polar Coordinate}
+\subsection{Newton Law in Polar Coordinate}
 The Lagrangian is
 \begin{equation*}
 	\mathcal{L}(r,\phi,\dot{\mathbf{r}},\dot{\phi})=\frac{1}{2}m(\dot{\mathbf{r}}^2+r^2\dot{\phi}^2)-U(r,\phi)
@@ -213,7 +213,7 @@ which is, as previously mentioned, the angular component of Newton's second law.
 	\Gamma=F_\phi r=\frac{dL}{dt}=\frac{d}{dt}mr^2\dot{\phi}
 \end{equation*}
 
-\subsection*{Lagrangian with Explicit Constraint Forces Using Lagrange Multipliers}
+\subsection{Lagrangian with Explicit Constraint Forces Using Lagrange Multipliers}
 The modified Euler-Lagrangian that include constraining force can be obtained by Lagrange Multipliers.
 For two dimension Lagrangian $\mathcal{L}(x,\dot{x},y,\dot{y},t)$ with one constraint $f(x,y)=C$, we must solve two modified Lagrange equation plus one for the constraint
 \begin{align*}
@@ -227,7 +227,7 @@ Lagrange multiplier is not simply mathematical technique, in fact given partial 
 	\lambda\frac{\partial f}{\partial q_i}=F_i^{\text{cstr}}
 \end{equation*}
 
-\subsubsection*{Derivation.}
+\subsubsection{Derivation.}
 We consider the case of two dimension Lagrange.
 Then deviate the correct path $x(t)$ and $y(t)$ into
 \begin{align*}
@@ -265,7 +265,7 @@ Since the multipliers is arbitrary, we define Lagrange multipliers such that the
 \end{align*}
 Now we add the constraint equation since we need three equation to find three equation in three unknown.
 
-\subsubsection*{Lagrange multipliers physical meaning.}
+\subsubsection{Lagrange multipliers physical meaning.}
 Given that the kinetic energy of the system does not depend on the position and the potential energy does not depend on velocity, the modified Euler-Lagrange equation reads
 \begin{align*}
 	-\frac{\partial U}{\partial q_i}+\lambda\frac{\partial d}{\partial q_i}&=m\ddot{q}_i\\
@@ -278,7 +278,7 @@ The total force is the sum of non constraint force and constraint force, so
 \end{equation*}
 
 
-\subsubsection*{Comparison with the usual function optimization using Lagrange multipliers.}
+\subsubsection{Comparison with the usual function optimization using Lagrange multipliers.}
 Let us compare the optimization method of Lagrange multipliers when the function we are concerned is $f(x,y)$ instead of the previous case of action integral $S$.
 To optimize $f(x,y)$, set its derivative to zero
 \begin{equation*}
@@ -299,7 +299,7 @@ while in the action integral case
 \end{equation*}
 In any case, we need to solve those two resulting function alongside the constraint equation.
 
-\subsection*{Lagrangian for a Charge in an Electromagnetic Field}
+\subsection{Lagrangian for a Charge in an Electromagnetic Field}
 The Lagrangian is 
 \begin{equation*}
 	\mathcal{L}=\frac{1}{2}m\dot{\mathbf{r}}^2-q(V-\dot{\mathbf{r}}\cdot \mathbf{A})
@@ -309,7 +309,7 @@ This Lagrangian is defined is such way to produce the Lorentz force law
 	\mathbf{F}=q \left( \mathbf{E}+\dot{\mathbf{r}}\times \mathbf{B} \right) 
 \end{equation*}
 
-\subsubsection*{Derivation.}
+\subsubsection{Derivation.}
 The derivation of Lagrangian for particle in electromagnetic field assumes you know field and gauge theory.
 Since you didn't, we shall only prove that the Lagrangian does give the correct equation of motion.
 

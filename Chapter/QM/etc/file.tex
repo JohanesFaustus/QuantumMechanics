@@ -1,7 +1,7 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-\subsection*{Braket notation}
-\subsubsection*{Ket.} $\ket{\psi}$ represents quantum state. Written in matrix form as 
+\subsection{Braket notation}
+\subsubsection{Ket.} $\ket{\psi}$ represents quantum state. Written in matrix form as 
 \begin{equation*}
     \ket{\psi}=\begin{pmatrix}
         \psi_0\\
@@ -10,7 +10,7 @@
         \psi_n
     \end{pmatrix}
 \end{equation*}
-\subsubsection*{Bra.} $\bra{\psi}$ is the Hermitian conjugate (complex conjugate transpose) of the ket $\ket{\psi}$
+\subsubsection{Bra.} $\bra{\psi}$ is the Hermitian conjugate (complex conjugate transpose) of the ket $\ket{\psi}$
 \begin{equation*}
     \bra{\psi}=\begin{pmatrix}
         \psi_0&
@@ -20,7 +20,7 @@
     \end{pmatrix}
 \end{equation*}
 
-\subsubsection*{Inner Product.} Written
+\subsubsection{Inner Product.} Written
 \begin{equation*}
     \braket{\phi|\psi}=\begin{cases}
         0, \text{ if orthogonal}\\
@@ -28,18 +28,18 @@
     \end{cases}
 \end{equation*}
 
-\subsection*{Operator}
-\subsubsection*{Position Operator.} Represents the position of a particle.
+\subsection{Operator}
+\subsubsection{Position Operator.} Represents the position of a particle.
 \begin{equation*}
     \hat{x}=x
 \end{equation*}
 
-\subsubsection*{Momentum Operator.} 
+\subsubsection{Momentum Operator.} 
 \begin{equation*}
     \hat{p}= -i\hbar\nabla
 \end{equation*}
 
-\subsubsection*{Energy Operator.} 
+\subsubsection{Energy Operator.} 
 \begin{equation*}
     \hat{E}=i \hbar \frac{\partial}{\partial t}
 \end{equation*}
@@ -48,7 +48,7 @@ Its action on the energy eigenstates is given by:
     \braket{\psi|\hat{E}|\psi}=E_n
 \end{equation*}
 
-\subsubsection*{Hamiltonian Operator.}
+\subsubsection{Hamiltonian Operator.}
 \begin{equation*}
     \hat{H}=-\frac{\hbar^2}{2m}\nabla^2 +V(x)
 \end{equation*}
@@ -65,7 +65,7 @@ where the energy eigenvalues are
     E_n=\hbar\omega\left(n+\frac{1}{2}\right)
 \end{equation*}
 
-\subsubsection*{Creation operator.} Increases the system's energy, thus often said to be raising operator. Defined as 
+\subsubsection{Creation operator.} Increases the system's energy, thus often said to be raising operator. Defined as 
 \begin{equation*}
     a^\dagger = \frac{1}{\sqrt{2\hbar m \omega}} \left( m\omega x - i p \right)
 \end{equation*}
@@ -85,7 +85,7 @@ Its action on the energy eigenstates $\ket{n}$ is given by:
 a^\dagger \ket{n} = \sqrt{n+1} \ket{n+1}
 \end{equation*}
 
-\subsubsection*{Annihilation operator.} Decrease the system's energy, thus often said to be lowering operator. Defined as
+\subsubsection{Annihilation operator.} Decrease the system's energy, thus often said to be lowering operator. Defined as
 \begin{equation*}
     a = \frac{1}{\sqrt{2\hbar m \omega}} \left( m\omega x + i p \right)
 \end{equation*}
@@ -106,36 +106,36 @@ Its action on the energy eigenstates $\ket{n}$ is given by:
     a \ket{n} = \sqrt{n} \ket{n-1}
 \end{equation*}
 
-\subsection*{Commutator}
+\subsection{Commutator}
 Commutator measures how much two physical quantities fail to be simultaneously measurable or well-defined. It is defined as 
 \begin{equation*}
     [A,B]=AB-BA
 \end{equation*}
 If $[A,B]=0$, then $A$ and $B$ commute and can be simultaneously measured with arbitrary precision. If not, their measurement outcomes interfere with each other.
 
-\subsection*{Expectation value}
-\subsubsection*{Braket notation.}
+\subsection{Expectation value}
+\subsubsection{Braket notation.}
 \begin{equation*}
     \braket{\hat{A}}=\braket{\psi|\hat{A}|\psi}
 \end{equation*}
 
-\subsubsection*{Matrix notation.}
+\subsubsection{Matrix notation.}
 \begin{equation*}
     \braket{\hat{A}}=\psi^{\dagger}\hat{A}\psi
 \end{equation*}
 
-\subsubsection*{Integral notation.} If $\psi(x)$ is the wavefunction in the position representation
+\subsubsection{Integral notation.} If $\psi(x)$ is the wavefunction in the position representation
 \begin{equation*}
     \braket{\hat{A}}=\int_{-\infty}^{\infty}\psi^*(x)\hat{A}\psi(x)\;dx
 \end{equation*}
 
-\subsection*{Normalization}
-\subsubsection*{Braket notation.}
+\subsection{Normalization}
+\subsubsection{Braket notation.}
 \begin{equation*}
     \braket{\psi|\psi}=1
 \end{equation*}
 
-\subsubsection*{Integral notation.} If $\psi(x)$ is the wavefunction in the position representation
+\subsubsection{Integral notation.} If $\psi(x)$ is the wavefunction in the position representation
 \begin{equation*}
     \int_{-\infty}^{\infty}\psi^*(x)\hat{A}\psi(x)\;dx=1
 \end{equation*}
