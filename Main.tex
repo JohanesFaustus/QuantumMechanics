@@ -23,7 +23,7 @@
 \newcommand{\z}{\mathbf{\hat{z}}}
 
 \usepackage[backend=biber]{biblatex}
-\addbibresource{./export.bib}
+\addbibresource{QM.bib}
 
 \allowdisplaybreaks
 
@@ -78,6 +78,7 @@
 
 \section{Linear Algebra}
 \subfile{./PhysicalMathematics/Section/LinearAlgbra/LinAlg.tex}\clearpage
+\subfile{./PhysicalMathematics/Section/LinearAlgbra/LinAlgAppl.tex}\clearpage
 
 \section{Vector Analysis}
 \subfile{./PhysicalMathematics/Section/VectorAnalysis/VA.tex}\clearpage
@@ -129,7 +130,9 @@
 \subfile{./Chapter/Nuclear/Elementary/Element.tex}\clearpage
 
 \section{Nuclear Model}
-\subfile{./Chapter/Nuclear/NuclearModel/NM.tex}
-%\printbibliography
+\subfile{./Chapter/Nuclear/NuclearModel/NM.tex}\clearpage
+
+\nocite{*}
+\printbibliography
 \end{document}
 
