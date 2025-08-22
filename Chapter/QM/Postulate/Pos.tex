@@ -49,6 +49,20 @@ Compare it with the classical mechanics postulate via Hamiltonian formalism
     If the particle is in a state given by $x$ and $p$, the measurement of the variable $\omega$ will yield a value $\omega(x,p)$. The state will remain unaffected.
 \end{quotation}
 
+\subsubsection{Discussion: probability.}
+The theory makes only probabilistic predictions for the result of a measurement of $\Omega$, which only have the possible values of its eigenvalues, which also all real by the postulate.
+The postulate also state the relative probabilities, to get the absolute probability, we divide by the sum of all relative probabilities
+\begin{equation*}
+    P(\omega_i)=\frac{|\braket{\omega_i|\psi}|^2 }{\sum_j \braket{\omega_j | \psi}^2}=\frac{|\braket{\omega_i|\psi}|^2}{\braket{\psi|\psi}}
+\end{equation*}
+As a side note, the probability interpretation breaks down if $\ket{\psi}$ is an improper vector.
+
+Suppose there exist state described by
+\begin{equation*}
+    \ket{\psi}=\frac{\alpha \ket{\omega_1 }+\ket{\omega_2}}{\left( |\alpha|^2+|\beta|^2 \right)^{1/2} }
+\end{equation*}
+Measurement can either yield $\omega_1$ or $\omega_2$ with the probabilities $|\alpha^2|/(\alpha^2+\beta^2)$ and $|\beta^2|/(\alpha^2+\beta^2)$ respectively.
+
 \subsection{Fourth Postulate}
 As the following
 \begin{quotation}
