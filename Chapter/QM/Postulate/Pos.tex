@@ -57,4 +57,20 @@ The state variables change with time according to Hamilton's equations
 \end{equation*}
 \end{quotation}
 
+\subsection{Measurement}
+Given state $(x,p)$, we can say that dynamical value has the value $\omega(x,p)$ in classical mechanics.
+In quantum mechanics, when a particle is in a state $\ket{\psi } $ the particle can have the value of $\omega$ for the quantum operator $\Omega$ with probability $P(\omega)\propto|\braket{\omega|\psi}  |^2$. 
+This value is obtained by the following method.
+\begin{enumerate}
+    \item Construct the corresponding quantum operator $\Omega=\omega(x \rightarrow ,p \rightarrow P)$ where $X$ and $P$ are the operators defined in postulate II.
+    \item Find the orthonormal eigenvectors $\ket{\omega} $ and eigenvalues $\omega_i$ of $\Omega$.
+    \item Expand $\ket{\psi } $ in this basis
+    \begin{equation*}
+        \ket{\psi }=\sum_i  \ket{\omega_i } \braket{\omega_i |\psi}  
+    \end{equation*}
+    \item The probability $P(\omega_i)$ that the result $\omega_i$ will be obtained is $P(\omega)\propto|\braket{\omega|\psi}  |^2$, or in terms of projection vector
+    \begin{equation*}
+        P(\omega)\propto \braket{\psi|\omega } \braket{\omega|\psi}=\braket{\psi|\mathbb{P}_\omega|\psi  }=\braket{\psi|\mathbb{P } _\omega \mathbb{P } _\omega |\psi   }=\braket{\mathbb{P } _\omega \psi| \mathbb{P } _\omega \psi  }    
+    \end{equation*}
+\end{enumerate}
 \end{document}
