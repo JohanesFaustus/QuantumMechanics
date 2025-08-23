@@ -39,7 +39,7 @@ Compare it with the classical mechanics postulate via Hamiltonian formalism
     Every dynamical variable $\omega$ is a function of $x$ and $p$, that is $\omega=\omega(x,p)$.
 \end{quotation}
 
-\section{Discussion: ambiguity of operator.}
+\subsubsection{Discussion: ambiguity of operator.}
 The definition $        \Omega(X,P)=\omega \left( x\rightarrow X, p\rightarrow P \right) $ is ambiguous.
 Suppose $\omega=xp$.
 We do not know $\Omega=PX$ or $\Omega=XP$ since $px=xp$ classically.
@@ -72,6 +72,21 @@ Suppose there exist state described by
     \ket{\psi}=\frac{\alpha \ket{\omega_1 }+\ket{\omega_2}}{\left( |\alpha|^2+|\beta|^2 \right)^{1/2} }
 \end{equation*}
 Measurement can either yield $\omega_1$ or $\omega_2$ with the probabilities $|\alpha^2|/(\alpha^2+\beta^2)$ and $|\beta^2|/(\alpha^2+\beta^2)$ respectively.
+
+\subsubsection{Discussion: probability for degenerate operator.}
+Say that we have degenerate operator $\Omega$ with degenerate eigenvalues $\omega_1=\omega_2=\omega$ with orthonormal basis $\ket{\omega,1}$ and $\ket{\omega,2}$. 
+Then the probability is 
+\begin{equation*}
+    P(\omega)=|\braket{\omega,1|\psi}|^2+|\braket{\omega,2|\psi}|^2
+\end{equation*}
+In terms of projection operator in this eigenspace
+\begin{equation*}
+    \mathbb{P }_\omega=\ket{\omega,1}\bra{\omega,1}+\ket{\omega,1 }\bra{\omega,2}
+\end{equation*}
+we have 
+\begin{equation*}
+    P(\omega)=\braket{\psi|\mathbb{P}_\omega|\psi}=\braket{\mathbb{P}_\omega \psi|\mathbb{P}_\omega \psi}
+\end{equation*}
 
 \subsubsection{Discussion: change of basis.}
 Suppose our interest switch to measuring $\Lambda$ from the measurement of $\Omega$--note that this does not mean a successive measurement.
