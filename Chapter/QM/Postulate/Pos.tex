@@ -49,6 +49,19 @@ The rule is to use symmetric sum
 \end{equation*}
 which also render $\Omega$ Hermitian.
 
+\subsubsection{Discussion: continuous spectrum of operator.}
+In the case of continuous eigenvalues of $\Omega$, ket $\ket{\psi}$ expands as
+\begin{equation*}
+    \ket{\psi}=\int \ket{\omega}\braket{\omega|\psi}\;d\omega=\int \ket{\omega}\psi(\omega)\;d\omega
+\end{equation*}
+Since $\omega$ varies continuously, so will $\braket{\omega|\psi}=\psi(\omega)$, which imply that $\psi(\omega)$ is a smooth function.
+
+$P(\omega)$ in this case refer to the probability density, in particular $P(\omega)\;d\omega$ is the probability of obtaining $\omega$ between $\omega$ and $\omega+d\omega$.
+This definition must meet the unity definition
+\begin{equation*}
+    \int P(\omega)\;d\omega=\int \braket{\psi|\omega}\braket{\omega|\psi}\;d\omega=\braket{\psi|I\psi}=1
+\end{equation*}
+
 \subsection{Third Postulate}
 As the following
 \begin{quotation}
