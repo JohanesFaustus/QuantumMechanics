@@ -205,4 +205,30 @@ To see how the third term comes to be, we can expand the statistical definition 
     \braket{\Omega}&= \braket{\psi|\Omega|\psi} 
 \end{align*}
 where we have used the completion relation $\sum_i \ket{\omega_i}\bra{\omega_i }$.
+
+For continuous variable, we write 
+\begin{equation*}
+    \braket{\Omega}=\int P(\omega)\omega\;d \omega=\int \braket{\psi|\omega}\omega \braket{\omega|\psi}\; d\omega
+\end{equation*}
+
+\subsubsection{Uncertainty.}
+The uncertainty is the standard deviation defined in statistics, which measure the average fluctuation around the mean 
+\begin{equation*}
+    \Delta\Omega=\left(\sum_i P(\omega_i)\left( \omega_i -\braket{\Omega} \right)^2 \right)^{1/2}=\left\langle \left( \Omega-\braket{\Omega} \right)^2 \right\rangle  ^{1/2}
+\end{equation*}
+Another expression for the uncertainty is 
+\begin{equation*}
+    \Delta\Omega=\left( \braket{\Omega^2}-\braket{\Omega}^2 \right) ^{1/2}
+\end{equation*}
+This expression is related to the definition of standard deviation by expanding the square term 
+\begin{align*}
+    \Delta\Omega=\left\langle \left( \Omega-\braket{\Omega} \right)^2 \right\rangle  ^{1/2} &= \left\langle \Omega^2+\braket{\Omega}^2-2\Omega \braket{\Omega } \right\rangle^{1/2}\\
+    &= \left( \braket{\Omega^2}+\braket{\Omega}^2-2 \braket{\Omega}^2 \right) ^{1/2}\\
+    \Delta\Omega &= \left( \braket{\Omega^2}-\braket{\Omega}^2 \right) ^{1/2}
+\end{align*} 
+
+As it the case with the expectation value, the uncertainty for continuous variable is 
+\begin{equation*}
+    \Delta\Omega=\left( \int P(\omega)\left( \omega-\braket{\Omega}^2 \right)^2  \;d \omega\right) ^{1/2}
+\end{equation*} 
 \end{document}
