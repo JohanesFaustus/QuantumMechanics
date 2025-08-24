@@ -148,4 +148,18 @@ This value is obtained by the following method.
         P(\omega)\propto \braket{\psi|\omega } \braket{\omega|\psi}=\braket{\psi|\mathbb{P}_\omega|\psi  }=\braket{\psi|\mathbb{P } _\omega \mathbb{P } _\omega |\psi   }=\braket{\mathbb{P } _\omega \psi| \mathbb{P } _\omega \psi  }    
     \end{equation*}
 \end{enumerate}
+
+\subsubsection{Collapse.}
+Measurement by the operator $\Omega$ changes the state vector $\ket{\psi}$, which on this basis expands as 
+\begin{equation*}
+    \ket{\psi}=\sum_\omega \ket{\omega}\braket{\omega|\psi}
+\end{equation*}
+into the eigenstate $\ket{\omega}$ corresponding to the eigenvalue of $\omega$  obtained in measurement.
+
+The effect of the measurement, then, can be represented as 
+\begin{equation*}
+    \ket{\psi}\xrightarrow{\Omega\text{ measured, }\omega\text{ obtained}}\frac{\mathbb{P}_\omega \ket{\omega }}{\braket{\mathbb{P}_\omega\psi|\mathbb{P }_\omega \psi}}
+\end{equation*}
+with $\mathbb{P }_\omega$ as the projection operator to $\ket{\omega}$. 
+If the eigenvalues $\omega$ is degenerate, the $\mathbb{P }_\omega$ is the projection operator for the eigenspace $\mathbb{V}_\omega$. 
 \end{document}
