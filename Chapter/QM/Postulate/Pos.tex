@@ -162,4 +162,22 @@ The effect of the measurement, then, can be represented as
 \end{equation*}
 with $\mathbb{P }_\omega$ as the projection operator to $\ket{\omega}$. 
 If the eigenvalues $\omega$ is degenerate, the $\mathbb{P }_\omega$ is the projection operator for the eigenspace $\mathbb{V}_\omega$. 
+
+\subsubsection{Testing quantum theory.}
+Unlike classical mechanics, quantum mechanics does not make deterministic predictions but statistical predictions.
+To test the predictions of the quantum mechanics, we must be able to create well-defined state $\ket{\psi}$ and check the probabilistic predictions at any time.
+The procedure are as follows.
+\begin{enumerate}
+    \item Begin with particle in an arbitrary state $\ket{\psi}$ and measure a variable $\Omega$.
+    \item If we get nondegenerate value $\omega$, we have the state $\ket{\omega}$.
+    \item We immediately thereafter measure variable $\Lambda$ next so that the state could not change form $\ket{\omega}$.
+    If say the theory state 
+    \begin{equation*}
+        \ket{\omega}=\alpha \ket{\lambda_1}+\beta \ket{\lambda_2}
+    \end{equation*}
+    then the theory predict that $\lambda_1$ and $\lambda_2$ will be obtained with probability $\alpha^2$ and $\beta^2$ respectively.
+\end{enumerate}
+If the measurement give any other eigenvalue $\lambda_i$ or other noneigenvalue value, that is the end of the theory.
+Suppose the resulting measurement give the correct eigenvalue, we can repeat the measurement with quantum ensemble of $N$ particles all in this same state $\ket{\omega}$.
+The measurement should match with the predictions $N/\alpha^2$ particle in $\ket{\lambda_1}$ and $N/\beta^2$ in $\ket{\lambda_2}$.
 \end{document}
