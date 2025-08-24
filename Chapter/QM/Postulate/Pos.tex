@@ -191,4 +191,18 @@ or continuous eigenvalues, the probability $\omega$ between $a$ and $b$.
 \begin{equation*}
     P(a,b)=\int_{a }^{b }|\braket{\omega|\psi}|^2\;d\omega
 \end{equation*}
+
+\subsubsection{Expectation value.}
+The expectation value is the mean value defined in statistics
+\begin{equation*}
+    \braket{\Omega}=\sum_i P(\omega_i)\omega_i=\braket{\psi|\Omega|\psi}
+\end{equation*}
+If the particle is an eigenstate of $\Omega$, that is $\Omega \ket{\psi}=\omega \ket{\psi}$, the $\braket{\Omega}=\omega$.
+
+To see how the third term comes to be, we can expand the statistical definition as follows.
+\begin{align*}
+    \braket{\Omega }&= \sum_i \braket{\psi|\omega_i }\braket{\omega_i|\psi}\omega_i =\sum_i \bra{\psi}\omega_i \ket{\omega_i }\braket{\omega_i|\psi}=\sum_i \braket{\psi|\Omega|\omega_i}\braket{\omega_i|\psi}\\
+    \braket{\Omega}&= \braket{\psi|\Omega|\psi} 
+\end{align*}
+where we have used the completion relation $\sum_i \ket{\omega_i}\bra{\omega_i }$.
 \end{document}
