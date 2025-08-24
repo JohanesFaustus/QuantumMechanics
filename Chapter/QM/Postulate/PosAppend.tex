@@ -1,0 +1,28 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Appendix: Measurement Example}
+\subsubsection{State collapse example.}
+Suppose there exist  state described as 
+\begin{equation*}
+    \ket{\psi}=\frac{1 }{2}\ket{\omega,1}+\frac{1 }{2}\ket{\psi}+\sum_{i=3} c_i \ket{\omega_i}
+\end{equation*}
+It is also known that the orthonormal basis $\ket{\omega,1  }$ and $\ket{\omega,2}$ is degenerate and so do their eigenvalues $\omega_1=\omega_2=\omega$.
+If measurement reveal the result $\omega$, the collapsed state is written as 
+\begin{equation*}
+    \ket{\psi}\xrightarrow{\omega\text{ obtained}}\frac{\mathbb{P}_\omega \ket{\omega }}{\braket{\mathbb{P}_\omega\psi|\mathbb{P }_\omega \psi}}^{1/2}
+\end{equation*}
+where the projection operator $\mathbb{P }_\omega$ for the eigenspace is written as 
+\begin{equation*}
+    \mathbb{P }\omega=\ket{\omega,1}\bra{\omega,1}+\ket{\omega,2}\bra{\omega,2}
+\end{equation*} 
+As such, its action on the state vector is 
+\begin{equation*}
+    \mathbb{P }\omega \ket{\psi}=\ket{\omega,1}\braket{\omega,1|\psi}+\ket{\omega,2}\braket{\omega,2|\psi}
+    =\frac{1 }{2 }\ket{\omega,1}+\frac{1 }{2 }\ket{\omega,2}
+\end{equation*}
+Therefore
+\begin{equation*}
+    \ket{\psi}=\frac{1}{\left( 1/4+1/4 \right) ^{1/2}}\left(\frac{1 }{2 }\ket{\omega,1}+\frac{1 }{2 }\ket{\omega,2}\right)
+    =\frac{1 }{\sqrt{2} }\ket{\omega,1}+\frac{1 }{\sqrt{2} }\ket{\omega,2}
+\end{equation*}
+\end{document}
