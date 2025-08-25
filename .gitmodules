@@ -1,3 +1,6 @@
 [submodule "PhysicalMathematics"]
 	path = PhysicalMathematics
 	url = https://github.com/JohanesFaustus/PhysicalMathematics.git
+[submodule "ModernPhysics"]
+	path = ModernPhysics
+	url = https://github.com/JohanesFaustus/ModernPhysics
