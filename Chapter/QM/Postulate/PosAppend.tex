@@ -54,6 +54,103 @@ Since the $L_z$ is already diagonalized, the eigenvalues are its diagonal entrie
 Take the state in which $L_z=1$. 
 In this state what are $\braket{L_x}$, $\braket{L_x^2}$ and $\braket{\Delta L_x^2}$?
 
+The state at which $L_z=1$ is written in braket notation as 
+\begin{equation*}
+    L_z \ket{\psi}=1 \ket{\psi}
+\end{equation*}
+It can be easily seen that the state in question is 
+\begin{equation*}
+    \bra{\psi}=\begin{bmatrix}
+        1&0&0
+    \end{bmatrix}
+\end{equation*}
+
+Then let us determine the expectation value of $L_x$
+\begin{align*}
+    \braket{L_x}=\braket{\psi|L_x|\psi}&= 
+    \begin{bmatrix}
+        1&0&0
+    \end{bmatrix}
+    \frac{1 }{\sqrt{2 }}\begin{bmatrix}
+        &1&\\
+        1&&1\\
+        &1&\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        1\\
+        0\\
+        0\\
+    \end{bmatrix}\\
+    &= 
+    \frac{1 }{\sqrt{2}}
+    \begin{bmatrix}
+        1&0&0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0\\
+        1\\
+        0\\
+    \end{bmatrix}
+    =
+    0
+\end{align*}
+
+Then $\braket{L_x^2}$
+\begin{align*}
+    \braket{L_z^2}&= 
+    \begin{bmatrix}
+        1&0&0
+    \end{bmatrix}
+    \frac{1 }{2}
+    \begin{bmatrix}
+        &1&\\
+        1&&1\\
+        &1&\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        &1&\\
+        1&&1\\
+        &1&\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        1\\
+        0\\
+        0\\
+    \end{bmatrix}\\
+    &= 
+    \frac{1 }{2}
+    \begin{bmatrix}
+        1&0&0
+    \end{bmatrix}
+    \begin{bmatrix}
+        1&&1\\
+        &2&\\
+        1&&1\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        1\\
+        0\\
+        0\\
+    \end{bmatrix}\\
+    &= 
+   \frac{1 }{2}
+    \begin{bmatrix}
+        1&0&0
+    \end{bmatrix}
+    \begin{bmatrix}
+        1\\
+        0\\
+        1\\
+    \end{bmatrix}
+    =
+    \frac{1 }{2 }
+\end{align*}
+
+And the uncertainty $\Delta L_x$
+\begin{equation*}
+    \Delta L_x =  \left( \braket{L_x^2}-\braket{L_x}^2 \right) ^{1/2 }=\left( \frac{1 }{2 } -0\right) ^{1/2 }=\frac{1 }{\sqrt{2 }}
+\end{equation*}
+
 \subsubsection{Third question.}
 Find the normalized eigenstates and the eigenvalues of $L_x$ in $L_z$ basis.
 
