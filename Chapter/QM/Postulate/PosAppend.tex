@@ -2,20 +2,20 @@
 \begin{document}
 \subsection{Appendix: Measurement Example}
 \subsubsection{State collapse example.}
-Suppose there exist  state described as 
+Suppose there exist  state described as
 \begin{equation*}
     \ket{\psi}=\frac{1 }{2}\ket{\omega,1}+\frac{1 }{2}\ket{\psi}+\sum_{i=3} c_i \ket{\omega_i}
 \end{equation*}
 It is also known that the orthonormal basis $\ket{\omega,1  }$ and $\ket{\omega,2}$ is degenerate and so do their eigenvalues $\omega_1=\omega_2=\omega$.
-If measurement reveal the result $\omega$, the collapsed state is written as 
+If measurement reveal the result $\omega$, the collapsed state is written as
 \begin{equation*}
     \ket{\psi}\xrightarrow{\omega\text{ obtained}}\frac{\mathbb{P}_\omega \ket{\omega }}{\braket{\mathbb{P}_\omega\psi|\mathbb{P }_\omega \psi}}^{1/2}
 \end{equation*}
-where the projection operator $\mathbb{P }_\omega$ for the eigenspace is written as 
+where the projection operator $\mathbb{P }_\omega$ for the eigenspace is written as
 \begin{equation*}
     \mathbb{P }\omega=\ket{\omega,1}\bra{\omega,1}+\ket{\omega,2}\bra{\omega,2}
-\end{equation*} 
-As such, its action on the state vector is 
+\end{equation*}
+As such, its action on the state vector is
 \begin{equation*}
     \mathbb{P }\omega \ket{\psi}=\ket{\omega,1}\braket{\omega,1|\psi}+\ket{\omega,2}\braket{\omega,2|\psi}
     =\frac{1 }{2 }\ket{\omega,1}+\frac{1 }{2 }\ket{\omega,2}
@@ -30,19 +30,19 @@ Therefore
 Consider the following operators on a Hilbert space $\mathbb{V}^3(C)$
 \begin{equation*}
     L_x=\frac{1 }{\sqrt{2 }}\begin{bmatrix}
-        0&1&0\\
-        1&0&1\\
-        0&1&0
+        0 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 0
     \end{bmatrix}\;
     L_y=\frac{1 }{\sqrt{2 }}\begin{bmatrix}
-        0&-i&0\\
-        i&0&-i\\
-        0&i&0
+        0 & -i & 0  \\
+        i & 0  & -i \\
+        0 & i  & 0
     \end{bmatrix}\;
     L_z=\frac{1 }{\sqrt{2 }}\begin{bmatrix}
-        1&0&0\\
-        0&0&0\\
-        0&0&-1
+        1 & 0 & 0  \\
+        0 & 0 & 0  \\
+        0 & 0 & -1
     \end{bmatrix}
 \end{equation*}
 \subsubsection{First question.}
@@ -51,57 +51,57 @@ What are the possible values one can obtain if $L_z$ is measured?
 Since the $L_z$ is already diagonalized, the eigenvalues are its diagonal entries: $1,0,-1$.
 
 \subsubsection{Second question.}
-Take the state in which $L_z=1$. 
+Take the state in which $L_z=1$.
 In this state what are $\braket{L_x}$, $\braket{L_x^2}$ and $\braket{\Delta L_x^2}$?
 
-The state at which $L_z=1$ is written in braket notation as 
+The state at which $L_z=1$ is written in braket notation as
 \begin{align*}
-    L_z \ket{\psi}&=  1 \ket{\psi}\\
+    L_z \ket{\psi} & =  1 \ket{\psi} \\
     \frac{1 }{\sqrt{2 }}\begin{bmatrix}
-        1&0&0\\
-        0&0&0\\
-        0&0&-1\\
-    \end{bmatrix}
-    \ket{\psi} &= 
+                            1 & 0 & 0  \\
+                            0 & 0 & 0  \\
+                            0 & 0 & -1 \\
+                        \end{bmatrix}
+    \ket{\psi}     & =
     \begin{bmatrix}
-        1&&\\
-        &1&\\
-        &&1\\
+        1 &   &   \\
+          & 1 &   \\
+          &   & 1 \\
     \end{bmatrix}
     \ket{\psi}
 \end{align*}
-It can be easily seen that the state in question is 
+It can be easily seen that the state in question is
 \begin{align*}
     \bra{\psi}=\begin{bmatrix}
-        1&0&0
-    \end{bmatrix}
+                   1 & 0 & 0
+               \end{bmatrix}
 \end{align*}
 
 Then let us determine the expectation value of $L_x$
 \begin{align*}
-    \braket{L_x}=\braket{\psi|L_x|\psi}&= 
+    \braket{L_x}=\braket{\psi|L_x|\psi} & =
     \begin{bmatrix}
-        1&0&0
+        1 & 0 & 0
     \end{bmatrix}
     \frac{1 }{\sqrt{2 }}\begin{bmatrix}
-        &1&\\
-        1&&1\\
-        &1&\\
-    \end{bmatrix}
+                              & 1 &   \\
+                            1 &   & 1 \\
+                              & 1 &   \\
+                        \end{bmatrix}
     \begin{bmatrix}
-        1\\
-        0\\
-        0\\
-    \end{bmatrix}\\
-    &= 
+        1 \\
+        0 \\
+        0 \\
+    \end{bmatrix}                          \\
+                                        & =
     \frac{1 }{\sqrt{2}}
     \begin{bmatrix}
-        1&0&0
+        1 & 0 & 0
     \end{bmatrix}
     \begin{bmatrix}
-        0\\
-        1\\
-        0\\
+        0 \\
+        1 \\
+        0 \\
     \end{bmatrix}
     =
     0
@@ -109,50 +109,50 @@ Then let us determine the expectation value of $L_x$
 
 Then $\braket{L_x^2}$
 \begin{align*}
-    \braket{L_z^2}&= 
+    \braket{L_z^2} & =
     \begin{bmatrix}
-        1&0&0
+        1 & 0 & 0
     \end{bmatrix}
     \frac{1 }{2}
     \begin{bmatrix}
-        &1&\\
-        1&&1\\
-        &1&\\
+          & 1 &   \\
+        1 &   & 1 \\
+          & 1 &   \\
     \end{bmatrix}
     \begin{bmatrix}
-        &1&\\
-        1&&1\\
-        &1&\\
+          & 1 &   \\
+        1 &   & 1 \\
+          & 1 &   \\
     \end{bmatrix}
     \begin{bmatrix}
-        1\\
-        0\\
-        0\\
-    \end{bmatrix}\\
-    &= 
+        1 \\
+        0 \\
+        0 \\
+    \end{bmatrix}     \\
+                   & =
     \frac{1 }{2}
     \begin{bmatrix}
-        1&0&0
+        1 & 0 & 0
     \end{bmatrix}
     \begin{bmatrix}
-        1&&1\\
-        &2&\\
-        1&&1\\
+        1 &   & 1 \\
+          & 2 &   \\
+        1 &   & 1 \\
     \end{bmatrix}
     \begin{bmatrix}
-        1\\
-        0\\
-        0\\
-    \end{bmatrix}\\
-    &= 
-   \frac{1 }{2}
+        1 \\
+        0 \\
+        0 \\
+    \end{bmatrix}     \\
+                   & =
+    \frac{1 }{2}
     \begin{bmatrix}
-        1&0&0
+        1 & 0 & 0
     \end{bmatrix}
     \begin{bmatrix}
-        1\\
-        0\\
-        1\\
+        1 \\
+        0 \\
+        1 \\
     \end{bmatrix}
     =
     \frac{1 }{2 }
@@ -166,13 +166,13 @@ And the uncertainty $\Delta L_x$
 \subsubsection{Third question.}
 Find the normalized eigenstates and the eigenvalues of $L_x$ in $L_z$ basis.
 
-First solve the eigenvalue problem 
+First solve the eigenvalue problem
 \begin{align*}
-    \left( L_x-\omega I  \right) \ket{\omega}&= 0
+    \left( L_x-\omega I  \right) \ket{\omega} & = 0
     \begin{bmatrix}
-        -\omega & 1& \\
-        1&-\omega &1 \\
-        & 1&-\omega \\
+        -\omega & 1       &         \\
+        1       & -\omega & 1       \\
+                & 1       & -\omega \\
     \end{bmatrix}
     \ket{\omega}=0
 \end{align*}
@@ -180,82 +180,82 @@ We have the equation
 \begin{equation*}
     \det
     \begin{pmatrix}
-        -\omega & 1/\sqrt{2 }& \\
-        1/\sqrt{2}&-\omega &1/\sqrt{2} \\
-        & 1/\sqrt{2}&-\omega \\
+        -\omega    & 1/\sqrt{2 } &            \\
+        1/\sqrt{2} & -\omega     & 1/\sqrt{2} \\
+                   & 1/\sqrt{2}  & -\omega    \\
     \end{pmatrix}
     =0
 \end{equation*}
 and the characteristic equation
 \begin{align*}
-    -\omega \left( \omega^2- \frac{1 }{2} \right) +\frac{\omega }{2}&= 0\\
-    \omega \left( -\omega^2+1  \right) &= 0
+    -\omega \left( \omega^2- \frac{1 }{2} \right) +\frac{\omega }{2} & = 0 \\
+    \omega \left( -\omega^2+1  \right)                               & = 0
 \end{align*}
 The eigenvalues are thus $\omega=0,\pm 1$.
 
 Moving on to find the eigenstates.
 First the eigenstate corresponding to the eigenvalue $\omega=1$
 \begin{align*}
-    \left( L_x -\omega I  \right) \ket{L_x=1}&= 0\\
+    \left( L_x -\omega I  \right) \ket{L_x=1} & = 0 \\
     \begin{bmatrix}
-        -1 & 1/\sqrt{2 }& \\
-        1/\sqrt{2}&-1 &1/\sqrt{2} \\
-        & 1/\sqrt{2}&-1 \\
+        -1         & 1/\sqrt{2 } &            \\
+        1/\sqrt{2} & -1          & 1/\sqrt{2} \\
+                   & 1/\sqrt{2}  & -1         \\
     \end{bmatrix}
-    \ket{L_x=1}&= 0\\
+    \ket{L_x=1}                               & = 0 \\
     \begin{bmatrix}
-        -x+\frac{y }{\sqrt{2 }}\\
-        \frac{x }{\sqrt{2 }}-y +\frac{z }{\sqrt{2 }}\\
+        -x+\frac{y }{\sqrt{2 }}                      \\
+        \frac{x }{\sqrt{2 }}-y +\frac{z }{\sqrt{2 }} \\
         \frac{y }{\sqrt{2 }}-z
     \end{bmatrix}
-    &= 0
+                                              & = 0
     \begin{cases}
-        \sqrt{2 }x=y\\
-        1/2-y+y/2=0\\
+        \sqrt{2 }x=y \\
+        1/2-y+y/2=0  \\
         y=\sqrt{2 }z
     \end{cases}
 \end{align*}
-If we choose $x=1$, the eigenstate $\ket{L_x'=1}$ and its normalized state $\ket{L_x=1}$ are 
+If we choose $x=1$, the eigenstate $\ket{L_x'=1}$ and its normalized state $\ket{L_x=1}$ are
 \begin{equation*}
     \ket{L_x'=1}=
     \begin{bmatrix}
-        1\\
-        \sqrt{2}\\
-        1\\
+        1        \\
+        \sqrt{2} \\
+        1        \\
     \end{bmatrix}
     \qquad
     \ket{L_x=1}=
     \frac{1}{\sqrt{1+2+1}}
     \begin{bmatrix}
-        1\\
-        \sqrt{2}\\
-        1\\
+        1        \\
+        \sqrt{2} \\
+        1        \\
     \end{bmatrix}
     =
-        \begin{bmatrix}
-        1/2\\
-        \sqrt{2}/2\\
-        1/2\\
+    \begin{bmatrix}
+        1/2        \\
+        \sqrt{2}/2 \\
+        1/2        \\
     \end{bmatrix}
 \end{equation*}
 
 Then the eigenstate corresponding to $\omega=0$
 \begin{align*}
-    \left( L_x -\omega I  \right) \ket{L_x=0}&= 0\\
+    \left( L_x -\omega I  \right) \ket{L_x=0} & = 0 \\
     \begin{bmatrix}
-        0& 1/\sqrt{2 }& \\
-        1/\sqrt{2}&0 &1/\sqrt{2} \\
-        & 1/\sqrt{2}&0 \\
+        0          & 1/\sqrt{2 } &            \\
+        1/\sqrt{2} & 0           & 1/\sqrt{2} \\
+                   & 1/\sqrt{2}  & 0          \\
     \end{bmatrix}
-    \ket{L_x=0}&= 0\\
+    \ket{L_x=0}                               & = 0 \\
     \begin{bmatrix}
-        y/\sqrt{2}\\
-        x/\sqrt{2 }+z/\sqrt{2 }\\
+        y/\sqrt{2}              \\
+        x/\sqrt{2 }+z/\sqrt{2 } \\
         y/\sqrt{2}
     \end{bmatrix}
-    &= 0
+                                              & = 0
     \begin{cases}
-        y/\sqrt{2}=0\\
+        y/\sqrt{2}=0 \\
         x+z=0
     \end{cases}
 \end{align*}
@@ -264,37 +264,37 @@ If we choose $x=1$, the normalized eigenstate is
     \ket{L_x=1}=
     \frac{1}{\sqrt{1+1}}
     \begin{bmatrix}
-        1\\
-        0\\
-        -1\\
+        1  \\
+        0  \\
+        -1 \\
     \end{bmatrix}
     =
-        \begin{bmatrix}
-        1/2\\
-        0\\
-        -1/2\\
+    \begin{bmatrix}
+        1/2  \\
+        0    \\
+        -1/2 \\
     \end{bmatrix}
 \end{equation*}
 
 Then the eigenstate corresponding to $\omega=-1$
 \begin{align*}
-    \left( L_x -\omega I  \right) \ket{L_x=-1}&= 0\\
+    \left( L_x -\omega I  \right) \ket{L_x=-1} & = 0 \\
     \begin{bmatrix}
-        1& 1/\sqrt{2 }& \\
-        1/\sqrt{2}&1 &1/\sqrt{2} \\
-        & 1/\sqrt{2}&1 \\
+        1          & 1/\sqrt{2 } &            \\
+        1/\sqrt{2} & 1           & 1/\sqrt{2} \\
+                   & 1/\sqrt{2}  & 1          \\
     \end{bmatrix}
-    \ket{L_x=-1}&= 0\\
+    \ket{L_x=-1}                               & = 0 \\
     \begin{bmatrix}
-        x+y/\sqrt{2}\\
-        x/\sqrt{2 }+y+z/\sqrt{2}=0\\
-        y/\sqrt{2 }+z\\
+        x+y/\sqrt{2}               \\
+        x/\sqrt{2 }+y+z/\sqrt{2}=0 \\
+        y/\sqrt{2 }+z              \\
     \end{bmatrix}
-    &= 0
+                                               & = 0
     \begin{cases}
-        - \sqrt{2}x=y\\
-        -y/2+y-y/2=0\\
-        y=-\sqrt{2}z\\
+        - \sqrt{2}x=y \\
+        -y/2+y-y/2=0  \\
+        y=-\sqrt{2}z  \\
     \end{cases}
 \end{align*}
 If we choose $x=1$, the normalized eigenstate is
@@ -302,91 +302,214 @@ If we choose $x=1$, the normalized eigenstate is
     \ket{L_x=1}=
     \frac{1}{\sqrt{1+1+2}}
     \begin{bmatrix}
-        1\\
-        -\sqrt{2}\\
-        1\\
+        1         \\
+        -\sqrt{2} \\
+        1         \\
     \end{bmatrix}
     =
-        \begin{bmatrix}
-        1/2\\
-        -1/\sqrt{2}\\
-        1/2\\
+    \begin{bmatrix}
+        1/2         \\
+        -1/\sqrt{2} \\
+        1/2         \\
     \end{bmatrix}
 \end{equation*}
 
 \subsubsection{Fourth question.}
 If the particle is in the state with $L_z = -1$, and $L_x$ is measured, what are the possible outcomes and their probabilities?
 
-State at which $L_z=-1$ can be obtained from 
+State at which $L_z=-1$ can be obtained from
 \begin{align*}
-    L_z \ket{\psi}&=-  1 \ket{\psi}\\
+    L_z \ket{\psi} & =-  1 \ket{\psi} \\
     \frac{1 }{\sqrt{2 }}\begin{bmatrix}
-        1&0&0\\
-        0&0&0\\
-        0&0&-1\\
-    \end{bmatrix}
-    \ket{\psi} &= 
+                            1 & 0 & 0  \\
+                            0 & 0 & 0  \\
+                            0 & 0 & -1 \\
+                        \end{bmatrix}
+    \ket{\psi}     & =
     \begin{bmatrix}
-        -1&&\\
-        &-1&\\
-        &&-1\\
+        -1 &    &    \\
+           & -1 &    \\
+           &    & -1 \\
     \end{bmatrix}
     \ket{\psi}
 \end{align*}
-The state in question is 
+The state in question is
 \begin{equation*}
     \ket{\psi}=
     \begin{bmatrix}
-        0\\0\\-1\\
+        0 \\0\\-1\\
     \end{bmatrix}
 \end{equation*}
 
-Since the eigenvalues of $L_x$ are $\omega=0,\pm 1$, their probabilities are 
+Since the eigenvalues of $L_x$ are $\omega=0,\pm 1$, their probabilities are
 \begin{align*}
-    P(L_x=1) &= \left( 
+    P(L_x=1)  & = \left(
     \begin{bmatrix}
-        1/2&\sqrt{2}/2&2&1/2
-    \end{bmatrix} 
+            1/2 & \sqrt{2}/2 & 2 & 1/2
+        \end{bmatrix}
     \begin{bmatrix}
-        0\\0\\-1
-    \end{bmatrix}
-    \right) ^2=\frac{1 }{4}\\
-    P(L_x=0) &= \left( 
+            0 \\0\\-1
+        \end{bmatrix}
+    \right) ^2=\frac{1 }{4}  \\
+    P(L_x=0)  & = \left(
     \begin{bmatrix}
-        1/\sqrt{2}&0&2&-1/\sqrt{2}
-    \end{bmatrix} 
+            1/\sqrt{2} & 0 & 2 & -1/\sqrt{2}
+        \end{bmatrix}
     \begin{bmatrix}
-        0\\0\\-1
-    \end{bmatrix}
-    \right) ^2=\frac{1 }{/2}\\
-    P(L_x=-1) &= \left( 
+            0 \\0\\-1
+        \end{bmatrix}
+    \right) ^2=\frac{1 }{/2} \\
+    P(L_x=-1) & = \left(
     \begin{bmatrix}
-        -1/2&0&2&-1/2
-    \end{bmatrix} 
+            -1/2 & 0 & 2 & -1/2
+        \end{bmatrix}
     \begin{bmatrix}
-        0\\0\\-1
-    \end{bmatrix}
-    \right) ^2=\frac{1 }{4}\\
+            0 \\0\\-1
+        \end{bmatrix}
+    \right) ^2=\frac{1 }{4}  \\
 \end{align*}
 
 \subsubsection{Fifth question.}
-Consider the state, in bra to save space 
+Consider the state, in bra to save space
 \begin{equation*}
     \bra{\psi}=\begin{bmatrix}
-        \frac{1 }{2}&\frac{1 }{2}&\frac{1 }{\sqrt{2}}
+        \frac{1 }{2} & \frac{1 }{2} & \frac{1 }{\sqrt{2}}
     \end{bmatrix}
 \end{equation*}
 in the $L_z$ basis.
-If $L_z^2$ is measured in this state and a result $+1$ is obtained, what is the state after the measurement? 
-How probable was this result? 
+If $L_z^2$ is measured in this state and a result $+1$ is obtained, what is the state after the measurement?
+How probable was this result?
 If $L_z$ is measured, what are the outcomes and respective probabilities?
 
+The square of $L_z$ operator is
+\begin{equation*}
+    L_z=\frac{1 }{2}
+    \begin{bmatrix}
+        1 & 0 & 0  \\
+        0 & 0 & 0  \\
+        0 & 0 & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 & 0  \\
+        0 & 0 & 0  \\
+        0 & 0 & -1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 0 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}
+\end{equation*}
+with eigenvalue of 0 and degenerate value of 1.
+
+The eigenstate corresponding the degenerate eigenvalue is 
+\begin{align*}
+    (L_x^2-\omega I)\ket{L_x^2=1} &= 0\\
+    \begin{bmatrix}
+        0 & 0 & 0 \\
+        0 & -1 & 0 \\
+        0 & 0 & 0
+    \end{bmatrix}
+    \ket{L_x^2=1}&= 0\\
+    \begin{bmatrix}
+        0&-y&0
+    \end{bmatrix}
+    =0
+\end{align*}
+With arbitrary choices of $x$ and $z$, we choose such that the two eigenstate are orthonormal to each other
+\begin{equation*}
+    \ket{L_x^2=1,1}=
+    \begin{bmatrix}
+        1\\0\\0
+    \end{bmatrix}\qquad
+    \ket{L_x^2=1,2}=
+    \begin{bmatrix}
+        0\\0\\1
+    \end{bmatrix}
+\end{equation*}
+
+Now the eigenstate corresponding to the eigenvalue of 0
+\begin{align*}
+    (L_x^2-\omega I) \ket{L_x^2}&= 0\\
+    \begin{bmatrix}
+        1&&\\
+        &0&\\
+        &&1
+    \end{bmatrix}
+    \ket{L_x^2}&= 0\\
+    \begin{bmatrix}
+        x\\0\\z
+    \end{bmatrix}
+    &= 0
+\end{align*}
+Since $y$ is arbitrary, we choose so that it normalize the eigenstate
+\begin{equation*}
+    \ket{L_x^2=0}=
+    \begin{bmatrix}
+        0\\1\\0
+    \end{bmatrix}
+\end{equation*}
+
+From each eigenstate, we can construct the state vector in terms of the eigenstates
+\begin{align*}
+    \ket{\psi }&=  \sum_{i} \ket{L_x^2=i}\braket{L_x^2=1|\psi}\\
+    &= \frac{1 }{2 }\ket{L_x^2=0}+\frac{1 }{2 }\ket{L_x^2,1}+\frac{1 }{\sqrt{2 }}\ket{L_x^2,2}
+\end{align*}
+It can be easily seen that the probability of measuring the eigenstates $P(L_x^2=1)=3/4$
+
+We know that the state changes after the measurement of the degenerate eigenvalue.
+To find changed state, we construct the projection operator on this eigenspace 
+\begin{equation*}
+    \mathbb{P }_1=\sum_i \ket{L_x^2,i}\bra{L_x^2,i} =
+    \begin{bmatrix}
+        1&&
+        &&
+        &&
+    \end{bmatrix}
+    +
+        \begin{bmatrix}
+        &&
+        &&
+        1&&
+    \end{bmatrix}
+\end{equation*}
+So its action on the state is 
+\begin{align*}
+    P_1 \ket{\psi} &=   \begin{bmatrix}
+        1&&\\
+        &0&\\
+        &&0
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{1 }{2} \\ \frac{1 }{2} \\ \frac{1 }{\sqrt{2}}
+    \end{bmatrix}
+    +
+        \begin{bmatrix}
+        0&&\\
+        &0&\\
+        1&&0
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{1 }{2} \\ \frac{1 }{2} \\ \frac{1 }{\sqrt{2}}
+    \end{bmatrix}\\
+    &= 
+    \begin{bmatrix}
+        1/2\\0\\0
+    \end{bmatrix}
+    +
+        \begin{bmatrix}
+        0\\0\\1/\sqrt{2 }
+    \end{bmatrix}\\
+    &= \frac{1 }{2 }\ket{L_x^2=1,1}+\frac{1 }{\sqrt{2 }}\ket{L_x^2=1,2}
+\end{align*}
+
 \subsubsection{Sixth question.}
-A particle is in a state for which the probabilities are $P(L_z=1)=1/4$, $P(L_z=O)=1/2$, and $P(L_z =-1)= 1 /4$. 
+A particle is in a state for which the probabilities are $P(L_z=1)=1/4$, $P(L_z=O)=1/2$, and $P(L_z =-1)= 1 /4$.
 Convince yourself that the most general, normalized state with this property is
 \begin{equation*}
     \ket{\psi}=\frac{e^{i\delta_1 }}{2 }\ket{L_z=1}+\frac{e^{i \delta_2 }}{\sqrt{2 }}\ket{L_z=0}+\frac{e^{i \delta_3 }}{2}\ket{L_z=-1}
 \end{equation*}
-It was stated earlier on that if $\ket{\psi}$ is a normalized state then the state $e^{i\delta}\ket{y}$ is a physically equivalent normalized state. 
+It was stated earlier on that if $\ket{\psi}$ is a normalized state then the state $e^{i\delta}\ket{y}$ is a physically equivalent normalized state.
 Does this mean that the factors $e^{i\delta}$ multiplying the $L_z$ eigenstates are irrelevant?
 \end{document}
