@@ -43,7 +43,7 @@ Consider the following operators on a Hilbert space $\mathbb{V}^3(C)$
         1&0&0\\
         0&0&0\\
         0&0&-1
-    \end{bmatrix}\;
+    \end{bmatrix}
 \end{equation*}
 \subsubsection{First question.}
 What are the possible values one can obtain if $L_z$ is measured?
@@ -55,15 +55,27 @@ Take the state in which $L_z=1$.
 In this state what are $\braket{L_x}$, $\braket{L_x^2}$ and $\braket{\Delta L_x^2}$?
 
 The state at which $L_z=1$ is written in braket notation as 
-\begin{equation*}
-    L_z \ket{\psi}=1 \ket{\psi}
-\end{equation*}
+\begin{align*}
+    L_z \ket{\psi}&=  1 \ket{\psi}\\
+    \frac{1 }{\sqrt{2 }}\begin{bmatrix}
+        1&0&0\\
+        0&0&0\\
+        0&0&-1\\
+    \end{bmatrix}
+    \ket{\psi} &= 
+    \begin{bmatrix}
+        1&&\\
+        &1&\\
+        &&1\\
+    \end{bmatrix}
+    \ket{\psi}
+\end{align*}
 It can be easily seen that the state in question is 
-\begin{equation*}
+\begin{align*}
     \bra{\psi}=\begin{bmatrix}
         1&0&0
     \end{bmatrix}
-\end{equation*}
+\end{align*}
 
 Then let us determine the expectation value of $L_x$
 \begin{align*}
@@ -304,6 +316,58 @@ If we choose $x=1$, the normalized eigenstate is
 
 \subsubsection{Fourth question.}
 If the particle is in the state with $L_z = -1$, and $L_x$ is measured, what are the possible outcomes and their probabilities?
+
+State at which $L_z=-1$ can be obtained from 
+\begin{align*}
+    L_z \ket{\psi}&=-  1 \ket{\psi}\\
+    \frac{1 }{\sqrt{2 }}\begin{bmatrix}
+        1&0&0\\
+        0&0&0\\
+        0&0&-1\\
+    \end{bmatrix}
+    \ket{\psi} &= 
+    \begin{bmatrix}
+        -1&&\\
+        &-1&\\
+        &&-1\\
+    \end{bmatrix}
+    \ket{\psi}
+\end{align*}
+The state in question is 
+\begin{equation*}
+    \ket{\psi}=
+    \begin{bmatrix}
+        0\\0\\-1\\
+    \end{bmatrix}
+\end{equation*}
+
+Since the eigenvalues of $L_x$ are $\omega=0,\pm 1$, their probabilities are 
+\begin{align*}
+    P(L_x=1) &= \left( 
+    \begin{bmatrix}
+        1/2&\sqrt{2}/2&2&1/2
+    \end{bmatrix} 
+    \begin{bmatrix}
+        0\\0\\-1
+    \end{bmatrix}
+    \right) ^2=\frac{1 }{4}\\
+    P(L_x=0) &= \left( 
+    \begin{bmatrix}
+        1/\sqrt{2}&0&2&-1/\sqrt{2}
+    \end{bmatrix} 
+    \begin{bmatrix}
+        0\\0\\-1
+    \end{bmatrix}
+    \right) ^2=\frac{1 }{/2}\\
+    P(L_x=-1) &= \left( 
+    \begin{bmatrix}
+        -1/2&0&2&-1/2
+    \end{bmatrix} 
+    \begin{bmatrix}
+        0\\0\\-1
+    \end{bmatrix}
+    \right) ^2=\frac{1 }{4}\\
+\end{align*}
 
 \subsubsection{Fifth question.}
 Consider the state, in bra to save space 
