@@ -154,6 +154,154 @@ And the uncertainty $\Delta L_x$
 \subsubsection{Third question.}
 Find the normalized eigenstates and the eigenvalues of $L_x$ in $L_z$ basis.
 
+First solve the eigenvalue problem 
+\begin{align*}
+    \left( L_x-\omega I  \right) \ket{\omega}&= 0
+    \begin{bmatrix}
+        -\omega & 1& \\
+        1&-\omega &1 \\
+        & 1&-\omega \\
+    \end{bmatrix}
+    \ket{\omega}=0
+\end{align*}
+We have the equation
+\begin{equation*}
+    \det
+    \begin{pmatrix}
+        -\omega & 1/\sqrt{2 }& \\
+        1/\sqrt{2}&-\omega &1/\sqrt{2} \\
+        & 1/\sqrt{2}&-\omega \\
+    \end{pmatrix}
+    =0
+\end{equation*}
+and the characteristic equation
+\begin{align*}
+    -\omega \left( \omega^2- \frac{1 }{2} \right) +\frac{\omega }{2}&= 0\\
+    \omega \left( -\omega^2+1  \right) &= 0
+\end{align*}
+The eigenvalues are thus $\omega=0,\pm 1$.
+
+Moving on to find the eigenstates.
+First the eigenstate corresponding to the eigenvalue $\omega=1$
+\begin{align*}
+    \left( L_x -\omega I  \right) \ket{L_x=1}&= 0\\
+    \begin{bmatrix}
+        -1 & 1/\sqrt{2 }& \\
+        1/\sqrt{2}&-1 &1/\sqrt{2} \\
+        & 1/\sqrt{2}&-1 \\
+    \end{bmatrix}
+    \ket{L_x=1}&= 0\\
+    \begin{bmatrix}
+        -x+\frac{y }{\sqrt{2 }}\\
+        \frac{x }{\sqrt{2 }}-y +\frac{z }{\sqrt{2 }}\\
+        \frac{y }{\sqrt{2 }}-z
+    \end{bmatrix}
+    &= 0
+    \begin{cases}
+        \sqrt{2 }x=y\\
+        1/2-y+y/2=0\\
+        y=\sqrt{2 }z
+    \end{cases}
+\end{align*}
+If we choose $x=1$, the eigenstate $\ket{L_x'=1}$ and its normalized state $\ket{L_x=1}$ are 
+\begin{equation*}
+    \ket{L_x'=1}=
+    \begin{bmatrix}
+        1\\
+        \sqrt{2}\\
+        1\\
+    \end{bmatrix}
+    \qquad
+    \ket{L_x=1}=
+    \frac{1}{\sqrt{1+2+1}}
+    \begin{bmatrix}
+        1\\
+        \sqrt{2}\\
+        1\\
+    \end{bmatrix}
+    =
+        \begin{bmatrix}
+        1/2\\
+        \sqrt{2}/2\\
+        1/2\\
+    \end{bmatrix}
+\end{equation*}
+
+Then the eigenstate corresponding to $\omega=0$
+\begin{align*}
+    \left( L_x -\omega I  \right) \ket{L_x=0}&= 0\\
+    \begin{bmatrix}
+        0& 1/\sqrt{2 }& \\
+        1/\sqrt{2}&0 &1/\sqrt{2} \\
+        & 1/\sqrt{2}&0 \\
+    \end{bmatrix}
+    \ket{L_x=0}&= 0\\
+    \begin{bmatrix}
+        y/\sqrt{2}\\
+        x/\sqrt{2 }+z/\sqrt{2 }\\
+        y/\sqrt{2}
+    \end{bmatrix}
+    &= 0
+    \begin{cases}
+        y/\sqrt{2}=0\\
+        x+z=0
+    \end{cases}
+\end{align*}
+If we choose $x=1$, the normalized eigenstate is
+\begin{equation*}
+    \ket{L_x=1}=
+    \frac{1}{\sqrt{1+1}}
+    \begin{bmatrix}
+        1\\
+        0\\
+        -1\\
+    \end{bmatrix}
+    =
+        \begin{bmatrix}
+        1/2\\
+        0\\
+        -1/2\\
+    \end{bmatrix}
+\end{equation*}
+
+Then the eigenstate corresponding to $\omega=-1$
+\begin{align*}
+    \left( L_x -\omega I  \right) \ket{L_x=-1}&= 0\\
+    \begin{bmatrix}
+        1& 1/\sqrt{2 }& \\
+        1/\sqrt{2}&1 &1/\sqrt{2} \\
+        & 1/\sqrt{2}&1 \\
+    \end{bmatrix}
+    \ket{L_x=-1}&= 0\\
+    \begin{bmatrix}
+        x+y/\sqrt{2}\\
+        x/\sqrt{2 }+y+z/\sqrt{2}=0\\
+        y/\sqrt{2 }+z\\
+    \end{bmatrix}
+    &= 0
+    \begin{cases}
+        - \sqrt{2}x=y\\
+        -y/2+y-y/2=0\\
+        y=-\sqrt{2}z\\
+    \end{cases}
+\end{align*}
+If we choose $x=1$, the normalized eigenstate is
+\begin{equation*}
+    \ket{L_x=1}=
+    \frac{1}{\sqrt{1+1+2}}
+    \begin{bmatrix}
+        1\\
+        -\sqrt{2}\\
+        1\\
+    \end{bmatrix}
+    =
+        \begin{bmatrix}
+        1/2\\
+        -1/\sqrt{2}\\
+        1/2\\
+    \end{bmatrix}
+\end{equation*}
+
 \subsubsection{Fourth question.}
 If the particle is in the state with $L_z = -1$, and $L_x$ is measured, what are the possible outcomes and their probabilities?
 
