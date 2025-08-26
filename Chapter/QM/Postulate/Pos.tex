@@ -238,4 +238,34 @@ The compatibility measure the degree of incompatibility between two observables;
     [\Omega\Lambda]=\Omega\Lambda-\Lambda\Omega
 \end{equation*}
 
+\subsubsection{Procedure.}
+Here are the scheme by which the compatibility of two operators is measured.
+Let us first measure $\Omega$ on the ensemble described by $\ket{\psi}$ and take the particles that yield a result $\omega$. 
+We immediately measure $\Lambda$ and pick those particles that give a result $\lambda$.
+\begin{equation*}
+    \ket{\psi}\xrightarrow{\Omega=\omega}\ket{\omega}\xrightarrow{\Lambda=\lambda}\ket{\lambda}
+\end{equation*}
+Here the two operator are said to be incompatible since the second measurement change the state produced by the first measurement.
+
+Opposite case occur if the first eigenstate $\ket{\omega }$ is also an eigenstate of the second operator $\Lambda$.
+We denote this simultaneous eigenstates as $\ket{\omega\lambda}$.
+\begin{equation*}
+    \ket{\psi}\xrightarrow{\Omega=\omega}\ket{\omega\lambda}\xrightarrow{\Lambda=\lambda}\ket{\omega\lambda}
+\end{equation*}
+This eigenstate obey the following equations
+\begin{align*}
+    \Omega \ket{\omega\lambda}&= \omega \ket{\omega\lambda}\\
+    \Lambda\ket{\omega\lambda}&= \lambda \ket{\omega\lambda}
+\end{align*}
+Now operate the first $\Lambda$ and the second by $\Omega$
+\begin{align*}
+    \Lambda\Omega \ket{\omega\lambda}&= \omega\lambda \ket{\omega\lambda}\\
+    \Omega\Lambda\ket{\omega\lambda}&= \omega\lambda \ket{\omega\lambda}
+\end{align*}
+then subtract the second with the first
+\begin{align*}
+    (\Omega\Lambda-\Lambda\Omega)\ket{\omega\lambda}&= (\omega\lambda-\omega\lambda)\ket{\omega\lambda}\\
+    [\Omega,\Lambda]\ket{\omega\lambda}&= 0 \ket{\omega\lambda}
+\end{align*}
+Thus $[\Omega,\Lambda]$ must have eigenkets with zero eigenvalue if simultaneous eigenkets are to exist
 \end{document}
