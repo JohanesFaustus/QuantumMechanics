@@ -1,12 +1,9 @@
-% \documentclass[10pt]{report} 
-% \usepackage[paperheight=25.5 cm ,paperwidth=14.25cm,left=1.75cm,right=1.75cm,top=1.5cm,bottom=1.5cm]{geometry}
-
 \documentclass[10pt]{report} 
 %Custom papersize, roughly the ratio of smartphone for convinience
 
 \newif\ifaFive
 % default state is false
-% uncomment below to make a5 papersize
+% uncomment below to make a5 papersize, comment to make custom size
 \aFivetrue
 
 \ifaFive
@@ -18,9 +15,9 @@
 \input{./Chapter/Preamble/pre.tex}
 
 \begin{document}
-\pagestyle{empty}
+% \pagestyle{empty}
 \subfile{./Chapter/COV/Cover.tex}\clearpage
-
+\pagestyle{empty}
 \chapter{Mathematics}\clearpage
 
 \section{Linear Algebra}
@@ -59,6 +56,11 @@
 \subfile{./Chapter/CM/Hamiltion/ApplHamltn.tex}\clearpage
 
 \chapter{Modern Physics}\clearpage
+
+\section{Atomic Theory}
+\subfile{./ModernPhysics/Sec/Atom/Atom.tex}\clearpage
+\subfile{./ModernPhysics/Sec/Atom/AtomAppen.tex}\clearpage
+
 \section{Hydrogen Atom}
 \subfile{./ModernPhysics/Sec/HAtom/HA.tex}\clearpage
 
@@ -66,6 +68,9 @@
 \section{Unasorted Quantum Mechanics Topics}
 \subfile{./Chapter/QM/etc/file.tex}\clearpage
 \subfile{./Chapter/QM/etc/fileAppend.tex}\clearpage
+
+\section{Introduction to Quantum Mechanics}
+\subfile{./ModernPhysics/Sec/QM/QM.tex}\clearpage
 
 \section{Quantum Mechanics Postulate}
 \subfile{./Chapter/QM/Postulate/Pos.tex}\clearpage
