@@ -534,7 +534,27 @@ Mathematically
 \end{equation*}
 
 \subsubsection{Normalization.}
+From the  unity of eigenstate,
+\begin{align*}
+    \braket{\psi|\psi}&= \int_{-\infty}^{\infty} \braket{\psi|x}\braket{x|\psi}\;dx\\
+    &= \int_{-\infty}^{\infty} A^2\exp \left[ -\frac{(x-a)^2}{\Delta^2} \right] \;dx\\
+    &= A^2 \sqrt{\frac{\pi }{1/\Delta^2}}=A^2 \sqrt{\pi \Delta^2}
+\end{align*}
+As such, $A=(\pi\Delta^2)^{-1/4}$.
 
+\subsubsection{Expectation value.}
+With the now normalized state, we can determine the expectation  value of position operator $X$.
+The definition of expectation value give 
+\begin{align*}
+    \braket{\psi|X|\psi}&= \int_{-\infty}^{\infty} \braket{\psi|X|x}\braket{x|\psi}\;dx\\
+    &= \int_{-\infty}^{\infty} \left(\int_{-\infty}^{\infty}  \braket{x|X|x'}\braket{x'|\psi}\;dx' \right)\psi(x)\;dx \\
+    &= \int_{-\infty}^{\infty} \left(\int_{-\infty}^{\infty}  x\delta(x-x')\psi(x')\;dx' \right)\psi(x)\;dx \\
+    &= \int_{-\infty}^{\infty} \left(\int_{-\infty}^{\infty}  \delta(x'-x)x\psi(x')\;dx' \right)\psi(x)\;dx \\
+    &= \int_{-\infty}^{\infty} \psi ^*(x)x\psi(x) \\
+    &= \frac{1 }{(\pi \Delta^2)^{1/2}}\int_{-\infty}^{\infty} x \exp\left[ -\frac{(x-a)^2}{\Delta^2} \right] dx\\
+    &= \frac{1 }{(\pi\Delta^2)^{1/2}}\int_{-\infty}^{\infty} (x+a)\exp \left( -\frac{u^2 }{\Delta^2} \right) du\\
+    \braket{X}&=\frac{1 }{(\pi\Delta^2)^{1/2}} \left( 0+a (\pi\Delta)^{1/2} \right) =a
+\end{align*}
 
 \subsection{Appendix: Shankar's Example to Determine the Expectation Value and Uncertainty of Momentum Operator}
 The solution of the Dirac delta $\braket{x|p}=\psi_p(x)$ is 
