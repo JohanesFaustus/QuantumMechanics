@@ -463,15 +463,15 @@ To find changed state, we construct the projection operator on this eigenspace
 \begin{equation*}
     \mathbb{P }_1=\sum_i \ket{L_x^2,i}\bra{L_x^2,i} =
     \begin{bmatrix}
-        1&&
-        &&
-        &&
+        1&&\\
+        &0&\\
+        &&0\\
     \end{bmatrix}
     +
         \begin{bmatrix}
-        &&
-        &&
-        1&&
+        0&&\\
+        &0&\\
+        1&&0\\
     \end{bmatrix}
 \end{equation*}
 So its action on the state is 
@@ -516,4 +516,31 @@ Does this mean that the factors $e^{i\delta}$ multiplying the $L_z$ eigenstates 
 No.
 The vectors $\ket{\psi}$ and $e^{i\theta}\ket{\psi}$ are physically equivalent only in the sense that they generate the same probability distribution for any observable.
 This does not mean that when the vector $\psi$ appears as a part of a linear combination it can be multiplied by an arbitrary phase factor
+
+\subsection{Appendix: Shankar's Example to Determine the Expectation Value and Uncertainty of Position Operator}
+Suppose that the wave function is $X$ basis $\braket{x|\psi}=\psi(x)$ is a Gaussian, that is
+\begin{equation*}
+    \psi(x)=A \exp \left[ \-\frac{(X-a)^2 }{2\Delta^2} \right] 
+\end{equation*}
+The normalization of $\psi(x )$ is 
+\begin{equation*}
+    \psi(x)=\frac{1 }{(\pi\Delta^2)^{1/4}}\exp \left[ -\frac{(x-a )^2}{2\Delta^2} \right] 
+\end{equation*}
+
+Form this, the particle is most likely to be found around $x =a$, and chances of finding it away from this point drop rapidly beyond a distance $\Delta$. 
+Mathematically
+\begin{equation*}
+    \braket{X}=a,\quad\Delta X=\frac{\Delta}{\sqrt{2}}
+\end{equation*}
+
+\subsection{Appendix: Shankar's Example to Determine the Expectation Value and Uncertainty of Momentum Operator}
+The solution of the Dirac delta $\braket{x|p}=\psi_p(x)$ is 
+\begin{equation*}
+    \psi_p(x)=\frac{1 }{\sqrt{2\pi \hbar}}e^{ipx/\hbar} 
+\end{equation*}
+
+The expectation value and uncertainty the of momentum operator is
+\begin{equation*}
+    \braket{P}=0,\quad\Delta P=\frac{\hbar}{\Delta\sqrt{2}}
+\end{equation*}
 \end{document}
