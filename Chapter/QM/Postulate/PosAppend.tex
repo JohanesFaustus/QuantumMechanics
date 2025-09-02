@@ -556,6 +556,23 @@ The definition of expectation value give
     \braket{X}&=\frac{1 }{(\pi\Delta^2)^{1/2}} \left( 0+a (\pi\Delta)^{1/2} \right) =a
 \end{align*}
 
+\subsubsection{Uncertainty.}
+Using the expression for uncertainty
+\begin{equation*}
+    \Delta\Omega=\left( \braket{\Omega^2}-\braket{\Omega}^2 \right) ^{1/2}
+\end{equation*}
+we need to determine the expectation value of the square of position operator.
+We simply need to evaluate
+\begin{align*}
+    \braket{X^2}&= \frac{1 }{(\pi\Delta^2)^{1/2}} \int_{-\infty}^{\infty} \psi ^*(x)x^2\psi(x)\;dx  \\
+    &= \frac{1 }{(\pi\Delta^2)^{1/2}}\int_{-\infty}^{\infty} (u^2+2ua+a^2)\exp \left( -\frac{u ^2}{\Delta^2} \right)\;dx\\
+    \braket{X^2}&= \frac{\Delta^2 }{2}+0+a^2 
+\end{align*}
+So 
+\begin{equation*}
+    \Delta X=\left[ \frac{\Delta^2}{2}+a^{2}-a^{2} \right]^{1/2}=\frac{\Delta}{\sqrt{2}} 
+\end{equation*}
+
 \subsection{Appendix: Shankar's Example to Determine the Expectation Value and Uncertainty of Momentum Operator}
 The solution of the Dirac delta $\braket{x|p}=\psi_p(x)$ is 
 \begin{equation*}
