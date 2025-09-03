@@ -115,7 +115,7 @@ If we wanted the probability of $\lambda$, we can simply project $\ket{\psi}$ in
 \end{equation*}
 
 
-\subsection{Fourth Postulate}
+\subsection{Fourth Postulate: Schrödinger equation}
 As the following
 \begin{quotation}
     The state vector $\ket{\psi}$ obeys the Schrödinger equation
@@ -131,6 +131,53 @@ The state variables change with time according to Hamilton's equations
     \dot{x}=\frac{\partial \mathcal{H }}{\partial p}\qquad \dot{p }=-\frac{\partial \mathcal{H }}{\partial x}
 \end{equation*}
 \end{quotation}
+
+\subsubsection{Discussion: Constructing Hamiltonian.}
+Hamiltonian is constructed by making the substitution $\mathcal{H}(x,p) \rightarrow H(X,P)$, where $\mathcal{H }$ is the classical Hamiltonian for the same case.
+
+Consider a harmonic oscillator.
+The classical Hamiltonian is 
+\begin{equation*}
+    \mathcal{H }=\frac{p^2 }{2m }+\frac{1 }{2 }m\omega^2x^2
+\end{equation*}
+Thus the Hamiltonian for quantum harmonic oscillator is 
+\begin{equation*}
+    H=\frac{P^2 }{2m }+\frac{1 }{2 }m\omega^2X^2
+\end{equation*}
+or in three dimension
+\begin{equation*}
+    H=\frac{P_x^2+P_y^2+P_z^2}{2m  }+\frac{1 }{2}m\omega \left[ X^2+Y^2+Z^2 \right] 
+\end{equation*}
+assuming the force constant is the same in all directions.
+It is the isotropic harmonic oscillator, meaning the restoring force has the same frequency $\omega$ in every spatial direction.
+This is derived from the potential
+\begin{equation*}
+    V(x,y,z) = \frac{1}{2} m \omega^2 (x^2 + y^2 + z^2)
+\end{equation*}
+which generate the isotropic force 
+\begin{equation*}
+    \mathbf{F }= -m \omega^2 \mathbf{r}
+\end{equation*}
+
+Now consider a particle in one dimension is subject to a constant force $f$.
+The classical Hamiltonian is 
+\begin{equation*}
+    \mathcal{H }=\frac{p^2 }{2m }-fx
+\end{equation*}
+Thus the quantum Hamiltonian  
+\begin{equation*}
+    H=\frac{P^2 }{2m }-fX
+\end{equation*}
+
+Now consider particle of charge $q$ in an electromagnetic field.
+The classical Hamiltonian is 
+\begin{equation*}
+    \mathcal{H }=\frac{|\mathbf{p }-(q/c) \mathbf{A}(\mathbf{r},t)|^2 }{2m }+q\phi(\mathbf{r },t)
+\end{equation*}
+The Hamiltonian is constructed by using the symmetric form 
+\begin{equation*}
+    H=\frac{P^2 }{2m }\left( \mathbf{P }\cdot \mathbf{P }-\frac{q }{c }\mathbf{P }\cdot \mathbf{A}-\frac{q }{c}\mathbf{A}\cdot \mathbf{P}+\frac{q^2 }{c^2}\mathbf{A }\cdot \mathbf{A}\cdot \mathbf{A} \right) +q\phi
+\end{equation*}
 
 \subsection{Measurement}
 Given state $(x,p)$, we can say that dynamical value has the value $\omega(x,p)$ in classical mechanics.
