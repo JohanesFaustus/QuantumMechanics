@@ -179,7 +179,7 @@ The Hamiltonian is constructed by using the symmetric form
     H=\frac{P^2 }{2m }\left( \mathbf{P }\cdot \mathbf{P }-\frac{q }{c }\mathbf{P }\cdot \mathbf{A}-\frac{q }{c}\mathbf{A}\cdot \mathbf{P}+\frac{q^2 }{c^2}\mathbf{A }\cdot \mathbf{A}\cdot \mathbf{A} \right) +q\phi
 \end{equation*}
 
-\subsection{Discussion: The propagator equation.}
+\subsubsection{Discussion: The propagator equation.}
 Let us first assume that $H$ has no explicit $t$ dependence. In this case
 \begin{equation*}
     i \hbar \ket{\dot{\psi}(t)}=H \ket{\psi(t)}
@@ -189,7 +189,72 @@ On using the propagator, the time evolution of the solution is written as
     \ket{\psi(t)}=U(t)\ket{\psi(0)}
 \end{equation*}
 
+\subsubsection{Discussion: The propagator expression.}
+The propagator for time independent Hamiltonian can be constructed as 
+\begin{equation*}
+    U(t)=\sum_E \ket{E } \bra{E }e^{-iEt/\hbar}=\int \ket{E} \bra{E}e^{-iEt/\hbar}\;dE
+\end{equation*}
+Another expression is 
+\begin{equation*}
+    U(t)=e^{-iHt/\hbar}
+\end{equation*}
 
+The expression is derived as follows.
+First consider the time independent Schrödinger equation that describe the action of Hamilton operator on energy eigenstate
+\begin{equation*}
+    H \ket{E}=E \ket{E}
+\end{equation*}
+We can expand the state in this basis 
+\begin{equation*}
+    \ket{\psi(t)}=\sum \ket{E }\braket{E|\psi(t)}=\sum a_E(t)\ket{E}
+\end{equation*}
+Operate both $\ket{\psi(t)}$ with $i \hbar d/dt-H$ to obtain the Schrödinger equation and more
+\begin{align*}
+    \left( i \hbar \frac{\partial }{\partial t }-H  \right) \ket{\psi(t)}&= i \hbar \ket{\dot{\psi}(t)}-H \ket{\psi(y)}\\
+    &= i \hbar \sum \dot{a}_E \ket{E }- H\sum a_E \ket{E }\\
+    &= i \hbar \sum \dot{a}_E \ket{E }- \sum a_E E\ket{E }\\
+    0&= \sum \left( i \hbar \dot{a }_E-a_EE  \right) \ket{E}
+\end{align*}
+which imply
+\begin{equation*}
+   i \hbar \dot{a }_E=a_EE 
+\end{equation*}
+A simple differential equation
+\begin{align*}
+    \frac{d a_E }{dt }&= i \frac{E }{\hbar }a_E\\
+    \ln a_E &= -i \frac{E }{\hbar }+C\\
+    a_E(t)&= C e^{-i E t/\hbar}
+\end{align*}
+with $a_E(0)=0$, this makes 
+\begin{equation*}
+    a_E(t)= a_E(0)e^{-i E t/\hbar}
+\end{equation*}
+
+With the expression for $a_E(t)$, we can now expand 
+\begin{equation*}
+    \ket{\psi(t)}=\sum a_E(0)e^{-i E t/\hbar}\ket{E}
+\end{equation*}
+Now we project it onto $\bra{E }$ at $t=t$ and $t=0$
+\begin{align*}
+    \braket{E|\psi(t)}&= \bra{E }\sum a_E(0)e^{-i E t/\hbar}\ket{E}=a_E(0)e^{-i Et/\hbar}\\
+    \braket{E|\psi(0)}&= \bra{E }\sum a_E(0)\ket{E}=a_E(0)
+\end{align*}
+or 
+\begin{equation*}
+    \braket{E|\psi(t)}=a_E(0)e^{-i Et/\hbar}=\braket{E|\psi(t)}e^{-iEt/\hbar}
+\end{equation*}
+Thus 
+\begin{equation*}
+    \ket{\psi(t)}=\ket{\psi(0)}e^{-iEt/\hbar}
+\end{equation*}
+On comparing this with the propagator equation
+\begin{equation*}
+    \ket{\psi(t)}=U(t)\ket{\psi(0)}    
+\end{equation*}
+We can written the propagator as 
+\begin{equation*}
+    U(t)=\sum_E \ket{E }\bra{E }e^{-iE/\hbar}=e^{-iEt/\hbar}
+\end{equation*}
 
 \subsection{Measurement}
 Given state $(x,p)$, we can say that dynamical value has the value $\omega(x,p)$ in classical mechanics.
