@@ -189,6 +189,20 @@ On using the propagator, the time evolution of the solution is written as
     \ket{\psi(t)}=U(t)\ket{\psi(0)}
 \end{equation*}
 
+Since the energy operator $H$ is Hermitian
+\begin{equation*}
+    H=H ^\dagger
+\end{equation*}
+it follows that the propagator $U(t)=\exp(-i Ht/\hbar)$ is unitary.
+\begin{equation*}
+    U ^\dagger(t)=\left[\exp(-i Ht/\hbar)\right]^\dagger=\exp(-i H ^\dagger t/\hbar)=\exp(-i Ht/\hbar)
+\end{equation*} 
+One consequence is the norm of state vector is invariant
+\begin{equation*}
+    \braket{\psi(t)|\psi(t)}=\braket{\psi(0)|U ^\dagger(t)U(t)|\psi(0)}=\braket{\psi(0)|\psi(0)}
+\end{equation*}
+This meant that once normalized, state stays normalized.
+
 \subsubsection{Discussion: The propagator expression.}
 The propagator for time independent Hamiltonian can be constructed as 
 \begin{equation*}
@@ -251,7 +265,7 @@ On comparing this with the propagator equation
 \begin{equation*}
     \ket{\psi(t)}=U(t)\ket{\psi(0)}    
 \end{equation*}
-We can written the propagator as 
+We can be written the propagator as 
 \begin{equation*}
     U(t)=\sum_E \ket{E }\bra{E }e^{-iE/\hbar}=e^{-iEt/\hbar}
 \end{equation*}
