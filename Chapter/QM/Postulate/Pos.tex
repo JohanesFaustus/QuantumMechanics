@@ -270,6 +270,45 @@ We can be written the propagator as
     U(t)=\sum_E \ket{E }\bra{E }e^{-iE/\hbar}=e^{-iEt/\hbar}
 \end{equation*}
 
+\subsubsection{Discussion: Basis.}
+Barring a few exceptions, the Schrödinger equation is always solved in a particular basis.
+Since $H=H(X,P)$, the $x$ and $p$ basis is recommended.
+In the $x$ basis, the operators takes the form
+\begin{equation*}
+    X \rightarrow x \quad P \rightarrow -i \hbar \frac{d }{dx} 
+\end{equation*}
+while in $P$ basis
+\begin{equation*}
+    X \rightarrow i \hbar \frac{d }{dp}\quad P \rightarrow p 
+\end{equation*}
+
+For example, consider the Hamiltonian in the form
+\begin{equation*}
+    H=T+V=\frac{P^2 }{2m }+\frac{1 }{\cosh^2 X}
+\end{equation*}
+where the $V(X)$ understood as more complicated than $T$.
+In the $X$ basis the time independent Schrödinger equation takes the form 
+\begin{equation*}
+    \left( -\frac{\hbar^2 }{2m }\frac{d^2 }{dx^2 }+\frac{1 }{\cosh^2 x} \right) \psi_E(x)=E\psi_E(x)
+\end{equation*}
+Had we gone to $P$ basis, we obtain the much more complicated equation
+\begin{equation*}
+    \left( \frac{p^2 }{2m }+\frac{1 }{\cosh^2 (i \hbar d/dp)} \right) \psi_E(p)=E\psi_E(p)
+\end{equation*}
+
+On the other hand, consider the Hamiltonian of a particle in the constant force field $f$
+\begin{equation*}
+    H=\frac{P^2 }{2m }-fX
+\end{equation*}
+In the $X$ basis, the Schrödinger equation takes the much more complicated form 
+\begin{equation*}
+    \left( -\frac{\hbar^2}{2m }\frac{d^2 }{dx^2}-fx \right)\psi_E(x)=E\psi_E(x) 
+\end{equation*}
+While in the $P$ basis it takes the form of first order differential equation
+\begin{equation*}
+    \left( \frac{p^2 }{2m }-i \hbar f \frac{d }{dp }     \right)\psi_E (p)=E\psi_E(p) 
+\end{equation*}
+
 \subsection{Measurement}
 Given state $(x,p)$, we can say that dynamical value has the value $\omega(x,p)$ in classical mechanics.
 In quantum mechanics, when a particle is in a state $\ket{\psi } $ the particle can have the value of $\omega$ for the quantum operator $\Omega$ with probability $P(\omega)\propto|\braket{\omega|\psi}  |^2$. 
