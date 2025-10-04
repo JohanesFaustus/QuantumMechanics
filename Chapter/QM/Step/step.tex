@@ -16,7 +16,7 @@ The wave function in this system takes the form
     \qquad
     \psi_n^{\text{even}}(x) =\sqrt{\frac{2 }{L }} \cos\left(\frac{(2n-1)\pi x}{L}\right)
 \end{equation*}
-We also have the energy eigenstate
+We also have the energy eigenvalue
 \begin{equation*}
     E_n^{\text{even}} = \frac{\hbar^2}{2 m} \left[\frac{(2n-1)\pi}{L}\right]^2, \qquad
     E_n^{\text{odd}} = \frac{\hbar^2}{2 m} \left(\frac{2 n \pi}{L}\right)^2
@@ -90,7 +90,7 @@ which meant
     A^2 \frac{L }{2 }=1\implies A=\frac{2 }{L}
 \end{equation*}
 
-Using the expression for $k^{\text{odd}}$ and $k^{\text{even}}$, we can obtain the expression for energy eigenstate for both parity.
+Using the expression for $k^{\text{odd}}$ and $k^{\text{even}}$, we can obtain the expression for energy eigenvalue for both parity.
 
 \subsection{Infinite Potential Well: Antisymmetric Case}
 The potential is in the shape
@@ -110,7 +110,7 @@ With wave function in the form
         0                                          & L \leq x
     \end{cases}
 \end{equation*}
-and energy eigenstate
+and energy eigenvalue
 \begin{equation*}
     E_n=\frac{\pi^2\hbar^2}{2mL^2}n^2
 \end{equation*}
@@ -164,7 +164,7 @@ We derive this by the method of separation variable, that is assuming $\psi(x,y,
     Z_l(z) & = \sqrt{\frac{2}{L_z}} \sin\left(\frac{l \pi z}{L_z}\right)
 \end{align*}
 
-The energy eigenstate is
+The energy eigenvalue is
 \begin{equation*}
     E_{nml} =\frac{\hbar^2 \pi^2}{2 m} \left( \frac{n^2}{L_x^2} + \frac{m^2}{L_y^2} + \frac{l^2}{L_z^2} \right)
 \end{equation*}
@@ -193,7 +193,7 @@ With the second differentiation of
     \frac{\partial^2 \psi}{\partial y^2} & = X(x) Z(z) Y''(y), \\
     \frac{\partial^2 \psi}{\partial z^2} & = X(x) Y(y) Z''(z).
 \end{align*}
-the Laplacian becomes
+The Laplacian becomes
 \begin{equation*}
     \nabla^2 \psi = Y Z X'' + X Z Y'' + X Y Z''.
 \end{equation*}
@@ -479,26 +479,45 @@ For $E<V_0$, the wavefunction is
 \end{equation*}
 For $V_0<E$,
 \begin{align*}
-    \psi^{\text{even}}(x) &= 
+    \psi^{\text{even}}(x) & =
     \begin{cases}
-        A e^{i k_1 x} + B e^{-i k_1 x},  & x < -L/\\
-        C \cos(k x),                     & |x| \le L/2 \\
-        A e^{-i k_1 x} + B e^{i k_1 x},& x > L/2
+        A e^{i k_1 x} , & x < -L/     \\
+        C \cos(k x),    & |x| \le L/2 \\
+        A e^{-i k_1 x}, & x > L/2
     \end{cases}
     \\
-    \psi^{\text{odd}}(x) &= 
+    \psi^{\text{odd}}(x)  & =
     \begin{cases}
-        A e^{i k_1 x} + B e^{-i k_1 x},                & x < -L/2    \\
-        D \sin(k x),                                   & |x| \le L/2 \\
-        -\left( A e^{i k_1 x} + B e^{-i k_1 x}\right), & x > L/2
+        A e^{i k_1 x},   & x < -L/2    \\
+        D \sin(k x),     & |x| \le L/2 \\
+        -A e^{i k_1 x} , & x > L/2
     \end{cases}
 \end{align*}
 
 We have used the parameter
 \begin{equation*}
     k = \sqrt{\frac{2 m E}{\hbar^2}}, \quad
-    \kappa = \sqrt{\frac{2 m (V_0 - E)}{\hbar^2}}
+    k_1 =
+    \begin{cases}
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}                           & V_0<E   \\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0
+    \end{cases}
 \end{equation*}
+
+Using this parameter, we express the transcendental equation to find the allowed energy eigenvalue.
+With $E<V_0$ 
+\begin{align*}
+    \sqrt{E} \tan \left( \frac{L }{2 }\sqrt{\frac{2mE}{\hbar^2}} \right) &= \sqrt{V_0-E}\\
+    \sqrt{E} \cot \left( \frac{L }{2 }\sqrt{\frac{2mE}{\hbar^2}} \right) &= -\sqrt{V_0-E}
+\end{align*}
+for even and odd parity respectively.
+With $V_0<E$
+\begin{align*}
+    \sqrt{E} \tan \left( \frac{L }{2 }\sqrt{\frac{2mE}{\hbar^2}} \right) &= i\sqrt{E-V_0}\\
+    \sqrt{E} \cot \left( \frac{L }{2 }\sqrt{\frac{2mE}{\hbar^2}} \right) &= -i\sqrt{E-V_0}
+\end{align*}
+for even and odd parity respectively.
+
 
 \subsubsection{Derivation.}
 In the region I, the Schrödinger equation reads
@@ -525,9 +544,11 @@ For the case of $V_0<E$,
 \end{equation*}
 Now enforcing odd parity $\psi(x)=-\psi(-x)$ and even  parity $\psi(x)=\psi(-x)$, we have
 \begin{equation*}
-    \psi_{III}^{\text{odd}}=-\left( A e^{i k_1 x} + B e^{-i k_1 x}\right),\qquad
-    \psi_{III}^{\text{odd}}=A e^{-i k_1 x} + B e^{i k_1 x}
+    \psi_{III}^{\text{odd}}=-A e^{i k_1 x}
+    \qquad
+    \psi_{III}^{\text{odd}}=A e^{-i k_1 x}
 \end{equation*}
+where we have also considered single-sided scattering such that $B=0$.
 
 For the case of $E<V_0$, we throw $A$ away since it diverges as $x \rightarrow -\infty$
 \begin{equation*}
@@ -573,6 +594,55 @@ Enforcing the parity
     \psi_{II}^{\text{odd}}(x) = C \sin (k_2x)
     \qquad
     \psi_{II}^{\text{even}}(x) =  D \cos (k_2x)
+\end{equation*}
+
+\subsubsection{Energy eigenvalues.}
+Consider the case of $E<V_0$ first.
+For even parity, continuity at $x=L/2$ demands
+\begin{equation*}
+    \begin{cases}
+        F=C \cos \left(  kL/2 \right) \\
+        -\kappa F =-C k \sin  \left( kL/2\right)
+    \end{cases}
+\end{equation*}
+Divide the derivative continuity with the wavefunction continuity
+\begin{equation*}
+    k \tan \left( \frac{k L}{2} \right) =\kappa
+\end{equation*}
+For even parity,
+\begin{equation*}
+    \begin{cases}
+        D \sin (kL/2)=F \\
+        kD \cos (kL/2)=\kappa F
+    \end{cases}
+\end{equation*}
+Divide the derivative continuity with the wavefunction continuity
+\begin{equation*}
+    k \cot \left( \frac{k L}{2} \right) =\kappa
+\end{equation*}
+
+Now consider the case $V_0<E$.
+For even parity, continuity at $x=L/2$ demands
+\begin{equation*}
+    \begin{cases}
+        Ae^{ik_1L/2}=C \cos (kL/2) \\
+        -ik_1 Ae^{ik_1L/2}=-C k \sin  \left( kL/2\right)
+    \end{cases}
+\end{equation*}
+Divide the derivative continuity with the wavefunction continuity
+\begin{equation*}
+    k \tan \left( \frac{k L}{2} \right) =ik_1
+\end{equation*}
+For even parity,
+\begin{equation*}
+    \begin{cases}
+        D \sin (kL/2)=-Ae^{ik_1L/2} \\
+        kD \cos (kL/2)=ik_1Ae^{ik_1L/2} 
+    \end{cases}
+\end{equation*}
+Divide the derivative continuity with the wavefunction continuity
+\begin{equation*}
+    k \cot \left( \frac{k L}{2} \right) =ik_1
 \end{equation*}
 
 \end{document}
