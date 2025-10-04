@@ -305,7 +305,7 @@ The general solution is
 Now we move into region II.
 The Schrödinger equation now reads
 \begin{align*}
-    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{II}}{dx^2} + V_0 \psi_{II} & =  E \psi_{II}
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{II}}{dx^2} + V_0 \psi_{II} & =  E \psi_{II}      \\
     \frac{d^2 \psi_{II}}{dx^2}                                     & = - k_2^2 \psi_{II}
 \end{align*}
 The value  of $k_2$ depends on the value of $E$
@@ -359,5 +359,95 @@ Now solve $C$ in terms of $A$ by substituting $B$ into wavefunction condition
     C = A + B = A + \frac{k_1 - k_2}{k_1 + k_2} A = \frac{2 k_1}{k_1 + k_2} A
 \end{equation*}
 
+\subsection{Finite Potential Barrier}
+Generalization of step potential such that the potential form a bump relative to the surroundings
+\begin{equation*}
+    V(x) =
+    \begin{cases}
+        0,   & x < 0         \\
+        V_0, & 0 \le x \le L \\
+        0,   & L < x
+    \end{cases}
+\end{equation*}
 
+The wavefunction in this system is
+\begin{equation*}
+    \psi(x) =
+    \begin{cases}
+        A e^{i k_1 x} + B e^{-i k_1 x},   & x < 0                        \\[1mm]
+        C e^{i k_2 x} + D e^{-i k_2 x},   & 0 \le x \le L, \quad E > V_0 \\[1mm]
+        C e^{\kappa x} + D e^{-\kappa x}, & 0 \le x \le L, \quad E < V_0 \\[1mm]
+        F e^{i k_1 x},                    & L<x
+    \end{cases}
+\end{equation*}
+$A$ represents incident amplitude, $B$ reflected amplitude, $C$ and $D$ amplitudes inside the barrier (right/left moving or decaying/growing), $F$ represents transmitted amplitude.
+
+Physically, if there is only one particle coming from the left, there is no source on the right.
+Therefore, we set $G=0$.
+
+For a finite potential barrier or well, there is generally no simple closed-form expression for reflection and transmission amplitude.
+They still can be written as 
+\begin{equation*}
+    r=\frac{B }{A }\qquad t=\frac{F }{A}
+\end{equation*}
+For the probabilities
+\begin{equation*}
+    R=|r|^2=\frac{|A|^2}{|B|^2}\qquad T=\frac{k_3 }{k_1 }|t^2|=\frac{|F|^2}{|A|^2}
+\end{equation*}
+\subsubsection{Derivation.}
+Mostly the same as the infinite case.
+In the incident region
+\begin{align*}
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{I}}{dx^2} & =  E \psi_I        \\
+    \frac{d^2 \psi_{I}}{dx^2}                     & = - k_1^2 \psi_{I}
+\end{align*}
+with
+\begin{equation*}
+    k_1^2 =\frac{2 m E}{\hbar^2}
+\end{equation*}
+The general solution is
+\begin{equation*}
+    \psi_I(x) = A e^{i k_1 x} + B e^{-i k_1 x}
+\end{equation*}
+
+Now, the region II
+\begin{align*}
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{II}}{dx^2} + V_0 \psi_{II} & =  E \psi_{II}      \\
+    \frac{d^2 \psi_{II}}{dx^2}                                     & = - k_2^2 \psi_{II}
+\end{align*}
+The value  of $k_2$ depends on the value of $E$
+\begin{equation*}
+    k_2 =
+    \begin{cases}
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}                           & V_0<E   \\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0
+    \end{cases}
+\end{equation*}
+The general form in the region II is
+\begin{equation*}
+    \psi_{II}(x)=C e^{i k_2 x} + D e^{-i k_2 x}
+\end{equation*}
+For the case of $V_0<E$,
+\begin{equation*}
+    \psi_{II}(x) = C e^{i k_2 x} + D e^{-i k_2 x}
+\end{equation*}
+For the case of $E<V_0$,
+\begin{equation*}
+    \psi_{II}(x) =C e^{-\kappa x}+ + D e^{-i\kappa x}
+\end{equation*}
+Here we do not throw $D$ away since $x$ does not approach infinity.
+
+Region III is the same as region I
+\begin{equation*}
+    \frac{d^2 \psi_{III}}{dx^2} = - k_3^2 \psi_{III}
+\end{equation*}
+with
+\begin{equation*}
+    k_3^2 =k_1=\frac{2 m E}{\hbar^2}
+\end{equation*}
+The general solution is
+\begin{equation*}
+    \psi_I(x) = F e^{i k_1 x} + G e^{-i k_1 x}
+\end{equation*}
+If there are no incident waves from right, we throw $G$ away
 \end{document}
