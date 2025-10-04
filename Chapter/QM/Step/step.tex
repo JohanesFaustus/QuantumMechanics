@@ -229,4 +229,97 @@ The total energy is
 \begin{equation*}
     E_{nml} = E_x + E_y + E_z = \frac{\hbar^2 \pi^2}{2 m} \left( \frac{n^2}{L_x^2} + \frac{m^2}{L_y^2} + \frac{l^2}{L_z^2} \right)
 \end{equation*}
+
+\subsection{Step Potential}
+The system has the potential at the shape
+\begin{equation*}
+    V(x) =
+    \begin{cases}
+        0,   & x < 0,   \\
+        V_0, & 0\leq x.
+    \end{cases}
+\end{equation*}
+
+As usual, the wavefunction depends on the region and the value of $E$
+\begin{equation*}
+    \psi(x)=
+    \begin{cases}
+            A e^{i k_1 x} + B e^{-i k_1 x}&x <0\\
+            C e^{i k_2 x} + D e^{-i k_2 x} & 0 \leq x,\; V_0 < E \\
+            C e^{-\kappa x}                & 0 \leq x,\;E < V_0
+    \end{cases}
+\end{equation*}
+where
+\begin{equation*}
+    k_1^2 =\frac{2 m E}{\hbar^2}    ,
+    \qquad
+    k_2 =
+    \begin{cases}
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}&V_0<E\\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0 
+    \end{cases}
+\end{equation*}
+
+In the case of $E<V_0$, our wave function reads
+\begin{equation*}
+    \psi(x)=Ae^{ik_1x}+Be^{-ik_1x}+Ce^{-\kappa x}
+\end{equation*}
+$Ae^{ik_1x}$ corresponds to a wave incident from the left, traveling toward the potential step, while $Be^{-ik_1x}$ corresponds to a reflected wave, moving backward, away from the step.
+These are oscillatory plane waves, representing the particle moving freely in the $x<0$.
+$Ce^{-\kappa x}$ represents an evanescent wave, i.e., the tunneling tail inside the classically forbidden region.
+
+Unlike the case of $E<V_0$, particle can move freely in the case of $V_0<E$.
+The wavefunction in the form
+\begin{equation*}
+    \psi(x)=Ae^{ik_1x}+Be^{-ik_1x}+Ce^{ik_2 x}+De^{-ik_2x}    
+\end{equation*}
+represents this.
+$Ae^{ik_1x}$ represents particle incident form left, $Be^{-ik_1x}$ represents it being reflected back, and $Ce^{ik_2 x}$ represents it being transmitted.
+$De^{-ik_2x}$ represents wave incident from right, although we often set $D=0$ since there is no particle incident from right.
+
+\subsubsection{Derivation.}
+We begin by dividing the regions into I and II.
+At the region I, the Schrödinger equation reads
+\begin{align*}
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{I}}{dx^2} & =  E \psi_I      \\
+    \frac{d^2 \psi_{I}}{dx^2}                     & = - k_1^2 \psi_{I}
+\end{align*}
+with
+\begin{equation*}
+    k_1^2 =\frac{2 m E}{\hbar^2}
+\end{equation*}
+The general solution is
+\begin{equation*}
+    \psi_I(x) = A e^{i k_1 x} + B e^{-i k_1 x}
+\end{equation*}
+
+Now we move into region II.
+The Schrödinger equation now reads
+\begin{align*}
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{II}}{dx^2} + V_0 \psi_{II} & =  E \psi_{II}
+    \frac{d^2 \psi_{II}}{dx^2}                                  & = - k_2^2 \psi_{II}
+\end{align*}
+The value  of $k_2$ depends on the value of $E$
+\begin{equation*}
+    k_2 =
+    \begin{cases}
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}&V_0<E\\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0 
+    \end{cases}
+\end{equation*}
+It also follows that the solution also depends on $E$.
+The general form in the region II is
+\begin{equation*}
+    \psi_{II}(x)=C e^{i k_2 x} + D e^{-i k_2 x} 
+\end{equation*}
+For the case of $V_0<E$, the exponential is complex. 
+As such, we have the solution 
+\begin{equation*}
+    \psi_{II}(x) = C e^{i k_2 x} + D e^{-i k_2 x}
+\end{equation*}
+For the case of $E<V_0$, the exponential is real.
+As such, we throw the $D$ constant to avoid divergence as $x \rightarrow \infty$
+\begin{equation*}
+    \psi_{II}(x) =C e^{-\kappa x}
+\end{equation*}
 \end{document}
