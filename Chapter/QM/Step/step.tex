@@ -386,7 +386,7 @@ Physically, if there is only one particle coming from the left, there is no sour
 Therefore, we set $G=0$.
 
 For a finite potential barrier or well, there is generally no simple closed-form expression for reflection and transmission amplitude.
-They still can be written as 
+They still can be written as
 \begin{equation*}
     r=\frac{B }{A }\qquad t=\frac{F }{A}
 \end{equation*}
@@ -450,4 +450,129 @@ The general solution is
     \psi_I(x) = F e^{i k_1 x} + G e^{-i k_1 x}
 \end{equation*}
 If there are no incident waves from right, we throw $G$ away
+
+\subsection{Finite Potential Well}
+Generalization of potential well such that the potential form a dip relative to the surroundings
+\begin{equation*}
+    V(x)=
+    \begin{cases}
+        0,   & |x|\leq L/2 \\
+        V_0, & L/2 <|x|
+    \end{cases}
+\end{equation*}
+
+For $E<V_0$, the wavefunction is
+\begin{equation*}
+    \psi^{\text{even}}(x) =
+    \begin{cases}
+        F e^{\kappa (x + L/2)}, \\
+        C \cos(k x),            \\
+        F e^{-\kappa (x - L/2)},
+    \end{cases}
+    \quad
+    \psi^{\text{odd}}(x) =
+    \begin{cases}
+        - F e^{\kappa (x + L/2)}, & x < -L/2    \\
+        D \sin(k x),              & |x| \le L/2 \\
+        F e^{-\kappa (x - L/2)},  & x > L/2
+    \end{cases}
+\end{equation*}
+For $V_0<E$,
+\begin{align*}
+    \psi^{\text{even}}(x) &= 
+    \begin{cases}
+        A e^{i k_1 x} + B e^{-i k_1 x},  & x < -L/\\
+        C \cos(k x),                     & |x| \le L/2 \\
+        A e^{-i k_1 x} + B e^{i k_1 x},& x > L/2
+    \end{cases}
+    \\
+    \psi^{\text{odd}}(x) &= 
+    \begin{cases}
+        A e^{i k_1 x} + B e^{-i k_1 x},                & x < -L/2    \\
+        D \sin(k x),                                   & |x| \le L/2 \\
+        -\left( A e^{i k_1 x} + B e^{-i k_1 x}\right), & x > L/2
+    \end{cases}
+\end{align*}
+
+We have used the parameter
+\begin{equation*}
+    k = \sqrt{\frac{2 m E}{\hbar^2}}, \quad
+    \kappa = \sqrt{\frac{2 m (V_0 - E)}{\hbar^2}}
+\end{equation*}
+
+\subsubsection{Derivation.}
+In the region I, the Schrödinger equation reads
+\begin{align*}
+    -\frac{\hbar^2}{2 m} \frac{d^2 \psi_{I}}{dx^2} + V_0 \psi_{I} & =  E \psi_{I}   \\
+    \frac{d^2 \psi_{I}}{dx^2}                                     & = k_1^2\psi_{I}
+\end{align*}
+with
+\begin{equation*}
+    k_1 =
+    \begin{cases}
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}                           & V_0<E   \\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0
+    \end{cases}
+\end{equation*}
+The general solution is
+\begin{equation*}
+    \psi_{I}(x) = A e^{ik_1x} + B e^{-ik_1 x}
+\end{equation*}
+
+For the case of $V_0<E$,
+\begin{equation*}
+    \psi_{I}(x) = A e^{i k_1 x} + B e^{-i k_1 x}
+\end{equation*}
+Now enforcing odd parity $\psi(x)=-\psi(-x)$ and even  parity $\psi(x)=\psi(-x)$, we have
+\begin{equation*}
+    \psi_{III}^{\text{odd}}=-\left( A e^{i k_1 x} + B e^{-i k_1 x}\right),\qquad
+    \psi_{III}^{\text{odd}}=A e^{-i k_1 x} + B e^{i k_1 x}
+\end{equation*}
+
+For the case of $E<V_0$, we throw $A$ away since it diverges as $x \rightarrow -\infty$
+\begin{equation*}
+    \psi_{I}(x) = B e^{\kappa x}
+\end{equation*}
+Define a new amplitude at the boundary \(x = -L/2\) as $F = B e^{\kappa L/2}$, so that
+\begin{equation*}
+    \psi_{I}(x) = F e^{\kappa (x + L/2)}
+\end{equation*}
+when applying boundaries $\psi_{I}(-L/2) = F$.
+Enforcing odd parity $\psi(x)=-\psi(-x)$ and even  parity $\psi(x)=\psi(-x)$, we have
+\begin{equation*}
+    \psi_{III}^{\text{odd}}(x) = -F e^{-\kappa (x - L/2)}
+    \qquad
+    \psi_{III}^{\text{even}}(x) = F e^{-\kappa (x - L/2)}
+\end{equation*}
+Now we can use this wavefunction for both odd and even parity, nothing would matter physically.
+However, the $\psi_{III}^{\text{odd}}$ is negative; and by convention we want to have positive right wavefunction.
+As such, we reversed the order, and choose
+\begin{equation*}
+    \psi_{III}(x) = F e^{-\kappa (x - L/2)}
+\end{equation*}
+as reference.
+Now enforcing odd and even parity yield the region I wavefunction
+\begin{equation*}
+    \psi_{I}^{\text{odd}}(x) = -F e^{\kappa (x + L/2)},
+    \qquad
+    \psi_{I}^{\text{even}}(x) = F e^{\kappa (x + L/2)}
+\end{equation*}
+
+In the region II, the Schrödinger equation reads
+\begin{align*}
+    -\frac{\hbar^2}{2 m} \frac{d^2 \psi_{II}}{dx^2} & =  E \psi_{II}      \\
+    \frac{d^2 \psi_{II}}{dx^2}                      & = - k_2^2 \psi_{II}
+\end{align*}
+with $k_2^2=\sqrt{2mE/\hbar^2}$.
+The general solution is
+\begin{equation*}
+    \psi_{II}(x)=C\sin (k_2x)+D \cos (k_2x)
+\end{equation*}
+Enforcing the parity
+\begin{equation*}
+    \psi_{II}^{\text{odd}}(x) = C \sin (k_2x)
+    \qquad
+    \psi_{II}^{\text{even}}(x) =  D \cos (k_2x)
+\end{equation*}
+
 \end{document}
