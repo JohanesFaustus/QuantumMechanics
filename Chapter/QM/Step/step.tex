@@ -10,7 +10,7 @@ The potential shape is
         \infty, & |x| \leq L/2
     \end{cases}
 \end{equation*}
-The wave function in this system takes the form 
+The wave function in this system takes the form
 \begin{equation*}
     \psi_n^{\text{odd}}(x) = \sqrt{\frac{2  }{L }} \sin\left(\frac{2 n \pi x}{L}\right)
     \qquad
@@ -70,22 +70,22 @@ Next we begin the normalization step.
 To normalize $\psi_n^{\text{even}}$, we perform
 \begin{align*}
     \int_{-L/2}^{L/2} \sin^2\left(\frac{2 n \pi x}{L}\right) dx & =  \int_0^{L/2} \left[1 - \cos\left(\frac{4 n \pi x}{L}\right)\right] dx                 \\
-                                                                   & = \frac{L }{2 }+ \frac{\sin\left(\frac{4 n \pi x}{L}\right)}{4 n \pi / L} \Bigg|_0^{L/2} \\
-                                                                   & = \frac{L }{2 }+\frac{\sin(2 n \pi) - \sin 0}{4 n \pi / L}                               \\
-    \int_{-L/2}^{L/2} \sin^2\left(\frac{2 n \pi x}{L}\right) dx & =\frac{L }{2}                                                                         \\
+                                                                & = \frac{L }{2 }+ \frac{\sin\left(\frac{4 n \pi x}{L}\right)}{4 n \pi / L} \Bigg|_0^{L/2} \\
+                                                                & = \frac{L }{2 }+\frac{\sin(2 n \pi) - \sin 0}{4 n \pi / L}                               \\
+    \int_{-L/2}^{L/2} \sin^2\left(\frac{2 n \pi x}{L}\right) dx & =\frac{L }{2}                                                                            \\
 \end{align*}
-which meant 
+which meant
 \begin{equation*}
     B^2 \frac{L }{2 }=1\implies B=\frac{2 }{L}
 \end{equation*}
 Then we normalize $\psi_n^{\text{odd}}$
 \begin{align*}
     \int_{-L/2}^{L/2} \cos^2\left(\frac{(2n-1) \pi x}{L}\right) dx & =  \int_0^{L/2} \left[1 + \cos\left(\frac{2 (2n-1) \pi x}{L}\right)\right] dx                   \\
-                                                                      & = \frac{L }{2 }+\frac{\sin\left(\frac{2 (2n-1) \pi x}{L}\right)}{2(2n-1)\pi / L} \Bigg|_0^{L/2} \\
-                                                                      & = \frac{L }{2 }+ \frac{\sin((2n-1)\pi)-\sin0}{2(2n-1)\pi / L}                                   \\
-    \int_{-L/2}^{L/2} \cos^2\left(\frac{(2n-1) \pi x}{L}\right) dx & = \frac{L }{2 }\\
+                                                                   & = \frac{L }{2 }+\frac{\sin\left(\frac{2 (2n-1) \pi x}{L}\right)}{2(2n-1)\pi / L} \Bigg|_0^{L/2} \\
+                                                                   & = \frac{L }{2 }+ \frac{\sin((2n-1)\pi)-\sin0}{2(2n-1)\pi / L}                                   \\
+    \int_{-L/2}^{L/2} \cos^2\left(\frac{(2n-1) \pi x}{L}\right) dx & = \frac{L }{2 }                                                                                 \\
 \end{align*}
-which meant 
+which meant
 \begin{equation*}
     A^2 \frac{L }{2 }=1\implies A=\frac{2 }{L}
 \end{equation*}
@@ -102,7 +102,7 @@ The potential is in the shape
         \infty, & L \leq L
     \end{cases}
 \end{equation*}
-With wave function in the form 
+With wave function in the form
 \begin{equation*}
     \psi(x)=\begin{cases}
         0                                          & x\leq 0   \\
@@ -139,4 +139,94 @@ Imposing the second boundary condition $\psi(L)=0$, and considering that sinus f
     kL=n\pi
 \end{equation*}
 Normalization also requires $A = \sqrt{2/L}$.
+
+\subsection{3D Infinite Potential Well}
+We assume antisymmetric 3D potential
+\begin{equation*}
+    V(x,y,z) =
+    \begin{cases}
+        0,      & 0 < x < L_x, \ 0 < y < L_y, \ 0 < z < L_z, \\
+        \infty, & \text{otherwise}.
+    \end{cases}
+\end{equation*}
+
+The full normalized 3D wavefunction is
+\begin{equation*}
+    \psi_{nml}(x,y,z) = \sqrt{\frac{8}{L_x L_y L_z}} \,
+    \sin\left(\frac{n \pi x}{L_x}\right)
+    \sin\left(\frac{m \pi y}{L_y}\right)
+    \sin\left(\frac{l \pi z}{L_z}\right).
+\end{equation*}
+We derive this by the method of separation variable, that is assuming $\psi(x,y,z) = X(x) Y(y) Z(z)$, where
+\begin{align*}
+    X_n(x) & = \sqrt{\frac{2}{L_x}} \sin\left(\frac{n \pi x}{L_x}\right) \\
+    Y_m(y) & = \sqrt{\frac{2}{L_y}} \sin\left(\frac{m \pi y}{L_y}\right) \\
+    Z_l(z) & = \sqrt{\frac{2}{L_z}} \sin\left(\frac{l \pi z}{L_z}\right)
+\end{align*}
+
+The energy eigenstate is
+\begin{equation*}
+    E_{nml} =\frac{\hbar^2 \pi^2}{2 m} \left( \frac{n^2}{L_x^2} + \frac{m^2}{L_y^2} + \frac{l^2}{L_z^2} \right)
+\end{equation*}
+For a cubic box \(L_x = L_y = L_z = L\), the energies simplify to
+\begin{equation*}
+    E_{nml} = \frac{\hbar^2 \pi^2}{2 m L^2} (n^2 + m^2 + l^2).
+\end{equation*}
+The total energy $E$ is the sum of energies from each dimension $= E_x + E_y + E_z$.
+The expression for each dimension is that of one dimensional case
+\begin{equation*}
+    E_i=\frac{\hbar^2 \pi^2 }{2mL_i^2}i^2
+\end{equation*}
+
+\subsubsection{Derivation.}
+Outside the box, the wave function is zero; while inside, the wave function according to Schrödinger equation
+\begin{equation*}
+    -\frac{\hbar^2}{2m} \nabla^2 \psi(x,y,z) = E \psi(x,y,z)
+\end{equation*}
+First, by separation variable, we assume the solution in the form
+\begin{equation*}
+    \psi(x,y,z) = X(x) Y(y) Z(z).
+\end{equation*}
+With the second differentiation of
+\begin{align*}
+    \frac{\partial^2 \psi}{\partial x^2} & = Y(y) Z(z) X''(x), \\
+    \frac{\partial^2 \psi}{\partial y^2} & = X(x) Z(z) Y''(y), \\
+    \frac{\partial^2 \psi}{\partial z^2} & = X(x) Y(y) Z''(z).
+\end{align*}
+the Laplacian becomes
+\begin{equation*}
+    \nabla^2 \psi = Y Z X'' + X Z Y'' + X Y Z''.
+\end{equation*}
+Substituting into the Schrödinger equation and dividing both sides by \(\psi = X Y Z\) gives
+\begin{equation*}
+    -\frac{\hbar^2}{2m} \left( \frac{X''}{X} + \frac{Y''}{Y} + \frac{Z''}{Z} \right) = E.
+\end{equation*}
+Each term depends on only one variable, which allows the equation to be separated into the Schrödinger equation gives
+\begin{equation*}
+    -\frac{\hbar^2}{2m} \left( \frac{X''(x)}{X(x)} + \frac{Y''(y)}{Y(y)} + \frac{Z''(z)}{Z(z)} \right) = E,
+\end{equation*}
+This leads to separate equations for each dimension
+\begin{align*}
+    -\frac{\hbar^2}{2m} X''(x) & = E_x X(x), \\
+    -\frac{\hbar^2}{2m} Y''(y) & = E_y Y(y), \\
+    -\frac{\hbar^2}{2m} Z''(z) & = E_z Z(z),
+\end{align*}
+with $E_i$ as the constant of separation.
+Similar to 1D case, the solution to each equation is
+\begin{align*}
+    X_n(x) & = \sqrt{\frac{2}{L_x}} \sin\left(\frac{n \pi x}{L_x}\right) \\
+    Y_m(y) & = \sqrt{\frac{2}{L_y}} \sin\left(\frac{m \pi y}{L_y}\right) \\
+    Z_l(z) & = \sqrt{\frac{2}{L_z}} \sin\left(\frac{l \pi z}{L_z}\right)
+\end{align*}
+
+Each dimension contributes independently to the expression of energy
+\begin{align*}
+    E_x & = \frac{\hbar^2 \pi^2 n^2}{2 m L_x^2}, \\
+    E_y & = \frac{\hbar^2 \pi^2 m^2}{2 m L_y^2}, \\
+    E_z & = \frac{\hbar^2 \pi^2 l^2}{2 m L_z^2}.
+\end{align*}
+The total energy is
+\begin{equation*}
+    E_{nml} = E_x + E_y + E_z = \frac{\hbar^2 \pi^2}{2 m} \left( \frac{n^2}{L_x^2} + \frac{m^2}{L_y^2} + \frac{l^2}{L_z^2} \right)
+\end{equation*}
 \end{document}
