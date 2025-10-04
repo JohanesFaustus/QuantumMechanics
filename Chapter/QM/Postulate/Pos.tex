@@ -59,7 +59,7 @@ Since $\omega$ varies continuously, so will $\braket{\omega|\psi}=\psi(\omega)$,
 $P(\omega)$ in this case refer to the probability density, in particular $P(\omega)\;d\omega$ is the probability of obtaining $\omega$ between $\omega$ and $\omega+d\omega$.
 This definition must meet the unity definition
 \begin{equation*}
-    \int P(\omega)\;d\omega=\int \braket{\psi|\omega}\braket{\omega|\psi}\;d\omega=\braket{\psi|I\psi}=1
+    \int P(\omega)\;d\omega=\int \braket{\psi|\omega}\braket{\omega|\psi}\;d\omega=\braket{\psi|I|\psi}=1
 \end{equation*}
 
 \subsection{Third Postulate}
@@ -131,53 +131,6 @@ The state variables change with time according to Hamilton's equations
     \dot{x}=\frac{\partial \mathcal{H }}{\partial p}\qquad \dot{p }=-\frac{\partial \mathcal{H }}{\partial x}
 \end{equation*}
 \end{quotation}
-
-\subsubsection{Discussion: Constructing Hamiltonian.}
-Hamiltonian is constructed by making the substitution $\mathcal{H}(x,p) \rightarrow H(X,P)$, where $\mathcal{H }$ is the classical Hamiltonian for the same case.
-
-Consider a harmonic oscillator.
-The classical Hamiltonian is 
-\begin{equation*}
-    \mathcal{H }=\frac{p^2 }{2m }+\frac{1 }{2 }m\omega^2x^2
-\end{equation*}
-Thus the Hamiltonian for quantum harmonic oscillator is 
-\begin{equation*}
-    H=\frac{P^2 }{2m }+\frac{1 }{2 }m\omega^2X^2
-\end{equation*}
-or in three dimension
-\begin{equation*}
-    H=\frac{P_x^2+P_y^2+P_z^2}{2m  }+\frac{1 }{2}m\omega \left[ X^2+Y^2+Z^2 \right] 
-\end{equation*}
-assuming the force constant is the same in all directions.
-It is the isotropic harmonic oscillator, meaning the restoring force has the same frequency $\omega$ in every spatial direction.
-This is derived from the potential
-\begin{equation*}
-    V(x,y,z) = \frac{1}{2} m \omega^2 (x^2 + y^2 + z^2)
-\end{equation*}
-which generate the isotropic force 
-\begin{equation*}
-    \mathbf{F }= -m \omega^2 \mathbf{r}
-\end{equation*}
-
-Now consider a particle in one dimension is subject to a constant force $f$.
-The classical Hamiltonian is 
-\begin{equation*}
-    \mathcal{H }=\frac{p^2 }{2m }-fx
-\end{equation*}
-Thus the quantum Hamiltonian  
-\begin{equation*}
-    H=\frac{P^2 }{2m }-fX
-\end{equation*}
-
-Now consider particle of charge $q$ in an electromagnetic field.
-The classical Hamiltonian is 
-\begin{equation*}
-    \mathcal{H }=\frac{|\mathbf{p }-(q/c) \mathbf{A}(\mathbf{r},t)|^2 }{2m }+q\phi(\mathbf{r },t)
-\end{equation*}
-The Hamiltonian is constructed by using the symmetric form 
-\begin{equation*}
-    H=\frac{P^2 }{2m }\left( \mathbf{P }\cdot \mathbf{P }-\frac{q }{c }\mathbf{P }\cdot \mathbf{A}-\frac{q }{c}\mathbf{A}\cdot \mathbf{P}+\frac{q^2 }{c^2}\mathbf{A }\cdot \mathbf{A}\cdot \mathbf{A} \right) +q\phi
-\end{equation*}
 
 \subsubsection{Discussion: The propagator equation.}
 Let us first assume that $H$ has no explicit $t$ dependence. In this case
@@ -445,4 +398,96 @@ then subtract the second with the first
     [\Omega,\Lambda]\ket{\omega\lambda}&= 0 \ket{\omega\lambda}
 \end{align*}
 Thus $[\Omega,\Lambda]$ must have eigenkets with zero eigenvalue if simultaneous eigenkets are to exist.
+
+\subsection{Hamiltonian}
+\subsubsection{Constructing Hamiltonian.}
+Hamiltonian is constructed by making the substitution $\mathcal{H}(x,p) \rightarrow H(X,P)$, where $\mathcal{H }$ is the classical Hamiltonian for the same case.
+
+Consider a harmonic oscillator.
+The classical Hamiltonian is 
+\begin{equation*}
+    \mathcal{H }=\frac{p^2 }{2m }+\frac{1 }{2 }m\omega^2x^2
+\end{equation*}
+Thus the Hamiltonian for quantum harmonic oscillator is 
+\begin{equation*}
+    H=\frac{P^2 }{2m }+\frac{1 }{2 }m\omega^2X^2
+\end{equation*}
+or in three dimension
+\begin{equation*}
+    H=\frac{P_x^2+P_y^2+P_z^2}{2m  }+\frac{1 }{2}m\omega \left[ X^2+Y^2+Z^2 \right] 
+\end{equation*}
+assuming the force constant is the same in all directions.
+It is the isotropic harmonic oscillator, meaning the restoring force has the same frequency $\omega$ in every spatial direction.
+This is derived from the potential
+\begin{equation*}
+    V(x,y,z) = \frac{1}{2} m \omega^2 (x^2 + y^2 + z^2)
+\end{equation*}
+which generate the isotropic force 
+\begin{equation*}
+    \mathbf{F }= -m \omega^2 \mathbf{r}
+\end{equation*}
+
+Now consider a particle in one dimension is subject to a constant force $f$.
+The classical Hamiltonian is 
+\begin{equation*}
+    \mathcal{H }=\frac{p^2 }{2m }-fx
+\end{equation*}
+Thus the quantum Hamiltonian  
+\begin{equation*}
+    H=\frac{P^2 }{2m }-fX
+\end{equation*}
+
+Now consider particle of charge $q$ in an electromagnetic field.
+The classical Hamiltonian is 
+\begin{equation*}
+    \mathcal{H }=\frac{|\mathbf{p }-(q/c) \mathbf{A}(\mathbf{r},t)|^2 }{2m }+q\phi(\mathbf{r },t)
+\end{equation*}
+The Hamiltonian is constructed by using the symmetric form 
+\begin{equation*}
+    H=\frac{P^2 }{2m }\left( \mathbf{P }\cdot \mathbf{P }-\frac{q }{c }\mathbf{P }\cdot \mathbf{A}-\frac{q }{c}\mathbf{A}\cdot \mathbf{P}+\frac{q^2 }{c^2}\mathbf{A }\cdot \mathbf{A}\cdot \mathbf{A} \right) +q\phi
+\end{equation*}
+
+\subsection{Parity}
+Parity refers to the transformation of spatial inversion about the origin $x \mapsto -x$. 
+The corresponding operator is called the parity operator $\Pi$ defined by its action on the position eigenkets
+\begin{equation*}
+    \Pi \ket{x }=\ket{-x}
+\end{equation*}
+Given a state $\ket{\psi}$ and its position representation $\psi(x) = \braket{x|\psi}$, the action of the parity operator on this wavefunction is
+\begin{equation*}
+\Pi\psi(x) = \psi(-x) .
+\end{equation*}
+
+If $\ket{\psi}$ is an eigenstate of the parity operator, then under spatial inversion it transforms as
+\begin{equation*}
+\psi(-x) = \lambda \, \psi(x) ,
+\end{equation*}
+where $\lambda$ is the corresponding eigenvalue. 
+Since $\Pi^2 = I $ its eigenvalues can only be $\lambda = \pm 1$. 
+This leads to two possibilities: even parity (symmetric) and odd parity (antisymmetric)
+\begin{equation*}
+       \psi(-x) = +\psi(x) \qquad    \psi(-x) = -\psi(x) 
+\end{equation*}
+In quantum mechanics parity means "eigenvalue under the inversion symmetry operator," while mathematically it means "even" and "odd" function.
+
+\subsubsection{Symmetric potential.}
+If the potential satisfies
+\begin{equation*}
+V(-x) = V(x) ,
+\end{equation*}
+then the Hamiltonian operator
+\begin{equation*}
+H = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)
+\end{equation*}
+commutes with the parity operator:
+\begin{equation*}
+[H, \Pi] = 0 
+\end{equation*}
+This can be easily seen  by considering that kinetic term and the potential are invariant.
+Then, eigenfunctions of $H$ (stationary states) can be chosen to simultaneously be eigenfunctions of $\Pi$.
+Thus, its eigenfunctions are exactly the even and odd function
+\begin{equation*}
+       \psi(-x) = +\psi(x) \qquad    \psi(-x) = -\psi(x) 
+\end{equation*}
+
 \end{document}
