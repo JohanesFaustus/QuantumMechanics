@@ -645,7 +645,7 @@ The Schrödinger equation now reads
     -\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} & =  E \psi(x)   \\
     \frac{d^2 \psi(x)}{dx^2}                     & = -k^2 \psi(x)
 \end{align*}
-with $k^2 = m E/\hbar^2.$
+with $k^2 =2 m E/\hbar^2.$
 Recall the boundaries condition of
 \begin{equation*}
     \psi \left( -\frac{L }{2 } \right) =\psi \left( \frac{L }{2 } \right) =0
@@ -693,5 +693,57 @@ Then we normalize $\psi_n^{\text{odd}}$
     A^2\int_{-L/2}^{L/2} \cos^2\left(\frac{(2n-1) \pi x}{L}\right) dx & = \frac{L }{2 }=1                                                                               \\
     A                                                                 & =  \sqrt{\frac{L }{2}}
 \end{align*}
+We also have the energy eigenstate
+\begin{equation*}
+    E_n^{\text{even}} = \frac{\hbar^2}{2 m} \left[\frac{(2n-1)\pi}{L}\right]^2, \qquad
+    E_n^{\text{odd}} = \frac{\hbar^2}{2 m} \left(\frac{2 n \pi}{L}\right)^2
+\end{equation*}
+
+\subsubsection{Antisymmetric potential.}
+The potential is in the shape
+\begin{equation*}
+    V(x)=
+    \begin{cases}
+        \infty, & x \leq0  \\
+        0,      & 0<x<L    \\
+        \infty, & L \leq L
+    \end{cases}
+\end{equation*}
+As usual, the wave function at infinite potential is zero $\psi(x \leq 0)=\psi(x\leq L)=0$.
+In $0 < x < L$, where $ V = 0$,
+\begin{align*}
+    \frac{d^2\psi}{dx^2} & = -\frac{2mE}{\hbar^2}\psi \\
+    \frac{d^2\psi}{dx^2} & = -k^2\psi                 \\
+\end{align*}
+with $k^2 =2 m E/\hbar^2$.
+The solution reads
+\begin{equation*}
+    \psi(x)=A\sin \biggl(k x\biggr)+ B \cos \biggl(kx\biggr)
+\end{equation*}
+Imposing boundary condition $\psi(x)=0$, we see that $B=0$
+\begin{equation*}
+    \psi(x)=A\sin \biggl(\frac{\sqrt{2mE}}{\hbar} x\biggr)
+\end{equation*}
+Imposing the second boundary condition $\psi(L)=0$, and considering that sinus function goes to zero at $n\pi$,
+\begin{equation*}
+    k=n\pi
+\end{equation*}
+and the energy eigenstate
+\begin{equation*}
+    \psi(x)=\begin{cases}
+        0                                          & x\leq 0   \\
+        \sqrt{\dfrac{2}{L}}\sin( \dfrac{n\pi}{L}x) & 0 < x < L \\
+        0                                          & L \leq x
+    \end{cases}
+\end{equation*}
+where normalization requires $A = \sqrt{2/L}$.
+From this, we obtain, the energy eigenvalue of our particle
+\begin{equation*}
+    E_n=\frac{\pi^2\hbar^2}{2mL^2}n^2
+\end{equation*}
+This is different from the symmetric potential case.
+Even if the “shape” or magnitude of the potential is similar, changing its symmetry changes the mathematical constraints on eigenfunctions, which directly affects the allowed energies.
+In quantum mechanics, small changes in the Hamiltonian can produce different spectra, because energies are eigenvalues of the operator, not just classical measures of potential height.
+
 
 \end{document}
