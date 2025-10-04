@@ -1,0 +1,42 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Solution}
+The Schrödinger equation in this case
+\begin{equation*}
+    i \hbar \ket{\dot{\psi}}=H \ket{\psi}=\frac{p^2 }{2m }\ket{\psi}
+\end{equation*}
+The normal mode are the solution in the form of $\ket{\psi }= \ket{E }e^{-iE t}/\hbar$.
+Feeding the normal mode into the Schrödinger equation
+\begin{equation*}
+    H \ket{E}=\frac{P^2 }{2m }\ket{E}=E \ket{E}
+\end{equation*}
+Since $P$ is also an eigenstate of $P^2 $, we feed the trial solution $\ket{p}$
+\begin{align*}
+    \frac{P^2 }{2m }\ket{p }                    & =  E \ket{p } \\
+    \left( \frac{p^2 }{2m }-E  \right) \ket{p } & = 0
+\end{align*}
+Since $\ket{p}$ is not a null vector, therefore
+\begin{equation*}
+    p=\pm \sqrt{2mE}
+\end{equation*}
+The energy eigenvalue $E$ is doubly degenerate because two distinct momentum eigenvalues $p=\pm \sqrt{2mE}$.
+
+Suppose we expand the Hamiltonian in $X$ basis
+\begin{equation*}
+    -\frac{\hbar^2 }{2m }\frac{d^2 }{dx } \psi(x)=E\psi
+\end{equation*}
+or
+\begin{equation*}
+    \frac{d^2 }{dx^2}\psi+k^2\psi=0
+\end{equation*}
+with
+\begin{equation*}
+    k^2=\frac{2mE }{\hbar^2}
+\end{equation*}
+The solution is
+\begin{equation*}
+    \psi(x)=Ae^{ikx}+Be^{-ikx}
+\end{equation*}
+From $E=p^2/2m$, we also obtain the relation $p=\hbar k$.
+
+\end{document}
