@@ -244,9 +244,9 @@ As usual, the wavefunction depends on the region and the value of $E$
 \begin{equation*}
     \psi(x)=
     \begin{cases}
-            A e^{i k_1 x} + B e^{-i k_1 x}&x <0\\
-            C e^{i k_2 x} + D e^{-i k_2 x} & 0 \leq x,\; V_0 < E \\
-            C e^{-\kappa x}                & 0 \leq x,\;E < V_0
+        A e^{i k_1 x} + B e^{-i k_1 x} & x <0                \\
+        C e^{i k_2 x} + D e^{-i k_2 x} & 0 \leq x,\; V_0 < E \\
+        C e^{-\kappa x}                & 0 \leq x,\;E < V_0
     \end{cases}
 \end{equation*}
 where
@@ -255,8 +255,8 @@ where
     \qquad
     k_2 =
     \begin{cases}
-        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}&V_0<E\\
-        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0 
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}                           & V_0<E   \\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0
     \end{cases}
 \end{equation*}
 
@@ -271,17 +271,26 @@ $Ce^{-\kappa x}$ represents an evanescent wave, i.e., the tunneling tail inside 
 Unlike the case of $E<V_0$, particle can move freely in the case of $V_0<E$.
 The wavefunction in the form
 \begin{equation*}
-    \psi(x)=Ae^{ik_1x}+Be^{-ik_1x}+Ce^{ik_2 x}+De^{-ik_2x}    
+    \psi(x)=Ae^{ik_1x}+Be^{-ik_1x}+Ce^{ik_2 x}+De^{-ik_2x}
 \end{equation*}
 represents this.
 $Ae^{ik_1x}$ represents particle incident form left, $Be^{-ik_1x}$ represents it being reflected back, and $Ce^{ik_2 x}$ represents it being transmitted.
 $De^{-ik_2x}$ represents wave incident from right, although we often set $D=0$ since there is no particle incident from right.
 
+The absolute magnitude of incident wave $A$ is arbitrary because multiplying the wavefunction by a constant does not change the reflection $R$ or transmission probabilities $T$
+\begin{equation*}
+    R=\frac{|B|^2}{|A|^2}=\left|\frac{k_1-k_2 }{k_1+k_2}\right|^2
+    \qquad
+    T = \frac{k_2}{k_1} \frac{|C|^2}{|A|^2} = \frac{k_2}{k_1} \left| \frac{2 k_1}{k_1 + k_2} \right|^2
+\end{equation*}
+Since both are probabilities, $R+T=1$ should apply.
+We define $r=B/A$ and $t=C/A$ as the reflection and transmission amplitude respectively.
+
 \subsubsection{Derivation.}
 We begin by dividing the regions into I and II.
 At the region I, the Schrödinger equation reads
 \begin{align*}
-    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{I}}{dx^2} & =  E \psi_I      \\
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{I}}{dx^2} & =  E \psi_I        \\
     \frac{d^2 \psi_{I}}{dx^2}                     & = - k_1^2 \psi_{I}
 \end{align*}
 with
@@ -297,23 +306,23 @@ Now we move into region II.
 The Schrödinger equation now reads
 \begin{align*}
     -\frac{\hbar^2}{2m} \frac{d^2 \psi_{II}}{dx^2} + V_0 \psi_{II} & =  E \psi_{II}
-    \frac{d^2 \psi_{II}}{dx^2}                                  & = - k_2^2 \psi_{II}
+    \frac{d^2 \psi_{II}}{dx^2}                                     & = - k_2^2 \psi_{II}
 \end{align*}
 The value  of $k_2$ depends on the value of $E$
 \begin{equation*}
     k_2 =
     \begin{cases}
-        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}&V_0<E\\
-        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0 
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}                           & V_0<E   \\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0
     \end{cases}
 \end{equation*}
 It also follows that the solution also depends on $E$.
 The general form in the region II is
 \begin{equation*}
-    \psi_{II}(x)=C e^{i k_2 x} + D e^{-i k_2 x} 
+    \psi_{II}(x)=C e^{i k_2 x} + D e^{-i k_2 x}
 \end{equation*}
-For the case of $V_0<E$, the exponential is complex. 
-As such, we have the solution 
+For the case of $V_0<E$, the exponential is complex.
+As such, we have the solution
 \begin{equation*}
     \psi_{II}(x) = C e^{i k_2 x} + D e^{-i k_2 x}
 \end{equation*}
@@ -322,4 +331,33 @@ As such, we throw the $D$ constant to avoid divergence as $x \rightarrow \infty$
 \begin{equation*}
     \psi_{II}(x) =C e^{-\kappa x}
 \end{equation*}
+
+\subsubsection{Reflection and transmission probabilities.}
+The continuity for wavefunction and its first derivative state
+\begin{equation*}
+    \begin{cases}
+        \psi_I(0)  & =\psi_{II}(0)  \\
+        \psi'_I(0) & =\psi'_{II}(0) \\
+    \end{cases}
+\end{equation*}
+In the case of the step potential, this reads
+\begin{equation*}
+    \begin{cases}
+        A+B       & =C       \\
+        ik_1(A-B) & =  ik_2C
+    \end{cases}
+\end{equation*}
+if $D=0$.
+Plugging wavefunction condition into derivative and dividing by $i$ to solve $B$ in  terms of $A$
+\begin{align*}
+    k_1(A-B)      & =  k_2(A+B)                 \\
+    (k_1 + k_2) B & =  (k_1 - k_2) A            \\
+    B             & =  \frac{k_1-k_2 }{k_1+k_2}
+\end{align*}
+Now solve $C$ in terms of $A$ by substituting $B$ into wavefunction condition
+\begin{equation*}
+    C = A + B = A + \frac{k_1 - k_2}{k_1 + k_2} A = \frac{2 k_1}{k_1 + k_2} A
+\end{equation*}
+
+
 \end{document}
