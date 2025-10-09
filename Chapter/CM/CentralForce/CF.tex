@@ -5,15 +5,15 @@ Acceleration in polar coordinate expressed as
 \begin{equation*}
     \mathbf{\ddot{r}}=\left(\ddot{r}-r\dot{\phi}^2\right) \; \mathbf{\hat{r}} + \left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right) \;\boldsymbol{ \hat{\phi}}
 \end{equation*}
-and velocity as 
+and velocity as
 \begin{equation*}
     \mathbf{v}=\dot{r}\;\mathbf{\hat{r}} +r\dot{\phi}\;\boldsymbol{ \hat{\phi}}
 \end{equation*}
 Hence Newton's law transform into
 \begin{equation*}
     \mathbf{F}=m\mathbf{a}=\begin{cases}
-        F_r&=m\left(\ddot{r}-r\dot{\phi}^2\right) \\
-        F_\phi&=m\left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right)
+        F_r    & =m\left(\ddot{r}-r\dot{\phi}^2\right)          \\
+        F_\phi & =m\left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right)
     \end{cases}
 \end{equation*}
 
@@ -25,7 +25,8 @@ Hence Newton's law transform into
     \caption*{The value of $d\mathbf{\hat{r}}$ and $d\boldsymbol{\hat{\phi}}$.}
 \end{figure*}
 
-From the figure, we have 
+\subsubsection{Newtonian derivation.}
+From the figure, we have
 \begin{equation*}
     d\mathbf{\hat{r}}=d\phi\;\boldsymbol{\hat{\phi}},\quad d\boldsymbol{\hat{\phi}}=-d\phi\;\mathbf{\hat{r}}
 \end{equation*}
@@ -33,31 +34,57 @@ or equivalently
 \begin{equation*}
     \frac{d\mathbf{\hat{r}}}{dt}=\dot{\phi}\;\boldsymbol{\hat{\phi}},\quad \frac{d\boldsymbol{\hat{\phi}}}{dt}=-\dot{\phi}\;\mathbf{\hat{r}}
 \end{equation*}
-Using these we can now proceed to derive the Newton's law in polar coordinate. In cartesian coordinate, position vector can be writen as 
+Using these we can now proceed to derive the Newton's law in polar coordinate. In cartesian coordinate, position vector can be writen as
 \begin{equation*}
     \mathbf{r}=x\;\mathbf{\hat{x}} + y\;\mathbf{\hat{y}}
 \end{equation*}
 converting it into polar
 \begin{equation*}
-    \mathbf{r}=r\;\mathbf{\hat{r}} 
-\end{equation*} 
-Next, we determine the velocity as 
+    \mathbf{r}=r\;\mathbf{\hat{r}}
+\end{equation*}
+Next, we determine the velocity as
 \begin{equation*}
     \mathbf{\dot{r}}=\frac{d}{dt}r\;\mathbf{\hat{r}}=\dot{r}\;\mathbf{\hat{r}} +r\frac{d\mathbf{\hat{r}}}{dt}= \dot{r}\;\mathbf{\hat{r}} +r\dot{\phi}\;\boldsymbol{\hat{\phi}}
 \end{equation*}
-and acceleration as 
-\begin{multline*}
-    \ddot{r}=\frac{d}{dt}\left(\dot{r}\;\mathbf{\hat{r}} +r\dot{\phi}\;\boldsymbol{\hat{\phi}}\right)
-    = \ddot{r}\;\mathbf{\hat{r}}+ \dot{r}\dot{\phi}\;\boldsymbol{\hat{\phi}} +r\frac{d}{dt}\left(\dot{\phi}\;\boldsymbol{\hat{\phi}}\right)\\
-    =\ddot{r}\mathbf{\hat{r}}+ 2\dot{r}\dot{\phi}\;\boldsymbol{\hat{\phi}}+r\left( \ddot{\phi}\;\boldsymbol{\hat{\phi}}-\dot{\phi}\mathbf{\hat{ r}}\right)\\
-    = \left(\ddot{r}-r\dot{\phi}^2\right) \; \mathbf{\hat{r}} + \left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right) \;\boldsymbol{ \hat{\phi}}
-\end{multline*}
+and acceleration as
+\begin{align*}
+    \ddot{r} & =\frac{d}{dt}\left(\dot{r}\;\mathbf{\hat{r}} +r\dot{\phi}\;\boldsymbol{\hat{\phi}}\right)                                                              \\
+             & = \ddot{r}\;\mathbf{\hat{r}}+ \dot{r}\dot{\phi}\;\boldsymbol{\hat{\phi}} +r\frac{d}{dt}\left(\dot{\phi}\;\boldsymbol{\hat{\phi}}\right)                \\
+             & =\ddot{r}\mathbf{\hat{r}}+ 2\dot{r}\dot{\phi}\;\boldsymbol{\hat{\phi}}+r\left( \ddot{\phi}\;\boldsymbol{\hat{\phi}}-\dot{\phi}\mathbf{\hat{ r}}\right) \\
+    \ddot{r} & = \left(\ddot{r}-r\dot{\phi}^2\right) \; \mathbf{\hat{r}} + \left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right) \;\boldsymbol{ \hat{\phi}}
+\end{align*}
 Finally
 \begin{equation*}
-    F=F_r\;\mathbf{\hat{r}} + F_\phi\;\boldsymbol{ \hat{\phi}}
+    \mathbf{F}=F_r\;\mathbf{\hat{r}} + F_\phi\;\boldsymbol{ \hat{\phi}}
     \begin{cases}
-        F_r&=m\left(\ddot{r}-r\dot{\phi}^2\right) \\
-        F_\phi&=m\left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right)
+        F_r    & =m\left(\ddot{r}-r\dot{\phi}^2\right)          \\
+        F_\phi & =m\left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right)
     \end{cases}
 \end{equation*}
+
+\subsubsection{Lagrangian derivation.}
+We write the Lagrangian as
+\begin{equation*}
+    L = T - V = \frac{1}{2} m (\dot{r}^2 + r^2 \dot{\theta}^2) - V(r,\theta)
+\end{equation*}
+The radial equation reads
+\begin{equation*}
+    \frac{\partial L}{\partial r} =\frac{d}{dt} \frac{\partial L}{\partial \dot{r}}
+\end{equation*}
+which gives
+\begin{align*}
+    m \ddot{r}                      & =  m r \dot{\theta}^2 - \frac{\partial V}{\partial r} \\
+    - \frac{\partial V}{\partial r} & =  m\left( \ddot{r}-r \dot{\theta}^2  \right)
+\end{align*}
+The angular equation reads
+\begin{equation*}
+    \frac{\partial L}{\partial \theta} =\frac{d}{dt} \frac{\partial L}{\partial \dot{\theta}}
+\end{equation*}
+which gives
+\begin{align*}
+    m \frac{d}{dt}(r^2 \dot{\theta})   & =- \frac{\partial V}{\partial \theta} \\
+    m (r^2 \ddot{\theta} + 2 r \dot{r} \dot{\theta}) &= - \frac{\partial V}{\partial \theta}\\
+    m (r \ddot{\theta} + 2\dot{r} \dot{\theta}) &= - \frac{1 }{r}\frac{\partial V}{\partial \theta}   
+\end{align*}
+Each of them are the radial and angular component of force.
 \end{document}
