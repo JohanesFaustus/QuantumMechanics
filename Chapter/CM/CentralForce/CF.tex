@@ -16,6 +16,11 @@ Hence Newton's law transform into
         F_\phi & =m\left(r\ddot{\phi}+2\dot{r}\dot{\phi}\right)
     \end{cases}
 \end{equation*}
+if $F_\theta=0$, we have the definition of central force.
+That is
+\begin{equation*}
+    \mathbf{F}=F_r\;\mathbf{\hat{r}}
+\end{equation*}
 
 \subsection{Derivation}
 \begin{figure*}[h]
@@ -65,26 +70,170 @@ Finally
 \subsubsection{Lagrangian derivation.}
 We write the Lagrangian as
 \begin{equation*}
-    L = T - V = \frac{1}{2} m (\dot{r}^2 + r^2 \dot{\theta}^2) - V(r,\theta)
+    \mathcal{L} = T - U = \frac{1}{2} m (\dot{r}^2 + r^2 \dot{\theta}^2) - U(r,\theta)
 \end{equation*}
 The radial equation reads
 \begin{equation*}
-    \frac{\partial L}{\partial r} =\frac{d}{dt} \frac{\partial L}{\partial \dot{r}}
+    \frac{\partial \mathcal{L}}{\partial r} =\frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{r}}
 \end{equation*}
 which gives
 \begin{align*}
-    m \ddot{r}                      & =  m r \dot{\theta}^2 - \frac{\partial V}{\partial r} \\
-    - \frac{\partial V}{\partial r} & =  m\left( \ddot{r}-r \dot{\theta}^2  \right)
+    m r \dot{\theta}^2 - \frac{\partial U}{\partial r} & = m \ddot{r}                                  \\
+    - \frac{\partial U}{\partial r}                    & =  m\left( \ddot{r}-r \dot{\theta}^2  \right)
 \end{align*}
 The angular equation reads
 \begin{equation*}
-    \frac{\partial L}{\partial \theta} =\frac{d}{dt} \frac{\partial L}{\partial \dot{\theta}}
+    \frac{\partial \mathcal{L}}{\partial \theta} =\frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{\theta}}
 \end{equation*}
 which gives
 \begin{align*}
-    m \frac{d}{dt}(r^2 \dot{\theta})   & =- \frac{\partial V}{\partial \theta} \\
-    m (r^2 \ddot{\theta} + 2 r \dot{r} \dot{\theta}) &= - \frac{\partial V}{\partial \theta}\\
-    m (r \ddot{\theta} + 2\dot{r} \dot{\theta}) &= - \frac{1 }{r}\frac{\partial V}{\partial \theta}   
+    m \frac{d}{dt}(r^2 \dot{\theta})                 & =- \frac{\partial U}{\partial \theta}              \\
+    m (r^2 \ddot{\theta} + 2 r \dot{r} \dot{\theta}) & = - \frac{\partial U}{\partial \theta}             \\
+    m (r \ddot{\theta} + 2\dot{r} \dot{\theta})      & = - \frac{1 }{r}\frac{\partial U}{\partial \theta}
 \end{align*}
 Each of them are the radial and angular component of force.
+
+\subsection{Orbit in a Central Force}
+In the case of two astronomical bodies and Coulomb potential of Hydrogen atom, the potential may be expressed as
+\begin{equation*}
+    U_G(\mathbf{r })=-\frac{Gm_1m_2}{\mathbf{r}},\qquad
+    U_C(\mathbf{r})=-\frac{ke^2 }{\mathbf{r}}
+\end{equation*}
+with $r=\mathbf{r}_1-\mathbf{r}_2$ as the relative potential.
+The result is that the potential energy $U$ depends only on the magnitude $r$ of the relative position $\mathbf{r}$
+\begin{equation*}
+    U=U(r)
+\end{equation*}
+The Lagrangian then
+\begin{equation*}
+    \mathcal{L }=\frac{1 }{2 }m_1 \mathbf{r }_1^2+\frac{1 }{2 }m_2 \mathbf{r }_2^2+U(r)
+\end{equation*}
+
+The best choice of the generalized coordinate is the center of mass $\mathbf{R}$, which defined as
+\begin{equation*}
+    \mathbf{R }=\frac{m_1 \mathbf{r}_1+m_2 \mathbf{r}_2}{m_1+m_2}
+\end{equation*}
+With this, we can express each mass coordinate $\mathbf{r}_i$ in terms of relative coordinate and CM
+\begin{equation*}
+    \mathbf{r}_1=\mathbf{R}+\frac{m_2}{M}\mathbf{r}
+    \qquad
+    \mathbf{r}_2=\mathbf{R}-\frac{m_1}{M}\mathbf{r}
+\end{equation*}
+with $M=m_1+m_2$.
+Thus the kinetic energy is
+\begin{equation*}
+    T=\frac{1 }{2 }\left( m_1 \dot{\mathbf{r}}_1^2+m_2 \dot{\mathbf{r}}_2^2 \right) =\frac{1 }{2}\left( M \mathbf{\dot{R}}^2+\frac{m_1m_2}{M}\dot{\mathbf{r}}^2 \right)
+\end{equation*}
+or by using reduced mass $\mu=m_1m_2/m_1+m_2$
+\begin{equation*}
+    T=\frac{1 }{2}\left( M \mathbf{\dot{R}}^2+\mu\dot{\mathbf{r}}^2 \right)
+\end{equation*}
+The corresponding result for the Lagrangian
+\begin{equation*}
+    \mathcal{L}=\frac{1 }{2}M \dot{\mathbf{R}}^2+\left( \frac{1 }{2}\mu \dot{\mathbf{r}}^2-U(r) \right)=\mathcal{L}_{CM}+\mathcal{L}_{rel}
+\end{equation*}
+We see that by using the CM and relative positions as our generalized coordinates, we have split the Lagrangian into two separate pieces, one of which involves only the CM coordinate and the other only the relative coordinate.
+
+The CM coordinate is ignoble, so
+\begin{equation*}
+    \frac{\partial \mathcal{L }}{\partial \mathbf{R}}=\frac{d }{dt }\frac{\partial \mathcal{L }}{\partial \dot{\mathbf{R}}}
+    \implies
+    M \ddot{\mathbf{R}}=0
+\end{equation*}
+The consequence of conservation of momentum in other words.
+The Lagrange equation for the relative coordinate is
+\begin{equation*}
+    \frac{\partial \mathcal{L }}{\partial \mathbf{r}}=\frac{d }{dt }\frac{\partial \mathcal{L }}{\partial \dot{\mathbf{r}}}
+    \implies
+    \mu \ddot{\mathbf{r}}=- \nabla U(\mathbf{r})
+\end{equation*}
+
+Now we move the CM reference frame.
+In this frame, $\mathbf{\dot{R}} = 0$ and the CM part of the Lagrangian is zero $\mathcal{L}_{CM} = 0$.
+Thus in the CM frame
+\begin{equation*}
+    \mathcal{L}=\frac{1 }{2 }\mu \mathbf{\dot{r}}^2-U(r)
+\end{equation*}
+In other words, in the CM frame, the two-body problem with central conservative forces is reduced to a two-dimensional problem.
+
+To set up the equations of motion for the remaining two-dimensional problem, we  choose the polar coordinate
+\begin{equation*}
+    \mathcal{L}=\frac{1 }{2 }\mu \left( \dot{r}^2 +r^2\dot{\theta}\right) -U(r)
+\end{equation*}
+The radial equation reads
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial r} =\frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{r}}
+\end{equation*}
+which gives
+\begin{align*}
+    \mu r \dot{\theta}^2 - \frac{\partial U}{\partial r} & = \mu \ddot{r}
+\end{align*}
+The angular equation reads
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial \theta} =\frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{\theta}}
+\end{equation*}
+which gives the conservation of angular momentum
+\begin{align*}
+    \frac{d}{dt}(\mu r^2 \dot{\theta}) & =0    \\
+    \mu r^2 \dot{\theta}^2             & =\ell
+\end{align*}
+
+The radial equation can be rewritten as
+\begin{equation*}
+    \mu \ddot{r}=-\frac{dU }{dr }+F_{cf}
+\end{equation*}
+which has the form of Newton's second law for a particle subject to the actual force $-dU /dr$ plus a "fictitious" outward centrifugal force
+\begin{equation*}
+    F_{cf}=\mu r \dot{\phi}^2=\frac{\ell^2 }{\mu r^3}
+\end{equation*}
+where we have used the $\phi$ equation to solve for $\dot{\phi}={\ell }/{\mu r^2}$.
+We can now express the centrifugal force in terms of a centrifugal potential energy
+\begin{equation*}
+    F_{cf}=-\frac{d }{dr }\left( \frac{\ell^2 }{2\mu r^2} \right)
+    \implies
+    U_{cf}=\frac{\ell^2 }{2 \mu r^2}
+\end{equation*}
+Defining effective potential
+\begin{equation*}
+    U_{eff}=U(r)+U_{cf}=U(r)+\frac{\ell^2 }{2\mu r^2}
+\end{equation*}
+we can write the radial equation as
+\begin{equation*}
+    \mu \ddot{r}=-\frac{d }{dr }U_{eff}(r)
+\end{equation*}
+This equation determine $r$ as a function of $t$.
+It also implies that the radial motion of the particle is exactly the same as if the particle were moving in one dimension with an effective potential energy $U_{eff}$.
+
+The function $r = r (\theta)$ will tell us the shape of the orbit more directly.
+This can be achieved by writing the radial equation in terms of forces
+\begin{equation*}
+    \mu \ddot{r}=F(r)+\frac{\ell^2 }{\mu r^3}
+\end{equation*}
+Then make the substitution $u=1/r$, so that we can use the chain rule
+\begin{equation*}
+    \frac{d }{dt}=
+    \frac{d }{d\theta}\frac{d\theta }{dt}=
+    \frac{\ell}{\mu r^2}\frac{d }{dt}=
+    \frac{\ell u^2}{\mu}\frac{d   }{d\theta}
+\end{equation*}
+We use this to rewrite the radial equation.
+The first derivative
+\begin{equation*}
+    \frac{dr }{dt}=
+    \frac{\ell u^2}{\mu}\frac{d   }{d\theta}\frac{1 }{u}=
+    \frac{\ell u^2}{\mu}\frac{d   }{du}\left(\frac{1 }{u}\right)\frac{du }{d\theta}=
+    -\frac{\ell }{\mu}\frac{du }{d\theta}
+\end{equation*}
+and the second
+\begin{equation*}
+    \frac{d \dot{r}}{dt}=
+    \frac{\ell u^2}{\mu}\frac{d   }{d\theta}\left(     -\frac{\ell }{\mu}\frac{du }{d\theta} \right)=
+    -\frac{\ell^2u^2 }{\mu^2}\frac{d^2u }{d\theta^2}
+\end{equation*}
+Substituting back 
+\begin{align*}
+    -\frac{\ell^2u^2 }{\mu}\frac{d^2u }{d\theta^2}&= F+ \frac{\ell^2u^3 }{\mu}\\
+    u''(\theta)&=  u(\theta)-\frac{\mu }{\ell^2 u(\theta)^2}F
+\end{align*}
+
 \end{document}
