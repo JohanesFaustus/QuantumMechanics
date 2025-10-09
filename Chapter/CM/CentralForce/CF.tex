@@ -94,6 +94,26 @@ which gives
 Each of them are the radial and angular component of force.
 
 \subsection{Orbit in a Central Force}
+The general orbit differential equation is
+\begin{equation*}
+    u''(\theta)= u(\theta)-\frac{\mu }{\ell^2 u(\theta)^2}F
+\end{equation*}
+with $u=1/r$.
+The solutin as a variable of time can be obtained from
+\begin{equation*}
+    \mu \ddot{r}=-\frac{d }{dr }U_{eff}(r)
+\end{equation*}
+Few important parameters introduced in the derivation are as follows
+\begin{flalign*}
+     & \begin{aligned}
+            & F_{cf}=\frac{\ell^2 }{\mu r^3}=-\frac{d }{dr }U_{cf}          \\
+            & \mathbf{R }=\frac{m_1 \mathbf{r}_1+m_2 \mathbf{r}_2}{m_1+m_2} \\
+            & \mu= \frac{m_1m_2}{m_1+m_2}
+           U_{eff}=U(r)+U_{cf}=U(r)+\frac{\ell^2 }{2\mu r^2}
+       \end{aligned} &
+\end{flalign*}
+
+\subsubsection{Derivation.}
 In the case of two astronomical bodies and Coulomb potential of Hydrogen atom, the potential may be expressed as
 \begin{equation*}
     U_G(\mathbf{r })=-\frac{Gm_1m_2}{\mathbf{r}},\qquad
@@ -197,7 +217,8 @@ Defining effective potential
 \begin{equation*}
     U_{eff}=U(r)+U_{cf}=U(r)+\frac{\ell^2 }{2\mu r^2}
 \end{equation*}
-we can write the radial equation as
+where $F(r)$ is the actual central force, $F = -dU/dr$.
+We can write the radial equation as
 \begin{equation*}
     \mu \ddot{r}=-\frac{d }{dr }U_{eff}(r)
 \end{equation*}
@@ -230,10 +251,19 @@ and the second
     \frac{\ell u^2}{\mu}\frac{d   }{d\theta}\left(     -\frac{\ell }{\mu}\frac{du }{d\theta} \right)=
     -\frac{\ell^2u^2 }{\mu^2}\frac{d^2u }{d\theta^2}
 \end{equation*}
-Substituting back 
+Substituting back
 \begin{align*}
-    -\frac{\ell^2u^2 }{\mu}\frac{d^2u }{d\theta^2}&= F+ \frac{\ell^2u^3 }{\mu}\\
-    u''(\theta)&=  u(\theta)-\frac{\mu }{\ell^2 u(\theta)^2}F
+    -\frac{\ell^2u^2 }{\mu}\frac{d^2u }{d\theta^2} & = F+ \frac{\ell^2u^3 }{\mu}                   \\
+    u''(\theta)                                    & =  u(\theta)-\frac{\mu }{\ell^2 u(\theta)^2}F
 \end{align*}
 
+\subsection{Kepler Orbit}
+The Kepler orbit refers to the problem of finding the possible orbits of a comet or any other object subject to an inverse-square force
+\begin{equation*}
+    F(r)=-\frac{\gamma }{r^2}=-\gamma u^2
+\end{equation*}
+Inserting into the orbit equation
+\begin{equation*}
+    u''(\theta)=-u(\theta)+
+\end{equation*}
 \end{document}
