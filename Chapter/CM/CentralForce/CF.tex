@@ -99,7 +99,7 @@ The general orbit differential equation is
     u''(\theta)= u(\theta)-\frac{\mu }{\ell^2 u(\theta)^2}F
 \end{equation*}
 with $u=1/r$.
-The solutin as a variable of time can be obtained from
+The solution as a variable of time can be obtained from
 \begin{equation*}
     \mu \ddot{r}=-\frac{d }{dr }U_{eff}(r)
 \end{equation*}
@@ -258,12 +258,59 @@ Substituting back
 \end{align*}
 
 \subsection{Kepler Orbit}
+\subsubsection{Orbit trajectory.}1
 The Kepler orbit refers to the problem of finding the possible orbits of a comet or any other object subject to an inverse-square force
 \begin{equation*}
     F(r)=-\frac{\gamma }{r^2}=-\gamma u^2
 \end{equation*}
 Inserting into the orbit equation
 \begin{equation*}
-    u''(\theta)=-u(\theta)+
+    u''(\theta)=-u(\theta)+\frac{\gamma \mu}{\ell^2}
+\end{equation*}
+Substitute $w=u-\gamma\mu/\ell^2$
+\begin{equation*}
+    w''(\theta)=-w(\theta)
+\end{equation*}
+which has the general solution
+\begin{equation*}
+    w(\theta)=A \cos (\theta-\delta)
+\end{equation*}
+Taking $\delta=0$, the general solution in of $u(\theta)$ is 
+\begin{equation*}
+    u(\theta)=\frac{\gamma\mu }{\ell^2 }+A\cos \theta=\frac{\gamma\mu }{\ell^2}\left( 1+\epsilon \cos \theta \right) 
+\end{equation*}
+or in terms of $r(\theta)$
+\begin{equation*}
+    r(\theta)=\frac{\ell^2 /\gamma\mu }{1+\epsilon \cos \theta}=\frac{c }{1+\epsilon \cos \theta}
+\end{equation*}
+
+\subsubsection{Bounded orbit.}
+\begin{figure*}
+    \centering
+    \normfigL{../Rss/CM/CentralForce/KeplerOrbit.png}
+    \caption*{Figure: The bounded orbits of a comet or planet are ellipses}
+\end{figure*}
+The value eccentricity $\epsilon = 1$ is the boundary between the bounded and unbounded orbits. 
+In the case that the constant $\epsilon$ is less than 1, the denominator of $r(\theta)$  between the values $1 \pm \epsilon$. 
+Therefore, $r(\theta)$ oscillates between
+\begin{equation*}
+    r_{min}=\frac{c}{1+\epsilon},\qquad
+    r_{max}=\frac{c}{1-\epsilon}
+\end{equation*}
+where $r(\theta=0)=r_{min}$ as the perihelion and $r(\theta=\pi)=r_{max}$ as the aphelion.
+
+The orbit trajectory $r(\theta)$ can be transformed into cartesian as 
+\begin{equation*}
+    \frac{(x+d)^2}{a^2  }+\frac{y^2 }{b^2 }=1
+\end{equation*}
+the semi–major axis $a$, semi–minor axis $b$, semi–latus rectum $c$, and the focal offset $d$ are related by
+\begin{equation*}
+    a=\frac{c }{1-\epsilon^2 }\qquad
+    b=\frac{c }{\sqrt{1-\epsilon^2}}\qquad
+    d=a\epsilon
+\end{equation*}
+Accordingly, the ratio of the major to minor axes is
+\begin{equation*}
+    \frac{b }{a }\sqrt{1-\epsilon^2}
 \end{equation*}
 \end{document}
