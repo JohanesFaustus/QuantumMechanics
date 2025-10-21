@@ -1,4 +1,29 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
+Particle under harmonic potential is subjected to the potential in the following form
+\begin{equation*}
+    V(x) = \frac{1}{2} m \omega^{2} x^{2},
+\end{equation*}
+In the $X$ basis, the Schrödinger equation now reads
+\begin{equation*}
+    -\frac{\hbar^{2}}{2m} \frac{d^{2}\psi(x)}{dx^{2}} + \frac{1}{2}m\omega^{2}x^{2}\psi(x) = E\psi(x).
+\end{equation*}
+Solving this yields discrete energy eigenvalues
+\[
+    E_{n} = \hbar\omega \left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots
+\]
+and normalized eigenfunctions
+\[
+    \psi_{n}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \frac{1}{\sqrt{2^{n} n!}} H_{n}\left(\sqrt{\frac{m\omega}{\hbar}} x\right) e^{-\frac{m\omega x^{2}}{2\hbar}}
+\]
+where \(H_{n}\) are Hermite polynomials.
+Here are the first few.
+\begin{align*}
+    H_{0}(x) & = 1,                     \\
+    H_{1}(x) & = 2x,                    \\
+    H_{2}(x) & = 4x^{2} - 2,            \\
+    H_{3}(x) & = 8x^{3} - 12x,          \\
+    H_{4}(x) & = 16x^{4} - 48x^{2} + 12
+\end{align*}
 
 \end{document}
