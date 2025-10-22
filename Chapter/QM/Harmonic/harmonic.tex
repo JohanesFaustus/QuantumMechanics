@@ -26,4 +26,57 @@ Here are the first few.
     H_{4}(x) & = 16x^{4} - 48x^{2} + 12
 \end{align*}
 
+\subsection{Derivation}
+From the Schrödinger equation
+\begin{equation*}
+    \frac{d^{2}\psi(x)}{dx^{2}} + \frac{2m }{\hbar^2 }\left(E-\omega^{2}x^{2}\right)\psi(x)
+\end{equation*}
+we make the substitution of $x=by$, which result in differential
+\begin{align*}
+    \frac{d\psi }{dx}       & =\frac{d\psi }{dy}\frac{dy }{dx}=\frac{1 }{b }\frac{d\psi }{dy}                                                                       \\
+    \frac{d^2 \psi }{dx^2 } & = \frac{d }{dx }\left( \frac{1 }{b }\frac{d\psi }{dy} \right) =\frac{1 }{b}\frac{d^2\psi }{dy\;dx}=\frac{1 }{b }\frac{d^2\psi }{dy^2}
+\end{align*}
+Now Schrödinger equation reads
+\begin{equation*}
+    \frac{1 }{b^2 }\frac{d^2\psi }{dy^2 }+\frac{2m }{\hbar^2 }\left( E-\frac{1 }{2 }m\omega^2b^2y^2   \right) \psi=0
+\end{equation*}
+or
+\begin{equation*}
+    \frac{d^2\psi }{dy^2 }+\left( \frac{2mEb^2 }{\hbar^2 }-\frac{m^2\omega^2b^4y^2 }{\hbar^2}   \right) \psi=0
+\end{equation*}
+Now define
+\begin{equation*}
+    \epsilon=\frac{mEb^2 }{\hbar^2}=\frac{E }{\hbar\omega},\qquad b^2=\frac{\hbar }{m\omega}
+\end{equation*}
+Then
+\begin{equation*}
+    \frac{d^2 \psi}{dy^2}+(2\epsilon-y^2)\psi=0
+\end{equation*}
+Compare this to the Hermite equation
+\begin{equation*}
+    y_n''+(2n+1-x^2)y_n=0
+\end{equation*}
+which has the solution called the Hermite function
+\begin{equation*}
+    y_n=e^{x^2/2}\left(\frac{d}{dx}\right)^ne^{-x^2}=e^{-x^2/2}H_n(x)
+\end{equation*}
+On comparing $2\epsilon$ with $2n+1$, we obtain the expression for energy.
+Then the solution to the Schrödinger equation is
+\begin{equation*}
+    \psi(y)=e^{-y^2/2}H_n(y)\qquad\text{or}\qquad\psi(x)=\exp \left[ -\frac{m\omega }{2 \hbar}x^2 \right] H_n \left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right]
+\end{equation*}
+
+All that left is normalization.
+To do so consider the orthogonality of Hermite polynomials
+\begin{equation*}
+    \int_{-\infty}^{\infty}e^{-x^2}H_n(x)H_m(x)\;dx=\sqrt{\pi}2^n n!\delta_{nm}
+\end{equation*}
+Therefore
+\begin{align*}
+    \int \psi ^*(x )\psi(x)\;dx=\int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right] H_n \left\{\left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right] \right\}^2\;dx                                                                            \\
+      & = A^2 \left( \frac{\hbar }{m\omega} \right)^{1/2} \int\int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right] H_n \left\{\left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right] \right\}^2\;d \left( \sqrt{\frac{m\omega }{\hbar}x} \right) \\
+    1 & = A^2  \sqrt{\frac{\hbar }{m\omega }}(\pi)^{1/2}2^nn!                                                                                                                                                                                               \\
+    A=\left( \frac{m\omega }{\pi \hbar 2^{2n}(n!)^2 } \right) ^{1/4}
+\end{align*}
+Inserting this into the wavefunction yields the normalized wavefunction.
 \end{document}
