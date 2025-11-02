@@ -1,0 +1,54 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\section{Angular Momentum}
+From the definition $\mathbf{L}= \mathbf{r} \times \mathbf{p}$, we can obtain the quantum angular momentum
+\begin{equation*}
+    L_x = YP_z - ZP_y \qquad L_y = ZP_x - XP_z \qquad L_z = XP_y - YP_x
+\end{equation*}
+The basic commutation relation are as follows
+\begin{equation*}
+    [L_{x}, L_{y}] = i \hbar L_{z}\qquad
+    [L_{y}, L_{z}] = i \hbar L_{x}\qquad
+    [L_{z}, L_{x}] = i \hbar L_{y}
+\end{equation*}
+
+\subsubsection*{Derivation.}
+Before we begin, consider the identities of commutator
+\begin{align*}
+    [\Omega,\Lambda\theta]     & =\Lambda[\Omega,\theta]+[\Omega,\Lambda]\theta \\
+    [\Lambda\Omega,\Theta]     & =\Lambda[\Omega,\theta]+[\Lambda,\theta]\Omega \\
+    [\Omega\Lambda,\Theta\Phi] & =
+    \Omega[\Lambda,\Theta]\Phi
+    + \Omega\Theta[\Lambda,\Phi]
+    + [\Omega,\Theta]\Lambda\Phi
+    + \Theta[\Omega,\Phi]\Lambda
+\end{align*}
+First let us derive the basic commutation
+\begin{align*}
+    [L_{x}, L_{y}] & =  [YP_{z} - ZP_{y}, ZP_{x} - XP_{z}]                                        \\
+    [L_{x}, L_{y}] & =  [YP_{z}, ZP_{x}] - [YP_{z}, XP_{z}] - [ZP_{y}, ZP_{x}] + [ZP_{y}, XP_{z}] \\
+\end{align*}
+Each terms expand as
+\begin{align*}
+    [YP_z,ZP_x]
+     & = Y[P_z,Z]P_x + YZ[P_z,P_x] + [Y,Z]P_zP_x + Z[Y,P_x]P_z \\
+     & = Y[P_z,Z]P_x                                           \\
+     & = -i\hbar\,Y P_x,                                       \\
+    [YP_z,XP_z]
+     & = Y[P_z,X]P_z + YX[P_z,P_z] + [Y,X]P_zP_z + X[Y,P_z]P_z \\
+     & = 0,                                                    \\
+    [ZP_y,ZP_x]
+     & = Z[P_y,Z]P_x + ZZ[P_y,P_x] + [Z,Z]P_yP_x + Z[Z,P_x]P_y \\
+     & = 0,                                                    \\
+    [ZP_y,XP_z]
+     & = Z[P_y,X]P_z + ZX[P_y,P_z] + [Z,X]P_yP_z + X[Z,P_z]P_y \\
+     & = X[Z,P_z]P_y                                           \\
+     & = i\hbar\,X P_y
+\end{align*}
+Summing the four results gives
+\begin{align*}
+    [L_{x}, L_{y}] & =  Y[P_{z}, Z]P_{x} + X[Z, P_{z}]P_{y} \\
+                   & =  i\hbar (XP_{y} - YP_{x})            \\
+    [L_{x}, L_{y}] & =  i\hbar L_{z}.
+\end{align*}
+\end{document}
