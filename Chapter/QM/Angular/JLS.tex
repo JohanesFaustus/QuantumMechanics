@@ -11,6 +11,18 @@ The basic commutation relation are as follows
     [L_{y}, L_{z}] = i \hbar L_{x}\qquad
     [L_{z}, L_{x}] = i \hbar L_{y}
 \end{equation*}
+This simplified by
+\begin{equation*}
+    [L_{i}, L_{j}] = i \hbar \epsilon_{ijk} L_{k}
+\end{equation*}
+Another one for the position case
+\begin{equation*}
+    [x_{i}, L_{j}] = i \hbar \epsilon_{ijk} x_{k}
+\end{equation*}
+and momentum
+\begin{equation*}
+    [P_{i}, L_{j}] = i \hbar \epsilon_{ijk} P_{k}
+\end{equation*}
 
 \subsubsection*{Derivation.}
 Before we begin, consider the identities of commutator
@@ -51,4 +63,17 @@ Summing the four results gives
                    & =  i\hbar (XP_{y} - YP_{x})            \\
     [L_{x}, L_{y}] & =  i\hbar L_{z}.
 \end{align*}
+
+For the posistion relation, we only derive for $X$ case, the other follows immediately
+\begin{flalign*}
+     & [X, L_x] = [X, Y P_z - Z P_y] = 0                                      \\
+     & [X, L_y] = [X, Z P_x - X P_z] = [X, Z P_x] = Z[X, P_x] = i \hbar Z     \\
+     & [X, L_z] = [X, X P_y - Y P_x] = -[X, Y P_x] = -Y[X, P_x] = -i \hbar Y.
+\end{flalign*}
+Same for the momentum
+\begin{flalign*}
+     & [P_{x}, L_{x}] = [P_{x}, Y P_{z} - Z P_{y}] = 0                                                    \\
+     & [P_{x}, L_{y}] = [P_{x}, Z P_{x} - X P_{z}] = -[P_{x}, X P_{z}] = -[P_{x}, X]P_{z} = i \hbar P_{z} \\
+     & [P_{x}, L_{z}] = [P_{x}, X P_{y} - Y P_{x}] = [P_{x}, X P_{y}] = [P_{x}, X]P_{y} = -i \hbar P_{y}  \\
+\end{flalign*}
 \end{document}
