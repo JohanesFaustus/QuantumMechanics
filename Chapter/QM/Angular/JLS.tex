@@ -89,4 +89,50 @@ and
                & =  0 + L_y[P_x, L_y] + [P_x, L_y]L_y + L_z[P_x, L_z] + [P_x, L_z]L_z \\
                & =  i\hbar(L_yP_z + P_zL_y - L_zP_y - P_yL_z).
 \end{align*}
+
+\subsubsection*{Total Angular Momentum}
+The total angular momentum operator is defined as the sum of the angular momentum and spin $\mathbf{J}=\mathbf{L }+\mathbf{S}$.
+Ladder operator for angular momentum is expressed as
+\begin{equation*}
+    J_{\pm} = J_x \pm i J_y
+\end{equation*}
+Their action on eigenstates $\ket{j,m}$ are
+\begin{equation*}
+    J_{\pm} \, |j, m\rangle = \hbar \sqrt{j(j+1) - m(m \pm 1)} \, |j, m \pm 1\rangle
+\end{equation*}
+Eigenstate $\ket{j,m}$ is simultaneous eigenstate of the total angular momentum operator $J^2$ with $j $ as the total angular momentum quantum number and $m$ as the magnetic quantum number.
+For given $j$, $m$ can take the value $m=-j,j$ such that there are $2j+1$ degeneracy level.
+The reason it being a degenerate is that the total angular momentum
+\begin{equation*}
+    J^2 |j, m\rangle = \hbar^2 j(j + 1) |j, m\rangle
+\end{equation*}
+are the same, yet the $z$ component
+\begin{equation*}
+    J_z |j, m\rangle = \hbar m |j, m\rangle,
+\end{equation*}
+are different.
+The operator also satisfies
+\begin{equation*}
+    [J_z, J_{\pm}] = \pm \hbar J_{\pm}\qquad[J_+, J_-] = 2\hbar J_z
+\end{equation*}
+
+\subsubsection*{Derivation.}
+Using the definition of Ladder operator
+\begin{align*}
+    [J_{z}, J_{+}] & =  [J_{z}, J_{x} + i J_{y}] = [J_{z}, J_{x}] + i [J_{z}, J_{y}] = i\hbar J_{y} + i (-i\hbar J_{x}) \\
+                   & =  \hbar (J_{x} + i J_{y})                                                                         \\
+    [J_{z}, J_{+}] & =  \hbar J_{+}                                                                                     \\
+    [J_{z}, J_{-}] & =  [J_{z}, J_{x} - i J_{y}] = [J_{z}, J_{x}] - i [J_{z}, J_{y}] = i\hbar J_{y} - i (-i\hbar J_{x}) \\
+                   & =  -\hbar (J_{x} - i J_{y})                                                                        \\
+    [J_{z}, J_{-}] & =  -\hbar J_{-}
+\end{align*}
+And for other one
+\begin{align*}
+    [J_+, J_-] & =  (J_x + iJ_y)(J_x - iJ_y) - (J_x - iJ_y)(J_x + iJ_y)                     \\
+               & =  J_x^2 - iJ_xJ_y + iJ_yJ_x + J_y^2 - (J_x^2 + iJ_xJ_y - iJ_yJ_x + J_y^2) \\
+               & =  (-iJ_xJ_y + iJ_yJ_x) - (iJ_xJ_y - iJ_yJ_x)                              \\
+               & =  -2iJ_xJ_y + 2iJ_yJ_x                                                    \\
+               & =  2i(J_yJ_x - J_xJ_y)=  2i[J_y, J_x]                                      \\
+    [J_+, J_-] & =  2i(-i\hbar J_z) = 2\hbar J_z
+\end{align*}
 \end{document}
