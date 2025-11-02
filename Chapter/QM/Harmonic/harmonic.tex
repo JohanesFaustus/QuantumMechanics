@@ -73,10 +73,56 @@ To do so consider the orthogonality of Hermite polynomials
 \end{equation*}
 Therefore
 \begin{align*}
-    \int \psi ^*(x )\psi(x)\;dx=\int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right] H_n \left\{\left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right] \right\}^2\;dx                                                                            \\
-      & = A^2 \left( \frac{\hbar }{m\omega} \right)^{1/2} \int\int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right] H_n \left\{\left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right] \right\}^2\;d \left( \sqrt{\frac{m\omega }{\hbar}x} \right) \\
-    1 & = A^2  \sqrt{\frac{\hbar }{m\omega }}(\pi)^{1/2}2^nn!                                                                                                                                                                                               \\
-    A=\left( \frac{m\omega }{\pi \hbar 2^{2n}(n!)^2 } \right) ^{1/4}
+    \braket{\psi|\psi} & = \int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right] H_n \left\{\left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right] \right\}^2\;dx                                                                                 \\
+                       & = A^2 \sqrt{\frac{\hbar }{m\omega}}  \int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right] H_n \left\{\left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right] \right\}^2\;d \left( \sqrt{\frac{m\omega }{\hbar}x} \right) \\
+    1                  & = A^2  \sqrt{\frac{\hbar }{m\omega }}(\pi)^{1/2}2^nn!                                                                                                                                                                              \\
+    A                  & = \left( \frac{m\omega }{\pi \hbar 2^{2n}(n!)^2 } \right) ^{1/4}
 \end{align*}
 Inserting this into the wavefunction yields the normalized wavefunction.
+
+\subsubsection{Ladder Operator}
+The ladder operator are operators that raise or lower the eigenvalue of another operator, here it is the Hamiltonian.
+They are defined as
+\begin{align*}
+    a           & =  \left( \frac{m \omega}{2 \hbar} \right)^{1/2} X + i \left( \frac{1}{2 m \omega \hbar} \right)^{1/2} P \\
+    a^{\dagger} & =  \left( \frac{m \omega}{2 \hbar} \right)^{1/2} X - i \left( \frac{1}{2 m \omega \hbar} \right)^{1/2} P
+\end{align*}
+which satisfy $[a,a^\dagger]=1$ and referred as lowering $a$  and raising $a^\dagger$  operators because of how they modify the quantum state’s excitation number.
+They are also called destruction and creation operators since they destroy or create quanta of energy $\hbar \omega$.
+We can also write the position and momentum in terms of these operators
+\begin{gather*}
+    X = \left( \frac{\hbar}{2m\omega} \right)^{1/2} (a + a^{\dagger}) \\
+    P = i \left( \frac{m \omega \hbar}{2} \right)^{1/2} (a^{\dagger} - a)
+\end{gather*}
+
+From the physical Hamiltion
+\begin{equation*}
+    H=\frac{P^2}{2m }+\frac{1 }{2 }m\omega^2 X^2=\left( a a ^\dagger+\frac{1 }{2 } \right)\hbar \omega
+\end{equation*}
+We define an operator
+\begin{equation*}
+    \hat{H }=\frac{H }{m\omega }=\left( a a ^\dagger+\frac{1 }{2 } \right)
+\end{equation*}
+whose eigenvalues $\epsilon$ measure energy in units of $\hbar \omega$.
+We have then relation
+\begin{equation*}
+    [a,\hat{H } ]=a,\qquad [a ^\dagger,\hat{H }]=-a ^\dagger
+\end{equation*}
+From this can be obtained the action of ladder operator on the eigenstate $\ket{n}$
+\begin{equation*}
+    a |n\rangle = n^{1/2} |n-1\rangle\qquad a^{\dagger} |n\rangle = (n+1)^{1/2} |n+1\rangle
+\end{equation*}
+
+The following are matrix components of some operator mentioned
+\begin{gather*}
+    a ^\dagger\leftrightarrow\begin{bmatrix}
+        0 & 0 & 0 & \cdots \\ 1^{1/2} & 0 & 0 & \\ 0 & 2^{1/2} & 0 & \\ 0 & 0 & 3^{1/2} & \\ \vdots & & &
+    \end{bmatrix}                                                                                                                                         \\
+    a \leftrightarrow\begin{bmatrix}
+        0 & 1^{1/2} & 0 & 0 & \cdots \\ 0 & 0 & 2^{1/2} & 0 & \\ 0 & 0 & 0 & 3^{1/2} & \\ \vdots & & & &
+    \end{bmatrix}                                                                                                                                          \\
+    X \leftrightarrow \left( \frac{\hbar}{2m\omega} \right)^{1/2} \begin{bmatrix} 0 & 1^{1/2} & 0 & 0 & ... \\ 1^{1/2} & 0 & 2^{1/2} & 0 & \\ 0 & 2^{1/2} & 0 & 3^{1/2} & \\ 0 & 0 & 3^{1/2} & 0 & \\ \vdots & & & & \end{bmatrix}           \\
+    P \leftrightarrow i \left( \frac{m \omega \hbar}{2} \right)^{1/2} \begin{bmatrix} 0 & -1^{1/2} & 0 & 0 & \cdots \\ 1^{1/2} & 0 & -2^{1/2} & 0 & \\ 0 & 2^{1/2} & 0 & -3^{1/2} & \\ 0 & 0 & 3^{1/2} & 0 & \\ \vdots & & & & \end{bmatrix} \\
+    H \leftrightarrow \hbar \omega \begin{bmatrix} \frac{1}{2} & 0 & 0 & 0 & \cdots \\ 0 & \frac{3}{2} & 0 & 0 & \\ 0 & 0 & \frac{5}{2} & & \\ \vdots & & & & \end{bmatrix}
+\end{gather*}
 \end{document}
