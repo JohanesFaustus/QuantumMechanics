@@ -76,4 +76,17 @@ Same for the momentum
      & [P_{x}, L_{y}] = [P_{x}, Z P_{x} - X P_{z}] = -[P_{x}, X P_{z}] = -[P_{x}, X]P_{z} = i \hbar P_{z} \\
      & [P_{x}, L_{z}] = [P_{x}, X P_{y} - Y P_{x}] = [P_{x}, X P_{y}] = [P_{x}, X]P_{y} = -i \hbar P_{y}  \\
 \end{flalign*}
+
+Another derivation just for fun
+\begin{align*}
+    [X, L^2] & =  [X, L_x^2] + [X, L_y^2] + [X, L_z^2]                      \\
+             & =  0 + L_y[X, L_y] + [X, L_y]L_y + L_z[X, L_z] + [X, L_z]L_z \\
+             & =  i\hbar (L_yZ + ZL_y - L_zY - YL_y),
+\end{align*}
+and
+\begin{align*}
+    [P_x, L^2] & =  [P_x, L_x^2] + [P_x, L_y^2] + [P_x, L_z^2]                        \\
+               & =  0 + L_y[P_x, L_y] + [P_x, L_y]L_y + L_z[P_x, L_z] + [P_x, L_z]L_z \\
+               & =  i\hbar(L_yP_z + P_zL_y - L_zP_y - P_yL_z).
+\end{align*}
 \end{document}
