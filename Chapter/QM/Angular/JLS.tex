@@ -1,6 +1,6 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-\section{Angular Momentum}
+\subsection{Orbital Momentum}
 From the definition $\mathbf{L}= \mathbf{r} \times \mathbf{p}$, we can obtain the quantum angular momentum
 \begin{equation*}
     L_x = YP_z - ZP_y \qquad L_y = ZP_x - XP_z \qquad L_z = XP_y - YP_x
@@ -24,6 +24,44 @@ and momentum
     [P_{i}, L_{j}] = i \hbar \epsilon_{ijk} P_{k}
 \end{equation*}
 
+
+The ladder operators of orbital momentum are expressed as
+\begin{equation*}
+    L_{\pm} = L_x \pm i L_y
+\end{equation*}
+Their action on eigenstates $\ket{l,m}$ are
+\begin{equation*}
+    L_{\pm}   |l, m\rangle = \hbar \sqrt{l(l+1) - m(m \pm 1)}   |l, m \pm 1\rangle
+\end{equation*}
+In $2 \times 2$, the operators read
+\begin{equation*}
+    \hat{L}_{+} = \hbar \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\qquad
+    \hat{L}_{-} = \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}
+\end{equation*}
+and in $3 \times 3$
+\begin{equation*}
+    \hat{L}_{+} = \hbar \begin{pmatrix} 0 & \sqrt{2} & 0 \\ 0 & 0 & \sqrt{2} \\ 0 & 0 & 0 \end{pmatrix}\qquad
+    \hat{L}_{-} = \hbar \begin{pmatrix} 0 & 0 & 0 \\ \sqrt{2} & 0 & 0 \\ 0 & \sqrt{2} & 0 \end{pmatrix}
+\end{equation*}
+
+We can also express $L_x$ and $L_y$ in terms ladder operators
+\begin{equation*}
+    L_{x} = \frac{1}{2}(L_{+} + L_{-})\qquad
+    L_{y} = \frac{1}{2i}(L_{+} - L_{-})
+\end{equation*}
+For $l=1/2$, each orbital momentum can be described by $2 \times 2$ matrix
+\begin{equation*}
+    L_{x} = \frac{\hbar}{2}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},\quad
+    L_{y} = \frac{\hbar}{2}\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix},\quad
+    L_{z} = \frac{\hbar}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+\end{equation*}
+For $l=1$, they are $3 \times 3$
+\begin{equation*}
+    L_x = \frac{\hbar}{\sqrt{2}} \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix},\;
+    L_y = \frac{\hbar}{\sqrt{2}i} \begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 1 \\ 0 & -1 & 0 \end{pmatrix},\;
+    L_z = \hbar \begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & -1 \end{pmatrix}
+\end{equation*}
+
 \subsubsection*{Derivation.}
 Before we begin, consider the identities of commutator
 \begin{align*}
@@ -38,14 +76,14 @@ Before we begin, consider the identities of commutator
 First let us derive the basic commutation
 \begin{align*}
     [L_{x}, L_{y}] & =  [YP_{z} - ZP_{y}, ZP_{x} - XP_{z}]                                        \\
-    [L_{x}, L_{y}] & =  [YP_{z}, ZP_{x}] - [YP_{z}, XP_{z}] - [ZP_{y}, ZP_{x}] + [ZP_{y}, XP_{z}] \\
+    [L_{x}, L_{y}] & =  [YP_{z}, ZP_{x}] - [YP_{z}, XP_{z}] - [ZP_{y}, ZP_{x}] + [ZP_{y}, XP_{z}]
 \end{align*}
 Each terms expand as
 \begin{align*}
     [YP_z,ZP_x]
      & = Y[P_z,Z]P_x + YZ[P_z,P_x] + [Y,Z]P_zP_x + Z[Y,P_x]P_z \\
      & = Y[P_z,Z]P_x                                           \\
-     & = -i\hbar\,Y P_x,                                       \\
+     & = -i\hbar Y P_x,                                        \\
     [YP_z,XP_z]
      & = Y[P_z,X]P_z + YX[P_z,P_z] + [Y,X]P_zP_z + X[Y,P_z]P_z \\
      & = 0,                                                    \\
@@ -55,7 +93,7 @@ Each terms expand as
     [ZP_y,XP_z]
      & = Z[P_y,X]P_z + ZX[P_y,P_z] + [Z,X]P_yP_z + X[Z,P_z]P_y \\
      & = X[Z,P_z]P_y                                           \\
-     & = i\hbar\,X P_y
+     & = i\hbar X P_y
 \end{align*}
 Summing the four results gives
 \begin{align*}
@@ -90,7 +128,7 @@ and
                & =  i\hbar(L_yP_z + P_zL_y - L_zP_y - P_yL_z).
 \end{align*}
 
-\subsubsection*{Total Angular Momentum}
+\subsection*{Total Angular Momentum}
 The total angular momentum operator is defined as the sum of the angular momentum and spin $\mathbf{J}=\mathbf{L }+\mathbf{S}$.
 Ladder operator for angular momentum is expressed as
 \begin{equation*}
@@ -98,7 +136,7 @@ Ladder operator for angular momentum is expressed as
 \end{equation*}
 Their action on eigenstates $\ket{j,m}$ are
 \begin{equation*}
-    J_{\pm} \, |j, m\rangle = \hbar \sqrt{j(j+1) - m(m \pm 1)} \, |j, m \pm 1\rangle
+    J_{\pm}   |j, m\rangle = \hbar \sqrt{j(j+1) - m(m \pm 1)}   |j, m \pm 1\rangle
 \end{equation*}
 Eigenstate $\ket{j,m}$ is simultaneous eigenstate of the total angular momentum operator $J^2$ with $j $ as the total angular momentum quantum number and $m$ as the magnetic quantum number.
 For given $j$, $m$ can take the value $m=-j,j$ such that there are $2j+1$ degeneracy level.
