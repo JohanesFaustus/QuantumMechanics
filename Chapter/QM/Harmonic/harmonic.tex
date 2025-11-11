@@ -140,7 +140,7 @@ In the case of isotropic potential
 This symmetry produces degenerate energy levels because the potential is identical in every direction.
 Unlike isotropic potential, anisotropic potential cannot be expressed in a simple form in spherical coordinates because it lacks spherical symmetry.
 
-\subsubsection*{Cartesian coordinates.}
+\subsubsection{Cartesian coordinates.}
 In Cartesian coordinates the 3D eigenfunctions are products of 1D harmonic-oscillator eigenfunctions
 \begin{equation*}
     \Psi_n(x, y, z) = \psi_{n_x}(x) \psi_{n_y}(y) \psi_{n_z}(z)
@@ -171,6 +171,33 @@ with $n=n_x+n_y+n_z$, $\alpha_i = \sqrt{m\omega_i/\hbar }$ and $ \xi_i = \alpha 
 Whereas the energy is
 \begin{equation*}
     E_n = \hbar \left[  \omega_x \left(n_x + \frac{1}{2}  \right) + \omega_y \left(n_y + \frac{1}{2}  \right) + \omega_z \left(n_z + \frac{1}{2}  \right)  \right]
+\end{equation*}
+
+\subsubsection{Spherical coordinates.}
+In spherical coordinates they are products of a radial function built from generalized Laguerre polynomials and spherical harmonics
+\begin{equation*}
+    \Psi_{n_{r},l,m}(r, \theta, \phi) = R_{n_{r},l}(r) Y_{l}^{m}(\theta, \phi)
+\end{equation*}
+With the radial equation
+\begin{equation*}
+    R_{n_{r},l}(r) = N_{n_{r},l} r^{l} e^{-\frac{1}{2}\alpha r^{2}} L_{n_{r}}^{(l + \frac{1}{2})}(\alpha r^{2}),
+\end{equation*}
+where $\beta=m\omega/\hbar$$ L_n^{(a)}$ is the generalized Laguerre polynomial and the normalization constant
+\begin{equation*}
+    N_{n_r,l} = \sqrt{\frac{2 \alpha^{l+\frac{3}{2}} n_r!}{\Gamma(n_r + l + \frac{3}{2})}}
+\end{equation*}
+The spherical harmonic is
+\begin{equation*}
+    Y_{l}^{m}(\theta, \phi) = (-1)^{m} \sqrt{\frac{(2l + 1)}{4\pi} \frac{(l - m)!}{(l + m)!}} P_{l}^{m}(\cos\theta) e^{im\phi}
+\end{equation*}
+Both components obey the orthonormality
+\begin{align*}
+    \int_{0}^{2\pi} \int_{0}^{\pi} Y_{l}^{m}(\theta, \phi) Y_{l'}^{m'*}(\theta, \phi) \sin \theta \,d\theta \,d\phi & =  \delta_{ll'} \delta_{mm'} \\
+    \int_{0}^{\infty} R_{n_r,l}(r) R_{n'_r,l}(r) r^2 dr                                                             & =  \delta_{n_r n'_r}
+\end{align*}
+such that
+\begin{equation*}
+    \int \Psi_{n_r,l,m}^{*}(r, \theta, \phi) \Psi_{n'_r,l',m'}(r, \theta, \phi) d^3r = \delta_{n_r n'_r} \delta_{ll'} \delta_{mm'}
 \end{equation*}
 
 \end{document}
