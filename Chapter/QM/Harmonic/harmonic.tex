@@ -1,5 +1,6 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
+\subsection{1D Harmonic Potential}
 Particle under harmonic potential is subjected to the potential in the following form
 \begin{equation*}
     V(x) = \frac{1}{2} m \omega^{2} x^{2},
@@ -80,7 +81,7 @@ Therefore
 \end{align*}
 Inserting this into the wavefunction yields the normalized wavefunction.
 
-\subsubsection{Ladder Operator}
+\subsection{Ladder Operator}
 The ladder operator are operators that raise or lower the eigenvalue of another operator, here it is the Hamiltonian.
 They are defined as
 \begin{align*}
@@ -125,4 +126,51 @@ The following are matrix components of some operator mentioned
     P \leftrightarrow i \left( \frac{m \omega \hbar}{2} \right)^{1/2} \begin{bmatrix} 0 & -1^{1/2} & 0 & 0 & \cdots \\ 1^{1/2} & 0 & -2^{1/2} & 0 & \\ 0 & 2^{1/2} & 0 & -3^{1/2} & \\ 0 & 0 & 3^{1/2} & 0 & \\ \vdots & & & & \end{bmatrix} \\
     H \leftrightarrow \hbar \omega \begin{bmatrix} \frac{1}{2} & 0 & 0 & 0 & \cdots \\ 0 & \frac{3}{2} & 0 & 0 & \\ 0 & 0 & \frac{5}{2} & & \\ \vdots & & & & \end{bmatrix}
 \end{gather*}
+
+\subsection{3D Harmonic Potential}
+The generalized form of 3D harmonic potential is
+\begin{equation*}
+    V(x, y, z) = \frac{1}{2}m(\omega_{x}^{2}x^{2} + \omega_{y}^{2}y^{2} + \omega_{z}^{2}z^{2}),
+\end{equation*}
+Each coordinate direction oscillates independently with its own frequency, and the system loses spherical symmetry.
+In the case of isotropic potential
+\begin{equation*}
+    V(r) = \frac{1}{2}m\omega^{2}r^{2}
+\end{equation*}
+This symmetry produces degenerate energy levels because the potential is identical in every direction.
+Unlike isotropic potential, anisotropic potential cannot be expressed in a simple form in spherical coordinates because it lacks spherical symmetry.
+
+\subsubsection*{Cartesian coordinates.}
+In Cartesian coordinates the 3D eigenfunctions are products of 1D harmonic-oscillator eigenfunctions
+\begin{equation*}
+    \Psi_n(x, y, z) = \psi_{n_x}(x) \psi_{n_y}(y) \psi_{n_z}(z)
+\end{equation*}
+As such
+\begin{equation*}
+    \Psi_n(x, y, z) = \left( \frac{\alpha^2}{\pi } \right)^{3/4} \frac{H(\xi_x) H(\xi_y) H(\xi_z)}{\sqrt{2^{n}n_x!  n_y! n_z!}}  \exp \left[ -\frac{1}{2} (\xi_x^2 + \xi_y^2 + \xi_z^2) \right]
+\end{equation*}
+with $n=n_x+n_y+n_z$, $\alpha = \sqrt{m\omega/\hbar }$ and $ \xi_i = \alpha i$.
+The corresponding energy, assuming isotropic, is
+\begin{equation*}
+    E_{n_{x},n_{y},n_{z}} = \hbar \omega \left(n_{x} + n_{y} + n_{z} + \frac{3}{2}  \right)
+\end{equation*}
+The degeneracy of the shell with total quantum number $n=n_x+n_y+n_z$ is
+\begin{equation*}
+    g_n=\frac{(n+1)(n+2 )}{2}
+\end{equation*}
+
+In the case of anisotropic harmonic potential, the wavefunction remains a product of 1D harmonic oscillator with differing value of $\omega$
+\begin{equation*}
+    \Psi_n(x, y, z) = \psi_{n_x}(x; \omega_x) \psi_{n_y}(y; \omega_y) \psi_{n_z}(z; \omega_z)
+\end{equation*}
+As such
+\begin{equation*}
+    \Psi_n(x, y, z) = \left( \frac{\alpha_x \alpha_y \alpha_z}{\pi^{3/2}} \right)^{1/2} \frac{H(\xi_x) H(\xi_y) H(\xi_z)}{\sqrt{2^{n}n_x!  n_y! n_z!}}  \exp \left[ -\frac{1}{2} (\xi_x^2 + \xi_y^2 + \xi_z^2) \right]
+\end{equation*}
+with $n=n_x+n_y+n_z$, $\alpha_i = \sqrt{m\omega_i/\hbar }$ and $ \xi_i = \alpha i$.
+Whereas the energy is
+\begin{equation*}
+    E_n = \hbar \left[  \omega_x \left(n_x + \frac{1}{2}  \right) + \omega_y \left(n_y + \frac{1}{2}  \right) + \omega_z \left(n_z + \frac{1}{2}  \right)  \right]
+\end{equation*}
+
 \end{document}
