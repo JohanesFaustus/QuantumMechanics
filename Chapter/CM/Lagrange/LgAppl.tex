@@ -4,66 +4,66 @@
 Atwood's machine consist of  masses $m_1$ and $m_2$ are suspended by an in extensible string (length $l$) which passes over a massless pulley with frictionless bearings and radius $R$.
 The length of the string acts as constraint
 \begin{equation*}
-	x+y+2\pi R=l
+    x+y+2\pi R=l
 \end{equation*}
 This implies $y=-x+C$ and $\dot{y}=-\dot{x}$.
 Thus, the kinetic energy of both mass
 \begin{equation*}
-	T=\frac{1}{2}m_1\dot{x}^2+\frac{1}{2}m_2\dot{y}^2=\frac{1}{2}(m_1+m_2)\dot{x}^2
+    T=\frac{1}{2}m_1\dot{x}^2+\frac{1}{2}m_2\dot{y}^2=\frac{1}{2}(m_1+m_2)\dot{x}^2
 \end{equation*}
 We define the downward displacement of $m_1$ and upward displacement of $m_2$ as positive displacement in our generalized coordinate $x$.
 This is the same case of upward acceleration of $m_2$ being the same as downward acceleration of $m_1$.
 In any case, the potential energy is
 \begin{equation*}
-	U=-m_1gx-m_2gy=-(m_1-m_2)gx+C_2
+    U=-m_1gx-m_2gy=-(m_1-m_2)gx+C_2
 \end{equation*}
 We can now write the Lagrangian as
 \begin{equation*}
-	\mathcal{L}=\frac{1}{2}(m_1+m_2)\dot{x}^2+(m_1-m_2)gx
+    \mathcal{L}=\frac{1}{2}(m_1+m_2)\dot{x}^2+(m_1-m_2)gx
 \end{equation*}
 With only one generalized coordinate, we only have one Euler-Lagrange equation
 \begin{equation*}
-	\frac{\partial \mathcal{L}}{\partial x}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}}
+    \frac{\partial \mathcal{L}}{\partial x}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{x}}
 \end{equation*}
 which on substituting the Lagrangian yield
 \begin{align*}
-	(m_1-m_2)g=(m_1+m_2)\ddot{x} \\
-	\ddot{x}=\frac{m_1-m_2}{m_1+m_2}g
+    (m_1-m_2)g=(m_1+m_2)\ddot{x} \\
+    \ddot{x}=\frac{m_1-m_2}{m_1+m_2}g
 \end{align*}
 
 Now let's compare it with Newtonian approach, we should obtain the same result.
 Considering the acceleration direction for both masses, the net forces on both $m_1$ and $m_2$ respectively are
 \begin{align*}
-	m_1g-F_t & =m_1\ddot{x} \\
-	F_t-m_2g & =m_2\ddot{x}
+    m_1g-F_t & =m_1\ddot{x} \\
+    F_t-m_2g & =m_2\ddot{x}
 \end{align*}
 Adding both equation
 \begin{align*}
-	(m_1-m_2)g & =(m_1+m_2)\ddot{x}        \\
-	\ddot{x}   & =\frac{m_1-m_2}{m_1+m_2}g
+    (m_1-m_2)g & =(m_1+m_2)\ddot{x}        \\
+    \ddot{x}   & =\frac{m_1-m_2}{m_1+m_2}g
 \end{align*}
 
 \begin{figure*}
-	\centering
-	\dfig{../../../Rss/CM/Lagrange/Atwood.png}
-	\caption*{Figure: Atwood's machine configuration}
+    \centering
+    \dfig{../../../Rss/CM/Lagrange/Atwood.png}
+    \caption*{Figure: Atwood's machine configuration}
 \end{figure*}
 
 Now suppose we explicitly include the constraint using Lagrange multipliers.
-Here, the constraint is the wire and the constraining force is the tension, which takes the form 
+Here, the constraint is the wire and the constraining force is the tension, which takes the form
 \begin{equation*}
     f(x,y)=x+y=\text{Constant}
 \end{equation*}
-Since we do not need to reduce the number of coordinate, we express the Lagrangian as 
+Since we do not need to reduce the number of coordinate, we express the Lagrangian as
 \begin{equation*}
     \mathcal{L}=\frac{1}{2}m_1\dot{x}^2+\frac{1}{2}m_2\dot{y}^2+m_1gx+m_2gy
 \end{equation*}
 
 Then the equations that wee need to solve are as follows
 \begin{align*}
-    \frac{\partial \mathcal{L}}{\partial x}&=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{x}}\\
-    \frac{\partial \mathcal{L}}{\partial y}&=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{y}}\\
-    x+y=\text{Constant}
+    \frac{\partial \mathcal{L}}{\partial x} & =\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{x}} \\
+    \frac{\partial \mathcal{L}}{\partial y} & =\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{y}} \\
+    x+y                                     & = \text{Constant}
 \end{align*}
 The first two equation yield
 \begin{equation*}
@@ -73,16 +73,16 @@ Performing second derivative to the third equation with respect to time results
 \begin{equation*}
     \ddot{x}=-\ddot{y}
 \end{equation*}
-Using this and subtracting the first equation by the second 
+Using this and subtracting the first equation by the second
 \begin{align*}
-    (m_1+m_2)\ddot{x}&=(m_1-m_2)g\\
-    \ddot{x}&=\frac{m_1-m_2}{m_1+m_2}g
+    (m_1+m_2)\ddot{x} & =(m_1-m_2)g               \\
+    \ddot{x}          & =\frac{m_1-m_2}{m_1+m_2}g
 \end{align*}
-which is the same result. 
+which is the same result.
 It can be seen that, by comparing to the Newtonian result, that the Lagrange multipliers gives
 \begin{equation*}
     \lambda=-F_t
-\end{equation*} 
+\end{equation*}
 
 \subsection{Application: Particle Constrained on a Cylinder}
 Consider a particle of mass $m$ constrained to move on a frictionless cylinder of radius $R$.
@@ -93,40 +93,40 @@ We shall use cylindrical coordinate to solve this problem.
 It is known that the radius component is fixed $\rho=R$, so we use $(\phi, z)$ as our generalized coordinate.
 The kinetic energy is
 \begin{equation*}
-	T=\frac{1}{2}mv^2=\frac{1}{2}m(R^2\dot{\phi}^2+\dot{x}^2)
+    T=\frac{1}{2}mv^2=\frac{1}{2}m(R^2\dot{\phi}^2+\dot{x}^2)
 \end{equation*}
 Recall $\mathbf{F}=-\nabla U$, hence the potential energy
 \begin{align*}
-	-\frac{dU}{dr}\;\mathbf{\hat{r}} & =-kr\;\mathbf{\hat{r}} \\
-	U                                & =\frac{1}{2}kr^2
+    -\frac{dU}{dr}\;\mathbf{\hat{r}} & =-kr\;\mathbf{\hat{r}} \\
+    U                                & =\frac{1}{2}kr^2
 \end{align*}
 The distance of particle from origin is given by $r^2=R^2+z^2$, so
 \begin{equation*}
-	U=\frac{1}{2}k(z^2+R^2)
+    U=\frac{1}{2}k(z^2+R^2)
 \end{equation*}
 Therefore, the Lagrangian is
 \begin{equation*}
-	\mathcal{L}=\frac{1}{2}m(R^2\dot{\phi}^2+\dot{z}^2)-\frac{1}{2}k(R^2+z^2)
+    \mathcal{L}=\frac{1}{2}m(R^2\dot{\phi}^2+\dot{z}^2)-\frac{1}{2}k(R^2+z^2)
 \end{equation*}
 We use two generalized coordinates, thus we have two Euler-Lagrangian equation
 \begin{equation*}
-	\frac{\partial \mathcal{L}}{\partial z}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{z}},\qquad\frac{\partial\mathcal{L}}{\partial \phi}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{\phi}}
+    \frac{\partial \mathcal{L}}{\partial z}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{z}},\qquad\frac{\partial\mathcal{L}}{\partial \phi}=\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{\phi}}
 \end{equation*}
 The $z$ equation is
 \begin{equation*}
-	-kz=m\ddot{z}\implies z=A\cos(\omega t-\delta)
+    -kz=m\ddot{z}\implies z=A\cos(\omega t-\delta)
 \end{equation*}
 This mean that the mass perform simple harmonic motion in the $z$ direction.
 Now, the $\phi$ equation
 \begin{align*}
-	0=\frac{d}{dt}mR^2\dot{\phi}
+    0=\frac{d}{dt}mR^2\dot{\phi}
 \end{align*}
 This mean that the angular momentum $L=mR^2\dot{\phi}$ is conserved and the particle rotate in constant velocity $\dot{\phi}$.
 
 \begin{figure*}
-	\centering
-	\dfig{../../../Rss/CM/Lagrange/Cyllinder.png}
-	\caption*{Figure: Particle constrained to move on a cylinder}
+    \centering
+    \dfig{../../../Rss/CM/Lagrange/Cyllinder.png}
+    \caption*{Figure: Particle constrained to move on a cylinder}
 \end{figure*}
 
 \subsection{Application: Sliding Block on a Frictionless Wedge}
@@ -134,9 +134,9 @@ The block (mass $m$) is free to slide on the wedge, and the wedge (mass $M$) can
 The block is released from the top of the wedge, with both initially at rest.
 
 \begin{figure*}[b]
-	\centering
-	\normfigL{../../../Rss/CM/Lagrange/WedgeIncline.png}
-	\caption*{Figure: Block slides on a wedge which is free to move without friction}
+    \centering
+    \normfigL{../../../Rss/CM/Lagrange/WedgeIncline.png}
+    \caption*{Figure: Block slides on a wedge which is free to move without friction}
 \end{figure*}
 
 The system has two coordinates and no constraint whatsoever, so it has two degree of freedom.
@@ -145,58 +145,58 @@ We also define positive $x$ displacement to the right and downward as positive $
 
 The kinetic energy is
 \begin{equation*}
-	T=\frac{1}{2}mv_m^2+\frac{1}{2}Mv_M^2
+    T=\frac{1}{2}mv_m^2+\frac{1}{2}Mv_M^2
 \end{equation*}
 The wedge velocity is simply
 \begin{equation*}
-	v_M=\dot{q}_2
+    v_M=\dot{q}_2
 \end{equation*}
 Meanwhile, the block velocity have two component, which are
 \begin{equation*}
-	\mathbf{v}_m=\left(\dot{q}_2+\dot{q}_1\cos\alpha\right)\;\mathbf{\hat{x}}+\dot{q}_2\sin\alpha\;\mathbf{\hat{y}}
+    \mathbf{v}_m=\left(\dot{q}_2+\dot{q}_1\cos\alpha\right)\;\mathbf{\hat{x}}+\dot{q}_2\sin\alpha\;\mathbf{\hat{y}}
 \end{equation*}
 In terms of generalized coordinate, the kinetic energy reads
 \begin{align*}
-	T & =\frac{1}{2}m\left[\left(\dot{q}_2+\dot{q}_1\cos\alpha\right)^2+\dot{q}_2\sin\alpha^2\right]+\frac{1}{2}m\dot{q}_2^2 \\
-	  & =\frac{1}{2}m\left[\dot{q}_1^2+\dot{q}_2^2+\dot{q}_1\dot{q}_2\cos\alpha+\right]+\frac{1}{2}M\dot{q}_2^2              \\
-	T & =\frac{1}{2}(m+M)\dot{q}_2^2+\frac{1}{2}m\left(\dot{q}_1^2+2\dot{q}_1\dot{q}_2\cos\alpha\right)
+    T & =\frac{1}{2}m\left[\left(\dot{q}_2+\dot{q}_1\cos\alpha\right)^2+\dot{q}_2\sin\alpha^2\right]+\frac{1}{2}m\dot{q}_2^2 \\
+      & =\frac{1}{2}m\left[\dot{q}_1^2+\dot{q}_2^2+\dot{q}_1\dot{q}_2\cos\alpha+\right]+\frac{1}{2}M\dot{q}_2^2              \\
+    T & =\frac{1}{2}(m+M)\dot{q}_2^2+\frac{1}{2}m\left(\dot{q}_1^2+2\dot{q}_1\dot{q}_2\cos\alpha\right)
 \end{align*}
 In other hand, we defined downward as positive displacement, so the potential energy reads
 \begin{equation*}
-	U=-mgy=-mgq_1\sin\alpha
+    U=-mgy=-mgq_1\sin\alpha
 \end{equation*}
 The Lagrangian can be evaluated as
 \begin{equation*}
-	\mathcal{L}=\frac{1}{2}(m+M)\dot{q}_2^2+\frac{1}{2}m\left(\dot{q}_1^2+2\dot{q}_1\dot{q}_2\cos\alpha\right)+mgq_1\sin\alpha
+    \mathcal{L}=\frac{1}{2}(m+M)\dot{q}_2^2+\frac{1}{2}m\left(\dot{q}_1^2+2\dot{q}_1\dot{q}_2\cos\alpha\right)+mgq_1\sin\alpha
 \end{equation*}
 
 With the generalized coordinates we used, we have two Euler-Lagrange equation
 \begin{equation*}
-	\frac{\partial \mathcal{L}}{\partial q_1}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}\qquad\frac{\partial \mathcal{L}}{\partial q_2}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}
+    \frac{\partial \mathcal{L}}{\partial q_1}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}\qquad\frac{\partial \mathcal{L}}{\partial q_2}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_2}
 \end{equation*}
 The $q_1$ equation yield
 \begin{align*}
-	mg\sin\alpha & =\frac{d}{dt}\left[m(\dot{q}_1+\dot{q}_2\cos\alpha)\right] \\
-	g\sin\alpha  & =\ddot{q}_1+\ddot{q}_2\cos\alpha
+    mg\sin\alpha & =\frac{d}{dt}\left[m(\dot{q}_1+\dot{q}_2\cos\alpha)\right] \\
+    g\sin\alpha  & =\ddot{q}_1+\ddot{q}_2\cos\alpha
 \end{align*}
 while the $q_2$ equation yield
 \begin{align*}
-	0          & =\frac{d}{dt}\left[(M+m)\dot{q}_2+m(\dot{q}_2+\dot{q}_1\cos\alpha)\right] \\
-	           & =(M+m)\ddot{q}_2+m(\ddot{q}_2+\ddot{q}_1\cos\alpha)                       \\
-	\ddot{q}_2 & =-\frac{m}{M+m}\ddot{q}_1\cos\alpha
+    0          & =\frac{d}{dt}\left[(M+m)\dot{q}_2+m(\dot{q}_2+\dot{q}_1\cos\alpha)\right] \\
+               & =(M+m)\ddot{q}_2+m(\ddot{q}_2+\ddot{q}_1\cos\alpha)                       \\
+    \ddot{q}_2 & =-\frac{m}{M+m}\ddot{q}_1\cos\alpha
 \end{align*}
 which is just conservation of momentum in the $x$ direction
 \begin{equation*}
-	m\dot{q}_2+m\left(\dot{q_2}+\dot{q}_1\cos\alpha\right)=\text{Constant}
+    m\dot{q}_2+m\left(\dot{q_2}+\dot{q}_1\cos\alpha\right)=\text{Constant}
 \end{equation*}
 Now, combining the $q_1$ and $q_2$ result in
 \begin{align*}
-	\ddot{q}_1 & =g\sin\alpha+\frac{m}{M+m}\ddot{q}_1\cos^2\alpha \\
-	\ddot{q}_1 & =\frac{g\sin\alpha}{1-\frac{m}{M+m}\cos^2\alpha}
+    \ddot{q}_1 & =g\sin\alpha+\frac{m}{M+m}\ddot{q}_1\cos^2\alpha \\
+    \ddot{q}_1 & =\frac{g\sin\alpha}{1-\frac{m}{M+m}\cos^2\alpha}
 \end{align*}
 Suppose we want to determine the time it took for the block to reach the bottom of wedge, we can use the kinematic relation $x(t)=x_i+v_it+at^2/2$ or $t=\sqrt{2l/a}$, with $l$ as the length of the slope, to obtain
 \begin{equation*}
-	t=\left(2l\frac{1-\frac{m}{M+m}\cos^2\alpha}{g\sin\alpha}\right)^{1/2}
+    t=\left(2l\frac{1-\frac{m}{M+m}\cos^2\alpha}{g\sin\alpha}\right)^{1/2}
 \end{equation*}
 
 As a sanity check, consider the case for $\alpha=90^\circ$.
@@ -209,11 +209,11 @@ The acceleration $\ddot{q}_1=g\sin\alpha$, which is the acceleration for a block
 A bob of mass $m$ is fixed to a massless rod length $l=\sqrt{x^2+y^2}$, which is pivoted at $O$ and free to swing without friction in the $xy$ plane.
 One way to integrate the constraint into the Lagrangian is by expressing both coordinate in terms single generalized coordinate $\phi$ or by writing one of them in terms other variable, say  $y=\sqrt{l^2-x^2}$.
 
-In terms of $\phi$,the kinetic energy is 
+In terms of $\phi$,the kinetic energy is
 \begin{equation*}
     T=\frac{1}{2}ml^2\dot{\phi}^2
 \end{equation*}
-and the potential energy 
+and the potential energy
 \begin{equation*}
     U=mg(l-l\cos\phi)=mgl(1-\cos\phi)
 \end{equation*}
@@ -227,17 +227,17 @@ In this case, we only have one Euler-Lagrange equation
 \end{equation*}
 Substituting the Lagrangian
 \begin{align*}
-    -mgl\sin\phi&=ml^2\ddot{\phi}\\
-    \sin\phi&=-\frac{l}{g}\ddot{\phi}
+    -mgl\sin\phi & =ml^2\ddot{\phi}         \\
+    \sin\phi     & =-\frac{l}{g}\ddot{\phi}
 \end{align*}
-This is the differential equation describing simple pendulum motion, which, on assuming small angle $\phi$, has the solution $\phi=A\cos(\omega t+\delta)$. 
-Also, recall $\ddot{\phi}$ is the angular acceleration. 
-This mean that the Euler-Lagrange equation reproduce the formula for torque $\Gamma=I\alpha=ml^2\ddot{\phi}$ or $\Gamma=Fr=-mgl\sin\phi$. 
+This is the differential equation describing simple pendulum motion, which, on assuming small angle $\phi$, has the solution $\phi=A\cos(\omega t+\delta)$.
+Also, recall $\ddot{\phi}$ is the angular acceleration.
+This mean that the Euler-Lagrange equation reproduce the formula for torque $\Gamma=I\alpha=ml^2\ddot{\phi}$ or $\Gamma=Fr=-mgl\sin\phi$.
 
 \begin{figure*}
-	\centering
-	\dfig{../../../Rss/CM/Lagrange/Pendulum.png}
-	\caption*{Figure: A simple pendulum}
+    \centering
+    \dfig{../../../Rss/CM/Lagrange/Pendulum.png}
+    \caption*{Figure: A simple pendulum}
 \end{figure*}
 
 \subsection{Application: Bead Spinning on a Wire Hoop}
@@ -246,17 +246,17 @@ The hoop lies in a vertical plane, which is forced to rotate about the hoop's ve
 The bead's position on the hoop is specified by the angle $\theta$ measured up from the rotation axis.
 We shall use $\theta$ as our only generalized coordinate.
 
-The kinetic energy is 
+The kinetic energy is
 \begin{equation*}
     T=\frac{1}{2}m\left(v_\theta^2+v_\phi^2\right)
 \end{equation*}
 with $v_{\theta}$ denote the bead tangential velocity with respect to non-rotating hoop, while $v_{\phi}$ denote the rotation velocity of the hoop.
-The tangential velocity is simply $v_\theta=R\dot{\theta}$, 
+The tangential velocity is simply $v_\theta=R\dot{\theta}$,
 \begin{equation*}
     v_\theta=R\dot{\theta}
 \end{equation*}with $R$ as the distance of the bead with the axis of rotation--the hoop radius in other words.
 With the same principle, the hoop velocity is $v_\phi=\rho \dot{\phi}$.
-From the figure and known quantity, $\rho=R\cos\theta$ and $\dot{\phi}=\omega$, thus 
+From the figure and known quantity, $\rho=R\cos\theta$ and $\dot{\phi}=\omega$, thus
 \begin{equation*}
     v_\phi=R\sin\theta \omega
 \end{equation*}
@@ -279,21 +279,21 @@ which yield one Euler-Lagrange equation
 \end{equation*}
 Substituting the Lagrangian
 \begin{align*}
-    mR^2\omega^2\sin\theta\cos\theta-mgR\sin\theta&=mR^2\ddot{\theta}
+    mR^2\omega^2\sin\theta\cos\theta-mgR\sin\theta & =mR^2\ddot{\theta}
 \end{align*}
 dividing by $mR^2$
 \begin{align*}
-    \ddot{\theta}&=\omega^2\sin\theta\cos\theta-\frac{g}{R}\sin\theta\\
-    \ddot{\theta}&=\left(\omega^2\cos\theta-\frac{g}{R}\right)\sin\theta
+    \ddot{\theta} & =\omega^2\sin\theta\cos\theta-\frac{g}{R}\sin\theta    \\
+    \ddot{\theta} & =\left(\omega^2\cos\theta-\frac{g}{R}\right)\sin\theta
 \end{align*}
 \begin{figure*}
-	\centering
-	\dfig{../../../Rss/CM/Lagrange/BeadWire.png}
-	\caption*{Figure: Bead constrained into moving within wire hoop}
+    \centering
+    \dfig{../../../Rss/CM/Lagrange/BeadWire.png}
+    \caption*{Figure: Bead constrained into moving within wire hoop}
 \end{figure*}
 
 This equation can be used to determine the equilibrium point--that is, the point where the position of the system does not change--and the stable point--that is, the position at which the system returns after slightly disturbed--of the system.
-The requirement of equilibrium point is $\dot{\theta}=0$, but we can obtain the same result by setting both $\dot{\theta}$ and $\ddot{\theta}$ to zero 
+The requirement of equilibrium point is $\dot{\theta}=0$, but we can obtain the same result by setting both $\dot{\theta}$ and $\ddot{\theta}$ to zero
 \begin{equation*}
     \left(\omega^2\cos\theta-\frac{g}{R}\right)\sin\theta=0
 \end{equation*}
@@ -301,7 +301,7 @@ If we set $\sin\theta$ to zero, we obtain the following equilibrium points
 \begin{equation*}
     \theta=0,\pi
 \end{equation*}
-If we set the term inside parenthesis to zero 
+If we set the term inside parenthesis to zero
 \begin{equation*}
     \cos\theta=\frac{g}{\omega^2R}
 \end{equation*}
@@ -313,67 +313,67 @@ hence we have the following equilibrium
 \begin{equation*}
     \theta=\pm\arccos\frac{g}{\omega^2R}
 \end{equation*}
-Arccos function only has real value at $\theta\in [-1,1]$, so when 
+Arccos function only has real value at $\theta\in [-1,1]$, so when
 \begin{equation*}
     \bigg|\frac{g}{\omega^2R}\bigg|>1\quad\text{or}\quad\omega^2<\frac{g}{R}
-\end{equation*} 
-This equation undefined and the stable point disappear. 
+\end{equation*}
+This equation undefined and the stable point disappear.
 These equilibrium points only appear when $\omega^2>g/R$ and located on either side of bottom $\theta=0$.
 
 Out of these four equilibrium points, not all of them are stable.
 \begin{enumerate}
     \item Top $\theta=\pi$ point is unstable point due to not having restorative force, both gravitational and centrifugal push the bead away.
     \item Bottom $\theta=0$ point depends on $\omega^2$.
-    It is stable if $\omega^2<g/R$, but become unstable if $\omega^2>g/R$.
-    This can be proven by approximating small $\theta$ displacement
-    \begin{equation*}
-        \ddot{\theta}=\left(\omega^2-g/R\right)\theta
-    \end{equation*} 
-    If $\omega^2<g/R$, then
-    \begin{equation*}
-        \ddot{\theta}=-\Omega^2\theta
-    \end{equation*}
-    with
-    \begin{equation*}
-        \Omega=\sqrt{\frac{g}{r}-\omega^2}
-    \end{equation*}
-    which mean the bead perform simple harmonic motion about the stable point.
-    If $\omega^2>g/R$, then 
-    \begin{equation*}
-        \ddot{\theta}=\Omega^2\theta
-    \end{equation*}
-    which has the solution $\theta=Ae^{\Omega t}+Be^{-\Omega t}$, so it moves in exponential way and the point is unstable.
+          It is stable if $\omega^2<g/R$, but become unstable if $\omega^2>g/R$.
+          This can be proven by approximating small $\theta$ displacement
+          \begin{equation*}
+              \ddot{\theta}=\left(\omega^2-g/R\right)\theta
+          \end{equation*}
+          If $\omega^2<g/R$, then
+          \begin{equation*}
+              \ddot{\theta}=-\Omega^2\theta
+          \end{equation*}
+          with
+          \begin{equation*}
+              \Omega=\sqrt{\frac{g}{r}-\omega^2}
+          \end{equation*}
+          which mean the bead perform simple harmonic motion about the stable point.
+          If $\omega^2>g/R$, then
+          \begin{equation*}
+              \ddot{\theta}=\Omega^2\theta
+          \end{equation*}
+          which has the solution $\theta=Ae^{\Omega t}+Be^{-\Omega t}$, so it moves in exponential way and the point is unstable.
     \item [3\&4] These two point that comes after speeding up the rotation such that $\omega^2>g/R$ are stable.
-    To proof this, we expand the equation
-    \begin{equation*}
-        \ddot{\theta}=\left(\omega^2\cos\theta-\frac{g}{R}\right)\sin\theta
-    \end{equation*}
-    around stable point $\theta_0$
-    \begin{equation*}
-        \theta\equiv\theta+\epsilon
-    \end{equation*}
-    using Taylor expansion
-    \begin{equation*}
-        \cos(\theta_0+\epsilon)\approx\cos(\theta_0)-\epsilon\sin\theta_0,\quad\sin(\theta_0+\epsilon)\approx\sin\theta_0+\epsilon\cos\theta_0
-    \end{equation*}
-    This result in 
-    \begin{align*}
-        \ddot{\theta}&=\left[\omega^2\cos\theta_0-\omega^2\epsilon\sin\theta_0 -\frac{g}{R}\right]\left[\sin\theta_0+\epsilon\cos\theta_0\right]\\
-        \ddot{\theta}&=-\omega^2\epsilon\sin^2\theta_0-\omega^2\epsilon^2\sin\theta_0\cos\theta_0
-    \end{align*}
-    Since $\epsilon$ is small, we can ignore the second order
-    \begin{equation*}
-        \ddot{\theta}=-\epsilon\omega^2\sin^2\theta_0
-    \end{equation*} 
-    Since $\ddot{\theta}$ is the same as $\ddot{\epsilon}$
-    \begin{equation*}
-        \ddot{\epsilon}=-\omega^2\sin^2\theta=-\Omega'^2\epsilon
-    \end{equation*}
-    with 
-    \begin{equation*}
-        \Omega=\omega\sin\theta=\sqrt{\omega-\omega\cos^2\theta_0}=\sqrt{\omega^2-\left(\frac{g}{\omega R}\right)^2}
-    \end{equation*}
-    This mean $\epsilon$ oscillates about zero, and the bead itself oscillates about the equilibrium position $\theta_0$ with frequency $\Omega'$.
+          To proof this, we expand the equation
+          \begin{equation*}
+              \ddot{\theta}=\left(\omega^2\cos\theta-\frac{g}{R}\right)\sin\theta
+          \end{equation*}
+          around stable point $\theta_0$
+          \begin{equation*}
+              \theta\equiv\theta+\epsilon
+          \end{equation*}
+          using Taylor expansion
+          \begin{equation*}
+              \cos(\theta_0+\epsilon)\approx\cos(\theta_0)-\epsilon\sin\theta_0,\quad\sin(\theta_0+\epsilon)\approx\sin\theta_0+\epsilon\cos\theta_0
+          \end{equation*}
+          This result in
+          \begin{align*}
+              \ddot{\theta} & =\left[\omega^2\cos\theta_0-\omega^2\epsilon\sin\theta_0 -\frac{g}{R}\right]\left[\sin\theta_0+\epsilon\cos\theta_0\right] \\
+              \ddot{\theta} & =-\omega^2\epsilon\sin^2\theta_0-\omega^2\epsilon^2\sin\theta_0\cos\theta_0
+          \end{align*}
+          Since $\epsilon$ is small, we can ignore the second order
+          \begin{equation*}
+              \ddot{\theta}=-\epsilon\omega^2\sin^2\theta_0
+          \end{equation*}
+          Since $\ddot{\theta}$ is the same as $\ddot{\epsilon}$
+          \begin{equation*}
+              \ddot{\epsilon}=-\omega^2\sin^2\theta=-\Omega'^2\epsilon
+          \end{equation*}
+          with
+          \begin{equation*}
+              \Omega=\omega\sin\theta=\sqrt{\omega-\omega\cos^2\theta_0}=\sqrt{\omega^2-\left(\frac{g}{\omega R}\right)^2}
+          \end{equation*}
+          This mean $\epsilon$ oscillates about zero, and the bead itself oscillates about the equilibrium position $\theta_0$ with frequency $\Omega'$.
 \end{enumerate}
 
 \end{document}
