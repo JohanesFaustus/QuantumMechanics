@@ -22,6 +22,38 @@ are the spherical harmonics, which depend on $\ell$ and the magnetic quantum num
     Y_{\ell}^{m}(\theta, \phi) = (-1)^{m} \sqrt{\frac{(2\ell + 1)(\ell - m)!}{4\pi (\ell + m)!}} P_{\ell}^{m}(\cos \theta)e^{im\phi}
 \end{equation*}
 
+The complete description of electron is specified by four quantum number $(n,\ell,m_l,m_s)$, where $m_s=\pm 1/2$.
+The wavefunction of hydrogen atom must be the product of spatial part $\psi_{n\ell m}$ and the spin part $\ket{1/2,m_s}$
+\begin{equation*}
+    \Psi_{n\ell m_\ell m_s}=R_{n\ell}(r) Y_{\ell}^{m}(\theta, \phi) \Bigg| \frac{1}{2}, \pm \frac{1}{2} \Bigg\rangle
+\end{equation*}
+Or by using spinor
+\begin{equation*}
+    \Psi_{n\ell m_\ell 1/2}=\psi_{n\ell m_l}
+    \begin{bmatrix}
+        1 \\0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \psi_{n\ell m_l} \\0
+    \end{bmatrix}
+\end{equation*}
+and
+\begin{equation*}
+    \Psi_{n\ell m_\ell -1/2}=\psi_{n\ell m_l}
+    \begin{bmatrix}
+        0 \\1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 \\\psi_{n\ell m_l}
+    \end{bmatrix}
+\end{equation*}
+As such, the ground state then may be written as
+\begin{align*}
+    \Psi_{100,+\frac{1}{2}} & =  \begin{bmatrix} \psi_{100} \\ 0 \end{bmatrix} = \begin{bmatrix} \frac{1}{\sqrt{\pi a_0^3}}e^{-r/a_0} \\ 0 \end{bmatrix} \\
+    \Psi_{100,-\frac{1}{2}} & =  \begin{bmatrix}0\\ \psi_{100} \end{bmatrix} = \begin{bmatrix} 0\\ \frac{1}{\sqrt{\pi a_0^3}}e^{-r/a_0}  \end{bmatrix}
+\end{align*}
 
 \subsection{Energy and Degeneracy}
 The energy eigenvalues are quantized and depend only on the principal quantum number $n$
