@@ -66,9 +66,27 @@ The degeneracy of the state $n$ is given by
 \begin{equation*}
     g_n = \sum_{\ell=0 }^{n-1 }(2l+1)=n^2
 \end{equation*}
+If we include spin, the degeneracy now
+\begin{equation*}
+    g_n =2 \sum_{\ell=0 }^{n-1 }(2l+1)=2n^2
+\end{equation*}
+
 It is common to refer to the states with $\ell = 0, 1, 2, 3, 4, \dots$ as $s$, $p$, $d$,$f$, $g$, $h$, $\dots$ states.
-In this spectroscopic notation, $1s$ denotes the state $(n= 1, \ell=0)$; $2s$ and $2p$ the $l=O$
-and $l = 1$ states at $n = 2$; $3s$, $3p$, and $3d$ the $l = 0$, 1, and 2 states at $n = 3$, and so on.
+In this spectroscopic notation, $1s$ denotes the state $(n= 1, \ell=0)$; $2s$ and $2p$ the $l=0$ and $l = 1$ states at $n = 2$; $3s$, $3p$, and $3d$ the $l = 0$, 1, and 2 states at $n = 3$, and so on.
 No attempt is made to keep track of $m$.
 
+\subsection{Probabilities}
+The probability of finding the electron between $r$ and $r+dr$ in the spherical shell is
+\begin{align*}
+    P(r) & =  \int_{0}^{2\pi} \int_{0}^{\pi} |\psi_{nlm_{\ell}}(r, \theta, \phi)|^{2} r^{2} \sin \theta \;d\theta\; d\phi\; dr \\
+         & =  r^{2} |R_{n\ell}(r)|^{2} \;dr \int |Y_{\ell}^{m_{\ell}}(\theta, \phi)|^{2}\; d\Omega
+\end{align*}
+Since spherical harmonics are normalized
+\begin{equation*}
+    P(r) dr= r^2 |R_{n\ell}(r)|^2\;dr
+\end{equation*}
+Using this, we can find the probabilities of finding electron within radius $r=a_0$
+\begin{equation*}
+    P(r \leq a_0) = \int_{0}^{a_0} P(r) dr = \int_{0}^{a_0} r^2 |R_{10}(r)|^2 dr
+\end{equation*}
 \end{document}
