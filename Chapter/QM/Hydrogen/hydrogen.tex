@@ -78,8 +78,8 @@ No attempt is made to keep track of $m$.
 \subsection{Probabilities}
 The probability of finding the electron between $r$ and $r+dr$ in the spherical shell is
 \begin{align*}
-    P(r) & =  \int_{0}^{2\pi} \int_{0}^{\pi} |\psi_{nlm_{\ell}}(r, \theta, \phi)|^{2} r^{2} \sin \theta \;d\theta\; d\phi\; dr \\
-         & =  r^{2} |R_{n\ell}(r)|^{2} \;dr \int |Y_{\ell}^{m_{\ell}}(\theta, \phi)|^{2}\; d\Omega
+    P(r)\; dr & =  \int_{0}^{2\pi} \int_{0}^{\pi} |\psi_{nlm_{\ell}}(r, \theta, \phi)|^{2} r^{2} \sin \theta \;d\theta\; d\phi\; dr \\
+    P(r)\; dr & =  r^{2} |R_{n\ell}(r)|^{2} \;dr \int |Y_{\ell}^{m_{\ell}}(\theta, \phi)|^{2}\; d\Omega
 \end{align*}
 Since spherical harmonics are normalized
 \begin{equation*}
@@ -89,4 +89,38 @@ Using this, we can find the probabilities of finding electron within radius $r=a
 \begin{equation*}
     P(r \leq a_0) = \int_{0}^{a_0} P(r) dr = \int_{0}^{a_0} r^2 |R_{10}(r)|^2 dr
 \end{equation*}
+
+\subsection{Hydrogenic Identity}
+Several additional analytic identities for hydrogenic bound states exist.
+The most frequently used are the expectation values of inverse and quadratic powers of $r$, which are
+\begin{align*}
+    \langle r\rangle_{n\ell}
+     & = \frac{a_{0}}{2}\bigl(3n^{2}-\ell(\ell+1)\bigr),         \\
+    \langle r^{-1}\rangle_{n\ell}
+     & = \frac{1}{a_{0}n^{2}},                                   \\
+    \langle r^{-2}\rangle_{n\ell}
+     & = \frac{1}{a_{0}^{2}n^{3}\left(\ell+\tfrac12\right)},     \\
+    \langle r^{2}\rangle_{n\ell}
+     & = \frac{a_{0}^{2}}{2}\left[5n^{2}+1-3\ell(\ell+1)\right],
+\end{align*}
+
+The Virial theorem for the Coulomb potential provides
+\[
+    E_{n}
+    =-\frac{1}{2}\frac{me^{4}}{\hbar^{2}}\frac{1}{n^{2}},
+    \qquad
+    \langle T\rangle=-E_{n},
+    \qquad
+    \langle V\rangle=2E_{n},
+    \qquad
+    \left\langle \frac{1}{r}\right\rangle=\frac{-2E_{n}}{e^{2}},
+\]
+
+A further identity links successive radial moments through the Coulomb radial recurrence relation
+\[
+    \langle r^{k}\rangle_{n\ell}
+    =\frac{(2n+k-1)(n-\ell-1)}{2Z}\langle r^{\,k-1}\rangle_{n\ell}
+    -\frac{(n+\ell)(n-\ell-1)}{Z^{2}}\langle r^{\,k-2}\rangle_{n\ell},
+\]
+valid for integer $k\geq 1$ with $Z=1$ for hydrogen
 \end{document}
