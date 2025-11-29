@@ -89,6 +89,13 @@ Consider a particle of mass $m$ constrained to move on a frictionless cylinder o
 Besides the force of constraint, the only force on the mass is a force $\mathbf{F}= -k\mathbf{r}$ directed toward the origin.
 With $\mathbf{r}$ as the position vector of the particle, this force is the three dimension version of Hooke's law.
 
+\begin{figure*}
+    \centering
+    \dfig{../../../Rss/CM/Lagrange/Cyllinder.png}
+    \caption*{Figure: Particle constrained to move on a cylinder}
+\end{figure*}
+
+
 We shall use cylindrical coordinate to solve this problem.
 It is known that the radius component is fixed $\rho=R$, so we use $(\phi, z)$ as our generalized coordinate.
 The kinetic energy is
@@ -123,11 +130,58 @@ Now, the $\phi$ equation
 \end{align*}
 This mean that the angular momentum $L=mR^2\dot{\phi}$ is conserved and the particle rotate in constant velocity $\dot{\phi}$.
 
-\begin{figure*}
-    \centering
-    \dfig{../../../Rss/CM/Lagrange/Cyllinder.png}
-    \caption*{Figure: Particle constrained to move on a cylinder}
-\end{figure*}
+Now to find the constraining force, we must use the Lagrange multiplier.
+From the constraint it is obvious that only radial constraint present.
+As such,
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial\rho}+\lambda\frac{\partial f}{\partial\rho}   & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{\rho}} \\
+    \frac{\partial \mathcal{L}}{\partial \phi}+\lambda\frac{\partial f}{\partial \phi} & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{\phi}} \\
+    \frac{\partial \mathcal{L}}{\partial z}+\lambda\frac{\partial f}{\partial z}       & =\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{z}}    \\
+    f(r)                                                                               & = r-R=0
+\end{align*}
+where the Lagrangian is of course unmodified
+\begin{equation*}
+    \mathcal{L}=\frac{1}{2}m(\dot{\rho}^2 +\rho^2\dot{\phi}^2+\dot{z}^2)-\frac{1}{2}k(\rho^2+z^2)
+\end{equation*}
+We only need the $\rho$ equation and $f(r)$ to determine the constraint
+\begin{align*}
+    m\rho \dot{\phi}^2 + k\rho +\lambda & =  \frac{d }{dt }m \dot{\rho} = m \ddot{\rho} \\
+    \rho - R                            & =  0
+\end{align*}
+The constraint implies $\dot{\rho}=\ddot{\rho}=0$, so the constraining force is
+\begin{equation*}
+    \lambda = R(k-m \dot{\phi}^2)
+\end{equation*}
+This constraint is the normal force $N$.
+The requirement that the particle is constrained within $\rho=R$ is $N \geq 0$ or
+\begin{equation*}
+    k \geq \frac{L^2    }{mR^4}
+\end{equation*}
+
+Comparison with Newton method: the acceleration in cylindrical components is
+\begin{equation*}
+    \mathbf{a} = (\ddot{\rho} - \rho \dot{\phi}^2) \hat{\rho} + (\rho \ddot{\phi} + 2 \dot{\rho} \dot{\phi}) \hat{\phi} + \ddot{z} \hat{z}
+\end{equation*}
+With the constraint, this reads
+\begin{equation*}
+    \mathbf{a} = \rho \dot{\phi}^2 \hat{\rho} + \rho \ddot{\phi} \hat{\phi} + \ddot{z} \hat{z}
+\end{equation*}
+The force also reads
+\begin{equation*}
+    \mathbf{F}_{\mathrm{spring}} = -kr = -k(R\hat{\rho} + z\hat{\mathbf{z}})
+\end{equation*}
+Newton law state
+\begin{equation*}
+    m \mathbf{a} = \mathbf{F}_{\mathrm{spring}} + N \hat{\rho}
+\end{equation*}
+Thus the normal force reads
+\begin{equation*}
+    N = R(k- \ddot{\phi}^2)
+\end{equation*}
+For $N \neq 0$, this also reads
+\begin{equation*}
+    k \neq m \dot{\phi}^2 \neq \frac{L^2 }{mR^4}
+\end{equation*}
 
 \subsection{Application: Sliding Block on a Frictionless Wedge}
 The block (mass $m$) is free to slide on the wedge, and the wedge (mass $M$) can slide on the horizontal table, both with negligible friction.

@@ -14,9 +14,9 @@ Compare it with the classical mechanics postulate via Hamiltonian formalism
 The first three tell us how the system is depicted at a given time, and the fourth specifies how this picture changes with time.
 The first postulate states that a particle is described by a ket $\ket{\psi} $ in a Hilbert space which, you will recall, contains proper vectors normalizable to unity as well as improper vectors, normalizable only to the Dirac delta functions.
 
-Now, a ket in a Hilbert space has in general an infinite number of components in a given basis. 
-A classical particle has, at any given time, a definite position. 
-One simply has to give this value of $x$ in specifying the state. 
+Now, a ket in a Hilbert space has in general an infinite number of components in a given basis.
+A classical particle has, at any given time, a definite position.
+One simply has to give this value of $x$ in specifying the state.
 A quantum particle, on the other hand, can take on any value of $x$ upon measurement and one must give the relative probabilities for all possible outcomes.
 
 \subsection{Second Postulate}
@@ -24,13 +24,13 @@ As the following
 \begin{quotation}
     The independent variables $x$ and $p$ of classical mechanics are represented by Hermitian operators $X$ and $P$ with the following matrix elements in the eigenbasis of $X$
     \begin{align*}
-        \braket{x|X|x'}&=x\delta(x-x')\\
-        \braket{x|P|x'}&=-i\hbar \delta'(x-x')
+        \braket{x|X|x'} & =x\delta(x-x')         \\
+        \braket{x|P|x'} & =-i\hbar \delta'(x-x')
     \end{align*}
 
     The operators corresponding to dependent variables $\omega=\omega(x,p)$ are given Hermitian operators
     \begin{equation*}
-        \Omega(X,P)=\omega \left( x\rightarrow X, p\rightarrow P \right) 
+        \Omega(X,P)=\omega \left( x\rightarrow X, p\rightarrow P \right)
     \end{equation*}
     where it is understood that $\Omega$ is a function of $X$ and $P$ just like $\omega$ is a function of $x$ and $p$.
 \end{quotation}
@@ -87,8 +87,8 @@ Suppose there exist state described by
 Measurement can either yield $\omega_1$ or $\omega_2$ with the probabilities $|\alpha^2|/(\alpha^2+\beta^2)$ and $|\beta^2|/(\alpha^2+\beta^2)$ respectively.
 
 \subsubsection{Discussion: probability for degenerate operator.}
-Say that we have degenerate operator $\Omega$ with degenerate eigenvalues $\omega_1=\omega_2=\omega$ with orthonormal basis $\ket{\omega,1}$ and $\ket{\omega,2}$. 
-Then the probability is 
+Say that we have degenerate operator $\Omega$ with degenerate eigenvalues $\omega_1=\omega_2=\omega$ with orthonormal basis $\ket{\omega,1}$ and $\ket{\omega,2}$.
+Then the probability is
 \begin{equation*}
     P(\omega)=|\braket{\omega,1|\psi}|^2+|\braket{\omega,2|\psi}|^2
 \end{equation*}
@@ -96,7 +96,7 @@ In terms of projection operator in this eigenspace
 \begin{equation*}
     \mathbb{P }_\omega=\ket{\omega,1}\bra{\omega,1}+\ket{\omega,1 }\bra{\omega,2}
 \end{equation*}
-we have 
+we have
 \begin{equation*}
     P(\omega)=\braket{\psi|\mathbb{P}_\omega|\psi}=\braket{\mathbb{P}_\omega \psi|\mathbb{P}_\omega \psi}
 \end{equation*}
@@ -105,7 +105,7 @@ we have
 Suppose our interest switch to measuring $\Lambda$ from the measurement of $\Omega$--note that this does not mean a successive measurement.
 Recall that to obtain the probability of $\omega$, we need to $\ket{\psi}$ in the $\Omega$ basis.
 To obtain the probability of $\lambda$, then, we can do the same; but there is no need to expand $\ket{\psi}$ in $\Lambda$ given we already expanded $\ket{\psi}$ in $\Omega$ basis.
-Working in $\Omega$ basis, we have 
+Working in $\Omega$ basis, we have
 \begin{equation*}
     \ket{\psi }=\sum_i \ket{\omega_i } \braket{\omega_i |\psi}\qquad\text{and}\quad P(\omega_i)=|\braket{\omega_i|\psi}|^2
 \end{equation*}
@@ -126,10 +126,10 @@ As the following
 \end{quotation}
 Compare it with the classical mechanics postulate via Hamiltonian formalism
 \begin{quotation}
-The state variables change with time according to Hamilton's equations
-\begin{equation*}
-    \dot{x}=\frac{\partial \mathcal{H }}{\partial p}\qquad \dot{p }=-\frac{\partial \mathcal{H }}{\partial x}
-\end{equation*}
+    The state variables change with time according to Hamilton's equations
+    \begin{equation*}
+        \dot{x}=\frac{\partial \mathcal{H }}{\partial p}\qquad \dot{p }=-\frac{\partial \mathcal{H }}{\partial x}
+    \end{equation*}
 \end{quotation}
 
 \subsubsection{Discussion: The propagator equation.}
@@ -137,7 +137,7 @@ Let us first assume that $H$ has no explicit $t$ dependence. In this case
 \begin{equation*}
     i \hbar \ket{\dot{\psi}(t)}=H \ket{\psi(t)}
 \end{equation*}
-On using the propagator, the time evolution of the solution is written as 
+On using the propagator, the time evolution of the solution is written as
 \begin{equation*}
     \ket{\psi(t)}=U(t)\ket{\psi(0)}
 \end{equation*}
@@ -149,7 +149,7 @@ Since the energy operator $H$ is Hermitian
 it follows that the propagator $U(t)=\exp(-i Ht/\hbar)$ is unitary.
 \begin{equation*}
     U ^\dagger(t)=\left[\exp(-i Ht/\hbar)\right]^\dagger=\exp(-i H ^\dagger t/\hbar)=\exp(-i Ht/\hbar)
-\end{equation*} 
+\end{equation*}
 One consequence is the norm of state vector is invariant
 \begin{equation*}
     \braket{\psi(t)|\psi(t)}=\braket{\psi(0)|U ^\dagger(t)U(t)|\psi(0)}=\braket{\psi(0)|\psi(0)}
@@ -157,11 +157,11 @@ One consequence is the norm of state vector is invariant
 This meant that once normalized, state stays normalized.
 
 \subsubsection{Discussion: The propagator expression.}
-The propagator for time independent Hamiltonian can be constructed as 
+The propagator for time independent Hamiltonian can be constructed as
 \begin{equation*}
     U(t)=\sum_E \ket{E } \bra{E }e^{-iEt/\hbar}=\int \ket{E} \bra{E}e^{-iEt/\hbar}\;dE
 \end{equation*}
-Another expression is 
+Another expression is
 \begin{equation*}
     U(t)=e^{-iHt/\hbar}
 \end{equation*}
@@ -171,54 +171,54 @@ First consider the time independent Schrödinger equation that describe the acti
 \begin{equation*}
     H \ket{E}=E \ket{E}
 \end{equation*}
-We can expand the state in this basis 
+We can expand the state in this basis
 \begin{equation*}
     \ket{\psi(t)}=\sum \ket{E }\braket{E|\psi(t)}=\sum a_E(t)\ket{E}
 \end{equation*}
 Operate both $\ket{\psi(t)}$ with $i \hbar d/dt-H$ to obtain the Schrödinger equation and more
 \begin{align*}
-    \left( i \hbar \frac{\partial }{\partial t }-H  \right) \ket{\psi(t)}&= i \hbar \ket{\dot{\psi}(t)}-H \ket{\psi(y)}\\
-    &= i \hbar \sum \dot{a}_E \ket{E }- H\sum a_E \ket{E }\\
-    &= i \hbar \sum \dot{a}_E \ket{E }- \sum a_E E\ket{E }\\
-    0&= \sum \left( i \hbar \dot{a }_E-a_EE  \right) \ket{E}
+    \left( i \hbar \frac{\partial }{\partial t }-H  \right) \ket{\psi(t)} & = i \hbar \ket{\dot{\psi}(t)}-H \ket{\psi(y)}          \\
+                                                                          & = i \hbar \sum \dot{a}_E \ket{E }- H\sum a_E \ket{E }  \\
+                                                                          & = i \hbar \sum \dot{a}_E \ket{E }- \sum a_E E\ket{E }  \\
+    0                                                                     & = \sum \left( i \hbar \dot{a }_E-a_EE  \right) \ket{E}
 \end{align*}
 which imply
 \begin{equation*}
-   i \hbar \dot{a }_E=a_EE 
+    i \hbar \dot{a }_E=a_EE
 \end{equation*}
 A simple differential equation
 \begin{align*}
-    \frac{d a_E }{dt }&= i \frac{E }{\hbar }a_E\\
-    \ln a_E &= -i \frac{E }{\hbar }+C\\
-    a_E(t)&= C e^{-i E t/\hbar}
+    \frac{d a_E }{dt } & = i \frac{E }{\hbar }a_E \\
+    \ln a_E            & = -i \frac{E }{\hbar }+C \\
+    a_E(t)             & = C e^{-i E t/\hbar}
 \end{align*}
-with $a_E(0)=0$, this makes 
+with $a_E(0)=0$, this makes
 \begin{equation*}
     a_E(t)= a_E(0)e^{-i E t/\hbar}
 \end{equation*}
 
-With the expression for $a_E(t)$, we can now expand 
+With the expression for $a_E(t)$, we can now expand
 \begin{equation*}
     \ket{\psi(t)}=\sum a_E(0)e^{-i E t/\hbar}\ket{E}
 \end{equation*}
 Now we project it onto $\bra{E }$ at $t=t$ and $t=0$
 \begin{align*}
-    \braket{E|\psi(t)}&= \bra{E }\sum a_E(0)e^{-i E t/\hbar}\ket{E}=a_E(0)e^{-i Et/\hbar}\\
-    \braket{E|\psi(0)}&= \bra{E }\sum a_E(0)\ket{E}=a_E(0)
+    \braket{E|\psi(t)} & = \bra{E }\sum a_E(0)e^{-i E t/\hbar}\ket{E}=a_E(0)e^{-i Et/\hbar} \\
+    \braket{E|\psi(0)} & = \bra{E }\sum a_E(0)\ket{E}=a_E(0)
 \end{align*}
-or 
+or
 \begin{equation*}
     \braket{E|\psi(t)}=a_E(0)e^{-i Et/\hbar}=\braket{E|\psi(t)}e^{-iEt/\hbar}
 \end{equation*}
-Thus 
+Thus
 \begin{equation*}
     \ket{\psi(t)}=\ket{\psi(0)}e^{-iEt/\hbar}
 \end{equation*}
 On comparing this with the propagator equation
 \begin{equation*}
-    \ket{\psi(t)}=U(t)\ket{\psi(0)}    
+    \ket{\psi(t)}=U(t)\ket{\psi(0)}
 \end{equation*}
-We can be written the propagator as 
+We can be written the propagator as
 \begin{equation*}
     U(t)=\sum_E \ket{E }\bra{E }e^{-iE/\hbar}=e^{-iEt/\hbar}
 \end{equation*}
@@ -228,11 +228,11 @@ Barring a few exceptions, the Schrödinger equation is always solved in a partic
 Since $H=H(X,P)$, the $x$ and $p$ basis is recommended.
 In the $x$ basis, the operators takes the form
 \begin{equation*}
-    X \rightarrow x \quad P \rightarrow -i \hbar \frac{d }{dx} 
+    X \rightarrow x \quad P \rightarrow -i \hbar \frac{d }{dx}
 \end{equation*}
 while in $P$ basis
 \begin{equation*}
-    X \rightarrow i \hbar \frac{d }{dp}\quad P \rightarrow p 
+    X \rightarrow i \hbar \frac{d }{dp}\quad P \rightarrow p
 \end{equation*}
 
 For example, consider the Hamiltonian in the form
@@ -240,7 +240,7 @@ For example, consider the Hamiltonian in the form
     H=T+V=\frac{P^2 }{2m }+\frac{1 }{\cosh^2 X}
 \end{equation*}
 where the $V(X)$ understood as more complicated than $T$.
-In the $X$ basis the time independent Schrödinger equation takes the form 
+In the $X$ basis the time independent Schrödinger equation takes the form
 \begin{equation*}
     \left( -\frac{\hbar^2 }{2m }\frac{d^2 }{dx^2 }+\frac{1 }{\cosh^2 x} \right) \psi_E(x)=E\psi_E(x)
 \end{equation*}
@@ -253,45 +253,45 @@ On the other hand, consider the Hamiltonian of a particle in the constant force 
 \begin{equation*}
     H=\frac{P^2 }{2m }-fX
 \end{equation*}
-In the $X$ basis, the Schrödinger equation takes the much more complicated form 
+In the $X$ basis, the Schrödinger equation takes the much more complicated form
 \begin{equation*}
-    \left( -\frac{\hbar^2}{2m }\frac{d^2 }{dx^2}-fx \right)\psi_E(x)=E\psi_E(x) 
+    \left( -\frac{\hbar^2}{2m }\frac{d^2 }{dx^2}-fx \right)\psi_E(x)=E\psi_E(x)
 \end{equation*}
 While in the $P$ basis it takes the form of first order differential equation
 \begin{equation*}
-    \left( \frac{p^2 }{2m }-i \hbar f \frac{d }{dp }     \right)\psi_E (p)=E\psi_E(p) 
+    \left( \frac{p^2 }{2m }-i \hbar f \frac{d }{dp }     \right)\psi_E (p)=E\psi_E(p)
 \end{equation*}
 
 \subsection{Measurement}
 Given state $(x,p)$, we can say that dynamical value has the value $\omega(x,p)$ in classical mechanics.
-In quantum mechanics, when a particle is in a state $\ket{\psi } $ the particle can have the value of $\omega$ for the quantum operator $\Omega$ with probability $P(\omega)\propto|\braket{\omega|\psi}  |^2$. 
+In quantum mechanics, when a particle is in a state $\ket{\psi } $ the particle can have the value of $\omega$ for the quantum operator $\Omega$ with probability $P(\omega)\propto|\braket{\omega|\psi}  |^2$.
 This value is obtained by the following method.
 \begin{enumerate}
     \item Construct the corresponding quantum operator $\Omega=\omega(x \rightarrow ,p \rightarrow P)$ where $X$ and $P$ are the operators defined in postulate II.
     \item Find the orthonormal eigenvectors $\ket{\omega} $ and eigenvalues $\omega_i$ of $\Omega$.
     \item Expand $\ket{\psi } $ in this basis
-    \begin{equation*}
-        \ket{\psi }=\sum_i  \ket{\omega_i } \braket{\omega_i |\psi}  
-    \end{equation*}
+          \begin{equation*}
+              \ket{\psi }=\sum_i  \ket{\omega_i } \braket{\omega_i |\psi}
+          \end{equation*}
     \item The probability $P(\omega_i)$ that the result $\omega_i$ will be obtained is $P(\omega)\propto|\braket{\omega|\psi}  |^2$, or in terms of projection vector
-    \begin{equation*}
-        P(\omega)\propto \braket{\psi|\omega } \braket{\omega|\psi}=\braket{\psi|\mathbb{P}_\omega|\psi  }=\braket{\psi|\mathbb{P } _\omega \mathbb{P } _\omega |\psi   }=\braket{\mathbb{P } _\omega \psi| \mathbb{P } _\omega \psi  }    
-    \end{equation*}
+          \begin{equation*}
+              P(\omega)\propto \braket{\psi|\omega } \braket{\omega|\psi}=\braket{\psi|\mathbb{P}_\omega|\psi  }=\braket{\psi|\mathbb{P } _\omega \mathbb{P } _\omega |\psi   }=\braket{\mathbb{P } _\omega \psi| \mathbb{P } _\omega \psi  }
+          \end{equation*}
 \end{enumerate}
 particle of charge q in an electromagnetic field
 \subsubsection{Collapse.}
-Measurement by the operator $\Omega$ changes the state vector $\ket{\psi}$, which on this basis expands as 
+Measurement by the operator $\Omega$ changes the state vector $\ket{\psi}$, which on this basis expands as
 \begin{equation*}
     \ket{\psi}=\sum_\omega \ket{\omega}\braket{\omega|\psi}
 \end{equation*}
 into the eigenstate $\ket{\omega}$ corresponding to the eigenvalue of $\omega$  obtained in measurement.
 
-The effect of the measurement, then, can be represented as 
+The effect of the measurement, then, can be represented as
 \begin{equation*}
     \ket{\psi}\xrightarrow{\Omega\text{ measured, }\omega\text{ obtained}}\frac{\mathbb{P}_\omega \ket{\psi }}{\braket{\mathbb{P}_\omega\psi|\mathbb{P }_\omega \psi}^{1/2}}
 \end{equation*}
-with $\mathbb{P }_\omega$ as the projection operator to $\ket{\omega}$. 
-If the eigenvalues $\omega$ is degenerate, the $\mathbb{P }_\omega$ is the projection operator for the eigenspace $\mathbb{V}_\omega$. 
+with $\mathbb{P }_\omega$ as the projection operator to $\ket{\omega}$.
+If the eigenvalues $\omega$ is degenerate, the $\mathbb{P }_\omega$ is the projection operator for the eigenspace $\mathbb{V}_\omega$.
 
 \subsubsection{Testing quantum theory.}
 Unlike classical mechanics, quantum mechanics does not make deterministic predictions but statistical predictions.
@@ -301,11 +301,11 @@ The procedure are as follows.
     \item Begin with particle in an arbitrary state $\ket{\psi}$ and measure a variable $\Omega$.
     \item If we get nondegenerate value $\omega$, we have the state $\ket{\omega}$.
     \item We immediately thereafter measure variable $\Lambda$ next so that the state could not change form $\ket{\omega}$.
-    If say the theory state 
-    \begin{equation*}
-        \ket{\omega}=\alpha \ket{\lambda_1}+\beta \ket{\lambda_2}
-    \end{equation*}
-    then the theory predict that $\lambda_1$ and $\lambda_2$ will be obtained with probability $\alpha^2$ and $\beta^2$ respectively.
+          If say the theory state
+          \begin{equation*}
+              \ket{\omega}=\alpha \ket{\lambda_1}+\beta \ket{\lambda_2}
+          \end{equation*}
+          then the theory predict that $\lambda_1$ and $\lambda_2$ will be obtained with probability $\alpha^2$ and $\beta^2$ respectively.
 \end{enumerate}
 If the measurement give any other eigenvalue $\lambda_i$ or other noneigenvalue value, that is the end of the theory.
 Suppose the resulting measurement give the correct eigenvalue, we can repeat the measurement with quantum ensemble of $N$ particles all in this same state $\ket{\omega}$.
@@ -313,7 +313,7 @@ The measurement should match with the predictions $N/\alpha^2$ particle in $\ket
 
 \subsection{Information Inside Abstract State}
 \subsubsection{Probabilities.}
-The probability for obtaining $\omega$ for variable $\Omega$ is 
+The probability for obtaining $\omega$ for variable $\Omega$ is
 \begin{equation*}
     P(\omega)=|\braket{\omega|\psi}|^2
 \end{equation*}
@@ -331,36 +331,36 @@ If the particle is an eigenstate of $\Omega$, that is $\Omega \ket{\psi}=\omega 
 
 To see how the third term comes to be, we can expand the statistical definition as follows.
 \begin{align*}
-    \braket{\Omega }&= \sum_i \braket{\psi|\omega_i }\braket{\omega_i|\psi}\omega_i =\sum_i \bra{\psi}\omega_i \ket{\omega_i }\braket{\omega_i|\psi}=\sum_i \braket{\psi|\Omega|\omega_i}\braket{\omega_i|\psi}\\
-    \braket{\Omega}&= \braket{\psi|\Omega|\psi} 
+    \braket{\Omega } & = \sum_i \braket{\psi|\omega_i }\braket{\omega_i|\psi}\omega_i =\sum_i \bra{\psi}\omega_i \ket{\omega_i }\braket{\omega_i|\psi}=\sum_i \braket{\psi|\Omega|\omega_i}\braket{\omega_i|\psi} \\
+    \braket{\Omega}  & = \braket{\psi|\Omega|\psi}
 \end{align*}
 where we have used the completion relation $\sum_i \ket{\omega_i}\bra{\omega_i }$.
 
-For continuous variable, we write 
+For continuous variable, we write
 \begin{equation*}
     \braket{\Omega}=\int P(\omega)\omega\;d \omega=\int \braket{\psi|\omega}\omega \braket{\omega|\psi}\; d\omega
 \end{equation*}
 
 \subsubsection{Uncertainty.}
-The uncertainty is the standard deviation defined in statistics, which measure the average fluctuation around the mean 
+The uncertainty is the standard deviation defined in statistics, which measure the average fluctuation around the mean
 \begin{equation*}
     \Delta\Omega=\left(\sum_i P(\omega_i)\left( \omega_i -\braket{\Omega} \right)^2 \right)^{1/2}=\left\langle \left( \Omega-\braket{\Omega} \right)^2 \right\rangle  ^{1/2}
 \end{equation*}
-Another expression for the uncertainty is 
+Another expression for the uncertainty is
 \begin{equation*}
     \Delta\Omega=\left( \braket{\Omega^2}-\braket{\Omega}^2 \right) ^{1/2}
 \end{equation*}
-This expression is related to the definition of standard deviation by expanding the square term 
+This expression is related to the definition of standard deviation by expanding the square term
 \begin{align*}
-    \Delta\Omega=\left\langle \left( \Omega-\braket{\Omega} \right)^2 \right\rangle  ^{1/2} &= \left\langle \Omega^2+\braket{\Omega}^2-2\Omega \braket{\Omega } \right\rangle^{1/2}\\
-    &= \left( \braket{\Omega^2}+\braket{\Omega}^2-2 \braket{\Omega}^2 \right) ^{1/2}\\
-    \Delta\Omega &= \left( \braket{\Omega^2}-\braket{\Omega}^2 \right) ^{1/2}
-\end{align*} 
+    \Delta\Omega=\left\langle \left( \Omega-\braket{\Omega} \right)^2 \right\rangle  ^{1/2} & = \left\langle \Omega^2+\braket{\Omega}^2-2\Omega \braket{\Omega } \right\rangle^{1/2} \\
+                                                                                            & = \left( \braket{\Omega^2}+\braket{\Omega}^2-2 \braket{\Omega}^2 \right) ^{1/2}        \\
+    \Delta\Omega                                                                            & = \left( \braket{\Omega^2}-\braket{\Omega}^2 \right) ^{1/2}
+\end{align*}
 
-As it the case with the expectation value, the uncertainty for continuous variable is 
+As it the case with the expectation value, the uncertainty for continuous variable is
 \begin{equation*}
     \Delta\Omega=\left( \int P(\omega)\left( \omega-\braket{\Omega}^2 \right)^2  \;d \omega\right) ^{1/2}
-\end{equation*} 
+\end{equation*}
 
 \subsection{Compatibility}
 The compatibility measure the degree of incompatibility between two observables; it is defined by the commutator
@@ -370,7 +370,7 @@ The compatibility measure the degree of incompatibility between two observables;
 
 \subsubsection{Procedure.}
 Here are the scheme by which the compatibility of two operators is measured.
-Let us first measure $\Omega$ on the ensemble described by $\ket{\psi}$ and take the particles that yield a result $\omega$. 
+Let us first measure $\Omega$ on the ensemble described by $\ket{\psi}$ and take the particles that yield a result $\omega$.
 We immediately measure $\Lambda$ and pick those particles that give a result $\lambda$.
 \begin{equation*}
     \ket{\psi}\xrightarrow{\Omega=\omega}\ket{\omega}\xrightarrow{\Lambda=\lambda}\ket{\lambda}
@@ -384,18 +384,18 @@ We denote this simultaneous eigenstates as $\ket{\omega\lambda}$.
 \end{equation*}
 This eigenstate obey the following equations
 \begin{align*}
-    \Omega \ket{\omega\lambda}&= \omega \ket{\omega\lambda}\\
-    \Lambda\ket{\omega\lambda}&= \lambda \ket{\omega\lambda}
+    \Omega \ket{\omega\lambda} & = \omega \ket{\omega\lambda}  \\
+    \Lambda\ket{\omega\lambda} & = \lambda \ket{\omega\lambda}
 \end{align*}
 Now operate the first $\Lambda$ and the second by $\Omega$
 \begin{align*}
-    \Lambda\Omega \ket{\omega\lambda}&= \omega\lambda \ket{\omega\lambda}\\
-    \Omega\Lambda\ket{\omega\lambda}&= \omega\lambda \ket{\omega\lambda}
+    \Lambda\Omega \ket{\omega\lambda} & = \omega\lambda \ket{\omega\lambda} \\
+    \Omega\Lambda\ket{\omega\lambda}  & = \omega\lambda \ket{\omega\lambda}
 \end{align*}
 then subtract the second with the first
 \begin{align*}
-    (\Omega\Lambda-\Lambda\Omega)\ket{\omega\lambda}&= (\omega\lambda-\omega\lambda)\ket{\omega\lambda}\\
-    [\Omega,\Lambda]\ket{\omega\lambda}&= 0 \ket{\omega\lambda}
+    (\Omega\Lambda-\Lambda\Omega)\ket{\omega\lambda} & = (\omega\lambda-\omega\lambda)\ket{\omega\lambda} \\
+    [\Omega,\Lambda]\ket{\omega\lambda}              & = 0 \ket{\omega\lambda}
 \end{align*}
 Thus $[\Omega,\Lambda]$ must have eigenkets with zero eigenvalue if simultaneous eigenkets are to exist.
 
@@ -404,17 +404,17 @@ Thus $[\Omega,\Lambda]$ must have eigenkets with zero eigenvalue if simultaneous
 Hamiltonian is constructed by making the substitution $\mathcal{H}(x,p) \rightarrow H(X,P)$, where $\mathcal{H }$ is the classical Hamiltonian for the same case.
 
 Consider a harmonic oscillator.
-The classical Hamiltonian is 
+The classical Hamiltonian is
 \begin{equation*}
     \mathcal{H }=\frac{p^2 }{2m }+\frac{1 }{2 }m\omega^2x^2
 \end{equation*}
-Thus the Hamiltonian for quantum harmonic oscillator is 
+Thus the Hamiltonian for quantum harmonic oscillator is
 \begin{equation*}
     H=\frac{P^2 }{2m }+\frac{1 }{2 }m\omega^2X^2
 \end{equation*}
 or in three dimension
 \begin{equation*}
-    H=\frac{P_x^2+P_y^2+P_z^2}{2m  }+\frac{1 }{2}m\omega \left[ X^2+Y^2+Z^2 \right] 
+    H=\frac{P_x^2+P_y^2+P_z^2}{2m  }+\frac{1 }{2}m\omega \left[ X^2+Y^2+Z^2 \right]
 \end{equation*}
 assuming the force constant is the same in all directions.
 It is the isotropic harmonic oscillator, meaning the restoring force has the same frequency $\omega$ in every spatial direction.
@@ -422,72 +422,72 @@ This is derived from the potential
 \begin{equation*}
     V(x,y,z) = \frac{1}{2} m \omega^2 (x^2 + y^2 + z^2)
 \end{equation*}
-which generate the isotropic force 
+which generate the isotropic force
 \begin{equation*}
     \mathbf{F }= -m \omega^2 \mathbf{r}
 \end{equation*}
 
 Now consider a particle in one dimension is subject to a constant force $f$.
-The classical Hamiltonian is 
+The classical Hamiltonian is
 \begin{equation*}
     \mathcal{H }=\frac{p^2 }{2m }-fx
 \end{equation*}
-Thus the quantum Hamiltonian  
+Thus the quantum Hamiltonian
 \begin{equation*}
     H=\frac{P^2 }{2m }-fX
 \end{equation*}
 
 Now consider particle of charge $q$ in an electromagnetic field.
-The classical Hamiltonian is 
+The classical Hamiltonian is
 \begin{equation*}
     \mathcal{H }=\frac{|\mathbf{p }-(q/c) \mathbf{A}(\mathbf{r},t)|^2 }{2m }+q\phi(\mathbf{r },t)
 \end{equation*}
-The Hamiltonian is constructed by using the symmetric form 
+The Hamiltonian is constructed by using the symmetric form
 \begin{equation*}
     H=\frac{P^2 }{2m }\left( \mathbf{P }\cdot \mathbf{P }-\frac{q }{c }\mathbf{P }\cdot \mathbf{A}-\frac{q }{c}\mathbf{A}\cdot \mathbf{P}+\frac{q^2 }{c^2}\mathbf{A }\cdot \mathbf{A}\cdot \mathbf{A} \right) +q\phi
 \end{equation*}
 
 \subsection{Parity}
-Parity refers to the transformation of spatial inversion about the origin $x \mapsto -x$. 
+Parity refers to the transformation of spatial inversion about the origin $x \mapsto -x$.
 The corresponding operator is called the parity operator $\Pi$ defined by its action on the position eigenkets
 \begin{equation*}
     \Pi \ket{x }=\ket{-x}
 \end{equation*}
 Given a state $\ket{\psi}$ and its position representation $\psi(x) = \braket{x|\psi}$, the action of the parity operator on this wavefunction is
 \begin{equation*}
-\Pi\psi(x) = \psi(-x) .
+    \Pi\psi(x) = \psi(-x) .
 \end{equation*}
 
 If $\ket{\psi}$ is an eigenstate of the parity operator, then under spatial inversion it transforms as
 \begin{equation*}
-\psi(-x) = \lambda \, \psi(x) ,
+    \psi(-x) = \lambda \, \psi(x) ,
 \end{equation*}
-where $\lambda$ is the corresponding eigenvalue. 
-Since $\Pi^2 = I $ its eigenvalues can only be $\lambda = \pm 1$. 
+where $\lambda$ is the corresponding eigenvalue.
+Since $\Pi^2 = I $ its eigenvalues can only be $\lambda = \pm 1$.
 This leads to two possibilities: even parity (symmetric) and odd parity (antisymmetric)
 \begin{equation*}
-       \psi(-x) = +\psi(x) \qquad    \psi(-x) = -\psi(x) 
+    \psi(-x) = +\psi(x) \qquad    \psi(-x) = -\psi(x)
 \end{equation*}
 In quantum mechanics parity means "eigenvalue under the inversion symmetry operator," while mathematically it means "even" and "odd" function.
 
 \subsubsection{Symmetric potential.}
 If the potential satisfies
 \begin{equation*}
-V(-x) = V(x) ,
+    V(-x) = V(x) ,
 \end{equation*}
 then the Hamiltonian operator
 \begin{equation*}
-H = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)
+    H = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)
 \end{equation*}
 commutes with the parity operator:
 \begin{equation*}
-[H, \Pi] = 0 
+    [H, \Pi] = 0
 \end{equation*}
 This can be easily seen  by considering that kinetic term and the potential are invariant.
 Then, eigenfunctions of $H$ (stationary states) can be chosen to simultaneously be eigenfunctions of $\Pi$.
 Thus, its eigenfunctions are exactly the even and odd function
 \begin{equation*}
-       \psi(-x) = +\psi(x) \qquad    \psi(-x) = -\psi(x) 
+    \psi(-x) = +\psi(x) \qquad    \psi(-x) = -\psi(x)
 \end{equation*}
 
 \end{document}

@@ -3,27 +3,27 @@
 \subsection{Application: Mass on a Cone}
 Consider a mass $m$ which is constrained to move on the frictionless surface of a vertical cone $\rho=cz$.
 
-Here we use cylindrical coordinate. 
-The kinetic energy then is 
+Here we use cylindrical coordinate.
+The kinetic energy then is
 \begin{equation*}
    T=\frac{1}{2}m\left(\dot{\rho}^2+\rho^2\dot{\phi}^2+\dot{z}^2\right)=\frac{1}{2}m\left[(cz\dot{\phi})^2+(c^2+1)\dot{z}^2\right]
 \end{equation*}
 while the potential energy is simply due to gravity
 \begin{equation*}
-    U=mgz
+   U=mgz
 \end{equation*}
 Thus the Hamiltonian read
 \begin{equation*}
    \mathcal{H}=\frac{1}{2}m\left[(cz\dot{\phi})^2+(c^2+1)\dot{z}^2\right]+mgz
 \end{equation*}
-Next we determine the generalized momenta 
+Next we determine the generalized momenta
 \begin{equation*}
    p_z=\frac{\partial\mathcal{L}}{\partial \dot{z}}=(c^2+1)m\dot{z}\qquad p_\phi=\frac{\partial\mathcal{L}}{\partial \dot{\phi}}=(c^2z^2)m\dot{\phi}
 \end{equation*}
 Then we express the Hamiltonian as following
 \begin{align*}
-   \mathcal{H}&=\frac{1}{2}\left[\frac{(c^2+1)}{(c^2+1)^2m^2}p_z^2++\frac{c^2z^2}{m^2(c^2z^2)^2}p_\phi^2\right]+mgz\\
-   \mathcal{H}&=\frac{1}{2m}\left[\frac{p_z^2}{c^2+1}+\frac{p_\phi^2}{c^2z^2}\right]+mgz
+   \mathcal{H} & =\frac{1}{2}\left[\frac{(c^2+1)}{(c^2+1)^2m^2}p_z^2++\frac{c^2z^2}{m^2(c^2z^2)^2}p_\phi^2\right]+mgz \\
+   \mathcal{H} & =\frac{1}{2m}\left[\frac{p_z^2}{c^2+1}+\frac{p_\phi^2}{c^2z^2}\right]+mgz
 \end{align*}
 Finally, we have the equations for $z$ component
 \begin{equation*}
@@ -36,18 +36,18 @@ and $\phi$ component
 
 
 \begin{figure*}
-	\centering
-	\dfig{../../../Rss/CM/Hamilton/Cone.png}
-	\caption*{Figure: Particle constrained to move within a cone}
+   \centering
+   \dfig{../../../Rss/CM/Hamilton/Cone.png}
+   \caption*{Figure: Particle constrained to move within a cone}
 \end{figure*}
 
 
 \subsection{Simple 1D Harmonic Oscillator}
-In this system, the kinetic energy is given by 
+In this system, the kinetic energy is given by
 \begin{equation*}
    T=\frac{1}{2}m\dot{x}^2=\frac{p_x^2}{2m}
 \end{equation*}
-while the potential energy given by 
+while the potential energy given by
 \begin{equation*}
    U=\frac{1}{2}kx^2=\frac{1}{2}m\omega^2x^2
 \end{equation*}
@@ -59,7 +59,7 @@ This gives the equation
 \begin{equation*}
    \dot{x}=\frac{\partial\mathcal{H}}{\partial p_x}=\frac{p_x}{m}\qquad\dot{p}_x=\frac{\partial\mathcal{H}}{\partial x}=-m\omega^2x
 \end{equation*}
-Solving the first equation for $\dot{p}_x$ then equating it with the second 
+Solving the first equation for $\dot{p}_x$ then equating it with the second
 \begin{equation*}
    \ddot{x}=-\omega^2x
 \end{equation*}
