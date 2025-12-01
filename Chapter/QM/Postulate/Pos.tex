@@ -94,7 +94,7 @@ Then the probability is
 \end{equation*}
 In terms of projection operator in this eigenspace
 \begin{equation*}
-    \mathbb{P }_\omega=\ket{\omega,1}\bra{\omega,1}+\ket{\omega,1 }\bra{\omega,2}
+    \mathbb{P }_\omega=\ket{\omega,1}\bra{\omega,1}+\ket{\omega,2}\bra{\omega,2}
 \end{equation*}
 we have
 \begin{equation*}
@@ -103,7 +103,7 @@ we have
 
 \subsubsection{Discussion: change of basis.}
 Suppose our interest switch to measuring $\Lambda$ from the measurement of $\Omega$--note that this does not mean a successive measurement.
-Recall that to obtain the probability of $\omega$, we need to $\ket{\psi}$ in the $\Omega$ basis.
+Recall that to obtain the probability of $\omega$, we need to project $\ket{\psi}$ in the $\Omega$ basis.
 To obtain the probability of $\lambda$, then, we can do the same; but there is no need to expand $\ket{\psi}$ in $\Lambda$ given we already expanded $\ket{\psi}$ in $\Omega$ basis.
 Working in $\Omega$ basis, we have
 \begin{equation*}
@@ -468,7 +468,7 @@ This leads to two possibilities: even parity (symmetric) and odd parity (antisym
 \begin{equation*}
     \psi(-x) = +\psi(x) \qquad    \psi(-x) = -\psi(x)
 \end{equation*}
-In quantum mechanics parity means "eigenvalue under the inversion symmetry operator," while mathematically it means "even" and "odd" function.
+In quantum mechanics parity means \enquote{eigenvalue under the inversion symmetry operator}, while mathematically it means \enquote{even} and \enquote{odd} function.
 
 \subsubsection{Symmetric potential.}
 If the potential satisfies
@@ -490,4 +490,36 @@ Thus, its eigenfunctions are exactly the even and odd function
     \psi(-x) = +\psi(x) \qquad    \psi(-x) = -\psi(x)
 \end{equation*}
 
+\subsection{WKB Approximation}
+Wentzel--Kramers--Brillouin (WKB) is a technique to obtain approximate solutions to time independent problems, mainly in 1D or where only $r$ matters in 3D.
+The WKB method is valid when the potential varies slowly on the scale of the particle’s wavelength.
+
+In classically allowed regions $V(x)<E$, WKB provides an oscillatory wavefunction of the form
+\begin{equation*}
+    \psi(x) \sim \frac{1}{\sqrt{p(x)}} \left[A\exp\left(\frac{i}{\hbar} \int^{x} p(x') dx'\right) + B\exp\left(-\frac{i}{\hbar} \int^{x} p(x') dx'\right)\right]
+\end{equation*}
+In classically forbidden regions $E<V(x)$, WKB provides an exponentially decaying or growing wavefunction
+\begin{equation*}
+    \psi(x) \sim \frac{C}{\sqrt{|p(x)|}} \left[A\exp\left( \frac{1}{\hbar} \int^{x} |p(x')| dx' \right) + B\exp\left( -\frac{1}{\hbar} \int^{x} |p(x')| dx' \right)\right]
+\end{equation*}
+The momentum is simply the classical momentum
+\begin{equation*}
+    p_{V<E}(x) = \sqrt{2m[E - V(x)]}\qquad
+    p_{E<V}(x) = \sqrt{2m[ V(x)-E]}
+\end{equation*}
+
+\subsubsection{WKB quantization.}
+The WKB quantization condition depends on the nature of the boundaries: for two smooth turning points
+\begin{equation*}
+    \int p(x) dx = (n + \frac{1}{2}) \pi \hbar
+\end{equation*}
+two hard walls (infinite well)
+\begin{equation*}
+    \int p(x) dx = n \pi \hbar
+\end{equation*}
+one hard wall and one smooth turning point
+\begin{equation*}
+    \int p(x) dx = (n + \frac{3}{4}) \pi \hbar
+\end{equation*}
+Note that a turning point is called smooth if, in a neighborhood of $x_t$, $V(x)$ is finite and differentiable, while $V'(x)$ finite and nonzero.
 \end{document}

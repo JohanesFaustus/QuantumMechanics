@@ -178,9 +178,9 @@ Thus the normal force reads
 \begin{equation*}
     N = R(k- \ddot{\phi}^2)
 \end{equation*}
-For $N \neq 0$, this also reads
+For $N \geq 0$, this also reads
 \begin{equation*}
-    k \neq m \dot{\phi}^2 \neq \frac{L^2 }{mR^4}
+    k \geq m \dot{\phi}^2 \geq \frac{L^2 }{mR^4}
 \end{equation*}
 
 \subsection{Application: Sliding Block on a Frictionless Wedge}
@@ -246,11 +246,14 @@ which is just conservation of momentum in the $x$ direction
 Now, combining the $q_1$ and $q_2$ result in
 \begin{align*}
     \ddot{q}_1 & =g\sin\alpha+\frac{m}{M+m}\ddot{q}_1\cos^2\alpha \\
-    \ddot{q}_1 & =\frac{g\sin\alpha}{1-\frac{m}{M+m}\cos^2\alpha}
+    \ddot{q}_1 & =\frac{g\sin\alpha}{1-\frac{m}{M+m}\cos^2\alpha} \\
+    \ddot{q}_1
+               & =
+    \frac{g\sin\alpha (M+m)}{M + m\sin^{2}\alpha}
 \end{align*}
 Suppose we want to determine the time it took for the block to reach the bottom of wedge, we can use the kinematic relation $x(t)=x_i+v_it+at^2/2$ or $t=\sqrt{2l/a}$, with $l$ as the length of the slope, to obtain
 \begin{equation*}
-    t=\left(2l\frac{1-\frac{m}{M+m}\cos^2\alpha}{g\sin\alpha}\right)^{1/2}
+    t=\left[\frac{2l (M + m\sin^{2}\alpha)}{g\sin\alpha (M+m)}\right]^{1/2}
 \end{equation*}
 
 As a sanity check, consider the case for $\alpha=90^\circ$.
@@ -258,6 +261,50 @@ The acceleration $\ddot{q}_1=g$, which is correct.
 Another is the case for $M\rightarrow\infty$.
 The acceleration $\ddot{q}_1=g\sin\alpha$, which is the acceleration for a block on a fixed incline.
 
+Now lets us try to use the Newtonian approach.
+Let $q_{1}$ be the block displacement down the slope and $q_{2}$ the horizontal displacement of the wedge.
+The block horizontal coordinate is
+\begin{equation*}
+    \dot{x} = q_{2} + q_{1}\cos\alpha,
+\end{equation*}
+so that
+\begin{equation*}
+    \ddot{x} = \ddot{q}_2 + \ddot{q}_1\cos\alpha.
+\end{equation*}
+Conservation of horizontal momentum gives
+\begin{equation*}
+    M \ddot{q}_2 + m\left(\ddot{q_2}+\ddot{q}_1\cos\alpha\right) = 0,
+\end{equation*}
+hence
+\begin{equation*}
+    (M+m)\ddot{q}_2 + m \ddot{q}_1\cos\alpha = 0,
+\end{equation*}
+which implies
+\begin{equation*}
+    \ddot{q}_2  =-\frac{m}{M+m}\ddot{q}_1\cos\alpha
+\end{equation*}
+In the noninertial frame of the wedge the block experiences gravity and the inertial force $-m \ddot{q}_2$ along the horizontal.
+Projecting along the slope yields
+\begin{equation*}
+    m \ddot{q}_1 = m g\sin\alpha - m \ddot{q}_2\cos\alpha.
+\end{equation*}
+Substituting $\ddot{q}_2$ gives
+\begin{equation*}
+    m\ddot{q}_1 = m g\sin\alpha + \frac{m^{2}\cos^{2}\alpha}{M+m}\ddot{q}_1.
+\end{equation*}
+Dividing by $m$ and solving for the acceleration,
+\begin{align*}
+    \ddot{q}_1 \left( 1 - \frac{m\cos^{2}\alpha}{M+m} \right) & =  g\sin\alpha \\
+                                                              & =
+    \frac{g\sin\alpha}{1 - \frac{m\cos^{2}\alpha}{M+m}}                        \\
+    \ddot{q}_1
+                                                              & =
+    \frac{g\sin\alpha (M+m)}{M + m\sin^{2}\alpha}.
+\end{align*}
+If the block travels a distance l from rest, the time required is
+\begin{equation*}
+    t = \sqrt{\frac{2l}{\ddot q_{1}}}=\left[\frac{2l (M + m\sin^{2}\alpha)}{g\sin\alpha (M+m)}\right]^{1/2}
+\end{equation*}
 
 \subsection{Application: Simple Pendulum}
 A bob of mass $m$ is fixed to a massless rod length $l=\sqrt{x^2+y^2}$, which is pivoted at $O$ and free to swing without friction in the $xy$ plane.
