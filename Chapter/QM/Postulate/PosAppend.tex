@@ -58,10 +58,10 @@ The state at which $L_z=1$ is written in braket notation as
 \begin{align*}
     L_z \ket{\psi} & =  1 \ket{\psi} \\
     \begin{bmatrix}
-                            1 & 0 & 0  \\
-                            0 & 0 & 0  \\
-                            0 & 0 & -1 \\
-                        \end{bmatrix}
+        1 & 0 & 0  \\
+        0 & 0 & 0  \\
+        0 & 0 & -1 \\
+    \end{bmatrix}
     \ket{\psi}     & =
     \begin{bmatrix}
         1 &   &   \\
@@ -321,10 +321,10 @@ State at which $L_z=-1$ can be obtained from
 \begin{align*}
     L_z \ket{\psi} & =-  1 \ket{\psi} \\
     \begin{bmatrix}
-                            1 & 0 & 0  \\
-                            0 & 0 & 0  \\
-                            0 & 0 & -1 \\
-                        \end{bmatrix}
+        1 & 0 & 0  \\
+        0 & 0 & 0  \\
+        0 & 0 & -1 \\
+    \end{bmatrix}
     \ket{\psi}     & =
     \begin{bmatrix}
         -1 &    &    \\
@@ -584,4 +584,1011 @@ The expectation value and uncertainty the of momentum operator is
     \braket{P}=0,\quad\Delta P=\frac{\hbar}{\Delta\sqrt{2}}
 \end{equation*}
 
+
+\subsection{Appendix: Simple System of Free Particle}
+The Schrödinger equation in this case
+\begin{equation*}
+    i \hbar \ket{\dot{\psi}}=H \ket{\psi}=\frac{p^2 }{2m }\ket{\psi}
+\end{equation*}
+The normal mode are the solution in the form of $\ket{\psi }= \ket{E }e^{-iE t}/\hbar$.
+Feeding the normal mode into the Schrödinger equation
+\begin{equation*}
+    H \ket{E}=\frac{P^2 }{2m }\ket{E}=E \ket{E}
+\end{equation*}
+Since $P$ is also an eigenstate of $P^2 $, we feed the trial solution $\ket{p}$
+\begin{align*}
+    \frac{P^2 }{2m }\ket{p }                    & =  E \ket{p } \\
+    \left( \frac{p^2 }{2m }-E  \right) \ket{p } & = 0
+\end{align*}
+Since $\ket{p}$ is not a null vector, therefore
+\begin{equation*}
+    p=\pm \sqrt{2mE}
+\end{equation*}
+The energy eigenvalue $E$ is doubly degenerate because two distinct momentum eigenvalues $p=\pm \sqrt{2mE}$.
+
+Suppose we expand the Hamiltonian in $X$ basis
+\begin{equation*}
+    -\frac{\hbar^2 }{2m }\frac{d^2 }{dx } \psi(x)=E\psi
+\end{equation*}
+or
+\begin{equation*}
+    \frac{d^2 }{dx^2}\psi+k^2\psi=0
+\end{equation*}
+with
+\begin{equation*}
+    k^2=\frac{2mE }{\hbar^2}
+\end{equation*}
+The solution is
+\begin{equation*}
+    \psi(x)=Ae^{ikx}+Be^{-ikx}
+\end{equation*}
+From $E=p^2/2m$, we also obtain the relation $p=\hbar k$.
+
+\subsection{Appendix: Simple System of Step Potential}
+\subsubsection{Infinite Potential Well.}
+Consider the one--dimensional infinite square well of width \(L\).
+The potential shape is
+\begin{equation*}
+    V(x)=
+    \begin{cases}
+        0,      & |x|<L/2      \\
+        \infty, & |x| \leq L/2
+    \end{cases}
+\end{equation*}
+The wave function in this system takes the form
+\begin{equation*}
+    \psi_n^{\text{odd}}(x) = \sqrt{\frac{2  }{L }} \sin\left(\frac{2 n \pi x}{L}\right)
+    \qquad
+    \psi_n^{\text{even}}(x) =\sqrt{\frac{2 }{L }} \cos\left(\frac{(2n-1)\pi x}{L}\right)
+\end{equation*}
+We also have the energy eigenvalue
+\begin{equation*}
+    E_n^{\text{even}} = \frac{\hbar^2}{2 m} \left[\frac{(2n-1)\pi}{L}\right]^2, \qquad
+    E_n^{\text{odd}} = \frac{\hbar^2}{2 m} \left(\frac{2 n \pi}{L}\right)^2
+\end{equation*}
+
+This is the part where we derive it.
+We begin by partitioning space into three regions I, II, and III.
+According to the Schrödinger equation, the wave function outside the well is simply zero since the potential is infinite.
+\begin{equation*}
+    -\frac{\hbar^2 }{2m }\frac{d^2 }{dx^2 }\psi_I+\infty \psi_I=E\psi,\implies \psi_I(x)=\psi_{III}=0
+\end{equation*}
+
+Next we move to region $II$.
+The Schrödinger equation now reads
+\begin{align*}
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} & =  E \psi(x)   \\
+    \frac{d^2 \psi(x)}{dx^2}                     & = -k^2 \psi(x)
+\end{align*}
+with $k^2 =2 m E/\hbar^2.$
+Recall the boundaries condition of
+\begin{equation*}
+    \psi \left( -\frac{L }{2 } \right) =\psi \left( \frac{L }{2 } \right) =0
+\end{equation*}
+Because the potential is symmetric, the Hamiltonian commutes with the parity operator $[H,\Pi] = 0$.
+For even parity, we have
+\begin{equation*}
+    \psi(-x) = \psi(x) \implies B = 0, \quad \psi(x) = A \cos(kx)
+\end{equation*}
+Applying the second boundaries condition
+\begin{equation*}
+    \cos\left(\frac{k L}{2}\right) = 0\implies k^{\text{even}} = \frac{(2n-1)\pi}{L},
+\end{equation*}
+This yield the even parity wave function
+\begin{equation*}
+    \psi_n^{\text{even}}(x) =A \cos\left(\frac{(2n-1)\pi x}{L}\right)
+\end{equation*}
+Next for odd parity
+\begin{equation*}
+    \psi(-x) = -\psi(x) \implies A = 0, \quad \psi(x) = B \sin(kx)
+\end{equation*}
+Applying the first boundaries condition
+\begin{equation*}
+    \sin\left(\frac{k L}{2}\right) = 0 \implies k^{\text{odd}} = \frac{2 n \pi}{L}
+\end{equation*}
+This yield the odd parity wave function
+\begin{equation*}
+    \psi_n^{\text{odd}}(x) = B \sin\left(\frac{2 n \pi x}{L}\right)
+\end{equation*}
+
+Next we begin the normalization step.
+To normalize $\psi_n^{\text{even}}$, we perform
+\begin{align*}
+    \int_{-L/2}^{L/2} \sin^2\left(\frac{2 n \pi x}{L}\right) dx & =  \int_0^{L/2} \left[1 - \cos\left(\frac{4 n \pi x}{L}\right)\right] dx                 \\
+                                                                & = \frac{L }{2 }+ \frac{\sin\left(\frac{4 n \pi x}{L}\right)}{4 n \pi / L} \Bigg|_0^{L/2} \\
+                                                                & = \frac{L }{2 }+\frac{\sin(2 n \pi) - \sin 0}{4 n \pi / L}                               \\
+    \int_{-L/2}^{L/2} \sin^2\left(\frac{2 n \pi x}{L}\right) dx & =\frac{L }{2}                                                                            \\
+\end{align*}
+which meant
+\begin{equation*}
+    B^2 \frac{L }{2 }=1\implies B=\frac{2 }{L}
+\end{equation*}
+Then we normalize $\psi_n^{\text{odd}}$
+\begin{align*}
+    \int_{-L/2}^{L/2} \cos^2\left(\frac{(2n-1) \pi x}{L}\right) dx & =  \int_0^{L/2} \left[1 + \cos\left(\frac{2 (2n-1) \pi x}{L}\right)\right] dx                   \\
+                                                                   & = \frac{L }{2 }+\frac{\sin\left(\frac{2 (2n-1) \pi x}{L}\right)}{2(2n-1)\pi / L} \Bigg|_0^{L/2} \\
+                                                                   & = \frac{L }{2 }+ \frac{\sin((2n-1)\pi)-\sin0}{2(2n-1)\pi / L}                                   \\
+    \int_{-L/2}^{L/2} \cos^2\left(\frac{(2n-1) \pi x}{L}\right) dx & = \frac{L }{2 }                                                                                 \\
+\end{align*}
+which meant
+\begin{equation*}
+    A^2 \frac{L }{2 }=1\implies A=\frac{2 }{L}
+\end{equation*}
+
+Using the expression for $k^{\text{odd}}$ and $k^{\text{even}}$, we can obtain the expression for energy eigenvalue for both parity.
+
+\subsubsection{Infinite Potential Well: Antisymmetric Case.}
+The potential is in the shape
+\begin{equation*}
+    V(x)=
+    \begin{cases}
+        \infty, & x \leq0  \\
+        0,      & 0<x<L    \\
+        \infty, & L \leq L
+    \end{cases}
+\end{equation*}
+With wave function in the form
+\begin{equation*}
+    \psi(x)=\begin{cases}
+        0                                          & x\leq 0   \\
+        \sqrt{\dfrac{2}{L}}\sin( \dfrac{n\pi}{L}x) & 0 < x < L \\
+        0                                          & L \leq x
+    \end{cases}
+\end{equation*}
+and energy eigenvalue
+\begin{equation*}
+    E_n=\frac{\pi^2\hbar^2}{2mL^2}n^2
+\end{equation*}
+This is different from the symmetric potential case.
+Even if the “shape” or magnitude of the potential is similar, changing its symmetry changes the mathematical constraints on eigenfunctions, which directly affects the allowed energies.
+In quantum mechanics, small changes in the Hamiltonian can produce different spectra, because energies are eigenvalues of the operator, not just classical measures of potential height.
+
+The derivation begin with setting the wave function at infinite potential as zero $\psi(x \leq 0)=\psi(L\leq x)=0$.
+In $0 < x < L$, where $ V = 0$,
+\begin{align*}
+    \frac{d^2\psi}{dx^2} & = -\frac{2mE}{\hbar^2}\psi \\
+    \frac{d^2\psi}{dx^2} & = -k^2\psi                 \\
+\end{align*}
+with $k^2 =2 m E/\hbar^2$.
+The solution reads
+\begin{equation*}
+    \psi(x)=A\sin (kx)+ B \cos (kx)
+\end{equation*}
+Imposing boundary condition $\psi(x)=0$, we see that $B=0$
+\begin{equation*}
+    \psi(x)=A\sin (kx)
+\end{equation*}
+Imposing the second boundary condition $\psi(L)=0$, and considering that sinus function goes to zero at $n\pi$,
+\begin{equation*}
+    kL=n\pi
+\end{equation*}
+Normalization also requires $A = \sqrt{2/L}$.
+
+\subsubsection{3D Infinite Potential Well.}
+We assume antisymmetric 3D potential
+\begin{equation*}
+    V(x,y,z) =
+    \begin{cases}
+        0,      & 0 < x < L_x, \ 0 < y < L_y, \ 0 < z < L_z, \\
+        \infty, & \text{otherwise}.
+    \end{cases}
+\end{equation*}
+
+The full normalized 3D wavefunction is
+\begin{equation*}
+    \psi_{nml}(x,y,z) = \sqrt{\frac{8}{L_x L_y L_z}} \,
+    \sin\left(\frac{n \pi x}{L_x}\right)
+    \sin\left(\frac{m \pi y}{L_y}\right)
+    \sin\left(\frac{l \pi z}{L_z}\right).
+\end{equation*}
+We derive this by the method of separation variable, that is assuming $\psi(x,y,z) = X(x) Y(y) Z(z)$, where
+\begin{align*}
+    X_n(x) & = \sqrt{\frac{2}{L_x}} \sin\left(\frac{n \pi x}{L_x}\right) \\
+    Y_m(y) & = \sqrt{\frac{2}{L_y}} \sin\left(\frac{m \pi y}{L_y}\right) \\
+    Z_l(z) & = \sqrt{\frac{2}{L_z}} \sin\left(\frac{l \pi z}{L_z}\right)
+\end{align*}
+
+The energy eigenvalue is
+\begin{equation*}
+    E_{nml} =\frac{\hbar^2 \pi^2}{2 m} \left( \frac{n^2}{L_x^2} + \frac{m^2}{L_y^2} + \frac{l^2}{L_z^2} \right)
+\end{equation*}
+For a cubic box \(L_x = L_y = L_z = L\), the energies simplify to
+\begin{equation*}
+    E_{nml} = \frac{\hbar^2 \pi^2}{2 m L^2} (n^2 + m^2 + l^2).
+\end{equation*}
+The total energy $E$ is the sum of energies from each dimension $= E_x + E_y + E_z$.
+The expression for each dimension is that of one dimensional case
+\begin{equation*}
+    E_i=\frac{\hbar^2 \pi^2 }{2mL_i^2}i^2
+\end{equation*}
+
+The derivation is as follows.
+Outside the box, the wave function is zero; while inside, the wave function according to Schrödinger equation
+\begin{equation*}
+    -\frac{\hbar^2}{2m} \nabla^2 \psi(x,y,z) = E \psi(x,y,z)
+\end{equation*}
+First, by separation variable, we assume the solution in the form
+\begin{equation*}
+    \psi(x,y,z) = X(x) Y(y) Z(z).
+\end{equation*}
+With the second differentiation of
+\begin{align*}
+    \frac{\partial^2 \psi}{\partial x^2} & = Y(y) Z(z) X''(x), \\
+    \frac{\partial^2 \psi}{\partial y^2} & = X(x) Z(z) Y''(y), \\
+    \frac{\partial^2 \psi}{\partial z^2} & = X(x) Y(y) Z''(z).
+\end{align*}
+The Laplacian becomes
+\begin{equation*}
+    \nabla^2 \psi = Y Z X'' + X Z Y'' + X Y Z''.
+\end{equation*}
+Substituting into the Schrödinger equation and dividing both sides by \(\psi = X Y Z\) gives
+\begin{equation*}
+    -\frac{\hbar^2}{2m} \left( \frac{X''}{X} + \frac{Y''}{Y} + \frac{Z''}{Z} \right) = E.
+\end{equation*}
+Each term depends on only one variable, which allows the equation to be separated into the Schrödinger equation gives
+\begin{equation*}
+    -\frac{\hbar^2}{2m} \left( \frac{X''(x)}{X(x)} + \frac{Y''(y)}{Y(y)} + \frac{Z''(z)}{Z(z)} \right) = E,
+\end{equation*}
+This leads to separate equations for each dimension
+\begin{align*}
+    -\frac{\hbar^2}{2m} X''(x) & = E_x X(x), \\
+    -\frac{\hbar^2}{2m} Y''(y) & = E_y Y(y), \\
+    -\frac{\hbar^2}{2m} Z''(z) & = E_z Z(z),
+\end{align*}
+with $E_i$ as the constant of separation.
+Similar to 1D case, the solution to each equation is
+\begin{align*}
+    X_n(x) & = \sqrt{\frac{2}{L_x}} \sin\left(\frac{n \pi x}{L_x}\right) \\
+    Y_m(y) & = \sqrt{\frac{2}{L_y}} \sin\left(\frac{m \pi y}{L_y}\right) \\
+    Z_l(z) & = \sqrt{\frac{2}{L_z}} \sin\left(\frac{l \pi z}{L_z}\right)
+\end{align*}
+
+Each dimension contributes independently to the expression of energy
+\begin{align*}
+    E_x & = \frac{\hbar^2 \pi^2 n^2}{2 m L_x^2}, \\
+    E_y & = \frac{\hbar^2 \pi^2 m^2}{2 m L_y^2}, \\
+    E_z & = \frac{\hbar^2 \pi^2 l^2}{2 m L_z^2}.
+\end{align*}
+The total energy is
+\begin{equation*}
+    E_{nml} = E_x + E_y + E_z = \frac{\hbar^2 \pi^2}{2 m} \left( \frac{n^2}{L_x^2} + \frac{m^2}{L_y^2} + \frac{l^2}{L_z^2} \right)
+\end{equation*}
+
+\subsubsection{Step Potential.}
+The system has the potential at the shape
+\begin{equation*}
+    V(x) =
+    \begin{cases}
+        0,   & x < 0,   \\
+        V_0, & 0\leq x.
+    \end{cases}
+\end{equation*}
+
+As usual, the wavefunction depends on the region and the value of $E$
+\begin{equation*}
+    \psi(x)=
+    \begin{cases}
+        A e^{i k_1 x} + B e^{-i k_1 x} & x <0                \\
+        C e^{i k_2 x} + D e^{-i k_2 x} & 0 \leq x,\; V_0 < E \\
+        C e^{-\kappa x}                & 0 \leq x,\;E < V_0
+    \end{cases}
+\end{equation*}
+where
+\begin{equation*}
+    k_1^2 =\frac{2 m E}{\hbar^2}    ,
+    \qquad
+    k_2 =
+    \begin{cases}
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}                           & V_0<E   \\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0
+    \end{cases}
+\end{equation*}
+
+In the case of $E<V_0$, our wave function reads
+\begin{equation*}
+    \psi(x)=Ae^{ik_1x}+Be^{-ik_1x}+Ce^{-\kappa x}
+\end{equation*}
+$Ae^{ik_1x}$ corresponds to a wave incident from the left, traveling toward the potential step, while $Be^{-ik_1x}$ corresponds to a reflected wave, moving backward, away from the step.
+These are oscillatory plane waves, representing the particle moving freely in the $x<0$.
+$Ce^{-\kappa x}$ represents an evanescent wave, i.e., the tunneling tail inside the classically forbidden region.
+
+Unlike the case of $E<V_0$, particle can move freely in the case of $V_0<E$.
+The wavefunction in the form
+\begin{equation*}
+    \psi(x)=Ae^{ik_1x}+Be^{-ik_1x}+Ce^{ik_2 x}+De^{-ik_2x}
+\end{equation*}
+represents this.
+$Ae^{ik_1x}$ represents particle incident form left, $Be^{-ik_1x}$ represents it being reflected back, and $Ce^{ik_2 x}$ represents it being transmitted.
+$De^{-ik_2x}$ represents wave incident from right, although we often set $D=0$ since there is no particle incident from right.
+
+The absolute magnitude of incident wave $A$ is arbitrary because multiplying the wavefunction by a constant does not change the reflection $R$ or transmission probabilities $T$
+\begin{equation*}
+    R=\frac{|B|^2}{|A|^2}=\left|\frac{k_1-k_2 }{k_1+k_2}\right|^2
+    \qquad
+    T = \frac{k_2}{k_1} \frac{|C|^2}{|A|^2} = \frac{k_2}{k_1} \left| \frac{2 k_1}{k_1 + k_2} \right|^2
+\end{equation*}
+Since both are probabilities, $R+T=1$ should apply.
+We define $r=B/A$ and $t=C/A$ as the reflection and transmission amplitude respectively.
+
+We shall now derive it.
+We begin by dividing the regions into I and II.
+At the region I, the Schrödinger equation reads
+\begin{align*}
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{I}}{dx^2} & =  E \psi_I        \\
+    \frac{d^2 \psi_{I}}{dx^2}                     & = - k_1^2 \psi_{I}
+\end{align*}
+with
+\begin{equation*}
+    k_1^2 =\frac{2 m E}{\hbar^2}
+\end{equation*}
+The general solution is
+\begin{equation*}
+    \psi_I(x) = A e^{i k_1 x} + B e^{-i k_1 x}
+\end{equation*}
+
+Now we move into region II.
+The Schrödinger equation now reads
+\begin{align*}
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{II}}{dx^2} + V_0 \psi_{II} & =  E \psi_{II}      \\
+    \frac{d^2 \psi_{II}}{dx^2}                                     & = - k_2^2 \psi_{II}
+\end{align*}
+The value  of $k_2$ depends on the value of $E$
+\begin{equation*}
+    k_2 =
+    \begin{cases}
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}                           & V_0<E   \\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0
+    \end{cases}
+\end{equation*}
+It also follows that the solution also depends on $E$.
+The general form in the region II is
+\begin{equation*}
+    \psi_{II}(x)=C e^{i k_2 x} + D e^{-i k_2 x}
+\end{equation*}
+For the case of $V_0<E$, the exponential is complex.
+As such, we have the solution
+\begin{equation*}
+    \psi_{II}(x) = C e^{i k_2 x} + D e^{-i k_2 x}
+\end{equation*}
+For the case of $E<V_0$, the exponential is real.
+As such, we throw the $D$ constant to avoid divergence as $x \rightarrow \infty$
+\begin{equation*}
+    \psi_{II}(x) =C e^{-\kappa x}
+\end{equation*}
+
+\subsubsection{Reflection and transmission probabilities.}
+The continuity for wavefunction and its first derivative state
+\begin{equation*}
+    \begin{cases}
+        \psi_I(0)  & =\psi_{II}(0)  \\
+        \psi'_I(0) & =\psi'_{II}(0) \\
+    \end{cases}
+\end{equation*}
+In the case of the step potential, this reads
+\begin{equation*}
+    \begin{cases}
+        A+B       & =C       \\
+        ik_1(A-B) & =  ik_2C
+    \end{cases}
+\end{equation*}
+if $D=0$.
+Plugging wavefunction condition into derivative and dividing by $i$ to solve $B$ in  terms of $A$
+\begin{align*}
+    k_1(A-B)      & =  k_2(A+B)                 \\
+    (k_1 + k_2) B & =  (k_1 - k_2) A            \\
+    B             & =  \frac{k_1-k_2 }{k_1+k_2}
+\end{align*}
+Now solve $C$ in terms of $A$ by substituting $B$ into wavefunction condition
+\begin{equation*}
+    C = A + B = A + \frac{k_1 - k_2}{k_1 + k_2} A = \frac{2 k_1}{k_1 + k_2} A
+\end{equation*}
+
+\subsubsection{Finite Potential Barrier}
+Generalization of step potential such that the potential form a bump relative to the surroundings
+\begin{equation*}
+    V(x) =
+    \begin{cases}
+        0,   & x < 0         \\
+        V_0, & 0 \le x \le L \\
+        0,   & L < x
+    \end{cases}
+\end{equation*}
+
+The wavefunction in this system is
+\begin{equation*}
+    \psi(x) =
+    \begin{cases}
+        A e^{i k_1 x} + B e^{-i k_1 x},   & x < 0                        \\[1mm]
+        C e^{i k_2 x} + D e^{-i k_2 x},   & 0 \le x \le L, \quad E > V_0 \\[1mm]
+        C e^{\kappa x} + D e^{-\kappa x}, & 0 \le x \le L, \quad E < V_0 \\[1mm]
+        F e^{i k_1 x},                    & L<x
+    \end{cases}
+\end{equation*}
+$A$ represents incident amplitude, $B$ reflected amplitude, $C$ and $D$ amplitudes inside the barrier (right/left moving or decaying/growing), $F$ represents transmitted amplitude.
+
+Physically, if there is only one particle coming from the left, there is no source on the right.
+Therefore, we set $G=0$.
+
+For a finite potential barrier or well, there is generally no simple closed-form expression for reflection and transmission amplitude.
+They still can be written as
+\begin{equation*}
+    r=\frac{B }{A }\qquad t=\frac{F }{A}
+\end{equation*}
+For the probabilities
+\begin{equation*}
+    R=|r|^2=\frac{|A|^2}{|B|^2}\qquad T=\frac{k_3 }{k_1 }|t^2|=\frac{|F|^2}{|A|^2}
+\end{equation*}
+
+The derivation is mostly the same as the infinite case.
+In the incident region
+\begin{align*}
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{I}}{dx^2} & =  E \psi_I        \\
+    \frac{d^2 \psi_{I}}{dx^2}                     & = - k_1^2 \psi_{I}
+\end{align*}
+with
+\begin{equation*}
+    k_1^2 =\frac{2 m E}{\hbar^2}
+\end{equation*}
+The general solution is
+\begin{equation*}
+    \psi_I(x) = A e^{i k_1 x} + B e^{-i k_1 x}
+\end{equation*}
+
+Now, the region II
+\begin{align*}
+    -\frac{\hbar^2}{2m} \frac{d^2 \psi_{II}}{dx^2} + V_0 \psi_{II} & =  E \psi_{II}      \\
+    \frac{d^2 \psi_{II}}{dx^2}                                     & = - k_2^2 \psi_{II}
+\end{align*}
+The value  of $k_2$ depends on the value of $E$
+\begin{equation*}
+    k_2 =
+    \begin{cases}
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}                           & V_0<E   \\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0
+    \end{cases}
+\end{equation*}
+The general form in the region II is
+\begin{equation*}
+    \psi_{II}(x)=C e^{i k_2 x} + D e^{-i k_2 x}
+\end{equation*}
+For the case of $V_0<E$,
+\begin{equation*}
+    \psi_{II}(x) = C e^{i k_2 x} + D e^{-i k_2 x}
+\end{equation*}
+For the case of $E<V_0$,
+\begin{equation*}
+    \psi_{II}(x) =C e^{-\kappa x}+ + D e^{-i\kappa x}
+\end{equation*}
+Here we do not throw $D$ away since $x$ does not approach infinity.
+
+Region III is the same as region I
+\begin{equation*}
+    \frac{d^2 \psi_{III}}{dx^2} = - k_3^2 \psi_{III}
+\end{equation*}
+with
+\begin{equation*}
+    k_3^2 =k_1=\frac{2 m E}{\hbar^2}
+\end{equation*}
+The general solution is
+\begin{equation*}
+    \psi_I(x) = F e^{i k_1 x} + G e^{-i k_1 x}
+\end{equation*}
+If there are no incident waves from right, we throw $G$ away
+
+\subsubsection{Finite Potential Well}
+Generalization of potential well such that the potential form a dip relative to the surroundings
+\begin{equation*}
+    V(x)=
+    \begin{cases}
+        0,   & |x|\leq L/2 \\
+        V_0, & L/2 <|x|
+    \end{cases}
+\end{equation*}
+
+For $E<V_0$, the wavefunction is
+\begin{equation*}
+    \psi^{\text{even}}(x) =
+    \begin{cases}
+        F e^{\kappa (x + L/2)}, \\
+        C \cos(k x),            \\
+        F e^{-\kappa (x - L/2)},
+    \end{cases}
+    \quad
+    \psi^{\text{odd}}(x) =
+    \begin{cases}
+        - F e^{\kappa (x + L/2)}, & x < -L/2    \\
+        D \sin(k x),              & |x| \le L/2 \\
+        F e^{-\kappa (x - L/2)},  & x > L/2
+    \end{cases}
+\end{equation*}
+For $V_0<E$,
+\begin{align*}
+    \psi^{\text{even}}(x) & =
+    \begin{cases}
+        A e^{i k_1 x} , & x < -L/     \\
+        C \cos(k x),    & |x| \le L/2 \\
+        A e^{-i k_1 x}, & x > L/2
+    \end{cases}
+    \\
+    \psi^{\text{odd}}(x)  & =
+    \begin{cases}
+        A e^{i k_1 x},   & x < -L/2    \\
+        D \sin(k x),     & |x| \le L/2 \\
+        -A e^{i k_1 x} , & x > L/2
+    \end{cases}
+\end{align*}
+
+We have used the parameter
+\begin{equation*}
+    k = \sqrt{\frac{2 m E}{\hbar^2}}, \quad
+    k_1 =
+    \begin{cases}
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}                           & V_0<E   \\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0
+    \end{cases}
+\end{equation*}
+
+Using this parameter, we express the transcendental equation to find the allowed energy eigenvalue.
+With $E<V_0$
+\begin{align*}
+    \sqrt{E} \tan \left( \frac{L }{2 }\sqrt{\frac{2mE}{\hbar^2}} \right) & = \sqrt{V_0-E}  \\
+    \sqrt{E} \cot \left( \frac{L }{2 }\sqrt{\frac{2mE}{\hbar^2}} \right) & = -\sqrt{V_0-E}
+\end{align*}
+for even and odd parity respectively.
+With $V_0<E$
+\begin{align*}
+    \sqrt{E} \tan \left( \frac{L }{2 }\sqrt{\frac{2mE}{\hbar^2}} \right) & = i\sqrt{E-V_0}  \\
+    \sqrt{E} \cot \left( \frac{L }{2 }\sqrt{\frac{2mE}{\hbar^2}} \right) & = -i\sqrt{E-V_0}
+\end{align*}
+for even and odd parity respectively.
+
+We shall now derive it.
+In the region I, the Schrödinger equation reads
+\begin{align*}
+    -\frac{\hbar^2}{2 m} \frac{d^2 \psi_{I}}{dx^2} + V_0 \psi_{I} & =  E \psi_{I}   \\
+    \frac{d^2 \psi_{I}}{dx^2}                                     & = k_1^2\psi_{I}
+\end{align*}
+with
+\begin{equation*}
+    k_1 =
+    \begin{cases}
+        \sqrt{\dfrac{2 m (E - V_0)}{\hbar^2}}                           & V_0<E   \\
+        i \kappa, \quad \kappa = \sqrt{\dfrac{2 m (V_0 - E)}{\hbar^2}}, & E < V_0
+    \end{cases}
+\end{equation*}
+The general solution is
+\begin{equation*}
+    \psi_{I}(x) = A e^{ik_1x} + B e^{-ik_1 x}
+\end{equation*}
+
+For the case of $V_0<E$,
+\begin{equation*}
+    \psi_{I}(x) = A e^{i k_1 x} + B e^{-i k_1 x}
+\end{equation*}
+Now enforcing odd parity $\psi(x)=-\psi(-x)$ and even  parity $\psi(x)=\psi(-x)$, we have
+\begin{equation*}
+    \psi_{III}^{\text{odd}}=-A e^{i k_1 x}
+    \qquad
+    \psi_{III}^{\text{odd}}=A e^{-i k_1 x}
+\end{equation*}
+where we have also considered single-sided scattering such that $B=0$.
+
+For the case of $E<V_0$, we throw $A$ away since it diverges as $x \rightarrow -\infty$
+\begin{equation*}
+    \psi_{I}(x) = B e^{\kappa x}
+\end{equation*}
+Define a new amplitude at the boundary \(x = -L/2\) as $F = B e^{\kappa L/2}$, so that
+\begin{equation*}
+    \psi_{I}(x) = F e^{\kappa (x + L/2)}
+\end{equation*}
+when applying boundaries $\psi_{I}(-L/2) = F$.
+Enforcing odd parity $\psi(x)=-\psi(-x)$ and even  parity $\psi(x)=\psi(-x)$, we have
+\begin{equation*}
+    \psi_{III}^{\text{odd}}(x) = -F e^{-\kappa (x - L/2)}
+    \qquad
+    \psi_{III}^{\text{even}}(x) = F e^{-\kappa (x - L/2)}
+\end{equation*}
+Now we can use this wavefunction for both odd and even parity, nothing would matter physically.
+However, the $\psi_{III}^{\text{odd}}$ is negative; and by convention we want to have positive right wavefunction.
+As such, we reversed the order, and choose
+\begin{equation*}
+    \psi_{III}(x) = F e^{-\kappa (x - L/2)}
+\end{equation*}
+as reference.
+Now enforcing odd and even parity yield the region I wavefunction
+\begin{equation*}
+    \psi_{I}^{\text{odd}}(x) = -F e^{\kappa (x + L/2)},
+    \qquad
+    \psi_{I}^{\text{even}}(x) = F e^{\kappa (x + L/2)}
+\end{equation*}
+
+In the region II, the Schrödinger equation reads
+\begin{align*}
+    -\frac{\hbar^2}{2 m} \frac{d^2 \psi_{II}}{dx^2} & =  E \psi_{II}      \\
+    \frac{d^2 \psi_{II}}{dx^2}                      & = - k_2^2 \psi_{II}
+\end{align*}
+with $k_2^2=\sqrt{2mE/\hbar^2}$.
+The general solution is
+\begin{equation*}
+    \psi_{II}(x)=C\sin (k_2x)+D \cos (k_2x)
+\end{equation*}
+Enforcing the parity
+\begin{equation*}
+    \psi_{II}^{\text{odd}}(x) = C \sin (k_2x)
+    \qquad
+    \psi_{II}^{\text{even}}(x) =  D \cos (k_2x)
+\end{equation*}
+
+Now we determine the energy eigenvalue.
+Consider the case of $E<V_0$ first.
+For even parity, continuity at $x=L/2$ demands
+\begin{equation*}
+    \begin{cases}
+        F=C \cos \left(  kL/2 \right) \\
+        -\kappa F =-C k \sin  \left( kL/2\right)
+    \end{cases}
+\end{equation*}
+Divide the derivative continuity with the wavefunction continuity
+\begin{equation*}
+    k \tan \left( \frac{k L}{2} \right) =\kappa
+\end{equation*}
+For even parity,
+\begin{equation*}
+    \begin{cases}
+        D \sin (kL/2)=F \\
+        kD \cos (kL/2)=\kappa F
+    \end{cases}
+\end{equation*}
+Divide the derivative continuity with the wavefunction continuity
+\begin{equation*}
+    k \cot \left( \frac{k L}{2} \right) =\kappa
+\end{equation*}
+
+Now consider the case $V_0<E$.
+For even parity, continuity at $x=L/2$ demands
+\begin{equation*}
+    \begin{cases}
+        Ae^{ik_1L/2}=C \cos (kL/2) \\
+        -ik_1 Ae^{ik_1L/2}=-C k \sin  \left( kL/2\right)
+    \end{cases}
+\end{equation*}
+Divide the derivative continuity with the wavefunction continuity
+\begin{equation*}
+    k \tan \left( \frac{k L}{2} \right) =ik_1
+\end{equation*}
+For even parity,
+\begin{equation*}
+    \begin{cases}
+        D \sin (kL/2)=-Ae^{ik_1L/2} \\
+        kD \cos (kL/2)=ik_1Ae^{ik_1L/2}
+    \end{cases}
+\end{equation*}
+Divide the derivative continuity with the wavefunction continuity
+\begin{equation*}
+    k \cot \left( \frac{k L}{2} \right) =ik_1
+\end{equation*}
+
+\subsection{Appendix: Simple System of Harmonic Potential}
+\subsubsection{1D Harmonic Potential.}
+Particle under harmonic potential is subjected to the potential in the following form
+\begin{equation*}
+    V(x) = \frac{1}{2} m \omega^{2} x^{2},
+\end{equation*}
+In the $X$ basis, the Schrödinger equation now reads
+\begin{equation*}
+    -\frac{\hbar^{2}}{2m} \frac{d^{2}\psi(x)}{dx^{2}} + \frac{1}{2}m\omega^{2}x^{2}\psi(x) = E\psi(x).
+\end{equation*}
+Solving this yields discrete energy eigenvalues
+\[
+    E_{n} = \hbar\omega \left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots
+\]
+and normalized eigenfunctions
+\[
+    \psi_{n}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \frac{1}{\sqrt{2^{n} n!}} H_{n}\left(\sqrt{\frac{m\omega}{\hbar}} x\right) e^{-\frac{m\omega x^{2}}{2\hbar}}
+\]
+where \(H_{n}\) are Hermite polynomials.
+Here are the first few.
+\begin{align*}
+    H_{0}(x) & = 1,                     \\
+    H_{1}(x) & = 2x,                    \\
+    H_{2}(x) & = 4x^{2} - 2,            \\
+    H_{3}(x) & = 8x^{3} - 12x,          \\
+    H_{4}(x) & = 16x^{4} - 48x^{2} + 12
+\end{align*}
+
+\subsubsection{Derivation.}
+From the Schrödinger equation
+\begin{equation*}
+    \frac{d^{2}\psi(x)}{dx^{2}} + \frac{2m }{\hbar^2 }\left(E-\omega^{2}x^{2}\right)\psi(x)
+\end{equation*}
+we make the substitution of $x=by$, which result in differential
+\begin{align*}
+    \frac{d\psi }{dx}       & =\frac{d\psi }{dy}\frac{dy }{dx}=\frac{1 }{b }\frac{d\psi }{dy}                                                                       \\
+    \frac{d^2 \psi }{dx^2 } & = \frac{d }{dx }\left( \frac{1 }{b }\frac{d\psi }{dy} \right) =\frac{1 }{b}\frac{d^2\psi }{dy\;dx}=\frac{1 }{b }\frac{d^2\psi }{dy^2}
+\end{align*}
+Now Schrödinger equation reads
+\begin{equation*}
+    \frac{1 }{b^2 }\frac{d^2\psi }{dy^2 }+\frac{2m }{\hbar^2 }\left( E-\frac{1 }{2 }m\omega^2b^2y^2   \right) \psi=0
+\end{equation*}
+or
+\begin{equation*}
+    \frac{d^2\psi }{dy^2 }+\left( \frac{2mEb^2 }{\hbar^2 }-\frac{m^2\omega^2b^4y^2 }{\hbar^2}   \right) \psi=0
+\end{equation*}
+Now define
+\begin{equation*}
+    \epsilon=\frac{mEb^2 }{\hbar^2}=\frac{E }{\hbar\omega},\qquad b^2=\frac{\hbar }{m\omega}
+\end{equation*}
+Then
+\begin{equation*}
+    \frac{d^2 \psi}{dy^2}+(2\epsilon-y^2)\psi=0
+\end{equation*}
+Compare this to the Hermite equation
+\begin{equation*}
+    y_n''+(2n+1-x^2)y_n=0
+\end{equation*}
+which has the solution called the Hermite function
+\begin{equation*}
+    y_n=e^{x^2/2}\left(\frac{d}{dx}\right)^ne^{-x^2}=e^{-x^2/2}H_n(x)
+\end{equation*}
+On comparing $2\epsilon$ with $2n+1$, we obtain the expression for energy.
+Then the solution to the Schrödinger equation is
+\begin{equation*}
+    \psi(y)=e^{-y^2/2}H_n(y)\qquad\text{or}\qquad\psi(x)=\exp \left[ -\frac{m\omega }{2 \hbar}x^2 \right] H_n \left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right]
+\end{equation*}
+
+All that left is normalization.
+To do so consider the orthogonality of Hermite polynomials
+\begin{equation*}
+    \int_{-\infty}^{\infty}e^{-x^2}H_n(x)H_m(x)\;dx=\sqrt{\pi}2^n n!\delta_{nm}
+\end{equation*}
+Therefore
+\begin{align*}
+    \braket{\psi|\psi} & = \int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right] H_n \left\{\left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right] \right\}^2\;dx                                                                                 \\
+                       & = A^2 \sqrt{\frac{\hbar }{m\omega}}  \int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right] H_n \left\{\left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right] \right\}^2\;d \left( \sqrt{\frac{m\omega }{\hbar}x} \right) \\
+    1                  & = A^2  \sqrt{\frac{\hbar }{m\omega }}(\pi)^{1/2}2^nn!                                                                                                                                                                              \\
+    A                  & = \left( \frac{m\omega }{\pi \hbar 2^{2n}(n!)^2 } \right) ^{1/4}
+\end{align*}
+Inserting this into the wavefunction yields the normalized wavefunction.
+
+\subsubsection{Ladder Operator.}
+The ladder operator are operators that raise or lower the eigenvalue of another operator, here it is the Hamiltonian.
+They are defined as
+\begin{align*}
+    a           & =  \left( \frac{m \omega}{2 \hbar} \right)^{1/2} X + i \left( \frac{1}{2 m \omega \hbar} \right)^{1/2} P \\
+    a^{\dagger} & =  \left( \frac{m \omega}{2 \hbar} \right)^{1/2} X - i \left( \frac{1}{2 m \omega \hbar} \right)^{1/2} P
+\end{align*}
+which satisfy $[a,a^\dagger]=1$ and referred as lowering $a$  and raising $a^\dagger$  operators because of how they modify the quantum state’s excitation number.
+They are also called destruction and creation operators since they destroy or create quanta of energy $\hbar \omega$.
+We can also write the position and momentum in terms of these operators
+\begin{gather*}
+    X = \left( \frac{\hbar}{2m\omega} \right)^{1/2} (a + a^{\dagger}) \\
+    P = i \left( \frac{m \omega \hbar}{2} \right)^{1/2} (a^{\dagger} - a)
+\end{gather*}
+
+From the physical Hamiltonian
+\begin{equation*}
+    H=\frac{P^2}{2m }+\frac{1 }{2 }m\omega^2 X^2=\left( a a ^\dagger+\frac{1 }{2 } \right)\hbar \omega
+\end{equation*}
+We define an operator
+\begin{equation*}
+    \hat{H }=\frac{H }{m\omega }=\left( a a ^\dagger+\frac{1 }{2 } \right)
+\end{equation*}
+whose eigenvalues $\epsilon$ measure energy in units of $\hbar \omega$.
+We have then relation
+\begin{equation*}
+    [a,\hat{H } ]=a,\qquad [a ^\dagger,\hat{H }]=-a ^\dagger
+\end{equation*}
+From this can be obtained the action of ladder operator on the eigenstate $\ket{n}$
+\begin{equation*}
+    a |n\rangle = n^{1/2} |n-1\rangle\qquad a^{\dagger} |n\rangle = (n+1)^{1/2} |n+1\rangle
+\end{equation*}
+
+The following are matrix components of some operator mentioned
+\begin{gather*}
+    a ^\dagger\leftrightarrow\begin{bmatrix}
+        0 & 0 & 0 & \cdots \\ 1^{1/2} & 0 & 0 & \\ 0 & 2^{1/2} & 0 & \\ 0 & 0 & 3^{1/2} & \\ \vdots & & &
+    \end{bmatrix}                                                                                                                                         \\
+    a \leftrightarrow\begin{bmatrix}
+        0 & 1^{1/2} & 0 & 0 & \cdots \\ 0 & 0 & 2^{1/2} & 0 & \\ 0 & 0 & 0 & 3^{1/2} & \\ \vdots & & & &
+    \end{bmatrix}                                                                                                                                          \\
+    X \leftrightarrow \left( \frac{\hbar}{2m\omega} \right)^{1/2} \begin{bmatrix} 0 & 1^{1/2} & 0 & 0 & ... \\ 1^{1/2} & 0 & 2^{1/2} & 0 & \\ 0 & 2^{1/2} & 0 & 3^{1/2} & \\ 0 & 0 & 3^{1/2} & 0 & \\ \vdots & & & & \end{bmatrix}           \\
+    P \leftrightarrow i \left( \frac{m \omega \hbar}{2} \right)^{1/2} \begin{bmatrix} 0 & -1^{1/2} & 0 & 0 & \cdots \\ 1^{1/2} & 0 & -2^{1/2} & 0 & \\ 0 & 2^{1/2} & 0 & -3^{1/2} & \\ 0 & 0 & 3^{1/2} & 0 & \\ \vdots & & & & \end{bmatrix} \\
+    H \leftrightarrow \hbar \omega \begin{bmatrix} \frac{1}{2} & 0 & 0 & 0 & \cdots \\ 0 & \frac{3}{2} & 0 & 0 & \\ 0 & 0 & \frac{5}{2} & & \\ \vdots & & & & \end{bmatrix}
+\end{gather*}
+
+\subsubsection{3D Harmonic Potential.}
+The generalized form of 3D harmonic potential is
+\begin{equation*}
+    V(x, y, z) = \frac{1}{2}m(\omega_{x}^{2}x^{2} + \omega_{y}^{2}y^{2} + \omega_{z}^{2}z^{2}),
+\end{equation*}
+Each coordinate direction oscillates independently with its own frequency, and the system loses spherical symmetry.
+In the case of isotropic potential
+\begin{equation*}
+    V(r) = \frac{1}{2}m\omega^{2}r^{2}
+\end{equation*}
+This symmetry produces degenerate energy levels because the potential is identical in every direction.
+Unlike isotropic potential, anisotropic potential cannot be expressed in a simple form in spherical coordinates because it lacks spherical symmetry.
+
+In Cartesian coordinates the 3D eigenfunctions are products of 1D harmonic-oscillator eigenfunctions
+\begin{equation*}
+    \Psi_n(x, y, z) = \psi_{n_x}(x) \psi_{n_y}(y) \psi_{n_z}(z)
+\end{equation*}
+As such
+\begin{equation*}
+    \Psi_n(x, y, z) = \left( \frac{\alpha^2}{\pi } \right)^{3/4} \frac{H(\xi_x) H(\xi_y) H(\xi_z)}{\sqrt{2^{n}n_x!  n_y! n_z!}}  \exp \left[ -\frac{1}{2} (\xi_x^2 + \xi_y^2 + \xi_z^2) \right]
+\end{equation*}
+with $n=n_x+n_y+n_z$, $\alpha = \sqrt{m\omega/\hbar }$ and $ \xi_i = \alpha i$.
+The corresponding energy, assuming isotropic, is
+\begin{equation*}
+    E_{n_{x},n_{y},n_{z}} = \hbar \omega \left(n_{x} + n_{y} + n_{z} + \frac{3}{2}  \right)
+\end{equation*}
+The degeneracy of the shell with total quantum number $n=n_x+n_y+n_z$ is
+\begin{equation*}
+    g_n=\frac{(n+1)(n+2 )}{2}
+\end{equation*}
+
+In the case of anisotropic harmonic potential, the wavefunction remains a product of 1D harmonic oscillator with differing value of $\omega$
+\begin{equation*}
+    \Psi_n(x, y, z) = \psi_{n_x}(x; \omega_x) \psi_{n_y}(y; \omega_y) \psi_{n_z}(z; \omega_z)
+\end{equation*}
+As such
+\begin{equation*}
+    \Psi_n(x, y, z) = \left( \frac{\alpha_x \alpha_y \alpha_z}{\pi^{3/2}} \right)^{1/2} \frac{H(\xi_x) H(\xi_y) H(\xi_z)}{\sqrt{2^{n}n_x!  n_y! n_z!}}  \exp \left[ -\frac{1}{2} (\xi_x^2 + \xi_y^2 + \xi_z^2) \right]
+\end{equation*}
+with $n=n_x+n_y+n_z$, $\alpha_i = \sqrt{m\omega_i/\hbar }$ and $ \xi_i = \alpha i$.
+Whereas the energy is
+\begin{equation*}
+    E_n = \hbar \left[  \omega_x \left(n_x + \frac{1}{2}  \right) + \omega_y \left(n_y + \frac{1}{2}  \right) + \omega_z \left(n_z + \frac{1}{2}  \right)  \right]
+\end{equation*}
+
+In spherical coordinates they are products of a radial function built from generalized Laguerre polynomials and spherical harmonics
+\begin{equation*}
+    \Psi_{n_{r},l,m}(r, \theta, \phi) = R_{n_{r},l}(r) Y_{l}^{m}(\theta, \phi)
+\end{equation*}
+With the radial equation
+\begin{equation*}
+    R_{n_{r},l}(r) = N_{n_{r},l} r^{l} e^{-\frac{1}{2}\alpha r^{2}} L_{n_{r}}^{(l + \frac{1}{2})}(\alpha r^{2}),
+\end{equation*}
+where $\beta=m\omega/\hbar$$ L_n^{(a)}$ is the generalized Laguerre polynomial and the normalization constant
+    \begin{equation*}
+        N_{n_r,l} = \sqrt{\frac{2 \alpha^{l+\frac{3}{2}} n_r!}{\Gamma(n_r + l + \frac{3}{2})}}
+    \end{equation*}
+    The spherical harmonic is
+    \begin{equation*}
+        Y_{l}^{m}(\theta, \phi) = (-1)^{m} \sqrt{\frac{(2l + 1)}{4\pi} \frac{(l - m)!}{(l + m)!}} P_{l}^{m}(\cos\theta) e^{im\phi}
+    \end{equation*}
+    Both components obey the orthonormality
+    \begin{align*}
+        \int_{0}^{2\pi} \int_{0}^{\pi} Y_{l}^{m}(\theta, \phi) Y_{l'}^{m'*}(\theta, \phi) \sin \theta \,d\theta \,d\phi & =  \delta_{ll'} \delta_{mm'} \\
+        \int_{0}^{\infty} R_{n_r,l}(r) R_{n'_r,l}(r) r^2 dr                                                             & =  \delta_{n_r n'_r}
+    \end{align*}
+    such that
+    \begin{equation*}
+        \int \Psi_{n_r,l,m}^{*}(r, \theta, \phi) \Psi_{n'_r,l',m'}(r, \theta, \phi) d^3r = \delta_{n_r n'_r} \delta_{ll'} \delta_{mm'}
+    \end{equation*}
+
+    \subsection{Appendix: Simple System of Hydrogen Atom}
+    The electron of the hydrogen atom  moving in a Coulomb potential due to the proton
+    \begin{equation*}
+        V(r) = - \frac{e^2}{4 \pi \epsilon_0 r}
+    \end{equation*}
+    obey th Schrödinger equation in spherical coordinates $(r,\theta,\phi)$
+    \begin{equation*}
+        -\frac{\hbar^{2}}{2m}\nabla^{2}\psi(r, \theta, \phi) - \frac{e^{2}}{4\pi\varepsilon_{0}r}\psi(r, \theta, \phi) = E\psi(r, \theta, \phi)
+    \end{equation*}
+    since the potential is spherically symmetric.
+    Using the separation of variable, the solution reads
+    \begin{equation*}
+        \psi_{nlm}(r, \theta, \phi) = R_{n\ell}(r) Y_{\ell}^{m}(\theta, \phi)
+    \end{equation*}
+$R_{n\ell}(r)$ the radial function, which depends on the principal quantum number $n$ and angular momentum quantum number $\ell$
+    \begin{equation*}
+        R_{n\ell}(r) = \sqrt{\left( \frac{2}{na_0} \right)^3 \frac{(n-\ell-1)!}{2n[(n+\ell)!]} e^{-r/(na_0)} \left( \frac{2r}{na_0} \right)^{\ell} L_{n-\ell-1}^{2\ell+1} \left( \frac{2r}{na_0} \right)}
+    \end{equation*}
+    are the spherical harmonics, which depend on $\ell$ and the magnetic quantum number $m$
+    \begin{equation*}
+        Y_{\ell}^{m}(\theta, \phi) = (-1)^{m} \sqrt{\frac{(2\ell + 1)(\ell - m)!}{4\pi (\ell + m)!}} P_{\ell}^{m}(\cos \theta)e^{im\phi}
+    \end{equation*}
+
+    The complete description of electron is specified by four quantum number $(n,\ell,m_l,m_s)$, where $m_s=\pm 1/2$.
+    The wavefunction of hydrogen atom must be the product of spatial part $\psi_{n\ell m}$ and the spin part $\ket{1/2,m_s}$
+    \begin{equation*}
+        \Psi_{n\ell m_\ell m_s}=R_{n\ell}(r) Y_{\ell}^{m}(\theta, \phi) \Bigg| \frac{1}{2}, \pm \frac{1}{2} \Bigg\rangle
+    \end{equation*}
+    Or by using spinor
+    \begin{equation*}
+        \Psi_{n\ell m_\ell 1/2}=\psi_{n\ell m_l}
+        \begin{bmatrix}
+            1 \\0
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            \psi_{n\ell m_l} \\0
+        \end{bmatrix}
+    \end{equation*}
+    and
+    \begin{equation*}
+        \Psi_{n\ell m_\ell -1/2}=\psi_{n\ell m_l}
+        \begin{bmatrix}
+            0 \\1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0 \\\psi_{n\ell m_l}
+        \end{bmatrix}
+    \end{equation*}
+    As such, the ground state then may be written as
+    \begin{align*}
+        \Psi_{100,+\frac{1}{2}} & =  \begin{bmatrix} \psi_{100} \\ 0 \end{bmatrix} = \begin{bmatrix} \frac{1}{\sqrt{\pi a_0^3}}e^{-r/a_0} \\ 0 \end{bmatrix} \\
+        \Psi_{100,-\frac{1}{2}} & =  \begin{bmatrix}0\\ \psi_{100} \end{bmatrix} = \begin{bmatrix} 0\\ \frac{1}{\sqrt{\pi a_0^3}}e^{-r/a_0}  \end{bmatrix}
+    \end{align*}
+
+    \subsubsection{Energy and Degeneracy.}
+    The energy eigenvalues are quantized and depend only on the principal quantum number $n$
+    \begin{equation*}
+        E_{n} = -\frac{13.6 }{n^{2}} \text{ eV}
+    \end{equation*}
+    The dependence of $n$ only is a property of central potential.
+    The additional degeneracy in $\ell$ is a property of Coulomb potential only, however.
+    The degeneracy of the state $n$ is given by
+    \begin{equation*}
+        g_n = \sum_{\ell=0 }^{n-1 }(2l+1)=n^2
+    \end{equation*}
+    If we include spin, the degeneracy now
+    \begin{equation*}
+        g_n =2 \sum_{\ell=0 }^{n-1 }(2l+1)=2n^2
+    \end{equation*}
+
+    It is common to refer to the states with $\ell = 0, 1, 2, 3, 4, \dots$ as $s$, $p$, $d$,$f$, $g$, $h$, $\dots$ states.
+    In this spectroscopic notation, $1s$ denotes the state $(n= 1, \ell=0)$; $2s$ and $2p$ the $l=0$ and $l = 1$ states at $n = 2$; $3s$, $3p$, and $3d$ the $l = 0$, 1, and 2 states at $n = 3$, and so on.
+    No attempt is made to keep track of $m$.
+
+    \subsubsection{Probabilities.}
+    The probability of finding the electron between $r$ and $r+dr$ in the spherical shell is
+    \begin{align*}
+        P(r)\; dr & =  \int_{0}^{2\pi} \int_{0}^{\pi} |\psi_{nlm_{\ell}}(r, \theta, \phi)|^{2} r^{2} \sin \theta \;d\theta\; d\phi\; dr \\
+        P(r)\; dr & =  r^{2} |R_{n\ell}(r)|^{2} \;dr \int |Y_{\ell}^{m_{\ell}}(\theta, \phi)|^{2}\; d\Omega
+    \end{align*}
+    Since spherical harmonics are normalized
+    \begin{equation*}
+        P(r) dr= r^2 |R_{n\ell}(r)|^2\;dr
+    \end{equation*}
+    Using this, we can find the probabilities of finding electron within radius $r=a_0$
+    \begin{equation*}
+        P(r \leq a_0) = \int_{0}^{a_0} P(r) dr = \int_{0}^{a_0} r^2 |R_{10}(r)|^2 dr
+    \end{equation*}
+
+    \subsubsection{Hydrogenic Identity.}
+    Several additional analytic identities for hydrogenic bound states exist.
+    The most frequently used are the expectation values of inverse and quadratic powers of $r$, which are
+    \begin{align*}
+        \langle r\rangle_{n\ell}
+         & = \frac{a_{0}}{2}\bigl(3n^{2}-\ell(\ell+1)\bigr),         \\
+        \langle r^{-1}\rangle_{n\ell}
+         & = \frac{1}{a_{0}n^{2}},                                   \\
+        \langle r^{-2}\rangle_{n\ell}
+         & = \frac{1}{a_{0}^{2}n^{3}\left(\ell+\tfrac12\right)},     \\
+        \langle r^{2}\rangle_{n\ell}
+         & = \frac{a_{0}^{2}}{2}\left[5n^{2}+1-3\ell(\ell+1)\right],
+    \end{align*}
+
+    The Virial theorem for the Coulomb potential provides
+    \[
+        E_{n}
+        =-\frac{1}{2}\frac{me^{4}}{\hbar^{2}}\frac{1}{n^{2}},
+        \qquad
+        \langle T\rangle=-E_{n},
+        \qquad
+        \langle V\rangle=2E_{n},
+        \qquad
+        \left\langle \frac{1}{r}\right\rangle=\frac{-2E_{n}}{e^{2}},
+    \]
+
+    A further identity links successive radial moments through the Coulomb radial recurrence relation
+    \[
+        \langle r^{k}\rangle_{n\ell}
+        =\frac{(2n+k-1)(n-\ell-1)}{2Z}\langle r^{\,k-1}\rangle_{n\ell}
+        -\frac{(n+\ell)(n-\ell-1)}{Z^{2}}\langle r^{\,k-2}\rangle_{n\ell},
+    \]
+    valid for integer $k\geq 1$ with $Z=1$ for hydrogen.
 \end{document}
