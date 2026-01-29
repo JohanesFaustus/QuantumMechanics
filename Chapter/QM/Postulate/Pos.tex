@@ -278,7 +278,29 @@ This value is obtained by the following method.
               P(\omega)\propto \braket{\psi|\omega } \braket{\omega|\psi}=\braket{\psi|\mathbb{P}_\omega|\psi  }=\braket{\psi|\mathbb{P } _\omega \mathbb{P } _\omega |\psi   }=\braket{\mathbb{P } _\omega \psi| \mathbb{P } _\omega \psi  }
           \end{equation*}
 \end{enumerate}
-particle of charge q in an electromagnetic field
+
+This method can be expressed in density matrix formalism as follows.
+\begin{enumerate}
+    \item Let the observable $\Omega$ be a self-adjoint operator with spectral decomposition $\Omega = \sum_i \omega_i \, \mathbb{P}_i$, where $\mathbb{P}_i = \ket{\omega_i}\bra{\omega_i}$ are orthogonal projection operators, satisfying $\mathbb{P}_i \mathbb{P}_j = \delta_{ij}\mathbb{P}_i,$ and $\sum_i \mathbb{P}_i = I$.
+    \item Prepare the mixed state written as an ensemble of pure state
+          \begin{equation*}
+              \rho = \sum_k p_k \ket{\psi_k}\bra{\psi_k},
+              \qquad \sum_k p_k = 1,
+          \end{equation*}
+    \item The probability of obtaining the outcome $\omega_i$ is
+          \begin{equation*}
+              P(\omega_i) = \mathrm{Tr}(\rho\,\mathbb{P}_i)
+              = \sum_k p_k \, |\braket{\omega_i|\psi_k}|^2
+          \end{equation*}
+          For a pure state $\rho = \ket{\psi}\bra{\psi}$, this obviously reduces to
+          \begin{equation*}
+              P(\omega_i)
+              = \mathrm{Tr}(\ket{\psi}\bra{\psi}\mathbb{P}_i)
+              = \bra{\psi}\mathbb{P}_i\ket{\psi}
+              = |\braket{\omega_i|\psi}|^2
+          \end{equation*}
+\end{enumerate}
+
 \subsubsection{Collapse.}
 Measurement by the operator $\Omega$ changes the state vector $\ket{\psi}$, which on this basis expands as
 \begin{equation*}
@@ -292,6 +314,13 @@ The effect of the measurement, then, can be represented as
 \end{equation*}
 with $\mathbb{P }_\omega$ as the projection operator to $\ket{\omega}$.
 If the eigenvalues $\omega$ is degenerate, the $\mathbb{P }_\omega$ is the projection operator for the eigenspace $\mathbb{V}_\omega$.
+The same can be said for the density matrix formalism
+\begin{equation*}
+    \rho  \xrightarrow{\omega_i\text{ obtained}}\rho_i
+    = \frac{\mathbb{P}_i \rho \mathbb{P}_i}{\operatorname{Tr}(\rho\,\mathbb{P}_i)}
+\end{equation*}
+where $\mathbb{P}_i = \ket{\omega_i}\bra{\omega_i}$.
+
 
 \subsubsection{Testing quantum theory.}
 Unlike classical mechanics, quantum mechanics does not make deterministic predictions but statistical predictions.
