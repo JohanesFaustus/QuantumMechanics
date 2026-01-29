@@ -1,0 +1,37 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+
+\subsection{Bit}
+A bit is, in essence, an abstraction of a two-level system.
+It characterizes the state space of a system restricted to two mutually distinguishable alternatives, independent of the system’s physical realization.
+Within this framework, three conceptually distinct types of bits may be identified: deterministic classical bit, probabilistic classical bit, and qubit.
+
+The state of a classical bit can be described by a single binary value $\psi$, which can be equal to either 0 or 1.
+The state can be indicated by a point in one of two positions, indicated by the two points labelled 0 and 1 (see figure).
+
+Next consider probabilistic classical bit whose value is not known exactly, but is known to be either 0 or 1 with corresponding probabilities $p_0$ and $p_1$, which satisfies $p_0+p_1=1$.
+We can represent these two probabilities by the 2-dimensional unit vector
+\begin{equation*}
+  \psi = \begin{bmatrix}
+    p_0 \\p_1
+  \end{bmatrix}
+\end{equation*}
+which does not need to belong to a Hilbert space.
+In the figure, the probabilities $p_0$ and $p_1$ are represented by the position of a point on the line segment between the points representing 0 and 1.
+
+The state of a quantum bit is described by a complex unit vector $\ket{\psi}$ in a 2-dimensional Hilbert space
+\begin{equation*}
+  | \psi \rangle = \cos\left( \frac{\theta}{2} \right) | 0 \rangle + e^{i \phi} \sin\left( \frac{\theta}{2} \right) | 1 \rangle
+\end{equation*}
+Such a state vector is often depicted as a point on the surface of a 3-dimensional sphere, known as the Bloch sphere,
+Points on the surface of the Bloch sphere can also be expressed in Cartesian coordinates as
+\begin{equation*}
+  (x, y, z) = \left( \sin \theta \cos \varphi, \sin \theta \sin \varphi, \cos \theta \right)
+\end{equation*}
+
+\begin{figure}[b]
+  \centering
+  \normfigL{../../../Rss/QM/Qubit/QubitState.png}
+  \caption{Figure: States of deterministic classical, probabilistic classical, and quantum bits.}
+\end{figure}
+\end{document}
