@@ -411,6 +411,39 @@ Conversely, the combined system is said to be entangled if those two subsystem c
     \ket{\psi}\neq|\psi_1\rangle \otimes |\psi_2\rangle
 \end{equation*}
 
+Suppose we apply the $\mathrm{NOT}$ gate $X$ to a ﬁrst qubi of a 2-qubit system.
+We implicitly apply the identity operator $I$ to the second qubit at the same time and the operators maps
+\begin{equation*}
+    \ket{\psi_1} \otimes \ket{\psi_2} \to X \ket{\psi_1} \otimes I \ket{\psi_2} = (X \otimes I)(\ket{\psi_1} \otimes \ket{\psi_2})
+\end{equation*}
+In the matrix representation
+\begin{equation*}
+    X \otimes I =
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix} \otimes \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix} = \begin{bmatrix}
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1 \\
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0
+    \end{bmatrix}
+\end{equation*}
+
+\subsubsection{Einstein, Podolsky, and Rosen state.}
+The EPR pair represents an idealized bipartite quantum system whose defining feature is maximal entanglement between two subsystems
+The canonical example is a Bell state, such as
+\begin{equation*}
+    |\Phi^+\rangle = \frac{1}{\sqrt{2}} \left( |00\rangle + |11\rangle \right)
+\end{equation*}
+
+In the original EPR argument, the subsystems were two particles that interacted briefly and then separated.
+After separation, the total system remained in an entangled state.
+Measuring an observable on subsystem $A$ allowed one to predict with certainty the outcome of a corresponding measurement on subsystem $B$, without interacting with it.
+
 \subsection{Hamiltonian}
 \subsubsection{Constructing Hamiltonian.}
 Hamiltonian is constructed by making the substitution $\mathcal{H}(x,p) \rightarrow H(X,P)$, where $\mathcal{H }$ is the classical Hamiltonian for the same case.
