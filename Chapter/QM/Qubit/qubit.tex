@@ -63,27 +63,48 @@ The Pauli gates $X$, $Y $, and $Z$ correspond to rotations about the $x$-, $y$- 
 
 The $X$ operator is also known as $\mathrm{NOT}$ whose action is to map $\ket{0}$ to $\ket{1}$ and  $\ket{1}$ to $\ket{0}$.
 \begin{equation*}
-  \mathrm{NOT} :  \begin{pmatrix} 1 \\ 0 \end{pmatrix} \rightarrow \begin{pmatrix} 0 \\ 1 \end{pmatrix}, \quad \begin{pmatrix} 0 \\ 1 \end{pmatrix} \rightarrow \begin{pmatrix} 1 \\ 0 \end{pmatrix}.
+  \mathrm{NOT} :  \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rightarrow \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \quad \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rightarrow \begin{bmatrix} 1 \\ 0 \end{bmatrix}.
 \end{equation*}
 The \(Y\) operator combines a bit flip with a phase.
 Its action maps \(\ket{0}\) to \(i\ket{1}\) and \(\ket{1}\) to \(-i\ket{0}\).
 \begin{equation*}
-  Y : \begin{pmatrix} 1 \\ 0 \end{pmatrix} \rightarrow \begin{pmatrix} 0 \\ i \end{pmatrix},
+  Y : \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rightarrow \begin{bmatrix} 0 \\ i \end{bmatrix},
   \quad
-  \begin{pmatrix} 0 \\ 1 \end{pmatrix} \rightarrow \begin{pmatrix} -i \\ 0 \end{pmatrix}.
+  \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rightarrow \begin{bmatrix} -i \\ 0 \end{bmatrix}.
 \end{equation*}
 The \(Z\) operator is known as the phase-flip operator. Its action is to leave \(\ket{0}\) unchanged while introducing a relative phase of \(-1\) on \(\ket{1}\).
 \begin{equation*}
-  Z : \begin{pmatrix} 1 \\ 0 \end{pmatrix} \rightarrow \begin{pmatrix} 1 \\ 0 \end{pmatrix},
+  Z : \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rightarrow \begin{bmatrix} 1 \\ 0 \end{bmatrix},
   \quad
-  \begin{pmatrix} 0 \\ 1 \end{pmatrix} \rightarrow \begin{pmatrix} 0 \\ -1 \end{pmatrix}.
+  \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rightarrow \begin{bmatrix} 0 \\ -1 \end{bmatrix}.
 \end{equation*}
 The identity operator \(I\) acts trivially on the computational basis and leaves all states unchanged.
 \begin{equation*}
-  I : \begin{pmatrix} 1 \\ 0 \end{pmatrix} \rightarrow \begin{pmatrix} 1 \\ 0 \end{pmatrix},
+  I : \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rightarrow \begin{bmatrix} 1 \\ 0 \end{bmatrix},
   \quad
-  \begin{pmatrix} 0 \\ 1 \end{pmatrix} \rightarrow \begin{pmatrix} 0 \\ 1 \end{pmatrix}.
+  \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rightarrow \begin{bmatrix} 0 \\ 1 \end{bmatrix}.
 \end{equation*}
 
-
+\subsubsection{CNOT.}
+The $\mathrm{CNOT}$ gate is a 2-qubit unitary gate.
+It acts on an ordered pair of qubits: a control qubit (first bit)and a target qubit (second bit).
+Its defining property is that it applies a $\mathrm{NOT}$ $X$ operation to the target qubit if and only if the control qubit is in the state $\ket{1}$.
+Formally, in the computational basis  the action of the CNOT gate is
+\begin{align*}
+  \mathrm{CNOT}:
+  \begin{matrix}
+    \ket{00} \mapsto \ket{00} \\
+    \ket{01} \mapsto \ket{01}
+  \end{matrix}
+  \qquad
+  \begin{matrix}
+    \ket{10} & \mapsto \ket{11}, \\
+    \ket{11} & \mapsto \ket{10}
+  \end{matrix}
+\end{align*}
+Acting on separable states, it can generate entanglement, for example
+\begin{equation*}
+  \mathrm{CNOT}\left(\frac{1}{\sqrt{2}}\left(|0\rangle + |1\rangle\right) \otimes |0\rangle\right) =\frac{1}{\sqrt{2}}\left(|00\rangle + |11\rangle\right)
+\end{equation*}
+which is an entangled Bell state.
 \end{document}
