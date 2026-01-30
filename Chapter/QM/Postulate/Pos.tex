@@ -268,13 +268,13 @@ This means that, in principle, all expectation values of observables can be comp
 A system is in a mixed state when it cannot be described by a single state vector, but only by a probability distribution over several possible pure states.
 One way of representing a general mixed state on $n$ qubits is as the ensemble
 \begin{equation*}
-    \left\{ \left( |\psi_1\rangle, p_1 \right), \left( |\psi_2\rangle, p_2 \right), \ldots, \left( |\psi_k\rangle, p_k \right) \right\}
+    \left\{ \left( \ket{\psi_1}, p_1 \right), \left( \ket{\psi_2}, p_2 \right), \ldots, \left( \ket{\psi_k}, p_k \right) \right\}
 \end{equation*}
 which means that the system is in the pure $n$-qubit state \(\ket{\psi_i}\) with probability \(p_i\), for \(i = 1, 2, \ldots, k\).
 
 Another method is using density operator for an ensemble of pure states
 \begin{equation*}
-    \rho = \sum_{i=1}^{k} p_i |\psi_i\rangle \langle \psi_i|
+    \rho = \sum_{i=1}^{k} p_i \ket{\psi_i} \langle \psi_i|
 \end{equation*}
 This captures all the relevant information about the state of the system.
 Suppose we measure in the computational basis the probability of obtaining the outcome $\ket{0}$,
@@ -292,6 +292,33 @@ Since any number is the trace of a corresponding $1 \times 1$ matrix, we can als
                         & = \mathrm{Tr}( |0\rangle \langle 0| \rho )
 \end{align*}
 where we have used the cyclicity of trace $\mathrm{Tr}(ABC) = \mathrm{Tr}(BCA) = \mathrm{Tr}(CAB)$.
+
+\subsubsection{Partial trace.}
+
+Consider a pure state $|\psi\rangle_{AB} \in \mathcal{H}_A \otimes \mathcal{H}_B$ of two qubits.
+It may not be possible to factor out the state vector $|\psi\rangle_A \in \mathcal{H}_A$ for the state of the first qubit, however the state of the first qubit can in general be described as a mixed state.
+This means that it can be described by a density operator $\rho^A$ on $\mathcal{H}_A$, sometimes called a reduced density operator.
+The mathematical operation for calculating the reduced density operator is the partial trace.
+
+The reduced density operator $\rho_A$ is defined in terms of the density operator $\rho^{AB}$ for the full 2-qubit system by
+\begin{equation*}
+    \rho^A \equiv \mathrm{Tr}_B \left( \rho^{AB} \right)
+\end{equation*}
+where $\mathrm{Tr}_B$ is the partial trace over system $B$, defined as the linear extension of the operator deﬁned on basis states by
+\begin{equation*}
+    \mathrm{Tr}_B \left(\ket{a_1}\bra{a_2}\otimes \ket{b_1} \bra{b_2}  \right) = \ket{a_1}\bra{a_2} \bra{a_1}\mathrm{Tr}\left( \ket{b_1}\bra{b_2} \right)  \ket{a_1}\bra{a_2} \bra{a_1} \braket{b_2|b_1}
+\end{equation*}
+since $\mathrm{Tr}\left( \ket{b_1}\ket{b_2} \right) = \mathrm{Tr} \left( \braket{b_2|b_1} \right)=\braket{b_2|b_1} $
+
+For general case $n$-qubit composite system with Hilbert space
+\begin{equation*}
+    \mathcal{H} = \bigotimes_{i=1}^{n} \mathcal{H}_{i}
+\end{equation*}
+the reduced density operator on $A$ is defined by the partial trace over the complementary subsystem, ${A}'$ of $A \subset \{1, \ldots, n\}$
+\begin{equation*}
+    \rho^{A} \equiv \mathrm{Tr}_{{A}'}(\rho)
+\end{equation*}
+where $\rho$ denote the density operator acting on $\mathcal{H}$.
 
 \subsection{Measurement}
 Given state $(x,p)$, we can say that dynamical value has the value $\omega(x,p)$ in classical mechanics.
@@ -464,14 +491,14 @@ Thus $[\Omega,\Lambda]$ must have eigenkets with zero eigenvalue if simultaneous
 
 \subsubsection{Composite Systems}
 When two physical systems are treated as one combined bizarre system, the state space of the combined physical system is the tensor product space $\mathcal{H}=\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces of the component subsystems.
-If the first system is in the state $|\psi_1\rangle$ and the second system in the state $|\psi_2\rangle$, then the state $\ket{\psi}\in \mathcal{H}$ of the combined system is
+If the first system is in the state $\ket{\psi_1}$ and the second system in the state $\ket{\psi_2}$, then the state $\ket{\psi}\in \mathcal{H}$ of the combined system is
 \begin{equation*}
-    \ket{\psi}=|\psi_1\rangle \otimes |\psi_2\rangle
+    \ket{\psi}=\ket{\psi_1} \otimes \ket{\psi_2}
 \end{equation*}
 which also means that the system is not entangled.
 Conversely, the combined system is said to be entangled if those two subsystem cannot be factored into a tensor product
 \begin{equation*}
-    \ket{\psi}\neq|\psi_1\rangle \otimes |\psi_2\rangle
+    \ket{\psi}\neq\ket{\psi_1} \otimes \ket{\psi_2}
 \end{equation*}
 
 Suppose we apply the $\mathrm{NOT}$ gate $X$ to a ﬁrst qubi of a 2-qubit system.
