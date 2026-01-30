@@ -98,7 +98,7 @@ Formally, in the computational basis  the action of the CNOT gate is
   \end{matrix}
   \qquad
   \begin{matrix}
-    \ket{10} & \mapsto \ket{11}, \\
+    \ket{10} & \mapsto \ket{11} \\
     \ket{11} & \mapsto \ket{10}
   \end{matrix}
 \end{align*}
@@ -107,4 +107,20 @@ Acting on separable states, it can generate entanglement, for example
   \mathrm{CNOT}\left(\frac{1}{\sqrt{2}}\left(|0\rangle + |1\rangle\right) \otimes |0\rangle\right) =\frac{1}{\sqrt{2}}\left(|00\rangle + |11\rangle\right)
 \end{equation*}
 which is an entangled Bell state.
+
+\subsection{Bloch Sphere}
+Pure states of a qubit can be represented by points on the surface of the Bloch sphere, while mixed states correspond to points in the interior of the Bloch sphere.
+If the mixed state and the Bloch vector respectively described as
+\begin{equation*}
+  \rho= \sum_i p_i \bra{\psi_i}\ket{\psi_i} \qquad \ket{\psi_i} = \left( \alpha_{x_i} , \alpha_{y_i}, \alpha_{z_i}\right)
+\end{equation*}
+then the Bloch vector for the mixed state is
+\begin{equation*}
+  \rho = \sum_{i} p_i(\alpha_{x_i}, \alpha_{y_i}, \alpha_{z_i}) = \left( \sum_{i} p_i \alpha_{x_i}, \sum_{i} p_i \alpha_{y_i}, \sum_{i} p_i \alpha_{z_i} \right)
+\end{equation*}
+any density operator for a single qubit can be written as
+\begin{equation*}
+  \rho = \frac{1}{2} I + \alpha_x X + \alpha_y Y + \alpha_z Z=\frac{1 }{2 }I +\boldsymbol{\alpha} \cdot \boldsymbol{\sigma}
+\end{equation*}
+and the vector $\left( \alpha_{x} , \alpha_{y}, \alpha_{z}\right)$ gives the coordinates for the point in the Bloch sphere corresponding to the state $\rho$.
 \end{document}
