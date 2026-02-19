@@ -1279,13 +1279,13 @@ In the $X$ basis, the Schrödinger equation now reads
     -\frac{\hbar^{2}}{2m} \frac{d^{2}\psi(x)}{dx^{2}} + \frac{1}{2}m\omega^{2}x^{2}\psi(x) = E\psi(x).
 \end{equation*}
 Solving this yields discrete energy eigenvalues
-\[
+\begin{equation*}
     E_{n} = \hbar\omega \left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots
-\]
+\end{equation*}
 and normalized eigenfunctions
-\[
-    \psi_{n}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \frac{1}{\sqrt{2^{n} n!}} H_{n}\left(\sqrt{\frac{m\omega}{\hbar}} x\right) e^{-\frac{m\omega x^{2}}{2\hbar}}
-\]
+\begin{equation*}
+    \psi_{n}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \frac{1}{\sqrt{2^{n} n!}} H_{n}\left(\sqrt{\frac{m\omega}{\hbar}} x\right) \exp^{-\frac{m\omega }{2\hbar}x^{2}}
+\end{equation*}
 where \(H_{n}\) are Hermite polynomials.
 Here are the first few.
 \begin{align*}
@@ -1299,12 +1299,13 @@ Here are the first few.
 \subsubsection{Derivation.}
 From the Schrödinger equation
 \begin{equation*}
-    \frac{d^{2}\psi(x)}{dx^{2}} + \frac{2m }{\hbar^2 }\left(E-\omega^{2}x^{2}\right)\psi(x)
+    \frac{d^{2}\psi(x)}{dx^{2}} + \frac{2m }{\hbar^2 }\left(E- \frac{1 }{2}\omega^{2}x^{2}\right)\psi(x)=0
 \end{equation*}
 we make the substitution of $x=by$, which result in differential
 \begin{align*}
-    \frac{d\psi }{dx}       & =\frac{d\psi }{dy}\frac{dy }{dx}=\frac{1 }{b }\frac{d\psi }{dy}                                                                       \\
-    \frac{d^2 \psi }{dx^2 } & = \frac{d }{dx }\left( \frac{1 }{b }\frac{d\psi }{dy} \right) =\frac{1 }{b}\frac{d^2\psi }{dy\;dx}=\frac{1 }{b }\frac{d^2\psi }{dy^2}
+    \frac{d\psi }{dx}       & =\frac{d\psi }{dy}\frac{dy }{dx}=\frac{1 }{b }\frac{d\psi }{dy} \\
+    \frac{d^2 \psi }{dx^2 } & = \frac{d }{dx }\left( \frac{1 }{b }\frac{d\psi }{dy} \right)
+    =\frac{1 }{b} \frac{d }{dy }\left( \frac{d\psi }{dx} \right) =\frac{1 }{b^2 }\frac{d^2\psi }{dy^2}
 \end{align*}
 Now Schrödinger equation reads
 \begin{equation*}
@@ -1316,7 +1317,8 @@ or
 \end{equation*}
 Now define
 \begin{equation*}
-    \epsilon=\frac{mEb^2 }{\hbar^2}=\frac{E }{\hbar\omega},\qquad b^2=\frac{\hbar }{m\omega}
+    b^2=\frac{\hbar }{m\omega}, \qquad
+    \epsilon=\frac{mEb^2 }{\hbar^2}=\frac{E }{\hbar\omega}
 \end{equation*}
 Then
 \begin{equation*}
@@ -1326,14 +1328,16 @@ Compare this to the Hermite equation
 \begin{equation*}
     y_n''+(2n+1-x^2)y_n=0
 \end{equation*}
-which has the solution called the Hermite function
+which has the solution of Hermite function
 \begin{equation*}
     y_n=e^{x^2/2}\left(\frac{d}{dx}\right)^ne^{-x^2}=e^{-x^2/2}H_n(x)
 \end{equation*}
-On comparing $2\epsilon$ with $2n+1$, we obtain the expression for energy.
+On comparing $2\epsilon$ with $2n+1$, we also obtain the expression for energy.
 Then the solution to the Schrödinger equation is
 \begin{equation*}
-    \psi(y)=e^{-y^2/2}H_n(y)\qquad\text{or}\qquad\psi(x)=\exp \left[ -\frac{m\omega }{2 \hbar}x^2 \right] H_n \left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right]
+    \psi(y)=e^{-y^2/2}H_n(y)\qquad\text{or}\qquad
+    \psi(x)=\exp \left( -\frac{m\omega }{2 \hbar}x^2 \right)
+    H_n = \left( \sqrt{\frac{m \omega }{\hbar }} x \right)
 \end{equation*}
 
 All that left is normalization.
@@ -1343,10 +1347,18 @@ To do so consider the orthogonality of Hermite polynomials
 \end{equation*}
 Therefore
 \begin{align*}
-    \braket{\psi|\psi} & = \int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right] H_n \left\{\left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right] \right\}^2\;dx                                                                                 \\
-                       & = A^2 \sqrt{\frac{\hbar }{m\omega}}  \int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right] H_n \left\{\left[ \left( \frac{m \omega }{\hbar }^{1/2}x \right)  \right] \right\}^2\;d \left( \sqrt{\frac{m\omega }{\hbar}x} \right) \\
-    1                  & = A^2  \sqrt{\frac{\hbar }{m\omega }}(\pi)^{1/2}2^nn!                                                                                                                                                                              \\
-    A                  & = \left( \frac{m\omega }{\pi \hbar 2^{2n}(n!)^2 } \right) ^{1/4}
+    \braket{\psi_n|\psi_m}
+      & = \int A^2\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right]
+    H_n  \left( \sqrt{\frac{m \omega }{\hbar }} x \right)
+    H_m  \left( \sqrt{\frac{m \omega }{\hbar }} x \right)
+    \;dx                                                                                          \\
+    \delta_{nm}
+      & = A^2 \sqrt{\frac{\hbar }{m\omega}}  \int d \left( \sqrt{\frac{m\omega }{\hbar}x} \right) \\
+      & \qquad\qquad\exp \left[ -\frac{m\omega }{ \hbar}x^2 \right]
+    H_n  \left( \sqrt{\frac{m \omega }{\hbar }} x \right)
+    H_m  \left( \sqrt{\frac{m \omega }{\hbar }} x \right)                                         \\
+    1 & = A^2  \sqrt{\frac{\hbar }{m\omega }}(\pi)^{1/2}2^nn!                                     \\
+    A & =  \left( \frac{m \omega}{\pi \hbar} \right)^{1/4} \frac{1}{\sqrt{2^n n!}}
 \end{align*}
 Inserting this into the wavefunction yields the normalized wavefunction.
 
@@ -1573,7 +1585,7 @@ $R_{n\ell}(r)$ the radial function, which depends on the principal quantum numbe
     \end{align*}
 
     The Virial theorem for the Coulomb potential provides
-    \[
+    \begin{equation*}
         E_{n}
         =-\frac{1}{2}\frac{me^{4}}{\hbar^{2}}\frac{1}{n^{2}},
         \qquad
@@ -1582,13 +1594,13 @@ $R_{n\ell}(r)$ the radial function, which depends on the principal quantum numbe
         \langle V\rangle=2E_{n},
         \qquad
         \left\langle \frac{1}{r}\right\rangle=\frac{-2E_{n}}{e^{2}},
-    \]
+    \end{equation*}
 
     A further identity links successive radial moments through the Coulomb radial recurrence relation
-    \[
+    \begin{equation*}
         \langle r^{k}\rangle_{n\ell}
         =\frac{(2n+k-1)(n-\ell-1)}{2Z}\langle r^{\,k-1}\rangle_{n\ell}
         -\frac{(n+\ell)(n-\ell-1)}{Z^{2}}\langle r^{\,k-2}\rangle_{n\ell},
-    \]
+    \end{equation*}
     valid for integer $k\geq 1$ with $Z=1$ for hydrogen.
 \end{document}
