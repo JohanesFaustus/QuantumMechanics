@@ -584,6 +584,73 @@ The expectation value and uncertainty the of momentum operator is
     \braket{P}=0,\quad\Delta P=\frac{\hbar}{\Delta\sqrt{2}}
 \end{equation*}
 
+\subsection{Appendix: Ground State of Harmonic Potential}
+Suppose we are to find the ground state of harmonic potential.
+We could use the Schrödinger equation to solve the case, which after tedius derivation we have the general wavefunction 
+\begin{equation*}
+    \psi_{n}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \frac{1}{\sqrt{2^{n} n!}} H_{n}\left(\sqrt{\frac{m\omega}{\hbar}} x\right) \exp \left( -\frac{m\omega }{2\hbar}x^{2} \right) 
+\end{equation*}
+For the ground state the wavefunction is 
+\begin{equation*}
+    \psi_{0}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} 
+    \exp \left( -\frac{m\omega }{2\hbar}x^{2} \right) 
+\end{equation*}
+Alternatively, we can use the annihilation operator
+\begin{equation*}
+    \hat{a}\ket{0 }=0
+\end{equation*}
+Then using the position representation of the operator
+\begin{equation*}
+    \bra{x}\hat{a} = \sqrt{\frac{m \omega}{2 \hbar}} \left( x +  \frac{\hbar }{m \omega} \frac{d }{dx} \right) \bra{x}
+\end{equation*}
+we write the equation as 
+\begin{equation*}
+    \sqrt{\frac{m \omega}{2 \hbar}} \left(x +  \frac{1}{m \omega} \frac{d }{dx} \right) \psi_0(x)=0
+\end{equation*}
+This is just simple differential equation
+\begin{align*}
+\frac{d\psi_0}{dx} &=  -\frac{m \omega}{\hbar } \psi_0(x)\\
+\frac{d\psi_0}{\psi_0} &=  -\frac{m \omega}{\hbar }  x dx\\
+\ln \psi_0(x) &=  -\frac{m \omega}{2 \hbar } x^2 + C\\
+\psi_0(x) &=  A \exp\left(-\frac{m \omega}{2 \hbar } x^2\right)
+\end{align*}
+All that left is normalization
+\begin{equation*}
+    |\psi_0(x)|^2=A^2\int e^{-\alpha x^2}\;dx = A^2 \sqrt{2\pi \int_{0 }^{\infty} dr\; r e ^{\alpha r^2}}
+\end{equation*}
+with $\alpha=m\omega/2 \hbar $
+Substitute $u = \alpha r^2 $ and $r dr = du/2\alpha $
+\begin{equation*}
+    |\psi_0(x)|^2=A^2\int e^{-\alpha x^2}\;dx = A^2 \sqrt{2\pi     \int_{0}^{\infty} \frac{du}{2\alpha} e^{-u}}=A^2 \sqrt{\frac{\pi }{\alpha}}
+\end{equation*}
+We get $A=(m\omega/\pi \hbar ) ^{1/4}$ and the wavefunction
+\begin{equation*}
+    \psi_{0}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4}  
+    \exp \left( -\frac{m\omega }{2\hbar}x^{2} \right) 
+\end{equation*}
+is exactly the same.
+
+In addition, we can calculate the excitation state using the creation operator
+\begin{equation*}
+    \bra{x}\hat{a}^\dagger = \sqrt{\frac{m \omega}{2 \hbar}} \left( x - \frac{\hbar }{m \omega} \frac{d }{dx} \right) \bra{x}
+\end{equation*}
+Applying this into  the ground state 
+\begin{equation*}
+    \langle x | \hat{a}^\dagger | 0 \rangle = 
+    \sqrt{\frac{m \omega}{2 \hbar}} \left( x - \frac{\hbar}{m \omega} \frac{d}{dx} \right) \psi_0(x) 
+    =\psi_1 (x)
+\end{equation*}
+With
+\begin{equation*}
+    \frac{d}{dx} \psi_0(x) = \frac{d}{dx} \left( A e^{-\frac{m \omega}{2 \hbar} x^2} \right) = -\frac{m \omega}{\hbar} x \psi_0(x)
+\end{equation*}
+the first excitation state reads 
+\begin{align*}
+    \psi_1 (x) 
+    = \sqrt{\frac{ \omega}{2 \hbar}} \left( x +x \right) \psi_0(x) 
+    =\left( \frac{m \omega}{\pi \hbar} \right)^{1/4} \sqrt{\frac{2m \omega}{\hbar}} x e^{-\frac{m \omega}{2 \hbar} x^2} 
+\end{align*}
+This also match the Schrödinger case with Hermite polynomial $H_1(x)=2x$.
 
 \subsection{Appendix: Simple System of Free Particle}
 The Schrödinger equation in this case
@@ -1284,7 +1351,7 @@ Solving this yields discrete energy eigenvalues
 \end{equation*}
 and normalized eigenfunctions
 \begin{equation*}
-    \psi_{n}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \frac{1}{\sqrt{2^{n} n!}} H_{n}\left(\sqrt{\frac{m\omega}{\hbar}} x\right) \exp^{-\frac{m\omega }{2\hbar}x^{2}}
+    \psi_{n}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \frac{1}{\sqrt{2^{n} n!}} H_{n}\left(\sqrt{\frac{m\omega}{\hbar}} x\right) \exp \left( -\frac{m\omega }{2\hbar}x^{2} \right) 
 \end{equation*}
 where \(H_{n}\) are Hermite polynomials.
 Here are the first few.
