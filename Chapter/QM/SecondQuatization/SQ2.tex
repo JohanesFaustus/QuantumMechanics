@@ -1,0 +1,284 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Identical Particle}
+Indistinguishability implies that the Hamiltonian cannot change if the degrees of freedom of two arbitrary particles $i$ and $j$ are exchanged
+\begin{equation*}
+  \mathbb{H } = \mathbb{H} (\dots,i\dots,j,\dots) = \mathbb{H} (\dots,j\dots,i,\dots)
+\end{equation*}
+This can be seen by acting with the operator exchanging two arbitrary particles, $i$ and $j$, on a state of $N$ identical particles
+\begin{equation*}
+  \mathcal{T }_{ij} \ket{\dots, \phi_i,\dots,\phi_j,\dots} = \ket{\dots, \phi_j,\dots,\phi_i,\dots} 
+\end{equation*}
+which produces a state that may not be physically different from the original state, so that there can only be a phase factor $\nu_{ij }=e ^{i\alpha_{ij}}$
+\begin{equation*}
+  \mathcal{T }_{ij} \ket{\dots, \phi_i,\dots,\phi_j,\dots} = \nu_{ij }\ket{\dots, \phi_i,\dots,\phi_j,\dots} 
+\end{equation*}
+Moreover, because of $\mathcal{T}_{ij }=\mathcal{T}_{ji}$ we have
+\begin{equation*}
+  \mathcal{T}_{ij }^{2 }=1\qquad\nu_{ij }=\pm1
+\end{equation*}
+These results imply that there are only two types of quantum particles
+\begin{enumerate}
+  \item $\nu=+1$ particles whose states are symmetrical under particle exchange,
+  \item $\nu=-1$ particles whose states are antisymmetrical under particle exchange.
+\end{enumerate}
+
+\subsection{Vector Potential}
+The Coulomb gauge definition of vector potential $\nabla \cdot  \mathbf{A}=0$ constraint the vector to only the transversal (perpendicular) to the wave vector $\mathbf{k}$.
+This can be seen by considering a complex monochromatic plane wave $\mathbf{A}(\mathbf{r},t)=\mathbf{A}_0 e^{i(\mathbf{k}\cdot \mathbf{r }-\omega t)}$.
+Under Coulomb gauge
+\begin{equation*}
+  \nabla  \cdot \mathbf{A}=  \nabla \cdot  \mathbf{A}_0  e^{i(k \cdot \mathbf{r} - \omega t)} = \mathbf{A}_0 \cdot (i \mathbf{k}) e^{i(k \cdot \mathbf{r} - \omega t)} = \mathbf{k } \cdot \mathbf{A} = 0
+\end{equation*}
+This complex monochromatic plane wave is valid solution to wave equation that the vector potential obey.
+
+We can expand the vector potential $\mathbf{A}(r, t)$ as a Fourier series of monochromatic plane waves.
+\begin{equation*}
+  \mathbf{A}(\mathbf{r}, t)
+  = \sum_{\mathbf{k},s} A_{\mathbf{k} s}(t) \frac{e^{i \mathbf{k} \cdot \mathbf{r}}}{\sqrt{V}} \boldsymbol{\epsilon}_{\mathbf{k} s}
+\end{equation*}
+It follows from  classical electrodynamics that the vector potential is a real vector field $\mathbf{A} = \mathbf{A}^*$.
+Choosing real polarization vectors $\boldsymbol{\epsilon}_{\mathbf{k} s}=\epsilon ^*_{\mathbf{k} s}$
+\begin{equation*}
+  \mathbf{A}(\mathbf{r},t) = \sum_{\mathbf{k},s} A^*_{\mathbf{k} s}(t)  \frac{e^{-i \mathbf{k} \cdot \mathbf{r}}}{\sqrt{V}}\boldsymbol{\epsilon}_{\mathbf{k} s}
+  = \sum_{\mathbf{k},s} A^*_{-\mathbf{k} s}(t)  \frac{e^{i \mathbf{k} \cdot \mathbf{r}}}{\sqrt{V}}\boldsymbol{\epsilon}_{\mathbf{k} s}
+\end{equation*}
+where we relabel $\mathbf{k} \rightarrow -\mathbf{k}$.
+Consequently $A_{-\mathbf{k},s}=A^*_{\mathbf{k},s}$.
+Thus, we can sum the series over independent $\mathbf{k}$
+\begin{equation*}
+  \mathbf{A}(\mathbf{r}, t) = \sum_{\mathbf{k},s} \left[ A_{\mathbf{k}s}(t) \frac{e^{i\mathbf{k} \cdot \mathbf{r}}}{\sqrt{V}} + A_{\mathbf{k}s}^*(t) \frac{e^{-i\mathbf{k} \cdot \mathbf{r}}}{\sqrt{V}} \right] \boldsymbol{\epsilon}_{\mathbf{k}s}
+\end{equation*}
+where the complex plane waves $e^{i \mathbf{k } \cdot \mathbf{r}}$ normalized in a volume $V$ are the basis functions of the expansion, and $\boldsymbol{\epsilon}_{\mathbf{k}s}$ are mutually orthogonal real unit vectors of polarization which are also orthogonal to $\mathbf{k}$.
+Note that the first representation count over all possible $\mathbf{k}$: both $\mathbf{k}$ and $-\mathbf{k}$ are included; meanwhile the second only the representation $\left\{ \mathbf{k},-\mathbf{k} \right\} $ are included.
+
+Aside, it is called the Coulomb gauge because it would produce the Coulomb potential.
+Start form the gauge $\nabla \cdot \mathbf{A}=0$, then consider the electric field enforced by the gauge
+\begin{equation*}
+  \mathbf{E}= -\nabla \phi+\frac{\partial \mathbf{A }}{\partial T}=-\nabla \phi
+\end{equation*}
+Then take the divergence
+\begin{equation*}
+  \nabla \cdot \mathbf{E }= -\nabla ^2 \phi
+\end{equation*}
+According to Gauss law
+\begin{equation*}
+  \nabla ^2 \phi=-\frac{\rho(\mathbf{r},t )}{\epsilon_0}
+\end{equation*}
+which is the Poisson equation whose solution is the Coulomb potential
+\begin{equation*}
+  \phi(\mathbf{r},t)=\frac{1}{4\pi \epsilon_0}\int\frac{1}{\rcurs}\rho(\mathbf{r}',t)d\tau'
+\end{equation*}
+where $\mathbf{r}$ is the field point (point in space where you are evaluating), $\mathbf{r}'$ is the source point (the location in space of an element of charge), and $\rcurs$ as the distance between source and field point.
+
+\subsubsection{Wave equation.}
+Each mode amplitude $A_{\mathbf{k}s}(t)$ behaves exactly like a classical harmonic oscillator due to $\mathbf{A}(\mathbf{r},t)$ obeying the wave equation that yield harmonic oscillator differential equation, whose solution is $A_{\mathbf{k}s}(t)=A_{\mathbf{k}s}(0)e^{i\omega_kt}$.
+This can be proven by
+\begin{align*}
+  \left( \nabla^2 - \frac{1}{c^2} \frac{\partial^2}{\partial t^2} \right)    \sum_{\mathbf{k},s} A_{\mathbf{k} s}(t) \frac{e^{i \mathbf{k} \cdot \mathbf{r}}}{\sqrt{V}} \boldsymbol{\epsilon}_{\mathbf{k} s}
+   & = 0  \\
+  \sum_{\mathbf{k },s} \left[ -k^2 A_{\mathbf{k }s}(t) - \frac{1}{c^2} \frac{d^2 }{dt^2}A_{\mathbf{\mathbf{k}s}}(t) \right] \frac{e^{i \mathbf{k }\cdot \mathbf{r}}}{\sqrt{V} \epsilon_{\mathbf{k }s}}
+   & =  0
+\end{align*}
+Each mode is independent, so
+\begin{equation*}
+  \frac{d^2 }{dt^2 }A_{\mathbf{k }s}(t)+\omega_k^2A_{\mathbf{A }s}(t)=0
+\end{equation*}
+with $\omega_k=ck$, which have the complex solutions
+\begin{equation*}
+  A_{\mathbf{k }s }(0)e^{-\omega_kt}
+\end{equation*}
+
+\subsection{Fock State}
+The operators $\hat{a}_{\mathbf{k }s }$ and $\hat{a }_{\mathbf{k }s}$ act in Fock space $\mathcal{F}$.
+A generic state of this Fock space F is given by
+\begin{equation*}
+  \ket{\left\{ n_{\mathbf{k }s} \right\} }
+  = \ket{n_{\mathbf{k} s}n_{\mathbf{k}'s'}n_{\mathbf{k}''s''} \cdots }
+  =\bigotimes_{\mathbf{k },s} \ket{n_{\mathbf{k }s}}
+\end{equation*}
+where there are \( n_{\mathbf{k} s} \) photons with wavevector \( \mathbf{k} \) and polarization \( s \), \( n_{\mathbf{k}'s'} \) photons with wavevector \( \mathbf{k}' \) and polarization \( s' \), \( n_{\mathbf{k}''s''} \) photons with wavevector \( \mathbf{k}'' \) and polarization \( s'' \), et cetera.
+For example, the state $\ket{ 0_{\mathbf{k} s} 1_{\mathbf{k}'s'}  2_{\mathbf{k}''s''}}$.
+Here, the entire mode $\mathbf{k},s$ is in vacuum or no photon exist; mode $\mathbf{k'},s'$ has one photon; and mode $\mathbf{k}'',s''$ has two.
+
+The Fock space \( \mathcal{F} \) is given by
+\begin{equation*}
+  \mathcal{F} = \mathcal{H}_0 \oplus \mathcal{H}_1 \oplus \mathcal{H}_2 \oplus \mathcal{H}_3 \oplus \cdots = \bigoplus_{n=0}^{\infty} \mathcal{H}_n = \bigoplus_{n=0}^{\infty} \mathcal{H}^{\otimes n}
+\end{equation*}
+where $  \mathcal{H}_n = \mathcal{H} \otimes \mathcal{H} \otimes \cdots \otimes \mathcal{H} = \mathcal{H}^{\otimes n}$ is the Hilbert space of $n$ identical photons, which is $n$ times the tensor product of the single-photon Hilbert space $\mathcal{H}$
+Notice that in the definition of the Fock space $\mathcal{F}$ one must include the space $\mathcal{H}_0 = \mathcal{H}^{\otimes 0}$, which is the Hilbert space of 0 photons, containing only the vacuum state
+\begin{equation*}
+  \ket{0}
+  = \ket{0_{\mathbf{k} s}0_{\mathbf{k}'s'}\cdots }
+  =\bigotimes_{\mathbf{k },s} \ket{0_{\mathbf{k }s}}
+\end{equation*}
+
+\subsubsection{Ladder operator.}
+If there are exactly $n$ photons in this polarized monochromatic wave $\omega=\omega_k=c|\mathbf{k}|$ the Fock state of the system is given by
+\begin{equation*}
+  \ket{n }= \frac{1 }{\sqrt{n !}}\left( \hat{a }^\dagger \right) ^n \ket{0}
+\end{equation*}
+or more precisely
+\begin{equation*}
+  \ket{n_{\mathbf{k }s} }= \frac{1 }{\sqrt{n_{\mathbf{k }s}!}}\left( \hat{a }^\dagger_{\mathbf{k }s} \right) ^{n_{\mathbf{k }s}} \ket{0}
+\end{equation*}
+This can be generalized into  multimode state
+\begin{equation*}
+  \ket{\left\{ n_{\mathbf{k }s}  \right\} }
+  =\prod_{\mathbf{k },s} \frac{1 }{\sqrt{n_{\mathbf{k }s}!}}\left( \hat{a }^\dagger_{\mathbf{k }s} \right) ^{n_{\mathbf{k }s}} \ket{0}
+\end{equation*}
+
+To prove this, we define unnormalized state
+\begin{equation*}
+  \ket{n'_{\mathbf{k }s}}=\hat{a}^\dagger_{\mathbf{k }s} \ket{0}
+\end{equation*}
+and use the relations
+\begin{gather*}
+  \hat{a}_{\mathbf{k }s} (\hat{a}^\dagger_{\mathbf{k }s} )^n
+  = (\hat{a}^\dagger_{\mathbf{k }s} )^n a +n (\hat{a}^\dagger_{\mathbf{k }s} )^{n-1} \\
+  \hat{a}_{\mathbf{k }s} ^n(\hat{a}^\dagger_{\mathbf{k }s}) ^n \ket{0}= n! \ket{0}
+\end{gather*}
+
+First let us use induction to prove said relation.
+With both being the induction hypothesis, our base case $n$ is the commutator relation
+\begin{equation*}
+  \hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }s} =\hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }s} +1
+\end{equation*}
+We prove for $n+1$ by considering
+\begin{align*}
+  \hat{a}_{\mathbf{k }s} (\hat{a}^\dagger_{\mathbf{k }s} )^{n_{\mathbf{k }s}+1}
+                                                                 &
+  = \hat{a}_{\mathbf{k }s} (\hat{a}^\dagger_{\mathbf{k }s} )^{n_{\mathbf{k }s}} \hat{a}^\dagger_{\mathbf{k }s}
+  =[(\hat{a}^\dagger_{\mathbf{k }s} )^{n_{\mathbf{k }s}} a +{n_{\mathbf{k }s}} (\hat{a}^\dagger_{\mathbf{k }s} )^{{n_{\mathbf{k }s}}-1}]\hat{a}^\dagger_{\mathbf{k }s}                                                    \\
+                                                                 &
+  = (\hat{a}^\dagger_{\mathbf{k }s} )^{n_{\mathbf{k }s}} \hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }s}+ {n_{\mathbf{k }s}} (\hat{a}^\dagger_{\mathbf{k }s} )^{{n_{\mathbf{k }s}}-1}\hat{a}^\dagger_{\mathbf{k }s} \\
+                                                                 &
+  =  (\hat{a}^\dagger_{\mathbf{k }s} )^{n_{\mathbf{k }s}} (\hat{a}^\dagger_{\mathbf{k }s}  \hat{a}_{\mathbf{k }s} +1)+{n_{\mathbf{k }s}} (\hat{a}^\dagger_{\mathbf{k }s} )^{n_{\mathbf{k }s}}                             \\
+  \hat{a}_{\mathbf{k }s} (\hat{a}^\dagger_{\mathbf{k }s} )^{n+1} & =
+  (\hat{a}^\dagger_{\mathbf{k }s} )^{{n_{\mathbf{k }s}}+1}\hat{a}_{\mathbf{k }s} + ({n_{\mathbf{k }s}}+1)(\hat{a}^\dagger_{\mathbf{k }s} )^{n_{\mathbf{k }s}}
+\end{align*}
+which is our hypothesis for ${n_{\mathbf{k }s}} \to {n_{\mathbf{k }s}}+1$.
+The action of this relation is as follows
+\begin{equation*}
+  \hat{a}_{\mathbf{k }s} (\hat{a}^\dagger_{\mathbf{k }s} )^{n_{\mathbf{k }s}} \ket{0}
+  =(\hat{a}^\dagger_{\mathbf{k }s} )^{n_{\mathbf{k }s}} a +{n_{\mathbf{k }s}} (\hat{a}^\dagger_{\mathbf{k }s} )^{{n_{\mathbf{k }s}}-1}   \ket{0}= {n_{\mathbf{k }s}} (\hat{a}^\dagger_{\mathbf{k }s} )^{{n_{\mathbf{k }s}}-1}\ket{0}
+\end{equation*}
+Next we use this relation, which has been proven, to prove the second relation.
+Using induction again, we consider base case $n$ as
+\begin{equation*}
+  (\hat{a}_{\mathbf{k }s} )^0 (\hat{a}^\dagger_{\mathbf{k }s} )^0 \ket{0} = \ket{0}=0!\ket{0}
+\end{equation*}
+It holds, then for $n+1$ consider
+\begin{equation*}
+  \hat{a}_{\mathbf{k }s} (\hat{a}^\dagger_{\mathbf{k }s} )^{{n_{\mathbf{k }s}}+1} \ket{0}
+  = ({n_{\mathbf{k }s}}+1) (\hat{a}^\dagger_{\mathbf{k }s} )^{{n_{\mathbf{k }s}}}\ket{0}
+\end{equation*}
+then apply $\hat{a}_{\mathbf{k }s} ^{n_{\mathbf{k }s}}$ along with the second hypothesis
+\begin{align*}
+  (\hat{a}_{\mathbf{k }s})^{{n_{\mathbf{k }s}}+1} (\hat{a}^\dagger_{\mathbf{k }s} )^{{n_{\mathbf{k }s}}+1} \ket{0}
+   & =  ({n_{\mathbf{k }s}}+1) (\hat{a}_{\mathbf{k }s} )^{n_{\mathbf{k }s}}(\hat{a}^\dagger_{\mathbf{k }s} )^{{n_{\mathbf{k }s}}}\ket{0} \\
+   & = ({n_{\mathbf{k }s}}+1){n_{\mathbf{k }s}}! \ket{0}=({n_{\mathbf{k }s}}+1)\ket{0}
+\end{align*}
+It holds once more.
+We now back at normalizing the state $\ket{{n_{\mathbf{k }s}}'}$ by taking the inner product and inserting the normalizing constant
+\begin{equation*}
+  \alpha^2\braket{{n_{\mathbf{k }s}}' | {n_{\mathbf{k }s}}'}=\alpha \braket{0 | \hat{a}_{\mathbf{k }s} ^{n_{\mathbf{k }s}} (\hat{a}^\dagger_{\mathbf{k }s} )^{n_{\mathbf{k }s}}|0}={n_{\mathbf{k }s}}!\\
+  \alpha=\frac{1 }{\sqrt{{n_{\mathbf{k }s}}!}}
+\end{equation*}
+Thus the normalized state
+\begin{equation*}
+  \ket{{n_{\mathbf{k }s}}}=\alpha \ket{{n_{\mathbf{k }s}}'}= \frac{1 }{\sqrt{{n_{\mathbf{k }s}}! }}(\hat{a}^\dagger_{\mathbf{k }s}   )^{n_{\mathbf{k }s}} \ket{0}
+\end{equation*}
+
+For the multimode state, we can start by
+\begin{equation*}
+  \ket{\left\{ n_{\mathbf{k }s} \right\} } = \bigotimes_{\mathbf{k }s}\ket{n_{\mathbf{k }s}}=\bigotimes_{\mathbf{k }s}\frac{1 }{\sqrt{{n_{\mathbf{k }s}}! }}(\hat{a}^\dagger_{\mathbf{k }s}   )^{n_{\mathbf{k }s}} \ket{0}
+\end{equation*}
+Using
+\begin{equation*}
+  \bigotimes_i c_i \ket{n_i}= \left( \prod_i c_i  \right) \bigotimes_i \ket{n_i}
+\end{equation*}
+yields
+\begin{equation*}
+  \ket{\left\{ n_{\mathbf{k }s}  \right\} }
+  =\prod_{\mathbf{k },s} \frac{1 }{\sqrt{n_{\mathbf{k }s}!}}\left( \hat{a }^\dagger_{\mathbf{k }s} \right) ^{n_{\mathbf{k }s}} \bigotimes_{\mathbf{k }s}\ket{0}
+  =\prod_{\mathbf{k },s} \frac{1 }{\sqrt{n_{\mathbf{k }s}!}}\left( \hat{a }^\dagger_{\mathbf{k }s} \right) ^{n_{\mathbf{k }s}} \ket{0}
+\end{equation*}
+
+\subsubsection{(In)Coherent state.}
+By using the number operator, one obtain
+\begin{equation*}
+  \hat{N}_{\mathbf{k }s} | \cdots n_{\mathbf{k }s} \cdots \rangle = n_{\mathbf{k }s}  | \cdots n_{\mathbf{k }s}  \cdots \rangle
+\end{equation*}
+Viewed in this light, the Fock state is the eigenstate of number operator and has a definite photon number, read: eigenvalue.
+
+Despite this, the Fock state has no coherent phase and thus unable to properly interference.
+This result can be seen by considering the expectation value of electromagnetic field.
+Notice that
+\begin{equation*}
+  \hat{\mathbf{E}} \propto \sum_{\mathbf{k},s} \left( \hat{a}_{\mathbf{k }s} -\hat{a}^\dagger_{\mathbf{k }s}  \right) \quad
+  \hat{\mathbf{B}} \propto \sum_{\mathbf{k},s} \left( \hat{a}_{\mathbf{k }s} -\hat{a}^\dagger_{\mathbf{k }s}  \right)
+\end{equation*}
+However, the operators change the occupation number of that mode and produce a state orthogonal to the original one
+\begin{align*}
+  \braket{\left\{ n_{\mathbf{k }s} \right\}   | \hat{a}_{\mathbf{k }s} |\left\{ n_{\mathbf{k }s} \right\} }
+   & =   \sqrt{n_{\mathbf{k }s}} \braket{\left\{ n_{\mathbf{k }s} \right\}  | \left\{ n_{\mathbf{k }s} \right\} -1_{\mathbf{k }s}} =0     \\
+  \braket{\left\{ n_{\mathbf{k }s} \right\}  | \hat{a}^\dagger_{\mathbf{k }s}  |\left\{ n_{\mathbf{k }s} \right\} }
+   & =   \sqrt{n_{\mathbf{k }s}+1} \braket{\left\{ n_{\mathbf{k }s} \right\}  | \left\{ n_{\mathbf{k }s} \right\} + 1_{\mathbf{k }s}} = 0
+\end{align*}
+Thus
+\begin{equation*}
+  \braket{\left\{ n_{\mathbf{k }s} \right\}  | \hat{\mathbf{E }}|\left\{ n_{\mathbf{k }s} \right\} }=0\qquad
+  \braket{\left\{ n_{\mathbf{k }s} \right\}  | \hat{\mathbf{B }}|\left\{ n_{\mathbf{k }s} \right\} }=0
+\end{equation*}
+The vanishing result does not mean the field is absent, it means that the average electromagnetic field amplitude is zero and field fluctuates symmetrically about zero.
+The vanishing result thus can be seen as a consequence of undefined phase of Fock space.
+
+The square of the field is different case, however.
+With the fields written as
+\begin{align*}
+  \hat{\mathbf{E}}^2 & \propto \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \left( -\hat{a}_{\mathbf{k }s}\hat{a}_{\mathbf{k }'s'} +\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} +\hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'}  -\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'}  \right) \\
+  \hat{\mathbf{B}}^2 & \propto \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \left( -\hat{a}_{\mathbf{k }s}\hat{a}_{\mathbf{k }'s'} +\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} +\hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'}  -\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'}  \right)
+\end{align*}
+where we have inserted the factor $i$.
+Along with
+\begin{gather*}
+  \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \braket{\hat{a}_{\mathbf{k }s}   \hat{a}_{\mathbf{k }'s'} }=0                        \\
+  \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \braket{\hat{a}_{\mathbf{k }s}   \hat{a}^\dagger_{\mathbf{k }'s'} }=\sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \delta_{\mathbf{k}\mathbf{k'}}\delta_{ss'}(n_{\mathbf{k }s}+1)= \sum_{\mathbf{k},s}(n_{\mathbf{k }s}+1) \\
+  \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \braket{\hat{a}^\dagger_{\mathbf{k }s}=   \hat{a}_{\mathbf{k }'s'} } \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \delta_{\mathbf{k}\mathbf{k'}}\delta_{ss'}n_{\mathbf{k }s}=\sum_{\mathbf{k},s} n_{\mathbf{k }s} \\
+  \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \braket{\hat{a}^\dagger_{\mathbf{k }s}   \hat{a}^\dagger_{\mathbf{k }'s'} }=0
+\end{gather*}
+the expectation value now can be evaluated as
+\begin{equation*}
+  \braket{\left\{ n_{\mathbf{k }s} \right\}  | \hat{\mathbf{E }}^2|\left\{ n_{\mathbf{k }s} \right\} }\propto \sum_{\mathbf{k},s}(2 n_{\mathbf{k }s}+1)
+  \qquad
+  \braket{\left\{ n_{\mathbf{k }s} \right\}  | \hat{\mathbf{B }}^2|\left\{ n_{\mathbf{k }s} \right\} }\propto \sum_{\mathbf{k},s} (2 n_{\mathbf{k }s}+1)
+\end{equation*}
+or with all terms inserted
+\begin{align*}
+  \braket{\left\{ n_{\mathbf{k }s} \right\}  | \hat{\mathbf{E }}^2|\left\{ n_{\mathbf{k }s} \right\} } & =  \sum_{\mathbf{k},s} \frac{\hbar \omega_k }{\epsilon_0 V}\left( 2n_{\mathbf{k }s}+1\right)
+  \\
+  \braket{\left\{ n_{\mathbf{k }s} \right\}  | \hat{\mathbf{B }}^2|\left\{ n_{\mathbf{k }s} \right\} } & =  \sum_{\mathbf{k},s} \frac{\hbar \omega_k \mu_0}{V}\left( 2n_{\mathbf{k }s}+1 \right)
+\end{align*}
+\begin{equation*}
+\end{equation*}
+We can insert this into classical Hamiltonian
+\begin{align*}
+  H & =   \int d^3 \mathbf{r}  \left( \frac{\epsilon_0}{2} \mathbf{E}^2 + \frac{1}{2\mu_0} \mathbf{B}^2 \right)        \\
+    & = \int d^3 \mathbf{r } \sum_{\mathbf{k},s} \left[ \frac{\hbar  \omega_k }{V }\left( n_{\mathbf{k }s}+\frac{1 }{2 } \right)  \right] \\
+  H & = \sum_{\mathbf{k},s} \hbar \omega_k \left( n_{\mathbf{k }s}+\frac{1 }{2} \right)
+\end{align*}
+This result match the quantum Hamiltonian
+\begin{align*}
+  \braket{\left\{ n_{\mathbf{k }s} \right\} |H|\left\{ n_{\mathbf{k }s} \right\} }
+   & =
+  \left\langle \left\{ n_{\mathbf{k }s} \right\} \Bigg| \sum_{\mathbf{k},s} \hbar \omega_k \left( \hat{N }_{\mathbf{k} s }+ \frac{1 }{2} \right)\Bigg|\left\{ n_{\mathbf{k }s} \right\}  \right\rangle \\
+  \braket{H}
+   & =  \sum_{\mathbf{k},s} \hbar \omega_k \left( n_{\mathbf{k }s} +\frac{1 }{2} \right)
+\end{align*}
+\begin{equation*}
+\end{equation*}
+This mean that the field have definite energy despite not having definite phase.
+The fact that the energy is definite despite the field fluctuates is because both energy and phase are conjugate variables in the quantum.
+This field fluctuation reflects uncertainty in phase.
+\end{document}
