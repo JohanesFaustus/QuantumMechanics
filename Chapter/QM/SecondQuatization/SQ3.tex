@@ -1,6 +1,6 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-\subsection{Ladder Operator}
+\subsection{Creation and Annihilation Operator}
 The operators $\hat{a}_{\mathbf{k }s}$ and $\hat{a}^\dagger_{\mathbf{k }s}$ are called annihilation and creation operators because they respectively destroy and create one photon with wavevector $\mathbf{k}$ and polarization $s$, namely
 \begin{align*}
   \hat{a}_{\mathbf{k }s} | \cdots n_{\mathbf{k }s} \cdots \rangle         & = \sqrt{n_{\mathbf{k }s}} |  \cdots n_{\mathbf{k }s} - 1 \cdots \rangle    \\
@@ -14,6 +14,10 @@ Consequently, for the vacuum state $|0\rangle$ one define
 where $0_F$ is the zero of the Fock space (usually indicated with $0$), and $| k s \rangle$ is clearly the state of one photon with wavevector $k$ and polarization $s$, such that
 \begin{equation*}
   \langle \mathbf{r} | \mathbf{k} s \rangle = \frac{e^{i \mathbf{k} \cdot \mathbf{r}}}{\sqrt{V} \epsilon_{\mathbf{k }s}}
+\end{equation*}
+Any higher Foch state then can be written as 
+\begin{equation*}
+  \ket{n_{\mathbf{k }s}}=\frac{1}{\sqrt{n!}}\left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^{n }\ket{}
 \end{equation*}
 
 It follows immediately that the number operator
@@ -31,6 +35,75 @@ The follow-up is as follows
   \hat{N }_{\mathbf{k }s}| \cdots n_{\mathbf{k}s} \cdots \rangle
    & =  n_{\mathbf{k}s} | \cdots n_{\mathbf{k}s} \cdots \rangle
 \end{align*}
+
+We can also prove the relation
+\begin{equation*}
+  \sqrt{n! }  \ket{0 }= \left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^n \ket{0}
+\end{equation*}
+using induction. 
+For the base case, we use $n=0$, which according to the hypothesis
+\begin{equation*}
+  \left( \hat{a}^\dagger_{\mathbf{k }s}  \right) ^0 \ket{0 }=0! \ket{0}
+\end{equation*}
+is true.
+Then for the $n+1$
+\begin{equation*}
+  \left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^{n+1 }\ket{0 }=\hat{a}^\dagger_{\mathbf{k }s}  \left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^n \ket{0 }
+\end{equation*}
+On using the hypothesis
+\begin{equation*}
+  \hat{a}^\dagger_{\mathbf{k }s} \sqrt{n_{\mathbf{k }s}! } \ket{n_{\mathbf{k }s} }\sqrt{n_{\mathbf{k }s}! }\sqrt{n_{\mathbf{k }s}+1}\ket{n_{\mathbf{k }s}+1}= \sqrt{(n_{\mathbf{k }s}+1)!} \ket{n_{\mathbf{k }s}+1}
+\end{equation*}
+we find that it holds true.
+
+\subsubsection{Derivation: the creation and annihilation operator}
+With $\hat{N}= \hat{a}^\dagger_{\mathbf{k }s}  \hat{a}_{\mathbf{k }s} $ as the number operator, we want to observe what is the action of $\hat{a}_{\mathbf{k }s} $ and $\hat{a}^\dagger_{\mathbf{k }s} $ to the eigenstate of $\hat{N}$.
+That is we consider the state $\hat{a}_{\mathbf{k }s}  \ket{n_{\mathbf{k }s}}$ using said operator
+\begin{align*}
+    \hat{N} \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) &=  \hat{a}_{\mathbf{k }s} (\hat{N }-1  ) \ket{n_{\mathbf{k }s}}  \\
+    \hat{N} \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) &=  (n_{\mathbf{k }s}-1  ) \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) 
+\end{align*}
+As such, the operator $\hat{a}_{\mathbf{k }s}  $ is an operator that reduce $n_{\mathbf{k }s}$ by one.
+Next for the creation operator
+\begin{align*}
+    \hat{N} \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) &=  \hat{a}^\dagger_{\mathbf{k }s} (\hat{N }+1  ) \ket{n_{\mathbf{k }s}}  \\
+    \hat{N} \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) &=  (n_{\mathbf{k }s}-+  ) \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) 
+\end{align*}
+We use the commutator relation $[AB,C]=A[B,C]-[C,A]$ to obtain the relation
+\begin{align*}
+  [N,\hat{a}_{\mathbf{k }s} ]&= \hat{a}^\dagger_{\mathbf{k }s} [\hat{a}_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s} ]+[\hat{a}^\dagger_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s} ]\hat{a}_{\mathbf{k }s} \\
+  \hat{N }\hat{a}_{\mathbf{k }s} -\hat{a}_{\mathbf{k }s} \hat{N}&= \hat{a}_{\mathbf{k }s} \\
+  \hat{N }\hat{a}_{\mathbf{k }s} &=  \hat{a}_{\mathbf{k }s} (\hat{N }-1)
+\end{align*}
+and 
+\begin{align*}
+  [N,\hat{a}_{\mathbf{k }s}^\dagger ]=\hat{a}_{\mathbf{k }s} [\hat{a}_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s}^\dagger ]+[\hat{a}^\dagger_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s}^\dagger ]\hat{a}_{\mathbf{k }s} \\
+  \hat{N }\hat{a}_{\mathbf{k }s}^\dagger -\hat{a}_{\mathbf{k }s}^\dagger \hat{N}&= \hat{a}^\dagger_{\mathbf{k }s} \\
+  \hat{N }\hat{a}_{\mathbf{k }s}^\dagger = \hat{a}_{\mathbf{k }s}^\dagger (\hat{N }+1)
+\end{align*}
+
+Next is to find the coefﬁcients
+\begin{equation*}
+  \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} = c \ket{n_{\mathbf{k }s}-1}, \qquad
+  \hat{a}_{\mathbf{k }s}^\dagger \ket{n_{\mathbf{k }s}} = d \ket{n_{\mathbf{k }s}+1}
+\end{equation*}
+For the annihilation coefﬁcients
+\begin{equation*}
+  \braket{n_{\mathbf{k }s} | \hat{N }|n_{\mathbf{k }s}} =
+   \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) ^\dagger \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}}=|c|^2= n_{\mathbf{k }s}
+\end{equation*}
+As for creation coefﬁcients
+\begin{equation*}
+  \braket{n_{\mathbf{k }s} |\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }s} -1 \ket{n_{\mathbf{k }s}}} = \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) ^\dagger \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}}-1=|d|^2-1=n_{\mathbf{k }s}
+\end{equation*}
+
+\subsubsection{Derivation: number operator.}
+To prove that the eigenvalue of $\hat{N }$ is $n_{\mathbf{k }s}\geq0$ we simply need to consider the norm of $\hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }}s}$
+\begin{equation*}
+  ||\hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}}||=\left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) ^\dagger \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}}=\braket{n_{\mathbf{k }s} |\hat{N}|n_{\mathbf{k }s} }
+\end{equation*}
+as something that non-negative.
+
 
 \subsection{Coherent State}
 The coherent state $|\alpha\rangle$, introduced in 1963 by Roy Glauber, is the eigenstate of the annihilation operator $\hat{a}$

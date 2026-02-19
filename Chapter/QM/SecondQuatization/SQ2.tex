@@ -1,28 +1,5 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-\subsection{Identical Particle}
-Indistinguishability implies that the Hamiltonian cannot change if the degrees of freedom of two arbitrary particles $i$ and $j$ are exchanged
-\begin{equation*}
-  \mathbb{H } = \mathbb{H} (\dots,i\dots,j,\dots) = \mathbb{H} (\dots,j\dots,i,\dots)
-\end{equation*}
-This can be seen by acting with the operator exchanging two arbitrary particles, $i$ and $j$, on a state of $N$ identical particles
-\begin{equation*}
-  \mathcal{T }_{ij} \ket{\dots, \phi_i,\dots,\phi_j,\dots} = \ket{\dots, \phi_j,\dots,\phi_i,\dots} 
-\end{equation*}
-which produces a state that may not be physically different from the original state, so that there can only be a phase factor $\nu_{ij }=e ^{i\alpha_{ij}}$
-\begin{equation*}
-  \mathcal{T }_{ij} \ket{\dots, \phi_i,\dots,\phi_j,\dots} = \nu_{ij }\ket{\dots, \phi_i,\dots,\phi_j,\dots} 
-\end{equation*}
-Moreover, because of $\mathcal{T}_{ij }=\mathcal{T}_{ji}$ we have
-\begin{equation*}
-  \mathcal{T}_{ij }^{2 }=1\qquad\nu_{ij }=\pm1
-\end{equation*}
-These results imply that there are only two types of quantum particles
-\begin{enumerate}
-  \item $\nu=+1$ particles whose states are symmetrical under particle exchange,
-  \item $\nu=-1$ particles whose states are antisymmetrical under particle exchange.
-\end{enumerate}
-
 \subsection{Vector Potential}
 The Coulomb gauge definition of vector potential $\nabla \cdot  \mathbf{A}=0$ constraint the vector to only the transversal (perpendicular) to the wave vector $\mathbf{k}$.
 This can be seen by considering a complex monochromatic plane wave $\mathbf{A}(\mathbf{r},t)=\mathbf{A}_0 e^{i(\mathbf{k}\cdot \mathbf{r }-\omega t)}$.
@@ -103,7 +80,7 @@ Here, the entire mode $\mathbf{k},s$ is in vacuum or no photon exist; mode $\mat
 
 The Fock space \( \mathcal{F} \) is given by
 \begin{equation*}
-  \mathcal{F} = \mathcal{H}_0 \oplus \mathcal{H}_1 \oplus \mathcal{H}_2 \oplus \mathcal{H}_3 \oplus \cdots = \bigoplus_{n=0}^{\infty} \mathcal{H}_n = \bigoplus_{n=0}^{\infty} \mathcal{H}^{\otimes n}
+  \mathcal{F} = \mathcal{H}_0 \oplus \mathcal{H}_1 \oplus \mathcal{H}_2 \oplus \mathcal{H}_3 \oplus \cdots = \bigoplus_{n=0}^{\infty} \mathcal{H}_n = \mathcal{F} = \bigoplus_{n=0}^{\infty} \mathcal{H}^{\otimes n}
 \end{equation*}
 where $  \mathcal{H}_n = \mathcal{H} \otimes \mathcal{H} \otimes \cdots \otimes \mathcal{H} = \mathcal{H}^{\otimes n}$ is the Hilbert space of $n$ identical photons, which is $n$ times the tensor product of the single-photon Hilbert space $\mathcal{H}$
 Notice that in the definition of the Fock space $\mathcal{F}$ one must include the space $\mathcal{H}_0 = \mathcal{H}^{\otimes 0}$, which is the Hilbert space of 0 photons, containing only the vacuum state
