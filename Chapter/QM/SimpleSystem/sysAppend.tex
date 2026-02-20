@@ -1,0 +1,136 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Appendix: Ground State of Harmonic Potential}
+Suppose we are to find the ground state of harmonic potential.
+We could use the Schrödinger equation to solve the case, which after tedius derivation we have the general wavefunction
+\begin{equation*}
+  \psi_{n}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4} \frac{1}{\sqrt{2^{n} n!}} H_{n}\left(\sqrt{\frac{m\omega}{\hbar}} x\right) \exp \left( -\frac{m\omega }{2\hbar}x^{2} \right)
+\end{equation*}
+For the ground state the wavefunction is
+\begin{equation*}
+  \psi_{0}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4}
+  \exp \left( -\frac{m\omega }{2\hbar}x^{2} \right)
+\end{equation*}
+Alternatively, we can use the annihilation operator
+\begin{equation*}
+  \hat{a}\ket{0 }=0
+\end{equation*}
+Then using the position representation of the operator
+\begin{equation*}
+  \bra{x}\hat{a} = \sqrt{\frac{m \omega}{2 \hbar}} \left( x +  \frac{\hbar }{m \omega} \frac{d }{dx} \right) \bra{x}
+\end{equation*}
+we write the equation as
+\begin{equation*}
+  \sqrt{\frac{m \omega}{2 \hbar}} \left(x +  \frac{1}{m \omega} \frac{d }{dx} \right) \psi_0(x)=0
+\end{equation*}
+This is just simple differential equation
+\begin{align*}
+  \frac{d\psi_0}{dx}     & =  -\frac{m \omega}{\hbar } \psi_0(x)                \\
+  \frac{d\psi_0}{\psi_0} & =  -\frac{m \omega}{\hbar }  x dx                    \\
+  \ln \psi_0(x)          & =  -\frac{m \omega}{2 \hbar } x^2 + C                \\
+  \psi_0(x)              & =  A \exp\left(-\frac{m \omega}{2 \hbar } x^2\right)
+\end{align*}
+All that left is normalization
+\begin{equation*}
+  |\psi_0(x)|^2=A^2\int e^{-\alpha x^2}\;dx = A^2 \sqrt{2\pi \int_{0 }^{\infty} dr\; r e ^{\alpha r^2}}
+\end{equation*}
+with $\alpha=m\omega/2 \hbar $
+Substitute $u = \alpha r^2 $ and $r dr = du/2\alpha $
+\begin{equation*}
+  |\psi_0(x)|^2=A^2\int e^{-\alpha x^2}\;dx = A^2 \sqrt{2\pi     \int_{0}^{\infty} \frac{du}{2\alpha} e^{-u}}=A^2 \sqrt{\frac{\pi }{\alpha}}
+\end{equation*}
+We get $A=(m\omega/\pi \hbar ) ^{1/4}$ and the wavefunction
+\begin{equation*}
+  \psi_{0}(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4}
+  \exp \left( -\frac{m\omega }{2\hbar}x^{2} \right)
+\end{equation*}
+is exactly the same.
+
+In addition, we can calculate the excitation state using the creation operator
+\begin{equation*}
+  \bra{x}\hat{a}^\dagger = \sqrt{\frac{m \omega}{2 \hbar}} \left( x - \frac{\hbar }{m \omega} \frac{d }{dx} \right) \bra{x}
+\end{equation*}
+Applying this into  the ground state
+\begin{equation*}
+  \langle x | \hat{a}^\dagger | 0 \rangle =
+  \sqrt{\frac{m \omega}{2 \hbar}} \left( x - \frac{\hbar}{m \omega} \frac{d}{dx} \right) \psi_0(x)
+  =\psi_1 (x)
+\end{equation*}
+With
+\begin{equation*}
+  \frac{d}{dx} \psi_0(x) = \frac{d}{dx} \left( A e^{-\frac{m \omega}{2 \hbar} x^2} \right) = -\frac{m \omega}{\hbar} x \psi_0(x)
+\end{equation*}
+the first excitation state reads
+\begin{equation*}
+    \psi_1 (x)
+  = \sqrt{\frac{ \omega}{2 \hbar}} \left( x +x \right) \psi_0(x)
+  =\left( \frac{m \omega}{\pi \hbar} \right)^{1/4} \sqrt{\frac{2m \omega}{\hbar}} x e^{-\frac{m \omega}{2 \hbar} x^2}
+\end{equation*}
+This also match the Schrödinger case with Hermite polynomial $H_1(x)=2x$.
+
+\subsection{Appendix: Tedious Algebra to Prove the Number Operator}
+With the action of annihilation and creation operator as 
+\begin{align*}
+  \hat{a} &=  \sqrt{\frac{m \omega}{2 \hbar}} \left( \hat{x} +  \frac{i }{m\omega}\hat{p} \right) \\
+  \hat{a}^\dagger &=  \sqrt{\frac{m \omega}{2 \hbar}} \left( \hat{x} - \frac{i }{m\omega}\hat{p} \right) 
+\end{align*}
+The number operator $\hat{N}=\hat{a}^\dagger \hat{a}$ can be written as 
+\begin{align*}
+\hat{N} &=  \frac{m\omega}{2\hbar} \left( \hat{x} - \frac{i}{m\omega} \hat{p} \right) \left( \hat{x} + \frac{i}{m\omega} \hat{p} \right)\\
+\hat{N} &=  \frac{m\omega}{2\hbar} \left( \hat{x}^2 + \frac{i}{m\omega} \hat{x} \hat{p} - \frac{i}{m\omega} \hat{p} \hat{x} + \frac{1}{m^2\omega^2} \hat{p}^2 \right)\\
+\hat{N} &=  \frac{m \omega}{2 \hbar} \left( \hat{x}^2 + \frac{1}{m^2 \omega^2} \hat{p}^2 - \frac{\hbar}{m \omega} \right)\\
+\hat{N} &=  \frac{1}{ \hbar \omega} \left( \frac{\hat{p}^2}{2m} +\frac{ m \omega^2 }{2} \hat{x}^2 \right) - \frac{1}{2}
+\end{align*}
+which match 
+\begin{equation*}
+  \hat{N} = \frac{\hat{H}}{\hbar \omega} - \frac{1}{2}
+\end{equation*}
+with the harmonic oscillator Hamiltonian being 
+\begin{equation*}
+  \hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2} m \omega^2 \hat{x}^2 = \hbar \omega \left( \hat{a}^\dagger \hat{a} + \frac{1 }{2} \right) 
+\end{equation*}
+
+With the first excitation state as 
+\begin{equation*}
+  \psi_1 (x)
+  =\alpha x e^{-\beta x^2}
+\end{equation*}
+where
+\begin{equation*}
+  \alpha = \left( \frac{m \omega}{\pi \hbar} \right)^{1/4} \sqrt{\frac{2m \omega}{\hbar}} ,\qquad
+  \beta = \frac{m \omega}{2 \hbar}
+\end{equation*}
+we are to prove 
+\begin{equation*}
+  \braket{x | \hat{N }|\psi_1} = \braket{x  | \psi_1}
+\end{equation*}
+The number equation representation in position basis is 
+\begin{equation*}
+  \hat{N} =  \frac{1}{ \hbar \omega} \left( -\frac{\hbar ^2}{2m}\frac{d^2 }{dx^2} +\frac{ m \omega^2 }{2} x^2 \right) - \frac{1}{2}
+\end{equation*}
+Evaluate first derivative
+\begin{equation*}
+  \frac{d\psi_1}{dx} = \alpha e^{-\beta x^2} - 2\alpha \beta x^2 e^{-\beta x^2} = (1 - 2\beta x^2)\alpha e^{-\beta x^2} 
+\end{equation*}
+Evaluate the second 
+\begin{align*}
+    \frac{d^2\psi_1}{dx^2} 
+    &=  \left[ -4\beta x - (1 - 2\beta x^{2})2\beta x  \right] \alpha e^{-\beta x^{2}} \\
+    \frac{d^2\psi_1}{dx^2} 
+&=  (4\beta^2 x^2 - 6\beta ) \psi_1 (x)
+\end{align*}
+Apply kinetic term
+\begin{align*}
+-\frac{\hbar^2}{2m} \frac{d^2\psi_1}{dx^2} 
+&=  \frac{\hbar^2}{2m}  (6\beta - 4\beta^2 x^2) \psi_1 (x)\\
+-\frac{\hbar^2}{2m} \frac{d^2\psi_1}{dx^2} 
+&=   \left( \frac{3}{2} \hbar \omega  - \frac{1}{2} m \omega^2 x^2 \right) \psi_1 (x)
+\end{align*}
+Substituting
+\begin{align*}
+  \hat{N} \psi_1 (x) 
+  &= \left[   \frac{1}{ \hbar \omega} \left( -\frac{\hbar ^2}{2m}\frac{d^2 }{dx^2} +\frac{ m \omega^2 }{2} x^2 \right) - \frac{1}{2} \right] \psi_1 (x)\\
+  &= \left[   \frac{1}{ \hbar \omega} \left( \frac{3}{2} \hbar \omega  - \frac{1}{2} m \omega^2 x^2 +\frac{ m \omega^2 }{2} x^2 \right) - \frac{1}{2} \right] \psi_1 (x)\\
+  \hat{N} \psi_1 (x) &= \psi_1 (x)  \qquad\blacksquare
+\end{align*}
+\end{document}
