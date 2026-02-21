@@ -262,105 +262,6 @@ While in the $P$ basis it takes the form of first order differential equation
     \left( \frac{p^2 }{2m }-i \hbar f \frac{d }{dp }     \right)\psi_E (p)=E\psi_E(p)
 \end{equation*}
 
-\subsection{Pure State and Mixed State}
-A system is in a pure state if it is completely described by a single normalized state vector $ \ket{\psi}$ in its Hilbert space.
-This means that, in principle, all expectation values of observable can be computed from that single vector.
-A system is in a mixed state when it cannot be described by a single state vector, but only by a probability distribution over several possible pure states.
-One way of representing a general mixed state on $n$ qubits is as the ensemble
-\begin{equation*}
-    \left\{ \left( \ket{\psi_1}, p_1 \right), \left( \ket{\psi_2}, p_2 \right), \ldots, \left( \ket{\psi_k}, p_k \right) \right\}
-\end{equation*}
-which means that the system is in the pure $n$-qubit state \(\ket{\psi_i}\) with probability \(p_i\), for \(i = 1, 2, \ldots, k\).
-
-Another method is using density operator for an ensemble of pure states
-\begin{equation*}
-    \rho = \sum_{i=1}^{k} p_i \ket{\psi_i} \langle \psi_i|
-\end{equation*}
-This captures all the relevant information about the state of the system.
-We can determine the outcome of measuring state $\ket{\phi}$ using density operator
-\begin{equation*}
-    P(\phi)= \braket{\phi  | \rho|\phi}= \mathrm{Tr } \left( \ket{\phi }\bra{\phi }\rho \right) 
-\end{equation*}
-
-\subsubsection{Partial trace.}
-Consider a pure state $|\psi\rangle_{AB} \in \mathcal{H}_A \otimes \mathcal{H}_B$ of two qubits.
-It may not be possible to factor out the state vector $|\psi\rangle_A \in \mathcal{H}_A$ for the state of the first qubit, however the state of the first qubit can in general be described as a mixed state.
-This means that it can be described by a density operator $\rho^A$ on $\mathcal{H}_A$, sometimes called a reduced density operator.
-The mathematical operation for calculating the reduced density operator is the partial trace.
-
-The reduced density operator $\rho_A$ is defined in terms of the density operator $\rho^{AB}$ for the full 2-qubit system by
-\begin{equation*}
-    \rho^A \equiv \mathrm{Tr}_B \left( \rho^{AB} \right)
-\end{equation*}
-where $\mathrm{Tr}_B$ is the partial trace over system $B$, defined as the linear extension of the operator deﬁned on basis states by
-\begin{equation*}
-    \mathrm{Tr}_B \left(\ket{a_1}\bra{a_2}\otimes \ket{b_1} \bra{b_2}  \right) = \ket{a_1}\bra{a_2} \mathrm{Tr}\left( \ket{b_1}\bra{b_2} \right) = \ket{a_1}\bra{a_2} \braket{b_2|b_1}
-\end{equation*}
-since $\mathrm{Tr}\left( \ket{b_1} \bra{b_2} \right) =\braket{b_2|b_1} $.
-Generally,
-\begin{equation*}
-    \mathrm{Tr}_B \left(A \otimes B  \right) = A \mathrm{Tr }(B)
-\end{equation*}
-
-For general case $n$-qubit composite system with Hilbert space
-\begin{equation*}
-    \mathcal{H} = \bigotimes_{i=1}^{n} \mathcal{H}_{i}
-\end{equation*}
-the reduced density operator on $A$ is defined by the partial trace over the complementary subsystem, ${A}'$ of $A \subset \{1, \ldots, n\}$
-\begin{equation*}
-    \rho^{A} \equiv \mathrm{Tr}_{{A}'}(\rho)
-\end{equation*}
-where $\rho$ denote the density operator acting on $\mathcal{H}$.
-
-\subsubsection{Derivation.}
-Suppose we measure in the probability of obtaining the outcome $\ket{\phi}$,
-\begin{align*}
-    P(\phi)
-     & =  \sum_{i=1}^{k} p_i | \braket{\phi  | \psi_i}|^2
-    =  \sum_{i=1}^{k} p_i \braket{\phi|\psi_i}\braket{\psi_i|\phi}                             \\
-     & = \bra{\phi} \left( \sum_{i=1}^{k} p_i \ket{\psi_i} \langle \psi_i | \right) \ket{\phi} \\
-    P(\phi)
-     & =  \bra{\phi}\rho \ket{\phi}
-\end{align*}
-
-We can also write the probability of the measurement giving result $\phi$ as
-\begin{equation*}
-    P(\phi)
-    =   \sum_{i=1}^{k} p_i \mathrm{Tr} ( \ket{\phi} \langle \phi| \psi_{i} \rangle \langle \psi_{i}| )
-\end{equation*}
-where we have used $\mathrm{Tr} (\ket{a }\bra{b})=\braket{b  | a} $.
-Not very enlightening, but we can write is as
-\begin{align*}
-    P(\phi)
-     & = \sum_{i} p_{i} \mathrm{Tr} ( \ket{\phi} \langle \phi| \psi_{i} \rangle \langle \psi_{i}| )                \\
-     & = \mathrm{Tr} \left( |\phi\rangle \langle \phi| \sum_{i} p_{i} | \psi_{i} \rangle \langle \psi_{i}| \right) \\
-     & = \mathrm{Tr} ( |\phi\rangle \langle \phi| \rho )
-\end{align*}
-where we have used the cyclicity of trace $\mathrm{Tr}(ABC) = \mathrm{Tr}(BCA) = \mathrm{Tr}(CAB)$.
-
-We move to proving few identities. 
-First, writing scalar as trace
-\begin{equation*}
-    \mathrm{Tr}(|a\rangle\langle b|) = \sum_{n} \braket{n  | a }\braket{b  | n}= \langle b | \left( \sum_{n} | n \rangle \langle n | \right) | a \rangle = \langle b | a \rangle 
-\end{equation*}
-Then, the cyclicity of trace
-\begin{equation*}
-\mathrm{Tr}(ABC) = \sum_{n,m,k} \langle n|A|m\rangle \langle m|B|k\rangle \langle k|C|n\rangle.    
-\end{equation*}
-Now relabel dummy indices cyclically
-\begin{equation*}
-    n \rightarrow m, \quad m \rightarrow k, \quad k \rightarrow n.
-\end{equation*}
-Since all indices are summed independently over the same set, this relabelling does not change the value. 
-The expression becomes
-\begin{equation*}
-    \sum_{n,m,k} \langle n|B|m\rangle \langle m|C|k\rangle \langle k|A|n\rangle \mathrm{Tr}(BCA)
-\end{equation*}
-Repeating the same argument yields that trace is invariant under cyclic permutations
-\begin{equation*}
-\mathrm{Tr}(ABC) = \mathrm{Tr}(BCA) = \mathrm{Tr}(CAB).    
-\end{equation*}
-
 \subsection{Measurement}
 Given state $(x,p)$, we can say that dynamical value has the value $\omega(x,p)$ in classical mechanics.
 In quantum mechanics, when a particle is in a state $\ket{\psi } $ the particle can have the value of $\omega$ for the quantum operator $\Omega$ with probability $P(\omega)\propto|\braket{\omega|\psi}  |^2$.
@@ -492,6 +393,157 @@ As it the case with the expectation value, the uncertainty for continuous variab
 \begin{equation*}
     \Delta\Omega=\left( \int P(\omega)\left( \omega-\braket{\Omega}^2 \right)^2  \;d \omega\right) ^{1/2}
 \end{equation*}
+
+\subsection{Density Operator}
+A system is in a pure state if it is completely described by a single normalized state vector $ \ket{\psi}$ in its Hilbert space.
+This means that, in principle, all expectation values of observable can be computed from that single vector.
+A system is in a mixed state when it cannot be described by a single state vector, but only by a probability distribution over several possible pure states.
+One way of representing a general mixed state on $n$ qubits is as the ensemble
+\begin{equation*}
+    \left\{ \left( \ket{\psi_1}, p_1 \right), \left( \ket{\psi_2}, p_2 \right), \ldots, \left( \ket{\psi_k}, p_k \right) \right\}
+\end{equation*}
+which means that the system is in the pure $n$-qubit state \(\ket{\psi_i}\) with probability \(p_i\), for \(i = 1, 2, \ldots, k\).
+
+Another method is using density operator for an ensemble of pure states
+\begin{equation*}
+    \rho = \sum_{i=1}^{k} p_i \ket{\psi_i} \langle \psi_i|
+\end{equation*}
+This appears diagonal in $\left\{ \ket{\psi_i} \right\} $ representation, for different basis, say $\left\{ \ket{i } \right\} $, off-diagonal term may appears
+\begin{equation*}
+    \rho =\sum_{i,j } \rho_{ij} \ket{i }\bra{j}
+\end{equation*}
+with $\rho_{ij}=\braket{i  | \rho|j}$.
+Here the diagonal $\rho_{ii}$ give the probabilities the of finding the system in $\ket{i}$ if measured in that basis, while the off-diagonal $\rho_{ij}$ encodes the coherence of state $\ket{i }$ with $\ket{j}$.
+
+This captures all the relevant information about the state of the system.
+We can determine the outcome of measuring state $\ket{\phi}$ using density operator
+\begin{equation*}
+    P(\phi)= \braket{\phi  | \rho|\phi}= \mathrm{Tr } \left( \ket{\phi }\bra{\phi }\rho \right) 
+\end{equation*}
+
+\subsubsection{Partial trace.}
+Consider a pure state $|\psi\rangle_{AB} \in \mathcal{H}_A \otimes \mathcal{H}_B$ of two qubits.
+It may not be possible to factor out the state vector $|\psi\rangle_A \in \mathcal{H}_A$ for the state of the first qubit, however the state of the first qubit can in general be described as a mixed state.
+This means that it can be described by a density operator $\rho^A$ on $\mathcal{H}_A$, sometimes called a reduced density operator.
+The mathematical operation for calculating the reduced density operator is the partial trace.
+
+The reduced density operator $\rho_A$ is defined in terms of the density operator $\rho^{AB}$ for the full 2-qubit system by
+\begin{equation*}
+    \rho^A \equiv \mathrm{Tr}_B \left( \rho^{AB} \right)
+\end{equation*}
+where $\mathrm{Tr}_B$ is the partial trace over system $B$, defined as the linear extension of the operator deﬁned on basis states by
+\begin{equation*}
+    \mathrm{Tr}_B \left(\ket{a_1}\bra{a_2}\otimes \ket{b_1} \bra{b_2}  \right) = \ket{a_1}\bra{a_2} \mathrm{Tr}\left( \ket{b_1}\bra{b_2} \right) = \ket{a_1}\bra{a_2} \braket{b_2|b_1}
+\end{equation*}
+since $\mathrm{Tr}\left( \ket{b_1} \bra{b_2} \right) =\braket{b_2|b_1} $.
+Generally,
+\begin{equation*}
+    \mathrm{Tr}_B \left(A \otimes B  \right) = A \mathrm{Tr }(B)
+\end{equation*}
+
+For general case $n$-qubit composite system with Hilbert space
+\begin{equation*}
+    \mathcal{H} = \bigotimes_{i=1}^{n} \mathcal{H}_{i}
+\end{equation*}
+the reduced density operator on $A$ is defined by the partial trace over the complementary subsystem, ${A}'$ of $A \subset \{1, \ldots, n\}$
+\begin{equation*}
+    \rho^{A} \equiv \mathrm{Tr}_{{A}'}(\rho)
+\end{equation*}
+where $\rho$ denote the density operator acting on $\mathcal{H}$.
+
+\subsubsection{Derivation.}
+Suppose we measure in the probability of obtaining the outcome $\ket{\phi}$,
+\begin{align*}
+    P(\phi)
+     & =  \sum_{i=1}^{k} p_i | \braket{\phi  | \psi_i}|^2
+    =  \sum_{i=1}^{k} p_i \braket{\phi|\psi_i}\braket{\psi_i|\phi}                             \\
+     & = \bra{\phi} \left( \sum_{i=1}^{k} p_i \ket{\psi_i} \langle \psi_i | \right) \ket{\phi} \\
+    P(\phi)
+     & =  \bra{\phi}\rho \ket{\phi}
+\end{align*}
+
+We can also write the probability of the measurement giving result $\phi$ as
+\begin{equation*}
+    P(\phi)
+    =   \sum_{i=1}^{k} p_i \mathrm{Tr} ( \ket{\phi} \langle \phi| \psi_{i} \rangle \langle \psi_{i}| )
+\end{equation*}
+where we have used $\mathrm{Tr} (\ket{a }\bra{b})=\braket{b  | a} $.
+Not very enlightening, but we can write is as
+\begin{align*}
+    P(\phi)
+     & = \sum_{i} p_{i} \mathrm{Tr} ( \ket{\phi} \langle \phi| \psi_{i} \rangle \langle \psi_{i}| )                \\
+     & = \mathrm{Tr} \left( |\phi\rangle \langle \phi| \sum_{i} p_{i} | \psi_{i} \rangle \langle \psi_{i}| \right) \\
+     & = \mathrm{Tr} ( |\phi\rangle \langle \phi| \rho )
+\end{align*}
+where we have used the cyclicity of trace $\mathrm{Tr}(ABC) = \mathrm{Tr}(BCA) = \mathrm{Tr}(CAB)$.
+
+We move to proving few identities. 
+First, writing scalar as trace
+\begin{equation*}
+    \mathrm{Tr}(|a\rangle\langle b|) = \sum_{n} \braket{n  | a }\braket{b  | n}= \langle b | \left( \sum_{n} | n \rangle \langle n | \right) | a \rangle = \langle b | a \rangle 
+\end{equation*}
+Then, the cyclicity of trace
+\begin{equation*}
+\mathrm{Tr}(ABC) = \sum_{n,m,k} \langle n|A|m\rangle \langle m|B|k\rangle \langle k|C|n\rangle.    
+\end{equation*}
+Now relabel dummy indices cyclically
+\begin{equation*}
+    n \rightarrow m, \quad m \rightarrow k, \quad k \rightarrow n.
+\end{equation*}
+Since all indices are summed independently over the same set, this relabelling does not change the value. 
+The expression becomes
+\begin{equation*}
+    \sum_{n,m,k} \langle n|B|m\rangle \langle m|C|k\rangle \langle k|A|n\rangle \mathrm{Tr}(BCA)
+\end{equation*}
+Repeating the same argument yields that trace is invariant under cyclic permutations
+\begin{equation*}
+\mathrm{Tr}(ABC) = \mathrm{Tr}(BCA) = \mathrm{Tr}(CAB).    
+\end{equation*}
+
+\subsection{Coherence}
+Let a system have basis $\left\{ \ket{i } \right\} $, the density operator is written
+\begin{equation*}
+   \rho = \sum_{i,j} \rho_{ij} \ket{i }\bra{j} 
+\end{equation*}
+A system is coherent in that basis if at least one off-diagonal term $\rho_{ij}$ is nonzero.
+Interference phenomena arise from these off-diagonal terms.
+
+Suppose we measure an observable $X$ with eigenstates $|x\rangle$. 
+The probability to observe outcome $x$ is 
+\begin{equation*}
+   P(x) = \mathrm{Tr}(\rho |x\rangle \langle x|) = \langle x | \rho | x \rangle 
+\end{equation*}
+Expanding in the $|i\rangle$ basis
+\begin{equation*}
+P(x) = \sum_{i,j} \rho_{ij} \langle x | i \rangle \langle j | x \rangle = \sum_{i,j} \rho_{ij} \psi_i(x) \psi_j^*(x),    
+\end{equation*}
+where $\psi_i(x) \equiv \langle x | i \rangle$ are the wavefunctions in the measurement basis.
+The sum can be split into diagonal ($i = j$) and off-diagonal ($i \neq j$) terms
+\begin{equation*}
+    P(x) = \sum_{i} \rho_{ii} |\psi_{i}(x)|^{2} + \sum_{i \neq j} \rho_{ij} \psi_{i}(x) \psi_{j}^{*}(x)
+\end{equation*}
+To obtain the more familiar expression, note that the second term can be written as 
+\[
+\sum_{i \neq j} \rho_{ij} \psi_i(x) \psi_j^*(x) = \sum_{i < j} \rho_{ij} \psi_i(x) \psi_j^*(x) + \sum_{j<i} \rho_{ij} \psi_i(x) \psi_j^*(x)
+\]
+The $j<i$ sum can be rewritten by swapping indices \( i \leftrightarrow j \)
+\[
+\sum_{j < i} \rho_{ij} \psi_i(x) \psi_j^*(x) = \sum_{i < j} \rho_{ji} \psi_j(x) \psi_i^*(x) = \sum_{i < j} \rho_{ji} (\psi_i(x) \psi_j^*(x))^*
+\]
+Combining both sums gives:
+\begin{align*}
+\sum_{i \neq j} \rho_{ij} \psi_i(x) \psi_j^*(x) 
+&=  \sum_{i < j} \left( \rho_{ij} \psi_i(x) \psi_j^*(x) + \rho_{ji} \psi_j(x) \psi_i^*(x) \right) \\
+\sum_{i \neq j} \rho_{ij} \psi_i(x) \psi_j^*(x) 
+&=  \sum_{i < j} 2 \text{Re} \left[ \rho_{ij} \psi_i^*(x) \psi_j(x) \right]    
+\end{align*}
+\[
+\]
+Thus, the familiar expression can be obtained as 
+\begin{equation*}
+    P(x) = \sum_{i} \rho_{ii} |\psi_{i}(x)|^{2} +  \sum_{i < j} 2 \text{Re} \left[ \rho_{ij} \psi_i^*(x) \psi_j(x) \right]
+\end{equation*}
+Here the diagonal terms contribute like classical probabilities and cause no interference, while the off-diagonal terms contribute to cross terms and responsible for interference.
 
 \subsection{Compatibility}
 The compatibility measure the degree of incompatibility between two observables; it is defined by the commutator
