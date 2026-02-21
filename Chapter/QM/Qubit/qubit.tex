@@ -10,8 +10,55 @@ Mathematically, the wave nature manifests through the interference term in the p
 with $F_n(x)$ as the complex amplitude for path $n$.
 If an experimental setup allows an observer to identify the specific slit traversed by a particle, the system behaves as a classical particle, the interference term vanishes, and the resulting distribution is merely the arithmetic sum of individual slit probabilities 
 \begin{equation*}
-  P_\text{total}(x) = P_1​(x)+P_2​(x)
+  P_\text{total}(x) = P_1(x)+P_2(x)
 \end{equation*}
+
+\subsubsection{Single photon experiment.}
+Example of complementarity exist in Young's double-slit experiment with extremely weak light such that only one photon is measured at a time
+The experiment is repeated and the results of many particle-like detections are overlaid, an interference pattern gradually emerges. 
+This demonstrates that wave-like characteristics are a statistical property of the collective "event," while individual detections remain particle-like "things".
+
+Historically, the disappearance of interference fringes upon path detection was explained via the disturbance caused by measurement.
+To resolve which slit was traversed, the position measurement error $\Delta q$ must be less than the distance of two slit $a$.
+\begin{equation*}
+  \Delta q \leq a
+\end{equation*}
+According to the uncertainty relation $\Delta q \Delta p \geq \hbar $, this localization necessitates a momentum disturbance 
+\begin{equation*}
+  \Delta p \geq \hbar /a
+\end{equation*}
+Utilizing the de Broglie relation $p=\hbar /\lambda$ and small angle approximation $\tan \phi \approx \phi$, this disturbance induces an angular uncertainty 
+\begin{equation*}
+  \Delta \phi \approx \Delta p/p \geq \lambda/a
+\end{equation*}
+Since the fringe interval is approximately $\lambda/a$, this angular uncertainty due to position measurement is sufficient to blur and erase the interference pattern.
+
+\subsubsection{Single photon experiment: modern interpretation.}
+More recent scholarship, specifically the debate between Storey and the team of Scully and Englert, has shifted the focus from mechanical disturbance to information-theoretic constraints.
+Storey maintained that determining a particle's position must inherently impart a random momentum transfer $\Delta p$ to the particle. 
+In this view, the interference fringes are physically washed out because the momentum kick shifts the phase of the wave functions unpredictably.
+
+However, Scully and Englert devised a thought experiment and contemplated a model in which the momentum of the electron does not change before and after the experiment, concluding that the uncertainty relation is not the essence. 
+The disappearance of fringes is caused by entanglement between the particle and the measuring apparatus. 
+Given the initial state
+\begin{equation*}
+|\Psi_{\text{initial}}\rangle = \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes |D_0\rangle  
+\end{equation*}
+with $\ket{n}$ as the state of particle passing through slin $n$ and \( |D_0\rangle \) as the  initial state of the detector.
+When a measurement occurs the detector state changes based on which path the particle takes. 
+The total system state evolves into:
+\begin{equation*}
+  |\Psi_{\text{final}}\rangle = 
+  \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
+\end{equation*}
+There exists no combination of a single particle state \( |\psi\rangle \) and a single detector state \( |D\rangle \) such that 
+\begin{align*}
+  |\Psi_{\text{final}} \rangle  \neq |\psi\rangle \otimes |D\rangle &= 
+  \frac{1}{\sqrt{4}} (|1\rangle + |2\rangle) \otimes (\ket{D_1}+\ket{D_2})\\
+  &= 
+  \frac{1}{\sqrt{4}} ( \ket{1,D_1} + \ket{1,D_2}+ \ket{2,D_1}+ \ket{2,D_2})
+\end{align*}
+The fact that cross term $\ket{1 }\otimes \ket{D_2}$ and $\ket{2 }\otimes \ket{D_1}$ are missing is the cause that interference pattern doesn't exist, similar in why the interference is caused by the term $2F_1(x)F_2(x)$.
 
 \subsection{Bit}
 \begin{figure}[b]
