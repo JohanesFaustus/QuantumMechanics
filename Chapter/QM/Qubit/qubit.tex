@@ -5,7 +5,7 @@
 The principle of complementarity, traditionally associated with Niels Bohr, posits that "which-path" information (particle-like behavior) and the formation of an interference pattern (wave-like behavior) are fundamentally mutually exclusive. 
 Mathematically, the wave nature manifests through the interference term in the probability density equation
 \begin{equation*}
-  P_\text{total}(x) = |F_1(x)F_2(x)|^2 + |F_1(x)| +|F_2(x)| +2F_1(x)F_2(x)
+  P_\text{total}(x) = |F_1(x)+F_2(x)|^2 = |F_1(x)|^2 +|F_2(x)|^2 +2 \mathfrak{R}[F_1(x)^* F_2(x)]
 \end{equation*}
 with $F_n(x)$ as the complex amplitude for path $n$.
 If an experimental setup allows an observer to identify the specific slit traversed by a particle, the system behaves as a classical particle, the interference term vanishes, and the resulting distribution is merely the arithmetic sum of individual slit probabilities 
@@ -44,7 +44,7 @@ Given the initial state
 \begin{equation*}
 |\Psi_{\text{initial}}\rangle = \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes |D_0\rangle  
 \end{equation*}
-with $\ket{n}$ as the state of particle passing through slin $n$ and \( |D_0\rangle \) as the  initial state of the detector.
+with $\ket{n}$ as the state of particle passing through slit $n$ and \( |D_0\rangle \) as the  initial state of the detector.
 When a measurement occurs the detector state changes based on which path the particle takes. 
 The total system state evolves into:
 \begin{equation*}
@@ -58,9 +58,97 @@ There exists no combination of a single particle state \( |\psi\rangle \) and a 
   &= 
   \frac{1}{\sqrt{4}} ( \ket{1,D_1} + \ket{1,D_2}+ \ket{2,D_1}+ \ket{2,D_2})
 \end{align*}
-The fact that cross term $\ket{1 }\otimes \ket{D_2}$ and $\ket{2 }\otimes \ket{D_1}$ are missing is the cause that interference pattern doesn't exist, similar in why the interference is caused by the term $2F_1(x)F_2(x)$.
 
-\subsubsection{Another example}
+With the projector onto particle position \( x \)  as
+\begin{equation*}
+  \Pi_x = |x\rangle\langle x| \otimes I_D
+\end{equation*}
+and $I_D$ identity operator on the detector Hilbert space, the the probability density is 
+\begin{equation*}
+  P(x) = \langle \Psi | (|x\rangle\langle x| \otimes I_D) | \Psi \rangle
+\end{equation*}
+The action of the projector on the ket is 
+\begin{align*}
+\left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle 
+&=  \frac{1}{\sqrt{2}} \left(\left|x\right\rangle \braket{x  | 1} \otimes |D_1\rangle + |x\rangle \braket{x  | 2}\otimes  |D_2\rangle\right)\\
+\left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle 
+&=  \frac{1}{\sqrt{2}} \left( \psi_1(x) |x\rangle \otimes |D_1\rangle + \psi_2(x) |x\rangle \otimes |D_2\rangle \right)
+\end{align*}
+Projecting this again on the bra 
+\begin{equation*}
+\langle \Psi | = \frac{1}{\sqrt{2}} \left(\langle 1 | \otimes \langle D_1| + \langle 2 | \otimes \langle D_2 |\right)  
+\end{equation*}
+yields the probabilities distribution
+\begin{align*}
+P(x) 
+&= \frac{1}{2} \big[ |\psi_1(x)|^2 + |\psi_2(x)|^2 + \psi_1^*(x)\psi_2(x)\langle D_1|D_2\rangle + \psi_2^*(x)\psi_1(x)\langle D_2|D_1\rangle \big]\\
+P(x) 
+&=  \frac{1}{2} \big( |\psi_1(x)|^2 + |\psi_2(x)|^2 + 2 \text{Re} \left[ \psi_1^*(x)\psi_2(x)\langle D_1|D_2\rangle \right] \big)
+\end{align*}
+where $A+ A ^\dagger = 2 \mathfrak{R} (A)$.
+It can be seen that the interference condition depend on the distinguishability of detector state.
+
+In the Hilbert space, normalized state satisfies $|\braket{D_1  | D_2 }=\cos \theta$, with $\theta$  as the angle between the state.
+For
+\begin{equation*}
+  |\braket{D_1  | D_2}|=1
+\end{equation*}
+means $\theta =0$. 
+They are physically identical, has maximal overlap, and at most differ only by a phase.
+The overlap tells you how much the two states project onto each other in Hilbert space.
+If
+\begin{equation*}
+  0<|\braket{D_1  | D_2}|<1  
+\end{equation*}
+it means $0<\theta<\pi/2$. 
+They are different but still have partial overlap.
+In other hand 
+\begin{equation*}
+  |\braket{D_1  | D_2}|=0
+\end{equation*}
+means $\theta=\pi/2$. 
+The states are orthogonal, perfectly distinguishable, and has no overlap.
+
+In the case of the detector state being distinct $\braket{D_1 |D_2 }=0$, their evolution are
+\begin{equation*}
+  |1\rangle \otimes |D_0\rangle \xrightarrow{} |1\rangle \otimes |D_1\rangle
+  \qquad
+|2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_2\rangle
+\end{equation*}
+and the final state is entangled
+\begin{equation*}
+  |\Psi_{\text{final}}\rangle = 
+  \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
+\end{equation*}
+and no interference occurs.
+When the detector states are orthogonal, the particle subsystem has no accessible phase coherence, because the coherence is stored in correlations with the detector.
+
+Similarly, in the case $  0<|\braket{D_1  | D_2}|<1 $, the state is still entangled
+\begin{equation*}
+  |\Psi_{\text{final}}\rangle = 
+  \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
+\end{equation*}
+It is however only partial entangled.
+Interference still occurs, but its visibility is reduced.
+
+In the other hand, the evolution if both state are identical, the equation$  |\braket{D_1  | D_2}|=1$ implies $\ket{D_1 }=\ket{D_2}$. 
+Their evolution are 
+\begin{equation*}
+  |1\rangle \otimes |D_0\rangle \xrightarrow{} |1\rangle \otimes |D_1\rangle
+  \qquad
+|2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_1\rangle
+\end{equation*} 
+and no entanglement occurs at the final state
+\begin{equation*}
+  |\Psi_{\text{final}}\rangle = 
+  \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes \ket{D_1}
+\end{equation*}
+Interference thus occurs in this case.
+
+The information about which-path does not cause interference to disappear by quantum information postulate, unlike the case of Born postulate. 
+It is the same interaction that makes the detector states distinguishable simultaneously reduces their overlap, and the overlap directly controls the interference term.
+
+\subsubsection{Another example.}
 Consider a ladybug positioned on the screen, observing the direction of incoming light.
 The critical factor for consideration whether it perceive a single slit or two slits is the resolving power of the ladybug's eye.
 
