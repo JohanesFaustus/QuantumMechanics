@@ -1,0 +1,35 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Appendix: Symmetry and  Antisymmetry Operator}
+Suppose there are three with particle with state $\ket{k_1,k_2,k_3}$.
+The boson subspace projection reads
+\begin{equation*}
+  S|k_1, k_2, k_3\rangle = \frac{1}{\sqrt{3!}} \sum_{\in S_3} |k_{p(1)}, k_{p(2)}, k_{p(3)}\rangle
+\end{equation*}
+The symmetric group $S_n$ has six permutations. 
+Writing them explicitly with their parity
+\begin{multline*}
+    S|k_1, k_2, k_3\rangle = \frac{1}{\sqrt{6}} \big( |k_1, k_2, k_3\rangle + |k_2, k_1, k_3\rangle + |k_3, k_2, k_1\rangle \\
+    + |k_1, k_3, k_2\rangle + |k_2, k_3, k_1\rangle + |k_3, k_1, k_2\rangle \big)
+\end{multline*}
+In other hand, the fermion subspace
+\begin{equation*}
+  A \ket{k_1, k_2, k_3} = \frac{1}{\sqrt{3!}} \sum_{p \in S_3} (-1)^{P(p)} \ket{k_{p(1)}, k_{p(2)}, k_{p(3)}}
+\end{equation*}
+Explicitly
+\begin{multline*}
+  A|k_1, k_2, k_3\rangle = \frac{1}{\sqrt{6}} \big( + |k_1, k_2, k_3\rangle - |k_2, k_1, k_3\rangle \\
+  - |k_3, k_2, k_1\rangle - |k_1, k_3, k_2\rangle + |k_2, k_3, k_1\rangle + |k_3, k_1, k_2\rangle \big) 
+\end{multline*}
+
+In the case of particle that occupy the same state, such as $k_1=k_2=k_3k$, the boson subspace representation doesn't change
+\begin{equation*}
+  S|k, k, k\rangle = \frac{1}{\sqrt{6}} \sum_{p \in S_3} |k, k, k\rangle = \sqrt{6} |k, k, k\rangle
+\end{equation*}
+while the fermion representation vanishes
+\begin{multline*}
+  A|k, k, k\rangle = \frac{1}{\sqrt{6}} \big( + |k, k, k\rangle - |k, k, k\rangle \\
+  - |k, k, k\rangle + |k, k, k\rangle + |k, k, k\rangle \big)=0
+\end{multline*}
+
+\end{document}
