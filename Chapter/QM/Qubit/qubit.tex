@@ -177,11 +177,65 @@ This yields a fundamental physical contradiction with the condition required to 
 While a large aperture is necessary for slit discrimination, a small aperture is necessary for the visualization of interference fringes. 
 These two conditions are mutually exclusive.
 
+\subsubsection{Yet another example: Mach-Zender Interferometer.}
+The device demonstrates that interference is a consequence of coherent superposition and relative phase. 
+If no which-path information is available, interference is maximal. 
+If a measurement determines the path, the superposition is destroyed (or equivalently, the system becomes entangled with a detector and coherence is lost), and the outputs reduce to classical probabilities without interference.
+The configuration of the interferometer is as follows.
+\begin{listing}
+\begin{verbatim}
+(A) ----> [BS1] -- (B) -- [Mirror]
+            |               |
+           (C)              |
+            |               |
+         [Mirror] ------> [BS2] -- (E) -- [Mirror]
+                            |               |
+                           (F)              |
+                            |               |
+                         [Mirror] ------> [BS3] ----> (D)
+                                            |
+                                           (D')
+\end{verbatim}
+\caption*{Figure: Mach-Zender interferometer configuration\\}
+\end{listing}
+
+The input $|A\rangle$ is split into a coherent superposition of the two paths $|B\rangle$ and $|C\rangle$
+\begin{equation*}
+U_1 |A\rangle  = \frac{1}{\sqrt{2}} (|B\rangle + |C\rangle)   
+\end{equation*}
+Each incoming path is recombined into the two output ports $|D\rangle$ and $|E\rangle$
+\begin{equation*}
+U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |E\rangle), \quad
+U_2 |C\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |E\rangle)  
+\end{equation*}
+The $\pm$ sign of $\ket{E}$ ensures constructive interference in $E$ and destructive interference in $F$.
+The state after BS2 then 
+\begin{equation*}
+  \ket{E }=U_2U_1 \ket{A} = \ket{A} \qquad \ket{F}=0
+\end{equation*}
+
+If a detector is inserted into the Mach–Zehnder interferometer to detect the photon, and it is found to have taken path B, State after passing BS2 is
+\begin{equation*}
+U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|E\rangle + |F\rangle)
+\end{equation*}
+In other words, even in the Mach–Zehnder interferometer, if the path is known, interference disappears. 
+Conversely, if it cannot be determined whether the photon went through B or C, it can be considered to have passed through both, thus causing interference.
+
+Had the path not known, the final state from BS3 is 
+\begin{equation*}
+U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle) 
+\end{equation*}
+If however the path is known at B, the final state is $U_3U_2 \ket{B}= \ket{D}$, since
+\begin{equation*}
+U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle)  \qquad
+U_3|F\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |D'\rangle) 
+\end{equation*}
+
 \subsection{Bit}
 \begin{figure}[b]
   \centering
   \normfigL{../../../Rss/QM/Qubit/QubitState.png}
-  \caption{Figure: States of deterministic classical, probabilistic classical, and quantum bits.}
+  \caption*{Figure: States of deterministic classical, probabilistic classical, and quantum bits.}
 \end{figure}
 
 A bit is, in essence, an abstraction of a two-level system.
