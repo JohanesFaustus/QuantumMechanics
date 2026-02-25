@@ -324,12 +324,7 @@ The symmetrization operator  $S$ acts on the tensor-product slots, not on the ph
   |k_1, k_2, \ldots, k_N\rangle \rightarrow |k_{p(1)}, k_{p(2)}, \ldots, k_{p(N)}\rangle
 \end{equation*}
 
-The is run over $p$ all permutations $p$ of the set $\mathcal{N}=\left\{ 1,\dots,N \right\} $, which are $N!$ element, hence the $1/\sqrt{N!}$ normalization constant.
-The symmetric group on $N$ elements $S_N$ is defined as 
-\begin{equation*}
-  S_N = \left\{ \sigma:\mathcal{N} \rightarrow \mathcal{N} |\varsigma \text{ is bijective}  \right\} 
-\end{equation*}
-A function $f: A \to B$ is said to be bijective if $A$ goes to exactly one element of $B$ and $B$ is hit by exactly one element of $A$.
+The is run over $p$ all permutations $p$ of the set $\mathcal{N}=\left\{ 1,\dots,N \right\} $, which there are $N!$ element, hence the $1/\sqrt{N!}$ normalization constant.
 
 Now suppose that $N_l$ particle occupy $k_l$ state.
 Many permutations now produce identical terms, since swapping two particles that are both in $k_l$  does not change the vector, hence $1/\sqrt{N_l!}$ normalization constant.
@@ -343,18 +338,18 @@ For example, with $p(n)=n+1$, the state $S\ket{k_1}$ gets mapped into
 \subsubsection{Fermion.}
 With the same state $|k_1, \ldots, k_N\rangle $, the antisymmetrization is defined as 
 \begin{equation*}
-A|k_1,k_2,\ldots,k_N\rangle = \frac{1}{\sqrt{N!}} \sum_{p} (-1)^{P} |k_{i_1},k_{i_2},\ldots,k_{i_N}\rangle
+A|k_1,k_2,\ldots,k_N\rangle = \frac{1}{\sqrt{N!}} \sum_{p \in S_N} \mathrm{sgn}(P) |k_{i_1},k_{i_2},\ldots,k_{i_N}\rangle
 \end{equation*}
 As the case with the symmetrization operator, the sum is run over $p$ all permutations $p$ of the set $\left\{ 1,\dots,N \right\} $.
 The only difference is in the parity factor 
 \begin{equation*}
-  (-1) ^{P(p)} = 
+  \mathrm{sgn}(p) =
   \begin{cases}
     +1& \text{ Even permutations}\\
     -1& \text{ Odd permutations}
   \end{cases}
 \end{equation*}
-This factor that the state antisymmetry under particle exchange.
+This factor express that the state antisymmetry under particle exchange.
 Since any permutation $p$ of $N$ slots can be written as a product of transpositions
 \begin{equation*}
   p = \mathcal{T}_{i_1j_1} \mathcal{T}_{i_2j_2} \ldots\mathcal{T}_{i_mj_m}.
@@ -376,14 +371,16 @@ The symmetric subspace is defined as the set of all vectors invariant under perm
 \begin{equation*}
   \mathrm{Sym}^n(\mathcal{H}) = \left\{ |\Psi\rangle \in \mathcal{H}^{\otimes n} \mid P|\Psi\rangle = |\Psi\rangle \text{ for all permutations } P \right\}
 \end{equation*}
+with $P_p$ as the linear operator representing $\mathcal{H}^{\otimes n}$.
 Equivalently,
 \begin{equation*}
   \mathrm{Sym}^n(\mathcal{H}) = S\mathcal{H}^{\otimes n}
 \end{equation*}
 where the symmetrization projector action is
 \begin{equation*}
-  S = \frac{1}{n!} \sum_{p \in S_n} P
+  S = \frac{1}{n!} \sum_{p \in S_n} P_p
 \end{equation*}
+Note that the normalization constant is $1/n!$ instead of $1/\sqrt{n!}$ to satisfy idempotency $S^2=S$ for subspace projection.
 Meanwhile, the antisymmetrical subspace is defined as the set of vectors that change sign under odd permutations
 \begin{equation*}
   \wedge^n(H) = \left\{ |\Psi\rangle \in \mathcal{H}^{\otimes n} \,|\, P |\Psi\rangle = \mathrm{sgn}(P) |\Psi\rangle \right\}
