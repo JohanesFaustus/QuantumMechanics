@@ -12,22 +12,22 @@ The commutation relation for angular are obtained from position $\mathbf{r}$ and
 \end{equation*}
 where $\varepsilon_{jkl}$ are the components of the totally antisymmetric Levi-Civita tensor
 \begin{equation*}
-  \epsilon_{jkl} = \begin{cases} 
-+1 & \text{if } (jkl) \text{ is an even permutation of } (123) \\ 
--1 & \text{if } (jkl) \text{ is an odd permutation of } (123) \\ 
-0 & \text{if any two indices are equal}
-\end{cases}
+    \epsilon_{jkl} = \begin{cases}
+        +1 & \text{if } (jkl) \text{ is an even permutation of } (123) \\
+        -1 & \text{if } (jkl) \text{ is an odd permutation of } (123)  \\
+        0  & \text{if any two indices are equal}
+    \end{cases}
 \end{equation*}
 Even permutations of $(123)$, beside the identity $(123)$ itself, are
 \begin{align*}
-(231) &=  \mathcal{T}_{13} \mathcal{T}_{12}(123)\\
-(312) &=  \mathcal{T}_{12} \mathcal{T}_{13}(123)
+    (231) & =  \mathcal{T}_{13} \mathcal{T}_{12}(123) \\
+    (312) & =  \mathcal{T}_{12} \mathcal{T}_{13}(123)
 \end{align*}
 while the odd permutations are
 \begin{align*}
-(213) &=  \mathcal{T}_{12}(123)\\
-(132) &=  \mathcal{T}_{23}(123)\\
-(321) &=  \mathcal{T}_{13}(123)
+    (213) & =  \mathcal{T}_{12}(123) \\
+    (132) & =  \mathcal{T}_{23}(123) \\
+    (321) & =  \mathcal{T}_{13}(123)
 \end{align*}
 
 Another one for the position case
@@ -36,7 +36,7 @@ Another one for the position case
 \end{equation*}
 and momentum
 \begin{equation*}
-    [P_{i}, L_{j}] = i \hbar \epsilon_{ijk} P_{k}
+    [p_{i}, L_{j}] = i \hbar \epsilon_{ijk} p_{k}
 \end{equation*}
 
 
@@ -84,41 +84,62 @@ Note that the matrices are written in the $\ket{l,m}$ basis ordered by descendin
     \end{pmatrix}
 \end{equation*}
 
-\subsubsection*{Derivation.}
+\subsubsection*{Derivation: commutator relation.}
 Before we begin, consider the identities of commutator
 \begin{align*}
-	[\mathrm{A},\mathrm{B}\mathrm{C}] & =\mathrm{B}[\mathrm{A},\mathrm{C}]+[\mathrm{A},\mathrm{B}]\mathrm{C} \\
-	[\mathrm{A}\mathrm{B},\mathrm{C}] & =\mathrm{A}[\mathrm{B},\mathrm{C}]+[\mathrm{A},\mathrm{C}]\mathrm{B}\\
-  	[\mathrm{A}\mathrm{B},\mathrm{C}\mathrm{D}]
-	[\mathrm{A}\mathrm{B},\mathrm{C}\mathrm{D}]
-	 & = \mathrm{A}[\mathrm{B},\mathrm{C}]\mathrm{D}
-	+ \mathrm{A}\mathrm{C}[\mathrm{B},\mathrm{D}]
-	+ [\mathrm{A},\mathrm{C}]\mathrm{D}\mathrm{B}
-	+ \mathrm{C}[\mathrm{A},\mathrm{D}]\mathrm{B}
+    [\mathrm{A},\mathrm{B}\mathrm{C}] & =\mathrm{B}[\mathrm{A},\mathrm{C}]+[\mathrm{A},\mathrm{B}]\mathrm{C} \\
+    [\mathrm{A}\mathrm{B},\mathrm{C}] & =\mathrm{A}[\mathrm{B},\mathrm{C}]+[\mathrm{A},\mathrm{C}]\mathrm{B} \\
+    [\mathrm{A}\mathrm{B},\mathrm{C}\mathrm{D}]
+    [\mathrm{A}\mathrm{B},\mathrm{C}\mathrm{D}]
+                                      & = \mathrm{A}[\mathrm{B},\mathrm{C}]\mathrm{D}
+    + \mathrm{A}\mathrm{C}[\mathrm{B},\mathrm{D}]
+    + [\mathrm{A},\mathrm{C}]\mathrm{D}\mathrm{B}
+    + \mathrm{C}[\mathrm{A},\mathrm{D}]\mathrm{B}
 \end{align*}
 
-The $i$-th component of cross product is written as 
+The $i$-th component of cross product is written as
 \begin{equation*}
     (A \times B)_i = \epsilon_{ijk} A_j B_k
 \end{equation*}
-Hence the from the definition of angular momentum $\mathbf{L }= \mathbf{r }\times \mathbf{p}$, we can write 
+Hence the from the definition of angular momentum $\mathbf{L }= \mathbf{r }\times \mathbf{p}$, we can write
 \begin{equation*}
     L_i =\epsilon_{ijk}r_jp_k
 \end{equation*}
 Using this we can derive the commutator relation
 \begin{align*}
-[L_i, L_j] &= \epsilon_{ilm} \epsilon_{jnp} [ r_lp_m,r_np_p] \\
-&=  \epsilon_{ilm} \epsilon_{jnp}\left(  r_l[p_m, r_n]p_p + r_l r_n[p_m, p_p] + [r_l, r_n] p_m p_p + r_n [r_l, p_p] p_m\right)\\
-&=  \epsilon_{ilm} \epsilon_{jnp}\left( - i \hbar  r_l \delta_{mn} p_p + i \hbar  r_n \delta_{lp} p_m \right)\\
-&= i \hbar \left( -\epsilon_{ilm }\epsilon_{jmp }r_lp_p + \epsilon_{ilm }\epsilon_{jnl }  r_np_m\right)\\
-&= i \hbar \left( \epsilon_{lmi }\epsilon_{ljn}r_n  p_m - \epsilon_{mil }\epsilon_{mpj }r_l p_p\right)\\
-&= i \hbar \left[ \left( \delta_{mj }\delta_{in }-\delta_{mn }\delta_{ji } \right)r_np_m - \left( \delta_{ip }\delta_{lj } - \delta_{ij }\delta_{pl }\right)r_lp_p    \right]\\
-&= i \hbar \left[ \left( r_i p_j -\delta_{ij }r_m p_m\right) -\left( p_i r_j-\delta_{ij }r_l p_p \right)   \right]\\
-&= i \hbar \left[ r_i p_j  -r_jp_i \right]\\
-[L_i, L_j]
-&= i \hbar \epsilon_{ijk}L_k
+    [L_i, L_j]
+     & = \epsilon_{ilm} \epsilon_{jnp} [ r_lp_m,r_np_p]                                                                                                                             \\
+     & =  \epsilon_{ilm} \epsilon_{jnp}(  r_l[p_m, r_n]p_p + r_l r_n[p_m, p_p] + [r_l, r_n] p_m p_p \\
+     & \qquad  + r_n [r_l, p_p] p_m)                                                \\
+     & =  \epsilon_{ilm} \epsilon_{jnp}\left( - i \hbar  r_l \delta_{mn} p_p + i \hbar  r_n \delta_{lp} p_m \right)                                                                 \\
+     & = i \hbar \left( -\epsilon_{ilm }\epsilon_{jmp }r_lp_p + \epsilon_{ilm }\epsilon_{jnl }  r_np_m\right)                                                                       \\
+     & = i \hbar \left( \epsilon_{lmi }\epsilon_{ljn}r_n  p_m - \epsilon_{mil }\epsilon_{mpj }r_l p_p\right)                                                                        \\
+     & = i \hbar \left[ \left( \delta_{mj }\delta_{in }-\delta_{mn }\delta_{ji } \right)r_np_m - \left( \delta_{ip }\delta_{lj } - \delta_{ij }\delta_{pl }\right)r_lp_p    \right] \\
+     & = i \hbar \left[ \left( r_i p_j -\delta_{ij }r_m p_m\right) -\left( r_jp_i-\delta_{ij }r_l p_p \right)   \right]                                                             \\
+     & = i \hbar \left[ r_i p_j  -r_jp_i \right]                                                                                                                                    \\
+    [L_i, L_j]
+     & = i \hbar \epsilon_{ijk}L_k
+\end{align*}
+Next for the commutator with posistion
+\begin{align*}
+    [r_i,L_j]
+     & =  \epsilon_{jnp}[r_i,r_np_p]                                       \\
+     & = \epsilon_{jnp} \left( r_n[r_i,p_p ]+[r_i,r_n ]p_p \right)         \\
+     & =  i \hbar \epsilon_{jnp }r_n \delta_{ip}=i \hbar \epsilon_{jni}r_n \\
+    [r_i,L_j]
+     & = i \hbar \epsilon_{jki}r_k = i \hbar \epsilon_{ijk}r_k
+\end{align*}
+Finally for the linear momentum
+\begin{align*}
+    [p_i,L_j]
+     & =  \epsilon_{jnp}[p_i,r_np_p]                                           \\
+     & = \epsilon_{jnp} \left( r_n[p_i,p_p ]+[p_i,r_n ]p_p \right)             \\
+     & =  -i \hbar \epsilon_{jnp }p_p \delta_{in} = i \hbar  \epsilon_{ijp}p_p \\
+    [p_i,L_j]
+     & = i \hbar \epsilon_{ijk}p_k
 \end{align*}
 
+\subsubsection{Derivation: commutator relation (easy mode).}
 First let us derive the basic commutation
 \begin{align*}
     [L_{x}, L_{y}] & =  [YP_{z} - ZP_{y}, ZP_{x} - XP_{z}]                                        \\
