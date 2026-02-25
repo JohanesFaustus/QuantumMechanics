@@ -146,9 +146,9 @@ with $  \ket{\left\{ \alpha_{\mathbf{k }s} \right\} } = \bigotimes_{\mathbf{k},s
 By definition, the electromagnetic field is non-vanishing in this state
 \begin{align*}
   \braket{  \hat{\mathbf{E}}  }
-      =  - \sum_{\mathbf{k},s} \sqrt{\frac{2\bar{N}_{\mathbf{k}s}\hbar \omega_k }{ \epsilon_0 V}}  \sin   \left( \mathbf{k} \cdot \mathbf{r} - \omega_k t+\theta_{\mathbf{k}s}  \right) \boldsymbol{\epsilon}_{\mathbf{k}s}\qquad
-  \braket{  \hat{\mathbf{B}}^2 }
-   = \braket{\hat{\mathbf{B}} }^2+\sum_{\mathbf{k },s}\frac{\hbar \omega_k}{2 V} \mu_0
+      &=   - \sum_{\mathbf{k},s} \sqrt{\frac{2\bar{N}_{\mathbf{k}s}\hbar \omega_k }{ \epsilon_0 V}}  \sin   \left( \mathbf{k} \cdot \mathbf{r} - \omega_k t+\theta_{\mathbf{k}s}  \right) \boldsymbol{\epsilon}_{\mathbf{k}s}\\
+  \braket{  \hat{\mathbf{B}}}
+ &=   - \sum_{\mathbf{k},s} \sqrt{\frac{2 \bar{N}_{\mathbf{k}s}\hbar \omega_k \mu_0}{V}}  \sin   \left( \mathbf{k} \cdot \mathbf{r} - \omega_k t+\theta_{\mathbf{k}s}  \right) \hat{\mathbf{k}}\times \boldsymbol{\epsilon}_{\mathbf{k}s}
 \end{align*}
 The energy of electromagnetic field can also be seen to be non-vanishing even at vacuum
 \begin{equation*}
@@ -156,6 +156,11 @@ The energy of electromagnetic field can also be seen to be non-vanishing even at
     = \braket{\hat{\mathbf{E}} }^2+\sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2\epsilon_0 V}\qquad
   \braket{  \hat{\mathbf{B}}^2 }
     = \braket{\hat{\mathbf{B}} }^2+\sum_{\mathbf{k },s}\frac{\hbar \omega_k}{2 V} \mu_0
+\end{equation*}
+
+The coherent state is minimum-uncertainty states, meaning it saturates the Heisenberg bound
+\begin{equation*}
+  \Delta x \Delta p = \frac{\hbar }{2}
 \end{equation*}
 
 \subsubsection{Derivation: Fock state.}
@@ -375,4 +380,27 @@ to recover the same result of quantum Hamiltonian
   \braket{H}
    & =  \sum_{\mathbf{k},s} \hbar \omega_k \left( \bar{N}_{\mathbf{k }s} +\frac{1 }{2} \right)
 \end{align*}
+
+\subsubsection{Derivation: minimum uncertainty.}
+The variance of $x$ is 
+\begin{align*}
+  (\Delta x)^2 &=  \braket{x^2 } - \braket{x }^2 \\
+  &= \frac{\hbar}{2m\omega} \braket{a^2 + a^{\dagger 2} + aa^\dagger + a^\dagger a  } 
+  - \left( \sqrt{\frac{\hbar}{2m\omega}} \langle a + a^{\dagger} \rangle \right) ^2\\
+  &= \frac{\hbar}{2m\omega} \braket{a^2 + a^{\dagger 2} + aa^\dagger + a^\dagger a }- \frac{\hbar}{2m\omega} (\alpha + \alpha^{*})^2 \\
+  &=\frac{\hbar}{2 m \omega} \left( \alpha^{2} + \alpha^{*2} + 2 |\alpha|^{2} + 1 \right)  - \frac{\hbar}{2 m \omega} \left( \alpha^2 + \alpha^{*2} + 2 |\alpha|^2 \right)\\
+  \Delta x
+  &= \sqrt{\frac{\hbar  }{2m\omega}}
+\end{align*}
+In other hand, the variance of $p$ is
+\begin{align*}
+  (\Delta p)^2 &=  \braket{p^2 } - \braket{p }^2 \\
+  &= - \frac{m\hbar\omega}{2} \braket{a^2 + a^{\dagger 2} -aa^\dagger - a^\dagger a  } 
+  - \left( -i\sqrt{\frac{m\hbar\omega}{2}} \langle a - a^{\dagger} \rangle \right) ^2\\
+  &= - \frac{m\hbar\omega}{2} \braket{a^2 + a^{\dagger 2} -2 a^\dagger a-1 } + \frac{m\hbar\omega}{2} (\alpha - \alpha^{*})^2 \\
+  &= - \frac{ m \hbar  \omega}{2 } \left( \alpha^{2} + \alpha^{*2} - 2 |\alpha|^{2} -1 \right)  + \frac{m \hbar  \omega}{2 } \left( \alpha^2 + \alpha^{*2} - 2 |\alpha|^2 \right)\\
+  \Delta p
+  &= \sqrt{\frac{m  \hbar \omega }{2}}
+\end{align*}
+multiplying both gives the minimum uncertainty.
 \end{document}
