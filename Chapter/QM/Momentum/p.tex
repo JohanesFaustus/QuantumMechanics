@@ -48,7 +48,12 @@ we find that the square $L^2$, and one component $Lj$ of the angular momentum $L
 
 The annihilation and  creation operators of angular momentum are expressed as
 \begin{equation*}
-    L_{\pm} = L_x \pm i L_y
+    L_{\pm} = L_1 \pm i L_2
+\end{equation*}
+These satisfy the commutator relation
+\begin{equation*}
+    [L_3,L_{\pm}] = \pm \hbar  L_{\pm}, 
+    [L_+,L_-]=2L_3
 \end{equation*}
 Their action on eigenstates $\ket{l,m}$ are
 \begin{equation*}
@@ -107,7 +112,7 @@ The $i$-th component of cross product is written as
 \begin{equation*}
     (A \times B)_i = \epsilon_{ijk} A_j B_k
 \end{equation*}
-Hence the from the definition of angular momentum $\mathbf{L }= \mathbf{r }\times \mathbf{p}$, we can write
+Hence from the definition of angular momentum $\mathbf{L }= \mathbf{r }\times \mathbf{p}$, we can write
 \begin{equation*}
     L_i =\epsilon_{ijk}r_jp_k
 \end{equation*}
@@ -160,6 +165,28 @@ If we define $S_{ik}=L_i L_k + L_k L_i$, which symmetric under $i \leftrightarro
    \epsilon_{ijk}S_{ik}  &= 0
 \end{align*}
 Hence the commutator evaluate into zero.
+
+\subsubsection{Derivation: annihilation and creation operator commutator.}
+For the commutator of $L_3$ with annihilation and creation
+\begin{align*}
+[L_3, L_\pm] 
+&=  [L_z, L_x \pm iL_y] = [L_z, L_x] \pm i[L_z, L_y]\\
+&=  i\hbar L_y \pm i(-i\hbar L_x)=  i\hbar L_y \pm \hbar L_x\\
+&= \begin{cases}
+ \hbar(L_x + iL_y) = \hbar L_+, & \text{for } +\\
+ -\hbar(L_x - iL_y) = -\hbar L_-& \text{for } -\\
+\end{cases}\\
+&=  \pm \hbar L_\pm
+\end{align*}
+While for the commutator of annihilation and creation with each other
+\begin{align*}
+[L_{+}, L_{-}] 
+&=  [L_{x} + iL_{y}, L_{x} - iL_{y}]\\
+&=  [L_{x}, L_{x}] - i[L_{x}, L_{y}] + i[L_{y}, L_{x}] + (i)(-i)[L_{y}, L_{y}]\\
+&=  -i[L_{x}, L_{y}] + i[L_{y}, L_{x}]=-2i[L_{x}, L_{y}]\\
+[L_{+}, L_{-}] 
+&=  2\hbar L_{z}\\
+\end{align*}
 
 \subsubsection{Derivation: commutator relation (easy mode).}
 First let us derive the basic commutation
