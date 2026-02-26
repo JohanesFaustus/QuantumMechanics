@@ -39,8 +39,14 @@ and momentum
     [p_{i}, L_{j}] = i \hbar \epsilon_{ijk} p_{k}
 \end{equation*}
 
+It follows from the commutator relation and the corresponding Heisenberg uncertainty relation that the components $L_j$ of the angular momentum operator $L$ cannot be sharply measured simultaneously.
+However, for the square of the angular momentum $L^2$
+\begin{equation*}
+    [L^2,L_j] = 0
+\end{equation*}
+we find that the square $L^2$, and one component $Lj$ of the angular momentum $L$, can be measured simultaneously with arbitrary precision.
 
-The ladder operators of orbital momentum are expressed as
+The annihilation and  creation operators of angular momentum are expressed as
 \begin{equation*}
     L_{\pm} = L_x \pm i L_y
 \end{equation*}
@@ -84,7 +90,7 @@ Note that the matrices are written in the $\ket{l,m}$ basis ordered by descendin
     \end{pmatrix}
 \end{equation*}
 
-\subsubsection*{Derivation: commutator relation.}
+\subsubsection*{Derivation: angular momentum components commutator relation.}
 Before we begin, consider the identities of commutator
 \begin{align*}
     [\mathrm{A},\mathrm{B}\mathrm{C}] & =\mathrm{B}[\mathrm{A},\mathrm{C}]+[\mathrm{A},\mathrm{B}]\mathrm{C} \\
@@ -138,6 +144,22 @@ Finally for the linear momentum
     [p_i,L_j]
      & = i \hbar \epsilon_{ijk}p_k
 \end{align*}
+
+\subsubsection*{Derivation: angular momentum square commutator relation.}
+Derived as follows 
+\begin{align*}
+[L^2, L_j] 
+&= [L_i L_i, L_j] =  L_i[L_i, L_j] + [L_i, L_j]L_i\\
+[L^2, L_j] 
+&= i \hbar \epsilon_{ijk} (L_i L_k + L_k L_i)
+\end{align*}
+If we define $S_{ik}=L_i L_k + L_k L_i$, which symmetric under $i \leftrightarrow k$, notice that by performing $i \leftrightarrow k$ transposition
+\begin{align*}
+    \epsilon_{ijk}S_{ik} &= \epsilon_{kji}S_{ki}\\
+    \epsilon_{ijk}S_{ik} &= -\epsilon_{ijk}S_{ik}\\
+   \epsilon_{ijk}S_{ik}  &= 0
+\end{align*}
+Hence the commutator evaluate into zero.
 
 \subsubsection{Derivation: commutator relation (easy mode).}
 First let us derive the basic commutation
