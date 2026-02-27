@@ -4,11 +4,11 @@
 \subsection{Angular Momentum of Single Particle}
 From the definition $\mathbf{L}= \mathbf{r} \times \mathbf{p}$, we can obtain the quantum angular momentum
 \begin{equation*}
-    L_i = \epsilon_{ijk}r_jp_k
+    \hat{L}_i = \epsilon_{ijk}r_jp_k
 \end{equation*}
 The commutation relation for angular are obtained from position $\mathbf{r}$ and momentum $\mathbf{p}$ relation $[r_i   , p_j]=i \hbar \delta_{ij}$
 \begin{equation*}
-    [L_{i}, L_{j}] = i \hbar \epsilon_{ijk} L_{k}
+    [\hat{L}_{i}, \hat{L}_{j}] = i \hbar \epsilon_{ijk} \hat{L}_{k}
 \end{equation*}
 where $\varepsilon_{jkl}$ are the components of the totally antisymmetric Levi-Civita tensor
 \begin{equation*}
@@ -32,67 +32,82 @@ while the odd permutations are
 
 Another one for the position case
 \begin{equation*}
-    [r_{i}, L_{j}] = i \hbar \epsilon_{ijk} r_{k}
+    [r_{i}, \hat{L}_{j}] = i \hbar \epsilon_{ijk} r_{k}
 \end{equation*}
 and momentum
 \begin{equation*}
-    [p_{i}, L_{j}] = i \hbar \epsilon_{ijk} p_{k}
+    [p_{i}, \hat{L}_{j}] = i \hbar \epsilon_{ijk} p_{k}
 \end{equation*}
 
-It follows from the commutator relation and the corresponding Heisenberg uncertainty relation that the components $L_j$ of the angular momentum operator $L$ cannot be sharply measured simultaneously.
+It follows from the commutator relation and the corresponding Heisenberg uncertainty relation that the components $\hat{L}_j$ of the angular momentum operator $L$ cannot be sharply measured simultaneously.
 However, for the square of the angular momentum $L^2$
 \begin{equation*}
-    [L^2,L_j] = 0
+    [L^2,\hat{L}_j] = 0
 \end{equation*}
 we find that the square $L^2$, and one component $Lj$ of the angular momentum $L$, can be measured simultaneously with arbitrary precision.
 
+The simultaneous eigenstates of $\hat{L}^2$ 
+\begin{equation*}
+    \hat{L}^2 \ket{l,m} = l \hbar ^2 (l+1) \ket{l,m}
+\end{equation*}
+and $\hat{L}_3$ 
+\begin{equation*}
+    \hat{L }_3 \ket{m}= m \hbar \ket{m}
+\end{equation*}
+is denoted by 
+\begin{equation*}
+    \left| l, m \right\rangle; \text{ such that } 2l = 0, 1, 2, \ldots, \quad -l \leq m \leq l
+\end{equation*}
+The eigenvalue equation of $\hat{L}^2$ shows that $l$ determines the magnitude of the angular momentum vector, specifically $|\mathbf{L}|=\hbar \sqrt{l(l+1)}$.
+In other hand, the eigenvalue equation of $\hat{L }_3$ measures the component of angular momentum along a chosen quantization axis, that is usually chosen to be $z$ axis.
+
 The annihilation and  creation operators of angular momentum are expressed as
 \begin{equation*}
-    L_{\pm} = L_1 \pm i L_2
+    \hat{L}_{\pm} = \hat{L}_1 \pm i \hat{L}_2
+\end{equation*}
+or equivalently
+\begin{equation*}
+    \hat{L}_1 = \frac{1}{2}(\hat{L}_{+} + \hat{L}_{-})\qquad
+    \hat{L}_2 = \frac{1}{2i}(\hat{L}_{+} - \hat{L}_{-})
 \end{equation*}
 These satisfy the commutator relation
 \begin{equation*}
-    [L_3,L_{\pm}] = \pm \hbar  L_{\pm}, 
-    [L_+,L_-]=2L_3
+    [\hat{L}_3,\hat{L}_{\pm}] = \pm \hbar  \hat{L}_{\pm}, \qquad
+    [\hat{L}_+,\hat{L}_-]=2\hat{L}_3
 \end{equation*}
 Their action on eigenstates $\ket{l,m}$ are
 \begin{equation*}
-    L_{\pm}   |l, m\rangle = \hbar \sqrt{l(l+1) - m(m \pm 1)}   |l, m \pm 1\rangle
-\end{equation*}
-In $2 \times 2$, the operators read
-\begin{equation*}
-    \hat{L}_{+} = \hbar \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\qquad
-    \hat{L}_{-} = \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}
-\end{equation*}
-and in $3 \times 3$
-\begin{equation*}
-    \hat{L}_{+} = \hbar \begin{pmatrix} 0 & \sqrt{2} & 0 \\ 0 & 0 & \sqrt{2} \\ 0 & 0 & 0 \end{pmatrix}\qquad
-    \hat{L}_{-} = \hbar \begin{pmatrix} 0 & 0 & 0 \\ \sqrt{2} & 0 & 0 \\ 0 & \sqrt{2} & 0 \end{pmatrix}
+    \hat{L}_{\pm}   |l, m\rangle = \hbar \sqrt{l(l+1) - m(m \pm 1)}   |l, m \pm 1\rangle
 \end{equation*}
 
-We can also express $L_x$ and $L_y$ in terms ladder operators
-\begin{equation*}
-    L_{x} = \frac{1}{2}(L_{+} + L_{-})\qquad
-    L_{y} = \frac{1}{2i}(L_{+} - L_{-})
-\end{equation*}
 For $l=1/2$, each orbital momentum can be described by $2 \times 2$ matrix
 \begin{equation*}
-    L_{x} = \frac{\hbar}{2}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},\quad
-    L_{y} = \frac{\hbar}{2}\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix},\quad
-    L_{z} = \frac{\hbar}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+    \hat{L}_1 = \frac{\hbar}{2}\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix},\quad
+    \hat{L}_2 = \frac{\hbar}{2}\begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix},\quad
+    \hat{L}_3 = \frac{\hbar}{2}\begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}
+\end{equation*}
+as for the annihilation and creation
+\begin{equation*}
+    \hat{L}_{+} = \hbar \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}\qquad
+    \hat{L}_{-} = \hbar \begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix}
 \end{equation*}
 For $l=1$, they are $3 \times 3$
 \begin{equation*}
-    L_x = \frac{\hbar}{\sqrt{2}} \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix},\;
-    L_y = \frac{\hbar}{\sqrt{2}i} \begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 1 \\ 0 & -1 & 0 \end{pmatrix},\;
-    L_z = \hbar \begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & -1 \end{pmatrix}
+    \hat{L}_1 = \frac{\hbar}{\sqrt{2}} \begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix},\;
+    \hat{L}_2 = \frac{\hbar}{\sqrt{2}i} \begin{bmatrix} 0 & 1 & 0 \\ -1 & 0 & 1 \\ 0 & -1 & 0 \end{bmatrix},\;
+    \hat{L}_3 = \hbar \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & -1 \end{bmatrix}
+\end{equation*}
+as for the annihilation and creation
+\begin{equation*}
+    \hat{L}_{+} = \hbar \begin{bmatrix} 0 & \sqrt{2} & 0 \\ 0 & 0 & \sqrt{2} \\ 0 & 0 & 0 \end{bmatrix}\qquad
+    \hat{L}_{-} = \hbar \begin{bmatrix} 0 & 0 & 0 \\ \sqrt{2} & 0 & 0 \\ 0 & \sqrt{2} & 0 \end{bmatrix}
 \end{equation*}
 Note that the matrices are written in the $\ket{l,m}$ basis ordered by descending $m$, that is
 \begin{equation*}
     \ket{\psi} =
-    \begin{pmatrix}
+    \begin{bmatrix}
         \psi_{m=l} \\ \psi_{m=l-1} \\ \vdots \\ \psi_{m=-l}
-    \end{pmatrix}
+    \end{bmatrix}
 \end{equation*}
 
 \subsubsection*{Derivation: angular momentum components commutator relation.}
@@ -114,11 +129,11 @@ The $i$-th component of cross product is written as
 \end{equation*}
 Hence from the definition of angular momentum $\mathbf{L }= \mathbf{r }\times \mathbf{p}$, we can write
 \begin{equation*}
-    L_i =\epsilon_{ijk}r_jp_k
+    \hat{L}_i =\epsilon_{ijk}r_jp_k
 \end{equation*}
 Using this we can derive the commutator relation
 \begin{align*}
-    [L_i, L_j]
+    [\hat{L}_i, \hat{L}_j]
      & = \epsilon_{ilm} \epsilon_{jnp} [ r_lp_m,r_np_p]                                                                                                                             \\
      & =  \epsilon_{ilm} \epsilon_{jnp}(  r_l[p_m, r_n]p_p + r_l r_n[p_m, p_p] + [r_l, r_n] p_m p_p \\
      & \qquad  + r_n [r_l, p_p] p_m)                                                \\
@@ -128,37 +143,37 @@ Using this we can derive the commutator relation
      & = i \hbar \left[ \left( \delta_{mj }\delta_{in }-\delta_{mn }\delta_{ji } \right)r_np_m - \left( \delta_{ip }\delta_{lj } - \delta_{ij }\delta_{pl }\right)r_lp_p    \right] \\
      & = i \hbar \left[ \left( r_i p_j -\delta_{ij }r_m p_m\right) -\left( r_jp_i-\delta_{ij }r_l p_p \right)   \right]                                                             \\
      & = i \hbar \left[ r_i p_j  -r_jp_i \right]                                                                                                                                    \\
-    [L_i, L_j]
-     & = i \hbar \epsilon_{ijk}L_k
+    [\hat{L}_i, \hat{L}_j]
+     & = i \hbar \epsilon_{ijk}\hat{L}_k
 \end{align*}
 Next for the commutator with posistion
 \begin{align*}
-    [r_i,L_j]
+    [r_i,\hat{L}_j]
      & =  \epsilon_{jnp}[r_i,r_np_p]                                       \\
      & = \epsilon_{jnp} \left( r_n[r_i,p_p ]+[r_i,r_n ]p_p \right)         \\
      & =  i \hbar \epsilon_{jnp }r_n \delta_{ip}=i \hbar \epsilon_{jni}r_n \\
-    [r_i,L_j]
+    [r_i,\hat{L}_j]
      & = i \hbar \epsilon_{jki}r_k = i \hbar \epsilon_{ijk}r_k
 \end{align*}
 Finally for the linear momentum
 \begin{align*}
-    [p_i,L_j]
+    [p_i,\hat{L}_j]
      & =  \epsilon_{jnp}[p_i,r_np_p]                                           \\
      & = \epsilon_{jnp} \left( r_n[p_i,p_p ]+[p_i,r_n ]p_p \right)             \\
      & =  -i \hbar \epsilon_{jnp }p_p \delta_{in} = i \hbar  \epsilon_{ijp}p_p \\
-    [p_i,L_j]
+    [p_i,\hat{L}_j]
      & = i \hbar \epsilon_{ijk}p_k
 \end{align*}
 
 \subsubsection*{Derivation: angular momentum square commutator relation.}
 Derived as follows 
 \begin{align*}
-[L^2, L_j] 
-&= [L_i L_i, L_j] =  L_i[L_i, L_j] + [L_i, L_j]L_i\\
-[L^2, L_j] 
-&= i \hbar \epsilon_{ijk} (L_i L_k + L_k L_i)
+[L^2, \hat{L}_j] 
+&= [\hat{L}_i \hat{L}_i, \hat{L}_j] =  \hat{L}_i[\hat{L}_i, \hat{L}_j] + [\hat{L}_i, \hat{L}_j]\hat{L}_i\\
+[L^2, \hat{L}_j] 
+&= i \hbar \epsilon_{ijk} (\hat{L}_i \hat{L}_k + \hat{L}_k \hat{L}_i)
 \end{align*}
-If we define $S_{ik}=L_i L_k + L_k L_i$, which symmetric under $i \leftrightarrow k$, notice that by performing $i \leftrightarrow k$ transposition
+If we define $S_{ik}=\hat{L}_i \hat{L}_k + \hat{L}_k \hat{L}_i$, which symmetric under $i \leftrightarrow k$, notice that by performing $i \leftrightarrow k$ transposition
 \begin{align*}
     \epsilon_{ijk}S_{ik} &= \epsilon_{kji}S_{ki}\\
     \epsilon_{ijk}S_{ik} &= -\epsilon_{ijk}S_{ik}\\
@@ -167,32 +182,203 @@ If we define $S_{ik}=L_i L_k + L_k L_i$, which symmetric under $i \leftrightarro
 Hence the commutator evaluate into zero.
 
 \subsubsection{Derivation: annihilation and creation operator commutator.}
-For the commutator of $L_3$ with annihilation and creation
+For the commutator of $\hat{L}_3$ with annihilation and creation
 \begin{align*}
-[L_3, L_\pm] 
-&=  [L_z, L_x \pm iL_y] = [L_z, L_x] \pm i[L_z, L_y]\\
-&=  i\hbar L_y \pm i(-i\hbar L_x)=  i\hbar L_y \pm \hbar L_x\\
+[\hat{L}_3, \hat{L}_\pm] 
+&=  [\hat{L}_3, \hat{L}_1 \pm i\hat{L}_2] = [\hat{L}_3, \hat{L}_1] \pm i[\hat{L}_3, \hat{L}_2]\\
+&=  i\hbar \hat{L}_2 \pm i(-i\hbar \hat{L}_1)=  i\hbar \hat{L}_2 \pm \hbar \hat{L}_1\\
 &= \begin{cases}
- \hbar(L_x + iL_y) = \hbar L_+, & \text{for } +\\
- -\hbar(L_x - iL_y) = -\hbar L_-& \text{for } -\\
+ \hbar(\hat{L}_1 + i\hat{L}_2) = \hbar \hat{L}_+, & \text{for } +\\
+ -\hbar(\hat{L}_1 - i\hat{L}_2) = -\hbar \hat{L}_-& \text{for } -\\
 \end{cases}\\
-&=  \pm \hbar L_\pm
+&=  \pm \hbar \hat{L}_\pm
 \end{align*}
 While for the commutator of annihilation and creation with each other
 \begin{align*}
-[L_{+}, L_{-}] 
-&=  [L_{x} + iL_{y}, L_{x} - iL_{y}]\\
-&=  [L_{x}, L_{x}] - i[L_{x}, L_{y}] + i[L_{y}, L_{x}] + (i)(-i)[L_{y}, L_{y}]\\
-&=  -i[L_{x}, L_{y}] + i[L_{y}, L_{x}]=-2i[L_{x}, L_{y}]\\
-[L_{+}, L_{-}] 
-&=  2\hbar L_{z}\\
+[\hat{L}_{+}, \hat{L}_{-}] 
+&=  [\hat{L}_1 + i\hat{L}_2, \hat{L}_1 - i\hat{L}_2]\\
+&=  [\hat{L}_1, \hat{L}_1] - i[\hat{L}_1, \hat{L}_2] + i[\hat{L}_2, \hat{L}_1] + (i)(-i)[\hat{L}_2, \hat{L}_2]\\
+&=  -i[\hat{L}_1, \hat{L}_2] + i[\hat{L}_2, \hat{L}_1]=-2i[\hat{L}_1, \hat{L}_2]\\
+[\hat{L}_{+}, \hat{L}_{-}] 
+&=  2\hbar \hat{L}_3\\
+\end{align*}
+
+\subsubsection{Derivation: annihilation anc creation operator action.}
+With $\ket{m}$ as the eigenstate of $\hat{L}_3$, we define shift operator $\hat{L}_S$ which produce new state $\ket{\lambda}$ for this eigenstate
+\begin{equation*}
+    \ket{\lambda}=\hat{L}_S \ket{m}
+\end{equation*}
+The action of $\hat{L}_3$ is thus
+\begin{align*}
+    \hat{L}_3 |\lambda\rangle &=  (m+\lambda) \hbar \ket{\lambda}\\
+    \hat{L}_3 (\hat{L}_S |m\rangle) &=  (m + \lambda) \hbar (\hat{L}_S |m\rangle) 
+\end{align*}
+Multiplying the eigenvalue equation of $\hat{L}_3$ with $\hat{L}_S$ 
+\begin{equation*}
+    \hat{L}_S\hat{L}_3 \ket{m}=\hat{L}_Sm \hbar \ket{m}
+\end{equation*}
+then substracting it to the $\ket{\lambda}$ equation
+\begin{align*}
+    (\hat{L}_3\hat{L}_S - \hat{L}_S\hat{L}_3) \ket{m} &= \lambda \hat{L}_S \ket{m}\\
+    [\hat{L}_3,\hat{L}_S] &= \lambda \hat{L}_S
+\end{align*}
+For $\hat{L}_S$ to satisfy this relation, we can start by assuming that it consists as linear combination 
+\begin{equation*}
+    \hat{L}_S = a\hat{L}_1 + b\hat{L}_2
+\end{equation*}
+We have then the commutator relation
+\begin{equation*}
+[\hat{L}_3, \hat{L}_S] = a[\hat{L}_3, \hat{L}_1] + b[\hat{L}_3, \hat{L}_2] = a(i\hbar \hat{L}_2) + b(-i\hbar \hat{L}_1) = -i\hbar b \hat{L}_1 + i\hbar a \hat{L}_2
+\end{equation*}
+and the shift condition
+\begin{equation*}
+[\hat{L}_3, \hat{L}_S] = \lambda \hat{L}_S = \lambda (a \hat{L}_1 + b \hat{L}_2)
+\end{equation*}
+By equating them
+\begin{align*}
+    \lambda (a \hat{L}_1 + b \hat{L}_2) &=  -i\hbar b \hat{L}_1 + i\hbar a \hat{L}_2    \\
+    (\lambda a + i \hbar b)\hat{L}_1 &=  (i \hbar a - \lambda b )\hat{L}_2 
+\end{align*}
+We obtained linear system 
+\begin{equation*}
+    \lambda a + i \hbar b =0 \qquad 
+    i \hbar a - \lambda b   =0
+\end{equation*}
+or in matrix representation
+\begin{equation*}
+\begin{bmatrix}
+ \lambda & i \hbar \\
+i \hbar & -\lambda 
+\end{bmatrix}
+\begin{bmatrix}
+a \\
+b 
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+0 
+\end{bmatrix}
+\end{equation*}
+As is the case with eigenvalue problem, the determinant of coefficient matrix must equal to zero for the non-trivial solution to exist.
+Hence
+\begin{equation*}
+    -\lambda^2+\hbar ^2=0\implies \lambda=\pm \hbar 
+\end{equation*} 
+The shift operator can thus be identified with the operators $L^+$ and $L^-$, creating states where the eigenvalue $m$ of an eigenstate $|m\rangle$ of $\hat{L}_3$ is shifted by $\pm \hbar $
+\begin{equation*}
+    \hat{L}_3 (\hat{L}_S |m\rangle) = (m \pm 1)\hbar  (\hat{L}_S |m\rangle) 
+\end{equation*}
+
+We consider next a simultaneous eigenstate $|\Psi\rangle$ of $L^2$ and $\hat{L}_3$ with eigenvalues $C^2$ and $m$, respectively
+\begin{equation*}
+L^2|\Psi\rangle = C^2|\Psi\rangle     \qquad
+\hat{L}_3|\Psi\rangle = m \hbar |\Psi\rangle
+\end{equation*}
+which, as we have seen, is always possible. 
+The action of  $L^\pm$ on this state can be seen by considering the states $|\Phi^\pm\rangle = L^\pm|\Psi\rangle$.
+We already know that the eigenvalue of $\hat{L}_3$ gets shifted
+\begin{equation*}
+    \hat{L}_3|\Phi^\pm\rangle = (m \pm 1) \hbar |\Phi^\pm\rangle
+\end{equation*}
+More generally, we have, by iteration,
+\begin{equation*}
+\hat{L}_3 \left( (L^{\pm})^n  \ket{\Psi} \right) = (m \pm n) \hbar  \left( (L^{\pm})^n \ket{\Psi} \right)
+\end{equation*}
+However
+\begin{equation*}
+L^2 \left( (L^{\pm})^n | \Psi \right) = (L^{\pm})^n L^2 \ket{\Psi} = C^2 \left( (L^{\pm})^n | \Psi \right)
+\end{equation*}
+The  expectation values in this state are 
+\begin{equation*}
+    \braket{\Phi | \hat{L}_3|\Phi} = (m+n) \hbar \qquad
+    \braket{\Phi | L^2|\Phi} = C^2
+\end{equation*}
+By definition $L^2=\hat{L}_1^2+\hat{L}_2^2+\hat{L}_3^2$, the square of the third component of the angular momentum cannot exceed the square of the angular momentum
+\begin{equation*}
+(m + n)^2 \hbar ^2 \leq C^2
+\end{equation*}
+Thus, \( m \) must be bounded from above and below
+\begin{equation*}
+    m_{\text{max}} \leq m \leq m_{\text{min}} 
+\end{equation*}
+such that
+\begin{equation*}
+\hat{L}_3 | m_{\text{max}} \rangle = m_{\text{max}} \hbar  | m_{\text{max}} \rangle \qquad
+L^+ | m_{\text{max}} \rangle = 0
+\end{equation*}
+and 
+\begin{equation*}
+    \hat{L}_3 | m_{\text{min}} \rangle = m_{\text{min}} \hbar  | m_{\text{min}} \rangle \qquad
+L^- | m_{\text{min}} \rangle = 0
+\end{equation*}
+Writing $L^2$ as 
+\begin{align*}
+    L^2 &= \frac{1}{4} \left( \hat{L}_+^2 + \hat{L}_+ \hat{L}_- + \hat{L}_- \hat{L}_+ + \hat{L}_-^2 \right) \\
+    & \qquad - \frac{1}{4} \left( \hat{L}_+^2 - \hat{L}_+ \hat{L}_- - \hat{L}_- \hat{L}_+ + \hat{L}_-^2 \right) +\hat{L}_3^2\\
+L^2
+&= \hat{L}_3^2 +\hbar  \hat{L}_3 + L^- L^+ =  \hat{L}_3^2 - \hat{L}_3 + L^+ L^- 
+\end{align*}
+using $    [\hat{L}_+,\hat{L}_-]=2 \hbar \hat{L}_3$.
+Choosing $| m_{\text{max}} \rangle$ and $| m_{\text{min}} \rangle$ as simultaneous eigenstates of $L^2$, we find 
+\begin{align*}
+L^2 | m_{\text{max}} \rangle &=   \left( L^- L^+ +  \hat{L}_3^2 +\hbar  \hat{L}_3 \right) | m_{\text{max}} \rangle \\
+C^2 | m_{\text{max}} \rangle 
+&=  m_{\text{max}} \hbar ^2(m_{\text{max}} + 1) | m_{\text{max}} \rangle 
+\end{align*}
+and 
+\begin{align*}
+L^2 |m_\text{min}\rangle &= \left( L^+ L^- + L^2_3 -\hbar  \hat{L}_3 \right) |m_\text{min}\rangle \\
+ C^2 |m_\text{min}\rangle 
+&=  m_\text{min} \hbar ^2 (m_\text{min} - 1) |m_\text{min}\rangle
+\end{align*}
+Equating both, we have
+\begin{align*}
+  m_{\text{max}} (m_{\text{max}} + 1) &=   m_\text{min} (m_\text{min} - 1) \\
+m^2_{\text{max}} + m_{\text{max}} &=  m^2_{\text{min}} -_{\text{min}}
+\end{align*}
+and
+\begin{align*}
+    m^2_{\text{max}} - m^2_{\text{min}} + m_{\text{max}} + m_{\text{min}} &= 0\\
+(m_{\text{max}} - m_{\text{min}})(m_{\text{max}} + m_{\text{min}}) + (m_{\text{max}} + m_{\text{min}}) &= 0\\
+(m_{\text{max}} + m_{\text{min}})\left[(m_{\text{max}} - m_{\text{min}}) + 1\right] &=  0
+\end{align*}
+Thus two possibilities exits: $m_\text{min} = -m_\text{max}$, which is the only admissible solution, and $m_\text{max} < m_\text{min}$,which contradicts the definition of maximum and minimum.
+
+Denoting  $m_{\text{max}}$ by the letter $l$, and the corresponding simultaneous eigenstate $\ket{l,l}$ of  $L^2$ and $\hat{L}_3$  satisfies 
+\begin{equation*}
+L^+ |l, l\rangle = 0\quad
+\hat{L}_3 |l, l\rangle = l \hbar  |l, l\rangle\quad
+L^2 |l, l\rangle  = l h^2(l + 1) |l, l\rangle\quad
+\end{equation*}
+where the notation $\lvert l, l \rangle$ simply indicates the eigenvalues of $L^2$ (first slot) and $\hat{L}_3$ (second slot).
+Moreover, we can conclude from the action of $\hat{L}_+$ to the state $\ket{l,l}$, repeated $n$ application of $\hat{L}_-$ gives $m=l-n$.
+The lowest value occure  at
+\begin{equation*}
+    -l= l-n \implies 2l=n
+\end{equation*}
+This mean  $l$ can only take integer or half-odd integer values.
+
+So far, the action of $\hat{L}_\pm$ can be written as 
+\begin{equation*}
+L^{\pm} |l,m\rangle = N^{\pm}_{l,m} |l,m \pm 1\rangle
+\end{equation*}
+assuming that both states $|l,m\rangle$ and $|l,m \pm 1\rangle$ are normalized.
+All that left us to determine the normalization constant
+\begin{align*}
+|N^{\pm}_{l,m}|^2 
+&= \langle l,m|L^{\mp}L^{\pm}|l,m\rangle\\
+&=  \langle l,m| (L^2 - \hat{L}_3^2 \mp \hbar  \hat{L}_3) |l,m\rangle\\
+&=  l \hbar^2 (l + 1) - m^2 \hbar ^2 \mp m \hbar \\
+N^{\pm}_{l,m}
+&= \hbar \sqrt{l(l + 1) - m(m \pm 1)}
 \end{align*}
 
 \subsubsection{Derivation: commutator relation (easy mode).}
 First let us derive the basic commutation
 \begin{align*}
-    [L_{x}, L_{y}] & =  [YP_{z} - ZP_{y}, ZP_{x} - XP_{z}]                                        \\
-    [L_{x}, L_{y}] & =  [YP_{z}, ZP_{x}] - [YP_{z}, XP_{z}] - [ZP_{y}, ZP_{x}] + [ZP_{y}, XP_{z}]
+    [\hat{L}_1, \hat{L}_2] & =  [YP_{z} - ZP_{y}, ZP_{x} - XP_{z}]                                        \\
+    [\hat{L}_1, \hat{L}_2] & =  [YP_{z}, ZP_{x}] - [YP_{z}, XP_{z}] - [ZP_{y}, ZP_{x}] + [ZP_{y}, XP_{z}]
 \end{align*}
 Each terms expand as
 \begin{align*}
@@ -213,35 +399,35 @@ Each terms expand as
 \end{align*}
 Summing the four results gives
 \begin{align*}
-    [L_{x}, L_{y}] & =  Y[P_{z}, Z]P_{x} + X[Z, P_{z}]P_{y} \\
+    [\hat{L}_1, \hat{L}_2] & =  Y[P_{z}, Z]P_{x} + X[Z, P_{z}]P_{y} \\
                    & =  i\hbar (XP_{y} - YP_{x})            \\
-    [L_{x}, L_{y}] & =  i\hbar L_{z}.
+    [\hat{L}_1, \hat{L}_2] & =  i\hbar \hat{L}_3.
 \end{align*}
 
 For the posistion relation, we only derive for $X$ case, the other follows immediately
 \begin{flalign*}
-     & [X, L_x] = [X, Y P_z - Z P_y] = 0                                      \\
-     & [X, L_y] = [X, Z P_x - X P_z] = [X, Z P_x] = Z[X, P_x] = i \hbar Z     \\
-     & [X, L_z] = [X, X P_y - Y P_x] = -[X, Y P_x] = -Y[X, P_x] = -i \hbar Y.
+     & [X, \hat{L}_1] = [X, Y P_z - Z P_y] = 0                                      \\
+     & [X, \hat{L}_2] = [X, Z P_x - X P_z] = [X, Z P_x] = Z[X, P_x] = i \hbar Z     \\
+     & [X, \hat{L}_3] = [X, X P_y - Y P_x] = -[X, Y P_x] = -Y[X, P_x] = -i \hbar Y.
 \end{flalign*}
 Same for the momentum
 \begin{flalign*}
-     & [P_{x}, L_{x}] = [P_{x}, Y P_{z} - Z P_{y}] = 0                                                    \\
-     & [P_{x}, L_{y}] = [P_{x}, Z P_{x} - X P_{z}] = -[P_{x}, X P_{z}] = -[P_{x}, X]P_{z} = i \hbar P_{z} \\
-     & [P_{x}, L_{z}] = [P_{x}, X P_{y} - Y P_{x}] = [P_{x}, X P_{y}] = [P_{x}, X]P_{y} = -i \hbar P_{y}  \\
+     & [P_{x}, \hat{L}_1] = [P_{x}, Y P_{z} - Z P_{y}] = 0                                                    \\
+     & [P_{x}, \hat{L}_2] = [P_{x}, Z P_{x} - X P_{z}] = -[P_{x}, X P_{z}] = -[P_{x}, X]P_{z} = i \hbar P_{z} \\
+     & [P_{x}, \hat{L}_3] = [P_{x}, X P_{y} - Y P_{x}] = [P_{x}, X P_{y}] = [P_{x}, X]P_{y} = -i \hbar P_{y}  \\
 \end{flalign*}
 
 Another derivation just for fun
 \begin{align*}
-    [X, L^2] & =  [X, L_x^2] + [X, L_y^2] + [X, L_z^2]                      \\
-             & =  0 + L_y[X, L_y] + [X, L_y]L_y + L_z[X, L_z] + [X, L_z]L_z \\
-             & =  i\hbar (L_yZ + ZL_y - L_zY - YL_y),
+    [X, L^2] & =  [X, \hat{L}_1^2] + [X, \hat{L}_2^2] + [X, \hat{L}_3^2]                      \\
+             & =  0 + \hat{L}_2[X, \hat{L}_2] + [X, \hat{L}_2]\hat{L}_2 + \hat{L}_3[X, \hat{L}_3] + [X, \hat{L}_3]\hat{L}_3 \\
+             & =  i\hbar (\hat{L}_2Z + Z\hat{L}_2 - \hat{L}_3Y - Y\hat{L}_2),
 \end{align*}
 and
 \begin{align*}
-    [P_x, L^2] & =  [P_x, L_x^2] + [P_x, L_y^2] + [P_x, L_z^2]                        \\
-               & =  0 + L_y[P_x, L_y] + [P_x, L_y]L_y + L_z[P_x, L_z] + [P_x, L_z]L_z \\
-               & =  i\hbar(L_yP_z + P_zL_y - L_zP_y - P_yL_z).
+    [P_x, L^2] & =  [P_x, \hat{L}_1^2] + [P_x, \hat{L}_2^2] + [P_x, \hat{L}_3^2]                        \\
+               & =  0 + \hat{L}_2[P_x, \hat{L}_2] + [P_x, \hat{L}_2]\hat{L}_2 + \hat{L}_3[P_x, \hat{L}_3] + [P_x, \hat{L}_3]\hat{L}_3 \\
+               & =  i\hbar(\hat{L}_2P_z + P_z\hat{L}_2 - \hat{L}_3P_y - P_y\hat{L}_3).
 \end{align*}
 
 \subsection*{Total Angular Momentum}
