@@ -449,9 +449,9 @@ where $s$ denote the spin of quantum particle.
 
 The general element of the space spawned by this basis is called a spinor and can be formally written as
 \begin{equation*}
-    \ket{\boldsymbol{\xi}}= \begin{bmatrix}
-        \ket{\xi_+} \\
-        \ket{\xi_-}
+    \ket{\boldsymbol{\chi}}= \begin{bmatrix}
+        \ket{\chi_+} \\
+        \ket{\chi_-}
     \end{bmatrix}
 \end{equation*}
 In this coordinate system, we have two possible state: one for $m_s=1/2$ and other for $m_s=-1/2$
@@ -511,10 +511,110 @@ The Pauli matrices satisfy
     (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) = \mathbf{a} \cdot \mathbf{b} + i(\mathbf{a} \times \mathbf{b}) \cdot \boldsymbol{\sigma}
 \end{gather*}
 with vector $\mathbf{a}$ and $\mathbf{b}$.
-In components form, the third identity reduce into 
+In components form, the third identity reduce into
 \begin{equation*}
     \sigma_i \sigma_j = \delta_{ij} \mathbf{1} + i \epsilon_{ijk} \sigma_k
 \end{equation*}
+Using the Pauli matrices, we can derive the relation for the spin-$1/2$ operator $\mathbf{S} = \boldsymbol{\sigma}/2$ by multiplying previous relation by $1/4$
+\begin{equation*}
+    S_iS_j= \frac{1 }{4 }\delta_{ij}\mathbf{1} +\frac{i }{2} \epsilon_{ijk }S_k
+\end{equation*}
+If $i\neq j$, then 
+\begin{equation*}
+    S_iS_j = -S_jS_i
+\end{equation*}
+Since $S_iS_j = i\epsilon_{ijk }S_k/2$ and $S_jS_i= -i \epsilon_{ijk }S_k/2$.
+
+\subsubsection{Derivation: Pauli matrices identity}
+For the first case, we can prove them individually
+\begin{align*}
+    \sigma_1^2 &= 
+    \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix}
+    = \mathbf{1}\\
+    \sigma_2^2 &= 
+    \begin{pmatrix}
+        0 & -i \\
+        i & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & -i \\
+        i & 0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix}
+    = \mathbf{1}\\
+    \sigma_3^2 &= 
+    \begin{pmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix}
+    = \mathbf{1}
+\end{align*}
+Next we consider the case 
+\begin{equation*}
+\sigma_1 \sigma_2 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} = i \sigma_3
+\end{equation*}
+Instead of considering other case of multiplucation, we can cyclically permutate the index and obtain
+\begin{equation*}
+\sigma_2 \sigma_3 = i \sigma_1, \quad \sigma_3 \sigma_1 = i \sigma_2
+\end{equation*}
+or $\sigma_{i}\sigma_j=i\epsilon_{ijk}\sigma_j$.
+By combining both case, we have 
+\begin{equation*}
+    \sigma_i \sigma_j = \delta_{ij} \mathbf{1} + i \epsilon_{ijk} \sigma_k    
+\end{equation*}
+
+Using this, we prove the commutator relation
+\begin{align*}
+    [\sigma_i,\sigma_j] 
+    &=   \sigma_i \sigma_j - \sigma_j \sigma_i\\
+    &= (\delta_{ij} \mathbf{1} + i \epsilon_{jk} \sigma_k) - (\delta_{ji} \mathbf{1} + i \epsilon_{jik} \sigma_k)\\
+    &=i \epsilon_{jk} \sigma_k - i \epsilon_{jik} \sigma_k = i \epsilon_{jk} \sigma_k + i \epsilon_{ijk} \sigma_k \\
+    [\sigma_i,\sigma_j] 
+    &= 2i \epsilon_{jk} \sigma_k 
+\end{align*}
+and the anticommutator
+\begin{align*}
+    \left\{ \sigma_i,\sigma_j \right\}  
+    &=   \sigma_i \sigma_j + \sigma_j \sigma_i\\
+    &= (\delta_{ij} \mathbf{1} + i \epsilon_{jk} \sigma_k) + (\delta_{ji} \mathbf{1} + i \epsilon_{jik} \sigma_k)\\
+    &=\delta_{ij} \mathbf{1} + \delta_{ji} \mathbf{1} = \delta_{ij} \mathbf{1} + \delta_{ij} \mathbf{1} \\
+    \left\{ \sigma_i,\sigma_j \right\}  
+    &= 2 \delta_{ij} \mathbf{1}
+\end{align*}
+
+For the third identity, note that we can write the left term as 
+\begin{align*}
+    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) 
+    &=  a_i b_j \sigma_i \sigma_j =     a_i b_j\delta_{ij} \mathbf{1} + ia_i b_j \epsilon_{ijk} \sigma_k\\
+   &=  a_i b_i \mathbf{1} + i (\mathbf{a }\times \mathbf{b })_k \sigma_k \\
+    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) 
+    &= (\mathbf{a }\cdot \mathbf{b }) + i (\mathbf{a }\times \mathbf{b } )\cdot \boldsymbol{\sigma}
+\end{align*}
 
 \subsection*{Total Angular Momentum}
 The total angular momentum operator is defined as the sum of the angular momentum and spin $\mathbf{J}=\mathbf{L }+\mathbf{S}$.
