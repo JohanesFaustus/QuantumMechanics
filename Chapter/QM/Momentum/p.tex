@@ -203,7 +203,7 @@ While for the commutator of annihilation and creation with each other
      & =  2\hbar \hat{L}_3                                                                                           \\
 \end{align*}
 
-\subsubsection{Derivation: annihilation anc creation operator action.}
+\subsubsection{Derivation: annihilation and creation operator action.}
 With $\ket{m}$ as the eigenstate of $\hat{L}_3$, we define shift operator $\hat{L}_S$ which produce new state $\ket{\lambda}$ for this eigenstate
 \begin{equation*}
     \ket{\lambda}=\hat{L}_S \ket{m}
@@ -374,62 +374,6 @@ All that left us to determine the normalization constant
      & = \hbar \sqrt{l(l + 1) - m(m \pm 1)}
 \end{align*}
 
-\subsubsection{Derivation: commutator relation (easy mode).}
-First let us derive the basic commutation
-\begin{align*}
-    [\hat{L}_1, \hat{L}_2] & =  [YP_{z} - ZP_{y}, ZP_{x} - XP_{z}]                                        \\
-    [\hat{L}_1, \hat{L}_2] & =  [YP_{z}, ZP_{x}] - [YP_{z}, XP_{z}] - [ZP_{y}, ZP_{x}] + [ZP_{y}, XP_{z}]
-\end{align*}
-Each terms expand as
-\begin{align*}
-    [YP_z,ZP_x]
-     & = Y[P_z,Z]P_x + YZ[P_z,P_x] + [Y,Z]P_zP_x + Z[Y,P_x]P_z \\
-     & = Y[P_z,Z]P_x                                           \\
-     & = -i\hbar Y P_x,                                        \\
-    [YP_z,XP_z]
-     & = Y[P_z,X]P_z + YX[P_z,P_z] + [Y,X]P_zP_z + X[Y,P_z]P_z \\
-     & = 0,                                                    \\
-    [ZP_y,ZP_x]
-     & = Z[P_y,Z]P_x + ZZ[P_y,P_x] + [Z,Z]P_yP_x + Z[Z,P_x]P_y \\
-     & = 0,                                                    \\
-    [ZP_y,XP_z]
-     & = Z[P_y,X]P_z + ZX[P_y,P_z] + [Z,X]P_yP_z + X[Z,P_z]P_y \\
-     & = X[Z,P_z]P_y                                           \\
-     & = i\hbar X P_y
-\end{align*}
-Summing the four results gives
-\begin{align*}
-    [\hat{L}_1, \hat{L}_2] & =  Y[P_{z}, Z]P_{x} + X[Z, P_{z}]P_{y} \\
-                           & =  i\hbar (XP_{y} - YP_{x})            \\
-    [\hat{L}_1, \hat{L}_2] & =  i\hbar \hat{L}_3.
-\end{align*}
-
-For the posistion relation, we only derive for $X$ case, the other follows immediately
-\begin{flalign*}
-     & [X, \hat{L}_1] = [X, Y P_z - Z P_y] = 0                                      \\
-     & [X, \hat{L}_2] = [X, Z P_x - X P_z] = [X, Z P_x] = Z[X, P_x] = i \hbar Z     \\
-     & [X, \hat{L}_3] = [X, X P_y - Y P_x] = -[X, Y P_x] = -Y[X, P_x] = -i \hbar Y.
-\end{flalign*}
-Same for the momentum
-\begin{flalign*}
-     & [P_{x}, \hat{L}_1] = [P_{x}, Y P_{z} - Z P_{y}] = 0                                                    \\
-     & [P_{x}, \hat{L}_2] = [P_{x}, Z P_{x} - X P_{z}] = -[P_{x}, X P_{z}] = -[P_{x}, X]P_{z} = i \hbar P_{z} \\
-     & [P_{x}, \hat{L}_3] = [P_{x}, X P_{y} - Y P_{x}] = [P_{x}, X P_{y}] = [P_{x}, X]P_{y} = -i \hbar P_{y}  \\
-\end{flalign*}
-
-Another derivation just for fun
-\begin{align*}
-    [X, L^2] & =  [X, \hat{L}_1^2] + [X, \hat{L}_2^2] + [X, \hat{L}_3^2]                                                    \\
-             & =  0 + \hat{L}_2[X, \hat{L}_2] + [X, \hat{L}_2]\hat{L}_2 + \hat{L}_3[X, \hat{L}_3] + [X, \hat{L}_3]\hat{L}_3 \\
-             & =  i\hbar (\hat{L}_2Z + Z\hat{L}_2 - \hat{L}_3Y - Y\hat{L}_2),
-\end{align*}
-and
-\begin{align*}
-    [P_x, L^2] & =  [P_x, \hat{L}_1^2] + [P_x, \hat{L}_2^2] + [P_x, \hat{L}_3^2]                                                      \\
-               & =  0 + \hat{L}_2[P_x, \hat{L}_2] + [P_x, \hat{L}_2]\hat{L}_2 + \hat{L}_3[P_x, \hat{L}_3] + [P_x, \hat{L}_3]\hat{L}_3 \\
-               & =  i\hbar(\hat{L}_2P_z + P_z\hat{L}_2 - \hat{L}_3P_y - P_y\hat{L}_3).
-\end{align*}
-
 \subsection{Spin }
 There is a fundamental distinction between particles with half-odd integer spin, called Fermions, which obey the Pauli exclusion principle, and those with integer spin, called Bosons, which do not obey the Pauli exclusion principle.
 For special case $l=1/2\equiv s$, we introduce operator $\mathbf{S}$, which satisfies
@@ -524,6 +468,7 @@ If $i\neq j$, then
     S_iS_j = -S_jS_i
 \end{equation*}
 Since $S_iS_j = i\epsilon_{ijk }S_k/2$ and $S_jS_i= -i \epsilon_{ijk }S_k/2$.
+Along with $\mathbf{1}$, the Pauli matrices span the $2 \times  2$ Hermitian matrices.
 
 \subsubsection{Derivation: Pauli matrices identity}
 For the first case, we can prove them individually
@@ -616,50 +561,188 @@ For the third identity, note that we can write the left term as
     &= (\mathbf{a }\cdot \mathbf{b }) + i (\mathbf{a }\times \mathbf{b } )\cdot \boldsymbol{\sigma}
 \end{align*}
 
-\subsection*{Total Angular Momentum}
-The total angular momentum operator is defined as the sum of the angular momentum and spin $\mathbf{J}=\mathbf{L }+\mathbf{S}$.
-Ladder operator for angular momentum is expressed as
+\subsubsection{Prove of how Pauli matrices span the $2 \times 2$ Hermitian matrices space.}
+Start from arbitrary matrices
 \begin{equation*}
-    J_{\pm} = J_x \pm i J_y
+    H = \begin{pmatrix}
+a & b \\
+c & d 
+\end{pmatrix},
+\quad
+    H ^\dagger = \begin{pmatrix}
+a & c ^* \\
+b ^* & d 
+\end{pmatrix}, 
+\quad a, b, c, d \in \mathbb{C}
 \end{equation*}
-Their action on eigenstates $\ket{j,m}$ are
+The Hermitian condition $H = H ^\dagger$ require
 \begin{equation*}
-    J_{\pm}   |j, m\rangle = \hbar \sqrt{j(j+1) - m(m \pm 1)}   |j, m \pm 1\rangle
+    H = \begin{pmatrix}
+a & b \\
+b^* & d
+\end{pmatrix}, \quad a, d \in \mathbb{R}, \quad b \in \mathbb{C}
 \end{equation*}
-Eigenstate $\ket{j,m}$ is simultaneous eigenstate of the total angular momentum operator $J^2$ with $j $ as the total angular momentum quantum number and $m$ as the magnetic quantum number.
-For given $j$, $m$ can take the value $m=-j,j$ such that there are $2j+1$ degeneracy level.
-The reason it being a degenerate is that the total angular momentum
+The diagonal must be real since $a = a ^*$ and $d = d ^*$, meanwhile the diagonal can be complex with $c ^* = b$ implies $c  = b ^*$.
+We assume that the space can be written as linear combination of 
 \begin{equation*}
-    J^2 |j, m\rangle = \hbar^2 j(j + 1) |j, m\rangle
+    H =c_0 \mathbf{1 } + c_1 \sigma_1 + c_2 \sigma_2 + c_3 \sigma_3 =\begin{pmatrix}
+a & b \\
+b^* & d
+\end{pmatrix} 
 \end{equation*}
-are the same, yet the $z$ component
+such that 
 \begin{equation*}
-    J_z |j, m\rangle = \hbar m |j, m\rangle,
+        \begin{pmatrix}
+        c_0&0\\
+        0&c_0
+    \end{pmatrix}
+    + 
+    \begin{pmatrix}
+        0 & c_1 \\
+        c_1 & 0
+    \end{pmatrix}
+    + 
+    \begin{pmatrix}
+        0 & -ic_2 \\
+        ic_2 & 0
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+        c_3 & 0  \\
+        0 & -c_3
+    \end{pmatrix}    
+    =
+    \begin{pmatrix}
+c_0 + c_3 & c_1 - ic_2 \\
+c_1 + ic_2 & c_0 - c_3
+\end{pmatrix}
 \end{equation*}
-are different.
-The operator also satisfies
+Equating both, we obtain the results for diagonal elements
 \begin{equation*}
-    [J_z, J_{\pm}] = \pm \hbar J_{\pm}\qquad[J_+, J_-] = 2\hbar J_z
+    \begin{cases}
+        c_0 + c_3 = a\\
+        c_0 - c_3 = d     
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        c_0 = \dfrac{a + d}{2}\\
+        c_3 = \dfrac{a - d}{2}        
+    \end{cases} 
 \end{equation*}
-
-\subsubsection*{Derivation.}
-Using the definition of Ladder operator
-\begin{align*}
-    [J_{z}, J_{+}] & =  [J_{z}, J_{x} + i J_{y}] = [J_{z}, J_{x}] + i [J_{z}, J_{y}] = i\hbar J_{y} + i (-i\hbar J_{x}) \\
-                   & =  \hbar (J_{x} + i J_{y})                                                                         \\
-    [J_{z}, J_{+}] & =  \hbar J_{+}                                                                                     \\
-    [J_{z}, J_{-}] & =  [J_{z}, J_{x} - i J_{y}] = [J_{z}, J_{x}] - i [J_{z}, J_{y}] = i\hbar J_{y} - i (-i\hbar J_{x}) \\
-                   & =  -\hbar (J_{x} - i J_{y})                                                                        \\
-    [J_{z}, J_{-}] & =  -\hbar J_{-}
-\end{align*}
-And for other one
-\begin{align*}
-    [J_+, J_-] & =  (J_x + iJ_y)(J_x - iJ_y) - (J_x - iJ_y)(J_x + iJ_y)                     \\
-               & =  J_x^2 - iJ_xJ_y + iJ_yJ_x + J_y^2 - (J_x^2 + iJ_xJ_y - iJ_yJ_x + J_y^2) \\
-               & =  (-iJ_xJ_y + iJ_yJ_x) - (iJ_xJ_y - iJ_yJ_x)                              \\
-               & =  -2iJ_xJ_y + 2iJ_yJ_x                                                    \\
-               & =  2i(J_yJ_x - J_xJ_y)=  2i[J_y, J_x]                                      \\
-    [J_+, J_-] & =  2i(-i\hbar J_z) = 2\hbar J_z
-\end{align*}
+and for the off diagonal
+\begin{equation*}
+    c_1 - i c_2 = b_r + i b_i 
+    \quad 
+    \Rightarrow 
+    \begin{cases}
+     c_1 = b_r\\
+     c_2 = -b_i        
+    \end{cases}
+\end{equation*}
+All coefficients $c_0, c_1, c_2, c_3$ are uniquely determined, thus $\left\{ \mathbf{1 },\sigma_1 ,\sigma_2,\sigma_3\right\} $ span the space of all $2 \times 2$ Hermitian matrices.
 
 \end{document}
+
+% 
+% Unnecessary
+% 
+% \subsection*{Total Angular Momentum}
+% The total angular momentum operator is defined as the sum of the angular momentum and spin $\mathbf{J}=\mathbf{L }+\mathbf{S}$.
+% Ladder operator for angular momentum is expressed as
+% \begin{equation*}
+%     J_{\pm} = J_x \pm i J_y
+% \end{equation*}
+% Their action on eigenstates $\ket{j,m}$ are
+% \begin{equation*}
+%     J_{\pm}   |j, m\rangle = \hbar \sqrt{j(j+1) - m(m \pm 1)}   |j, m \pm 1\rangle
+% \end{equation*}
+% Eigenstate $\ket{j,m}$ is simultaneous eigenstate of the total angular momentum operator $J^2$ with $j $ as the total angular momentum quantum number and $m$ as the magnetic quantum number.
+% For given $j$, $m$ can take the value $m=-j,j$ such that there are $2j+1$ degeneracy level.
+% The reason it being a degenerate is that the total angular momentum
+% \begin{equation*}
+%     J^2 |j, m\rangle = \hbar^2 j(j + 1) |j, m\rangle
+% \end{equation*}
+% are the same, yet the $z$ component
+% \begin{equation*}
+%     J_z |j, m\rangle = \hbar m |j, m\rangle,
+% \end{equation*}
+% are different.
+% The operator also satisfies
+% \begin{equation*}
+%     [J_z, J_{\pm}] = \pm \hbar J_{\pm}\qquad[J_+, J_-] = 2\hbar J_z
+% \end{equation*}
+% 
+% \subsubsection*{Derivation.}
+% Using the definition of Ladder operator
+% \begin{align*}
+%     [J_{z}, J_{+}] & =  [J_{z}, J_{x} + i J_{y}] = [J_{z}, J_{x}] + i [J_{z}, J_{y}] = i\hbar J_{y} + i (-i\hbar J_{x}) \\
+%                    & =  \hbar (J_{x} + i J_{y})                                                                         \\
+%     [J_{z}, J_{+}] & =  \hbar J_{+}                                                                                     \\
+%     [J_{z}, J_{-}] & =  [J_{z}, J_{x} - i J_{y}] = [J_{z}, J_{x}] - i [J_{z}, J_{y}] = i\hbar J_{y} - i (-i\hbar J_{x}) \\
+%                    & =  -\hbar (J_{x} - i J_{y})                                                                        \\
+%     [J_{z}, J_{-}] & =  -\hbar J_{-}
+% \end{align*}
+% And for other one
+% \begin{align*}
+%     [J_+, J_-] & =  (J_x + iJ_y)(J_x - iJ_y) - (J_x - iJ_y)(J_x + iJ_y)                     \\
+%                & =  J_x^2 - iJ_xJ_y + iJ_yJ_x + J_y^2 - (J_x^2 + iJ_xJ_y - iJ_yJ_x + J_y^2) \\
+%                & =  (-iJ_xJ_y + iJ_yJ_x) - (iJ_xJ_y - iJ_yJ_x)                              \\
+%                & =  -2iJ_xJ_y + 2iJ_yJ_x                                                    \\
+%                & =  2i(J_yJ_x - J_xJ_y)=  2i[J_y, J_x]                                      \\
+%     [J_+, J_-] & =  2i(-i\hbar J_z) = 2\hbar J_z
+% \end{align*}
+% 
+% \subsubsection{Derivation: commutator relation (easy mode).}
+% First let us derive the basic commutation
+% \begin{align*}
+%     [\hat{L}_1, \hat{L}_2] & =  [YP_{z} - ZP_{y}, ZP_{x} - XP_{z}]                                        \\
+%     [\hat{L}_1, \hat{L}_2] & =  [YP_{z}, ZP_{x}] - [YP_{z}, XP_{z}] - [ZP_{y}, ZP_{x}] + [ZP_{y}, XP_{z}]
+% \end{align*}
+% Each terms expand as
+% \begin{align*}
+%     [YP_z,ZP_x]
+%      & = Y[P_z,Z]P_x + YZ[P_z,P_x] + [Y,Z]P_zP_x + Z[Y,P_x]P_z \\
+%      & = Y[P_z,Z]P_x                                           \\
+%      & = -i\hbar Y P_x,                                        \\
+%     [YP_z,XP_z]
+%      & = Y[P_z,X]P_z + YX[P_z,P_z] + [Y,X]P_zP_z + X[Y,P_z]P_z \\
+%      & = 0,                                                    \\
+%     [ZP_y,ZP_x]
+%      & = Z[P_y,Z]P_x + ZZ[P_y,P_x] + [Z,Z]P_yP_x + Z[Z,P_x]P_y \\
+%      & = 0,                                                    \\
+%     [ZP_y,XP_z]
+%      & = Z[P_y,X]P_z + ZX[P_y,P_z] + [Z,X]P_yP_z + X[Z,P_z]P_y \\
+%      & = X[Z,P_z]P_y                                           \\
+%      & = i\hbar X P_y
+% \end{align*}
+% Summing the four results gives
+% \begin{align*}
+%     [\hat{L}_1, \hat{L}_2] & =  Y[P_{z}, Z]P_{x} + X[Z, P_{z}]P_{y} \\
+%                            & =  i\hbar (XP_{y} - YP_{x})            \\
+%     [\hat{L}_1, \hat{L}_2] & =  i\hbar \hat{L}_3.
+% \end{align*}
+% For the posistion relation, we only derive for $X$ case, the other follows immediately
+% \begin{flalign*}
+%      & [X, \hat{L}_1] = [X, Y P_z - Z P_y] = 0                                      \\
+%      & [X, \hat{L}_2] = [X, Z P_x - X P_z] = [X, Z P_x] = Z[X, P_x] = i \hbar Z     \\
+%      & [X, \hat{L}_3] = [X, X P_y - Y P_x] = -[X, Y P_x] = -Y[X, P_x] = -i \hbar Y.
+% \end{flalign*}
+% Same for the momentum
+% \begin{flalign*}
+%      & [P_{x}, \hat{L}_1] = [P_{x}, Y P_{z} - Z P_{y}] = 0                                                    \\
+%      & [P_{x}, \hat{L}_2] = [P_{x}, Z P_{x} - X P_{z}] = -[P_{x}, X P_{z}] = -[P_{x}, X]P_{z} = i \hbar P_{z} \\
+%      & [P_{x}, \hat{L}_3] = [P_{x}, X P_{y} - Y P_{x}] = [P_{x}, X P_{y}] = [P_{x}, X]P_{y} = -i \hbar P_{y}  \\
+% \end{flalign*}
+% 
+% Another derivation just for fun
+% \begin{align*}
+%     [X, L^2] & =  [X, \hat{L}_1^2] + [X, \hat{L}_2^2] + [X, \hat{L}_3^2]                                                    \\
+%              & =  0 + \hat{L}_2[X, \hat{L}_2] + [X, \hat{L}_2]\hat{L}_2 + \hat{L}_3[X, \hat{L}_3] + [X, \hat{L}_3]\hat{L}_3 \\
+%              & =  i\hbar (\hat{L}_2Z + Z\hat{L}_2 - \hat{L}_3Y - Y\hat{L}_2),
+% \end{align*}
+% and
+% \begin{align*}
+%     [P_x, L^2] & =  [P_x, \hat{L}_1^2] + [P_x, \hat{L}_2^2] + [P_x, \hat{L}_3^2]                                                      \\
+%                & =  0 + \hat{L}_2[P_x, \hat{L}_2] + [P_x, \hat{L}_2]\hat{L}_2 + \hat{L}_3[P_x, \hat{L}_3] + [P_x, \hat{L}_3]\hat{L}_3 \\
+%                & =  i\hbar(\hat{L}_2P_z + P_z\hat{L}_2 - \hat{L}_3P_y - P_y\hat{L}_3).
+% \end{align*}
