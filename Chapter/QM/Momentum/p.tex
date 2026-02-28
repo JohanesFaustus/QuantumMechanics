@@ -463,7 +463,7 @@ Using the Pauli matrices, we can derive the relation for the spin-$1/2$ operator
 \begin{equation*}
     S_iS_j= \frac{1 }{4 }\delta_{ij}\mathbf{1} +\frac{i }{2} \epsilon_{ijk }S_k
 \end{equation*}
-If $i\neq j$, then 
+If $i\neq j$, then
 \begin{equation*}
     S_iS_j = -S_jS_i
 \end{equation*}
@@ -472,19 +472,19 @@ Along with $\mathbf{1}$, the Pauli matrices span the $2 \times  2$ Hermitian mat
 
 The Bloch vector associated with spinor start $\ket{\chi}$ is
 \begin{equation*}
-  \mathbf{e }= \braket{\boldsymbol{\sigma}  }_{\chi}= \braket{\chi  | \boldsymbol{\sigma }|\chi}
+    \mathbf{e }= \braket{\boldsymbol{\sigma}  }_{\chi}= \braket{\chi  | \boldsymbol{\sigma }|\chi}
 \end{equation*}
 Since the state $\ket{\chi}$ is a pure state, the corresponding Bloch vector represented as a point on the Bloch sphere, with $\mathbf{e}$ being the vector pointing to that location.
-Bloch vector can be written in Cartesian components as 
+Bloch vector can be written in Cartesian components as
 \begin{equation*}
     \mathbf{e} = (e_x,e_y,e_z) = (\sin \theta \cos \phi, \sin \theta \sin \phi, \cos \theta)
 \end{equation*}
-With the spinor parameterization as 
+With the spinor parameterization as
 \begin{equation*}
-|\chi\rangle = \begin{bmatrix}
-\cos(\theta/2) \\
-e^{i\phi} \sin(\theta/2)
-\end{bmatrix},
+    |\chi\rangle = \begin{bmatrix}
+        \cos(\theta/2) \\
+        e^{i\phi} \sin(\theta/2)
+    \end{bmatrix},
 \end{equation*}
 we can work backward by determining the Bloch vector first the evaluating the spinor, where
 \begin{equation*}
@@ -494,7 +494,7 @@ we can work backward by determining the Bloch vector first the evaluating the sp
 \subsubsection{Derivation: Pauli matrices identity}
 For the first case, we can prove them individually
 \begin{align*}
-    \sigma_1^2 &= 
+    \sigma_1^2 & =
     \begin{bmatrix}
         0 & 1 \\
         1 & 0
@@ -508,8 +508,8 @@ For the first case, we can prove them individually
         1 & 0 \\
         0 & 1
     \end{bmatrix}
-    = \mathbf{1}\\
-    \sigma_2^2 &= 
+    = \mathbf{1}   \\
+    \sigma_2^2 & =
     \begin{bmatrix}
         0 & -i \\
         i & 0
@@ -523,8 +523,8 @@ For the first case, we can prove them individually
         1 & 0 \\
         0 & 1
     \end{bmatrix}
-    = \mathbf{1}\\
-    \sigma_3^2 &= 
+    = \mathbf{1}   \\
+    \sigma_3^2 & =
     \begin{bmatrix}
         1 & 0  \\
         0 & -1
@@ -540,124 +540,124 @@ For the first case, we can prove them individually
     \end{bmatrix}
     = \mathbf{1}
 \end{align*}
-Next we consider the case 
+Next we consider the case
 \begin{equation*}
-\sigma_1 \sigma_2 = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\ 0 & -i \end{bmatrix} = i \sigma_3
+    \sigma_1 \sigma_2 = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\ 0 & -i \end{bmatrix} = i \sigma_3
 \end{equation*}
 Instead of considering other case of multiplucation, we can cyclically permutate the index and obtain
 \begin{equation*}
-\sigma_2 \sigma_3 = i \sigma_1, \quad \sigma_3 \sigma_1 = i \sigma_2
+    \sigma_2 \sigma_3 = i \sigma_1, \quad \sigma_3 \sigma_1 = i \sigma_2
 \end{equation*}
 or $\sigma_{i}\sigma_j=i\epsilon_{ijk}\sigma_j$.
-By combining both case, we have 
+By combining both case, we have
 \begin{equation*}
-    \sigma_i \sigma_j = \delta_{ij} \mathbf{1} + i \epsilon_{ijk} \sigma_k    
+    \sigma_i \sigma_j = \delta_{ij} \mathbf{1} + i \epsilon_{ijk} \sigma_k
 \end{equation*}
 
 Using this, we prove the commutator relation
 \begin{align*}
-    [\sigma_i,\sigma_j] 
-    &=   \sigma_i \sigma_j - \sigma_j \sigma_i\\
-    &= (\delta_{ij} \mathbf{1} + i \epsilon_{jk} \sigma_k) - (\delta_{ji} \mathbf{1} + i \epsilon_{jik} \sigma_k)\\
-    &=i \epsilon_{jk} \sigma_k - i \epsilon_{jik} \sigma_k = i \epsilon_{jk} \sigma_k + i \epsilon_{ijk} \sigma_k \\
-    [\sigma_i,\sigma_j] 
-    &= 2i \epsilon_{jk} \sigma_k 
+    [\sigma_i,\sigma_j]
+     & =   \sigma_i \sigma_j - \sigma_j \sigma_i                                                                    \\
+     & = (\delta_{ij} \mathbf{1} + i \epsilon_{jk} \sigma_k) - (\delta_{ji} \mathbf{1} + i \epsilon_{jik} \sigma_k) \\
+     & =i \epsilon_{jk} \sigma_k - i \epsilon_{jik} \sigma_k = i \epsilon_{jk} \sigma_k + i \epsilon_{ijk} \sigma_k \\
+    [\sigma_i,\sigma_j]
+     & = 2i \epsilon_{jk} \sigma_k
 \end{align*}
 and the anticommutator
 \begin{align*}
-    \left\{ \sigma_i,\sigma_j \right\}  
-    &=   \sigma_i \sigma_j + \sigma_j \sigma_i\\
-    &= (\delta_{ij} \mathbf{1} + i \epsilon_{jk} \sigma_k) + (\delta_{ji} \mathbf{1} + i \epsilon_{jik} \sigma_k)\\
-    &=\delta_{ij} \mathbf{1} + \delta_{ji} \mathbf{1} = \delta_{ij} \mathbf{1} + \delta_{ij} \mathbf{1} \\
-    \left\{ \sigma_i,\sigma_j \right\}  
-    &= 2 \delta_{ij} \mathbf{1}
+    \left\{ \sigma_i,\sigma_j \right\}
+     & =   \sigma_i \sigma_j + \sigma_j \sigma_i                                                                    \\
+     & = (\delta_{ij} \mathbf{1} + i \epsilon_{jk} \sigma_k) + (\delta_{ji} \mathbf{1} + i \epsilon_{jik} \sigma_k) \\
+     & =\delta_{ij} \mathbf{1} + \delta_{ji} \mathbf{1} = \delta_{ij} \mathbf{1} + \delta_{ij} \mathbf{1}           \\
+    \left\{ \sigma_i,\sigma_j \right\}
+     & = 2 \delta_{ij} \mathbf{1}
 \end{align*}
 
-For the third identity, note that we can write the left term as 
+For the third identity, note that we can write the left term as
 \begin{align*}
-    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) 
-    &=  a_i b_j \sigma_i \sigma_j =     a_i b_j\delta_{ij} \mathbf{1} + ia_i b_j \epsilon_{ijk} \sigma_k\\
-   &=  a_i b_i \mathbf{1} + i (\mathbf{a }\times \mathbf{b })_k \sigma_k \\
-    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) 
-    &= (\mathbf{a }\cdot \mathbf{b }) + i (\mathbf{a }\times \mathbf{b } )\cdot \boldsymbol{\sigma}
+    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma})
+     & =  a_i b_j \sigma_i \sigma_j =     a_i b_j\delta_{ij} \mathbf{1} + ia_i b_j \epsilon_{ijk} \sigma_k \\
+     & =  a_i b_i \mathbf{1} + i (\mathbf{a }\times \mathbf{b })_k \sigma_k                                \\
+    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma})
+     & = (\mathbf{a }\cdot \mathbf{b }) + i (\mathbf{a }\times \mathbf{b } )\cdot \boldsymbol{\sigma}
 \end{align*}
 
 \subsubsection{Prove of how Pauli matrices span the $2 \times 2$ Hermitian matrices space.}
 Start from arbitrary matrices
 \begin{equation*}
     H = \begin{bmatrix}
-a & b \\
-c & d 
-\end{bmatrix},
-\quad
+        a & b \\
+        c & d
+    \end{bmatrix},
+    \quad
     H ^\dagger = \begin{bmatrix}
-a & c ^* \\
-b ^* & d 
-\end{bmatrix}, 
-\quad a, b, c, d \in \mathbb{C}
+        a    & c ^* \\
+        b ^* & d
+    \end{bmatrix},
+    \quad a, b, c, d \in \mathbb{C}
 \end{equation*}
 The Hermitian condition $H = H ^\dagger$ require
 \begin{equation*}
     H = \begin{bmatrix}
-a & b \\
-b^* & d
-\end{bmatrix}, \quad a, d \in \mathbb{R}, \quad b \in \mathbb{C}
+        a   & b \\
+        b^* & d
+    \end{bmatrix}, \quad a, d \in \mathbb{R}, \quad b \in \mathbb{C}
 \end{equation*}
 The diagonal must be real since $a = a ^*$ and $d = d ^*$, meanwhile the diagonal can be complex with $c ^* = b$ implies $c  = b ^*$.
-We assume that the space can be written as linear combination of 
+We assume that the space can be written as linear combination of
 \begin{equation*}
     H =c_0 \mathbf{1 } + c_1 \sigma_1 + c_2 \sigma_2 + c_3 \sigma_3 =\begin{bmatrix}
-a & b \\
-b^* & d
-\end{bmatrix} 
-\end{equation*}
-such that 
-\begin{equation*}
-        \begin{bmatrix}
-        c_0&0\\
-        0&c_0
+        a   & b \\
+        b^* & d
     \end{bmatrix}
-    + 
+\end{equation*}
+such that
+\begin{equation*}
     \begin{bmatrix}
-        0 & c_1 \\
+        c_0 & 0   \\
+        0   & c_0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        0   & c_1 \\
         c_1 & 0
     \end{bmatrix}
-    + 
+    +
     \begin{bmatrix}
-        0 & -ic_2 \\
+        0    & -ic_2 \\
         ic_2 & 0
     \end{bmatrix}
     +
     \begin{bmatrix}
-        c_3 & 0  \\
-        0 & -c_3
-    \end{bmatrix}    
+        c_3 & 0    \\
+        0   & -c_3
+    \end{bmatrix}
     =
     \begin{bmatrix}
-c_0 + c_3 & c_1 - ic_2 \\
-c_1 + ic_2 & c_0 - c_3
-\end{bmatrix}
+        c_0 + c_3  & c_1 - ic_2 \\
+        c_1 + ic_2 & c_0 - c_3
+    \end{bmatrix}
 \end{equation*}
 Equating both, we obtain the results for diagonal elements
 \begin{equation*}
     \begin{cases}
-        c_0 + c_3 = a\\
-        c_0 - c_3 = d     
+        c_0 + c_3 = a \\
+        c_0 - c_3 = d
     \end{cases}
     \Rightarrow
     \begin{cases}
-        c_0 = (a+d)/2\\
+        c_0 = (a+d)/2 \\
         c_3 = (a-d)/2
-    \end{cases} 
+    \end{cases}
 \end{equation*}
 and for the off diagonal
 \begin{equation*}
-    c_1 - i c_2 = b_r + i b_i 
-    \quad 
-    \Rightarrow 
+    c_1 - i c_2 = b_r + i b_i
+    \quad
+    \Rightarrow
     \begin{cases}
-     c_1 = b_r\\
-     c_2 = -b_i        
+        c_1 = b_r \\
+        c_2 = -b_i
     \end{cases}
 \end{equation*}
 All coefficients $c_0, c_1, c_2, c_3$ are uniquely determined, thus $\left\{ \mathbf{1 },\sigma_1 ,\sigma_2,\sigma_3\right\} $ span the space of all $2 \times 2$ Hermitian matrices.
@@ -665,24 +665,152 @@ All coefficients $c_0, c_1, c_2, c_3$ are uniquely determined, thus $\left\{ \ma
 \subsubsection{Derivation: Bloch vector representation of spinor state.}
 For general normalized spinor state
 \begin{equation*}
-   |\chi\rangle = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}, \quad |\alpha|^2 + |\beta|^2 = 1. 
+    |\chi\rangle = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}, \quad |\alpha|^2 + |\beta|^2 = 1.
 \end{equation*}
-then the components of Bloch vector is 
+then the components of Bloch vector is
 \begin{align*}
-e_x & =  \left( \alpha^* \, \beta^* \right) \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = \alpha^*\beta + \beta^*\alpha = 2\text{Re}(\alpha^*\beta)\\
-e_y & =  \left( \alpha^* \, \beta^* \right) \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = -i(\alpha^*\beta - \beta^*\alpha) = 2\text{Im}(\alpha^*\beta)\\
-e_z & =  (\alpha^* \beta^*)  \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}  \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = |\alpha|^2 - |\beta|^2
+    e_x & =  \left( \alpha^* \, \beta^* \right) \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = \alpha^*\beta + \beta^*\alpha = 2\text{Re}(\alpha^*\beta)      \\
+    e_y & =  \left( \alpha^* \, \beta^* \right) \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = -i(\alpha^*\beta - \beta^*\alpha) = 2\text{Im}(\alpha^*\beta) \\
+    e_z & =  (\alpha^* \beta^*)  \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}  \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = |\alpha|^2 - |\beta|^2
 \end{align*}
 where we have used the complex relation $\mathrm{Re } (z) = (z + z ^* )/2$ and $\mathrm{Im } (z) = (z - z ^* )/2i$.
-Computing the norm 
+Computing the norm
 \begin{align*}
-|\mathbf{e}|^2 & =  e_x^2 + e_y^2 + e_z^2 = 4\left[(\mathrm{Re}(\alpha^* \beta))^2 + (\mathrm{Im}(\alpha^* \beta))^2\right] + (|\alpha|^2 - |\beta|^2)^2\\
-& =  4|\alpha|^2 |\beta|^2 + |\alpha|^4 - 2|\alpha|^2|\beta|^2 + |\beta|^4 = |\alpha|^4 + 2 |\alpha|^2 |\beta|^2 + |\beta|^4\\
-|\mathbf{e}|^2 
-& = (|\alpha|^2 + |\beta|^2)^2 = 1
+    |\mathbf{e}|^2 & =  e_x^2 + e_y^2 + e_z^2 = 4\left[(\mathrm{Re}(\alpha^* \beta))^2 + (\mathrm{Im}(\alpha^* \beta))^2\right] + (|\alpha|^2 - |\beta|^2)^2 \\
+                   & =  4|\alpha|^2 |\beta|^2 + |\alpha|^4 - 2|\alpha|^2|\beta|^2 + |\beta|^4 = |\alpha|^4 + 2 |\alpha|^2 |\beta|^2 + |\beta|^4              \\
+    |\mathbf{e}|^2
+                   & = (|\alpha|^2 + |\beta|^2)^2 = 1
 \end{align*}
 Hence the Bloch vector also normalized
 
+Suppose we have the spinor state of
+\begin{equation*}
+    |\zeta\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix}
+        1 \\
+        1
+    \end{pmatrix}
+\end{equation*}
+All components of Bloch vector are
+\begin{align*}
+    e_x & =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+    \begin{pmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{pmatrix} =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    = 1     \\
+    e_y & =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}
+    \begin{pmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{pmatrix} =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix}
+        -\frac{i}{\sqrt{2}} \\ \frac{i}{\sqrt{2}}
+    \end{bmatrix}
+    = 0     \\
+    e_z & =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{pmatrix} 1 & 0 \\ -0 & 1 \end{pmatrix}
+    \begin{pmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{pmatrix} =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    = 0
+\end{align*}
+So the Bloch vector $\mathbf{e}=(1,0,0)$ points along the positive $x$-axis on the Bloch sphere, where the spherical coordinates are
+\begin{equation*}
+    \theta = \arccos(e_z) = \frac{\pi}{2}\qquad
+    \phi = \arctan2(e_y, e_x) = 0.
+\end{equation*}
+The spinor can be reconstructed from this
+\begin{equation*}
+    |\chi\rangle = \begin{bmatrix}
+        \cos(\theta/2) \\
+        e^{i\phi} \sin(\theta/2)
+    \end{bmatrix}
+    = \frac{1}{\sqrt{2}} \begin{pmatrix}
+        1 \\
+        1
+    \end{pmatrix}
+\end{equation*}
+
+We can do the same thing with the computational base
+\begin{equation*}
+    \ket{0} = \begin{pmatrix}
+        1 \\0
+    \end{pmatrix}
+    \ket{1} = \begin{pmatrix}
+        0 \\1
+    \end{pmatrix}
+\end{equation*}
+For the base $\ket{0}$
+\begin{align*}
+    e_x & =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{pmatrix} 0 & 1 \ 1 & 0 \end{pmatrix}
+    \begin{pmatrix} 1 \\ 0 \end{pmatrix} =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{pmatrix} 0 \\ 1 \end{pmatrix} = 0 \\
+    e_y & =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{pmatrix} 0 & -i \ i & 0 \end{pmatrix}
+    \begin{pmatrix} 1 \\ 0 \end{pmatrix} =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{pmatrix} 0 \\ i \end{pmatrix} = 0 \\
+    e_z & =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+    \begin{pmatrix} 1 \\ 0 \end{pmatrix} =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{pmatrix} 1 \\ 0 \end{pmatrix} = 1
+\end{align*}
+and for $\ket{1}$
+\begin{align*}
+    e_x & =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+    \begin{pmatrix} 0 \\ 1 \end{pmatrix} =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{pmatrix} 1 \\ 0 \end{pmatrix} = 0  \\
+    e_y & =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}
+    \begin{pmatrix} 0 \\ 1 \end{pmatrix} =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{pmatrix} -i \\ 0 \end{pmatrix} = 0 \\
+    e_z & =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{pmatrix} 1 & 0 \ 0 & -1 \end{pmatrix}
+    \begin{pmatrix} 0 \\ 1 \end{pmatrix} =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{pmatrix} 0 \\ -1 \end{pmatrix} = -1
+\end{align*}
+As expected, $\ket{0}$ has the vector $\mathbf{e} = (0,0,1)$, while $\ket{1}$ has $\mathbf{e}=(0,0,-1)$.
+The spherical coordinates for $\ket{0}$ are $(\theta,\phi)=(0,0)$, while for $\ket{1}$ are $(\theta,\phi)=(\pi,0)$.
+The reconstructed basis takes the form
+\begin{equation*}
+    \ket{0}= \begin{pmatrix}
+        1 \\0
+    \end{pmatrix}
+    \ket{1} = \begin{pmatrix}
+        0 \\1
+    \end{pmatrix}
+\end{equation*}
 
 \end{document}
 
