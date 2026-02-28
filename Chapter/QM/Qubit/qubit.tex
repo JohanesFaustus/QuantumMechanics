@@ -258,12 +258,16 @@ In the figure, the probabilities $p_0$ and $p_1$ are represented by the position
 
 The state of a quantum bit is described by a complex unit vector $\ket{\psi}$ in a 2-dimensional Hilbert space
 \begin{equation*}
-  | \psi \rangle = \cos\left( \frac{\theta}{2} \right) | 0 \rangle + e^{i \phi} \sin\left( \frac{\theta}{2} \right) | 1 \rangle
+  | \psi \rangle = \cos\frac{\theta}{2} | 0 \rangle + e^{i \phi} \sin\frac{\theta}{2}  | 1 \rangle
 \end{equation*}
 Such a state vector is often depicted as a point on the surface of a 3-dimensional sphere, known as the Bloch sphere,
 Points on the surface of the Bloch sphere can also be expressed in Cartesian coordinates as
 \begin{equation*}
-  (x, y, z) = \left( \sin \theta \cos \varphi, \sin \theta \sin \varphi, \cos \theta \right)
+  (\alpha_x, \alpha_y, \alpha_z) = \left( \sin \theta \cos \varphi, \sin \theta \sin \varphi, \cos \theta \right)
+\end{equation*}
+with $\theta$ as polar angle of the Bloch vector $\alpha$ relative to the positive $z$-axis and $\phi$ gives the azimuthal angle of the Bloch vector in the $xy$-plane such that
+\begin{equation*}
+\theta = \arccos(\alpha_z), \quad \phi = \arctan2(\alpha_y, \alpha_x)
 \end{equation*}
 
 \subsection{Quantum Gate}
