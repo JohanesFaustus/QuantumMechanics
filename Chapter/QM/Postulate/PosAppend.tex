@@ -584,4 +584,117 @@ The expectation value and uncertainty the of momentum operator is
     \braket{P}=0,\quad\Delta P=\frac{\hbar}{\Delta\sqrt{2}}
 \end{equation*}
 
+\subsection{Appendix: Simple Spin Hamiltonian}
+Suppose a system is described by a Hamiltonian in terms if Pauli matrices
+\begin{equation*}
+H = B \cos \theta \sigma_x + B \sin \theta \sigma_y,    
+\end{equation*}
+where \(\sigma_x\) and \(\sigma_y\) are the Pauli matrices
+\begin{equation*}
+\sigma_x = \begin{pmatrix}
+0 & 1 \\
+1 & 0 
+\end{pmatrix}, \qquad 
+\sigma_y = \begin{pmatrix}
+0 & -i \\
+i & 0 
+\end{pmatrix}    
+\end{equation*}
+The Hamiltonian now reads 
+\begin{equation*}
+H = B \begin{pmatrix}
+    0 & \cos \theta - i \sin \theta \\
+\cos \theta + i \sin \theta & 0 
+\end{pmatrix}
+=
+B \begin{bmatrix}
+0 & e^{-i\theta} \\
+e^{i\theta} & 0     
+\end{bmatrix}
+\end{equation*}
+
+Next is to determine the eigenvalue
+\begin{equation*}
+\det \begin{bmatrix}
+-E & Be^{-i\theta} \\
+Be^{i\theta} & -E
+\end{bmatrix}
+=
+E^2-B^2=0
+\implies 
+E=\pm B
+\end{equation*}
+
+For the eigenvalue $E=B$, the eigenvector might be evaluated as follows
+\begin{equation*}
+    B \begin{pmatrix}
+0 & e^{-i\theta} \\
+e^{i\theta} & 0
+\end{pmatrix}  
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix} 
+=  B  
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix} 
+= \begin{cases}
+    e^{-i\theta}b = a \\
+    e^{i\theta}a = b \\
+\end{cases}
+\end{equation*}
+Choosing $a=1$, the yet to be normalized vector is
+\begin{equation*}
+    \ket{E_+'} = 
+    \begin{bmatrix}
+        1\\e^{i\theta}
+    \end{bmatrix}
+\end{equation*}
+Normalization turns the vector into 
+\begin{equation*}
+    \ket{E_+} = 
+    \frac{1 }{\sqrt{2}}
+    \begin{bmatrix}
+        1\\e^{i\theta}
+    \end{bmatrix}
+\end{equation*}
+
+For the eigenvalue $E=-B$, the eigenvector might be evaluated as follows
+\begin{equation*}
+    B \begin{pmatrix}
+0 & e^{-i\theta} \\
+e^{i\theta} & 0
+\end{pmatrix}  
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix} 
+= - B  
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix} 
+= \begin{cases}
+    e^{-i\theta}b =- a \\
+    e^{i\theta}a = -b \\
+\end{cases}
+\end{equation*}
+Choosing $a=1$, the yet to be normalized vector is
+\begin{equation*}
+    \ket{E_-'} = 
+    \begin{bmatrix}
+        1\\-e^{i\theta}
+    \end{bmatrix}
+\end{equation*}
+Normalization turns the vector into 
+\begin{equation*}
+    \ket{E_-} = 
+    \frac{1 }{\sqrt{2}}
+    \begin{bmatrix}
+        1\\-e^{i\theta}
+    \end{bmatrix}
+\end{equation*}
+
 \end{document}
