@@ -418,7 +418,7 @@ Here the diagonal $\rho_{ii}$ give the probabilities the of finding the system i
 This captures all the relevant information about the state of the system.
 We can determine the outcome of measuring state $\ket{\phi}$ using density operator
 \begin{equation*}
-    P(\phi)= \braket{\phi  | \rho|\phi}= \mathrm{Tr } \left( \ket{\phi }\bra{\phi }\rho \right) 
+    P(\phi)= \braket{\phi  | \rho|\phi}= \mathrm{Tr } \left( \ket{\phi }\bra{\phi }\rho \right)
 \end{equation*}
 
 \subsubsection{Partial trace.}
@@ -477,69 +477,69 @@ Not very enlightening, but we can write is as
 \end{align*}
 where we have used the cyclicity of trace $\mathrm{Tr}(ABC) = \mathrm{Tr}(BCA) = \mathrm{Tr}(CAB)$.
 
-We move to proving few identities. 
+We move to proving few identities.
 First, writing scalar as trace
 \begin{equation*}
-    \mathrm{Tr}(|a\rangle\langle b|) = \sum_{n} \braket{n  | a }\braket{b  | n}= \langle b | \left( \sum_{n} | n \rangle \langle n | \right) | a \rangle = \langle b | a \rangle 
+    \mathrm{Tr}(|a\rangle\langle b|) = \sum_{n} \braket{n  | a }\braket{b  | n}= \langle b | \left( \sum_{n} | n \rangle \langle n | \right) | a \rangle = \langle b | a \rangle
 \end{equation*}
 Then, the cyclicity of trace
 \begin{equation*}
-\mathrm{Tr}(ABC) = \sum_{n,m,k} \langle n|A|m\rangle \langle m|B|k\rangle \langle k|C|n\rangle.    
+    \mathrm{Tr}(ABC) = \sum_{n,m,k} \langle n|A|m\rangle \langle m|B|k\rangle \langle k|C|n\rangle.
 \end{equation*}
 Now relabel dummy indices cyclically
 \begin{equation*}
     n \rightarrow m, \quad m \rightarrow k, \quad k \rightarrow n.
 \end{equation*}
-Since all indices are summed independently over the same set, this relabelling does not change the value. 
+Since all indices are summed independently over the same set, this relabelling does not change the value.
 The expression becomes
 \begin{equation*}
     \sum_{n,m,k} \langle n|B|m\rangle \langle m|C|k\rangle \langle k|A|n\rangle \mathrm{Tr}(BCA)
 \end{equation*}
 Repeating the same argument yields that trace is invariant under cyclic permutations
 \begin{equation*}
-\mathrm{Tr}(ABC) = \mathrm{Tr}(BCA) = \mathrm{Tr}(CAB).    
+    \mathrm{Tr}(ABC) = \mathrm{Tr}(BCA) = \mathrm{Tr}(CAB).
 \end{equation*}
 
 \subsection{Coherence}
 Let a system have basis $\left\{ \ket{i } \right\} $, the density operator is written
 \begin{equation*}
-   \rho = \sum_{i,j} \rho_{ij} \ket{i }\bra{j} 
+    \rho = \sum_{i,j} \rho_{ij} \ket{i }\bra{j}
 \end{equation*}
 A system is coherent in that basis if at least one off-diagonal term $\rho_{ij}$ is nonzero.
 Interference phenomena arise from these off-diagonal terms.
 
-Suppose we measure an observable $X$ with eigenstates $|x\rangle$. 
-The probability to observe outcome $x$ is 
+Suppose we measure an observable $X$ with eigenstates $|x\rangle$.
+The probability to observe outcome $x$ is
 \begin{equation*}
-   P(x) = \mathrm{Tr}(\rho |x\rangle \langle x|) = \langle x | \rho | x \rangle 
+    P(x) = \mathrm{Tr}(\rho |x\rangle \langle x|) = \langle x | \rho | x \rangle
 \end{equation*}
 Expanding in the $|i\rangle$ basis
 \begin{equation*}
-P(x) = \sum_{i,j} \rho_{ij} \langle x | i \rangle \langle j | x \rangle = \sum_{i,j} \rho_{ij} \psi_i(x) \psi_j^*(x),    
+    P(x) = \sum_{i,j} \rho_{ij} \langle x | i \rangle \langle j | x \rangle = \sum_{i,j} \rho_{ij} \psi_i(x) \psi_j^*(x),
 \end{equation*}
 where $\psi_i(x) \equiv \langle x | i \rangle$ are the wavefunctions in the measurement basis.
 The sum can be split into diagonal ($i = j$) and off-diagonal ($i \neq j$) terms
 \begin{equation*}
     P(x) = \sum_{i} \rho_{ii} |\psi_{i}(x)|^{2} + \sum_{i \neq j} \rho_{ij} \psi_{i}(x) \psi_{j}^{*}(x)
 \end{equation*}
-To obtain the more familiar expression, note that the second term can be written as 
+To obtain the more familiar expression, note that the second term can be written as
 \[
-\sum_{i \neq j} \rho_{ij} \psi_i(x) \psi_j^*(x) = \sum_{i < j} \rho_{ij} \psi_i(x) \psi_j^*(x) + \sum_{j<i} \rho_{ij} \psi_i(x) \psi_j^*(x)
+    \sum_{i \neq j} \rho_{ij} \psi_i(x) \psi_j^*(x) = \sum_{i < j} \rho_{ij} \psi_i(x) \psi_j^*(x) + \sum_{j<i} \rho_{ij} \psi_i(x) \psi_j^*(x)
 \]
 The $j<i$ sum can be rewritten by swapping indices \( i \leftrightarrow j \)
 \[
-\sum_{j < i} \rho_{ij} \psi_i(x) \psi_j^*(x) = \sum_{i < j} \rho_{ji} \psi_j(x) \psi_i^*(x) = \sum_{i < j} \rho_{ji} (\psi_i(x) \psi_j^*(x))^*
+    \sum_{j < i} \rho_{ij} \psi_i(x) \psi_j^*(x) = \sum_{i < j} \rho_{ji} \psi_j(x) \psi_i^*(x) = \sum_{i < j} \rho_{ji} (\psi_i(x) \psi_j^*(x))^*
 \]
 Combining both sums gives:
 \begin{align*}
-\sum_{i \neq j} \rho_{ij} \psi_i(x) \psi_j^*(x) 
-&=  \sum_{i < j} \left( \rho_{ij} \psi_i(x) \psi_j^*(x) + \rho_{ji} \psi_j(x) \psi_i^*(x) \right) \\
-\sum_{i \neq j} \rho_{ij} \psi_i(x) \psi_j^*(x) 
-&=  \sum_{i < j} 2 \text{Re} \left[ \rho_{ij} \psi_i^*(x) \psi_j(x) \right]    
+    \sum_{i \neq j} \rho_{ij} \psi_i(x) \psi_j^*(x)
+     & =  \sum_{i < j} \left( \rho_{ij} \psi_i(x) \psi_j^*(x) + \rho_{ji} \psi_j(x) \psi_i^*(x) \right) \\
+    \sum_{i \neq j} \rho_{ij} \psi_i(x) \psi_j^*(x)
+     & =  \sum_{i < j} 2 \text{Re} \left[ \rho_{ij} \psi_i^*(x) \psi_j(x) \right]
 \end{align*}
 \[
 \]
-Thus, the familiar expression can be obtained as 
+Thus, the familiar expression can be obtained as
 \begin{equation*}
     P(x) = \sum_{i} \rho_{ii} |\psi_{i}(x)|^{2} +  \sum_{i < j} 2 \text{Re} \left[ \rho_{ij} \psi_i^*(x) \psi_j(x) \right]
 \end{equation*}
@@ -705,4 +705,136 @@ one hard wall and one smooth turning point
     \int p(x) dx = (n + \frac{3}{4}) \pi \hbar
 \end{equation*}
 Note that a turning point is called smooth if, in a neighborhood of $x_t$, $V(x)$ is finite and differentiable, while $V'(x)$ finite and nonzero.
+
+\subsection{Perturbation Theory}
+Time-independent perturbation theory is an approximation scheme that applies in the following context: we know the solution to the eigenvalue problem of the Hamiltonian $H^0$, and we want the solution to
+\begin{equation*}
+    H=H^0 +\epsilon H^1
+\end{equation*}
+where $H^1$ is small compared to $H^0$.
+Note that the assumption is not that $\epsilon$ is small, rather $H^1$ is small compared to $H^0$, or more accurately
+\begin{equation*}
+    \left|\frac{\left\langle m^0 | H | n^0 \right\rangle}{E_n^0 - E_m^0} \right| \ll 1
+\end{equation*}
+
+We assume that to every eigenket $|E_n^0\rangle \equiv |n^0\rangle$ of $H^0$ with eigenvalue $E_n^0$, there is an eigenket $|n\rangle$ of $H$ with eigenvalue $E_n$.
+We then assume that the eigenkets and eigenvalues of $H$ may expanded in a perturbation series:
+\begin{align*}
+    |n\rangle & =
+    |n^{0}\rangle +\epsilon |n^{1}\rangle +\epsilon^2 |n^{2}\rangle + \dots \\
+    E_n       & =
+    E_n^{0} + \epsilon E_n^{1} +\epsilon^2 E_n^{2} + \dots
+\end{align*}
+Although not physical states themselves, $\ket{n^k}$ have physical interpretation: $\ket{n^0}$ the unperturbed state;  $\ket{n^2}$ describes first-order mixing with other unperturbed states;  and $\ket{n^2}$ describes second-order mixing effects, including indirect coupling.
+
+The result of zeroth order approximation is our previous assumption
+\begin{equation*}
+    H^0 \ket{n^0}=E_n^0 \ket{n ^0}
+\end{equation*} 
+The result of first order approximation are 
+\begin{align*}
+        \ket{n}
+    &     =\ket{n^0}+\sum_{m \neq n} \frac{ \braket{m^{0} | H^{1} | n^{0} }}{E^{0}_n - E^{0}_m}\ket{m^0} \\
+    E^1_n                                                             & =  \langle n^0 | H^1 | n^0 \rangle
+\end{align*}
+Using the result of first order approximation, the second order approximation can be obtained as follows
+\begin{align*}
+    E_n^{2} = \sum_{m \neq n} \frac{|\langle n^0 | H | m^0 \rangle|^2}{E^0_n - E^0_m}     
+\end{align*}
+
+\subsubsection{Derivation.}
+We then substitute these into the eigenvalue equation
+\begin{multline*}
+    (H^0+\epsilon H^1) \left( |n^{0}\rangle +\epsilon |n^{1}\rangle +\epsilon^2 |n^{2}\rangle + \dots  \right) \\
+    = \left( E_n^{0} + \epsilon E_n^{1} +\epsilon^2 E_n^{2} + \dots \right) \left( |n^{0}\rangle +\epsilon |n^{1}\rangle +\epsilon^2 |n^{2}\rangle + \dots  \right)
+\end{multline*}
+Then collect the same power of $\epsilon$.
+The zeroth order comes from  $\epsilon^0$
+\begin{equation*}
+    H^0 \ket{n^0}=E_n^0 \ket{n ^0}
+\end{equation*}
+By assumption, this equation may be solved and, so we move on to the first-order terms, which comes from $\epsilon^1$
+\begin{equation*}
+    H^{0} | n^{1} \rangle + H^{1} | n^{0} \rangle = E^{0}_{n} | n^{1} \rangle + E^{1}_{n} | n^{0} \rangle
+\end{equation*}
+
+Dotting both side with $\bra{n^0}$
+\begin{align*}
+    \langle n^0 | H^1 | n^1 \rangle + \langle n^0 | H^1 | n^0 \rangle & =  E^0_n \langle n^0 | n^1 \rangle + E^1_n \langle n^0 | n^0 \rangle \\
+    E^0_n \langle n^0 | n^1 \rangle + \langle n^0 | H^1 | n^0 \rangle & =  E^0_n \langle n^0 | n^1 \rangle + E^1_n                           \\
+    E^1_n                                                             & =  \langle n^0 | H^1 | n^0 \rangle
+\end{align*}
+This result state the first-order change in energy is the expectation value of $H^1$ in the unperturbed state.
+
+Let us next dot both sides with another eigenket of the same unperturbed Hamiltonian $\bra{m^0}$, with $m \neq n$
+\begin{align*}
+    \langle m^{0}|H^{0}|n^{1}\rangle + \langle m^{0}|H^{1}|n^{0}\rangle &= E^{0}_n\langle m^{0}|n^{1}\rangle + E^{1}_n\langle m^{0}|n^{0}\rangle\\
+    E^{0}_m\langle m^{0}|n^{1}\rangle + \langle m^{0}|H^{1}|n^{0}\rangle & =  E^{0}_n\langle m^{0}|n^{1}\rangle\\
+(E^{0}_n - E^{0}_m) \langle m^{0} | n^{1} \rangle & =  \langle m^{0} | H^{1} | n^{0} \rangle\\
+\langle m^{0} | n^{1} \rangle & =  \frac{\langle m^{0} | H^{1} | n^{0} \rangle}{E^{0}_n - E^{0}_m}
+\end{align*}
+Also recall that the unperturbed eigenstates are orthonormal $\braket{m^0  | n^0 }=\delta_{mn}$.
+This gives the projection of  $\ket{n^1}$ onto the unperturbed basis vector $\ket{m^0}$, except for the case of $m=n$, which correspond to the parallel of $\ket{n ^{1 }}$ with respect $\ket{m ^{1}}$.
+
+To see this, consider the decomposition of $\ket{n ^{1 }}$ in terms of $\ket{m ^{0}}$
+\begin{equation*}
+    |n^{1}\rangle = \sum_{m} |m^{0}\rangle \langle m^{0}|n^{1}\rangle
+\end{equation*}
+However, as we have seen, the projection coefficient is undetermined for $m=n$, hence we split them.
+\begin{equation*}
+    |n^{1}\rangle = |n^{0}\rangle \langle n^{0}|n^{1}\rangle+\sum_{m \neq n} |m^{0}\rangle \langle m^{0}|n^{1}\rangle
+\end{equation*}
+Here the first term correspond to the parallel components, as mentioned, while the second to the perpendicular component.
+
+With $\ket{n^1}=\ket{n_\parallel^1}+\ket{n_\perp^1}$ with respect to $\ket{n^0}$ and first order approximation $\ket{n}=\ket{n^0}+\ket{n ^{1}}$, normalization require 
+\begin{align*}
+    \braket{n  | n } & =  \braket{\bra{n^0}+\bra{n_\parallel^1}+\bra{n_\perp^1} | \ket{n^0}+\ket{n_\parallel^1}+\ket{n_\perp^1}}\\
+    1 & =  \langle n^0 | n^0 \rangle + \langle n^1_{\parallel} | n^0 \rangle + \langle n^0 | n^1_{\parallel} \rangle + \text{higher order}
+\end{align*}
+Only the orthonormal has real value $\braket{n^0 | n^0 }=1$, so 
+\begin{equation*}
+    0 = \langle n^1 | n^0 \rangle + \langle n^0 | n^1 \rangle + \text{higher order} = 2 \mathrm{Re }\braket{n ^{0 } | n ^{1 }_{\parallel}}+ \text{higher order} 
+\end{equation*}
+This mean  that $\braket{n ^{0 } | n ^{1 }_{\parallel}}= i\alpha$.
+By definition, parallel vector mean 
+\begin{equation*}
+    \ket{n_{\parallel} ^{1}} = \braket{n ^{0 } | n ^{1 }} \ket{n ^{0}}
+    =\braket{n ^{0 } | n ^{1 }_\parallel} \ket{n ^{0}} + \braket{n ^{0 } | n ^{1 }_\perp} \ket{n ^{0}}
+    = i \alpha \ket{n ^{0 }} = i\alpha  \ket{n ^{0 }}
+\end{equation*}
+where the inner product of $\ket{n ^{1}_\perp}$ is $\ket{n ^{0}}$ is zero.
+Substituting this back into the first order approximation
+\begin{align*}
+    \ket{n}
+    & = \ket{n^0}+\ket{n_\parallel^1}+\ket{n_\perp^1} 
+    =\ket{n^0}+i\alpha\ket{n^0}+\ket{n_\perp^1} 
+    =(1+i\alpha)\ket{n^0}+\ket{n_\perp^1} \\
+    \ket{n}
+    & =  e ^{i\alpha}\ket{n^0}+\sum_{m \neq n} \frac{ \braket{m^{0} | H^{1} | n^{0} }}{E^{0}_n - E^{0}_m}\ket{m^0} 
+\end{align*} 
+By multiplying with $e ^{-i\alpha}$ we can remove the phase factor to the first term, all while the second term being unaffected, since for first order approximation
+\begin{equation*}
+    (1 - i\alpha)(\text{first order}) = \text{first order} + \text{second order}
+\end{equation*}
+the second order term $-i\alpha (\text{second order})$  gets  discarded.
+Calling the perturbed eigenket with the new phase also $\ket{n }$, we obtain the result to the first order
+\begin{equation*}
+    \ket{n}
+    = \ket{n ^{0 }} + \ket{n ^{1 } } 
+    = \ket{n _{\parallel}} +\ket{n _{\perp} } 
+    =\ket{n^0}+\sum_{m \neq n} \frac{ \braket{m^{0} | H^{1} | n^{0} }}{E^{0}_n - E^{0}_m}\ket{m^0} 
+\end{equation*}
+
+To obtain the second order, we collect the coefficient for  $\epsilon^2$ term 
+\begin{equation*}
+H^0|n^2\rangle + H^1|n^1\rangle = E^0_n \ket{n^2} + E^1_n \ket{n^1} + E^2_n \ket{n^0}
+\end{equation*}
+Then dotting with $\ket{n ^{0}}$
+\begin{align*}
+    E^0_n \braket{n^0 |n^2 }+ \braket{n ^{0 } | H^1|n ^{1}} & =  E_n^{0} \langle n^{0} | n^{2} \rangle + E_n^{1} \langle n^{0} | n^{1} \rangle + E_n^{2} \langle n^{0} | n^{0} \rangle\\
+    E_n^{2} & =      \braket{n ^{0 } | H^1|n ^{1}} \\
+    & = \sum_{m \neq n} \frac{\langle n^0 | H | m^0 \rangle \langle m^0 | H | n^0 \rangle}{E^0_n - E^0_m} \\
+    E_n^{2}
+    & = \sum_{m \neq n} \frac{|\langle n^0 | H | m^0 \rangle|^2}{E^0_n - E^0_m} 
+\end{align*}
 \end{document}
