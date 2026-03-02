@@ -585,116 +585,213 @@ The expectation value and uncertainty the of momentum operator is
 \end{equation*}
 
 \subsection{Appendix: Simple Spin Hamiltonian}
+\subsubsection{Example 1.}
 Suppose a system is described by a Hamiltonian in terms if Pauli matrices
 \begin{equation*}
-H = B \cos \theta \sigma_x + B \sin \theta \sigma_y,    
+    H = B \cos \theta \sigma_x + B \sin \theta \sigma_y,
 \end{equation*}
 where \(\sigma_x\) and \(\sigma_y\) are the Pauli matrices
 \begin{equation*}
-\sigma_x = \begin{pmatrix}
-0 & 1 \\
-1 & 0 
-\end{pmatrix}, \qquad 
-\sigma_y = \begin{pmatrix}
-0 & -i \\
-i & 0 
-\end{pmatrix}    
+    \sigma_x = \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix}, \qquad
+    \sigma_y = \begin{pmatrix}
+        0 & -i \\
+        i & 0
+    \end{pmatrix}
 \end{equation*}
-The Hamiltonian now reads 
+The Hamiltonian now reads
 \begin{equation*}
-H = B \begin{pmatrix}
-    0 & \cos \theta - i \sin \theta \\
-\cos \theta + i \sin \theta & 0 
-\end{pmatrix}
-=
-B \begin{bmatrix}
-0 & e^{-i\theta} \\
-e^{i\theta} & 0     
-\end{bmatrix}
+    H = B \begin{pmatrix}
+        0                           & \cos \theta - i \sin \theta \\
+        \cos \theta + i \sin \theta & 0
+    \end{pmatrix}
+    =
+    B \begin{bmatrix}
+        0           & e^{-i\theta} \\
+        e^{i\theta} & 0
+    \end{bmatrix}
 \end{equation*}
 
 Next is to determine the eigenvalue
 \begin{equation*}
-\det \begin{bmatrix}
--E & Be^{-i\theta} \\
-Be^{i\theta} & -E
-\end{bmatrix}
-=
-E^2-B^2=0
-\implies 
-E=\pm B
+    \det \begin{bmatrix}
+        -E           & Be^{-i\theta} \\
+        Be^{i\theta} & -E
+    \end{bmatrix}
+    =
+    E^2-B^2=0
+    \implies
+    E=\pm B
 \end{equation*}
 
 For the eigenvalue $E=B$, the eigenvector might be evaluated as follows
 \begin{equation*}
     B \begin{pmatrix}
-0 & e^{-i\theta} \\
-e^{i\theta} & 0
-\end{pmatrix}  
-\begin{pmatrix}
-a \\
-b
-\end{pmatrix} 
-=  B  
-\begin{pmatrix}
-a \\
-b
-\end{pmatrix} 
-= \begin{cases}
-    e^{-i\theta}b = a \\
-    e^{i\theta}a = b \\
-\end{cases}
+        0           & e^{-i\theta} \\
+        e^{i\theta} & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        a \\
+        b
+    \end{pmatrix}
+    =  B
+    \begin{pmatrix}
+        a \\
+        b
+    \end{pmatrix}
+    = \begin{cases}
+        e^{-i\theta}b = a \\
+        e^{i\theta}a = b  \\
+    \end{cases}
 \end{equation*}
 Choosing $a=1$, the yet to be normalized vector is
 \begin{equation*}
-    \ket{E_+'} = 
+    \ket{E_+'} =
     \begin{bmatrix}
-        1\\e^{i\theta}
+        1 \\e^{i\theta}
     \end{bmatrix}
 \end{equation*}
-Normalization turns the vector into 
+Normalization turns the vector into
 \begin{equation*}
-    \ket{E_+} = 
+    \ket{E_+} =
     \frac{1 }{\sqrt{2}}
     \begin{bmatrix}
-        1\\e^{i\theta}
+        1 \\e^{i\theta}
     \end{bmatrix}
 \end{equation*}
 
 For the eigenvalue $E=-B$, the eigenvector might be evaluated as follows
 \begin{equation*}
     B \begin{pmatrix}
-0 & e^{-i\theta} \\
-e^{i\theta} & 0
-\end{pmatrix}  
-\begin{pmatrix}
-a \\
-b
-\end{pmatrix} 
-= - B  
-\begin{pmatrix}
-a \\
-b
-\end{pmatrix} 
-= \begin{cases}
-    e^{-i\theta}b =- a \\
-    e^{i\theta}a = -b \\
-\end{cases}
+        0           & e^{-i\theta} \\
+        e^{i\theta} & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        a \\
+        b
+    \end{pmatrix}
+    = - B
+    \begin{pmatrix}
+        a \\
+        b
+    \end{pmatrix}
+    = \begin{cases}
+        e^{-i\theta}b =- a \\
+        e^{i\theta}a = -b  \\
+    \end{cases}
 \end{equation*}
 Choosing $a=1$, the yet to be normalized vector is
 \begin{equation*}
-    \ket{E_-'} = 
+    \ket{E_-'} =
     \begin{bmatrix}
-        1\\-e^{i\theta}
+        1 \\-e^{i\theta}
     \end{bmatrix}
 \end{equation*}
-Normalization turns the vector into 
+Normalization turns the vector into
 \begin{equation*}
-    \ket{E_-} = 
+    \ket{E_-} =
     \frac{1 }{\sqrt{2}}
     \begin{bmatrix}
-        1\\-e^{i\theta}
+        1 \\-e^{i\theta}
     \end{bmatrix}
 \end{equation*}
 
+\subsubsection{Example 2.}
+The following Hamiltonian describe a two-level system
+\begin{equation*}
+    H = H_0+V = \sigma_x + B \sigma_z
+\end{equation*}
+Explicitly, the Hamiltonian is
+\begin{equation*}
+    H =
+    \begin{bmatrix}
+        B & 1  \\
+        1 & -B
+    \end{bmatrix}
+\end{equation*}
+
+The eigenvalues are evaluated as follows
+\begin{equation*}
+    \det
+    \begin{bmatrix}
+        B-E & 1    \\
+        1   & -B-E
+    \end{bmatrix}
+    = -B^2 + E^2 - 1 = 0
+    \implies E = \pm \sqrt{B^2 + 1}
+\end{equation*}
+
+The eigenvector for $E = \sqrt{B^2+1}$ is evaluated as follows
+\begin{equation*}
+    \begin{bmatrix}
+        B & 1  \\
+        1 & -B
+    \end{bmatrix}
+    \begin{pmatrix}
+        a \\
+        b
+    \end{pmatrix}
+    = -E
+    \begin{pmatrix}
+        a \\
+        b
+    \end{pmatrix}
+    = \begin{cases}
+        Ba+b=Ea\\
+        a-Bb=Eb\\
+    \end{cases}
+\end{equation*}
+Choosing $a=1$, the yet to be normalized vector is
+\begin{equation*}
+    \ket{E_+'} =
+    \begin{bmatrix}
+        1 \\ E-B
+    \end{bmatrix}
+\end{equation*}
+Normalization turns the vector into
+\begin{equation*}
+    \ket{E_+} =
+    \frac{1 }{\sqrt{1+(\sqrt{B^2+1}-B)^2}}
+    \begin{bmatrix}
+        1 \\ \sqrt{B^2+1}-B
+    \end{bmatrix}
+\end{equation*}
+
+The eigenvector for $E = -\sqrt{B^2+1}$ is evaluated as follows
+\begin{equation*}
+    \begin{bmatrix}
+        B & 1  \\
+        1 & -B
+    \end{bmatrix}
+    \begin{pmatrix}
+        a \\
+        b
+    \end{pmatrix}
+    = -E
+    \begin{pmatrix}
+        a \\
+        b
+    \end{pmatrix}
+    = \begin{cases}
+        Ba+b=-Ea\\
+        a-Bb=-Eb\\
+    \end{cases}
+\end{equation*}
+Choosing $a=1$, the yet to be normalized vector is
+\begin{equation*}
+    \ket{E_-'} =
+    \begin{bmatrix}
+        1 \\ -E+B
+    \end{bmatrix}
+\end{equation*}
+Normalization turns the vector into
+\begin{equation*}
+    \ket{E_-} =
+    \frac{1 }{\sqrt{1+(-\sqrt{B^2+1}+B)^2}}
+    \begin{bmatrix}
+        1 \\ -\sqrt{B^2+1}-B
+    \end{bmatrix}
+\end{equation*}
 \end{document}
