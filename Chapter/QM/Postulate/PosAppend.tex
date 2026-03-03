@@ -720,7 +720,7 @@ The eigenvalues are evaluated as follows
         1   & -B-E
     \end{bmatrix}
     = -B^2 + E^2 - 1 = 0
-    \implies E = \pm \sqrt{B^2 + 1}
+    \implies E = \pm \sqrt{1+B^2 }
 \end{equation*}
 
 The eigenvector for $E = \sqrt{B^2+1}$ is evaluated as follows
@@ -794,4 +794,84 @@ Normalization turns the vector into
         1 \\ -\sqrt{B^2+1}-B
     \end{bmatrix}
 \end{equation*}
+
+\subsection{Appendix: Perturbation Theory Application}
+We have simple spin Hamiltonian as follows
+\begin{equation*}
+    H = H_0+V = \sigma_x + B \sigma_z = H^0 +H^1
+\end{equation*}
+The eigenvalue of unpertubed Hamiltonian is 
+\begin{equation*}
+\det\left(\begin{pmatrix}
+-\lambda & 1 \\
+1 & -\lambda
+\end{pmatrix}\right) = \lambda^2 - 1 = 0
+    \implies E_\pm=\pm 1
+\end{equation*}
+For the eigenvalue of $E_+=1$
+\begin{equation*}
+\begin{pmatrix}
+-1 & 1 \\
+1 & -1
+\end{pmatrix}
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix}
+= 0 \Rightarrow -a + b = 0 \Rightarrow b = a
+\end{equation*}
+so the eigenvector is 
+\begin{equation*}
+|+\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix}
+1 \\
+1
+\end{pmatrix}
+\end{equation*}
+For the eigenvalue of $E_-=-1$
+\begin{equation*}
+\begin{pmatrix}
+1 & 1 \\
+1 & 1
+\end{pmatrix}
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix}
+= 0 \Rightarrow a + b = 0 \Rightarrow -b = a
+\end{equation*}
+so the eigenvector is 
+\begin{equation*}
+|-\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix}
+1 \\
+-1
+\end{pmatrix}
+\end{equation*}
+
+The first-order correction vanishes, since $E^1_\pm=\braket{\pm  | B\sigma_x |\pm}$ and 
+\begin{align*}
+\langle + |\sigma_z |+\rangle & = \frac{1}{2} (1 \ 1) \left( \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \right) \left( \begin{pmatrix} 1 \\ 1 \end{pmatrix} \right) = 0\\
+\langle - |\sigma_z |-\rangle & = \frac{1}{2} (1 \ -1) \left( \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \right) \left( \begin{pmatrix} 1 \\ -1 \end{pmatrix} \right) = 0
+\end{align*}
+With
+\begin{equation*}
+    \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & -1 \end{pmatrix} \left( \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \right) = \frac{1}{2}(1 \cdot 1 + (-1) \cdot (-1)) = 1
+\end{equation*} 
+the second order correction can be evaluated
+\begin{align*}
+E_{+}^{2} & =  \frac{|\langle - | V | + \rangle|^{2}}{E_{0}^{+} - E_{0}^{-}} = \frac{\left| B \right|^{2}}{2} = \frac{B^{2}}{2}\\
+E_{-}^{2} & =  |\frac{\left\langle + | V | - \right\rangle|^{2}}{E_{0}^{-} - E_{0}^{+}} = \frac{\left| B \right|^{2}}{-2} = -\frac{B^{2}}{2}
+\end{align*}
+
+Resulting energies to second order are 
+\begin{align*}
+E_+& \approx E_0^{+} + E^{1}_+ + E^{2}_+ = 1 + 0 + \frac{B^2}{2} = 1 + \frac{B^2}{2}\\
+E_- &\approx E_0^{(-)} + E^{1}_- + E^{2}_- = -1 + 0 - \frac{B^2}{2} = -1 - \frac{B^2}{2}
+\end{align*}
+Compare this to the exact eigenvalue of $E_\pm = \pm \sqrt{1+B^2 }$, then writing it using binomial expansion
+\begin{equation*}
+    \pm(1 + B^2)^{1/2} =\pm \sum_{n=0}^{\infty} \binom{1/2}{n} (B^2)^{n} 
+    =\pm \left(     1 + \frac{1}{2} B^2 - \dots \right) 
+\end{equation*}
+This shows explicitly that perturbation theory reproduces the correct leading-order correction.
+
 \end{document}
