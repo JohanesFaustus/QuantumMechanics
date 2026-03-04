@@ -491,7 +491,196 @@ we can work backward by determining the Bloch vector first the evaluating the sp
     \theta = \arccos(e_z), \quad \varphi = \arctan2(e_y, e_x)
 \end{equation*}
 
-\subsubsection{Derivation: Pauli matrices identity}
+The Ladder operator for spin-$1/2$ particle is written as 
+\begin{equation*}
+    S_\pm = S_1 \pm iS_2
+\end{equation*}
+or in terms of Pauli matrices
+\begin{equation*}
+    \sigma_ \pm = \frac{1 }{2 }\left( \sigma_1 \pm \sigma_2 \right) 
+\end{equation*}
+In the dimensionless representation, this mean that $S_\pm=\sigma_\pm$ and their action are
+\begin{gather*}
+        \sigma_+ |\downarrow\rangle = |\uparrow\rangle, \quad \sigma_- |\uparrow\rangle = |\downarrow\rangle\\
+    S_+ |\downarrow\rangle = \frac{1 }{2 } |\uparrow\rangle, \quad S_- |\uparrow\rangle = \frac{1 }{2} |\downarrow\rangle
+\end{gather*}
+with the extremal states annihilated.
+They obey the same commutator relation as the angular momentum version, beside the normalization constant
+\begin{equation*}
+   [\sigma_z, \sigma_\pm] = \pm 2 \sigma_\pm, \quad [\sigma_+, \sigma_-] = \sigma_z 
+\end{equation*}
+
+\subsubsection{Derivation: Spin operator in matrix representation.}
+We start from the action of ladder operator
+\begin{equation*}
+    \hat{L}_{\pm}   |l, m\rangle = \hbar \sqrt{l(l+1) - m(m \pm 1)}   |l, m \pm 1\rangle
+\end{equation*}
+where $l=1/2$ and $m_s=\pm1/2$.
+% We have then  
+% \begin{equation*}
+%     N^{+}_{\frac{1}{2},\frac{1}{2}} = N^{-}_{\frac{1}{2},-\frac{1}{2}} = 0 \quad \text{and} \quad N^{+}_{\frac{1}{2},-\frac{1}{2}} = N^{-}_{\frac{1}{2},\frac{1}{2}} = 1
+% \end{equation*}
+From the action of spin operator
+\begin{equation*}
+    S_+ |\downarrow\rangle = \frac{1 }{2 } |\uparrow\rangle, \quad S_- |\uparrow\rangle = \frac{1 }{2} |\downarrow\rangle
+\end{equation*}
+we write
+\begin{align*}
+(S^+ + S^-) \begin{bmatrix}1 \\ 0 \end{bmatrix} & =  2 S_1 \begin{bmatrix}1 \\ 0 \end{bmatrix} = \begin{bmatrix}0 \\ 1 \end{bmatrix} \\
+(S^+ + S^-) \begin{bmatrix}0 \\ 1 \end{bmatrix} & =  2 S_1 \begin{bmatrix}0 \\ 1 \end{bmatrix} = \begin{bmatrix}1 \\ 0 \end{bmatrix} 
+\end{align*}
+with $S_++S_-=S_1+iS_2-S_1-iS_2$.
+Equivalently, writing the first equation as
+\begin{equation*}
+2S_1 \begin{bmatrix}
+1 \\
+0 
+\end{bmatrix}  = 
+2
+\begin{bmatrix}
+a & b \\
+c & d 
+\end{bmatrix}  \begin{bmatrix}
+1 \\
+0 
+\end{bmatrix}  =
+2
+\begin{bmatrix}
+a \\
+c 
+\end{bmatrix} 
+= 
+\begin{bmatrix}
+0 \\
+1 
+\end{bmatrix} 
+\end{equation*}
+we obtain $a=0$ and $c=1/2$.
+Then writing the second equation in the same way 
+\begin{equation*}
+2S_1 \begin{bmatrix}
+0 \\
+1 
+\end{bmatrix}  = 
+\frac{1 }{2}
+\begin{bmatrix}
+a & b \\
+c & d 
+\end{bmatrix}  \begin{bmatrix}
+0 \\
+1 
+\end{bmatrix}  =
+2
+\begin{bmatrix}
+b \\
+d 
+\end{bmatrix} 
+= 
+\begin{bmatrix}
+1 \\
+0 
+\end{bmatrix} 
+\end{equation*}
+we obtain $b=1/2$ and $d=0$.
+The matrix representation is then 
+\begin{equation*}
+    S_1 = 
+\begin{bmatrix}
+a & b \\
+c & d 
+\end{bmatrix}=
+\frac{1  }{2}
+\begin{bmatrix}
+0 & 1 \\
+1 & 0 
+\end{bmatrix}
+\end{equation*}
+
+Next for the lowering operator
+\begin{align*}
+(S^+ - S^-) \begin{bmatrix}1 \\ 0 \end{bmatrix} & =  2i S_2 \begin{bmatrix}1 \\ 0 \end{bmatrix} = - \begin{bmatrix}0 \\ 1 \end{bmatrix} \\
+(S^+ - S^-) \begin{bmatrix}0 \\ 1 \end{bmatrix} & =  2i S_2 \begin{bmatrix}0 \\ 1 \end{bmatrix} = \begin{bmatrix}1 \\ 0 \end{bmatrix} 
+\end{align*}
+Equivalently, writing the first equation as
+\begin{equation*}
+2iS_2 \begin{bmatrix}
+1 \\
+0 
+\end{bmatrix}  = 
+2i
+\begin{bmatrix}
+a & b \\
+c & d 
+\end{bmatrix}  \begin{bmatrix}
+1 \\
+0 
+\end{bmatrix}  =
+2i
+\begin{bmatrix}
+a \\
+c 
+\end{bmatrix} 
+= 
+-
+\begin{bmatrix}
+0 \\
+1 
+\end{bmatrix} 
+\end{equation*}
+we obtain $a=0$ and $c=i/2$.
+Then writing the second equation in the same way 
+\begin{equation*}
+2iS_1 \begin{bmatrix}
+0 \\
+1 
+\end{bmatrix}  = 
+2i
+\begin{bmatrix}
+a & b \\
+c & d 
+\end{bmatrix}  \begin{bmatrix}
+0 \\
+1 
+\end{bmatrix}  =
+2i
+\begin{bmatrix}
+b \\
+d 
+\end{bmatrix} 
+=
+\begin{bmatrix}
+1 \\
+0 
+\end{bmatrix} 
+\end{equation*}
+we obtain $b=-i/2$ and $d=0$.
+The matrix representation is then 
+\begin{equation*}
+    S_2 = 
+\begin{bmatrix}
+a & b \\
+c & d 
+\end{bmatrix}=
+\frac{1  }{2}
+\begin{bmatrix}
+0 & -i \\
+i & 0 
+\end{bmatrix}
+\end{equation*}
+
+Finally, the matrix for $S_3$ produces the eigenvalues $m_s = \pm \frac{1}{2}$:
+\begin{equation*}
+    S_3 \left| \frac{1}{2}, \pm \frac{1}{2} \right\rangle = \pm \frac{1}{2} \left| \frac{1}{2}, \pm \frac{1}{2} \right\rangle
+\end{equation*}
+As such, we have 
+\begin{equation*}
+S_3 = \frac{1}{2} \begin{bmatrix}
+1  & 0 \\
+0  & -1
+\end{bmatrix}
+\end{equation*}
+
+\subsubsection{Derivation: Pauli matrices identity.}
 For the first case, we can prove them individually
 \begin{align*}
     \sigma_1^2 & =
@@ -685,10 +874,10 @@ Hence the Bloch vector also normalized
 
 Suppose we have the spinor state of
 \begin{equation*}
-    |\zeta\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix}
+    |\zeta\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix}
         1 \\
         1
-    \end{pmatrix}
+    \end{bmatrix}
 \end{equation*}
 All components of Bloch vector are
 \begin{align*}
@@ -696,8 +885,8 @@ All components of Bloch vector are
     \begin{bmatrix}
         \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
     \end{bmatrix}
-    \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
-    \begin{pmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{pmatrix} =
+    \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
+    \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix} =
     \begin{bmatrix}
         \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
     \end{bmatrix}
@@ -709,8 +898,8 @@ All components of Bloch vector are
     \begin{bmatrix}
         \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
     \end{bmatrix}
-    \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}
-    \begin{pmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{pmatrix} =
+    \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}
+    \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix} =
     \begin{bmatrix}
         \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
     \end{bmatrix}
@@ -722,8 +911,8 @@ All components of Bloch vector are
     \begin{bmatrix}
         \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
     \end{bmatrix}
-    \begin{pmatrix} 1 & 0 \\ -0 & 1 \end{pmatrix}
-    \begin{pmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{pmatrix} =
+    \begin{bmatrix} 1 & 0 \\ -0 & 1 \end{bmatrix}
+    \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix} =
     \begin{bmatrix}
         \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
     \end{bmatrix}
@@ -743,73 +932,73 @@ The spinor can be reconstructed from this
         \cos(\theta/2) \\
         e^{i\phi} \sin(\theta/2)
     \end{bmatrix}
-    = \frac{1}{\sqrt{2}} \begin{pmatrix}
+    = \frac{1}{\sqrt{2}} \begin{bmatrix}
         1 \\
         1
-    \end{pmatrix}
+    \end{bmatrix}
 \end{equation*}
 
 We can do the same thing with the computational base
 \begin{equation*}
-    \ket{0} = \begin{pmatrix}
+    \ket{0} = \begin{bmatrix}
         1 \\0
-    \end{pmatrix}
-    \ket{1} = \begin{pmatrix}
+    \end{bmatrix}
+    \ket{1} = \begin{bmatrix}
         0 \\1
-    \end{pmatrix}
+    \end{bmatrix}
 \end{equation*}
 For the base $\ket{0}$
 \begin{align*}
     e_x & =
     \begin{bmatrix} 1 & 0 \end{bmatrix}
-    \begin{pmatrix} 0 & 1 \ 1 & 0 \end{pmatrix}
-    \begin{pmatrix} 1 \\ 0 \end{pmatrix} =
+    \begin{bmatrix} 0 & 1 \ 1 & 0 \end{bmatrix}
+    \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
     \begin{bmatrix} 1 & 0 \end{bmatrix}
-    \begin{pmatrix} 0 \\ 1 \end{pmatrix} = 0 \\
+    \begin{bmatrix} 0 \\ 1 \end{bmatrix} = 0 \\
     e_y & =
     \begin{bmatrix} 1 & 0 \end{bmatrix}
-    \begin{pmatrix} 0 & -i \ i & 0 \end{pmatrix}
-    \begin{pmatrix} 1 \\ 0 \end{pmatrix} =
+    \begin{bmatrix} 0 & -i \ i & 0 \end{bmatrix}
+    \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
     \begin{bmatrix} 1 & 0 \end{bmatrix}
-    \begin{pmatrix} 0 \\ i \end{pmatrix} = 0 \\
+    \begin{bmatrix} 0 \\ i \end{bmatrix} = 0 \\
     e_z & =
     \begin{bmatrix} 1 & 0 \end{bmatrix}
-    \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
-    \begin{pmatrix} 1 \\ 0 \end{pmatrix} =
+    \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}
+    \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
     \begin{bmatrix} 1 & 0 \end{bmatrix}
-    \begin{pmatrix} 1 \\ 0 \end{pmatrix} = 1
+    \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 1
 \end{align*}
 and for $\ket{1}$
 \begin{align*}
     e_x & =
     \begin{bmatrix} 0 & 1 \end{bmatrix}
-    \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
-    \begin{pmatrix} 0 \\ 1 \end{pmatrix} =
+    \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
+    \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
     \begin{bmatrix} 0 & 1 \end{bmatrix}
-    \begin{pmatrix} 1 \\ 0 \end{pmatrix} = 0  \\
+    \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 0  \\
     e_y & =
     \begin{bmatrix} 0 & 1 \end{bmatrix}
-    \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}
-    \begin{pmatrix} 0 \\ 1 \end{pmatrix} =
+    \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}
+    \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
     \begin{bmatrix} 0 & 1 \end{bmatrix}
-    \begin{pmatrix} -i \\ 0 \end{pmatrix} = 0 \\
+    \begin{bmatrix} -i \\ 0 \end{bmatrix} = 0 \\
     e_z & =
     \begin{bmatrix} 0 & 1 \end{bmatrix}
-    \begin{pmatrix} 1 & 0 \ 0 & -1 \end{pmatrix}
-    \begin{pmatrix} 0 \\ 1 \end{pmatrix} =
+    \begin{bmatrix} 1 & 0 \ 0 & -1 \end{bmatrix}
+    \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
     \begin{bmatrix} 0 & 1 \end{bmatrix}
-    \begin{pmatrix} 0 \\ -1 \end{pmatrix} = -1
+    \begin{bmatrix} 0 \\ -1 \end{bmatrix} = -1
 \end{align*}
 As expected, $\ket{0}$ has the vector $\mathbf{e} = (0,0,1)$, while $\ket{1}$ has $\mathbf{e}=(0,0,-1)$.
 The spherical coordinates for $\ket{0}$ are $(\theta,\phi)=(0,0)$, while for $\ket{1}$ are $(\theta,\phi)=(\pi,0)$.
 The reconstructed basis takes the form
 \begin{equation*}
-    \ket{0}= \begin{pmatrix}
+    \ket{0}= \begin{bmatrix}
         1 \\0
-    \end{pmatrix}
-    \ket{1} = \begin{pmatrix}
+    \end{bmatrix}
+    \ket{1} = \begin{bmatrix}
         0 \\1
-    \end{pmatrix}
+    \end{bmatrix}
 \end{equation*}
 
 \end{document}

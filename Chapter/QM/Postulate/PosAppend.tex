@@ -179,11 +179,11 @@ First solve the eigenvalue problem
 We have the equation
 \begin{equation*}
     \det
-    \begin{pmatrix}
+    \begin{vmatrix}
         -\omega    & 1/\sqrt{2 } &            \\
         1/\sqrt{2} & -\omega     & 1/\sqrt{2} \\
                    & 1/\sqrt{2}  & -\omega    \\
-    \end{pmatrix}
+    \end{vmatrix}
     =0
 \end{equation*}
 and the characteristic equation
@@ -592,21 +592,21 @@ Suppose a system is described by a Hamiltonian in terms if Pauli matrices
 \end{equation*}
 where \(\sigma_x\) and \(\sigma_y\) are the Pauli matrices
 \begin{equation*}
-    \sigma_x = \begin{pmatrix}
+    \sigma_x = \begin{bmatrix}
         0 & 1 \\
         1 & 0
-    \end{pmatrix}, \qquad
-    \sigma_y = \begin{pmatrix}
+    \end{bmatrix}, \qquad
+    \sigma_y = \begin{bmatrix}
         0 & -i \\
         i & 0
-    \end{pmatrix}
+    \end{bmatrix}
 \end{equation*}
 The Hamiltonian now reads
 \begin{equation*}
-    H = B \begin{pmatrix}
+    H = B \begin{bmatrix}
         0                           & \cos \theta - i \sin \theta \\
         \cos \theta + i \sin \theta & 0
-    \end{pmatrix}
+    \end{bmatrix}
     =
     B \begin{bmatrix}
         0           & e^{-i\theta} \\
@@ -616,10 +616,10 @@ The Hamiltonian now reads
 
 Next is to determine the eigenvalue
 \begin{equation*}
-    \det \begin{bmatrix}
+    \det \begin{vmatrix}
         -E           & Be^{-i\theta} \\
         Be^{i\theta} & -E
-    \end{bmatrix}
+    \end{vmatrix}
     =
     E^2-B^2=0
     \implies
@@ -628,19 +628,19 @@ Next is to determine the eigenvalue
 
 For the eigenvalue $E=B$, the eigenvector might be evaluated as follows
 \begin{equation*}
-    B \begin{pmatrix}
+    B \begin{bmatrix}
         0           & e^{-i\theta} \\
         e^{i\theta} & 0
-    \end{pmatrix}
-    \begin{pmatrix}
+    \end{bmatrix}
+    \begin{bmatrix}
         a \\
         b
-    \end{pmatrix}
+    \end{bmatrix}
     =  B
-    \begin{pmatrix}
+    \begin{bmatrix}
         a \\
         b
-    \end{pmatrix}
+    \end{bmatrix}
     = \begin{cases}
         e^{-i\theta}b = a \\
         e^{i\theta}a = b  \\
@@ -664,19 +664,19 @@ Normalization turns the vector into
 
 For the eigenvalue $E=-B$, the eigenvector might be evaluated as follows
 \begin{equation*}
-    B \begin{pmatrix}
+    B \begin{bmatrix}
         0           & e^{-i\theta} \\
         e^{i\theta} & 0
-    \end{pmatrix}
-    \begin{pmatrix}
+    \end{bmatrix}
+    \begin{bmatrix}
         a \\
         b
-    \end{pmatrix}
+    \end{bmatrix}
     = - B
-    \begin{pmatrix}
+    \begin{bmatrix}
         a \\
         b
-    \end{pmatrix}
+    \end{bmatrix}
     = \begin{cases}
         e^{-i\theta}b =- a \\
         e^{i\theta}a = -b  \\
@@ -715,10 +715,10 @@ Explicitly, the Hamiltonian is
 The eigenvalues are evaluated as follows
 \begin{equation*}
     \det
-    \begin{bmatrix}
+    \begin{vmatrix}
         B-E & 1    \\
         1   & -B-E
-    \end{bmatrix}
+    \end{vmatrix}
     = -B^2 + E^2 - 1 = 0
     \implies E = \pm \sqrt{1+B^2 }
 \end{equation*}
@@ -729,15 +729,15 @@ The eigenvector for $E = \sqrt{B^2+1}$ is evaluated as follows
         B & 1  \\
         1 & -B
     \end{bmatrix}
-    \begin{pmatrix}
+    \begin{bmatrix}
         a \\
         b
-    \end{pmatrix}
+    \end{bmatrix}
     = -E
-    \begin{pmatrix}
+    \begin{bmatrix}
         a \\
         b
-    \end{pmatrix}
+    \end{bmatrix}
     = \begin{cases}
         Ba+b=Ea\\
         a-Bb=Eb\\
@@ -765,15 +765,15 @@ The eigenvector for $E = -\sqrt{B^2+1}$ is evaluated as follows
         B & 1  \\
         1 & -B
     \end{bmatrix}
-    \begin{pmatrix}
+    \begin{bmatrix}
         a \\
         b
-    \end{pmatrix}
+    \end{bmatrix}
     = -E
-    \begin{pmatrix}
+    \begin{bmatrix}
         a \\
         b
-    \end{pmatrix}
+    \end{bmatrix}
     = \begin{cases}
         Ba+b=-Ea\\
         a-Bb=-Eb\\
@@ -802,59 +802,59 @@ We have simple spin Hamiltonian as follows
 \end{equation*}
 The eigenvalue of unpertubed Hamiltonian is 
 \begin{equation*}
-\det\left(\begin{pmatrix}
+\det\begin{vmatrix}
 -\lambda & 1 \\
 1 & -\lambda
-\end{pmatrix}\right) = \lambda^2 - 1 = 0
+\end{vmatrix} = \lambda^2 - 1 = 0
     \implies E_\pm=\pm 1
 \end{equation*}
 For the eigenvalue of $E_+=1$
 \begin{equation*}
-\begin{pmatrix}
+\begin{bmatrix}
 -1 & 1 \\
 1 & -1
-\end{pmatrix}
-\begin{pmatrix}
+\end{bmatrix}
+\begin{bmatrix}
 a \\
 b
-\end{pmatrix}
+\end{bmatrix}
 = 0 \Rightarrow -a + b = 0 \Rightarrow b = a
 \end{equation*}
 so the eigenvector is 
 \begin{equation*}
-|+\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix}
+|+\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix}
 1 \\
 1
-\end{pmatrix}
+\end{bmatrix}
 \end{equation*}
 For the eigenvalue of $E_-=-1$
 \begin{equation*}
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 1 \\
 1 & 1
-\end{pmatrix}
-\begin{pmatrix}
+\end{bmatrix}
+\begin{bmatrix}
 a \\
 b
-\end{pmatrix}
+\end{bmatrix}
 = 0 \Rightarrow a + b = 0 \Rightarrow -b = a
 \end{equation*}
 so the eigenvector is 
 \begin{equation*}
-|-\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix}
+|-\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix}
 1 \\
 -1
-\end{pmatrix}
+\end{bmatrix}
 \end{equation*}
 
 The first-order correction vanishes, since $E^1_\pm=\braket{\pm  | B\sigma_x |\pm}$ and 
 \begin{align*}
-\langle + |\sigma_z |+\rangle & = \frac{1}{2} (1 \ 1) \left( \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \right) \left( \begin{pmatrix} 1 \\ 1 \end{pmatrix} \right) = 0\\
-\langle - |\sigma_z |-\rangle & = \frac{1}{2} (1 \ -1) \left( \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \right) \left( \begin{pmatrix} 1 \\ -1 \end{pmatrix} \right) = 0
+\langle + |\sigma_z |+\rangle & = \frac{1}{2} (1 \ 1)  \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}   \begin{bmatrix} 1 \\ 1 \end{bmatrix}  = 0\\
+\langle - |\sigma_z |-\rangle & = \frac{1}{2} (1 \ -1)  \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}   \begin{bmatrix} 1 \\ -1 \end{bmatrix}  = 0
 \end{align*}
 With
 \begin{equation*}
-    \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & -1 \end{pmatrix} \left( \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \right) = \frac{1}{2}(1 \cdot 1 + (-1) \cdot (-1)) = 1
+    \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & -1 \end{bmatrix}  \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}  = \frac{1}{2}(1 \cdot 1 + (-1) \cdot (-1)) = 1
 \end{equation*} 
 the second order correction can be evaluated
 \begin{align*}
@@ -870,7 +870,7 @@ E_- &\approx E_0^{(-)} + E^{1}_- + E^{2}_- = -1 + 0 - \frac{B^2}{2} = -1 - \frac
 Compare this to the exact eigenvalue of $E_\pm = \pm \sqrt{1+B^2 }$, then writing it using binomial expansion
 \begin{equation*}
     \pm(1 + B^2)^{1/2} =\pm \sum_{n=0}^{\infty} \binom{1/2}{n} (B^2)^{n} 
-    =\pm \left(     1 + \frac{1}{2} B^2 - \dots \right) 
+    =\pm     \left( 1 + \frac{1}{2} B^2 - \dots \right) 
 \end{equation*}
 This shows explicitly that perturbation theory reproduces the correct leading-order correction.
 
