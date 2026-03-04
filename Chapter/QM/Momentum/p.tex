@@ -455,7 +455,7 @@ The Pauli matrices satisfy
     (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) = \mathbf{a} \cdot \mathbf{b} + i(\mathbf{a} \times \mathbf{b}) \cdot \boldsymbol{\sigma}
 \end{gather*}
 with vector $\mathbf{a}$ and $\mathbf{b}$.
-In components form, the third identity reduce into
+In components form, the third identity reduce into product identity for Pauli matrices
 \begin{equation*}
     \sigma_i \sigma_j = \delta_{ij} \mathbf{1} + i \epsilon_{ijk} \sigma_k
 \end{equation*}
@@ -470,7 +470,7 @@ If $i\neq j$, then
 Since $S_iS_j = i\epsilon_{ijk }S_k/2$ and $S_jS_i= -i \epsilon_{ijk }S_k/2$.
 Along with $\mathbf{1}$, the Pauli matrices span the $2 \times  2$ Hermitian matrices.
 
-The Bloch vector associated with spinor start $\ket{\chi}$ is
+The Bloch vector associated with spinor state $\ket{\chi}$ is
 \begin{equation*}
     \mathbf{e }= \braket{\boldsymbol{\sigma}  }_{\chi}= \braket{\chi  | \boldsymbol{\sigma }|\chi}
 \end{equation*}
@@ -507,7 +507,12 @@ In the dimensionless representation, this mean that $S_\pm=\sigma_\pm$ and their
 with the extremal states annihilated.
 They obey the same commutator relation as the angular momentum version, beside the normalization constant
 \begin{equation*}
-   [\sigma_z, \sigma_\pm] = \pm 2 \sigma_\pm, \quad [\sigma_+, \sigma_-] = \sigma_z 
+   [\sigma_3, \sigma_\pm] = \pm 2 \sigma_\pm, \quad [\sigma_+, \sigma_-] = \sigma_3 
+\end{equation*}
+and for anticommutator
+\begin{equation*}
+    \left\{ \sigma_3,\sigma_\pm  \right\} = 0 \quad
+    \left\{\sigma_+,\sigma_-  \right\} =\mathbf{1 }
 \end{equation*}
 
 \subsubsection{Derivation: Spin operator in matrix representation.}
@@ -771,6 +776,46 @@ For the third identity, note that we can write the left term as
      & = (\mathbf{a }\cdot \mathbf{b }) + i (\mathbf{a }\times \mathbf{b } )\cdot \boldsymbol{\sigma}
 \end{align*}
 
+\subsubsection{Derivation: commutator and anticommutator relation for Pauli matrices ladder operator.}
+First the commutator for third Pauli matrices and the ladder operator
+\begin{align*}
+[\sigma_3, \sigma_\pm] 
+& =  \frac{1}{2} \left( [\sigma_3, \sigma_1] \pm i[\sigma_3, \sigma_2] \right)\\
+& =  \frac{1}{2} \left( 2i\sigma_2 \pm i(-2i\sigma_1) \right) = \frac{1}{2} \left( 2i\sigma_2 \pm 2\sigma_1 \right)\\
+[\sigma_3, \sigma_\pm] 
+& = (\pm \sigma_1 \pm i \sigma_2) = \pm \sigma_{\pm}
+\end{align*}
+then the ladder operator with each other 
+\begin{align*}
+[\sigma_+,\sigma_-] 
+& =  \frac{1}{4} [(\sigma_1 + i\sigma_2), (\sigma_1 - i\sigma_2)]\\
+& =  \frac{1}{4} \left( [\sigma_1,\sigma_1] - i[\sigma_1,\sigma_2] + i[\sigma_2,\sigma_1] + [\sigma_2,\sigma_2] \right)\\
+& =  \frac{1}{4}\left( -i(2i\sigma_3) + i(-2i\sigma_3) \right) \\
+[\sigma_+, \sigma_-] 
+& = \frac{1}{4}(2\sigma_3 + 2\sigma_3) = \sigma_3
+\end{align*}
+
+For the anticommutator relation
+\begin{align*}
+    \{\sigma_{+}, \sigma_{-}\}
+    & = \frac{1}{4}(\sigma_{x} + i \sigma_{y})(\sigma_{x} - i \sigma_{y}) + \frac{1}{4}(\sigma_{x} - i \sigma_{y})(\sigma_{x} + i \sigma_{y})\\
+    & =  \frac{1}{4} \left( \\sigma_1 ^2- i \\sigma_1 \\sigma_2 + i \\sigma_2 \\sigma_1  + \\sigma_2^2 \right) \\
+    &\qquad + \frac{1}{4} \left( \sigma_{x}^{2} + i \sigma_{x} \sigma_{y} - i \sigma_{y} \sigma_{x} + \sigma_{y}^{2} \right) \\
+    \{\sigma_{+}, \sigma_{-}\}
+    & = \frac{1 }{4 }\left( \mathbf{1}+\mathbf{1}+\mathbf{1}+\mathbf{1} \right) = \mathbf{1}
+\end{align*}
+and 
+\begin{align*}
+    \{ \sigma_3, \sigma_\pm \} 
+    & =  \sigma_3 \sigma_\pm + \sigma_\pm \sigma_3\\
+& = \frac{1}{2} (\sigma_3 \\sigma_1 \pm i \sigma_3 \\sigma_2) + \frac{1}{2} (\\sigma_1 \sigma_3 \pm i \\sigma_2 \sigma_3) \\
+& =  \frac{1}{2} (\sigma_3 \\sigma_1 + \\sigma_1 \sigma_3 \pm i (\sigma_3 \\sigma_2 + \\sigma_2 \sigma_3))\\
+& = \frac{1 }{2 }\left( \left\{ \sigma_3,\sigma_1 \right\}\pm i \left\{ \sigma_3,\sigma_2 \right\}   \right) 
+\{ \sigma_3, \sigma_{\pm} \} 
+& =   \frac{1}{2} (0 \pm i \cdot 0) = 0
+\end{align*}
+
+
 \subsubsection{Prove of how Pauli matrices span the $2 \times 2$ Hermitian matrices space.}
 Start from arbitrary matrices
 \begin{equation*}
@@ -996,6 +1041,7 @@ The reconstructed basis takes the form
     \ket{0}= \begin{bmatrix}
         1 \\0
     \end{bmatrix}
+    \qquad
     \ket{1} = \begin{bmatrix}
         0 \\1
     \end{bmatrix}
