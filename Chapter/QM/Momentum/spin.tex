@@ -1,0 +1,708 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Spin of Single Particle}
+There is a fundamental distinction between particles with half-odd integer spin, called Fermions, which obey the Pauli exclusion principle, and those with integer spin, called Bosons, which do not obey the Pauli exclusion principle.
+For special case $l=1/2\equiv s$, we introduce operator $\mathbf{S}$, which satisfies
+\begin{equation*}
+    [\hat{S}_{i}, \hat{S}_{j}] = i \epsilon_{ijk} \hat{S}_{k}
+\end{equation*}
+The weight of a state $|\chi\rangle$ measures the eigenvalue of the spin operator of the state of the quantum particle
+\begin{equation*}
+    S_3 |\chi\rangle = m_S |\chi\rangle = \pm \frac{1}{2} |\chi\rangle \quad
+    S^2 |\chi\rangle = s(s + 1) |\chi\rangle = \frac{3}{4} |\chi\rangle
+\end{equation*}
+with
+\begin{equation*}
+    -s \leq m_S \leq s, \quad  m_S = \pm \frac{1}{2}
+\end{equation*}
+where $s$ denote the spin of quantum particle.
+
+The general element of the space spawned by this basis is called a spinor and can be formally written as
+\begin{equation*}
+    \ket{\boldsymbol{\chi}}= \begin{bmatrix}
+        \ket{\chi_+} \\
+        \ket{\chi_-}
+    \end{bmatrix}
+\end{equation*}
+In this coordinate system, we have two possible state: one for $m_s=1/2$ and other for $m_s=-1/2$
+\begin{equation*}
+    \big| \frac{1 }{2 },\frac{1 }{2 }\big\rangle = \ket{\uparrow} = \begin{bmatrix} 1\\0 \end{bmatrix}\qquad
+    \big| \frac{1 }{2 },-\frac{1 }{2 }\big\rangle = \ket{\downarrow} = \begin{bmatrix} 0\\1 \end{bmatrix}
+\end{equation*}
+
+The components of spin $S_i$ can be written in terms of Pauli spin matrix
+\begin{equation*}
+    \mathbf{S} = \frac{1 }{2 } \boldsymbol{\sigma}
+\end{equation*}
+with
+\begin{equation*}
+    \sigma_1 =
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    \quad
+    \sigma_2 =
+    \begin{bmatrix}
+        0 & -i \\
+        i & 0
+    \end{bmatrix}
+    \quad
+    \sigma_3    =
+    \begin{bmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{bmatrix}
+\end{equation*}
+such that
+\begin{equation*}
+    S_1 = \frac{1}{2}
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    \quad
+    S_2 = \frac{1}{2}
+    \begin{bmatrix}
+        0 & -i \\
+        i & 0
+    \end{bmatrix}
+    \quad
+    S_3 = \frac{1}{2}
+    \begin{bmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{bmatrix}
+\end{equation*}
+The Pauli matrices satisfy
+\begin{gather*}
+    \sigma_i^2=\mathbf{1}  \\
+    [\sigma_i, \sigma_j] = 2i \epsilon_{ijk} \sigma_k\qquad    \left\{ \sigma_i,\sigma_j \right\} = i\delta_{ij }\mathbf{1}\\
+    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) = \mathbf{a} \cdot \mathbf{b} + i(\mathbf{a} \times \mathbf{b}) \cdot \boldsymbol{\sigma}
+\end{gather*}
+with vector $\mathbf{a}$ and $\mathbf{b}$.
+In components form, the third identity reduce into product identity for Pauli matrices
+\begin{equation*}
+    \sigma_i \sigma_j = \delta_{ij} \mathbf{1} + i \epsilon_{ijk} \sigma_k
+\end{equation*}
+Using the Pauli matrices, we can derive the relation for the spin-$1/2$ operator $\mathbf{S} = \boldsymbol{\sigma}/2$ by multiplying previous relation by $1/4$
+\begin{equation*}
+    S_iS_j= \frac{1 }{4 }\delta_{ij}\mathbf{1} +\frac{i }{2} \epsilon_{ijk }S_k
+\end{equation*}
+If $i\neq j$, then
+\begin{equation*}
+    S_iS_j = -S_jS_i
+\end{equation*}
+Since $S_iS_j = i\epsilon_{ijk }S_k/2$ and $S_jS_i= -i \epsilon_{ijk }S_k/2$.
+Along with $\mathbf{1}$, the Pauli matrices span the $2 \times  2$ Hermitian matrices.
+
+The Bloch vector associated with spinor state $\ket{\chi}$ is
+\begin{equation*}
+    \mathbf{e }= \braket{\boldsymbol{\sigma}  }_{\chi}= \braket{\chi  | \boldsymbol{\sigma }|\chi}
+\end{equation*}
+Since the state $\ket{\chi}$ is a pure state, the corresponding Bloch vector represented as a point on the Bloch sphere, with $\mathbf{e}$ being the vector pointing to that location.
+Bloch vector can be written in Cartesian components as
+\begin{equation*}
+    \mathbf{e} = (e_x,e_y,e_z) = (\sin \theta \cos \phi, \sin \theta \sin \phi, \cos \theta)
+\end{equation*}
+With the spinor parameterization as
+\begin{equation*}
+    |\chi\rangle = \begin{bmatrix}
+        \cos(\theta/2) \\
+        e^{i\phi} \sin(\theta/2)
+    \end{bmatrix},
+\end{equation*}
+we can work backward by determining the Bloch vector first the evaluating the spinor, where
+\begin{equation*}
+    \theta = \arccos(e_z), \quad \varphi = \arctan2(e_y, e_x)
+\end{equation*}
+
+The Ladder operator for spin-$1/2$ particle is written as
+\begin{equation*}
+    S_\pm = S_1 \pm iS_2
+\end{equation*}
+or in terms of Pauli matrices
+\begin{equation*}
+    \sigma_ \pm = \frac{1 }{2 }\left( \sigma_1 \pm \sigma_2 \right)
+\end{equation*}
+In the dimensionless representation, this mean that $S_\pm=\sigma_\pm$ and their action are
+\begin{gather*}
+    \sigma_+ |\downarrow\rangle = |\uparrow\rangle, \quad \sigma_- |\uparrow\rangle = |\downarrow\rangle\\
+    S_+ |\downarrow\rangle = \frac{1 }{2 } |\uparrow\rangle, \quad S_- |\uparrow\rangle = \frac{1 }{2} |\downarrow\rangle
+\end{gather*}
+with the extremal states annihilated.
+They obey the same commutator relation as the angular momentum version, beside the normalization constant
+\begin{equation*}
+    [\sigma_3, \sigma_\pm] = \pm 2 \sigma_\pm, \quad [\sigma_+, \sigma_-] = \sigma_3
+\end{equation*}
+and for anticommutator
+\begin{equation*}
+    \left\{ \sigma_3,\sigma_\pm  \right\} = 0 \quad
+    \left\{\sigma_+,\sigma_-  \right\} =\mathbf{1 }
+\end{equation*}
+The product of ladder operators is a projection operator
+\begin{equation*}
+    \sigma_+ \sigma_- = \ket{\uparrow}\bra{\uparrow}\qquad
+    \sigma_- \sigma_+ = \ket{\downarrow}\bra{\downarrow}
+\end{equation*}
+Projection operator has idempotent property $P^2=P$ and obey
+\begin{equation*}
+    f(P) = f(0)I + [f(1) - f(0)]P
+\end{equation*}
+As such, the ladder operator also obey
+\begin{gather*}
+    f(\sigma_+\sigma_-) = f(0) + [f(1) - f(0)]\sigma_+\sigma_-    \\
+    f(\sigma_-\sigma_+) = f(0) + [f(1) - f(0)]\sigma_+\sigma_+
+\end{gather*}
+These operators also have similarity transformation
+\begin{equation*}
+    \exp \left( \frac{\alpha \sigma_z}{2} \right)  \sigma_\pm \exp \left( \frac{\alpha \sigma_z}{2} \right)  = e^{\pm\alpha} \sigma_\pm
+\end{equation*}
+with
+\begin{equation*}
+    \exp \left( \frac{\alpha \sigma_z}{2}  \right)
+    = \begin{pmatrix}
+        e^{\alpha/2} & 0             \\
+        0            & e^{-\alpha/2}
+    \end{pmatrix}
+\end{equation*}
+
+\subsubsection{Derivation: Spin operator in matrix representation.}
+We start from the action of ladder operator
+\begin{equation*}
+    \hat{L}_{\pm}   |l, m\rangle = \hbar \sqrt{l(l+1) - m(m \pm 1)}   |l, m \pm 1\rangle
+\end{equation*}
+where $l=1/2$ and $m_s=\pm1/2$.
+% We have then  
+% \begin{equation*}
+%     N^{+}_{\frac{1}{2},\frac{1}{2}} = N^{-}_{\frac{1}{2},-\frac{1}{2}} = 0 \quad \text{and} \quad N^{+}_{\frac{1}{2},-\frac{1}{2}} = N^{-}_{\frac{1}{2},\frac{1}{2}} = 1
+% \end{equation*}
+From the action of spin operator
+\begin{equation*}
+    S_+ |\downarrow\rangle = \frac{1 }{2 } |\uparrow\rangle, \quad S_- |\uparrow\rangle = \frac{1 }{2} |\downarrow\rangle
+\end{equation*}
+we write
+\begin{align*}
+    (S^+ + S^-) \begin{bmatrix}1 \\ 0 \end{bmatrix} & =  2 S_1 \begin{bmatrix}1 \\ 0 \end{bmatrix} = \begin{bmatrix}0 \\ 1 \end{bmatrix} \\
+    (S^+ + S^-) \begin{bmatrix}0 \\ 1 \end{bmatrix} & =  2 S_1 \begin{bmatrix}0 \\ 1 \end{bmatrix} = \begin{bmatrix}1 \\ 0 \end{bmatrix}
+\end{align*}
+with $S_++S_-=S_1+iS_2-S_1-iS_2$.
+Equivalently, writing the first equation as
+\begin{equation*}
+    2S_1 \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}  =
+    2
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}  \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}  =
+    2
+    \begin{bmatrix}
+        a \\
+        c
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 \\
+        1
+    \end{bmatrix}
+\end{equation*}
+we obtain $a=0$ and $c=1/2$.
+Then writing the second equation in the same way
+\begin{equation*}
+    2S_1 \begin{bmatrix}
+        0 \\
+        1
+    \end{bmatrix}  =
+    \frac{1 }{2}
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}  \begin{bmatrix}
+        0 \\
+        1
+    \end{bmatrix}  =
+    2
+    \begin{bmatrix}
+        b \\
+        d
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}
+\end{equation*}
+we obtain $b=1/2$ and $d=0$.
+The matrix representation is then
+\begin{equation*}
+    S_1 =
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}=
+    \frac{1  }{2}
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+\end{equation*}
+
+Next for the lowering operator
+\begin{align*}
+    (S^+ - S^-) \begin{bmatrix}1 \\ 0 \end{bmatrix} & =  2i S_2 \begin{bmatrix}1 \\ 0 \end{bmatrix} = - \begin{bmatrix}0 \\ 1 \end{bmatrix} \\
+    (S^+ - S^-) \begin{bmatrix}0 \\ 1 \end{bmatrix} & =  2i S_2 \begin{bmatrix}0 \\ 1 \end{bmatrix} = \begin{bmatrix}1 \\ 0 \end{bmatrix}
+\end{align*}
+Equivalently, writing the first equation as
+\begin{equation*}
+    2iS_2 \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}  =
+    2i
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}  \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}  =
+    2i
+    \begin{bmatrix}
+        a \\
+        c
+    \end{bmatrix}
+    =
+    -
+    \begin{bmatrix}
+        0 \\
+        1
+    \end{bmatrix}
+\end{equation*}
+we obtain $a=0$ and $c=i/2$.
+Then writing the second equation in the same way
+\begin{equation*}
+    2iS_1 \begin{bmatrix}
+        0 \\
+        1
+    \end{bmatrix}  =
+    2i
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}  \begin{bmatrix}
+        0 \\
+        1
+    \end{bmatrix}  =
+    2i
+    \begin{bmatrix}
+        b \\
+        d
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}
+\end{equation*}
+we obtain $b=-i/2$ and $d=0$.
+The matrix representation is then
+\begin{equation*}
+    S_2 =
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}=
+    \frac{1  }{2}
+    \begin{bmatrix}
+        0 & -i \\
+        i & 0
+    \end{bmatrix}
+\end{equation*}
+
+Finally, the matrix for $S_3$ produces the eigenvalues $m_s = \pm \frac{1}{2}$:
+\begin{equation*}
+    S_3 \left| \frac{1}{2}, \pm \frac{1}{2} \right\rangle = \pm \frac{1}{2} \left| \frac{1}{2}, \pm \frac{1}{2} \right\rangle
+\end{equation*}
+As such, we have
+\begin{equation*}
+    S_3 = \frac{1}{2} \begin{bmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{bmatrix}
+\end{equation*}
+
+\subsubsection{Derivation: Pauli matrices identity.}
+For the first case, we can prove them individually
+\begin{align*}
+    \sigma_1^2 & =
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix}
+    = \mathbf{1}   \\
+    \sigma_2^2 & =
+    \begin{bmatrix}
+        0 & -i \\
+        i & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & -i \\
+        i & 0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix}
+    = \mathbf{1}   \\
+    \sigma_3^2 & =
+    \begin{bmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix}
+    = \mathbf{1}
+\end{align*}
+Next we consider the case
+\begin{equation*}
+    \sigma_1 \sigma_2 = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} = \begin{bmatrix} i & 0 \\ 0 & -i \end{bmatrix} = i \sigma_3
+\end{equation*}
+Instead of considering other case of multiplucation, we can cyclically permutate the index and obtain
+\begin{equation*}
+    \sigma_2 \sigma_3 = i \sigma_1, \quad \sigma_3 \sigma_1 = i \sigma_2
+\end{equation*}
+or $\sigma_{i}\sigma_j=i\epsilon_{ijk}\sigma_j$.
+By combining both case, we have
+\begin{equation*}
+    \sigma_i \sigma_j = \delta_{ij} \mathbf{1} + i \epsilon_{ijk} \sigma_k
+\end{equation*}
+
+Using this, we prove the commutator relation
+\begin{align*}
+    [\sigma_i,\sigma_j]
+     & =   \sigma_i \sigma_j - \sigma_j \sigma_i                                                                    \\
+     & = (\delta_{ij} \mathbf{1} + i \epsilon_{jk} \sigma_k) - (\delta_{ji} \mathbf{1} + i \epsilon_{jik} \sigma_k) \\
+     & =i \epsilon_{jk} \sigma_k - i \epsilon_{jik} \sigma_k = i \epsilon_{jk} \sigma_k + i \epsilon_{ijk} \sigma_k \\
+    [\sigma_i,\sigma_j]
+     & = 2i \epsilon_{jk} \sigma_k
+\end{align*}
+and the anticommutator
+\begin{align*}
+    \left\{ \sigma_i,\sigma_j \right\}
+     & =   \sigma_i \sigma_j + \sigma_j \sigma_i                                                                    \\
+     & = (\delta_{ij} \mathbf{1} + i \epsilon_{jk} \sigma_k) + (\delta_{ji} \mathbf{1} + i \epsilon_{jik} \sigma_k) \\
+     & =\delta_{ij} \mathbf{1} + \delta_{ji} \mathbf{1} = \delta_{ij} \mathbf{1} + \delta_{ij} \mathbf{1}           \\
+    \left\{ \sigma_i,\sigma_j \right\}
+     & = 2 \delta_{ij} \mathbf{1}
+\end{align*}
+
+For the third identity, note that we can write the left term as
+\begin{align*}
+    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma})
+     & =  a_i b_j \sigma_i \sigma_j =     a_i b_j\delta_{ij} \mathbf{1} + ia_i b_j \epsilon_{ijk} \sigma_k \\
+     & =  a_i b_i \mathbf{1} + i (\mathbf{a }\times \mathbf{b })_k \sigma_k                                \\
+    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma})
+     & = (\mathbf{a }\cdot \mathbf{b }) + i (\mathbf{a }\times \mathbf{b } )\cdot \boldsymbol{\sigma}
+\end{align*}
+
+\subsubsection{Derivation: commutator and anticommutator relation for Pauli matrices ladder operator.}
+First the commutator for third Pauli matrices and the ladder operator
+\begin{align*}
+    [\sigma_3, \sigma_\pm]
+     & =  \frac{1}{2} \left( [\sigma_3, \sigma_1] \pm i[\sigma_3, \sigma_2] \right)                                      \\
+     & =  \frac{1}{2} \left( 2i\sigma_2 \pm i(-2i\sigma_1) \right) = \frac{1}{2} \left( 2i\sigma_2 \pm 2\sigma_1 \right) \\
+    [\sigma_3, \sigma_\pm]
+     & = (\pm \sigma_1 \pm i \sigma_2) = \pm \sigma_{\pm}
+\end{align*}
+then the ladder operator with each other
+\begin{align*}
+    [\sigma_+,\sigma_-]
+     & =  \frac{1}{4} [(\sigma_1 + i\sigma_2), (\sigma_1 - i\sigma_2)]                                                       \\
+     & =  \frac{1}{4} \left( [\sigma_1,\sigma_1] - i[\sigma_1,\sigma_2] + i[\sigma_2,\sigma_1] + [\sigma_2,\sigma_2] \right) \\
+     & =  \frac{1}{4}\left( -i(2i\sigma_3) + i(-2i\sigma_3) \right)                                                          \\
+    [\sigma_+, \sigma_-]
+     & = \frac{1}{4}(2\sigma_3 + 2\sigma_3) = \sigma_3
+\end{align*}
+
+For the anticommutator relation
+\begin{align*}
+    \{\sigma_{+}, \sigma_{-}\}
+     & = \frac{1}{4}(\sigma_{x} + i \sigma_{y})(\sigma_{x} - i \sigma_{y}) + \frac{1}{4}(\sigma_{x} - i \sigma_{y})(\sigma_{x} + i \sigma_{y}) \\
+     & =  \frac{1}{4} \left( \sigma_1 ^2- i \sigma_1 \sigma_2 + i \sigma_2 \sigma_1  + \sigma_2^2 \right)                                      \\
+     & \qquad + \frac{1}{4} \left( \sigma_{x}^{2} + i \sigma_{x} \sigma_{y} - i \sigma_{y} \sigma_{x} + \sigma_{y}^{2} \right)                 \\
+    \{\sigma_{+}, \sigma_{-}\}
+     & = \frac{1 }{4 }\left( \mathbf{1}+\mathbf{1}+\mathbf{1}+\mathbf{1} \right) = \mathbf{1}
+\end{align*}
+and
+\begin{align*}
+    \{ \sigma_3, \sigma_\pm \}
+     & =  \sigma_3 \sigma_\pm + \sigma_\pm \sigma_3                                                                        \\
+     & = \frac{1}{2} (\sigma_3 \sigma_1 \pm i \sigma_3 \sigma_2) + \frac{1}{2} (\sigma_1 \sigma_3 \pm i \sigma_2 \sigma_3) \\
+     & =  \frac{1}{2} (\sigma_3 \sigma_1 + \sigma_1 \sigma_3 \pm i (\sigma_3 \sigma_2 + \sigma_2 \sigma_3))                \\
+     & = \frac{1 }{2 }\left( \left\{ \sigma_3,\sigma_1 \right\}\pm i \left\{ \sigma_3,\sigma_2 \right\}   \right)          \\
+    \{ \sigma_3, \sigma_{\pm} \}
+     & =   \frac{1}{2} (0 \pm i \cdot 0) = 0
+\end{align*}
+
+
+\subsubsection{Prove of how Pauli matrices span the $2 \times 2$ Hermitian matrices space.}
+Start from arbitrary matrices
+\begin{equation*}
+    H = \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix},
+    \quad
+    H ^\dagger = \begin{bmatrix}
+        a ^* & c ^* \\
+        b ^* & d ^*
+    \end{bmatrix},
+    \quad a, b, c, d \in \mathbb{C}
+\end{equation*}
+The Hermitian condition $H = H ^\dagger$ require
+\begin{equation*}
+    H = \begin{bmatrix}
+        a   & b \\
+        b^* & d
+    \end{bmatrix}, \quad a, d \in \mathbb{R}, \quad b \in \mathbb{C}
+\end{equation*}
+The diagonal must be real since $a = a ^*$ and $d = d ^*$, meanwhile the diagonal can be complex with $c ^* = b$ implies $c  = b ^*$.
+We assume that the space can be written as linear combination of
+\begin{equation*}
+    H =c_0 \mathbf{1 } + c_1 \sigma_1 + c_2 \sigma_2 + c_3 \sigma_3 =\begin{bmatrix}
+        a   & b \\
+        b^* & d
+    \end{bmatrix}
+\end{equation*}
+such that
+\begin{equation*}
+    \begin{bmatrix}
+        c_0 & 0   \\
+        0   & c_0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        0   & c_1 \\
+        c_1 & 0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        0    & -ic_2 \\
+        ic_2 & 0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        c_3 & 0    \\
+        0   & -c_3
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        c_0 + c_3  & c_1 - ic_2 \\
+        c_1 + ic_2 & c_0 - c_3
+    \end{bmatrix}
+\end{equation*}
+Equating both, we obtain the results for diagonal elements
+\begin{equation*}
+    \begin{cases}
+        c_0 + c_3 = a \\
+        c_0 - c_3 = d
+    \end{cases}
+    \Rightarrow
+    \quad
+    \begin{cases}
+        c_0 = (a+d)/2 \\
+        c_3 = (a-d)/2
+    \end{cases}
+\end{equation*}
+For the off diagonal, write $b=b_r+ib_i $
+\begin{equation*}
+    c_1 - i c_2 = b_r + i b_i
+    \quad
+    \Rightarrow
+    \quad
+    \begin{cases}
+        c_1 = b_r \\
+        c_2 = -b_i
+    \end{cases}
+\end{equation*}
+All coefficients $c_0, c_1, c_2, c_3$ are uniquely determined, meaning there exists exactly one quadruple of the coefficient
+\begin{equation*}
+    c_0 = \frac{a + d}{2}, \quad c_3 = \frac{a - d}{2}, \quad c_1 = \mathrm{Re}(b), \quad c_2 = -\mathrm{Im}(b)
+\end{equation*}
+that reproduces the matrix $H$.
+Thus, $\left\{ \mathbf{1 },\sigma_1 ,\sigma_2,\sigma_3\right\} $ span the space of all $2 \times 2$ Hermitian matrices.
+
+\subsubsection{Derivation: Bloch vector representation of spinor state.}
+For general normalized spinor state
+\begin{equation*}
+    |\chi\rangle = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}, \quad |\alpha|^2 + |\beta|^2 = 1.
+\end{equation*}
+then the components of Bloch vector is
+\begin{align*}
+    e_x & =  \begin{bmatrix} \alpha & \beta \end{bmatrix}\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = \alpha^*\beta + \beta^*\alpha = 2\text{Re}(\alpha^*\beta)      \\
+    e_y & =  \begin{bmatrix} \alpha & \beta \end{bmatrix}\begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = -i(\alpha^*\beta - \beta^*\alpha) = 2\text{Im}(\alpha^*\beta) \\
+    e_z & =  \begin{bmatrix} \alpha & \beta \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}  \begin{bmatrix} \alpha \\ \beta \end{bmatrix} = |\alpha|^2 - |\beta|^2
+\end{align*}
+where we have used the complex relation $\mathrm{Re } (z) = (z + z ^* )/2$ and $\mathrm{Im } (z) = (z - z ^* )/2i$.
+Computing the norm
+\begin{align*}
+    |\mathbf{e}|^2 & =  e_x^2 + e_y^2 + e_z^2 = 4\left[(\mathrm{Re}(\alpha^* \beta))^2 + (\mathrm{Im}(\alpha^* \beta))^2\right] + (|\alpha|^2 - |\beta|^2)^2 \\
+                   & =  4|\alpha|^2 |\beta|^2 + |\alpha|^4 - 2|\alpha|^2|\beta|^2 + |\beta|^4 = |\alpha|^4 + 2 |\alpha|^2 |\beta|^2 + |\beta|^4              \\
+    |\mathbf{e}|^2
+                   & = (|\alpha|^2 + |\beta|^2)^2 = 1
+\end{align*}
+Hence the Bloch vector also normalized
+
+Suppose we have the spinor state of
+\begin{equation*}
+    |\zeta\rangle = \frac{1}{\sqrt{2}} \begin{bmatrix}
+        1 \\
+        1
+    \end{bmatrix}
+\end{equation*}
+All components of Bloch vector are
+\begin{align*}
+    e_x & =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
+    \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix} =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    = 1     \\
+    e_y & =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}
+    \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix} =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix}
+        -\frac{i}{\sqrt{2}} \\ \frac{i}{\sqrt{2}}
+    \end{bmatrix}
+    = 0     \\
+    e_z & =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix} 1 & 0 \\ -0 & 1 \end{bmatrix}
+    \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix} =
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    = 0
+\end{align*}
+So the Bloch vector $\mathbf{e}=(1,0,0)$ points along the positive $x$-axis on the Bloch sphere, where the spherical coordinates are
+\begin{equation*}
+    \theta = \arccos(e_z) = \frac{\pi}{2}\qquad
+    \phi = \arctan2(e_y, e_x) = 0.
+\end{equation*}
+The spinor can be reconstructed from this
+\begin{equation*}
+    |\chi\rangle = \begin{bmatrix}
+        \cos(\theta/2) \\
+        e^{i\phi} \sin(\theta/2)
+    \end{bmatrix}
+    = \frac{1}{\sqrt{2}} \begin{bmatrix}
+        1 \\
+        1
+    \end{bmatrix}
+\end{equation*}
+
+We can do the same thing with the computational base
+\begin{equation*}
+    \ket{0} = \begin{bmatrix}
+        1 \\0
+    \end{bmatrix}
+    \ket{1} = \begin{bmatrix}
+        0 \\1
+    \end{bmatrix}
+\end{equation*}
+For the base $\ket{0}$
+\begin{align*}
+    e_x & =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{bmatrix} 0 & 1 \ 1 & 0 \end{bmatrix}
+    \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{bmatrix} 0 \\ 1 \end{bmatrix} = 0 \\
+    e_y & =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{bmatrix} 0 & -i \ i & 0 \end{bmatrix}
+    \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{bmatrix} 0 \\ i \end{bmatrix} = 0 \\
+    e_z & =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}
+    \begin{bmatrix} 1 \\ 0 \end{bmatrix} =
+    \begin{bmatrix} 1 & 0 \end{bmatrix}
+    \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 1
+\end{align*}
+and for $\ket{1}$
+\begin{align*}
+    e_x & =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
+    \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 0  \\
+    e_y & =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}
+    \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{bmatrix} -i \\ 0 \end{bmatrix} = 0 \\
+    e_z & =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{bmatrix} 1 & 0 \ 0 & -1 \end{bmatrix}
+    \begin{bmatrix} 0 \\ 1 \end{bmatrix} =
+    \begin{bmatrix} 0 & 1 \end{bmatrix}
+    \begin{bmatrix} 0 \\ -1 \end{bmatrix} = -1
+\end{align*}
+As expected, $\ket{0}$ has the vector $\mathbf{e} = (0,0,1)$, while $\ket{1}$ has $\mathbf{e}=(0,0,-1)$.
+The spherical coordinates for $\ket{0}$ are $(\theta,\phi)=(0,0)$, while for $\ket{1}$ are $(\theta,\phi)=(\pi,0)$.
+The reconstructed basis takes the form
+\begin{equation*}
+    \ket{0}= \begin{bmatrix}
+        1 \\0
+    \end{bmatrix}
+    \qquad
+    \ket{1} = \begin{bmatrix}
+        0 \\1
+    \end{bmatrix}
+\end{equation*}
+\end{document}
