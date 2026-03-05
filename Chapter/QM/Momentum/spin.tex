@@ -131,6 +131,20 @@ In the dimensionless representation, this mean that $S_\pm=\sigma_\pm$ and their
     S_+ |\downarrow\rangle = \frac{1 }{2 } |\uparrow\rangle, \quad S_- |\uparrow\rangle = \frac{1 }{2} |\downarrow\rangle
 \end{gather*}
 with the extremal states annihilated.
+The matrix representation of them are
+\begin{equation*}
+    \sigma_+ =
+    \begin{bmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{bmatrix}
+    \quad
+    \sigma_- =
+    \begin{bmatrix}
+        0 & 0 \\
+        1 & 0
+    \end{bmatrix}
+\end{equation*}
 They obey the same commutator relation as the angular momentum version, beside the normalization constant
 \begin{equation*}
     [\sigma_3, \sigma_\pm] = \pm 2 \sigma_\pm, \quad [\sigma_+, \sigma_-] = \sigma_3
@@ -145,6 +159,11 @@ The product of ladder operators is a projection operator
     \sigma_+ \sigma_- = \ket{\uparrow}\bra{\uparrow}\qquad
     \sigma_- \sigma_+ = \ket{\downarrow}\bra{\downarrow}
 \end{equation*}
+This follows naturally by writting the operators in outer product form
+\begin{equation*}
+    \sigma_+ = \ket{\uparrow }\bra{\downarrow} \qquad \sigma_- = \ket{\downarrow}\bra{\uparrow}
+\end{equation*}
+In this form, it can be easily seen that they annihilate the extremal state.
 Projection operator has idempotent property $P^2=P$ and obey
 \begin{equation*}
     f(P) = f(0)I + [f(1) - f(0)]P
@@ -156,15 +175,15 @@ As such, the ladder operator also obey
 \end{gather*}
 These operators also have similarity transformation
 \begin{equation*}
-    \exp \left( \frac{\alpha \sigma_z}{2} \right)  \sigma_\pm \exp \left( \frac{\alpha \sigma_z}{2} \right)  = e^{\pm\alpha} \sigma_\pm
+    \exp \left( \frac{\alpha \sigma_z}{2} \right)  \sigma_\pm \exp \left(- \frac{\alpha \sigma_z}{2} \right)  = e^{\pm\alpha} \sigma_\pm
 \end{equation*}
 with
 \begin{equation*}
-    \exp \left( \frac{\alpha \sigma_z}{2}  \right)
-    = \begin{pmatrix}
-        e^{\alpha/2} & 0             \\
-        0            & e^{-\alpha/2}
-    \end{pmatrix}
+    \exp \left(\pm \frac{\alpha \sigma_z}{2}  \right)
+    = \begin{bmatrix}
+        e^{\pm\alpha/2} & 0               \\
+        0               & e^{\mp\alpha/2}
+    \end{bmatrix}
 \end{equation*}
 
 \subsubsection{Derivation: Spin operator in matrix representation.}
@@ -173,10 +192,6 @@ We start from the action of ladder operator
     \hat{L}_{\pm}   |l, m\rangle = \hbar \sqrt{l(l+1) - m(m \pm 1)}   |l, m \pm 1\rangle
 \end{equation*}
 where $l=1/2$ and $m_s=\pm1/2$.
-% We have then  
-% \begin{equation*}
-%     N^{+}_{\frac{1}{2},\frac{1}{2}} = N^{-}_{\frac{1}{2},-\frac{1}{2}} = 0 \quad \text{and} \quad N^{+}_{\frac{1}{2},-\frac{1}{2}} = N^{-}_{\frac{1}{2},\frac{1}{2}} = 1
-% \end{equation*}
 From the action of spin operator
 \begin{equation*}
     S_+ |\downarrow\rangle = \frac{1 }{2 } |\uparrow\rangle, \quad S_- |\uparrow\rangle = \frac{1 }{2} |\downarrow\rangle
@@ -335,6 +350,22 @@ As such, we have
         1 & 0  \\
         0 & -1
     \end{bmatrix}
+\end{equation*}
+
+\subsubsection{Derivation: Ladder operator matrix representation.}
+For the increasing operator
+\begin{equation*}
+    \sigma_+
+    = \frac{1}{2} \left( \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} + i \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \right)
+    = \frac{1}{2} \left( \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}\right)
+    = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}
+\end{equation*}
+and for the lowering
+\begin{equation*}
+    \sigma_-
+    = \frac{1}{2} \left( \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} - i \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} \right)
+    = \frac{1}{2} \left( \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} - \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}\right)
+    = \begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix}
 \end{equation*}
 
 \subsubsection{Derivation: Pauli matrices identity.}
@@ -647,6 +678,7 @@ We can do the same thing with the computational base
     \ket{0} = \begin{bmatrix}
         1 \\0
     \end{bmatrix}
+    \qquad
     \ket{1} = \begin{bmatrix}
         0 \\1
     \end{bmatrix}
@@ -705,4 +737,101 @@ The reconstructed basis takes the form
         0 \\1
     \end{bmatrix}
 \end{equation*}
+
+\subsubsection{Derivation: Pauli matrices as projector operator.}
+The functional relation for projection operator first derived by assuming that the function of operator $f(P)$ can be expanded as power series
+\begin{equation*}
+    f(P) = \sum_{n=0}^{\infty} a_n P^n
+\end{equation*}
+Idempotent $P ^{2 }= P$ implies that $P ^{n }=P$ for $n \geq1$, so
+\begin{equation*}
+    f(P) = a_0 I + \sum_{n=1}^{\infty} a_n P^n = a_0 I + \left( \sum_{n=1}^{\infty} a_n  \right)  P
+\end{equation*}
+Suppose we evaluate the scalar function $f(x)$ at $x=0$ and $x=1$
+\begin{equation*}
+    f(x) = \sum_{n=0}^{\infty} a_n x^n =
+    \begin{cases}
+        f(0) = a_0 \\
+        f(1) = \sum_{n=0}^{\infty} a_n = a_0 + \sum_{n=1}^{\infty} a_n
+    \end{cases}
+\end{equation*}
+if we define $0 ^{0}$.
+Then we have the series as
+\begin{equation*}
+    \sum_{n=1}^{\infty} a_n = f(1) - f(0)
+\end{equation*}
+Substituting into the operator expression gives
+\begin{equation*}
+    f(P) = f(0)I + [f(1) - f(0)]P
+\end{equation*}
+Next step is simply use the projection operator $\sigma_+\sigma_-$ or $\sigma_-\sigma+$ to obtain the desired relation.
+
+Next we derive the transformation by similarity for Pauli matrices.
+First note that since $\sigma_3$ is diagonal, we can write the exponent of it by
+\begin{equation*}
+    \exp \left(\pm \frac{\alpha \sigma_z}{2}  \right)
+    = \begin{bmatrix}
+        e^{\pm\alpha/2} & 0               \\
+        0               & e^{\mp\alpha/2}
+    \end{bmatrix}
+\end{equation*}
+which I have proven somewhere.
+In case you don't believe it, we can directly derive by writing the power series representation
+\begin{equation*}
+    \exp \left( \frac{\alpha \sigma_z}{2}  \right) = \sum_{n=0}^{\infty} \frac{1}{n!} \left( \frac{\alpha \sigma_3}{2} \right)^{n}
+\end{equation*}
+Since $\sigma_3^2 =I$, we have $\sigma_3^{2n} = I$ and $\sigma_3^{2n+1} = \sigma_3$.
+As such, we split the series into even and odd power
+\begin{equation*}
+    \exp \left( \frac{\alpha \sigma_z}{2}  \right)
+    = \sum_{n=0}^{\infty} \frac{1}{(2n)!} \left( \frac{\alpha}{2} \right)^{2n} I + \sum_{n=0}^{\infty} \frac{1}{(2n + 1)!} \left( \frac{\alpha}{2} \right)^{2n+1} \sigma_3
+\end{equation*}
+Then simply evaluate it
+\begin{align*}
+    \exp \left( \frac{\alpha \sigma_z}{2}  \right)
+     & =  \cosh \left( \frac{\alpha }{2 }  \right) I + \sinh \left( \frac{\alpha }{2 }  \right) \sigma_3 \\
+     & = \begin{pmatrix}
+             \cosh(\alpha/2) + \sinh(\alpha/2) & 0                                 \\
+             0                                 & \cosh(\alpha/2) - \sinh(\alpha/2)
+         \end{pmatrix}                           \\
+    \exp \left( \frac{\alpha \sigma_z}{2}  \right)
+     & = \begin{pmatrix}
+             e^{\alpha/2} & 0             \\
+             0            & e^{-\alpha/2}
+         \end{pmatrix}
+\end{align*}
+same goes for the negative exponent.
+All that left is direct multiplication
+\begin{align*}
+    \exp \left( \frac{\alpha \sigma_z}{2} \right)  \sigma_+ \exp \left(- \frac{\alpha \sigma_z}{2} \right)
+     & =
+    \begin{pmatrix}
+        e^{\alpha/2} & 0             \\
+        0            & e^{-\alpha/2}
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        e^{-\alpha/2} & 0            \\
+        0             & e^{\alpha/2}
+    \end{pmatrix} \\
+     & =
+    \begin{pmatrix}
+        e^{\alpha/2} & 0             \\
+        0            & e^{-\alpha/2}
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & e^{\alpha/2} \\
+        0 & 0
+    \end{pmatrix}             \\
+     & = \begin{pmatrix}
+             0 & e^{\alpha} \\
+             0 & 0
+         \end{pmatrix}
+    = e^{\alpha} \sigma_+
+\end{align*}
+Once again, the same goes for the negative exponent.
+
 \end{document}
