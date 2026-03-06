@@ -1,11 +1,59 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
+In framework of many-body system, the fundamental object is the many-body wavefunction
+\[
+  \Psi(x_1,\ldots,x_N)
+  =\Psi(\mathbf{r}_1,\sigma_1\dots,\mathbf{r}_N,\sigma_N)
+\]
+where the generalized coordinate $x = (\mathbf{r}, \sigma)$ takes into account the spatial coordinate $\mathbf{r}$ but also the intrinsic spin $\sigma$ pertaining to the particle.
+The state of the system therefore lives in the tensor product Hilbert space $\mathcal{H}^{\otimes N}$.
+For identical particles, the wavefunction must satisfy permutation symmetry,
+\begin{equation*}
+  \Psi(\ldots, x_i, \ldots, x_j, \ldots) = \pm \Psi(\ldots, x_j, \ldots, x_i, \ldots)
+\end{equation*}
+
+When the particle number becomes macroscopic $  N \rightarrow O(10^{23})$ and the system is described only through macroscopic observable rather than the full wavefunction, one replaces the pure state description $\Psi(x_1,\ldots,x_N)$ with an ensemble or density operator
+\begin{equation*}
+  \rho = \frac{e^{-\beta H}}{Z}, \quad Z = \text{Tr} \, e^{-\beta H}.
+\end{equation*}
+This quantum statistical mechanics step corresponds to assuming statistical equilibrium with a reservoir (canonical ensemble) or fixed energy (microcanonical ensemble).
+
+Thermodynamics emerges when an additional limit is taken
+\begin{equation*}
+  N \to \infty, \quad V \to \infty, \quad \frac{N}{V} = \text{const.}
+\end{equation*}
+In this regime microscopic fluctuations become negligible compared with macroscopic averages.
+Observables become smooth functions of intensive variables such as \(T, P,\) and \(\rho\).
+Thermodynamic relations follow from derivatives of the free energy
+\begin{equation*}
+  F = -k_B T \ln Z, \quad U = -\frac{\partial}{\partial \beta} \ln Z
+\end{equation*}
+For example
+\begin{equation*}
+  S = -\left( \frac{\partial F}{\partial T} \right)_V, \quad P = -\left( \frac{\partial F}{\partial V} \right)_T
+\end{equation*}
+Thermodynamic quantities are obtained from the partition function,
+
+Solid-state theory arises when the many-body system satisfies essential conditions
+\begin{enumerate}
+  \item The particles form a dense phase (typically electrons and ions).
+  \item The ions form an approximately periodic lattice
+        \begin{equation*}
+          V(\mathbf{r} + \mathbf{R}) = V(\mathbf{r})
+        \end{equation*}
+        where \(\mathbf{R}\) is a Bravais lattice vector. In this condition, eigenstates satisfy Bloch's theorem $\psi_{nk}(\mathbf{r}) = e^{i \mathbf{k} \cdot \mathbf{r}} u_{nk}(\mathbf{r})$
+  \item The electronic states can be treated in an effective single-particle framework due to screening and mean-field approximations.
+\end{enumerate}
+
+The many-body problem is then approximated by quasiparticles (electrons, phonons, magnons) moving in effective potentials. 
+Techniques such as Hartree–Fock, density functional theory, or Fermi liquid theory implement this reduction.
+
 \subsection{Identical Particle}
-Before imposing indistinguishability, an $N$-particle state is written as 
+Before imposing indistinguishability, an $N$-particle state is written as
 \begin{equation*}
   |k_1, k_2, \ldots, k_N\rangle = |k_1\rangle \otimes \cdots \otimes |k_N\rangle
 \end{equation*}
-This state is not symmetric in general. 
+This state is not symmetric in general.
 If we exchange two slots,
 \begin{equation*}
   \mathcal{T}_{12}|k_1, k_2, \ldots \rangle = |k_2, k_1, \ldots \rangle
@@ -18,11 +66,11 @@ Indistinguishability implies that the Hamiltonian cannot change if the degrees o
 \end{equation*}
 This can be seen by acting with the operator exchanging two arbitrary particles, $i$ and $j$, on a state of $N$ identical particles
 \begin{equation*}
-  \mathcal{T }_{ij} \ket{\dots, \phi_i,\dots,\phi_j,\dots} = \ket{\dots, \phi_j,\dots,\phi_i,\dots} 
+  \mathcal{T }_{ij} \ket{\dots, \phi_i,\dots,\phi_j,\dots} = \ket{\dots, \phi_j,\dots,\phi_i,\dots}
 \end{equation*}
 which produces a state that may not be physically different from the original state, so that there can only be a phase factor $\nu_{ij }=e ^{i\alpha_{ij}}$
 \begin{equation*}
-  \mathcal{T }_{ij} \ket{\dots, \phi_i,\dots,\phi_j,\dots} = \nu_{ij }\ket{\dots, \phi_i,\dots,\phi_j,\dots} 
+  \mathcal{T }_{ij} \ket{\dots, \phi_i,\dots,\phi_j,\dots} = \nu_{ij }\ket{\dots, \phi_i,\dots,\phi_j,\dots}
 \end{equation*}
 Moreover, because of $\mathcal{T}_{ij }=\mathcal{T}_{ji}$ we have
 \begin{equation*}
@@ -31,8 +79,8 @@ Moreover, because of $\mathcal{T}_{ij }=\mathcal{T}_{ji}$ we have
 These results imply that there are only two types of quantum particles
 \begin{equation*}
   \nu = \begin{cases}
-    +1,& \text{ particles whose symmetrical under particle exchange}\\
-    -1,& \text{ particles whose antisymmetrical under particle exchange}
+    +1, & \text{ particles whose symmetrical under particle exchange}     \\
+    -1, & \text{ particles whose antisymmetrical under particle exchange}
   \end{cases}
 \end{equation*}
 
@@ -44,9 +92,9 @@ Consider the state
 The subscript in $\ket{k_n}$ labels the one-particle state in that tensor slot.
 In order to produce physical multiparticle boson state, where the particles are truly indistinguishable, we introduce symmetrization $S$ for a fixed number $N$ of particles
 \begin{equation*}
-  S |k_1, \ldots, k_N \rangle = 
+  S |k_1, \ldots, k_N \rangle =
   \frac{1}{\sqrt{N!N_1! N_1! \ldots N_M!}}
-  \sum_{p \in S_N} |k_{p(1)}, \ldots, k_{p(N)} \rangle 
+  \sum_{p \in S_N} |k_{p(1)}, \ldots, k_{p(N)} \rangle
 \end{equation*}
 which satisfy $\nu=1$.
 The symmetrization operator  $S$ acts on the tensor-product slots, not on the physical particles themselves, where it rearranges the positions of the one-particle states in the tensor product
@@ -60,23 +108,23 @@ Now suppose that $N_l$ particle occupy $k_l$ state.
 Many permutations now produce identical terms, since swapping two particles that are both in $k_l$  does not change the vector, hence $1/\sqrt{N_l!}$ normalization constant.
 
 Each term is the original tensor-product state with tensor slots rearranged according to $p$, such that $\ket{\dots k_{p(n)}\dots}$ is placed in slot $n$.
-For example, with $p(n)=n+1$, the state $S\ket{k_1}$ gets mapped into 
+For example, with $p(n)=n+1$, the state $S\ket{k_1}$ gets mapped into
 \begin{equation*}
   \ket{k_{{(1)}}\dots} \mapsto \ket{\dots \ket{k_2}\dots}
 \end{equation*}
 
 \subsubsection{Fermion.}
-With the same state $|k_1, \ldots, k_N\rangle $, the antisymmetrization is defined as 
+With the same state $|k_1, \ldots, k_N\rangle $, the antisymmetrization is defined as
 \begin{equation*}
-A|k_1,k_2,\ldots,k_N\rangle = \frac{1}{\sqrt{N!}} \sum_{p \in S_N} \mathrm{sgn}(P) |k_{i_1},k_{i_2},\ldots,k_{i_N}\rangle
+  A|k_1,k_2,\ldots,k_N\rangle = \frac{1}{\sqrt{N!}} \sum_{p \in S_N} \mathrm{sgn}(P) |k_{i_1},k_{i_2},\ldots,k_{i_N}\rangle
 \end{equation*}
 As the case with the symmetrization operator, the sum is run over $p$ all permutations $p$ of the set $\left\{ 1,\dots,N \right\} $.
-The only difference is in the parity factor 
+The only difference is in the parity factor
 \begin{equation*}
   \mathrm{sgn}(p) =
   \begin{cases}
-    +1& \text{ Even permutations}\\
-    -1& \text{ Odd permutations}
+    +1 & \text{ Even permutations} \\
+    -1 & \text{ Odd permutations}
   \end{cases}
 \end{equation*}
 This factor express that the state antisymmetry under particle exchange.
@@ -93,9 +141,9 @@ In another important contribution, Wolfgang Pauli (1940) proved by his famous sp
 |\subsubsection{The application.}
 The symmetric and antisymmetrical operator is used to construct boson and fermion subspace from the $n $-particle Hilbert space
 \begin{equation*}
-\mathcal{H}^{\otimes n}  =
-\underbrace{\mathcal{H} \otimes \dots \otimes \mathcal{H}}_n = 
-\bigotimes_n \mathcal{H}
+  \mathcal{H}^{\otimes n}  =
+  \underbrace{\mathcal{H} \otimes \dots \otimes \mathcal{H}}_n =
+  \bigotimes_n \mathcal{H}
 \end{equation*}
 The symmetric subspace is defined as the set of all vectors invariant under permutation of slots
 \begin{equation*}
@@ -119,14 +167,14 @@ Equivalently,
 \begin{equation*}
   \wedge^n(H) = A \mathcal{H}^{\otimes n}
 \end{equation*}
-with the action of antisymmetrization as 
+with the action of antisymmetrization as
 \begin{equation*}
-A = \frac{1}{n!} \sum_{p \in S_n} \text{sgn}(p) P
+  A = \frac{1}{n!} \sum_{p \in S_n} \text{sgn}(p) P
 \end{equation*}
 
-With these in mind, the Fock subsspace for both boson and fermion can be derived from the full Fock space as 
+With these in mind, the Fock subsspace for both boson and fermion can be derived from the full Fock space as
 \begin{equation*}
-  \mathcal{F}_B = \bigoplus_{n=0}^{\infty} \mathrm{Sym}^n(\mathcal{H}) \qquad 
+  \mathcal{F}_B = \bigoplus_{n=0}^{\infty} \mathrm{Sym}^n(\mathcal{H}) \qquad
   \mathcal{F}_F = \bigoplus_{n=0}^{\infty} \wedge^n(\mathcal{H})
 \end{equation*}
 \end{document}
