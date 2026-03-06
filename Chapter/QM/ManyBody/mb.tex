@@ -45,7 +45,7 @@ Solid-state theory arises when the many-body system satisfies essential conditio
   \item The electronic states can be treated in an effective single-particle framework due to screening and mean-field approximations.
 \end{enumerate}
 
-The many-body problem is then approximated by quasiparticles (electrons, phonons, magnons) moving in effective potentials. 
+The many-body problem is then approximated by quasiparticles (electrons, phonons, magnons) moving in effective potentials.
 Techniques such as Hartree–Fock, density functional theory, or Fermi liquid theory implement this reduction.
 
 \subsection{Identical Particle}
@@ -93,7 +93,7 @@ The subscript in $\ket{k_n}$ labels the one-particle state in that tensor slot.
 In order to produce physical multiparticle boson state, where the particles are truly indistinguishable, we introduce symmetrization $S$ for a fixed number $N$ of particles
 \begin{equation*}
   S |k_1, \ldots, k_N \rangle =
-  \frac{1}{\sqrt{N!N_1! N_1! \ldots N_M!}}
+  \frac{1}{\sqrt{N!N_1! \ldots N_M!}}
   \sum_{p \in S_N} |k_{p(1)}, \ldots, k_{p(N)} \rangle
 \end{equation*}
 which satisfy $\nu=1$.
@@ -177,4 +177,64 @@ With these in mind, the Fock subsspace for both boson and fermion can be derived
   \mathcal{F}_B = \bigoplus_{n=0}^{\infty} \mathrm{Sym}^n(\mathcal{H}) \qquad
   \mathcal{F}_F = \bigoplus_{n=0}^{\infty} \wedge^n(\mathcal{H})
 \end{equation*}
+
+\subsection{Identical Particle Wavefunction}
+The arbitrary product state $  |k_1, \ldots, k_N\rangle$, which do not in general obey symmetrization nor antisymmetrization condition, can be projected into boson or fermion subspace using symmetrization and antisymmetrization operator
+\begin{gather*}
+  S |k_1, \ldots, k_N \rangle =
+  \frac{1}{\sqrt{N!N_1! N_1! \ldots N_M!}}
+  \sum_{p \in S_N} |k_{p(1)}, \ldots, k_{p(N)} \rangle  \\
+  A|k_1,k_2,\ldots,k_N\rangle = \frac{1}{\sqrt{N!}} \sum_{p \in S_N} \mathrm{sgn}(P) |k_{i_1},k_{i_2},\ldots,k_{i_N}\rangle
+\end{gather*}
+To determine the wavefunction of boson and fermion, one construct $N \times N$ matrix
+\begin{equation*}
+  M =
+  \begin{bmatrix}
+    \phi_1(x_1) & \ldots & \phi_1(x_N) \\
+    \vdots      & \ddots & \vdots      \\
+    \phi_N(x_1) & \ldots & \phi_N(x_N)
+  \end{bmatrix}
+\end{equation*}
+where $\phi_i $ denote quantum state and $\phi(x_j)$ labels the particle coordinate.
+
+\subsubsection{Boson.}
+The wavefunction  in boson subspace is represented as
+\begin{equation*}
+  \Psi_B(x_1, \ldots, x_N) = \frac{1}{\sqrt{N!N_1! \ldots N_M!}} \;\mathrm{perm}(M)
+\end{equation*}
+Written explicitly,
+\begin{equation*}
+  \Psi_B(x_1, \ldots, x_N)
+  = \frac{1}{\sqrt{N!\prod_i N_i!}} \sum_{P \in S_N} \prod_{i=1}^N \phi_i(x_{P(i)})
+\end{equation*}
+
+In the Bose–Einstein condensate, all $N$ particles occupy the same single–particle ground orbital $\phi_0(x)$, hence permutation produces the same term
+\begin{equation*}
+  \prod_{j=1}^{N} \phi_0(x_{P(j)}) = \phi_0(x_1)\phi_0(x_2)\cdots\phi_0(x_N)
+\end{equation*}
+Since there are $N!$ permutations
+\begin{equation*}
+  \sum_{P\in S_N} \prod_{j=1}^{N} \phi_0(x_{P(j)}) = N! \phi_0(x_1)\phi_0(x_2)\cdots\phi_0(x_N)
+\end{equation*}
+The normalization factor becomes
+\begin{equation*}
+  \frac{1}{\sqrt{N!N!}} = \frac{1}{N!}
+\end{equation*}
+Hence the many-body wavefunction reduces to
+\begin{equation*}
+  \Psi(x_1,\ldots,x_N) = \phi_0(x_1)\phi_0(x_2)\cdots\phi_0(x_N)
+\end{equation*}
+
+\subsubsection{Fermion.}
+Rather with permanent, we use determinant, also called Slater determinant
+\begin{equation*}
+  \Psi_F(x_1, \ldots, x_N) = \frac{1}{\sqrt{N!}} \det(M)
+\end{equation*}
+Expanding the determinant gives
+\begin{equation*}
+  \Psi_F(x_1, \ldots, x_N) = \frac{1}{\sqrt{N!}} \sum_{P \in S_N} \text{sgn}(P) \prod_{i=1}^N \phi_i(x_{P(i)})
+\end{equation*}
+The determinant will enforce sign change under particle exchange and vanishing upon particle occupying the same state.
+
+
 \end{document}
