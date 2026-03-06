@@ -1,0 +1,132 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Identical Particle}
+Before imposing indistinguishability, an $N$-particle state is written as 
+\begin{equation*}
+  |k_1, k_2, \ldots, k_N\rangle = |k_1\rangle \otimes \cdots \otimes |k_N\rangle
+\end{equation*}
+This state is not symmetric in general. 
+If we exchange two slots,
+\begin{equation*}
+  \mathcal{T}_{12}|k_1, k_2, \ldots \rangle = |k_2, k_1, \ldots \rangle
+\end{equation*}
+we obtain is a different vector.
+
+Indistinguishability implies that the Hamiltonian cannot change if the degrees of freedom of two arbitrary particles $i$ and $j$ are exchanged
+\begin{equation*}
+  {H } = {H} (\dots,i\dots,j,\dots) = {H} (\dots,j\dots,i,\dots)
+\end{equation*}
+This can be seen by acting with the operator exchanging two arbitrary particles, $i$ and $j$, on a state of $N$ identical particles
+\begin{equation*}
+  \mathcal{T }_{ij} \ket{\dots, \phi_i,\dots,\phi_j,\dots} = \ket{\dots, \phi_j,\dots,\phi_i,\dots} 
+\end{equation*}
+which produces a state that may not be physically different from the original state, so that there can only be a phase factor $\nu_{ij }=e ^{i\alpha_{ij}}$
+\begin{equation*}
+  \mathcal{T }_{ij} \ket{\dots, \phi_i,\dots,\phi_j,\dots} = \nu_{ij }\ket{\dots, \phi_i,\dots,\phi_j,\dots} 
+\end{equation*}
+Moreover, because of $\mathcal{T}_{ij }=\mathcal{T}_{ji}$ we have
+\begin{equation*}
+  \mathcal{T}_{ij }^{2 }=1\qquad\nu_{ij }=\pm1
+\end{equation*}
+These results imply that there are only two types of quantum particles
+\begin{equation*}
+  \nu = \begin{cases}
+    +1,& \text{ particles whose symmetrical under particle exchange}\\
+    -1,& \text{ particles whose antisymmetrical under particle exchange}
+  \end{cases}
+\end{equation*}
+
+\subsubsection{Boson.}
+Consider the state
+\begin{equation*}
+  |k_1, \ldots, k_N\rangle = |k_1\rangle \otimes |k_2\rangle \otimes \cdots \otimes |k_N\rangle
+\end{equation*}
+The subscript in $\ket{k_n}$ labels the one-particle state in that tensor slot.
+In order to produce physical multiparticle boson state, where the particles are truly indistinguishable, we introduce symmetrization $S$ for a fixed number $N$ of particles
+\begin{equation*}
+  S |k_1, \ldots, k_N \rangle = 
+  \frac{1}{\sqrt{N!N_1! N_1! \ldots N_M!}}
+  \sum_{p \in S_N} |k_{p(1)}, \ldots, k_{p(N)} \rangle 
+\end{equation*}
+which satisfy $\nu=1$.
+The symmetrization operator  $S$ acts on the tensor-product slots, not on the physical particles themselves, where it rearranges the positions of the one-particle states in the tensor product
+\begin{equation*}
+  |k_1, k_2, \ldots, k_N\rangle \rightarrow |k_{p(1)}, k_{p(2)}, \ldots, k_{p(N)}\rangle
+\end{equation*}
+
+The is run over $p$ all permutations $p$ of the set $\mathcal{N}=\left\{ 1,\dots,N \right\} $, which there are $N!$ element, hence the $1/\sqrt{N!}$ normalization constant.
+
+Now suppose that $N_l$ particle occupy $k_l$ state.
+Many permutations now produce identical terms, since swapping two particles that are both in $k_l$  does not change the vector, hence $1/\sqrt{N_l!}$ normalization constant.
+
+Each term is the original tensor-product state with tensor slots rearranged according to $p$, such that $\ket{\dots k_{p(n)}\dots}$ is placed in slot $n$.
+For example, with $p(n)=n+1$, the state $S\ket{k_1}$ gets mapped into 
+\begin{equation*}
+  \ket{k_{{(1)}}\dots} \mapsto \ket{\dots \ket{k_2}\dots}
+\end{equation*}
+
+\subsubsection{Fermion.}
+With the same state $|k_1, \ldots, k_N\rangle $, the antisymmetrization is defined as 
+\begin{equation*}
+A|k_1,k_2,\ldots,k_N\rangle = \frac{1}{\sqrt{N!}} \sum_{p \in S_N} \mathrm{sgn}(P) |k_{i_1},k_{i_2},\ldots,k_{i_N}\rangle
+\end{equation*}
+As the case with the symmetrization operator, the sum is run over $p$ all permutations $p$ of the set $\left\{ 1,\dots,N \right\} $.
+The only difference is in the parity factor 
+\begin{equation*}
+  \mathrm{sgn}(p) =
+  \begin{cases}
+    +1& \text{ Even permutations}\\
+    -1& \text{ Odd permutations}
+  \end{cases}
+\end{equation*}
+This factor express that the state antisymmetry under particle exchange.
+Since any permutation $p$ of $N$ slots can be written as a product of transpositions
+\begin{equation*}
+  p = \mathcal{T}_{i_1j_1} \mathcal{T}_{i_2j_2} \ldots\mathcal{T}_{i_mj_m}.
+\end{equation*}
+the parity of the permutation is determined by the number of transpositions $m$ in this decomposition: even $m$ for $+1$ and odd $m$ for $-1$.
+
+This parity is the origin of Pauli exclusion principle.
+The probability for a many-particle state to contain two or more Fermions in the same single-particle state vanishes.
+In another important contribution, Wolfgang Pauli (1940) proved by his famous spin-statistics theorem that Bosons carry integer spin, $s=1,\dots$ , while Fermions carry half-integer spin, $s = 1/2, \dots$.
+
+|\subsubsection{The application.}
+The symmetric and antisymmetrical operator is used to construct boson and fermion subspace from the $n $-particle Hilbert space
+\begin{equation*}
+\mathcal{H}^{\otimes n}  =
+\underbrace{\mathcal{H} \otimes \dots \otimes \mathcal{H}}_n = 
+\bigotimes_n \mathcal{H}
+\end{equation*}
+The symmetric subspace is defined as the set of all vectors invariant under permutation of slots
+\begin{equation*}
+  \mathrm{Sym}^n(\mathcal{H}) = \left\{ |\Psi\rangle \in \mathcal{H}^{\otimes n} \mid P|\Psi\rangle = |\Psi\rangle \text{ for all permutations } P \right\}
+\end{equation*}
+with $P_p$ as the linear operator representing $\mathcal{H}^{\otimes n}$.
+Equivalently,
+\begin{equation*}
+  \mathrm{Sym}^n(\mathcal{H}) = S\mathcal{H}^{\otimes n}
+\end{equation*}
+where the symmetrization projector action is
+\begin{equation*}
+  S = \frac{1}{n!} \sum_{p \in S_n} P_p
+\end{equation*}
+Note that the normalization constant is $1/n!$ instead of $1/\sqrt{n!}$ to satisfy idempotency $S^2=S$ for subspace projection.
+Meanwhile, the antisymmetrical subspace is defined as the set of vectors that change sign under odd permutations
+\begin{equation*}
+  \wedge^n(H) = \left\{ |\Psi\rangle \in \mathcal{H}^{\otimes n} \,|\, P |\Psi\rangle = \mathrm{sgn}(P) |\Psi\rangle \right\}
+\end{equation*}
+Equivalently,
+\begin{equation*}
+  \wedge^n(H) = A \mathcal{H}^{\otimes n}
+\end{equation*}
+with the action of antisymmetrization as 
+\begin{equation*}
+A = \frac{1}{n!} \sum_{p \in S_n} \text{sgn}(p) P
+\end{equation*}
+
+With these in mind, the Fock subsspace for both boson and fermion can be derived from the full Fock space as 
+\begin{equation*}
+  \mathcal{F}_B = \bigoplus_{n=0}^{\infty} \mathrm{Sym}^n(\mathcal{H}) \qquad 
+  \mathcal{F}_F = \bigoplus_{n=0}^{\infty} \wedge^n(\mathcal{H})
+\end{equation*}
+\end{document}
