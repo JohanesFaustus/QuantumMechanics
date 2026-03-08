@@ -343,44 +343,100 @@ This best be evaluated in spherical coordinate
 \end{align*}
 Alternatively, without using $k_F$ and solving in terms of Fermi energy
 \begin{equation*}
-    N =  c \int\displaylimits_{0}^{\sqrt{2m\epsilon_F}/\hbar }dk\;  k^{2} = \frac{2 V}{(2\pi)^{3}} \frac{4\pi}{3} \left( \frac{\sqrt{2m\epsilon_F} }{\hbar } \right) ^{3} =  \frac{V}{3\pi^{2}} \left( \frac{2m\epsilon_F }{\hbar^2 } \right)^{3/2} 
+  N =  c \int\displaylimits_{0}^{\sqrt{2m\epsilon_F}/\hbar }dk\;  k^{2} = \frac{2 V}{(2\pi)^{3}} \frac{4\pi}{3} \left( \frac{\sqrt{2m\epsilon_F} }{\hbar } \right) ^{3} =  \frac{V}{3\pi^{2}} \left( \frac{2m\epsilon_F }{\hbar^2 } \right)^{3/2}
 \end{equation*}
-This ultimately yields 
+This ultimately yields
 \begin{equation*}
-  \epsilon_F = \frac{\hbar ^2 k_F^2}{ 2m} = \frac{\hbar ^2 }{2m }\left( 3\pi^2 \frac{N }{V } \right)^{1/3} 
+  \epsilon_F = \frac{\hbar ^2 k_F^2}{ 2m} = \frac{\hbar ^2 }{2m }\left( 3\pi^2 \frac{N }{V } \right)^{1/3}
 \end{equation*}
 As a uniform gas, the density is constant
 \begin{equation*}
-  \rho = \frac{1}{3\pi^{2}} k_{F}^{3} = \frac{1}{3\pi^{2}} \left( \frac{2m\epsilon_F }{\hbar ^2 } \right) ^{3/2} 
+  \rho = \frac{1}{3\pi^{2}} k_{F}^{3} = \frac{1}{3\pi^{2}} \left( \frac{2m\epsilon_F }{\hbar ^2 } \right) ^{3/2}
 \end{equation*}
 
 The total energy could be evaluated in the same method
 \begin{align*}
   E & =  \sum_{\sigma,\mathbf{k }}  \epsilon_{\mathbf{k}} \Theta \left(k_F-k\right)
-=\sum_{\sigma} \frac{V}{(2\pi)^3} \int d^3 \mathbf{k}\; \frac{\hbar^{2}k^{2}}{2m} \Theta \left( \epsilon_{F} - \frac{\hbar^{2}k^{2}}{2m} \right)\\
-  & =  \frac{4\pi V \hbar ^2}{(2\pi)^{3}m} \int_{0}^{k_{F}}dk\;  k^{4} 
-  = \frac{V \hbar ^2}{10\pi^{2}m} k_{F}^{5} 
-  = \frac{V \hbar ^2}{10\pi^{2}m} \left( 3\pi^2 \rho\right) \frac{2m\epsilon_F }{\hbar ^2}\\
+  =\sum_{\sigma} \frac{V}{(2\pi)^3} \int d^3 \mathbf{k}\; \frac{\hbar^{2}k^{2}}{2m} \Theta \left( \epsilon_{F} - \frac{\hbar^{2}k^{2}}{2m} \right) \\
+    & =  \frac{4\pi V \hbar ^2}{(2\pi)^{3}m} \int_{0}^{k_{F}}dk\;  k^{4}
+  = \frac{V \hbar ^2}{10\pi^{2}m} k_{F}^{5}
+  = \frac{V \hbar ^2}{10\pi^{2}m} \left( 3\pi^2 \rho\right) \frac{2m\epsilon_F }{\hbar ^2}                                                         \\
   E & = \frac{3 }{5 }V \rho \epsilon_F = \frac{3 }{5 }\frac{\hbar ^2 }{2m }V(3\pi^2  )^{2/3}\rho^{5/3}
 \end{align*}
 On dividing by $V$ we obtain the energy density.
 
 \subsection{Many-electron Atom}
 The quantum Hamiltonian of $N$ identical interacting particles is given by
-\begin{equation*} 
-\hat{H} = \sum_{i=1}^{N} \hat{h}(x_i) + \frac{1}{2} \sum_{\substack{i,j=1 \\ i \neq j}}^{N} V(x_i, x_j) = \hat{H}_0 + \hat{H}_1
-\end{equation*} 
-where $\hat{h}$ is the single-particle Hamiltonian and $V(x_i, x_j)$ is the inter-particle potential of the mutual interaction. 
+\begin{equation*}
+  \hat{H} = \sum_{i=1}^{N} \hat{h}(x_i) + \frac{1}{2} \sum_{\substack{i,j=1 \\ i \neq j}}^{N} V(x_i, x_j) = \hat{H}_0 + \hat{H}_1
+\end{equation*}
+where $\hat{h}$ is the single-particle Hamiltonian and $V(x_i, x_j)$ is the inter-particle potential of the mutual interaction.
 In the case of non-relativistic quantum mechanics of $N$ electrons bound to a nucleus of charge $+Ze$, the Hamiltonian reads
 \begin{equation*}
   \hat{H} = \sum_{i=1}^{N} \left( -\frac{\hbar^2}{2m} \nabla_i^2 - \frac{Ze^2}{4\pi \epsilon_0 r_i} \right) + \sum_{i<j} \frac{e^2}{4\pi\epsilon_0 |r_i - r_j|}
 \end{equation*}
 The single particle Hamiltonian consist of the kinetic energy of electron $i$ and Coulomb attraction between that electron and the nucleus.
-The inter-particle Hamiltonian represents the Coulomb repulsion between pairs of electrons. 
+The inter-particle Hamiltonian represents the Coulomb repulsion between pairs of electrons.
 It uses summation range $i<j$ so that each pair is counted once, which is equivalent to the factor $1/2$ in the more symmetric form.
 \begin{equation*}
-    \hat{H}_1=\frac{1}{2} \sum_{\substack{i,j=1 \\ i \neq j}}^{N} V(x_i, x_j) 
+  \hat{H}_1=\frac{1}{2} \sum_{\substack{i,j=1 \\ i \neq j}}^{N} V(x_i, x_j)
 \end{equation*}
 The key difficulty of the many-electron problem arises from the second term, because it couples the coordinates of all electrons and prevents the Schrödinger equation from separating into independent single-particle equations.
 
+\subsubsection{Non-interacting Hamiltonian.}
+Suppose assumption that each electron moves independently in the electrostatic field of the nucleus, and that electrons do not repel one another.
+This crude assumption of non-interacting electrons is equivalent to ignoring the inter-particle Hamiltonian
+\begin{equation*}
+  \hat{H} = \hat{H}_0 = \sum_{i=1}^{N} \hat{h}(x_i)
+\end{equation*}
+
+Despite that, the model predicts correctly the following results.
+\begin{enumerate}
+  \item \textbf{Electrons occupy discrete orbitals.} The wavefunction satisfy
+        \begin{equation*}
+          \hat{h}(\mathbf{r }) \phi_{nlm_lm_s}(r,\sigma) = \epsilon_{n}(Z) \phi_{nlm_lm_{s}}(\mathbf{r},\sigma)
+        \end{equation*}
+        where the wavefunction factorizes into
+        \begin{equation*}
+          \phi_{nlm_lm_{s}}(\mathbf{r},\sigma) = R_{nl}(r) Y_{l}^{m_l}(\theta, \phi)\chi_{\sigma}
+        \end{equation*}
+        The spatial part consist of radial
+        \begin{multline*}
+          R_{nl }^{(Z)}(r) = \sqrt{ \left( \frac{2Z}{na_0} \right)^{3} \frac{(n - l  - 1)!}{2n[(n + l )!]} } e^{-Zr/(na_0)} \\ \times\left( \frac{2Zr}{na_0} \right)^{l } L_{n}^{2l  + 1 - n - l  - 1} \left( \frac{2Zr}{na_0} \right)
+        \end{multline*}
+        and angular wavefunction
+        \begin{equation*}
+          Y_{l }^{m}(\theta, \phi) = (-1)^{m} \sqrt{\frac{(2l  + 1)(l  - m)!}{4\pi(l  + m)!}} P_{l }^{m}(\cos \theta) e^{im\phi}
+        \end{equation*}
+        The spin part of the wavefunction belongs to a two–dimensional Hilbert space describing a spin-$1/2$ particle, with $\sigma=(+1/2,-1/2)$.
+        These stationary eigenfunctions are what are called atomic orbitals, defined by quadruple of quantum numbers
+        \begin{equation*}
+          n = 1,\ldots \quad l = 0, \ldots, n - 1, \quad m_{l } = -l , \ldots, l , \quad m_{s} = \pm \frac{1}{2}
+        \end{equation*}
+        An electron bound to the nucleus can only exist in one of these allowed eigenstates rather than in an arbitrary spatial distribution.
+
+  \item \textbf{Orbitals group into shells.} Solving the eigenvalue problem gives the eigenenergies
+        \begin{equation*}
+          \epsilon_n = - 13.6\frac{Z^2}{n^2}  \; \text{eV}
+        \end{equation*}
+        which independent of $(l, \, m_l,  m_s)$.
+        The number of spatial orbitals for a fixed $\ell$ is $2l+1$, so the degeneracy in $n$ is
+        \begin{equation*}
+          g_l =\sum_{\ell=0}^{n-1} (2\ell + 1)
+          = 2 \sum_{\ell=0}^{n-1} \ell + \sum_{\ell=0}^{n-1} 1
+          = 2 \frac{n(n-1)}{2} + n = n^2.
+        \end{equation*}
+        Each spatial orbital can be combined with two spin states
+        \begin{equation*}
+          g_n = 2g_s=2n^2
+        \end{equation*}
+        
+        Hamiltonian possesses degenerate eigenstates labeled by the same principal quantum number $n$ and that these degenerate orbitals form a shell.
+        The experimental data suggest that the true number of electrons in each experimental shell are $(2, 8, 8, 18, 18, 32, \ldots)$ instead of the predicted $(2,8,18,32,\ldots)$. 
+        This reflects subshell energy splitting caused by electron–electron interaction which is ignored in this consideration.
+
+  \item \textbf{Chemical properties repeat periodically with atomic number.}
+  Each atom with $Z$ electrons fills the available spin–orbitals in order of increasing energy (subject to the Pauli exclusion principle).
+  Because the orbitals $2n^2 $, adding electrons sequentially produces a repeating pattern of:   filled shell, such as noble gasses, which produce stable, low-energy configurations; and partial filled shell, such as alkali metal, which produce more chemically reactive configurations
+\end{enumerate}
 \end{document}
