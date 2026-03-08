@@ -364,4 +364,23 @@ The total energy could be evaluated in the same method
   E & = \frac{3 }{5 }V \rho \epsilon_F = \frac{3 }{5 }\frac{\hbar ^2 }{2m }V(3\pi^2  )^{2/3}\rho^{5/3}
 \end{align*}
 On dividing by $V$ we obtain the energy density.
+
+\subsection{Many-electron Atom}
+The quantum Hamiltonian of $N$ identical interacting particles is given by
+\begin{equation*} 
+\hat{H} = \sum_{i=1}^{N} \hat{h}(x_i) + \frac{1}{2} \sum_{\substack{i,j=1 \\ i \neq j}}^{N} V(x_i, x_j) = \hat{H}_0 + \hat{H}_1
+\end{equation*} 
+where $\hat{h}$ is the single-particle Hamiltonian and $V(x_i, x_j)$ is the inter-particle potential of the mutual interaction. 
+In the case of non-relativistic quantum mechanics of $N$ electrons bound to a nucleus of charge $+Ze$, the Hamiltonian reads
+\begin{equation*}
+  \hat{H} = \sum_{i=1}^{N} \left( -\frac{\hbar^2}{2m} \nabla_i^2 - \frac{Ze^2}{4\pi \epsilon_0 r_i} \right) + \sum_{i<j} \frac{e^2}{4\pi\epsilon_0 |r_i - r_j|}
+\end{equation*}
+The single particle Hamiltonian consist of the kinetic energy of electron $i$ and Coulomb attraction between that electron and the nucleus.
+The inter-particle Hamiltonian represents the Coulomb repulsion between pairs of electrons. 
+It uses summation range $i<j$ so that each pair is counted once, which is equivalent to the factor $1/2$ in the more symmetric form.
+\begin{equation*}
+    \hat{H}_1=\frac{1}{2} \sum_{\substack{i,j=1 \\ i \neq j}}^{N} V(x_i, x_j) 
+\end{equation*}
+The key difficulty of the many-electron problem arises from the second term, because it couples the coordinates of all electrons and prevents the Schrödinger equation from separating into independent single-particle equations.
+
 \end{document}
