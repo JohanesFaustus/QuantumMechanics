@@ -450,4 +450,24 @@ where $E_{gs}$ is the ground-state energy of the system and the equality holds o
   \hat{H} |\Psi_{gs}\rangle = E_{gs} |\Psi_{gs}\rangle
 \end{equation*}
 
+\subsubsection{Derivation.}
+The many-body Hamiltonian $\hat{H}$ satisfies the exact eigenvalue problem
+\begin{equation*}
+    \hat{H}|\Psi_\alpha\rangle = E_\alpha |\Psi_\alpha\rangle 
+\end{equation*}
+where $E_\alpha$ are the ordered eigenvalues, such that $E_0 < E_1 < \ldots$; and $|\Psi_\alpha\rangle$ the corresponding orthonormalized eigenstates, such that $\langle \Psi_\alpha|\Psi_\beta \rangle = \delta_{\alpha,\beta}$.
+The generic many-body state $|\Psi\rangle$ can be written as
+\begin{equation*}
+    |\Psi\rangle = \sum_{\alpha} c_\alpha |\Psi_\alpha\rangle 
+\end{equation*}
+where $c_\alpha$ are the complex coefficients of the expansion such that the normalization condition is satisfied.
+Then one finds
+\begin{align*}
+    \langle \Psi | \hat{H} | \Psi \rangle 
+    & =  \sum_{\alpha,\beta} c_\alpha^* c_\beta E_\beta \langle \Psi_\alpha | \Psi_\beta \rangle = \sum_{\alpha} |c_\alpha|^2 E_\alpha \\
+    &\geq \sum_{\alpha} |c_\alpha|^2 E_0 \\
+    \langle \Psi | \hat{H} | \Psi \rangle 
+    &\geq E_0 
+\end{align*}
+
 \end{document}
