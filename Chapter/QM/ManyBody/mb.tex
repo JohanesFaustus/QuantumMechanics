@@ -51,7 +51,7 @@ Techniques such as Hartree–Fock, density functional theory, or Fermi liquid th
 \subsection{Identical Particle}
 Before imposing indistinguishability, an $N$-particle state is written as
 \begin{equation*}
-  |k_1, k_2, \ldots, k_N\rangle = |k_1\rangle \otimes \cdots \otimes |k_N\rangle
+  |k_1, k_2, \ldots, k_N\rangle = |k_1\rangle \otimes \ldots \otimes |k_N\rangle
 \end{equation*}
 This state is not symmetric in general.
 If we exchange two slots,
@@ -87,7 +87,7 @@ These results imply that there are only two types of quantum particles
 \subsubsection{Boson.}
 Consider the state
 \begin{equation*}
-  |k_1, \ldots, k_N\rangle = |k_1\rangle \otimes |k_2\rangle \otimes \cdots \otimes |k_N\rangle
+  |k_1, \ldots, k_N\rangle = |k_1\rangle \otimes |k_2\rangle \otimes \ldots \otimes |k_N\rangle
 \end{equation*}
 The subscript in $\ket{k_n}$ labels the one-particle state in that tensor slot.
 In order to produce physical multiparticle boson state, where the particles are truly indistinguishable, we introduce symmetrization $S$ for a fixed number $N$ of particles
@@ -210,11 +210,11 @@ Written explicitly,
 
 In the Bose–Einstein condensate, all $N$ particles occupy the same single–particle ground orbital $\phi_0(x)$, hence permutation produces the same term
 \begin{equation*}
-  \prod_{j=1}^{N} \phi_0(x_{P(j)}) = \phi_0(x_1)\phi_0(x_2)\cdots\phi_0(x_N)
+  \prod_{j=1}^{N} \phi_0(x_{P(j)}) = \phi_0(x_1)\phi_0(x_2)\ldots\phi_0(x_N)
 \end{equation*}
 Since there are $N!$ permutations
 \begin{equation*}
-  \sum_{P\in S_N} \prod_{j=1}^{N} \phi_0(x_{P(j)}) = N! \phi_0(x_1)\phi_0(x_2)\cdots\phi_0(x_N)
+  \sum_{P\in S_N} \prod_{j=1}^{N} \phi_0(x_{P(j)}) = N! \phi_0(x_1)\phi_0(x_2)\ldots\phi_0(x_N)
 \end{equation*}
 The normalization factor becomes
 \begin{equation*}
@@ -222,7 +222,7 @@ The normalization factor becomes
 \end{equation*}
 Hence the many-body wavefunction reduces to
 \begin{equation*}
-  \Psi(x_1,\ldots,x_N) = \phi_0(x_1)\phi_0(x_2)\cdots\phi_0(x_N)
+  \Psi(x_1,\ldots,x_N) = \phi_0(x_1)\phi_0(x_2)\ldots\phi_0(x_N)
 \end{equation*}
 
 \subsubsection{Fermion.}
@@ -430,22 +430,22 @@ Despite that, the model predicts correctly the following results.
         \begin{equation*}
           g_n = 2g_s=2n^2
         \end{equation*}
-        
+
         Hamiltonian possesses degenerate eigenstates labeled by the same principal quantum number $n$ and that these degenerate orbitals form a shell.
-        The experimental data suggest that the true number of electrons in each experimental shell are $(2, 8, 8, 18, 18, 32, \ldots)$ instead of the predicted $(2,8,18,32,\ldots)$. 
+        The experimental data suggest that the true number of electrons in each experimental shell are $(2, 8, 8, 18, 18, 32, \ldots)$ instead of the predicted $(2,8,18,32,\ldots)$.
         This reflects subshell energy splitting caused by electron–electron interaction which is ignored in this consideration.
 
   \item \textbf{Chemical properties repeat periodically with atomic number.}
-  Each atom with $Z$ electrons fills the available spin–orbitals in order of increasing energy (subject to the Pauli exclusion principle).
-  Because the orbitals $2n^2 $, adding electrons sequentially produces a repeating pattern of:   filled shell, such as noble gasses, which produce stable, low-energy configurations; and partial filled shell, such as alkali metal, which produce more chemically reactive configurations.
+        Each atom with $Z$ electrons fills the available spin–orbitals in order of increasing energy (subject to the Pauli exclusion principle).
+        Because the orbitals $2n^2 $, adding electrons sequentially produces a repeating pattern of:   filled shell, such as noble gasses, which produce stable, low-energy configurations; and partial filled shell, such as alkali metal, which produce more chemically reactive configurations.
 \end{enumerate}
 
 \subsection{Variational Principle}
- For any normalized many-body state $|\Psi\rangle$, not necessarily an eigenstate, which belongs to the Hilbert space on which acts the Hamiltonian $\hat{H}$, one finds 
+For any normalized many-body state $|\Psi\rangle$, not necessarily an eigenstate, which belongs to the Hilbert space on which acts the Hamiltonian $\hat{H}$, one finds
 \begin{equation*}
   \langle \Psi | \hat{H} | \Psi \rangle \geq E_{gs}
 \end{equation*}
-where $E_{gs}$ is the ground-state energy of the system and the equality holds only if $|\Psi\rangle = |\Psi_{gs}\rangle$ with $|\Psi_{gs}\rangle$ ground-state of the system, such that 
+where $E_{gs}$ is the ground-state energy of the system and the equality holds only if $|\Psi\rangle = |\Psi_{gs}\rangle$ with $|\Psi_{gs}\rangle$ ground-state of the system, such that
 \begin{equation*}
   \hat{H} |\Psi_{gs}\rangle = E_{gs} |\Psi_{gs}\rangle
 \end{equation*}
@@ -453,21 +453,85 @@ where $E_{gs}$ is the ground-state energy of the system and the equality holds o
 \subsubsection{Derivation.}
 The many-body Hamiltonian $\hat{H}$ satisfies the exact eigenvalue problem
 \begin{equation*}
-    \hat{H}|\Psi_\alpha\rangle = E_\alpha |\Psi_\alpha\rangle 
+  \hat{H}|\Psi_\alpha\rangle = E_\alpha |\Psi_\alpha\rangle
 \end{equation*}
 where $E_\alpha$ are the ordered eigenvalues, such that $E_0 < E_1 < \ldots$; and $|\Psi_\alpha\rangle$ the corresponding orthonormalized eigenstates, such that $\langle \Psi_\alpha|\Psi_\beta \rangle = \delta_{\alpha,\beta}$.
 The generic many-body state $|\Psi\rangle$ can be written as
 \begin{equation*}
-    |\Psi\rangle = \sum_{\alpha} c_\alpha |\Psi_\alpha\rangle 
+  |\Psi\rangle = \sum_{\alpha} c_\alpha |\Psi_\alpha\rangle
 \end{equation*}
 where $c_\alpha$ are the complex coefficients of the expansion such that the normalization condition is satisfied.
 Then one finds
 \begin{align*}
-    \langle \Psi | \hat{H} | \Psi \rangle 
-    & =  \sum_{\alpha,\beta} c_\alpha^* c_\beta E_\beta \langle \Psi_\alpha | \Psi_\beta \rangle = \sum_{\alpha} |c_\alpha|^2 E_\alpha \\
-    &\geq \sum_{\alpha} |c_\alpha|^2 E_0 \\
-    \langle \Psi | \hat{H} | \Psi \rangle 
-    &\geq E_0 
+  \langle \Psi | \hat{H} | \Psi \rangle
+   & =  \sum_{\alpha,\beta} c_\alpha^* c_\beta E_\beta \langle \Psi_\alpha | \Psi_\beta \rangle = \sum_{\alpha} |c_\alpha|^2 E_\alpha \\
+   & \geq \sum_{\alpha} |c_\alpha|^2 E_0                                                                                              \\
+  \langle \Psi | \hat{H} | \Psi \rangle
+   & \geq E_0
 \end{align*}
 
+\subsection{Hartree for Bosons}
+Hartree method assumes the total wavefunction is a simple product of single-particle orbitals
+\begin{equation*}
+  \Psi(r_1, \ldots, r_N) = \prod_{i=1}^{N} \phi_i(r_i)
+\end{equation*}
+where the single-particle wavefunction $\phi(x)$ is unknown
+In the variational spirit of the Hartree approach the unknown wavefunction $\phi(x)$ is determined by minimizing the expectation value of the total Hamiltonian, given by
+\begin{equation*}
+  \langle \Psi | \hat{H} | \Psi \rangle = \int dx_1 dx_2 \ldots dx_N \Psi^*(x_1, x_2, \ldots, x_N) \hat{H} \Psi(x_1, x_2, \ldots, x_N)
+\end{equation*}
+with respect to $\phi(x)$.
+In fact, by using $\hat{H }=\hat{H}_0+\hat{H }_I$ one finds the single-orbital Hartree functional for bosons
+\begin{multline*}
+  \langle \Psi | \hat{H} | \Psi \rangle = N \int dx \; \phi^*(x) \hat{h}(x) \phi(x) \\
+  + \frac{1}{2} N(N - 1) \int dx \, dx' |\phi(x)|^2 V(x, x') |\phi(x')|^2
+\end{multline*}
+
+\subsubsection{Derivation: single-orbital Hartree functional for bosons.}
+The expectation value of non-interacting Hamiltonian $\hat{H}_0$ is
+\begin{equation*}
+  \langle \Psi | \hat{H}_0 | \Psi \rangle =\sum_{i=1}^{N}  \int dx_1 \ldots dx_N \; \Psi^*(x_1, \ldots, x_N) \hat{h}(x_i) \Psi(x_1, \ldots, x_N)
+\end{equation*}
+For fixed $i$, we write
+\begin{equation*}
+  \Psi^*\hat{h}(x_i) \prod_{j=1}^{N} \phi(x_j) = \Psi^*\left[ \phi(x_1) \ldots \hat{h}(x_i) \ldots \phi(x_N) \right]
+\end{equation*}
+since $\hat{h}(x_i)$ acts only on the $i$-th factor $\phi(x_i)$ and leaves all others unchanged.
+For a fixed $i$, the integral over all coordinates also factorizes
+\begin{multline*}
+  \int dx_1 \ldots dx_N \prod_{j=1}^{N} \phi^*(x_j) \phi(x_1) \ldots \hat{h }(x_i) \phi(x_i)\ldots\phi(x_N) \\
+  = \int dx_i \phi^*(x_i) \hat{h}(x_i) \phi(x_i) \prod_{j \neq i} \int dx_j |\phi(x_j)|^2\\
+  = \int dx_i \phi^*(x_i) \hat{h}(x_i) \phi(x_i)
+\end{multline*}
+and each $i$ term contribute exactly that.
+Since there are $N$  terms
+\begin{equation*}
+  \langle \Psi | \hat{H}_0 | \Psi \rangle
+  = N \int dx_i \phi^*(x_i) \hat{h}(x_i) \phi(x_i)
+\end{equation*}
+
+The expectation value of interacting Hamiltonian $\hat{H}_I$ is
+\begin{equation*}
+  \langle \Psi | \hat{H}_I | \Psi \rangle = \frac{1 }{2}\sum_{i \neq j}  \int dx_1 \cdots dx_N  \Psi ^*(x_1, \ldots, x_N) V(x_i, x_j)  \Psi(x_1, \ldots, x_N)
+\end{equation*}
+For a pair \( (i, j) \), we write
+\begin{equation*}
+  \prod_{k=1}^{N} \phi^{*}(x_k) V(x_i, x_j) \prod_{l=1}^{N} \phi(x_l)
+  =
+  \prod_{k=1}^{N} |\phi(x_k)|^2 V(x_i, x_j)
+\end{equation*}
+For this term, the integral factorizes into
+\begin{multline*}
+  \int dx_1 \cdots dx_N |\prod_{k=1}^{N} \phi(x_k)|^2 V(x_i, x_j) \\
+  = \int dx_i dx_j |\phi(x_i)|^2 V(x_i, x_j) |\phi(x_j)|^2 \prod_{k \neq i,j} \int dx_k |\phi(x_k)|^2\\
+  = \int dx dx' |\phi(x)|^2 V(x,x') |\phi(x')|^2
+\end{multline*}
+and each $i$ term contribute exactly that.
+To count how many terms we have, consider $N \times N$ matrix.
+The summation range of $i \neq j$ exclude the diagonal elements, hence all that remains are the off-diagonal elements, giving us $N(N-1)$ elements.
+Hence
+\begin{equation*}
+  \langle \Psi | \hat{H}_I | \Psi \rangle
+  =\frac{1}{2}N(N-1 ) \int dx dx' |\phi(x)|^2 V(x,x') |\phi(x')|^2
+\end{equation*}
 \end{document}
