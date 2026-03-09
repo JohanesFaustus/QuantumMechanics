@@ -487,6 +487,16 @@ In fact, by using $\hat{H }=\hat{H}_0+\hat{H }_I$ one finds the single-orbital H
   + \frac{1}{2} N(N - 1) \int dx \, dx' |\phi(x)|^2 V(x, x') |\phi(x')|^2
 \end{multline*}
 
+This functional is to be minimized with the normalization constraint to obtain
+\begin{equation*}
+    \left(   \hat{h }(x  )+   U_\text{mf }\right) \phi(x)    = \epsilon\phi(x)  
+\end{equation*}
+where $U_\text{mf}$ is the mean-field potential 
+\begin{equation*}
+   U_\text{mf}=
+   (N-1)\int dx' \;V(x,x') |\phi(x')|^2 
+\end{equation*}
+
 \subsubsection{Derivation: single-orbital Hartree functional for bosons.}
 The expectation value of non-interacting Hamiltonian $\hat{H}_0$ is
 \begin{equation*}
@@ -507,7 +517,7 @@ and each $i$ term contribute exactly that.
 Since there are $N$  terms
 \begin{equation*}
   \langle \Psi | \hat{H}_0 | \Psi \rangle
-  = N \int dx_i \phi^*(x_i) \hat{h}(x_i) \phi(x_i)
+  = N \int dx_i \phi^*(x) \hat{h}(x) \phi(x)
 \end{equation*}
 
 The expectation value of interacting Hamiltonian $\hat{H}_I$ is
@@ -534,4 +544,47 @@ Hence
   \langle \Psi | \hat{H}_I | \Psi \rangle
   =\frac{1}{2}N(N-1 ) \int dx dx' |\phi(x)|^2 V(x,x') |\phi(x')|^2
 \end{equation*}
+
+\subsubsection{Derivation: minimizing single-orbital Hartree functional.}
+We normalized the single-orbital Hartree functional with respect to normalization constraint
+\begin{equation*}
+  \int dx \, |\phi(x)|^2 = 1
+\end{equation*}
+For the non-interacting Hamiltonian, we construct functional
+\begin{equation*}
+  F = N \int dx\; \phi ^*(x)\hat{h }(x)\phi(x) + \lambda \left( \int dx \left| \phi (x)\right|^2 - 1 \right)
+\end{equation*}
+Minimizing with respect to $\phi$ yields
+\begin{equation*}
+  \delta{F} = N \int dx \; \delta \phi^{*} (x)\hat{h}(x) \phi(x) + \lambda \int  d x \; \delta\phi^{*} \phi(x)=0
+\end{equation*}
+For arbitrary variational $\delta\phi$, in order to make sure that the integral is zero is that the other integrand factor is zero, thus 
+\begin{equation*}
+  N \hat{h }(x  )\phi(x)+\lambda\phi(x)=0
+\end{equation*}
+
+For the case of interacting Hamiltonian, the functional reads
+\begin{equation*}
+  F = \frac{1}{2} N (N - 1) \int d{x} \; dx' \; |\phi(x)|^2 V(x,x') |\phi(x')|^2 + \lambda \left( \int dx \left| \phi (x)\right|^2 - 1 \right)
+\end{equation*}
+where we used the same constraint.
+Again, we vary $\delta\phi$ (with the constraint omitted)
+\begin{multline*}
+  \delta F = \frac{1}{2} N(N-1) \bigg[ \int dx\;dx' \; \delta \phi ^*(x)  \phi(x)V(x,x') |\phi(x')|^2 \\+ \int dx\;dx' \; |\phi(x)|^2  V(x,x')  \delta\phi ^*(x ) \phi(x)\bigg]\\
+  = N (N-1)\int dx\;dx' \; \delta \phi ^*(x)  \phi(x)V(x,x') |\phi(x')|^2
+\end{multline*}
+Repeating the same argument (now with the constraint included)
+\begin{equation*}
+  N (N-1)\int dx' \;   \phi(x)V(x,x') |\phi(x')|^2  +\lambda\phi(x)=0
+\end{equation*}
+
+Recall that both term are to be constrained with the same function, so the result is simply 
+\begin{align*}
+    \left(   N \hat{h }(x  )+   N (N-1)\int dx' \;V(x,x') |\phi(x')|^2 \right) \phi(x)
+    +\lambda\phi(x) & = 0\\
+    \left(   \hat{h }(x  )+   (N-1)\int dx' \;V(x,x') |\phi(x')|^2 \right) \phi(x)    & = \epsilon\phi(x)
+\end{align*}
+where the second term is the mean-field potential.
+
+
 \end{document}
