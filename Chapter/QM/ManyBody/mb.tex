@@ -473,9 +473,9 @@ Then one finds
 \subsection{Hartree for Bosons}
 Hartree method assumes the total wavefunction is a simple product of single-particle orbitals
 \begin{equation*}
-  \Psi(r_1, \ldots, r_N) = \prod_{i=1}^{N} \phi_i(r_i)
+  \Psi(r_1, \ldots, r_N) = \prod_{i=1}^{N} \phi(r_i)
 \end{equation*}
-where the single-particle wavefunction $\phi(x)$ is unknown
+where the single-particle wavefunction $\phi(x)$ is unknown.
 In the variational spirit of the Hartree approach the unknown wavefunction $\phi(x)$ is determined by minimizing the expectation value of the total Hamiltonian, given by
 \begin{equation*}
   \langle \Psi | \hat{H} | \Psi \rangle = \int dx_1 dx_2 \ldots dx_N \Psi^*(x_1, x_2, \ldots, x_N) \hat{H} \Psi(x_1, x_2, \ldots, x_N)
@@ -487,15 +487,30 @@ In fact, by using $\hat{H }=\hat{H}_0+\hat{H }_I$ one finds the single-orbital H
   + \frac{1}{2} N(N - 1) \int dx \, dx' |\phi(x)|^2 V(x, x') |\phi(x')|^2
 \end{multline*}
 
-This functional is to be minimized with the normalization constraint to obtain
+This functional is to be minimized with the normalization constraint to obtain the Hartree equation
 \begin{equation*}
-    \left(   \hat{h }(x  )+   U_\text{mf }\right) \phi(x)    = \epsilon\phi(x)  
+    \left[   \hat{h }(x  )+   U_\text{mf }\right] \phi(x)    = \epsilon\phi(x)  
 \end{equation*}
 where $U_\text{mf}$ is the mean-field potential 
 \begin{equation*}
    U_\text{mf}=
    (N-1)\int dx' \;V(x,x') |\phi(x')|^2 
 \end{equation*}
+
+The algorithm of this method are as follows.
+\begin{enumerate}
+  \item \textbf{Initial guess.} Following the variational principle, choose initial guess for normalized orbital $\phi ^{(0)}(x)$.
+  \item \textbf{Construct the mean-field.} Using previous orbital, construct the following potential
+\begin{equation*}
+   U_\text{mf} ^{(n)}=
+   (N-1)\int dx' \;V(x,x') |\phi(x') ^{(n)}|^2 
+\end{equation*}  
+  \item \textbf{Solve Hartree equation.} Solve the Hartree equation to obtain next iteration of orbital $\phi ^{(1)}(x)$
+  \begin{equation*}
+    \left[   \hat{h }(x  )+   U_\text{mf } ^{(n)}\right] \phi(x)^{(n+1)}    = \epsilon ^{(n+1)}\phi(x)  ^{(n+1)}
+\end{equation*}
+  \item \textbf{Repeat.} Use the new orbital to recompute the density and the potential, then repeat until the change between successive orbitals becomes negligible $\phi ^{(n+1)}(x)\approx \phi((n))(x)$.
+\end{enumerate}
 
 \subsubsection{Derivation: single-orbital Hartree functional for bosons.}
 The expectation value of non-interacting Hamiltonian $\hat{H}_0$ is
