@@ -404,7 +404,7 @@ In other hand, the variance of $p$ is
 \end{align*}
 multiplying both gives the minimum uncertainty.
 
-\subsubsection{Quantum Field Operator}
+\subsection{Quantum Field Operator}
 The quantum field operators  annihilate and create, respectively, a particle at position $\mathbf{r}$
 \begin{equation*}
   \psi^{\dagger}(\mathbf{r})|0\rangle = |r\rangle
@@ -412,14 +412,14 @@ The quantum field operators  annihilate and create, respectively, a particle at 
 \end{equation*}
 The field operator defined as transformation from single particle basis into position basis of the annihilation and creation operator
 \begin{align*}
-  a_{\alpha}           & \rightarrow \psi(\mathbf{r}) = \sum_{\alpha} \langle r | 1 \alpha \rangle a_{\alpha} = \sum_{\alpha} u_{\alpha}(\mathbf{r}) a_{\alpha}                            \\
-  a_{\alpha}^{\dagger} & \rightarrow \psi^{\dagger}(\mathbf{r}) = \sum_{\alpha} \langle 1 | r \rangle a_{\alpha}^{\dagger} = \sum_{\alpha} u_{\alpha}^{*}(\mathbf{r}) a_{\alpha}^{\dagger}
+  \psi(\mathbf{r})           & =  \sum_{\alpha} \langle \mathbf{r} | 1_ \alpha \rangle a_{\alpha} = \sum_{\alpha} u_{\alpha}(\mathbf{r}) a_{\alpha}                        \\
+  \psi^{\dagger}(\mathbf{r}) & =  \sum_{\alpha} \langle 1_\alpha | \mathbf{r} \rangle a_{\alpha}^{\dagger} = \sum_{\alpha} u_{\alpha}^{*}(\mathbf{r}) a_{\alpha}^{\dagger}
 \end{align*}
 where $u_\alpha(\mathbf{r})$ is the wave function of the one-particle state $\ket{1_\alpha}$.
-Meanwhile, the inverse transformation are 
+Meanwhile, the inverse transformation are
 \begin{align*}
-a_{\alpha} & =  \int d^3 r \, \langle 1_{\alpha} | r \rangle \psi_{\sigma} (\mathbf{r}) = \int d^3 r \, u_{\alpha}^{*} (\mathbf{r}) \psi (\mathbf{r})\\
-a_{\alpha}^{\dagger} & =  \int d^3 r \{ r | 1_{\alpha} \rangle \psi^{\dagger} (\mathbf{r}) \} = \int d^3 r \, u_{\alpha} (\mathbf{r}) \psi^{\dagger} (\mathbf{r})
+  a_{\alpha}           & =  \int d^3 r \; \langle 1_{\alpha} | \mathbf{r} \rangle \psi_{\sigma} (\mathbf{r}) = \int d^3 r \, u_{\alpha}^{*} (\mathbf{r}) \psi (\mathbf{r})       \\
+  a_{\alpha}^{\dagger} & =  \int d^3 r \; \langle\mathbf{r} | 1_{\alpha} \rangle \psi^{\dagger} (\mathbf{r}) = \int d^3 r \, u_{\alpha} (\mathbf{r}) \psi^{\dagger} (\mathbf{r})
 \end{align*}
 
 As with the case of number operator for annihilation and creation, the number of particle in a volume $V$ is
@@ -432,12 +432,57 @@ As with the case of number operator for annihilation and creation, the number of
 In the case of free particle in a box, we can evaluate $u_\alpha(\mathbf{r})$.
 The final result for creation and annihilation operators is then  given by
 \begin{equation*}
-a_\mathbf{k} = \int d^3 r \, e^{-i \mathbf{k} \cdot \mathbf{r}} \psi(\mathbf{r})\quad
-a_\mathbf{k}^{\dagger} = \int d^3 r \, e^{i \mathbf{k} \cdot \mathbf{r}} \psi^{\dagger}(\mathbf{r})
+  a_\mathbf{k} = \int d^3 r \, e^{-i \mathbf{k} \cdot \mathbf{r}} \psi(\mathbf{r})\qquad
+  a_\mathbf{k}^{\dagger} = \int d^3 r \, e^{i \mathbf{k} \cdot \mathbf{r}} \psi^{\dagger}(\mathbf{r})
 \end{equation*}
 and its inverse
 \begin{equation*}
-\psi(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}\quad
-\psi^{\dagger}(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{-i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}^{\dagger}
+  \psi(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}\qquad
+  \psi^{\dagger}(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{-i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}^{\dagger}
+\end{equation*}
+
+\subsubsection{Derivation: quantum field operator}
+Start with basis transform of two orthonormal basis
+\begin{equation*}
+  \ket{1_\alpha} = \sum_{i} \ket{1_i  }\braket{1_i  | 1_\alpha}
+\end{equation*}
+From the action of annihilation operator $a_i \ket{1_i}=\ket{0}$, we have
+\begin{equation*}
+  a_i \ket{1_i} = a_\alpha \ket{1_\alpha} = a_\alpha  \sum_{i} \braket{1_i | 1_\alpha } \ket{1_i}
+\end{equation*}
+We can surmise that the transformation of creation operator is
+\begin{equation*}
+  a_i = \sum_{i} \braket{1_i | 1_\alpha } a_\alpha
+\end{equation*}
+The transformation of creation operator can be obtained by taking the adjoint.
+We introduce quantum field operators for annihilating particles at position $\mathbf{r}$ by considering position basis, which satisfy
+\begin{equation*}
+  \langle \mathbf{r} | \mathbf{r}' \rangle = \delta(\mathbf{r} - \mathbf{r}') \qquad
+  \int d^3 r \, |\mathbf{r}\rangle \langle \mathbf{r}| = \mathbf{1}
+\end{equation*}
+Using the transformation into position basis
+\begin{equation*}
+  \psi(\mathbf{r})          = \sum_\alpha \langle \mathbf{r} | 1_\alpha \rangle a_\alpha = \sum_\alpha u_\alpha(\mathbf{r}) a_\alpha
+\end{equation*}
+The inverse transformation can be obtained by $\langle 1_\alpha | \mathbf{r} \rangle$ and integrate over $\mathbf{r}$
+\begin{align*}
+  \int d^3 r \; \langle 1_\alpha | \mathbf{r} \rangle \psi(r)
+   & =  \int d^3 r \, \sum_\beta \braket{1_\alpha  | \mathbf{r}}\langle \mathbf{r} | 1_\beta \rangle  a_\beta \\
+  \int d^3 r \; \langle 1_\alpha | \mathbf{r} \rangle \psi(r)
+   & =  \sum_\beta a_\beta \langle 1_\alpha | 1_\beta \rangle
+  = \sum_\beta a_\beta \delta_{\alpha \beta}
+  = a_\alpha
+\end{align*}
+
+For the case of free particle in a box, it is convenient to work in momentum eigenstate, defined as
+\begin{equation*}
+  \mathbf{p } \ket{\mathbf{p }} = \mathbf{k } | \mathbf{k} \rangle\qquad
+  \sum_{k} | k \rangle \langle k | = \mathbf{1} \qquad
+  \langle k | k' \rangle = \delta_{kk'}
+\end{equation*}
+The wavefunction in position representation is $\braket{\mathbf{r }|\mathbf{k }  } = e ^{i \mathbf{k }\cdot \mathbf{r}}$, so that the transformation and its inverse 1reads
+\begin{equation*}
+  a_\mathbf{k} = \int d^3 r \, e^{-i \mathbf{k} \cdot \mathbf{r}} \psi(\mathbf{r})\qquad
+  \psi(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}
 \end{equation*}
 \end{document}
