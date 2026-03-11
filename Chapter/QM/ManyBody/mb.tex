@@ -229,6 +229,11 @@ Hence the many-body wavefunction reduces to
 Rather with permanent, we use determinant, also called Slater determinant
 \begin{equation*}
   \Psi_F(x_1, \ldots, x_N) = \frac{1}{\sqrt{N!}} \det(M)
+  = \frac{1}{\sqrt{N!}} \begin{bmatrix}
+    \phi_1(x_1) & \ldots & \phi_1(x_N) \\
+    \vdots      & \ddots & \vdots      \\
+    \phi_N(x_1) & \ldots & \phi_N(x_N)
+  \end{bmatrix}
 \end{equation*}
 Expanding the determinant gives
 \begin{equation*}
@@ -601,5 +606,7 @@ Recall that both term are to be constrained with the same function, so the resul
 \end{align*}
 where the second term is the mean-field potential.
 
+\subsection{Hartree-Fock for Fermion}
+Rather than simple product, the Hartree-Fock method assumes the wavefunction using Slater determinant
 
 \end{document}

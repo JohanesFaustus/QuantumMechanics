@@ -398,82 +398,82 @@ The attractive force per unit area between the two plates is simply the separati
 \end{equation*}
 
 \subsection{Linear and Angular Momentum of the Radiation Field}
-In addition to the total energy there are other interesting conserved quantities which characterize the classical radiation ﬁeld. 
+In addition to the total energy there are other interesting conserved quantities which characterize the classical radiation ﬁeld.
 They are the total linear momentum
 \begin{equation*}
-P = \int d^3 \mathbf{r} \; \epsilon_0 \mathbf{E}(\mathbf{r}, t) \wedge \mathbf{B}(\mathbf{r}, t)
+  P = \int d^3 \mathbf{r} \; \epsilon_0 \mathbf{E}(\mathbf{r}, t) \wedge \mathbf{B}(\mathbf{r}, t)
 \end{equation*}
-or 
+or
 \begin{equation*}
-\hat{P} = \sum_{\mathbf{k },s} \hbar \mathbf{k} \left( \hat{N}_{\mathbf{k} s} + \frac{1}{2} \right) 
-= \sum_{\mathbf{k },s} \hbar \mathbf{k} \hat{N}_{\mathbf{k} s}  
+  \hat{P} = \sum_{\mathbf{k },s} \hbar \mathbf{k} \left( \hat{N}_{\mathbf{k} s} + \frac{1}{2} \right)
+  = \sum_{\mathbf{k },s} \hbar \mathbf{k} \hat{N}_{\mathbf{k} s}
 \end{equation*}
 Also the angular momentum
 \begin{equation*}
-  \mathbf{J} = \int d^3 \mathbf{r} \; \epsilon_0 \mathbf{r} \wedge \left[ \mathbf{E}(\mathbf{r}, t) \wedge \mathbf{B}(\mathbf{r}, t) \right] 
+  \mathbf{J} = \int d^3 \mathbf{r} \; \epsilon_0 \mathbf{r} \wedge \left[ \mathbf{E}(\mathbf{r}, t) \wedge \mathbf{B}(\mathbf{r}, t) \right]
 \end{equation*}
-After evaluating the expression, one obtains 
+After evaluating the expression, one obtains
 \begin{equation*}
-    \mathbf{\hat{J}} = 
-    \int d^3 \mathbf{k} \sum_s \hat{a}^\dagger_{\mathbf{k }s}  \left[i \hbar \mathbf{k} \times \nabla_\mathbf{k} \right] \hat{a}^\dagger_{\mathbf{k }s} 
-    + \hbar \int d^3 \mathbf{k} \sum_{s,s'} \hat{a}^\dagger_{\mathbf{k }s}  \mathbf{S}_{ss'} \hat{a}_{\mathbf{k }s} 
+  \mathbf{\hat{J}} =
+  \int d^3 \mathbf{k} \sum_s \hat{a}^\dagger_{\mathbf{k }s}  \left[i \hbar \mathbf{k} \times \nabla_\mathbf{k} \right] \hat{a}^\dagger_{\mathbf{k }s}
+  + \hbar \int d^3 \mathbf{k} \sum_{s,s'} \hat{a}^\dagger_{\mathbf{k }s}  \mathbf{S}_{ss'} \hat{a}_{\mathbf{k }s}
 \end{equation*}
 with $\mathbf{S}_{ss'}$is the matrix representation of the spin-1 rotation generators restricted to the transverse polarization subspace.
 It contains two contributions: the orbital part
 \begin{equation*}
-    \hat{\mathbf{J}}_{\text{orb}} = 
-        \int d^3 \mathbf{k} \sum_s \hat{a}^\dagger_{\mathbf{k }s}  \left[ i \hbar \mathbf{k} \times \nabla_\mathbf{k} \right] \hat{a}^\dagger_{\mathbf{k }s} 
+  \hat{\mathbf{J}}_{\text{orb}} =
+  \int d^3 \mathbf{k} \sum_s \hat{a}^\dagger_{\mathbf{k }s}  \left[ i \hbar \mathbf{k} \times \nabla_\mathbf{k} \right] \hat{a}^\dagger_{\mathbf{k }s}
 \end{equation*}
 the spin (helicity) part
 \begin{equation*}
-    J_{\text{spin}} = 
-     \hbar \int d^3 \mathbf{k} \sum_{s,s'} \hat{a}^\dagger_{\mathbf{k }s}  \mathbf{S}_{ss'} \hat{a}_{\mathbf{k }s} 
+  J_{\text{spin}} =
+  \hbar \int d^3 \mathbf{k} \sum_{s,s'} \hat{a}^\dagger_{\mathbf{k }s}  \mathbf{S}_{ss'} \hat{a}_{\mathbf{k }s}
 \end{equation*}
 
-The linearly polarized states \(|s\rangle\)  are eigenstates of \( \hat{H} \) and \( \hat{P} \), but they are not  \( \hat{J} \), \( \hat{J}^2 \), and nor of \( \hat{J}_z \). 
+The linearly polarized states \(|s\rangle\)  are eigenstates of \( \hat{H} \) and \( \hat{P} \), but they are not  \( \hat{J} \), \( \hat{J}^2 \), and nor of \( \hat{J}_z \).
 \begin{align*}
-  \hat{H} \ket{\mathbf{k }s} &=  \hbar \omega_k \ket{\mathbf{k }s}\\
-  \mathbf{\hat{P}} \ket{\mathbf{k}s} &= \hbar \mathbf{k }\ket{\mathbf{k}s}
+  \hat{H} \ket{\mathbf{k }s}         & =  \hbar \omega_k \ket{\mathbf{k }s} \\
+  \mathbf{\hat{P}} \ket{\mathbf{k}s} & = \hbar \mathbf{k }\ket{\mathbf{k}s}
 \end{align*}
-The eigenstates of both \(\ket{kjm_js}\) do not have a fixed wavevector \( \mathbf{k} \), only  fixed wavenumber \( k = |k| \). 
+The eigenstates of both \(\ket{kjm_js}\) do not have a fixed wavevector \( \mathbf{k} \), only  fixed wavenumber \( k = |k| \).
 These states are associated to vector spherical harmonics \( Y_{j,m}(\theta, \phi) \).
 \(\ket{kjm_js}\) are not eigenstates of \( \hat{P} \) but they are eigenstates of \( \hat{H} \), \( \hat{J}^2 \), and \( \hat{J}_z \)
 \begin{align*}
-\hat{H}\ket{kjm_js} &=  c k \ket{kjm_js} \\
-\hat{J}^2 \ket{kjm_js}  &=  j(j + 1)\hbar^2 \ket{kjm_js}\\ 
-\hat{J}_z \ket{kjm_js} &=  m_j \hbar \ket{kjm_js} \\
+  \hat{H}\ket{kjm_js}    & =  c k \ket{kjm_js}             \\
+  \hat{J}^2 \ket{kjm_js} & =  j(j + 1)\hbar^2 \ket{kjm_js} \\
+  \hat{J}_z \ket{kjm_js} & =  m_j \hbar \ket{kjm_js}       \\
 \end{align*}
 with $m_j=-j,\dots,j$ and $j=1,\dots$.
 
 \subsubsection{Derivation: momentum operator}
-The electromagnetic field term reads 
+The electromagnetic field term reads
 \begin{multline*}
   \mathbf{E }\times \mathbf{B}
   = - \sum_{\mathbf{k },s} \sum_{\mathbf{k }',s'}  \frac{\hbar  }{2V} \sqrt{\frac{\mu_0 }{\epsilon_0 }\omega_k \omega_{k'}}
-    \bigg[ \hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'}  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})} 
-  -\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\ 
-   -\hat{a}_{\mathbf{k }s} ^\dagger\hat{a}_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}  
-   +\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]
-  \boldsymbol{\epsilon}_{\mathbf{k}s} \times \left[ \hat{\mathbf{k }'}\times \boldsymbol{\epsilon}_{\mathbf{k }'s'}  \right] 
+  \bigg[ \hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'}  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})}
+    -\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\
+    -\hat{a}_{\mathbf{k }s} ^\dagger\hat{a}_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}
+    +\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]
+  \boldsymbol{\epsilon}_{\mathbf{k}s} \times \left[ \hat{\mathbf{k }'}\times \boldsymbol{\epsilon}_{\mathbf{k }'s'}  \right]
 \end{multline*}
 With vector triple product $    \A \times (\B \times \C) = \B(\A \cdot \C) - \C(\A \cdot \B)$,  the expression reads
 \begin{multline*}
   \mathbf{E }\times \mathbf{B}
   = - \sum_{\mathbf{k },s} \sum_{\mathbf{k }',s'}  \frac{\hbar  }{2V} \sqrt{\frac{\mu_0 }{\epsilon_0 }\omega_k \omega_{k'}}
-    \bigg[ \hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'}  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})} 
-  -\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\ 
-   -\hat{a}_{\mathbf{k }s} ^\dagger\hat{a}_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}  
-   +\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]
-    \left[ \hat{\mathbf{k}}'\delta_{ss'}-\boldsymbol{\epsilon}_{\mathbf{k}'s'}\left( \boldsymbol{\epsilon}_{\mathbf{k }s}\cdot \hat{\mathbf{k}'} \right) \right] 
+  \bigg[ \hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'}  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})}
+    -\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\
+    -\hat{a}_{\mathbf{k }s} ^\dagger\hat{a}_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}
+    +\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]
+  \left[ \hat{\mathbf{k}}'\delta_{ss'}-\boldsymbol{\epsilon}_{\mathbf{k}'s'}\left( \boldsymbol{\epsilon}_{\mathbf{k }s}\cdot \hat{\mathbf{k}'} \right) \right]
 \end{multline*}
 Under the spatial integration, the exponential with $\mathbf{k }+\mathbf{k}$ produce $\delta_{\mathbf{k },-\mathbf{k}}$ and $\mathbf{k }-\mathbf{k}$ produce $\delta_{\mathbf{k },\mathbf{k}}$.
 As  such there are two patterns of the cross product.
 \begin{equation*}
   \mathbf{E }\times \mathbf{B}  \propto
-  \left[ \hat{a}_{\mathbf{k }s} \hat{a}_{-\mathbf{k }s}  \hat{a}^\dagger_{\mathbf{k }s}+ \hat{a}^\dagger_{-\mathbf{k }s} \right] \left[ -\mathbf{\hat{k}}' \right] 
+  \left[ \hat{a}_{\mathbf{k }s} \hat{a}_{-\mathbf{k }s}  \hat{a}^\dagger_{\mathbf{k }s}+ \hat{a}^\dagger_{-\mathbf{k }s} \right] \left[ -\mathbf{\hat{k}}' \right]
 \end{equation*}
 This expression is odd, so summation over the same period cancel each other.
-The other type, however 
+The other type, however
 \begin{equation*}
   \mathbf{E }\times \mathbf{B}  \propto
   \left[ -\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }s} - \hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }s}  \right] \mathbf{\hat{k}}
@@ -482,50 +482,49 @@ do survive, since it is even.
 We can also use the commutator relation to simplify further
 \begin{equation*}
   \left[ -\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }s} - \hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }s}    \hat{a}_{\mathbf{k }s}   \right] \hat{\mathbf{k}}
-   = \left[ - 2\hat{a}^\dagger_{\mathbf{k }s \hat{a}_{\mathbf{k }s}  } -1\right] \mathbf{\hat{k}}
+  = \left[ - 2\hat{a}^\dagger_{\mathbf{k }s \hat{a}_{\mathbf{k }s}  } -1\right] \mathbf{\hat{k}}
 \end{equation*}
 Also, the lasy term is odd, so it vanish under the summation.
 Putting it all together
 \begin{align*}
-  \mathbf{P } = 
+  \mathbf{P } =
   \sum_{\mathbf{k },s } \hbar \omega_k \mu_0 \hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }s}  \mathbf{\hat{k }}
-  = \sum_{\mathbf{k },s}\hbar \mathbf{k } \hat{N }_{\mathbf{k }s} 
+  = \sum_{\mathbf{k },s}\hbar \mathbf{k } \hat{N }_{\mathbf{k }s}
 \end{align*}
 
 \subsubsection{Linear and circular polarization}
-Vector polarization $\boldsymbol{\epsilon}_{\mathbf{k }s}$ satisfy 
+Vector polarization $\boldsymbol{\epsilon}_{\mathbf{k }s}$ satisfy
 \begin{equation*}
   \boldsymbol{\epsilon}_{\mathbf{k }s} \cdot \boldsymbol{\epsilon}_{\mathbf{k }s'}=\delta_{ss'}
 \end{equation*}
-With linear vector polarization $\boldsymbol{\epsilon}_{\mathbf{k }s}$ and $\boldsymbol{\epsilon}_{\mathbf{k }s'}$, we maybe define circular polarization as 
+With linear vector polarization $\boldsymbol{\epsilon}_{\mathbf{k }s}$ and $\boldsymbol{\epsilon}_{\mathbf{k }s'}$, we maybe define circular polarization as
 \begin{equation*}
-  \boldsymbol{\varepsilon}_{\mathbf{k }s} = \frac{1 }{\sqrt{2 }}\left( \boldsymbol{\epsilon}_{\mathbf{k }s}\pm i \boldsymbol{\epsilon}_{\mathbf{k }s'} \right) 
-\end{equation*} 
+  \boldsymbol{\varepsilon}_{\mathbf{k }s} = \frac{1 }{\sqrt{2 }}\left( \boldsymbol{\epsilon}_{\mathbf{k }s}\pm i \boldsymbol{\epsilon}_{\mathbf{k }s'} \right)
+\end{equation*}
 
 \subsection{Second quantization of the Schrödinger equation.}
-The time-dependent Schrödinger equation and time independent read as 
+The time-dependent Schrödinger equation and time independent read as
 \begin{equation*}
-i \frac{\partial \psi}{\partial t} = -\frac{1}{2m} \nabla^2 \psi + V(\mathbf{r})\psi \qquad
-E_n \psi_n = -\frac{1}{2m} \nabla^2 \psi_n + V(\mathbf{r})\psi_n  
+  i \frac{\partial \psi}{\partial t} = -\frac{1}{2m} \nabla^2 \psi + V(\mathbf{r})\psi \qquad
+  E_n \psi_n = -\frac{1}{2m} \nabla^2 \psi_n + V(\mathbf{r})\psi_n
 \end{equation*}
 From separation of variables, we obtain solution called stationary state $\phi(\mathbf{r },t)=\phi_n (\mathbf{r})T(t)$.
 Therefore, the general solution of the time-dependent Schrödinger equation is superposition of all separated solutions
 \begin{equation*}
-\psi(\mathbf{r}, t) = \sum_n a_n(t) \psi_n(\mathbf{r}) 
+  \psi(\mathbf{r}, t) = \sum_n a_n(t) \psi_n(\mathbf{r})
 \end{equation*}
 with $\dot{a}_n(t) = -i E_n a_n(t) $.
 
 The energy $E$, or, more precisely, the expectation value of the Hamilton operator $\braket{H }$, can now be written as
 \begin{equation*}
-  \braket{H } 
-  = \int d^3 r \, \psi^*(\mathbf{r}, t) \left[ -\frac{1}{2m} \nabla^2 + V(\mathbf{r}) \right] \psi(\mathbf{r}, t)
-= \sum_{n} E_{n} a_{n}^{*} a_{n} = \sum_{n} \omega_{n} a_{n}^{*} a_{n}
+  \braket{H }
+  = \sum_{n} E_{n} a_{n}^{*} a_{n} = \sum_{n} \omega_{n} a_{n}^{*} a_{n}
 \end{equation*}
-Thus, it is consistent to interpret these result in terms of a second quantized Hamiltonian 
+Thus, it is consistent to interpret these result in terms of a second quantized Hamiltonian
 \begin{equation*}
   H = \sum_{n} E_{n} a_{n}^{\dagger} a_{n}
 \end{equation*}
- 
+
 From the Heisenberg equation of motion
 \begin{equation*}
   i \frac{dA}{dt  } = i [H,A]
@@ -541,24 +540,40 @@ Using the same argument, the second quantized Hamiltonian for fermion can be ide
 \end{equation*}
 and its Heisenberg equation of motion
 \begin{equation*}
-  \frac{dc_{n}}{dt} = i [H, c_{n}] = -i E_{n} c_{n}S
+  \frac{dc_{n}}{dt} = i [H, c_{n}] = -i E_{n} c_{n}
 \end{equation*}
 
 \subsubsection{Derivation: expectation of Hamiltonian.}
-With the general solution of 
+With the general solution of
 \begin{equation*}
-\psi(\mathbf{r}, t) = \sum_n a_n(t) \psi_n(\mathbf{r}) 
+  \psi(\mathbf{r}, t) = \sum_n a_n(t) \psi_n(\mathbf{r})
 \end{equation*}
 we substitute into the expression
 \begin{align*}
-\braket{H } 
-& =  \int d^3 r \left( \sum_{m} a_m^*(t) \psi_m^*(r) \right) H \left( \sum_{n} a_n(t) \psi_n(r) \right) \\
-& =  \sum_{m,n} a_m^*(t) a_n(t) \int d^3 r \, \psi_m^*(r) H \psi_n(r)\\
-& = \sum_{m,n} a^*_m(t) a_n(t) E_n \int d^3 r \, \psi^*_m(r) \psi_n(r)\\
-& = \sum_{m,n} a^*_m(t) a_n(t) E_n \delta_{mn}\\
-\braket{H } 
-& = \sum_{n}  a_n(t) a^*_n(t) E_n \\
+  \braket{H }
+   & =  \int d^3 r \left( \sum_{m} a_m^*(t) \psi_m^*(r) \right) H \left( \sum_{n} a_n(t) \psi_n(r) \right) \\
+   & =  \sum_{m,n} a_m^*(t) a_n(t) \int d^3 r \, \psi_m^*(r) H \psi_n(r)                                   \\
+   & = \sum_{m,n} a^*_m(t) a_n(t) E_n \int d^3 r \, \psi^*_m(r) \psi_n(r)                                  \\
+   & = \sum_{m,n} a^*_m(t) a_n(t) E_n \delta_{mn}                                                          \\
+  \braket{H }
+   & = \sum_{n}  a_n(t) a^*_n(t) E_n
 \end{align*}
 At this step, both boson and fermion produce the same result.
 The distinction appears when one performs the operator promotion.
+
+\subsubsection{Derivation: Heisenberg equation.}
+Compute first the commutator of Hamilton with boson annihilation operator
+\begin{align*}
+  [H,a_n] & = \sum_{m} E_m  [a_m^\dagger a_m, a_n]                                              \\
+          & = \sum_{m } E_m \left(     a_m^\dagger [a_m, a_n] + [a_m^\dagger, a_n] a_m. \right) \\
+  [H, a_n]
+          & = -\sum_{m }E_m \delta_{mn} a_m= -E_n a_n                                           \\
+\end{align*}
+then with fermion annihilation
+\begin{align*}
+  [H, c_n] & = \sum_m E_m [c_m^{\dagger} c_m, c_n]                                           \\
+           & =  \sum_m E_m (c_m^{\dagger} c_m c_n - c_n c_m^{\dagger} c_m)                   \\
+           & =  \sum_m E_m (c_m^{\dagger} c_m c_n - \delta_{mn} c_m + c_m^{\dagger} c_n c_m) \\
+  [H, c_n] & =  -\sum_m E_m \delta_{mn} c_m =  -E_n c_n                                      \\
+\end{align*}
 \end{document}
