@@ -15,7 +15,7 @@ where $0_F$ is the zero of the Fock space (usually indicated with $0$), and $| k
 \begin{equation*}
   \langle \mathbf{r} | \mathbf{k} s \rangle = \frac{e^{i \mathbf{k} \cdot \mathbf{r}}}{\sqrt{V} \epsilon_{\mathbf{k }s}}
 \end{equation*}
-Any higher Foch state then can be written as 
+Any higher Foch state then can be written as
 \begin{equation*}
   \ket{n_{\mathbf{k }s}}=\frac{1}{\sqrt{n!}}\left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^{n }\ket{0}
 \end{equation*}
@@ -40,7 +40,7 @@ We can also prove the relation
 \begin{equation*}
   \sqrt{n! }  \ket{0 }= \left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^n \ket{0}
 \end{equation*}
-using induction. 
+using induction.
 For the base case, we use $n=0$, which according to the hypothesis
 \begin{equation*}
   \left( \hat{a}^\dagger_{\mathbf{k }s}  \right) ^0 \ket{0 }=0! \ket{0}
@@ -60,25 +60,25 @@ we find that it holds true.
 With $\hat{N}= \hat{a}^\dagger_{\mathbf{k }s}  \hat{a}_{\mathbf{k }s} $ as the number operator, we want to observe what is the action of $\hat{a}_{\mathbf{k }s} $ and $\hat{a}^\dagger_{\mathbf{k }s} $ to the eigenstate of $\hat{N}$.
 That is we consider the state $\hat{a}_{\mathbf{k }s}  \ket{n_{\mathbf{k }s}}$ using said operator
 \begin{align*}
-    \hat{N} \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) &=  \hat{a}_{\mathbf{k }s} (\hat{N }-1  ) \ket{n_{\mathbf{k }s}}  \\
-    \hat{N} \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) &=  (n_{\mathbf{k }s}-1  ) \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) 
+  \hat{N} \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) & =  \hat{a}_{\mathbf{k }s} (\hat{N }-1  ) \ket{n_{\mathbf{k }s}}                        \\
+  \hat{N} \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) & =  (n_{\mathbf{k }s}-1  ) \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right)
 \end{align*}
 As such, the operator $\hat{a}_{\mathbf{k }s}  $ is an operator that reduce $n_{\mathbf{k }s}$ by one.
 Next for the creation operator
 \begin{align*}
-    \hat{N} \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) &=  \hat{a}^\dagger_{\mathbf{k }s} (\hat{N }+1  ) \ket{n_{\mathbf{k }s}}  \\
-    \hat{N} \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) &=  (n_{\mathbf{k }s}-+  ) \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) 
+  \hat{N} \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) & =  \hat{a}^\dagger_{\mathbf{k }s} (\hat{N }+1  ) \ket{n_{\mathbf{k }s}}                        \\
+  \hat{N} \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) & =  (n_{\mathbf{k }s}-+  ) \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right)
 \end{align*}
 We use the commutator relation $[AB,C]=A[B,C]-[C,A]$ to obtain the relation
 \begin{align*}
-  [N,\hat{a}_{\mathbf{k }s} ]&= \hat{a}^\dagger_{\mathbf{k }s} [\hat{a}_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s} ]+[\hat{a}^\dagger_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s} ]\hat{a}_{\mathbf{k }s} \\
-  \hat{N }\hat{a}_{\mathbf{k }s} -\hat{a}_{\mathbf{k }s} \hat{N}&= \hat{a}_{\mathbf{k }s} \\
-  \hat{N }\hat{a}_{\mathbf{k }s} &=  \hat{a}_{\mathbf{k }s} (\hat{N }-1)
+  [N,\hat{a}_{\mathbf{k }s} ]                                    & = \hat{a}^\dagger_{\mathbf{k }s} [\hat{a}_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s} ]+[\hat{a}^\dagger_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s} ]\hat{a}_{\mathbf{k }s} \\
+  \hat{N }\hat{a}_{\mathbf{k }s} -\hat{a}_{\mathbf{k }s} \hat{N} & = \hat{a}_{\mathbf{k }s}                                                                                                                                           \\
+  \hat{N }\hat{a}_{\mathbf{k }s}                                 & =  \hat{a}_{\mathbf{k }s} (\hat{N }-1)
 \end{align*}
-and 
+and
 \begin{align*}
   [N,\hat{a}_{\mathbf{k }s}^\dagger ]=\hat{a}_{\mathbf{k }s} [\hat{a}_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s}^\dagger ]+[\hat{a}^\dagger_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s}^\dagger ]\hat{a}_{\mathbf{k }s} \\
-  \hat{N }\hat{a}_{\mathbf{k }s}^\dagger -\hat{a}_{\mathbf{k }s}^\dagger \hat{N}&= \hat{a}^\dagger_{\mathbf{k }s} \\
+  \hat{N }\hat{a}_{\mathbf{k }s}^\dagger -\hat{a}_{\mathbf{k }s}^\dagger \hat{N} & = \hat{a}^\dagger_{\mathbf{k }s}                                                                                            \\
   \hat{N }\hat{a}_{\mathbf{k }s}^\dagger = \hat{a}_{\mathbf{k }s}^\dagger (\hat{N }+1)
 \end{align*}
 
@@ -90,7 +90,7 @@ Next is to find the coefﬁcients
 For the annihilation coefﬁcients
 \begin{equation*}
   \braket{n_{\mathbf{k }s} | \hat{N }|n_{\mathbf{k }s}} =
-   \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) ^\dagger \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}}=|c|^2= n_{\mathbf{k }s}
+  \left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) ^\dagger \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}}=|c|^2= n_{\mathbf{k }s}
 \end{equation*}
 As for creation coefﬁcients
 \begin{equation*}
@@ -146,16 +146,16 @@ with $  \ket{\left\{ \alpha_{\mathbf{k }s} \right\} } = \bigotimes_{\mathbf{k},s
 By definition, the electromagnetic field is non-vanishing in this state
 \begin{align*}
   \braket{  \hat{\mathbf{E}}  }
-      &=   - \sum_{\mathbf{k},s} \sqrt{\frac{2\bar{N}_{\mathbf{k}s}\hbar \omega_k }{ \epsilon_0 V}}  \sin   \left( \mathbf{k} \cdot \mathbf{r} - \omega_k t+\theta_{\mathbf{k}s}  \right) \boldsymbol{\epsilon}_{\mathbf{k}s}\\
+   & =   - \sum_{\mathbf{k},s} \sqrt{\frac{2\bar{N}_{\mathbf{k}s}\hbar \omega_k }{ \epsilon_0 V}}  \sin   \left( \mathbf{k} \cdot \mathbf{r} - \omega_k t+\theta_{\mathbf{k}s}  \right) \boldsymbol{\epsilon}_{\mathbf{k}s}                  \\
   \braket{  \hat{\mathbf{B}}}
- &=   - \sum_{\mathbf{k},s} \sqrt{\frac{2 \bar{N}_{\mathbf{k}s}\hbar \omega_k \mu_0}{V}}  \sin   \left( \mathbf{k} \cdot \mathbf{r} - \omega_k t+\theta_{\mathbf{k}s}  \right) \hat{\mathbf{k}}\times \boldsymbol{\epsilon}_{\mathbf{k}s}
+   & =   - \sum_{\mathbf{k},s} \sqrt{\frac{2 \bar{N}_{\mathbf{k}s}\hbar \omega_k \mu_0}{V}}  \sin   \left( \mathbf{k} \cdot \mathbf{r} - \omega_k t+\theta_{\mathbf{k}s}  \right) \hat{\mathbf{k}}\times \boldsymbol{\epsilon}_{\mathbf{k}s}
 \end{align*}
 The energy of electromagnetic field can also be seen to be non-vanishing even at vacuum
 \begin{equation*}
-    \braket{  \hat{\mathbf{E}}^2 }
-    = \braket{\hat{\mathbf{E}} }^2+\sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2\epsilon_0 V}\qquad
+  \braket{  \hat{\mathbf{E}}^2 }
+  = \braket{\hat{\mathbf{E}} }^2+\sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2\epsilon_0 V}\qquad
   \braket{  \hat{\mathbf{B}}^2 }
-    = \braket{\hat{\mathbf{B}} }^2+\sum_{\mathbf{k },s}\frac{\hbar \omega_k}{2 V} \mu_0
+  = \braket{\hat{\mathbf{B}} }^2+\sum_{\mathbf{k },s}\frac{\hbar \omega_k}{2 V} \mu_0
 \end{equation*}
 
 The coherent state is minimum-uncertainty states, meaning it saturates the Heisenberg bound
@@ -240,20 +240,20 @@ it can be seen that
 and
 \begin{gather*}
   \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \braket{\hat{a}_{\mathbf{k }s}   \hat{a}_{\mathbf{k }'s'} }
-  =\sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'}  \alpha_{\mathbf{k}s}\alpha_{\mathbf{k}'s'} 
+  =\sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'}  \alpha_{\mathbf{k}s}\alpha_{\mathbf{k}'s'}
   \\
   \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \braket{\hat{a}_{\mathbf{k }s}   \hat{a}^\dagger_{\mathbf{k }'s'} }
   =\sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \braket{\hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }s} + \delta_{\mathbf{k }\mathbf{k}'}\delta_{ss'}}
   =
-    \sum_{\mathbf{k},s} \sum_{\mathbf{k}',s'}\alpha_{\mathbf{k}s}^* \alpha_{\mathbf{k}'s'} 
-    +\sum_{\mathbf{k},s}
+  \sum_{\mathbf{k},s} \sum_{\mathbf{k}',s'}\alpha_{\mathbf{k}s}^* \alpha_{\mathbf{k}'s'}
+  +\sum_{\mathbf{k},s}
   \\
   \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \braket{\hat{a}^\dagger_{\mathbf{k }'s'}\hat{a}_{\mathbf{k }s}}
   =
-    \sum_{\mathbf{k},s} \sum_{\mathbf{k}',s'}\alpha^{*}_{\mathbf{k}s}  \alpha_{\mathbf{k}'s'} 
+  \sum_{\mathbf{k},s} \sum_{\mathbf{k}',s'}\alpha^{*}_{\mathbf{k}s}  \alpha_{\mathbf{k}'s'}
   \\
   \sum_{\mathbf{k},s}\sum_{\mathbf{k}',s'} \braket{\hat{a}^\dagger_{\mathbf{k }s}   \hat{a}^\dagger_{\mathbf{k }'s'} }
-  = \sum_{\mathbf{k},s} \sum_{\mathbf{k}',s'} \alpha^{*}_{\mathbf{k}s}  \alpha^{*}_{\mathbf{k}'s'} 
+  = \sum_{\mathbf{k},s} \sum_{\mathbf{k}',s'} \alpha^{*}_{\mathbf{k}s}  \alpha^{*}_{\mathbf{k}'s'}
 \end{gather*}
 Also recall Euler identity $  e ^{i\phi}-e ^{-i\phi}=2i \sin \phi$ for good measure.
 
@@ -267,9 +267,9 @@ with $\phi_{\mathbf{k }}=\mathbf{k }\cdot \mathbf{r }-\omega_kt$,    expectation
 The expectation value for electric field is derived as follows
 \begin{align*}
   \braket{  \hat{\mathbf{E}}  }
-   & =  i \sum_{\mathbf{k},s} \sqrt{\frac{\hbar \omega_k}{2 \epsilon_0 V}} \left[ \braket{\hat{a}_{\mathbf{k}s}  } e^{i\phi_{\mathbf{k}}} - \braket{\hat{a}_{\mathbf{k}s}^{\dagger}} e^{-i\phi_{\mathbf{k}}} \right] \boldsymbol{\epsilon}_{\mathbf{k}s} \\
-   & =  i \sum_{\mathbf{k},s} \sqrt{\frac{\hbar \omega_k}{2 \epsilon_0 V}} \left[ \alpha_{\mathbf{k }s} e^{i\phi_{\mathbf{k}}} - \alpha_{\mathbf{k }s}^* e^{-i\phi_{\mathbf{k}}} \right] \boldsymbol{\epsilon}_{\mathbf{k}s}                             \\
-   & =  i \sum_{\mathbf{k},s} \sqrt{\frac{\bar{N}_{\mathbf{k}s}\hbar \omega_k }{2 \epsilon_0 V}} \left[  e^{i(\mathbf{k} \cdot \mathbf{r} - \omega_k t+ \theta_{\mathbf{k}s})} - e^{-i(\mathbf{k} \cdot \mathbf{r} - \omega_k t+\theta_{\mathbf{k}s}) } \right] \boldsymbol{\epsilon}_{\mathbf{k}s}        \\
+   & =  i \sum_{\mathbf{k},s} \sqrt{\frac{\hbar \omega_k}{2 \epsilon_0 V}} \left[ \braket{\hat{a}_{\mathbf{k}s}  } e^{i\phi_{\mathbf{k}}} - \braket{\hat{a}_{\mathbf{k}s}^{\dagger}} e^{-i\phi_{\mathbf{k}}} \right] \boldsymbol{\epsilon}_{\mathbf{k}s}                                            \\
+   & =  i \sum_{\mathbf{k},s} \sqrt{\frac{\hbar \omega_k}{2 \epsilon_0 V}} \left[ \alpha_{\mathbf{k }s} e^{i\phi_{\mathbf{k}}} - \alpha_{\mathbf{k }s}^* e^{-i\phi_{\mathbf{k}}} \right] \boldsymbol{\epsilon}_{\mathbf{k}s}                                                                        \\
+   & =  i \sum_{\mathbf{k},s} \sqrt{\frac{\bar{N}_{\mathbf{k}s}\hbar \omega_k }{2 \epsilon_0 V}} \left[  e^{i(\mathbf{k} \cdot \mathbf{r} - \omega_k t+ \theta_{\mathbf{k}s})} - e^{-i(\mathbf{k} \cdot \mathbf{r} - \omega_k t+\theta_{\mathbf{k}s}) } \right] \boldsymbol{\epsilon}_{\mathbf{k}s} \\
   \braket{  \hat{\mathbf{E}}  }
    & =  - \sum_{\mathbf{k},s} \sqrt{\frac{2\bar{N}_{\mathbf{k}s}\hbar \omega_k }{ \epsilon_0 V}}  \sin   \left( \mathbf{k} \cdot \mathbf{r} - \omega_k t+\theta_{\mathbf{k}s}  \right) \boldsymbol{\epsilon}_{\mathbf{k}s}
 \end{align*}
@@ -285,91 +285,91 @@ Whereas the magnetic field as
 
 Then we move to the square of the field
 \begin{multline*}
-    \hat{\mathbf{E}}^2
-    =  - \sum_{\mathbf{k},s} \sum_{\mathbf{k}',s'} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 \epsilon_0 V}
-  \bigg[ \hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'}  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})} 
-  -\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\ 
-   -\hat{a}_{\mathbf{k }s} ^\dagger\hat{a}_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}  
-   +\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]
+  \hat{\mathbf{E}}^2
+  =  - \sum_{\mathbf{k},s} \sum_{\mathbf{k}',s'} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 \epsilon_0 V}
+  \bigg[ \hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'}  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})}
+    -\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\
+    -\hat{a}_{\mathbf{k }s} ^\dagger\hat{a}_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}
+    +\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]
   \boldsymbol{\epsilon}_{\mathbf{k}s} \cdot \boldsymbol{\epsilon}_{\mathbf{k}'s'}
 \end{multline*}
 The expectation value then
 \begin{align*}
   \braket{\hat{\mathbf{E}}^2 }
-    &=   - \sum_{\mathbf{k},\mathbf{k}', s} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 \epsilon_0 V}
-  \bigg[ \braket{\hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'} }  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})} 
-  -\braket{\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'}  } e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\ 
-  &\qquad-\braket{\hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'} } e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}  
-   +\braket{\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} } e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]\\
-    &=   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 \epsilon_0 V}
-  \bigg[ \alpha_{\mathbf{k}s} \alpha_{\mathbf{k }' s}e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})} 
- -\alpha_{\mathbf{k }s }\alpha_{\mathbf{k' } s }^* e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\ 
-&\qquad-\alpha_{\mathbf{k } s}^*\alpha_{\mathbf{k' } s} e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}  
-+\alpha_{\mathbf{k } s } ^*\alpha_{\mathbf{k' } s}^* e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} -\delta_{\mathbf{k }\mathbf{k}'}\delta_{ss'}e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \bigg]\\
-    &=   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{\hbar }{2 \epsilon_0 V}\sqrt{\bar{N}_{\mathbf{k }s}\omega_k \bar{N}_{\mathbf{k}' s}\omega_{k'}}
-  \bigg[ e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'}+\theta_{\mathbf{k }s}+\theta_{\mathbf{k }'s})} \\
-&\qquad -e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'} +\theta_{\mathbf{k }s}-\theta_{\mathbf{k }' s})}  
- -e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'}-\theta_{\mathbf{k }s}+\theta_{\mathbf{k }' s})}  \\
-&\qquad + e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'}-\theta_{\mathbf{k }s}-\theta_{\mathbf{k }'s})} \bigg]+ \sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2\epsilon_0 V}                              \\
-    &=   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{2\hbar }{\epsilon_0 V}\sqrt{\bar{N}_{\mathbf{k }s}\omega_k \bar{N}_{\mathbf{k}' s}\omega_{k'}}
-    \sin \left( \phi_{\mathbf{k }s}+\theta_{\mathbf{k}s} \right) 
-    \sin \left( \phi_{\mathbf{k }'s}+\theta_{\mathbf{k}'s} \right) \\
-&\qquad+ \sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2\epsilon_0 V}                              \\
-\braket{  \hat{\mathbf{E}}^2 }
+   & =   - \sum_{\mathbf{k},\mathbf{k}', s} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 \epsilon_0 V}
+  \bigg[ \braket{\hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'} }  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})}
+  -\braket{\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'}  } e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}                                                                                     \\
+   & \qquad-\braket{\hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'} } e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}
+  +\braket{\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} } e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]                                                                      \\
+   & =   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 \epsilon_0 V}
+  \bigg[ \alpha_{\mathbf{k}s} \alpha_{\mathbf{k }' s}e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})}
+  -\alpha_{\mathbf{k }s }\alpha_{\mathbf{k' } s }^* e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}                                                                                                       \\
+   & \qquad-\alpha_{\mathbf{k } s}^*\alpha_{\mathbf{k' } s} e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}
+  +\alpha_{\mathbf{k } s } ^*\alpha_{\mathbf{k' } s}^* e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} -\delta_{\mathbf{k }\mathbf{k}'}\delta_{ss'}e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \bigg] \\
+   & =   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{\hbar }{2 \epsilon_0 V}\sqrt{\bar{N}_{\mathbf{k }s}\omega_k \bar{N}_{\mathbf{k}' s}\omega_{k'}}
+  \bigg[ e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'}+\theta_{\mathbf{k }s}+\theta_{\mathbf{k }'s})}                                                                                                    \\
+   & \qquad -e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'} +\theta_{\mathbf{k }s}-\theta_{\mathbf{k }' s})}
+  -e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'}-\theta_{\mathbf{k }s}+\theta_{\mathbf{k }' s})}                                                                                                         \\
+   & \qquad + e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'}-\theta_{\mathbf{k }s}-\theta_{\mathbf{k }'s})} \bigg]+ \sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2\epsilon_0 V}                             \\
+   & =   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{2\hbar }{\epsilon_0 V}\sqrt{\bar{N}_{\mathbf{k }s}\omega_k \bar{N}_{\mathbf{k}' s}\omega_{k'}}
+  \sin \left( \phi_{\mathbf{k }s}+\theta_{\mathbf{k}s} \right)
+  \sin \left( \phi_{\mathbf{k }'s}+\theta_{\mathbf{k}'s} \right)                                                                                                                                         \\
+   & \qquad+ \sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2\epsilon_0 V}                                                                                                                                   \\
+  \braket{  \hat{\mathbf{E}}^2 }
    & = \braket{\hat{\mathbf{E}} }^2+\sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2\epsilon_0 V}
 \end{align*}
 We have used the Euler identity, specifically
 \begin{equation*}
-    e^{iA} - e^{iB} - e^{-iB} + e^{-iA} = -4 \sin\left(\frac{A + B}{2}\right) \sin\left(\frac{A - B}{2}\right) 
+  e^{iA} - e^{iB} - e^{-iB} + e^{-iA} = -4 \sin\left(\frac{A + B}{2}\right) \sin\left(\frac{A - B}{2}\right)
 \end{equation*}
-which is applied on 
+which is applied on
 \begin{equation*}
   A = \phi_\mathbf{k} + \phi_{\mathbf{k}'} + \theta_{\mathbf{k}s} + \theta_{\mathbf{k}'s}, B= \phi_\mathbf{k} - \phi_{\mathbf{k}'} + \theta_{\mathbf{k}s} - \theta_{\mathbf{k}'s},
 \end{equation*}
 
 Then the magnetic field
 \begin{multline*}
-    \hat{\mathbf{B}}^2
-    =  - \sum_{\mathbf{k},s} \sum_{\mathbf{k}',s'} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 V} \mu_0
-  \bigg[ \hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'}  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})} 
-  -\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\ 
-   -\hat{a}_{\mathbf{k }s}^\dagger \hat{a}_{\mathbf{k }'s'}e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}  
-   +\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]
+  \hat{\mathbf{B}}^2
+  =  - \sum_{\mathbf{k},s} \sum_{\mathbf{k}',s'} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 V} \mu_0
+  \bigg[ \hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'}  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})}
+    -\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\
+    -\hat{a}_{\mathbf{k }s}^\dagger \hat{a}_{\mathbf{k }'s'}e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}
+    +\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]
   (\mathbf{\hat{k}} \times \boldsymbol{\epsilon}_{\mathbf{k}s}) \cdot (\mathbf{\hat{k}'} \times \boldsymbol{\epsilon}_{\mathbf{k}'s'})
 \end{multline*}
-which have the expectation value of 
+which have the expectation value of
 \begin{align*}
   \braket{\hat{\mathbf{B}}^2 }
-    &=   - \sum_{\mathbf{k},\mathbf{k}', s} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 V}\mu_0
-  \bigg[ \braket{\hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'} }  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})} 
-  -\braket{\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'}  } e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\ 
-  &\qquad-\braket{\hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'} } e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}  
-   +\braket{\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} } e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]\\
-    &=   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 V}\mu_0  \bigg[ \alpha_{\mathbf{k}s} \alpha_{\mathbf{k }' s}e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})} 
- -\alpha_{\mathbf{k }s }\alpha_{\mathbf{k' } s }^* e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \\ 
-&\qquad-\alpha_{\mathbf{k } s}^*\alpha_{\mathbf{k' } s} e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}  
-+\alpha_{\mathbf{k } s } ^*\alpha_{\mathbf{k' } s}^* e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} -\delta_{\mathbf{k }\mathbf{k}'}\delta_{ss'}e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \bigg]\\
-    &=   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{\hbar }{2 V}\sqrt{\bar{N}_{\mathbf{k }s}\omega_k \bar{N}_{\mathbf{k}' s}\omega_{k'}}\mu_0
-  \bigg[ e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'}+\theta_{\mathbf{k }s}+\theta_{\mathbf{k }'s})} \\
-&\qquad -e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'} +\theta_{\mathbf{k }s}-\theta_{\mathbf{k }' s})}  
- -e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'}-\theta_{\mathbf{k }s}+\theta_{\mathbf{k }' s})}  \\
-&\qquad + e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'}-\theta_{\mathbf{k }s}-\theta_{\mathbf{k }'s})} \bigg]+ \sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2V}\mu_0                              \\
-    &=   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{2\hbar }{ V}\sqrt{\bar{N}_{\mathbf{k }s}\omega_k \bar{N}_{\mathbf{k}' s}\omega_{k'}}\mu_0
-    \sin \left( \phi_{\mathbf{k }s}+\theta_{\mathbf{k}s} \right) 
-    \sin \left( \phi_{\mathbf{k }'s}+\theta_{\mathbf{k}'s} \right) \\
-&\qquad+ \sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2V}\mu_0                              \\
-\braket{  \hat{\mathbf{B}}^2 }
+   & =   - \sum_{\mathbf{k},\mathbf{k}', s} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 V}\mu_0
+  \bigg[ \braket{\hat{a}_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'} }  e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})}
+  -\braket{\hat{a}_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'}  } e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}                                                                                     \\
+   & \qquad-\braket{\hat{a}^\dagger_{\mathbf{k }s} \hat{a}_{\mathbf{k }'s'} } e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}
+  +\braket{\hat{a}^\dagger_{\mathbf{k }s} \hat{a}^\dagger_{\mathbf{k }'s'} } e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} \bigg]                                                                      \\
+   & =   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{\hbar \sqrt{\omega_k \omega_{k'}}}{2 V}\mu_0  \bigg[ \alpha_{\mathbf{k}s} \alpha_{\mathbf{k }' s}e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'})}
+  -\alpha_{\mathbf{k }s }\alpha_{\mathbf{k' } s }^* e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}                                                                                                       \\
+   & \qquad-\alpha_{\mathbf{k } s}^*\alpha_{\mathbf{k' } s} e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})}
+  +\alpha_{\mathbf{k } s } ^*\alpha_{\mathbf{k' } s}^* e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'})} -\delta_{\mathbf{k }\mathbf{k}'}\delta_{ss'}e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'})} \bigg] \\
+   & =   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{\hbar }{2 V}\sqrt{\bar{N}_{\mathbf{k }s}\omega_k \bar{N}_{\mathbf{k}' s}\omega_{k'}}\mu_0
+  \bigg[ e ^{i(\phi_{\mathbf{k }} +\phi_{\mathbf{k }'}+\theta_{\mathbf{k }s}+\theta_{\mathbf{k }'s})}                                                                                                    \\
+   & \qquad -e ^{i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'} +\theta_{\mathbf{k }s}-\theta_{\mathbf{k }' s})}
+  -e ^{-i(\phi_{\mathbf{k }}-\phi_{\mathbf{k }'}-\theta_{\mathbf{k }s}+\theta_{\mathbf{k }' s})}                                                                                                         \\
+   & \qquad + e ^{-i(\phi_{\mathbf{k }}+\phi_{\mathbf{k }'}-\theta_{\mathbf{k }s}-\theta_{\mathbf{k }'s})} \bigg]+ \sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2V}\mu_0                                   \\
+   & =   - \sum_{\mathbf{k},\mathbf{k}',s} \frac{2\hbar }{ V}\sqrt{\bar{N}_{\mathbf{k }s}\omega_k \bar{N}_{\mathbf{k}' s}\omega_{k'}}\mu_0
+  \sin \left( \phi_{\mathbf{k }s}+\theta_{\mathbf{k}s} \right)
+  \sin \left( \phi_{\mathbf{k }'s}+\theta_{\mathbf{k}'s} \right)                                                                                                                                         \\
+   & \qquad+ \sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2V}\mu_0                                                                                                                                         \\
+  \braket{  \hat{\mathbf{B}}^2 }
    & = \braket{\hat{\mathbf{B}} }^2+\sum_{\mathbf{k },s}\frac{\hbar \omega_k }{2V}\mu_0
 \end{align*}
 
 We can insert this into classical Hamiltonian
 \begin{align*}
-  H & =   \frac{1}{ 2}\int d^3 \mathbf{r} \sum_{\mathbf{k},s} \left( \epsilon_0\mathbf{E}^2 + \frac{1}{\mu_0} \mathbf{B}^2 \right)        \\
-    & = \frac{1 }{2} \int d^3 \mathbf{r } \sum_{\mathbf{k},s} \left[ \epsilon_0\braket{\mathbf{E} }^2+ \frac{1 }{\mu_0}\braket{\mathbf{B} }^2 +\frac{\hbar \omega_k }{V}\right] \\
+  H & =   \frac{1}{ 2}\int d^3 \mathbf{r} \sum_{\mathbf{k},s} \left( \epsilon_0\mathbf{E}^2 + \frac{1}{\mu_0} \mathbf{B}^2 \right)                                                                 \\
+    & = \frac{1 }{2} \int d^3 \mathbf{r } \sum_{\mathbf{k},s} \left[ \epsilon_0\braket{\mathbf{E} }^2+ \frac{1 }{\mu_0}\braket{\mathbf{B} }^2 +\frac{\hbar \omega_k }{V}\right]                    \\
     & = \frac{1 }{2} \int d^3 \mathbf{r } \sum_{\mathbf{k},\mathbf{k}', s} \bigg[ \frac{4\hbar }{V}\sqrt{\bar{N}_{\mathbf{k }s}\omega_k \bar{N}_{\mathbf{k}' s}\omega_{k'}}
-    \sin \left( \phi_{\mathbf{k }s}+\theta_{\mathbf{k}s} \right) 
-    \sin \left( \phi_{\mathbf{k }'s}+\theta_{\mathbf{k}'s} \right)\\ 
-    &\qquad+\frac{\hbar \omega_k }{V}\bigg] \\
+    \sin \left( \phi_{\mathbf{k }s}+\theta_{\mathbf{k}s} \right)
+  \sin \left( \phi_{\mathbf{k }'s}+\theta_{\mathbf{k}'s} \right)                                                                                                                                   \\
+    & \qquad+\frac{\hbar \omega_k }{V}\bigg]                                                                                                                                                       \\
   H & = \sum_{\mathbf{k },s}\left[ \bar{N }_{\mathbf{k }s}\hbar \omega_k+\frac{\hbar \omega_k }{2} \right]=  \sum_{\mathbf{k},s} \hbar \omega_k \left( \bar{N}_{\mathbf{k }s}+\frac{1 }{2} \right)
 \end{align*}
 to recover the same result of quantum Hamiltonian
@@ -382,25 +382,62 @@ to recover the same result of quantum Hamiltonian
 \end{align*}
 
 \subsubsection{Derivation: minimum uncertainty.}
-The variance of $x$ is 
+The variance of $x$ is
 \begin{align*}
-  (\Delta x)^2 &=  \braket{x^2 } - \braket{x }^2 \\
-  &= \frac{\hbar}{2m\omega} \braket{a^2 + a^{\dagger 2} + aa^\dagger + a^\dagger a  } 
-  - \left( \sqrt{\frac{\hbar}{2m\omega}} \langle a + a^{\dagger} \rangle \right) ^2\\
-  &= \frac{\hbar}{2m\omega} \braket{a^2 + a^{\dagger 2} + aa^\dagger + a^\dagger a }- \frac{\hbar}{2m\omega} (\alpha + \alpha^{*})^2 \\
-  &=\frac{\hbar}{2 m \omega} \left( \alpha^{2} + \alpha^{*2} + 2 |\alpha|^{2} + 1 \right)  - \frac{\hbar}{2 m \omega} \left( \alpha^2 + \alpha^{*2} + 2 |\alpha|^2 \right)\\
+  (\Delta x)^2 & =  \braket{x^2 } - \braket{x }^2                                                                                                                                        \\
+               & = \frac{\hbar}{2m\omega} \braket{a^2 + a^{\dagger 2} + aa^\dagger + a^\dagger a  }
+  - \left( \sqrt{\frac{\hbar}{2m\omega}} \langle a + a^{\dagger} \rangle \right) ^2                                                                                                      \\
+               & = \frac{\hbar}{2m\omega} \braket{a^2 + a^{\dagger 2} + aa^\dagger + a^\dagger a }- \frac{\hbar}{2m\omega} (\alpha + \alpha^{*})^2                                       \\
+               & =\frac{\hbar}{2 m \omega} \left( \alpha^{2} + \alpha^{*2} + 2 |\alpha|^{2} + 1 \right)  - \frac{\hbar}{2 m \omega} \left( \alpha^2 + \alpha^{*2} + 2 |\alpha|^2 \right) \\
   \Delta x
-  &= \sqrt{\frac{\hbar  }{2m\omega}}
+               & = \sqrt{\frac{\hbar  }{2m\omega}}
 \end{align*}
 In other hand, the variance of $p$ is
 \begin{align*}
-  (\Delta p)^2 &=  \braket{p^2 } - \braket{p }^2 \\
-  &= - \frac{m\hbar\omega}{2} \braket{a^2 + a^{\dagger 2} -aa^\dagger - a^\dagger a  } 
-  - \left( -i\sqrt{\frac{m\hbar\omega}{2}} \langle a - a^{\dagger} \rangle \right) ^2\\
-  &= - \frac{m\hbar\omega}{2} \braket{a^2 + a^{\dagger 2} -2 a^\dagger a-1 } + \frac{m\hbar\omega}{2} (\alpha - \alpha^{*})^2 \\
-  &= - \frac{ m \hbar  \omega}{2 } \left( \alpha^{2} + \alpha^{*2} - 2 |\alpha|^{2} -1 \right)  + \frac{m \hbar  \omega}{2 } \left( \alpha^2 + \alpha^{*2} - 2 |\alpha|^2 \right)\\
+  (\Delta p)^2 & =  \braket{p^2 } - \braket{p }^2                                                                                                                                               \\
+               & = - \frac{m\hbar\omega}{2} \braket{a^2 + a^{\dagger 2} -aa^\dagger - a^\dagger a  }
+  - \left( -i\sqrt{\frac{m\hbar\omega}{2}} \langle a - a^{\dagger} \rangle \right) ^2                                                                                                           \\
+               & = - \frac{m\hbar\omega}{2} \braket{a^2 + a^{\dagger 2} -2 a^\dagger a-1 } + \frac{m\hbar\omega}{2} (\alpha - \alpha^{*})^2                                                     \\
+               & = - \frac{ m \hbar  \omega}{2 } \left( \alpha^{2} + \alpha^{*2} - 2 |\alpha|^{2} -1 \right)  + \frac{m \hbar  \omega}{2 } \left( \alpha^2 + \alpha^{*2} - 2 |\alpha|^2 \right) \\
   \Delta p
-  &= \sqrt{\frac{m  \hbar \omega }{2}}
+               & = \sqrt{\frac{m  \hbar \omega }{2}}
 \end{align*}
 multiplying both gives the minimum uncertainty.
+
+\subsubsection{Quantum Field Operator}
+The quantum field operators  annihilate and create, respectively, a particle at position $\mathbf{r}$
+\begin{equation*}
+  \psi^{\dagger}(\mathbf{r})|0\rangle = |r\rangle
+  \psi(\mathbf{r})|r'\rangle = \delta(r - r')|0\rangle
+\end{equation*}
+The field operator defined as transformation from single particle basis into position basis of the annihilation and creation operator
+\begin{align*}
+  a_{\alpha}           & \rightarrow \psi(\mathbf{r}) = \sum_{\alpha} \langle r | 1 \alpha \rangle a_{\alpha} = \sum_{\alpha} u_{\alpha}(\mathbf{r}) a_{\alpha}                            \\
+  a_{\alpha}^{\dagger} & \rightarrow \psi^{\dagger}(\mathbf{r}) = \sum_{\alpha} \langle 1 | r \rangle a_{\alpha}^{\dagger} = \sum_{\alpha} u_{\alpha}^{*}(\mathbf{r}) a_{\alpha}^{\dagger}
+\end{align*}
+where $u_\alpha(\mathbf{r})$ is the wave function of the one-particle state $\ket{1_\alpha}$.
+Meanwhile, the inverse transformation are 
+\begin{align*}
+a_{\alpha} & =  \int d^3 r \, \langle 1_{\alpha} | r \rangle \psi_{\sigma} (\mathbf{r}) = \int d^3 r \, u_{\alpha}^{*} (\mathbf{r}) \psi (\mathbf{r})\\
+a_{\alpha}^{\dagger} & =  \int d^3 r \{ r | 1_{\alpha} \rangle \psi^{\dagger} (\mathbf{r}) \} = \int d^3 r \, u_{\alpha} (\mathbf{r}) \psi^{\dagger} (\mathbf{r})
+\end{align*}
+
+As with the case of number operator for annihilation and creation, the number of particle in a volume $V$ is
+\begin{equation*}
+  N
+  = \int_V d^3 r \; \psi^\dagger(\mathbf{r}) \psi(\mathbf{r})
+  = \int_V d^3 r \; \rho(\mathbf{r})
+\end{equation*}
+
+In the case of free particle in a box, we can evaluate $u_\alpha(\mathbf{r})$.
+The final result for creation and annihilation operators is then  given by
+\begin{equation*}
+a_\mathbf{k} = \int d^3 r \, e^{-i \mathbf{k} \cdot \mathbf{r}} \psi(\mathbf{r})\quad
+a_\mathbf{k}^{\dagger} = \int d^3 r \, e^{i \mathbf{k} \cdot \mathbf{r}} \psi^{\dagger}(\mathbf{r})
+\end{equation*}
+and its inverse
+\begin{equation*}
+\psi(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}\quad
+\psi^{\dagger}(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{-i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}^{\dagger}
+\end{equation*}
 \end{document}
