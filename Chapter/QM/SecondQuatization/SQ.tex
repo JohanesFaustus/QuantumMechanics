@@ -543,4 +543,22 @@ and its Heisenberg equation of motion
 \begin{equation*}
   \frac{dc_{n}}{dt} = i [H, c_{n}] = -i E_{n} c_{n}S
 \end{equation*}
+
+\subsubsection{Derivation: expectation of Hamiltonian.}
+With the general solution of 
+\begin{equation*}
+\psi(\mathbf{r}, t) = \sum_n a_n(t) \psi_n(\mathbf{r}) 
+\end{equation*}
+we substitute into the expression
+\begin{align*}
+\braket{H } 
+& =  \int d^3 r \left( \sum_{m} a_m^*(t) \psi_m^*(r) \right) H \left( \sum_{n} a_n(t) \psi_n(r) \right) \\
+& =  \sum_{m,n} a_m^*(t) a_n(t) \int d^3 r \, \psi_m^*(r) H \psi_n(r)\\
+& = \sum_{m,n} a^*_m(t) a_n(t) E_n \int d^3 r \, \psi^*_m(r) \psi_n(r)\\
+& = \sum_{m,n} a^*_m(t) a_n(t) E_n \delta_{mn}\\
+\braket{H } 
+& = \sum_{n}  a_n(t) a^*_n(t) E_n \\
+\end{align*}
+At this step, both boson and fermion produce the same result.
+The distinction appears when one performs the operator promotion.
 \end{document}
