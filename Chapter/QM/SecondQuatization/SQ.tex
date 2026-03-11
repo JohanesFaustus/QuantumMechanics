@@ -501,4 +501,46 @@ With linear vector polarization $\boldsymbol{\epsilon}_{\mathbf{k }s}$ and $\bol
 \begin{equation*}
   \boldsymbol{\varepsilon}_{\mathbf{k }s} = \frac{1 }{\sqrt{2 }}\left( \boldsymbol{\epsilon}_{\mathbf{k }s}\pm i \boldsymbol{\epsilon}_{\mathbf{k }s'} \right) 
 \end{equation*} 
+
+\subsection{Second quantization of the Schrödinger equation.}
+The time-dependent Schrödinger equation and time independent read as 
+\begin{equation*}
+i \frac{\partial \psi}{\partial t} = -\frac{1}{2m} \nabla^2 \psi + V(\mathbf{r})\psi \qquad
+E_n \psi_n = -\frac{1}{2m} \nabla^2 \psi_n + V(\mathbf{r})\psi_n  
+\end{equation*}
+From separation of variables, we obtain solution called stationary state $\phi(\mathbf{r },t)=\phi_n (\mathbf{r})T(t)$.
+Therefore, the general solution of the time-dependent Schrödinger equation is superposition of all separated solutions
+\begin{equation*}
+\psi(\mathbf{r}, t) = \sum_n a_n(t) \psi_n(\mathbf{r}) 
+\end{equation*}
+with $\dot{a}_n(t) = -i E_n a_n(t) $.
+
+The energy $E$, or, more precisely, the expectation value of the Hamilton operator $\braket{H }$, can now be written as
+\begin{equation*}
+  \braket{H } 
+  = \int d^3 r \, \psi^*(\mathbf{r}, t) \left[ -\frac{1}{2m} \nabla^2 + V(\mathbf{r}) \right] \psi(\mathbf{r}, t)
+= \sum_{n} E_{n} a_{n}^{*} a_{n} = \sum_{n} \omega_{n} a_{n}^{*} a_{n}
+\end{equation*}
+Thus, it is consistent to interpret these result in terms of a second quantized Hamiltonian 
+\begin{equation*}
+  H = \sum_{n} E_{n} a_{n}^{\dagger} a_{n}
+\end{equation*}
+ 
+From the Heisenberg equation of motion
+\begin{equation*}
+  i \frac{dA}{dt  } = i [H,A]
+\end{equation*}
+we obtain equation of motion for the creation operators \(a_{n}\),
+\begin{equation*}
+  \frac{da_{n}}{dt} = i [H, a_{n}] = -i E_{n} a_{n}
+\end{equation*}
+
+Using the same argument, the second quantized Hamiltonian for fermion can be identified
+\begin{equation*}
+  H = \sum_{n} E_{n} c_{n}^{\dagger} c_{n}
+\end{equation*}
+and its Heisenberg equation of motion
+\begin{equation*}
+  \frac{dc_{n}}{dt} = i [H, c_{n}] = -i E_{n} c_{n}S
+\end{equation*}
 \end{document}
