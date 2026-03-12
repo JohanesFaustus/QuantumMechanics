@@ -79,6 +79,59 @@ This representation has the following advantage.
   \item \textbf{Straightforward basis transformation.} Changing the single-particle basis corresponds simply to a unitary transformation of the operators.
 \end{enumerate}
 
+\subsubsection{Example: particle density}
+The particle density
+\begin{equation*}
+  \rho(\mathbf{r}) = \psi^\dagger(\mathbf{r})\psi(\mathbf{r}) = \sum_{\mathbf{k},\mathbf{k}'} \braket{\mathbf{k}|\mathbf{r} }\braket{\mathbf{r}|\mathbf{k}'} a_\mathbf{k}^\dagger a_{\mathbf{k'}}
+\end{equation*}
+has the Fourier transform of
+\begin{equation*}
+  \rho(\mathbf{q}) = \sum_{\mathbf{k}} a_\mathbf{k}^\dagger a_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} a_{\mathbf{k}-\mathbf{q}/2}^\dagger a_{\mathbf{k}+\mathbf{q}/2}
+\end{equation*}
+
+The derivation is as follows.
+\begin{align*}
+  \rho(\mathbf{q})
+   & = \int d^3r\,e^{-i\mathbf{q}\cdot\mathbf{r}}\,\rho(\mathbf{r})                                                                                                          \\
+   & =  \sum_{\mathbf{k}\mathbf{k}'}\left(\int d^3r\,e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}e^{-i\mathbf{q}\cdot\mathbf{r}}\right) a_\mathbf{k}^\dagger a_{\mathbf{k}'} \\
+   & =  \sum_{\mathbf{k}\mathbf{k}'} \delta (\mathbf{k}'-\mathbf{k}-\mathbf{q})   a_\mathbf{k}^\dagger a_{\mathbf{k}'} \\
+   & = \sum_{\mathbf{k}} a_\mathbf{k}^\dagger a_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} a_{\mathbf{k}-\mathbf{q}/2}^\dagger a_{\mathbf{k}+\mathbf{q}/2}
+\end{align*}
+Where the last line is obtained by index relabelling $\mathbf{k} \rightarrow \mathbf{k}-\mathbf{q}/2$.
+
+\subsection{Example: particle current}
+The particle current, defined as
+\begin{equation*}
+  \mathbf{j}(\mathbf{r}) = -\frac{i}{2m}\left[\psi^\dagger(\mathbf{r})[\nabla\psi(\mathbf{r})] - [\nabla\psi^\dagger(\mathbf{r})]\,\psi(\mathbf{r})\right]
+\end{equation*} 
+has the Fourier transform of 
+\begin{equation*}
+  j(\mathbf{q}) 
+= \frac{1}{m}\sum_{\mathbf{k}} \left( \mathbf{k}+\frac{\mathbf{q } }{2} \right)  a_{\mathbf{k}}^\dagger a_{\mathbf{k}+\mathbf{q}} 
+= \frac{1}{m}\sum_{\mathbf{k}} \mathbf{k}\, a_{\mathbf{k}-\mathbf{q}/2}^\dagger a_{\mathbf{k}+\mathbf{q}/2}
+\end{equation*}
+
+The derivation is as follows
+\begin{align*}
+\mathbf{j}(\mathbf{r}) 
+&= -\frac{i}{2m}\sum_{\mathbf{k},\mathbf{k}'}\Big[ a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\nabla a_{\mathbf{k}'} e^{i\mathbf{k}'\cdot\mathbf{r}}-\big(\nabla  a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big)\cdot a_{\mathbf{k}'}e^{i\mathbf{k}'\cdot\mathbf{r}}\Big] \\
+&= -\frac{i}{2m}\sum_{\mathbf{k},\mathbf{k}'}\Big[ a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big(i\mathbf{k}'\,a_{\mathbf{k}'}e^{i\mathbf{k}'\mathbf{r}}\big)
+-\big(-i\mathbf{k}\,a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big)\cdot a_{\mathbf{k}'}e^{i\mathbf{k}'\cdot\mathbf{r}}\Big] \\
+&= \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'}(\mathbf{k}+\mathbf{k}')\,a_\mathbf{k}^\dagger a_{\mathbf{k}'}\,e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}
+\end{align*}
+Then apply the transformation
+\begin{align*}
+j(\mathbf{q}) &= \int d^3r\, e^{-i\mathbf{q}\cdot\mathbf{r}}\; j(\mathbf{r})
+= \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'} (\mathbf{k}+\mathbf{k}')\; a_{\mathbf{k}}^\dagger a_{\mathbf{k}'} \int d^3r\; e^{i(\mathbf{k}'-\mathbf{k}-\mathbf{q})\cdot\mathbf{r}}\\
+& =  \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'} (\mathbf{k}+\mathbf{k}')\; a_{\mathbf{k}}^\dagger a_{\mathbf{k}'} \delta(\mathbf{k}'-\mathbf{k }-\mathbf{q})\\
+&= \frac{1}{2m}\sum_{\mathbf{k}} (\mathbf{k}+(\mathbf{k}+\mathbf{q}))\, a_{\mathbf{k}}^\dagger a_{\mathbf{k}+\mathbf{q}} 
+= \frac{1}{2m}\sum_{\mathbf{k}} (2\mathbf{k}+\mathbf{q})\, a_{\mathbf{k}}^\dagger a_{\mathbf{k}+\mathbf{q}} \\
+j(\mathbf{q}) 
+&= \frac{1}{m}\sum_{\mathbf{k}} \left( \mathbf{k}+\frac{\mathbf{q } }{2} \right)  a_{\mathbf{k}}^\dagger a_{\mathbf{k}+\mathbf{q}} 
+= \frac{1}{m}\sum_{\mathbf{k}} \mathbf{k}\, a_{\mathbf{k}-\mathbf{q}/2}^\dagger a_{\mathbf{k}+\mathbf{q}/2}
+\end{align*}
+where the last line is obtained by index shift $\mathbf{k}\rightarrow \mathbf{k}-\mathbf{q}/2$.
+
 \subsubsection{Derivation: second quantization representation.}
 First consider the action of $\hat{o} ^{1}$ on one-particle basis $\ket{\left\{ 1_\alpha \right\} }$, which we assume as its eigenstate
 \begin{equation*}
@@ -138,9 +191,9 @@ Imposing translational invariance $\hat{o}^{(2)}(\mathbf{r}, \mathbf{r}') = \hat
 where \( \hat{o}^{(2)}(\mathbf{q}) \) is the Fourier transform of \( \hat{o}^{(2)}(\mathbf{r}) \)
 \begin{equation*}
   \hat{o}^{(2)}(\mathbf{q}) = \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i\mathbf{q} \cdot r}
-    \begin{cases}
-  \mathbf{q} = \mathbf{k}_1 + \mathbf{k}_1' \\
-   \mathbf{q}= \mathbf{k}_2' - \mathbf{k}_2    
+  \begin{cases}
+    \mathbf{q} = \mathbf{k}_1 + \mathbf{k}_1' \\
+    \mathbf{q}= \mathbf{k}_2' - \mathbf{k}_2
   \end{cases}
 \end{equation*}
 
@@ -152,12 +205,12 @@ Translational invariance requires that shifting the entire system by a vector $\
 \end{equation*}
 The only functions satisfying this condition depend solely on the relative coordinate
 \begin{equation*}
-    V(\mathbf{r}_1,\mathbf{r}_2)
-    =   V(\mathbf{r}_1-\mathbf{r}_2)
+  V(\mathbf{r}_1,\mathbf{r}_2)
+  =   V(\mathbf{r}_1-\mathbf{r}_2)
 \end{equation*}
 If the interaction is a pair potential depending only on the separation
 \begin{equation*}
-  \langle \mathbf{r}_1,\mathbf{r}_2 | \hat{o}^{(2)} | \mathbf{r}_1', \mathbf{r}_2' \rangle 
+  \langle \mathbf{r}_1,\mathbf{r}_2 | \hat{o}^{(2)} | \mathbf{r}_1', \mathbf{r}_2' \rangle
   = \hat{o}^{(2)}(\mathbf{r}_1 - \mathbf{r}_2) \delta(\mathbf{r}_1 - \mathbf{r}_1') \delta(\mathbf{r}_2 - \mathbf{r}_2')
 \end{equation*}
 First we start with
@@ -199,28 +252,28 @@ Introduce new coordinates
 \end{equation*}
 Rewrite the exponent as
 \begin{align*}
-    (\mathbf{k}_1 - \mathbf{k}_1') \cdot \mathbf{r}_1 + (\mathbf{k}_2 - \mathbf{k}_2') \cdot \mathbf{r}_2 
-    & =  (\mathbf{k}_1 + \mathbf{k}_2 - \mathbf{k}_1' - \mathbf{k}_2') \cdot \mathbf{R }\\
-    & \qquad+ \left[ (\mathbf{k}_1 - \mathbf{k}_1') - (\mathbf{k}_2 - \mathbf{k}_2') \right]\cdot \mathbf{r}\\
-    (\mathbf{k}_1 - \mathbf{k}_1') \cdot \mathbf{r}_1 + (\mathbf{k}_2 - \mathbf{k}_2') \cdot \mathbf{r}_2 
-    & = \mathbf{p }\cdot \mathbf{R }+ \mathbf{q }\cdot \mathbf{r}
+  (\mathbf{k}_1 - \mathbf{k}_1') \cdot \mathbf{r}_1 + (\mathbf{k}_2 - \mathbf{k}_2') \cdot \mathbf{r}_2
+   & =  (\mathbf{k}_1 + \mathbf{k}_2 - \mathbf{k}_1' - \mathbf{k}_2') \cdot \mathbf{R }                     \\
+   & \qquad+ \left[ (\mathbf{k}_1 - \mathbf{k}_1') - (\mathbf{k}_2 - \mathbf{k}_2') \right]\cdot \mathbf{r} \\
+  (\mathbf{k}_1 - \mathbf{k}_1') \cdot \mathbf{r}_1 + (\mathbf{k}_2 - \mathbf{k}_2') \cdot \mathbf{r}_2
+   & = \mathbf{p }\cdot \mathbf{R }+ \mathbf{q }\cdot \mathbf{r}
 \end{align*}
 such that the integral separates
 \begin{align*}
   \langle \mathbf{k}_1 \mathbf{k}_2 | \hat{o}^{(2)} | \mathbf{k}_1' \mathbf{k}_2' \rangle
- & = \frac{1 }{V}  \int d^3 R \; e^{-i \mathbf{p}\cdot \mathbf{R}} \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}} \\
+   & = \frac{1 }{V}  \int d^3 R \; e^{-i \mathbf{p}\cdot \mathbf{R}} \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}} \\
   \langle \mathbf{k}_1 \mathbf{k}_2 | \hat{o}^{(2)} | \mathbf{k}_1' \mathbf{k}_2' \rangle
-  & =  \delta (\mathbf{p}) \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}}
+   & =  \delta (\mathbf{p}) \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}}
 \end{align*}
-The delta function enforce $\mathbf{k }_1+\mathbf{k }_2=\mathbf{k }_1'+\mathbf{k }_2'$, so the definition of $\mathbf{q}$ simplifies and the integral reads 
+The delta function enforce $\mathbf{k }_1+\mathbf{k }_2=\mathbf{k }_1'+\mathbf{k }_2'$, so the definition of $\mathbf{q}$ simplifies and the integral reads
 \begin{equation*}
-    \langle \mathbf{k}_1 \mathbf{k}_2 | \hat{o}^{(2)} | \mathbf{k}_1' \mathbf{k}_2' \rangle
+  \langle \mathbf{k}_1 \mathbf{k}_2 | \hat{o}^{(2)} | \mathbf{k}_1' \mathbf{k}_2' \rangle
   =
-\int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}}  
+  \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}}
   \qquad
   \begin{cases}
-  \mathbf{q} = \mathbf{k}_1 +\mathbf{k}_1' \\
-   \mathbf{q}= \mathbf{k}_2' - \mathbf{k}_2    
+    \mathbf{q} = \mathbf{k}_1 +\mathbf{k}_1' \\
+    \mathbf{q}= \mathbf{k}_2' - \mathbf{k}_2
   \end{cases}
 \end{equation*}
 
@@ -312,9 +365,9 @@ the parity of the permutation is determined by the number of transpositions $m$ 
 
 This parity is the origin of Pauli exclusion principle.
 The probability for a many-particle state to contain two or more Fermions in the same single-particle state vanishes.
-In another important contribution, Wolfgang Pauli (1940) proved by his famous spin-statistics theorem that Bosons carry integer spin, $s=1,\dots$ , while Fermions carry half-integer spin, $s = 1/2, \dots$.
+In another important contribution, Wolfgang Pauli (1940) proved by his famous spin-statistics theorem that Bosons carry integer spin, $s=1,\dots$, while Fermions carry half-integer spin, $s = 1/2, \dots$.
 
-|\subsubsection{The application.}
+\subsubsection{The application.}
 The symmetric and antisymmetrical operator is used to construct boson and fermion subspace from the $n $-particle Hilbert space
 \begin{equation*}
   \mathcal{H}^{\otimes n}  =
