@@ -79,6 +79,29 @@ This representation has the following advantage.
   \item \textbf{Straightforward basis transformation.} Changing the single-particle basis corresponds simply to a unitary transformation of the operators, without modifying the structure of the many-body operator.
 \end{enumerate}
 
+\subsubsection{Derivation: second quantization representation.}
+First consider the action of $\hat{o} ^{1}$ on one-particle basis $\ket{\left\{ 1_\alpha \right\} }$, which we assume as its eigenstate
+\begin{equation*}
+  \hat{o }^{1 }\ket{1_\alpha } =  \omega_\alpha \ket{1_\alpha}
+\end{equation*}
+Recall that the one-particle operator $\hat{O }_1$ is defined as the sum of this operator.
+Hence, its action on this basis is 
+\begin{equation*}
+  \hat{o }_1 =  \sum_{\alpha } \omega_\alpha n_\alpha = \sum_{\alpha } \omega_\alpha a_\alpha ^\dagger a_\alpha
+\end{equation*}
+The one-particle operator is also diagonal in its basis, hence we can write the eigenvalue as the matrix element 
+\begin{equation*}
+  \hat{o }_1 
+  = \sum_{\alpha } \braket{1_\alpha  | \hat{o } ^{1 }| 1_\alpha} a_\alpha ^\dagger a_\alpha
+\end{equation*}
+Transform into arbitrary one-particle basis by using the completeness relations
+\begin{equation*}
+  \hat{o }_1 
+  =\sum_{i,j}  \sum_{\alpha } \braket{1_\alpha  | 1_i} \braket{1_i | \hat{o } ^{1 }|1_j   } \braket{1_j  | 1_\alpha} a_\alpha ^\dagger a_\alpha  
+  =\sum_{i,j}  \sum_{\alpha } \braket{1_i | \hat{o } ^{1 }|1_j   } \delta_{\alpha i} a_\alpha ^\dagger \delta_{\alpha j}a_\alpha  
+\end{equation*}
+The $\alpha$ index collapse, then the representation is obtained.
+
 \subsection{Identical Particle}
 Before imposing indistinguishability, an $N$-particle state is written as
 \begin{equation*}
@@ -89,7 +112,7 @@ If we exchange two slots,
 \begin{equation*}
   \mathcal{T}_{12}|k_1, k_2, \ldots \rangle = |k_2, k_1, \ldots \rangle
 \end{equation*}
-we obtain is a different vector.
+we obtain a different vector.
 
 Indistinguishability implies that the Hamiltonian cannot change if the degrees of freedom of two arbitrary particles $i$ and $j$ are exchanged
 \begin{equation*}
