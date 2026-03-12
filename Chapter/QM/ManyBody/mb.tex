@@ -55,22 +55,22 @@ For a system of $N$ particles with generalized coordinates $\mathbf{x}_i$ a gene
   \hat{O}_1 = \sum_{i } \hat{o } ^{(1)}_{i}(\mathbf{x}_i)
 \end{equation*}
 For a system with many particles, this representation becomes inconvenient because every term must refer to a specific particle coordinate $\mathbf{x_i}$.
-Second quantization introduce 
+Second quantization introduce
 \begin{equation*}
   \hat{O}_1 = \sum_{ij} \langle 1_i | \hat{o } ^{(1)} | 1_j \rangle a_i^\dagger a_j
 \end{equation*}
 with $\ket{\left\{ 1_i \right\}  }$ as one-particle basis whose creation and annihilation operators are related to other of the one-particle basis $\ket{\left\{ 1_j \right\} }$.
-In the position basis, the matrix element can be written as 
+In the position basis, the matrix element can be written as
 \begin{equation*}
-  \langle 1_i|\hat{o } ^{(1)}|1_j\rangle = \int d^3 r d^3 r' u^*_{i}(\mathbf{r}) \langle \mathbf{r}|\hat{o } ^{(1)}|\mathbf{r}'\rangle u_j(\mathbf{r}')
+  \langle 1_i|\hat{o } ^{(1)}|1_j\rangle = \int d^3 \mathbf{r} d^3 \mathbf{r}' u^*_{i}(\mathbf{r}) \langle \mathbf{r}|\hat{o } ^{(1)}|\mathbf{r}'\rangle u_j(\mathbf{r}')
 \end{equation*}
-Assuming the operator $\hat{o} ^{1}$ is local
+Assuming the operator $\hat{o} ^{(1)}$ is local
 \begin{equation*}
- \langle \mathbf{r}|\hat{o}^{(1)}|\mathbf{r}'\rangle  = \hat{o } ^{(1)}(\mathbf{r },\mathbf{p})\delta(\mathbf{r }-\mathbf{r}')
-\end{equation*} 
+  \langle \mathbf{r}|\hat{o}^{(1)}|\mathbf{r}'\rangle  = \hat{o } ^{(1)}(\mathbf{r },\mathbf{p})\delta(\mathbf{r }-\mathbf{r}')
+\end{equation*}
 the matrix elements turns diagonal
 \begin{equation*}
-  \langle 1_i|\hat{o } ^{(1)}|1_j\rangle = \int d^3 r u^*_{i}(\mathbf{r}) \hat{o }^{1}(\mathbf{r},\mathbf{p}) u_j(\mathbf{r}')
+  \langle 1_i|\hat{o } ^{(1)}|1_j\rangle = \int d^3 \mathbf{r} \;u^*_{i}(\mathbf{r}) \hat{o }^{1}(\mathbf{r},\mathbf{p}) u_j(\mathbf{r}')
 \end{equation*}
 
 This representation has the following advantage.
@@ -85,20 +85,20 @@ First consider the action of $\hat{o} ^{1}$ on one-particle basis $\ket{\left\{ 
   \hat{o } ^{(1)}\ket{1_\alpha } =  \omega_\alpha \ket{1_\alpha}
 \end{equation*}
 Recall that the one-particle operator $\hat{O }_1$ is defined as the sum of this operator.
-Hence, its action on this basis is 
+Hence, its action on this basis is
 \begin{equation*}
-  \hat{o }_1 =  \sum_{\alpha } \omega_\alpha n_\alpha = \sum_{\alpha } \omega_\alpha a_\alpha ^\dagger a_\alpha
+  \hat{O }_1 =  \sum_{\alpha } \omega_\alpha n_\alpha = \sum_{\alpha } \omega_\alpha a_\alpha ^\dagger a_\alpha
 \end{equation*}
-The one-particle operator is also diagonal in its basis, hence we can write the eigenvalue as the matrix element 
+The one-particle operator is also diagonal in its basis, hence we can write the eigenvalue as the matrix element
 \begin{equation*}
-  \hat{o }_1 
+  \hat{O }_1
   = \sum_{\alpha } \braket{1_\alpha  | \hat{o } ^{(1)}| 1_\alpha} a_\alpha ^\dagger a_\alpha
 \end{equation*}
 Transform into arbitrary one-particle basis by using the completeness relations
 \begin{equation*}
-  \hat{o }_1 
-  =\sum_{i,j}  \sum_{\alpha } \braket{1_\alpha  | 1_i} \braket{1_i | \hat{o } ^{(1)}|1_j   } \braket{1_j  | 1_\alpha} a_\alpha ^\dagger a_\alpha  
-  =\sum_{i,j}  \sum_{\alpha } \braket{1_i | \hat{o } ^{(1)}|1_j   } \delta_{\alpha i} a_\alpha ^\dagger \delta_{\alpha j}a_\alpha  
+  \hat{o }_1
+  =\sum_{i,j}  \sum_{\alpha } \braket{1_\alpha  | 1_i} \braket{1_i | \hat{o } ^{(1)}|1_j   } \braket{1_j  | 1_\alpha} a_\alpha ^\dagger a_\alpha
+  =\sum_{i,j}  \sum_{\alpha } \braket{1_i | \hat{o } ^{(1)}|1_j   } \delta_{\alpha i} a_\alpha ^\dagger \delta_{\alpha j}a_\alpha
 \end{equation*}
 The $\alpha$ index collapse, then the representation is obtained.
 
@@ -107,46 +107,132 @@ A general two-particle operator is
 \begin{equation*}
   \hat{O }_2 = \sum_{ij } \hat{o }_{ij }^{(2)}
 \end{equation*}
-where the sum runs over all pairs of particles. 
+where the sum runs over all pairs of particles.
 The second quantized act in the abstract two-particle basis
 \begin{equation*}
   \hat{O}_2 = \sum_{i,j,m,n} \braket{1_i 1_j  | \hat{o} ^{(2)}| 1_m 1_n } \hat{a}^\dagger_{i}  \hat{a}^\dagger_{j} a_n a_m
-\end{equation*} 
+\end{equation*}
 Note the reversed order of the indices $n$ and $m$ of the pair of annihilation operators as compared to their order in the matrix elements, which we adopt that due to Fermions antisymmetry.
 This is imposed to enforce that the operator ordering $a_na_m$ exactly removes the particles in states $m$ and $n$ without producing an additional minus sign.
 
-In the position basis, the expression reads 
+In the position basis, the expression reads
 \begin{equation*}
- \hat{O}_2 = \int d^3 r_1 \, d^3 r_1' \, d^3 r_2 \, d^3 r_2' \, \psi^\dagger(\mathbf{r}_1) \psi(\mathbf{r}_1') \langle r_1, r_1' | \hat{o}^{(2)} | r_2, r_2' \rangle \psi(\mathbf{r}_2') \psi(\mathbf{r}_2)
+  \hat{O}_2 = \int d^3 \mathbf{r}_1 \, d^3 \mathbf{r}_1' \, d^3 \mathbf{r}_2 \, d^3 \mathbf{r}_2' \, \psi^\dagger(\mathbf{r}_1) \psi(\mathbf{r}_1') \langle \mathbf{r}_1, \mathbf{r}_1' | \hat{o}^{(2)} | \mathbf{r}_2, \mathbf{r}_2' \rangle \psi(\mathbf{r}_2') \psi(\mathbf{r}_2)
 \end{equation*}
 If $\hat{O }_2$ is diagonal
 \begin{equation*}
-  \langle \mathbf{r}_1, \mathbf{r}_1' | \hat{\mathcal{O}}^{(2)} | \mathbf{r}_2, \mathbf{r}_2' \rangle = \hat{\mathcal{O}}^{(2)}(\mathbf{r}_1, \mathbf{r}_1') \delta(\mathbf{r}_1 - \mathbf{r}_2) \delta(\mathbf{r}_1' - \mathbf{r}_2')
+  \langle \mathbf{r}_1, \mathbf{r}_1' | \hat{O}^{(2)} | \mathbf{r}_2, \mathbf{r}_2' \rangle = \hat{O}^{(2)}(\mathbf{r}_1, \mathbf{r}_1') \delta(\mathbf{r}_1 - \mathbf{r}_2) \delta(\mathbf{r}_1' - \mathbf{r}_2')
 \end{equation*}
-the expression reduces further 
+the expression reduces further
 \begin{equation*}
-  \hat{O}_2 = \int d^3 r d^3 r' \, \psi^\dagger(\mathbf{r}) \psi(\mathbf{r}') \hat{o}^{(2)}(\mathbf{r}, \mathbf{r}') \psi(\mathbf{r}') \psi(\mathbf{r})
+  \hat{O}_2 = \int d^3 \mathbf{r} d^3 \mathbf{r}' \, \psi^\dagger(\mathbf{r}) \psi(\mathbf{r}') \hat{o}^{(2)}(\mathbf{r}, \mathbf{r}') \psi(\mathbf{r}') \psi(\mathbf{r})
 \end{equation*}
 
 Imposing translational invariance $\hat{o}^{(2)}(\mathbf{r}, \mathbf{r}') = \hat{o}^{(2)}(\mathbf{r} - \mathbf{r}')$, we obtain
-\begin{equation*}
-  \hat{O}_2 = \sum_{\mathbf{k}_1 \mathbf{k}_2 \mathbf{q}} \hat{o}^{(2)}(\mathbf{q}) a_{\mathbf{k}_1}^\dagger a_{\mathbf{k}_2}^\dagger a_{\mathbf{k}_2+\mathbf{q}} a_{\mathbf{k}_1-\mathbf{q}} 
-  = \sum_{\mathbf{k}_1 \mathbf{k}_2 \mathbf{q}} \hat{o}^{(2)}(\mathbf{q}) a_{\mathbf{k}_1+\mathbf{q}}^\dagger a_{\mathbf{k}_2-\mathbf{q}}^\dagger a_{\mathbf{k}_2} a_{\mathbf{k}_1}
-\end{equation*}
+\begin{align*}
+  \hat{O}_2
+   & =  \sum_{\mathbf{k}_1 \mathbf{k}_2 } \sum_{\mathbf{q}} \hat{o}^{(2)}(\mathbf{q}) a_{\mathbf{k}_1}^\dagger a_{\mathbf{k}_2}^\dagger a_{\mathbf{k}_2+\mathbf{q}} a_{\mathbf{k}_1-\mathbf{q}} \\
+  \hat{O}_2
+   & = \sum_{\mathbf{k}_1 \mathbf{k}_2 } \sum_{\mathbf{q}} \hat{o}^{(2)}(\mathbf{q}) a_{\mathbf{k}_1+\mathbf{q}}^\dagger a_{\mathbf{k}_2-\mathbf{q}}^\dagger a_{\mathbf{k}_2} a_{\mathbf{k}_1}
+\end{align*}
 where \( \hat{o}^{(2)}(\mathbf{q}) \) is the Fourier transform of \( \hat{o}^{(2)}(\mathbf{r}) \)
 \begin{equation*}
-  O^{(2)}(\mathbf{q}) = \int d^3 r O^{(2)}(\mathbf{r}) e^{-i\mathbf{q} \cdot r}
+  \hat{o}^{(2)}(\mathbf{q}) = \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i\mathbf{q} \cdot r}
+    \begin{cases}
+  \mathbf{q} = \mathbf{k}_1 + \mathbf{k}_1' \\
+   \mathbf{q}= \mathbf{k}_2' - \mathbf{k}_2    
+  \end{cases}
+\end{equation*}
+
+\subsubsection{Derivation: momentum representation.}
+Translational invariance requires that shifting the entire system by a vector $\mathbf{a}$ leaves the interaction unchanged
+\begin{equation*}
+  V(\mathbf{r}_1+\mathbf{a},\mathbf{r}_2+\mathbf{a})=
+  V(\mathbf{r}_1,\mathbf{r}_2)
+\end{equation*}
+The only functions satisfying this condition depend solely on the relative coordinate
+\begin{equation*}
+    V(\mathbf{r}_1,\mathbf{r}_2)
+    =   V(\mathbf{r}_1-\mathbf{r}_2)
+\end{equation*}
+If the interaction is a pair potential depending only on the separation
+\begin{equation*}
+  \langle \mathbf{r}_1,\mathbf{r}_2 | \hat{o}^{(2)} | \mathbf{r}_1', \mathbf{r}_2' \rangle 
+  = \hat{o}^{(2)}(\mathbf{r}_1 - \mathbf{r}_2) \delta(\mathbf{r}_1 - \mathbf{r}_1') \delta(\mathbf{r}_2 - \mathbf{r}_2')
+\end{equation*}
+First we start with
+\begin{equation*}
+  \hat{O}_2 = \sum_{\mathbf{k}_1, \mathbf{k}_2} \sum_{\mathbf{k}_1' \mathbf{k}_2'}  \langle \mathbf{k}_1 \mathbf{k}_2 | \hat{o}^{(2)} | \mathbf{k}_2' \mathbf{k}_1' \rangle a ^\dagger _{\mathbf{k}_1} a ^\dagger _{\mathbf{k}_2 } a _{\mathbf{k}_2'} a _{\mathbf{k}_1'}
+\end{equation*}
+The element can be evaluated as
+\begin{multline*}
+  \langle \mathbf{k}_1 \mathbf{k}_2 | \hat{o}^{(2)} | \mathbf{k}_1' \mathbf{k}_2' \rangle \\
+  = \int d^3 \mathbf{r}_1\; d^3 \mathbf{r}_2\; d^3 \mathbf{r}_{1}'\; d^3 \mathbf{r}_{2}'\; \langle \mathbf{k}_1 \mathbf{k}_2 | \mathbf{r}_1, \mathbf{r}_2 \rangle \langle \mathbf{r}_1, \mathbf{r}_2 | \hat{o}^{(2)} | \mathbf{r}_1', \mathbf{r}_2'\rangle\langle \mathbf{r}_1',\mathbf{r}_2' | \mathbf{k}_1' \mathbf{k}_2' \rangle
+\end{multline*}
+Then the integral reduces
+\begin{multline*}
+  \langle \mathbf{k}_1 \mathbf{k}_2 | \hat{o}^{(2)} | \mathbf{k}_1' \mathbf{k}_2' \rangle \\
+  = \int d^3 \mathbf{r}_1\; d^3 \mathbf{r}_2\; \langle \mathbf{k}_1 \mathbf{k}_2 | \mathbf{r}_1, \mathbf{r}_2 \rangle \langle \mathbf{r}_1, \mathbf{r}_2 | \hat{o}^{(2)} | \mathbf{r}_1, \mathbf{r}_2\rangle\langle \mathbf{r}_1,\mathbf{r}_2 | \mathbf{k}_1' \mathbf{k}_2' \rangle
+\end{multline*}
+In this composite state,  the plane wave representation reads as
+\begin{equation*}
+  \langle \mathbf{r}_1,\mathbf{r}_2 | \mathbf{k}_1 \mathbf{k}_2 \rangle
+  = \frac{1 }{\sqrt{V}}  e ^{i(\mathbf{k}_1 \cdot  \mathbf{r}_1)+\mathbf{k}_2 \cdot  \mathbf{r}_2}
+\end{equation*}
+Substituting back
+\begin{equation*}
+  \frac{1}{V} \int d^3 \mathbf{r}_1 d^3 \mathbf{r}_2 \mathcal{o}^{(2)}(\mathbf{r}_1 -\mathbf{r}_2) e^{-i(\mathbf{k}_1 - \mathbf{k}_1') \cdot \mathbf{r}_1} e^{-i(\mathbf{k}_2 -\mathbf{k}_2') \cdot \mathbf{r}_2}
+\end{equation*}
+Introduce new coordinates
+\begin{equation*}
+  \begin{cases}
+    \mathbf{R }=\mathbf{r }_1 +\mathbf{r}_2 \\
+    \mathbf{r }=\mathbf{r }_1 -\mathbf{r}_2
+  \end{cases}
+  \qquad
+  \text{or}
+  \qquad
+  \begin{cases}
+    \mathbf{r}_1=\mathbf{R } +\mathbf{r} \\
+    \mathbf{r}_2=\mathbf{R } -\mathbf{r}
+  \end{cases}
+\end{equation*}
+Rewrite the exponent as
+\begin{align*}
+    (\mathbf{k}_1 - \mathbf{k}_1') \cdot \mathbf{r}_1 + (\mathbf{k}_2 - \mathbf{k}_2') \cdot \mathbf{r}_2 
+    & =  (\mathbf{k}_1 + \mathbf{k}_2 - \mathbf{k}_1' - \mathbf{k}_2') \cdot \mathbf{R }\\
+    & \qquad+ \left[ (\mathbf{k}_1 - \mathbf{k}_1') - (\mathbf{k}_2 - \mathbf{k}_2') \right]\cdot \mathbf{r}\\
+    (\mathbf{k}_1 - \mathbf{k}_1') \cdot \mathbf{r}_1 + (\mathbf{k}_2 - \mathbf{k}_2') \cdot \mathbf{r}_2 
+    & = \mathbf{p }\cdot \mathbf{R }+ \mathbf{q }\cdot \mathbf{r}
+\end{align*}
+such that the integral separates
+\begin{align*}
+  \langle \mathbf{k}_1 \mathbf{k}_2 | \hat{o}^{(2)} | \mathbf{k}_1' \mathbf{k}_2' \rangle
+ & = \frac{1 }{V}  \int d^3 R \; e^{-i \mathbf{p}\cdot \mathbf{R}} \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}} \\
+  \langle \mathbf{k}_1 \mathbf{k}_2 | \hat{o}^{(2)} | \mathbf{k}_1' \mathbf{k}_2' \rangle
+  & =  \delta (\mathbf{p}) \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}}
+\end{align*}
+The delta function enforce $\mathbf{k }_1+\mathbf{k }_2=\mathbf{k }_1'+\mathbf{k }_2'$, so the definition of $\mathbf{q}$ simplifies and the integral reads 
+\begin{equation*}
+    \langle \mathbf{k}_1 \mathbf{k}_2 | \hat{o}^{(2)} | \mathbf{k}_1' \mathbf{k}_2' \rangle
+  =
+\int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i \mathbf{q} \cdot \mathbf{r}}  
+  \qquad
+  \begin{cases}
+  \mathbf{q} = \mathbf{k}_1 +\mathbf{k}_1' \\
+   \mathbf{q}= \mathbf{k}_2' - \mathbf{k}_2    
+  \end{cases}
 \end{equation*}
 
 \subsection{Identical Particle}
 Before imposing indistinguishability, an $N$-particle state is written as
 \begin{equation*}
-  |k_1, k_2, \ldots, k_N\rangle = |k_1\rangle \otimes \ldots \otimes |k_N\rangle
+  |\mathbf{k}_1, \mathbf{k}_2, \ldots, \mathbf{k}_N\rangle = |\mathbf{k}_1\rangle \otimes \ldots \otimes |\mathbf{k}_N\rangle
 \end{equation*}
 This state is not symmetric in general.
 If we exchange two slots,
 \begin{equation*}
-  \mathcal{T}_{12}|k_1, k_2, \ldots \rangle = |k_2, k_1, \ldots \rangle
+  \mathcal{T}_{12}|\mathbf{k}_1, \mathbf{k}_2, \ldots \rangle = |\mathbf{k}_2, \mathbf{k}_1, \ldots \rangle
 \end{equation*}
 we obtain a different vector.
 
@@ -468,7 +554,7 @@ The quantum Hamiltonian of $N$ identical interacting particles is given by
 where $\hat{h}$ is the single-particle Hamiltonian and $V(x_i, x_j)$ is the inter-particle potential of the mutual interaction.
 In the case of non-relativistic quantum mechanics of $N$ electrons bound to a nucleus of charge $+Ze$, the Hamiltonian reads
 \begin{equation*}
-  \hat{H} = \sum_{i=1}^{N} \left( -\frac{\hbar^2}{2m} \nabla_i^2 - \frac{Ze^2}{4\pi \epsilon_0 r_i} \right) + \sum_{i<j} \frac{e^2}{4\pi\epsilon_0 |r_i - r_j|}
+  \hat{H} = \sum_{i=1}^{N} \left( -\frac{\hbar^2}{2m} \nabla_i^2 - \frac{Ze^2}{4\pi \epsilon_0 r_i} \right) + \sum_{i<j} \frac{e^2}{4\pi\epsilon_0 |\mathbf{r}_i - \mathbf{r}_j|}
 \end{equation*}
 The single particle Hamiltonian consist of the kinetic energy of electron $i$ and Coulomb attraction between that electron and the nucleus.
 The inter-particle Hamiltonian represents the Coulomb repulsion between pairs of electrons.
@@ -568,7 +654,7 @@ Then one finds
 \subsection{Hartree for Bosons}
 Hartree method assumes the total wavefunction is a simple product of single-particle orbitals
 \begin{equation*}
-  \Psi(\mathbf{r}_1, \ldots, r_N) = \prod_{i=1}^{N} \phi(\mathbf{r}_i)
+  \Psi(\mathbf{r}_1, \ldots, \mathbf{r}_N) = \prod_{i=1}^{N} \phi(\mathbf{r}_i)
 \end{equation*}
 where the single-particle wavefunction $\phi(x)$ is unknown.
 In the variational spirit of the Hartree approach the unknown wavefunction $\phi(x)$ is determined by minimizing the expectation value of the total Hamiltonian, given by
@@ -584,26 +670,26 @@ In fact, by using $\hat{H }=\hat{H}_0+\hat{H }_I$ one finds the single-orbital H
 
 This functional is to be minimized with the normalization constraint to obtain the Hartree equation
 \begin{equation*}
-    \left[   \hat{h }(x  )+   U_\text{mf }\right] \phi(x)    = \epsilon\phi(x)  
+  \left[   \hat{h }(x  )+   U_\text{mf }\right] \phi(x)    = \epsilon\phi(x)
 \end{equation*}
-where $U_\text{mf}$ is the mean-field potential 
+where $U_\text{mf}$ is the mean-field potential
 \begin{equation*}
-   U_\text{mf}=
-   (N-1)\int dx' \;V(x,x') |\phi(x')|^2 
+  U_\text{mf}=
+  (N-1)\int dx' \;V(x,x') |\phi(x')|^2
 \end{equation*}
 
 The algorithm of this method are as follows.
 \begin{enumerate}
   \item \textbf{Initial guess.} Following the variational principle, choose initial guess for normalized orbital $\phi ^{(0)}(x)$.
   \item \textbf{Construct the mean-field.} Using previous orbital, construct the following potential
-\begin{equation*}
-   U_\text{mf} ^{(n)}=
-   (N-1)\int dx' \;V(x,x') |\phi(x') ^{(n)}|^2 
-\end{equation*}  
+        \begin{equation*}
+          U_\text{mf} ^{(n)}=
+          (N-1)\int dx' \;V(x,x') |\phi(x') ^{(n)}|^2
+        \end{equation*}
   \item \textbf{Solve Hartree equation.} Solve the Hartree equation to obtain next iteration of orbital $\phi ^{(1)}(x)$
-  \begin{equation*}
-    \left[   \hat{h }(x  )+   U_\text{mf } ^{(n)}\right] \phi(x)^{(n+1)}    = \epsilon ^{(n+1)}\phi(x)  ^{(n+1)}
-\end{equation*}
+        \begin{equation*}
+          \left[   \hat{h }(x  )+   U_\text{mf } ^{(n)}\right] \phi(x)^{(n+1)}    = \epsilon ^{(n+1)}\phi(x)  ^{(n+1)}
+        \end{equation*}
   \item \textbf{Repeat.} Use the new orbital to recompute the density and the potential, then repeat until the change between successive orbitals becomes negligible $\phi ^{(n+1)}(x)\approx \phi((n))(x)$.
 \end{enumerate}
 
@@ -668,7 +754,7 @@ Minimizing with respect to $\phi$ yields
 \begin{equation*}
   \delta{F} = N \int dx \; \delta \phi^{*} (x)\hat{h}(x) \phi(x) + \lambda \int  d x \; \delta\phi^{*} \phi(x)=0
 \end{equation*}
-For arbitrary variational $\delta\phi$, in order to make sure that the integral is zero is that the other integrand factor is zero, thus 
+For arbitrary variational $\delta\phi$, in order to make sure that the integral is zero is that the other integrand factor is zero, thus
 \begin{equation*}
   N \hat{h }(x  )\phi(x)+\lambda\phi(x)=0
 \end{equation*}
@@ -688,11 +774,11 @@ Repeating the same argument (now with the constraint included)
   N (N-1)\int dx' \;   \phi(x)V(x,x') |\phi(x')|^2  +\lambda\phi(x)=0
 \end{equation*}
 
-Recall that both term are to be constrained with the same function, so the result is simply 
+Recall that both term are to be constrained with the same function, so the result is simply
 \begin{align*}
-    \left(   N \hat{h }(x  )+   N (N-1)\int dx' \;V(x,x') |\phi(x')|^2 \right) \phi(x)
-    +\lambda\phi(x) & = 0\\
-    \left(   \hat{h }(x  )+   (N-1)\int dx' \;V(x,x') |\phi(x')|^2 \right) \phi(x)    & = \epsilon\phi(x)
+  \left(   N \hat{h }(x  )+   N (N-1)\int dx' \;V(x,x') |\phi(x')|^2 \right) \phi(x)
+  +\lambda\phi(x)                                                                & = 0               \\
+  \left(   \hat{h }(x  )+   (N-1)\int dx' \;V(x,x') |\phi(x')|^2 \right) \phi(x) & = \epsilon\phi(x)
 \end{align*}
 where the second term is the mean-field potential.
 
