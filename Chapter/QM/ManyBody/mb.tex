@@ -50,39 +50,39 @@ Techniques such as Hartree–Fock, density functional theory, or Fermi liquid th
 
 \subsection{One-particle Operator}
 A one-particle operator  is an operator acting independently on each particle in a many-particle system.
-For a system of $N$ particles with generalized coordinates $\mathbf{x}_i$ a general one-particle operator $\hat{O}_1$ has the form of sum over operators $\hat{o}^1$, which acts on one particle
+For a system of $N$ particles with generalized coordinates $\mathbf{x}_i$ a general one-particle operator $\hat{O}_1$ has the form of sum over operators $\hat{o } ^{(1)}$, which acts on one particle
 \begin{equation*}
-  \hat{O}_1 = \sum_{i } \hat{o}^1_{i}(\mathbf{x}_i)
+  \hat{O}_1 = \sum_{i } \hat{o } ^{(1)}_{i}(\mathbf{x}_i)
 \end{equation*}
 For a system with many particles, this representation becomes inconvenient because every term must refer to a specific particle coordinate $\mathbf{x_i}$.
 Second quantization introduce 
 \begin{equation*}
-  \hat{O}_1 = \sum_{ij} \langle 1_i | \hat{o}^1 | 1_j \rangle a_i^\dagger a_j
+  \hat{O}_1 = \sum_{ij} \langle 1_i | \hat{o } ^{(1)} | 1_j \rangle a_i^\dagger a_j
 \end{equation*}
 with $\ket{\left\{ 1_i \right\}  }$ as one-particle basis whose creation and annihilation operators are related to other of the one-particle basis $\ket{\left\{ 1_j \right\} }$.
 In the position basis, the matrix element can be written as 
 \begin{equation*}
-  \langle 1_i|\hat{o}^1|1_j\rangle = \int d^3 r d^3 r' u^*_{i}(\mathbf{r}) \langle \mathbf{r}|\hat{o}^1|\mathbf{r}'\rangle u_j(\mathbf{r}')
+  \langle 1_i|\hat{o } ^{(1)}|1_j\rangle = \int d^3 r d^3 r' u^*_{i}(\mathbf{r}) \langle \mathbf{r}|\hat{o } ^{(1)}|\mathbf{r}'\rangle u_j(\mathbf{r}')
 \end{equation*}
 Assuming the operator $\hat{o} ^{1}$ is local
 \begin{equation*}
- \langle \mathbf{r}|\hat{o}^1|\mathbf{r}'\rangle  = \hat{o } ^{1 }(\mathbf{r },\mathbf{p})\delta(\mathbf{r }-\mathbf{r}')
+ \langle \mathbf{r}|\hat{o}^{(1)}|\mathbf{r}'\rangle  = \hat{o } ^{(1)}(\mathbf{r },\mathbf{p})\delta(\mathbf{r }-\mathbf{r}')
 \end{equation*} 
 the matrix elements turns diagonal
 \begin{equation*}
-  \langle 1_i|\hat{o}^1|1_j\rangle = \int d^3 r u^*_{i}(\mathbf{r}) \hat{o }^{1}(\mathbf{r},\mathbf{p}) u_j(\mathbf{r}')
+  \langle 1_i|\hat{o } ^{(1)}|1_j\rangle = \int d^3 r u^*_{i}(\mathbf{r}) \hat{o }^{1}(\mathbf{r},\mathbf{p}) u_j(\mathbf{r}')
 \end{equation*}
 
 This representation has the following advantage.
 \begin{enumerate}
   \item \textbf{Number particle independence.} The indices $(i,j)$ label single-particle basis states, computations are therefore performed in the space of orbitals. Consequently the complexity is controlled by the size of the one-particle basis rather than by the dimensionality of the $N$-particle wavefunction.
-  \item \textbf{Straightforward basis transformation.} Changing the single-particle basis corresponds simply to a unitary transformation of the operators, without modifying the structure of the many-body operator.
+  \item \textbf{Straightforward basis transformation.} Changing the single-particle basis corresponds simply to a unitary transformation of the operators.
 \end{enumerate}
 
 \subsubsection{Derivation: second quantization representation.}
 First consider the action of $\hat{o} ^{1}$ on one-particle basis $\ket{\left\{ 1_\alpha \right\} }$, which we assume as its eigenstate
 \begin{equation*}
-  \hat{o }^{1 }\ket{1_\alpha } =  \omega_\alpha \ket{1_\alpha}
+  \hat{o } ^{(1)}\ket{1_\alpha } =  \omega_\alpha \ket{1_\alpha}
 \end{equation*}
 Recall that the one-particle operator $\hat{O }_1$ is defined as the sum of this operator.
 Hence, its action on this basis is 
@@ -92,15 +92,51 @@ Hence, its action on this basis is
 The one-particle operator is also diagonal in its basis, hence we can write the eigenvalue as the matrix element 
 \begin{equation*}
   \hat{o }_1 
-  = \sum_{\alpha } \braket{1_\alpha  | \hat{o } ^{1 }| 1_\alpha} a_\alpha ^\dagger a_\alpha
+  = \sum_{\alpha } \braket{1_\alpha  | \hat{o } ^{(1)}| 1_\alpha} a_\alpha ^\dagger a_\alpha
 \end{equation*}
 Transform into arbitrary one-particle basis by using the completeness relations
 \begin{equation*}
   \hat{o }_1 
-  =\sum_{i,j}  \sum_{\alpha } \braket{1_\alpha  | 1_i} \braket{1_i | \hat{o } ^{1 }|1_j   } \braket{1_j  | 1_\alpha} a_\alpha ^\dagger a_\alpha  
-  =\sum_{i,j}  \sum_{\alpha } \braket{1_i | \hat{o } ^{1 }|1_j   } \delta_{\alpha i} a_\alpha ^\dagger \delta_{\alpha j}a_\alpha  
+  =\sum_{i,j}  \sum_{\alpha } \braket{1_\alpha  | 1_i} \braket{1_i | \hat{o } ^{(1)}|1_j   } \braket{1_j  | 1_\alpha} a_\alpha ^\dagger a_\alpha  
+  =\sum_{i,j}  \sum_{\alpha } \braket{1_i | \hat{o } ^{(1)}|1_j   } \delta_{\alpha i} a_\alpha ^\dagger \delta_{\alpha j}a_\alpha  
 \end{equation*}
 The $\alpha$ index collapse, then the representation is obtained.
+
+\subsection{Two-particle operator}
+A general two-particle operator is
+\begin{equation*}
+  \hat{O }_2 = \sum_{ij } \hat{o }_{ij }^{(2)}
+\end{equation*}
+where the sum runs over all pairs of particles. 
+The second quantized act in the abstract two-particle basis
+\begin{equation*}
+  \hat{O}_2 = \sum_{i,j,m,n} \braket{1_i 1_j  | \hat{o} ^{(2)}| 1_m 1_n } \hat{a}^\dagger_{i}  \hat{a}^\dagger_{j} a_n a_m
+\end{equation*} 
+Note the reversed order of the indices $n$ and $m$ of the pair of annihilation operators as compared to their order in the matrix elements, which we adopt that due to Fermions antisymmetry.
+This is imposed to enforce that the operator ordering $a_na_m$ exactly removes the particles in states $m$ and $n$ without producing an additional minus sign.
+
+In the position basis, the expression reads 
+\begin{equation*}
+ \hat{O}_2 = \int d^3 r_1 \, d^3 r_1' \, d^3 r_2 \, d^3 r_2' \, \psi^\dagger(\mathbf{r}_1) \psi(\mathbf{r}_1') \langle r_1, r_1' | \hat{o}^{(2)} | r_2, r_2' \rangle \psi(\mathbf{r}_2') \psi(\mathbf{r}_2)
+\end{equation*}
+If $\hat{O }_2$ is diagonal
+\begin{equation*}
+  \langle \mathbf{r}_1, \mathbf{r}_1' | \hat{\mathcal{O}}^{(2)} | \mathbf{r}_2, \mathbf{r}_2' \rangle = \hat{\mathcal{O}}^{(2)}(\mathbf{r}_1, \mathbf{r}_1') \delta(\mathbf{r}_1 - \mathbf{r}_2) \delta(\mathbf{r}_1' - \mathbf{r}_2')
+\end{equation*}
+the expression reduces further 
+\begin{equation*}
+  \hat{O}_2 = \int d^3 r d^3 r' \, \psi^\dagger(\mathbf{r}) \psi(\mathbf{r}') \hat{o}^{(2)}(\mathbf{r}, \mathbf{r}') \psi(\mathbf{r}') \psi(\mathbf{r})
+\end{equation*}
+
+Imposing translational invariance $\hat{o}^{(2)}(\mathbf{r}, \mathbf{r}') = \hat{o}^{(2)}(\mathbf{r} - \mathbf{r}')$, we obtain
+\begin{equation*}
+  \hat{O}_2 = \sum_{\mathbf{k}_1 \mathbf{k}_2 \mathbf{q}} \hat{o}^{(2)}(\mathbf{q}) a_{\mathbf{k}_1}^\dagger a_{\mathbf{k}_2}^\dagger a_{\mathbf{k}_2+\mathbf{q}} a_{\mathbf{k}_1-\mathbf{q}} 
+  = \sum_{\mathbf{k}_1 \mathbf{k}_2 \mathbf{q}} \hat{o}^{(2)}(\mathbf{q}) a_{\mathbf{k}_1+\mathbf{q}}^\dagger a_{\mathbf{k}_2-\mathbf{q}}^\dagger a_{\mathbf{k}_2} a_{\mathbf{k}_1}
+\end{equation*}
+where \( \hat{o}^{(2)}(\mathbf{q}) \) is the Fourier transform of \( \hat{o}^{(2)}(\mathbf{r}) \)
+\begin{equation*}
+  O^{(2)}(\mathbf{q}) = \int d^3 r O^{(2)}(\mathbf{r}) e^{-i\mathbf{q} \cdot r}
+\end{equation*}
 
 \subsection{Identical Particle}
 Before imposing indistinguishability, an $N$-particle state is written as
@@ -303,9 +339,9 @@ The quantum Hamiltonian of \( N \) identical non-interacting particles is given 
 where \( \hat{h}(x) \) is the single-particle Hamiltonian.
 Usually the single-particle Hamiltonian is given by
 \begin{equation*}
-  \hat{h}(x) = -\frac{\hbar^2}{2m} \nabla^2 + U(r)
+  \hat{h}(x) = -\frac{\hbar^2}{2m} \nabla^2 + U(\mathbf{r})
 \end{equation*}
-with \( U(r) \) the external confining potential.
+with \( U(\mathbf{r}) \) the external confining potential.
 In general the single-particle Hamiltonian \( \hat{h} \) satisfies the eigenvalue equation
 \begin{equation*}
   \hat{h}(x) \phi_n(x) = \epsilon_n \phi_n(x)
@@ -453,15 +489,15 @@ Despite that, the model predicts correctly the following results.
 \begin{enumerate}
   \item \textbf{Electrons occupy discrete orbitals.} The wavefunction satisfy
         \begin{equation*}
-          \hat{h}(\mathbf{r }) \phi_{nlm_lm_s}(r,\sigma) = \epsilon_{n}(Z) \phi_{nlm_lm_{s}}(\mathbf{r},\sigma)
+          \hat{h}(\mathbf{r }) \phi_{nlm_lm_s}(\mathbf{r},\sigma) = \epsilon_{n}(Z) \phi_{nlm_lm_{s}}(\mathbf{r},\sigma)
         \end{equation*}
         where the wavefunction factorizes into
         \begin{equation*}
-          \phi_{nlm_lm_{s}}(\mathbf{r},\sigma) = R_{nl}(r) Y_{l}^{m_l}(\theta, \phi)\chi_{\sigma}
+          \phi_{nlm_lm_{s}}(\mathbf{r},\sigma) = R_{nl}(\mathbf{r}) Y_{l}^{m_l}(\theta, \phi)\chi_{\sigma}
         \end{equation*}
         The spatial part consist of radial
         \begin{multline*}
-          R_{nl }^{(Z)}(r) = \sqrt{ \left( \frac{2Z}{na_0} \right)^{3} \frac{(n - l  - 1)!}{2n[(n + l )!]} } e^{-Zr/(na_0)} \\ \times\left( \frac{2Zr}{na_0} \right)^{l } L_{n}^{2l  + 1 - n - l  - 1} \left( \frac{2Zr}{na_0} \right)
+          R_{nl }^{(Z)}(\mathbf{r}) = \sqrt{ \left( \frac{2Z}{na_0} \right)^{3} \frac{(n - l  - 1)!}{2n[(n + l )!]} } e^{-Zr/(na_0)} \\ \times\left( \frac{2Zr}{na_0} \right)^{l } L_{n}^{2l  + 1 - n - l  - 1} \left( \frac{2Zr}{na_0} \right)
         \end{multline*}
         and angular wavefunction
         \begin{equation*}
@@ -532,7 +568,7 @@ Then one finds
 \subsection{Hartree for Bosons}
 Hartree method assumes the total wavefunction is a simple product of single-particle orbitals
 \begin{equation*}
-  \Psi(r_1, \ldots, r_N) = \prod_{i=1}^{N} \phi(r_i)
+  \Psi(\mathbf{r}_1, \ldots, r_N) = \prod_{i=1}^{N} \phi(\mathbf{r}_i)
 \end{equation*}
 where the single-particle wavefunction $\phi(x)$ is unknown.
 In the variational spirit of the Hartree approach the unknown wavefunction $\phi(x)$ is determined by minimizing the expectation value of the total Hamiltonian, given by
