@@ -48,6 +48,37 @@ Solid-state theory arises when the many-body system satisfies essential conditio
 The many-body problem is then approximated by quasiparticles (electrons, phonons, magnons) moving in effective potentials.
 Techniques such as Hartree–Fock, density functional theory, or Fermi liquid theory implement this reduction.
 
+\subsection{One-particle Operator}
+A one-particle operator  is an operator acting independently on each particle in a many-particle system.
+For a system of $N$ particles with generalized coordinates $\mathbf{x}_i$ a general one-particle operator $\hat{O}_1$ has the form of sum over operators $\hat{o}^1$, which acts on one particle
+\begin{equation*}
+  \hat{O}_1 = \sum_{i } \hat{o}^1_{i}(\mathbf{x}_i)
+\end{equation*}
+For a system with many particles, this representation becomes inconvenient because every term must refer to a specific particle coordinate $\mathbf{x_i}$.
+Second quantization introduce 
+\begin{equation*}
+  \hat{O}_1 = \sum_{ij} \langle 1_i | \hat{o}^1 | 1_j \rangle a_i^\dagger a_j
+\end{equation*}
+with $\ket{\left\{ 1_i \right\}  }$ as one-particle basis whose creation and annihilation operators are related to other of the one-particle basis $\ket{\left\{ 1_j \right\} }$.
+In the position basis, the matrix element can be written as 
+\begin{equation*}
+  \langle 1_i|\hat{o}^1|1_j\rangle = \int d^3 r d^3 r' u^*_{i}(\mathbf{r}) \langle \mathbf{r}|\hat{o}^1|\mathbf{r}'\rangle u_j(\mathbf{r}')
+\end{equation*}
+Assuming the operator $\hat{o} ^{1}$ is local
+\begin{equation*}
+ \langle \mathbf{r}|\hat{o}^1|\mathbf{r}'\rangle  = \hat{o } ^{1 }(\mathbf{r },\mathbf{p})\delta(\mathbf{r }-\mathbf{r}')
+\end{equation*} 
+the matrix elements turns diagonal
+\begin{equation*}
+  \langle 1_i|\hat{o}^1|1_j\rangle = \int d^3 r u^*_{i}(\mathbf{r}) \hat{o }^{1}(\mathbf{r},\mathbf{p}) u_j(\mathbf{r}')
+\end{equation*}
+
+This representation has the following advantage.
+\begin{enumerate}
+  \item \textbf{Number particle independence.} The indices $(i,j)$ label single-particle basis states, computations are therefore performed in the space of orbitals. Consequently the complexity is controlled by the size of the one-particle basis rather than by the dimensionality of the $N$-particle wavefunction.
+  \item \textbf{Straightforward basis transformation.} Changing the single-particle basis corresponds simply to a unitary transformation of the operators, without modifying the structure of the many-body operator.
+\end{enumerate}
+
 \subsection{Identical Particle}
 Before imposing indistinguishability, an $N$-particle state is written as
 \begin{equation*}
