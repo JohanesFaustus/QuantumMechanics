@@ -465,7 +465,7 @@ multiplying both gives the minimum uncertainty.
 The quantum field operators  annihilate and create, respectively, a particle at position $\mathbf{r}$
 \begin{equation*}
   \psi^{\dagger}(\mathbf{r})|0\rangle = |r\rangle
-  \psi(\mathbf{r})|r'\rangle = \delta(r - r')|0\rangle
+  \psi(\mathbf{r})|r'\rangle = \delta(\mathbf{r} - \mathbf{r}')|0\rangle
 \end{equation*}
 The field operator defined as transformation from single particle basis into position basis of the annihilation and creation operator
 \begin{align*}
@@ -478,6 +478,11 @@ Meanwhile, the inverse transformation are
   a_{\alpha}           & =  \int d^3 r \; \langle 1_{\alpha} | \mathbf{r} \rangle \psi_{\sigma} (\mathbf{r}) = \int d^3 r \, u_{\alpha}^{*} (\mathbf{r}) \psi (\mathbf{r})       \\
   a_{\alpha}^{\dagger} & =  \int d^3 r \; \langle\mathbf{r} | 1_{\alpha} \rangle \psi^{\dagger} (\mathbf{r}) = \int d^3 r \, u_{\alpha} (\mathbf{r}) \psi^{\dagger} (\mathbf{r})
 \end{align*}
+
+The field operators obey similar commutator relation as the creation and annihilation counterpart
+\begin{equation*}
+ [\psi(\mathbf{r }), \psi^{\dagger}(\mathbf{r}')] = \delta(\mathbf{r }-\mathbf{r}') 
+\end{equation*}
 
 As with the case of number operator for annihilation and creation, the number of particle in a volume $V$ is
 \begin{equation*}
@@ -498,7 +503,7 @@ and its inverse
   \psi^{\dagger}(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{-i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}^{\dagger}
 \end{equation*}
 
-\subsubsection{Derivation: quantum field operator}
+\subsubsection{Derivation: field operator transformation}
 Start with basis transform of two orthonormal basis
 \begin{equation*}
   \ket{1_\alpha} = \sum_{i} \ket{1_i  }\braket{1_i  | 1_\alpha}
@@ -523,9 +528,9 @@ Using the transformation into position basis
 \end{equation*}
 The inverse transformation can be obtained by $\langle 1_\alpha | \mathbf{r} \rangle$ and integrate over $\mathbf{r}$
 \begin{align*}
-  \int d^3 r \; \langle 1_\alpha | \mathbf{r} \rangle \psi(r)
+  \int d^3 r \; \langle 1_\alpha | \mathbf{r} \rangle \psi(\mathbf{r})
    & =  \int d^3 r \, \sum_\beta \braket{1_\alpha  | \mathbf{r}}\langle \mathbf{r} | 1_\beta \rangle  a_\beta \\
-  \int d^3 r \; \langle 1_\alpha | \mathbf{r} \rangle \psi(r)
+  \int d^3 r \; \langle 1_\alpha | \mathbf{r} \rangle \psi(\mathbf{r})
    & =  \sum_\beta a_\beta \langle 1_\alpha | 1_\beta \rangle
   = \sum_\beta a_\beta \delta_{\alpha \beta}
   = a_\alpha
@@ -534,13 +539,24 @@ The inverse transformation can be obtained by $\langle 1_\alpha | \mathbf{r} \ra
 For the case of free particle in a box, it is convenient to work in momentum eigenstate, defined as
 \begin{equation*}
   \mathbf{p } \ket{\mathbf{p }} = \mathbf{k } | \mathbf{k} \rangle\qquad
-  \sum_{k} | k \rangle \langle k | = \mathbf{1} \qquad
-  \langle k | k' \rangle = \delta_{kk'}
+  \sum_{\mathbf{k}} | \mathbf{k} \rangle \langle \mathbf{k} | = \mathbf{1} \qquad
+  \langle \mathbf{k} | \mathbf{k}' \rangle = \delta_{\mathbf{k}\mathbf{k}'}
 \end{equation*}
 The wavefunction in position representation is $\braket{\mathbf{r }|\mathbf{k }  } = e ^{i \mathbf{k }\cdot \mathbf{r}}$, so that the transformation and its inverse 1reads
 \begin{equation*}
   a_\mathbf{k} = \int d^3 r \, e^{-i \mathbf{k} \cdot \mathbf{r}} \psi(\mathbf{r})\qquad
   \psi(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}
 \end{equation*}
+
+\subsubsection{Derivation: field operator commutator relation}
+We use the annihilation and creation transformation to derive the relation
+\begin{align*}
+  [\psi(\mathbf{r}), \psi^{\dagger}(\mathbf{r}')] 
+  & =  \left[ \sum_{\alpha} u_{\alpha}(\mathbf{r})a_{\alpha}, \sum_{\beta} u_{\beta}^{*}(\mathbf{r}')a_{\beta}^{\dagger} \right] \\
+  & = \sum_{\alpha \beta} u_{\alpha}(\mathbf{r})u_{\beta}^{*}(\mathbf{r}')\left[a_{\alpha}, a_{\beta}^{\dagger}\right]\\
+  & = \sum_{\alpha \beta} u_{\alpha}(\mathbf{r})u_{\beta}^{*}(\mathbf{r}')\delta_{\alpha \beta} \\
+  & = \sum_{\alpha } u_{\alpha}(\mathbf{r})u_{\alpha}^{*}(\mathbf{r}') \\
+  [\psi(\mathbf{r}), \psi^{\dagger}(\mathbf{r}')] 
+  & = \sum_{\alpha } \braket{\mathbf{r }  | 1_\alpha }\braket{1_\alpha  | \mathbf{r}} = \delta (\mathbf{r }-\mathbf{r})
+\end{align*}
 \end{document}
-% TODO: derive the diagonal quadratic hamiltonian using bogiubov transformation
