@@ -36,25 +36,35 @@ The follow-up is as follows
    & =  n_{\mathbf{k}s} | \cdots n_{\mathbf{k}s} \cdots \rangle
 \end{align*}
 
-We can also prove the relation
+\subsubsection{Bogoliubov transformation.}
+The Bogoliubov transformation is to diagonalize quadratic Hamiltonian that mix creation and annihilation operators.
+The general quadratic form for boson can be written as
 \begin{equation*}
-  \sqrt{n! }  \ket{0 }= \left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^n \ket{0}
+  H = \sum_\mathbf{k} \left( A_\mathbf{k} a_\mathbf{k}^{\dagger} a_\mathbf{k} + \frac{1}{2} B_\mathbf{k} a_\mathbf{k}^{\dagger} a_{-\mathbf{k}} + \frac{1}{2} B_\mathbf{k}^* a_{-\mathbf{k}}^{\dagger} a_\mathbf{k} \right) 
 \end{equation*}
-using induction.
-For the base case, we use $n=0$, which according to the hypothesis
+We introduce the Bogoliubov transformation for boson
 \begin{equation*}
-  \left( \hat{a}^\dagger_{\mathbf{k }s}  \right) ^0 \ket{0 }=0! \ket{0}
+b_\mathbf{k} = u_\mathbf{k}a_\mathbf{k} + v_\mathbf{k}a^{\dagger}_\mathbf{k}
 \end{equation*}
-is true.
-Then for the $n+1$
+which satisfy $|u_\mathbf{k}|^2 - |v_\mathbf{k}|^2 = 1$.
+The Hamiltonian become diagonal in this transformation
 \begin{equation*}
-  \left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^{n+1 }\ket{0 }=\hat{a}^\dagger_{\mathbf{k }s}  \left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^n \ket{0 }
+  H = \sum_\mathbf{k} E_\mathbf{k} \left( b_\mathbf{k}^\dagger b_\mathbf{k} + \frac{1}{2} \right) - \frac{1}{2} \sum_\mathbf{k} A_\mathbf{k}
 \end{equation*}
-On using the hypothesis
+
+For fermions the quadratic Hamiltonian with pairing terms has the form
 \begin{equation*}
-  \hat{a}^\dagger_{\mathbf{k }s} \sqrt{n_{\mathbf{k }s}! } \ket{n_{\mathbf{k }s} }\sqrt{n_{\mathbf{k }s}! }\sqrt{n_{\mathbf{k }s}+1}\ket{n_{\mathbf{k }s}+1}= \sqrt{(n_{\mathbf{k }s}+1)!} \ket{n_{\mathbf{k }s}+1}
+  H = \sum_\mathbf{k} \left( \epsilon_\mathbf{k} c_\mathbf{k}^\dagger c_\mathbf{k} + \Delta_\mathbf{k} c_\mathbf{k}^\dagger c_{-\mathbf{k}}^\dagger + \Delta_\mathbf{k}^* c_{-\mathbf{k}} c_\mathbf{k} \right) 
 \end{equation*}
-we find that it holds true.
+The fermionic Bogoliubov transformation reads
+\begin{equation*}
+  \gamma_\mathbf{k} = u_\mathbf{k} c_\mathbf{k} + v_\mathbf{k} c_\mathbf{k}^\dagger
+\end{equation*}
+which satisfy $u_\mathbf{k}|^2 - |v_\mathbf{k}|^2 = 1$.
+Hamiltonian then becomes diagonal
+\begin{equation*}
+  H = \sum_\mathbf{k} E_\mathbf{k} \gamma_\mathbf{k}^\dagger \gamma_\mathbf{k} + E_0
+\end{equation*}
 
 \subsubsection{Derivation: the creation and annihilation operator}
 With $\hat{N}= \hat{a}^\dagger_{\mathbf{k }s}  \hat{a}_{\mathbf{k }s} $ as the number operator, we want to observe what is the action of $\hat{a}_{\mathbf{k }s} $ and $\hat{a}^\dagger_{\mathbf{k }s} $ to the eigenstate of $\hat{N}$.
@@ -103,6 +113,53 @@ To prove that the eigenvalue of $\hat{N }$ is $n_{\mathbf{k }s}\geq0$ we simply 
   ||\hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}}||=\left( \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) ^\dagger \hat{a}_{\mathbf{k }s} \ket{n_{\mathbf{k }s}}=\braket{n_{\mathbf{k }s} |\hat{N}|n_{\mathbf{k }s} }
 \end{equation*}
 as something that non-negative.
+
+We can also prove the relation
+\begin{equation*}
+  \sqrt{n! }  \ket{0 }= \left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^n \ket{0}
+\end{equation*}
+using induction.
+For the base case, we use $n=0$, which according to the hypothesis
+\begin{equation*}
+  \left( \hat{a}^\dagger_{\mathbf{k }s}  \right) ^0 \ket{0 }=0! \ket{0}
+\end{equation*}
+is true.
+Then for the $n+1$
+\begin{equation*}
+  \left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^{n+1 }\ket{0 }=\hat{a}^\dagger_{\mathbf{k }s}  \left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^n \ket{0 }
+\end{equation*}
+On using the hypothesis
+\begin{equation*}
+  \hat{a}^\dagger_{\mathbf{k }s} \sqrt{n_{\mathbf{k }s}! } \ket{n_{\mathbf{k }s} }\sqrt{n_{\mathbf{k }s}! }\sqrt{n_{\mathbf{k }s}+1}\ket{n_{\mathbf{k }s}+1}= \sqrt{(n_{\mathbf{k }s}+1)!} \ket{n_{\mathbf{k }s}+1}
+\end{equation*}
+we find that it holds true.
+
+\subsubsection{Derivation: Bogoliubov transformation.}
+We derive the condition at which the commutation relation for boson and anti-commutator for fermions is preserved.
+First by the transformation 
+\begin{equation*}
+b = ua + va^\dagger\qquad
+b^\dagger = u^* a^\dagger + v^* a
+\end{equation*}
+The commutation relation must hold true
+\begin{align*}
+[b, b^\dagger] 
+& =  [ua + va^\dagger, u^* a + v^* a]\\
+& =  |u|^2[a, a^\dagger] + uv^*[a, a] + vu^*[a^\dagger, a^\dagger] + |v|^2[a^\dagger, a]\\
+|u|^2-|v|^2 & =  1
+\end{align*}
+For fermions, the transformation reads 
+\begin{equation*}
+\gamma = u c + v c^\dagger\qquad
+\gamma^\dagger = u^* c^\dagger + v^* c
+\end{equation*}
+Then the anti-commutator
+\begin{align*}
+\{ \gamma, \gamma^\dagger \} 
+& =  \{ u c + v c^\dagger, u^* c^\dagger + v^* c \}\\
+& =  |u|^2 \{ c, c^\dagger \} + uv^* \{ c, c \} + v u^* \{ c^\dagger, c^\dagger \} + |v|^2 \{ c^\dagger, c \} \\
+  |u|^2 + |v|^2 & = 1
+\end{align*}
 
 
 \subsection{Coherent State}
@@ -486,3 +543,4 @@ The wavefunction in position representation is $\braket{\mathbf{r }|\mathbf{k } 
   \psi(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}
 \end{equation*}
 \end{document}
+% TODO: derive the diagonal quadratic hamiltonian using bogiubov transformation
