@@ -103,8 +103,8 @@ The derivation is as follows.
 \begin{align*}
   \rho(\mathbf{q})
    & = \int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}\;\rho(\mathbf{r})                                                                                                          \\
-   & =  \sum_{\mathbf{k}\mathbf{k}'}\left(\int d^3r\;e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}e^{-i\mathbf{q}\cdot\mathbf{r}}\right) \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'} \\
-   & =  \sum_{\mathbf{k}\mathbf{k}'} \delta (\mathbf{k}'-\mathbf{k}-\mathbf{q})   \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'} \\
+   & =  \sum_{\mathbf{k},\mathbf{k}'}\left(\int d^3r\;e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}e^{-i\mathbf{q}\cdot\mathbf{r}}\right) \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'} \\
+   & =  \sum_{\mathbf{k},\mathbf{k}'} \delta (\mathbf{k}'-\mathbf{k}-\mathbf{q})   \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'} \\
    & = \sum_{\mathbf{k}} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{align*}
 Where the last line is obtained by index relabelling $\mathbf{k} \rightarrow \mathbf{k}-\mathbf{q}/2$.
@@ -167,10 +167,44 @@ The derivation in momentum eigenstate is
 while in position eigenstate
 \begin{equation*}
   \mathbf{P}
-  = \int d^3r\;\psi^\dagger(\mathbf{r}) \langle \mathbf{r}|\hat{o}^{(1)}|\mathbf{r}\rangle \psi(\mathbf{r})
+  = \int d^3r\;\psi^\dagger(\mathbf{r}) \langle \mathbf{r}| \mathbf{p} |\mathbf{r}\rangle \psi(\mathbf{r})
  =-i   \int d^3r\;d^3r'\;\psi^\dagger(\mathbf{r})\delta(\mathbf{r}-\mathbf{r'}) [\nabla   \psi(\mathbf{r}')]
 \end{equation*}
 and the Dirac function collapse the primed integral.
+
+\subsubsection{Example: one-particle Hamiltonian.}
+Consider the one–particle Hamiltonian
+\begin{equation*}
+  \hat{h} = \frac{\hat{\mathbf{p}}^{2}}{2m} + V(\mathbf{r})
+\end{equation*}
+In the momentum eigenbasis, the one-particle operator reads
+\begin{equation*}
+  H = \sum_{\mathbf{k}} \frac{\mathbf{k}^{2}}{2m} a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}}    + \sum_{\mathbf{k} \mathbf{k}'} V_{\mathbf{k}-\mathbf{k}'}\, a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}'}
+\end{equation*}
+with $V_{\mathbf{q}}$ as Fourier component of the spatial potential that scatters a particle from momentum $\mathbf{k}'$ to $\mathbf{k}$ with momentum transfer $\mathbf{q}=\mathbf{k}-\mathbf{k}'$
+\begin{equation*}
+  V_\mathbf{q} = \frac{1 }{V } \int d^3r\; e^{- i\mathbf{q }\cdot \mathbf{r}} V(\mathbf{r})
+\end{equation*}
+In the position eigenbasis
+\begin{equation*}
+  H = \int d^3r\, \psi^\dagger(\mathbf r)\left(-\frac{1}{2m}\nabla^2 + V(\mathbf r)\right)\psi(\mathbf r)
+\end{equation*}
+
+The derivation in position eigenstate is quite straightforward since the Hamiltonian is local in position representation.
+For the momentum eigenstate, the kinetic term  reads  
+\begin{equation*}
+    K=\frac{1 }{2m} \sum_{\mathbf{k},\mathbf{k}'} \langle k|\hat{\mathbf{p}}^2 |k'\rangle a^\dagger_{\mathbf{k}} a_{\mathbf{k}'} = \sum_{\mathbf{k}} \frac{k^2}{2m}\, a^\dagger_{\mathbf{k}} a_{\mathbf{k}}
+\end{equation*}
+For the potential term 
+\begin{equation*}
+  V = \sum_{\mathbf{k},\mathbf{k}'} \langle \mathbf{k}|V(\mathbf{r})|\mathbf{k}'\rangle  a_{\mathbf{k}}^\dagger a_{\mathbf{k}'}
+\end{equation*}
+We evaluate the element in position representation, since the wavefunction is known to be the plane wave 
+\begin{align*}
+    \langle \mathbf{k}|V(\mathbf{r})|\mathbf{k}'\rangle &= \frac{1}{V}\int d^3r\,e^{-i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}}\,V(\mathbf{r})\\
+    V_{\mathbf{k} - \mathbf{k}'} = V_{\mathbf{q}} &= \frac{1}{V}\int d^3r\,e^{-i\mathbf{q}\cdot\mathbf{r}}\,V(\mathbf{r})
+\end{align*}
+This is just Fourier transform of the potential.
 
 \subsubsection{Derivation: second quantization representation.}
 First consider the action of $\hat{o} ^{1}$ on one-particle basis $\ket{\left\{ 1_\alpha \right\} }$, which we assume as its eigenstate
