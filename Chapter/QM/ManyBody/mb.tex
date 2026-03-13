@@ -14,7 +14,7 @@ For identical particles, the wavefunction must satisfy permutation symmetry,
 
 When the particle number becomes macroscopic $  N \rightarrow O(10^{23})$ and the system is described only through macroscopic observable rather than the full wavefunction, one replaces the pure state description $\Psi(x_1,\ldots,x_N)$ with an ensemble or density operator
 \begin{equation*}
-  \rho = \frac{e^{-\beta H}}{Z}, \quad Z = \text{Tr} \, e^{-\beta H}.
+  \rho = \frac{e^{-\beta H}}{Z}, \quad Z = \text{Tr} \; e^{-\beta H}.
 \end{equation*}
 This quantum statistical mechanics step corresponds to assuming statistical equilibrium with a reservoir (canonical ensemble) or fixed energy (microcanonical ensemble).
 
@@ -57,13 +57,19 @@ For a system of $N$ particles with generalized coordinates $\mathbf{x}_i$ a gene
 For a system with many particles, this representation becomes inconvenient because every term must refer to a specific particle coordinate $\mathbf{x_i}$.
 Second quantization introduce
 \begin{equation*}
-  \hat{O}_1 = \sum_{ij} \langle 1_i | \hat{o } ^{(1)} | 1_j \rangle a_i^\dagger a_j
+  \hat{O}_1 = \sum_{ij} \langle 1_i | \hat{o } ^{(1)} | 1_j \rangle \hat{a}_i^\dagger \hat{a}_j
 \end{equation*}
 with $\ket{\left\{ 1_i \right\}  }$ as one-particle basis whose creation and annihilation operators are related to other of the one-particle basis $\ket{\left\{ 1_j \right\} }$.
 In the position basis, the matrix element can be written as
 \begin{equation*}
   \langle 1_i|\hat{o } ^{(1)}|1_j\rangle = \int d^3 \mathbf{r} d^3 \mathbf{r}' u^*_{i}(\mathbf{r}) \langle \mathbf{r}|\hat{o } ^{(1)}|\mathbf{r}'\rangle u_j(\mathbf{r}')
 \end{equation*}
+As such, the representation in position basis reads 
+\begin{equation*}
+  \hat{O}_1 
+  = \int d^3r\;d^3r'\; \psi^\dagger(\mathbf{r}) \langle \mathbf{r}|\hat{o}^{(1)}|\mathbf{r}'\rangle \psi(\mathbf{r}')
+\end{equation*}
+
 Assuming the operator $\hat{o} ^{(1)}$ is local
 \begin{equation*}
   \langle \mathbf{r}|\hat{o}^{(1)}|\mathbf{r}'\rangle  = \hat{o } ^{(1)}(\mathbf{r },\mathbf{p})\delta(\mathbf{r }-\mathbf{r}')
@@ -71,6 +77,10 @@ Assuming the operator $\hat{o} ^{(1)}$ is local
 the matrix elements turns diagonal
 \begin{equation*}
   \langle 1_i|\hat{o } ^{(1)}|1_j\rangle = \int d^3 \mathbf{r} \;u^*_{i}(\mathbf{r}) \hat{o }^{1}(\mathbf{r},\mathbf{p}) u_j(\mathbf{r}')
+\end{equation*}
+and the representation is 
+\begin{equation*}
+  \hat{O}_1 = \int d^3r\;\psi^\dagger(\mathbf{r}) \langle \mathbf{r}|\hat{o}^{(1)}|\mathbf{r}\rangle \psi(\mathbf{r})
 \end{equation*}
 
 This representation has the following advantage.
@@ -82,55 +92,85 @@ This representation has the following advantage.
 \subsubsection{Example: particle density}
 The particle density
 \begin{equation*}
-  \rho(\mathbf{r}) = \psi^\dagger(\mathbf{r})\psi(\mathbf{r}) = \sum_{\mathbf{k},\mathbf{k}'} \braket{\mathbf{k}|\mathbf{r} }\braket{\mathbf{r}|\mathbf{k}'} a_\mathbf{k}^\dagger a_{\mathbf{k'}}
+  \rho(\mathbf{r}) = \psi^\dagger(\mathbf{r})\psi(\mathbf{r}) = \sum_{\mathbf{k},\mathbf{k}'} \braket{\mathbf{k}|\mathbf{r} }\braket{\mathbf{r}|\mathbf{k}'} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k'}}
 \end{equation*}
 has the Fourier transform of
 \begin{equation*}
-  \rho(\mathbf{q}) = \sum_{\mathbf{k}} a_\mathbf{k}^\dagger a_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} a_{\mathbf{k}-\mathbf{q}/2}^\dagger a_{\mathbf{k}+\mathbf{q}/2}
+  \rho(\mathbf{q}) = \sum_{\mathbf{k}} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{equation*}
 
 The derivation is as follows.
 \begin{align*}
   \rho(\mathbf{q})
-   & = \int d^3r\,e^{-i\mathbf{q}\cdot\mathbf{r}}\,\rho(\mathbf{r})                                                                                                          \\
-   & =  \sum_{\mathbf{k}\mathbf{k}'}\left(\int d^3r\,e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}e^{-i\mathbf{q}\cdot\mathbf{r}}\right) a_\mathbf{k}^\dagger a_{\mathbf{k}'} \\
-   & =  \sum_{\mathbf{k}\mathbf{k}'} \delta (\mathbf{k}'-\mathbf{k}-\mathbf{q})   a_\mathbf{k}^\dagger a_{\mathbf{k}'} \\
-   & = \sum_{\mathbf{k}} a_\mathbf{k}^\dagger a_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} a_{\mathbf{k}-\mathbf{q}/2}^\dagger a_{\mathbf{k}+\mathbf{q}/2}
+   & = \int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}\;\rho(\mathbf{r})                                                                                                          \\
+   & =  \sum_{\mathbf{k}\mathbf{k}'}\left(\int d^3r\;e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}e^{-i\mathbf{q}\cdot\mathbf{r}}\right) \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'} \\
+   & =  \sum_{\mathbf{k}\mathbf{k}'} \delta (\mathbf{k}'-\mathbf{k}-\mathbf{q})   \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'} \\
+   & = \sum_{\mathbf{k}} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{align*}
 Where the last line is obtained by index relabelling $\mathbf{k} \rightarrow \mathbf{k}-\mathbf{q}/2$.
 
-\subsection{Example: particle current}
+\subsubsection{Example: particle current}
 The particle current, defined as
 \begin{equation*}
-  \mathbf{j}(\mathbf{r}) = -\frac{i}{2m}\left[\psi^\dagger(\mathbf{r})[\nabla\psi(\mathbf{r})] - [\nabla\psi^\dagger(\mathbf{r})]\,\psi(\mathbf{r})\right]
+  \mathbf{j}(\mathbf{r}) = -\frac{i}{2m}\left[\psi^\dagger(\mathbf{r})[\nabla\psi(\mathbf{r})] - [\nabla\psi^\dagger(\mathbf{r})]\;\psi(\mathbf{r})\right]
 \end{equation*} 
 has the Fourier transform of 
 \begin{equation*}
   j(\mathbf{q}) 
-= \frac{1}{m}\sum_{\mathbf{k}} \left( \mathbf{k}+\frac{\mathbf{q } }{2} \right)  a_{\mathbf{k}}^\dagger a_{\mathbf{k}+\mathbf{q}} 
-= \frac{1}{m}\sum_{\mathbf{k}} \mathbf{k}\, a_{\mathbf{k}-\mathbf{q}/2}^\dagger a_{\mathbf{k}+\mathbf{q}/2}
+= \frac{1}{m}\sum_{\mathbf{k}} \left( \mathbf{k}+\frac{\mathbf{q } }{2} \right)  \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}} 
+= \frac{1}{m}\sum_{\mathbf{k}} \mathbf{k}\; \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{equation*}
 
 The derivation is as follows
 \begin{align*}
 \mathbf{j}(\mathbf{r}) 
-&= -\frac{i}{2m}\sum_{\mathbf{k},\mathbf{k}'}\Big[ a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\nabla a_{\mathbf{k}'} e^{i\mathbf{k}'\cdot\mathbf{r}}-\big(\nabla  a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big)\cdot a_{\mathbf{k}'}e^{i\mathbf{k}'\cdot\mathbf{r}}\Big] \\
-&= -\frac{i}{2m}\sum_{\mathbf{k},\mathbf{k}'}\Big[ a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big(i\mathbf{k}'\,a_{\mathbf{k}'}e^{i\mathbf{k}'\mathbf{r}}\big)
--\big(-i\mathbf{k}\,a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big)\cdot a_{\mathbf{k}'}e^{i\mathbf{k}'\cdot\mathbf{r}}\Big] \\
-&= \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'}(\mathbf{k}+\mathbf{k}')\,a_\mathbf{k}^\dagger a_{\mathbf{k}'}\,e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}
+&= -\frac{i}{2m}\sum_{\mathbf{k},\mathbf{k}'}\Big[ \hat{a}_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\nabla \hat{a}_{\mathbf{k}'} e^{i\mathbf{k}'\cdot\mathbf{r}}-\big(\nabla  \hat{a}_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big)\cdot \hat{a}_{\mathbf{k}'}e^{i\mathbf{k}'\cdot\mathbf{r}}\Big] \\
+&= -\frac{i}{2m}\sum_{\mathbf{k},\mathbf{k}'}\Big[ \hat{a}_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big(i\mathbf{k}'\;a_{\mathbf{k}'}e^{i\mathbf{k}'\mathbf{r}}\big)
+-\big(-i\mathbf{k}\;a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big)\cdot \hat{a}_{\mathbf{k}'}e^{i\mathbf{k}'\cdot\mathbf{r}}\Big] \\
+&= \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'}(\mathbf{k}+\mathbf{k}')\;a_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'}\;e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}
 \end{align*}
 Then apply the transformation
 \begin{align*}
-j(\mathbf{q}) &= \int d^3r\, e^{-i\mathbf{q}\cdot\mathbf{r}}\; j(\mathbf{r})
-= \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'} (\mathbf{k}+\mathbf{k}')\; a_{\mathbf{k}}^\dagger a_{\mathbf{k}'} \int d^3r\; e^{i(\mathbf{k}'-\mathbf{k}-\mathbf{q})\cdot\mathbf{r}}\\
-& =  \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'} (\mathbf{k}+\mathbf{k}')\; a_{\mathbf{k}}^\dagger a_{\mathbf{k}'} \delta(\mathbf{k}'-\mathbf{k }-\mathbf{q})\\
-&= \frac{1}{2m}\sum_{\mathbf{k}} (\mathbf{k}+(\mathbf{k}+\mathbf{q}))\, a_{\mathbf{k}}^\dagger a_{\mathbf{k}+\mathbf{q}} 
-= \frac{1}{2m}\sum_{\mathbf{k}} (2\mathbf{k}+\mathbf{q})\, a_{\mathbf{k}}^\dagger a_{\mathbf{k}+\mathbf{q}} \\
+j(\mathbf{q}) &= \int d^3r\; e^{-i\mathbf{q}\cdot\mathbf{r}}\; j(\mathbf{r})
+= \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'} (\mathbf{k}+\mathbf{k}')\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}'} \int d^3r\; e^{i(\mathbf{k}'-\mathbf{k}-\mathbf{q})\cdot\mathbf{r}}\\
+& =  \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'} (\mathbf{k}+\mathbf{k}')\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}'} \delta(\mathbf{k}'-\mathbf{k }-\mathbf{q})\\
+&= \frac{1}{2m}\sum_{\mathbf{k}} (\mathbf{k}+(\mathbf{k}+\mathbf{q}))\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}} 
+= \frac{1}{2m}\sum_{\mathbf{k}} (2\mathbf{k}+\mathbf{q})\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}} \\
 j(\mathbf{q}) 
-&= \frac{1}{m}\sum_{\mathbf{k}} \left( \mathbf{k}+\frac{\mathbf{q } }{2} \right)  a_{\mathbf{k}}^\dagger a_{\mathbf{k}+\mathbf{q}} 
-= \frac{1}{m}\sum_{\mathbf{k}} \mathbf{k}\, a_{\mathbf{k}-\mathbf{q}/2}^\dagger a_{\mathbf{k}+\mathbf{q}/2}
+&= \frac{1}{m}\sum_{\mathbf{k}} \left( \mathbf{k}+\frac{\mathbf{q } }{2} \right)  \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}} 
+= \frac{1}{m}\sum_{\mathbf{k}} \mathbf{k}\; \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{align*}
 where the last line is obtained by index shift $\mathbf{k}\rightarrow \mathbf{k}-\mathbf{q}/2$.
+
+\subsubsection{Example: position operator.}
+Position operator, defined as $\hat{o }^{(1)}=\mathbf{\hat{r}}$, has the one-particle operator form of $\mathbf{R} = \hat{O}_1$.
+We evaluated the expression in position basis
+\begin{equation*}
+  \mathbf{R} = \int d^3r\;d^3r'\; \langle \mathbf{r}|\hat{\mathbf{r}} |\mathbf{r}'\rangle\psi^\dagger(\mathbf{r})\psi(\mathbf{r}')
+  = \int d^3r\;\mathbf{r}\;\psi^\dagger(\mathbf{r})\psi(\mathbf{r}) 
+\end{equation*}
+
+\subsubsection{Example: linear momentum operator.}
+The one-particle operator of linear momentum $P$ has the representation in momentum eigenstate $\ket{\left\{ \mathbf{k} \right\} }$ and position eigenstate $\ket{\left\{ \mathbf{r} \right\} }$ as
+\begin{equation*}
+  \mathbf{P}
+  = \sum_{\mathbf{k }} \mathbf{k}  \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }}    
+  =-i \int d^{3}r\; \psi^{\dagger}(\mathbf{r})[\nabla\psi(\mathbf{r})]
+\end{equation*}
+
+The derivation in momentum eigenstate is
+\begin{equation*}
+  \mathbf{P} = \sum_{\mathbf{k },\mathbf{k}'} \braket{\mathbf{k } | \mathbf{p }|\mathbf{k}'} \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }'}    
+  = \sum_{\mathbf{k },\mathbf{k}'} \mathbf{k}' \delta_{\mathbf{k}\mathbf{k}'} \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }'}    
+  = \sum_{\mathbf{k }} \mathbf{k}  \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }}    
+\end{equation*}
+while in position eigenstate
+\begin{equation*}
+  \mathbf{P}
+  = \int d^3r\;\psi^\dagger(\mathbf{r}) \langle \mathbf{r}|\hat{o}^{(1)}|\mathbf{r}\rangle \psi(\mathbf{r})
+ =-i   \int d^3r\;d^3r'\;\psi^\dagger(\mathbf{r})\delta(\mathbf{r}-\mathbf{r'}) [\nabla   \psi(\mathbf{r}')]
+\end{equation*}
+and the Dirac function collapse the primed integral.
 
 \subsubsection{Derivation: second quantization representation.}
 First consider the action of $\hat{o} ^{1}$ on one-particle basis $\ket{\left\{ 1_\alpha \right\} }$, which we assume as its eigenstate
@@ -140,18 +180,18 @@ First consider the action of $\hat{o} ^{1}$ on one-particle basis $\ket{\left\{ 
 Recall that the one-particle operator $\hat{O }_1$ is defined as the sum of this operator.
 Hence, its action on this basis is
 \begin{equation*}
-  \hat{O }_1 =  \sum_{\alpha } \omega_\alpha n_\alpha = \sum_{\alpha } \omega_\alpha a_\alpha ^\dagger a_\alpha
+  \hat{O }_1 =  \sum_{\alpha } \omega_\alpha n_\alpha = \sum_{\alpha } \omega_\alpha \hat{a}_\alpha ^\dagger \hat{a}_\alpha
 \end{equation*}
 The one-particle operator is also diagonal in its basis, hence we can write the eigenvalue as the matrix element
 \begin{equation*}
   \hat{O }_1
-  = \sum_{\alpha } \braket{1_\alpha  | \hat{o } ^{(1)}| 1_\alpha} a_\alpha ^\dagger a_\alpha
+  = \sum_{\alpha } \braket{1_\alpha  | \hat{o } ^{(1)}| 1_\alpha} \hat{a}_\alpha ^\dagger \hat{a}_\alpha
 \end{equation*}
 Transform into arbitrary one-particle basis by using the completeness relations
 \begin{equation*}
   \hat{o }_1
-  =\sum_{i,j}  \sum_{\alpha } \braket{1_\alpha  | 1_i} \braket{1_i | \hat{o } ^{(1)}|1_j   } \braket{1_j  | 1_\alpha} a_\alpha ^\dagger a_\alpha
-  =\sum_{i,j}  \sum_{\alpha } \braket{1_i | \hat{o } ^{(1)}|1_j   } \delta_{\alpha i} a_\alpha ^\dagger \delta_{\alpha j}a_\alpha
+  =\sum_{i,j}  \sum_{\alpha } \braket{1_\alpha  | 1_i} \braket{1_i | \hat{o } ^{(1)}|1_j   } \braket{1_j  | 1_\alpha} \hat{a}_\alpha ^\dagger \hat{a}_\alpha
+  =\sum_{i,j}  \sum_{\alpha } \braket{1_i | \hat{o } ^{(1)}|1_j   } \delta_{\alpha i} \hat{a}_\alpha ^\dagger \delta_{\alpha j}a_\alpha
 \end{equation*}
 The $\alpha$ index collapse, then the representation is obtained.
 
@@ -163,14 +203,14 @@ A general two-particle operator is
 where the sum runs over all pairs of particles.
 The second quantized act in the abstract two-particle basis
 \begin{equation*}
-  \hat{O}_2 = \sum_{i,j,m,n} \braket{1_i 1_j  | \hat{o} ^{(2)}| 1_m 1_n } \hat{a}^\dagger_{i}  \hat{a}^\dagger_{j} a_n a_m
+  \hat{O}_2 = \sum_{i,j,m,n} \braket{1_i 1_j  | \hat{o} ^{(2)}| 1_m 1_n } \hat{a}^\dagger_{i}  \hat{a}^\dagger_{j} \hat{a}_n \hat{a}_m
 \end{equation*}
 Note the reversed order of the indices $n$ and $m$ of the pair of annihilation operators as compared to their order in the matrix elements, which we adopt that due to Fermions antisymmetry.
 This is imposed to enforce that the operator ordering $a_na_m$ exactly removes the particles in states $m$ and $n$ without producing an additional minus sign.
 
 In the position basis, the expression reads
 \begin{equation*}
-  \hat{O}_2 = \int d^3 \mathbf{r}_1 \, d^3 \mathbf{r}_1' \, d^3 \mathbf{r}_2 \, d^3 \mathbf{r}_2' \, \psi^\dagger(\mathbf{r}_1) \psi(\mathbf{r}_1') \langle \mathbf{r}_1, \mathbf{r}_1' | \hat{o}^{(2)} | \mathbf{r}_2, \mathbf{r}_2' \rangle \psi(\mathbf{r}_2') \psi(\mathbf{r}_2)
+  \hat{O}_2 = \int d^3 \mathbf{r}_1 \; d^3 \mathbf{r}_1' \; d^3 \mathbf{r}_2 \; d^3 \mathbf{r}_2' \; \psi^\dagger(\mathbf{r}_1) \psi(\mathbf{r}_1') \langle \mathbf{r}_1, \mathbf{r}_1' | \hat{o}^{(2)} | \mathbf{r}_2, \mathbf{r}_2' \rangle \psi(\mathbf{r}_2') \psi(\mathbf{r}_2)
 \end{equation*}
 If $\hat{O }_2$ is diagonal
 \begin{equation*}
@@ -178,15 +218,15 @@ If $\hat{O }_2$ is diagonal
 \end{equation*}
 the expression reduces further
 \begin{equation*}
-  \hat{O}_2 = \int d^3 \mathbf{r} d^3 \mathbf{r}' \, \psi^\dagger(\mathbf{r}) \psi(\mathbf{r}') \hat{o}^{(2)}(\mathbf{r}, \mathbf{r}') \psi(\mathbf{r}') \psi(\mathbf{r})
+  \hat{O}_2 = \int d^3 \mathbf{r} d^3 \mathbf{r}' \; \psi^\dagger(\mathbf{r}) \psi(\mathbf{r}') \hat{o}^{(2)}(\mathbf{r}, \mathbf{r}') \psi(\mathbf{r}') \psi(\mathbf{r})
 \end{equation*}
 
 Imposing translational invariance $\hat{o}^{(2)}(\mathbf{r}, \mathbf{r}') = \hat{o}^{(2)}(\mathbf{r} - \mathbf{r}')$, we obtain
 \begin{align*}
   \hat{O}_2
-   & =  \sum_{\mathbf{k}_1 \mathbf{k}_2 } \sum_{\mathbf{q}} \hat{o}^{(2)}(\mathbf{q}) a_{\mathbf{k}_1}^\dagger a_{\mathbf{k}_2}^\dagger a_{\mathbf{k}_2+\mathbf{q}} a_{\mathbf{k}_1-\mathbf{q}} \\
+   & =  \sum_{\mathbf{k}_1 \mathbf{k}_2 } \sum_{\mathbf{q}} \hat{o}^{(2)}(\mathbf{q}) \hat{a}_{\mathbf{k}_1}^\dagger \hat{a}_{\mathbf{k}_2}^\dagger \hat{a}_{\mathbf{k}_2+\mathbf{q}} \hat{a}_{\mathbf{k}_1-\mathbf{q}} \\
   \hat{O}_2
-   & = \sum_{\mathbf{k}_1 \mathbf{k}_2 } \sum_{\mathbf{q}} \hat{o}^{(2)}(\mathbf{q}) a_{\mathbf{k}_1+\mathbf{q}}^\dagger a_{\mathbf{k}_2-\mathbf{q}}^\dagger a_{\mathbf{k}_2} a_{\mathbf{k}_1}
+   & = \sum_{\mathbf{k}_1 \mathbf{k}_2 } \sum_{\mathbf{q}} \hat{o}^{(2)}(\mathbf{q}) \hat{a}_{\mathbf{k}_1+\mathbf{q}}^\dagger \hat{a}_{\mathbf{k}_2-\mathbf{q}}^\dagger \hat{a}_{\mathbf{k}_2} \hat{a}_{\mathbf{k}_1}
 \end{align*}
 where \( \hat{o}^{(2)}(\mathbf{q}) \) is the Fourier transform of \( \hat{o}^{(2)}(\mathbf{r}) \)
 \begin{equation*}
@@ -390,7 +430,7 @@ where the symmetrization projector action is
 Note that the normalization constant is $1/n!$ instead of $1/\sqrt{n!}$ to satisfy idempotency $S^2=S$ for subspace projection.
 Meanwhile, the antisymmetrical subspace is defined as the set of vectors that change sign under odd permutations
 \begin{equation*}
-  \wedge^n(H) = \left\{ |\Psi\rangle \in \mathcal{H}^{\otimes n} \,|\, P |\Psi\rangle = \mathrm{sgn}(P) |\Psi\rangle \right\}
+  \wedge^n(H) = \left\{ |\Psi\rangle \in \mathcal{H}^{\otimes n} \;|\; P |\Psi\rangle = \mathrm{sgn}(P) |\Psi\rangle \right\}
 \end{equation*}
 Equivalently,
 \begin{equation*}
@@ -653,7 +693,7 @@ Despite that, the model predicts correctly the following results.
         \begin{equation*}
           \epsilon_n = - 13.6\frac{Z^2}{n^2}  \; \text{eV}
         \end{equation*}
-        which independent of $(l, \, m_l,  m_s)$.
+        which independent of $(l, \; m_l,  m_s)$.
         The number of spatial orbitals for a fixed $\ell$ is $2l+1$, so the degeneracy in $n$ is
         \begin{equation*}
           g_l =\sum_{\ell=0}^{n-1} (2\ell + 1)
@@ -718,7 +758,7 @@ with respect to $\phi(x)$.
 In fact, by using $\hat{H }=\hat{H}_0+\hat{H }_I$ one finds the single-orbital Hartree functional for bosons
 \begin{multline*}
   \langle \Psi | \hat{H} | \Psi \rangle = N \int dx \; \phi^*(x) \hat{h}(x) \phi(x) \\
-  + \frac{1}{2} N(N - 1) \int dx \, dx' |\phi(x)|^2 V(x, x') |\phi(x')|^2
+  + \frac{1}{2} N(N - 1) \int dx \; dx' |\phi(x)|^2 V(x, x') |\phi(x')|^2
 \end{multline*}
 
 This functional is to be minimized with the normalization constraint to obtain the Hartree equation
@@ -797,7 +837,7 @@ Hence
 \subsubsection{Derivation: minimizing single-orbital Hartree functional.}
 We normalized the single-orbital Hartree functional with respect to normalization constraint
 \begin{equation*}
-  \int dx \, |\phi(x)|^2 = 1
+  \int dx \; |\phi(x)|^2 = 1
 \end{equation*}
 For the non-interacting Hamiltonian, we construct functional
 \begin{equation*}

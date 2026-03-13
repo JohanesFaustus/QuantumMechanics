@@ -51,6 +51,7 @@ The Hamiltonian become diagonal in this transformation
 \begin{equation*}
   H = \sum_\mathbf{k} E_\mathbf{k} \left( b_\mathbf{k}^\dagger b_\mathbf{k} + \frac{1}{2} \right) - \frac{1}{2} \sum_\mathbf{k} A_\mathbf{k}
 \end{equation*}
+with $E_\mathbf{k}=\sqrt{A_\mathbf{k}^2-B_\mathbf{k}^2}$
 
 For fermions the quadratic Hamiltonian with pairing terms has the form
 \begin{equation*}
@@ -160,6 +161,7 @@ Then the anti-commutator
 & =  |u|^2 \{ c, c^\dagger \} + uv^* \{ c, c \} + v u^* \{ c^\dagger, c^\dagger \} + |v|^2 \{ c^\dagger, c \} \\
   |u|^2 + |v|^2 & = 1
 \end{align*}
+
 
 
 \subsection{Coherent State}
@@ -557,6 +559,6 @@ We use the annihilation and creation transformation to derive the relation
   & = \sum_{\alpha \beta} u_{\alpha}(\mathbf{r})u_{\beta}^{*}(\mathbf{r}')\delta_{\alpha \beta} \\
   & = \sum_{\alpha } u_{\alpha}(\mathbf{r})u_{\alpha}^{*}(\mathbf{r}') \\
   [\psi(\mathbf{r}), \psi^{\dagger}(\mathbf{r}')] 
-  & = \sum_{\alpha } \braket{\mathbf{r }  | 1_\alpha }\braket{1_\alpha  | \mathbf{r}} = \delta (\mathbf{r }-\mathbf{r})
+  & = \sum_{\alpha } \braket{\mathbf{r }  | 1_\alpha }\braket{1_\alpha  | \mathbf{r}'} = \delta (\mathbf{r }-\mathbf{r})
 \end{align*}
 \end{document}
