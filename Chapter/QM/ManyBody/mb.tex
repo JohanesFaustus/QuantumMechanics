@@ -271,6 +271,29 @@ where \( \hat{o}^{(2)}(\mathbf{q}) \) is the Fourier transform of \( \hat{o}^{(2
   \end{cases}
 \end{equation*}
 
+\subsubsection{State order reversal.}
+As stated before, the purpose of the reversed ordering is to ensure that the annihilation operators remove the particles in the ket in the same order in which they were created, thereby avoiding an additional fermionic sign.
+To see this, consider the correctly ordered operators
+\begin{align*}
+a_n a_m \lvert 1_m 1_n\rangle 
+&= a_n a_m a_m^\dagger a_n^\dagger \lvert 0\rangle,\\
+& =  a_n(1 - a_m^\dagger a_m) a_n^\dagger \lvert 0\rangle \\
+& =  (a_n a_n^\dagger -  a_m^\dagger a_m a_n^\dagger )  \lvert 0\rangle \\
+& =  a_n a_n^\dagger   \lvert 0\rangle + a_m^\dagger a_n^\dagger a_m  \lvert 0\rangle \\
+a_n a_m \lvert 1_m 1_n\rangle 
+&= \lvert 0\rangle
+\end{align*}
+If the order was reversed, however
+\begin{align*}
+a_m a_n|1_m1_n\rangle 
+&= a_m a_n a_m^\dagger a_n^\dagger |0\rangle\\
+&= -a_m a_m^\dagger a_n a_n^\dagger|0\rangle\\
+&= -\big(1-a_m^\dagger a_m\big)a_n a_n^\dagger|0\rangle\\
+&= - a_n a_n^\dagger|0\rangle + a_m^\dagger a_m a_n a_n^\dagger|0\rangle\\
+a_m a_n|1_m1_n\rangle&= -|0\rangle
+\end{align*}
+an extra negative sign was produced
+
 \subsubsection{Derivation: momentum representation.}
 Translational invariance requires that shifting the entire system by a vector $\mathbf{a}$ leaves the interaction unchanged
 \begin{equation*}
