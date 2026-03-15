@@ -11,13 +11,28 @@ Consequently, for the vacuum state $|0\rangle$ one define
   \hat{a}_{\mathbf{k }s} | 0 \rangle   & = 0_F                                                 \\
   \hat{a}^+_{\mathbf{k }s} | 0 \rangle & = | 1_{\mathbf{k }s} \rangle = | \mathbf{k} s \rangle
 \end{align*}
-where $0_F$ is the zero of the Fock space (usually indicated with $0$), and $| k s \rangle$ is clearly the state of one photon with wavevector $k$ and polarization $s$, such that
+where $0_F$ is the zero of the Fock space (usually indicated with $0$), and $| \mathbf{k} s \rangle$ is clearly the state of one photon with wavevector $k$ and polarization $s$, such that
 \begin{equation*}
   \langle \mathbf{r} | \mathbf{k} s \rangle = \frac{e^{i \mathbf{k} \cdot \mathbf{r}}}{\sqrt{V} \epsilon_{\mathbf{k }s}}
 \end{equation*}
 Any higher Foch state then can be written as
 \begin{equation*}
   \ket{n_{\mathbf{k }s}}=\frac{1}{\sqrt{n!}}\left( \hat{a}^\dagger_{\mathbf{k }s}   \right) ^{n }\ket{0}
+\end{equation*}
+
+For Fermion, the action of creation and annihilation operators are as follows
+\begin{align*}
+  \hat{c}_{i} | \cdots n_{i} \cdots \rangle         & = (-1)^{v_i}\sqrt{n_{i}} |  \cdots n_{i} - 1 \cdots \rangle    \\
+  \hat{c}^\dagger_{i} | \cdots n_{i} \cdots \rangle & = (-1)^{v_i} \sqrt{ 1 - n_i} |\cdots  n_{i} + 1 \cdots \rangle
+\end{align*}
+with $n_i \equiv n_{\mathbf{k }s} \in \{0,1\}$ and $(-1)^{\nu_i}$ being the phase factor.
+The phase factor is defined in a way such that if levels that are occupied by a Fermion $n_i$ is even for the levels which are predecessors of the level $i$, then the phase is $(+1)$, and if it is odd, then put $(-1)$
+\begin{equation*}
+  \nu_{i} =  \sum_{j=1}^{i -1} n_j
+\end{equation*}
+This definition also enforce the Pauli exclusion principle
+\begin{equation*}
+  (\hat{c}_{i})^2 | \cdots n_{i} \cdots \rangle= 0\qquad2  (\hat{c}^\dagger_{i})^2 | \cdots n_{i} \cdots \rangle = 0
 \end{equation*}
 
 It follows immediately that the number operator
@@ -43,6 +58,23 @@ Boson and fermion annihilation and creation operator obey commutator and anti-co
 \end{equation*}
 Now consider the case of $i \neq j$.
 Boson obey symmetrization, so $a_ia_j=a_ja_i$; fermion in other hand obey antisymmetrization, so $a_ia_j=-a_ja_i$.
+
+\subsubsection{Fermion phase factor.}
+To see how the phase factor come to be, consider the Fock state of fermion
+\begin{equation*}
+|n_1,n_2,\dots\rangle = (c_1^\dagger)^{n_1}(c_2^\dagger)^{n_2}(c_3^\dagger)^{n_3}\dots|0\rangle  
+\end{equation*}
+Suppose the annihilation operator acts on this state
+\begin{equation*}
+  c_i|n_1,n_2,\dots\rangle = c_i (c_1^\dagger)^{n_1}(c_2^\dagger)^{n_2}\dots(c_i^\dagger)^{n_i}\dots|0\rangle
+\end{equation*}
+The operator must eliminate the particle created by $c_i ^\dagger$.
+However, between them them lie all earlier factors
+\begin{equation*}
+  (c_1 ^\dagger)^{n_1}, \ldots, (c_{i-1}^\dagger)^{n_{i-1}}
+\end{equation*}
+Because fermionic operators satisfy antisymmetry, each $c_j ^\dagger$ introduce factor $(-1)$.
+
 
 \subsubsection{Bogoliubov transformation.}
 The Bogoliubov transformation is to diagonalize quadratic Hamiltonian that mix creation and annihilation operators.
