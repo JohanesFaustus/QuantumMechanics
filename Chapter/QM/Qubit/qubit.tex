@@ -2,20 +2,20 @@
 \begin{document}
 
 \subsection{Complementarity}
-The principle of complementarity, traditionally associated with Niels Bohr, posits that "which-path" information (particle-like behavior) and the formation of an interference pattern (wave-like behavior) are fundamentally mutually exclusive. 
+The principle of complementarity, traditionally associated with Niels Bohr, posits that "which-path" information (particle-like behavior) and the formation of an interference pattern (wave-like behavior) are fundamentally mutually exclusive.
 Mathematically, the wave nature manifests through the interference term in the probability density equation
 \begin{equation*}
   P_\text{total}(x) = |F_1(x)+F_2(x)|^2 = |F_1(x)|^2 +|F_2(x)|^2 +2 \mathfrak{R}[F_1(x)^* F_2(x)]
 \end{equation*}
 with $F_n(x)$ as the complex amplitude for path $n$.
-If an experimental setup allows an observer to identify the specific slit traversed by a particle, the system behaves as a classical particle, the interference term vanishes, and the resulting distribution is merely the arithmetic sum of individual slit probabilities 
+If an experimental setup allows an observer to identify the specific slit traversed by a particle, the system behaves as a classical particle, the interference term vanishes, and the resulting distribution is merely the arithmetic sum of individual slit probabilities
 \begin{equation*}
   P_\text{total}(x) = P_1(x)+P_2(x)
 \end{equation*}
 
 \subsubsection{Single photon experiment.}
 Example of complementarity exist in Young's double-slit experiment with extremely weak light such that only one photon is measured at a time
-The experiment is repeated and the results of many particle-like detections are overlaid, an interference pattern gradually emerges. 
+The experiment is repeated and the results of many particle-like detections are overlaid, an interference pattern gradually emerges.
 This demonstrates that wave-like characteristics are a statistical property of the collective "event," while individual detections remain particle-like "things".
 
 Historically, the disappearance of interference fringes upon path detection was explained via the disturbance caused by measurement.
@@ -23,11 +23,11 @@ To resolve which slit was traversed, the position measurement error $\Delta q$ m
 \begin{equation*}
   \Delta q \leq a
 \end{equation*}
-According to the uncertainty relation $\Delta q \Delta p \geq \hbar $, this localization necessitates a momentum disturbance 
+According to the uncertainty relation $\Delta q \Delta p \geq \hbar $, this localization necessitates a momentum disturbance
 \begin{equation*}
   \Delta p \geq \hbar /a
 \end{equation*}
-Utilizing the de Broglie relation $p=\hbar /\lambda$ and small angle approximation $\tan \phi \approx \phi$, this disturbance induces an angular uncertainty 
+Utilizing the de Broglie relation $p=\hbar /\lambda$ and small angle approximation $\tan \phi \approx \phi$, this disturbance induces an angular uncertainty
 \begin{equation*}
   \Delta \phi \approx \Delta p/p \geq \lambda/a
 \end{equation*}
@@ -35,27 +35,27 @@ Since the fringe interval is approximately $\lambda/a$, this angular uncertainty
 
 \subsubsection{Single photon experiment: modern interpretation.}
 More recent scholarship, specifically the debate between Storey and the team of Scully and Englert, has shifted the focus from mechanical disturbance to information-theoretic constraints.
-Storey maintained that determining a particle's position must inherently impart a random momentum transfer $\Delta p$ to the particle. 
+Storey maintained that determining a particle's position must inherently impart a random momentum transfer $\Delta p$ to the particle.
 In this view, the interference fringes are physically washed out because the momentum kick shifts the phase of the wave functions unpredictably.
 
-However, Scully and Englert devised a thought experiment and contemplated a model in which the momentum of the electron does not change before and after the experiment, concluding that the uncertainty relation is not the essence. 
-The disappearance of fringes is caused by entanglement between the particle and the measuring apparatus. 
+However, Scully and Englert devised a thought experiment and contemplated a model in which the momentum of the electron does not change before and after the experiment, concluding that the uncertainty relation is not the essence.
+The disappearance of fringes is caused by entanglement between the particle and the measuring apparatus.
 Given the initial state
 \begin{equation*}
-|\Psi_{\text{initial}}\rangle = \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes |D_0\rangle  
+  |\Psi_{\text{initial}}\rangle = \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes |D_0\rangle
 \end{equation*}
 with $\ket{n}$ as the state of particle passing through slit $n$ and \( |D_0\rangle \) as the  initial state of the detector.
-When a measurement occurs the detector state changes based on which path the particle takes. 
+When a measurement occurs the detector state changes based on which path the particle takes.
 The total system state evolves into:
 \begin{equation*}
-  |\Psi_{\text{final}}\rangle = 
+  |\Psi_{\text{final}}\rangle =
   \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
 \end{equation*}
-There exists no combination of a single particle state \( |\psi\rangle \) and a single detector state \( |D\rangle \) such that 
+There exists no combination of a single particle state \( |\psi\rangle \) and a single detector state \( |D\rangle \) such that
 \begin{align*}
-  |\Psi_{\text{final}} \rangle  \neq |\psi\rangle \otimes |D\rangle &= 
-  \frac{1}{\sqrt{4}} (|1\rangle + |2\rangle) \otimes (\ket{D_1}+\ket{D_2})\\
-  &= 
+  |\Psi_{\text{final}} \rangle  \neq |\psi\rangle \otimes |D\rangle & =
+  \frac{1}{\sqrt{4}} (|1\rangle + |2\rangle) \otimes (\ket{D_1}+\ket{D_2}) \\
+                                                                    & =
   \frac{1}{\sqrt{4}} ( \ket{1,D_1} + \ket{1,D_2}+ \ket{2,D_1}+ \ket{2,D_2})
 \end{align*}
 
@@ -63,27 +63,27 @@ With the projector onto particle position \( x \)  as
 \begin{equation*}
   \Pi_x = |x\rangle\langle x| \otimes I_D
 \end{equation*}
-and $I_D$ identity operator on the detector Hilbert space, the the probability density is 
+and $I_D$ identity operator on the detector Hilbert space, the the probability density is
 \begin{equation*}
   P(x) = \langle \Psi | (|x\rangle\langle x| \otimes I_D) | \Psi \rangle
 \end{equation*}
-The action of the projector on the ket is 
+The action of the projector on the ket is
 \begin{align*}
-\left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle 
-&=  \frac{1}{\sqrt{2}} \left(\left|x\right\rangle \braket{x  | 1} \otimes |D_1\rangle + |x\rangle \braket{x  | 2}\otimes  |D_2\rangle\right)\\
-\left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle 
-&=  \frac{1}{\sqrt{2}} \left( \psi_1(x) |x\rangle \otimes |D_1\rangle + \psi_2(x) |x\rangle \otimes |D_2\rangle \right)
+  \left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle
+   & =  \frac{1}{\sqrt{2}} \left(\left|x\right\rangle \braket{x  | 1} \otimes |D_1\rangle + |x\rangle \braket{x  | 2}\otimes  |D_2\rangle\right) \\
+  \left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle
+   & =  \frac{1}{\sqrt{2}} \left( \psi_1(x) |x\rangle \otimes |D_1\rangle + \psi_2(x) |x\rangle \otimes |D_2\rangle \right)
 \end{align*}
-Projecting this again on the bra 
+Projecting this again on the bra
 \begin{equation*}
-\langle \Psi | = \frac{1}{\sqrt{2}} \left(\langle 1 | \otimes \langle D_1| + \langle 2 | \otimes \langle D_2 |\right)  
+  \langle \Psi | = \frac{1}{\sqrt{2}} \left(\langle 1 | \otimes \langle D_1| + \langle 2 | \otimes \langle D_2 |\right)
 \end{equation*}
 yields the probabilities distribution
 \begin{align*}
-P(x) 
-&= \frac{1}{2} \big[ |\psi_1(x)|^2 + |\psi_2(x)|^2 + \psi_1^*(x)\psi_2(x)\langle D_1|D_2\rangle + \psi_2^*(x)\psi_1(x)\langle D_2|D_1\rangle \big]\\
-P(x) 
-&=  \frac{1}{2} \big( |\psi_1(x)|^2 + |\psi_2(x)|^2 + 2 \text{Re} \left[ \psi_1^*(x)\psi_2(x)\langle D_1|D_2\rangle \right] \big)
+  P(x)
+   & = \frac{1}{2} \big[ |\psi_1(x)|^2 + |\psi_2(x)|^2 + \psi_1^*(x)\psi_2(x)\langle D_1|D_2\rangle + \psi_2^*(x)\psi_1(x)\langle D_2|D_1\rangle \big] \\
+  P(x)
+   & =  \frac{1}{2} \big( |\psi_1(x)|^2 + |\psi_2(x)|^2 + 2 \text{Re} \left[ \psi_1^*(x)\psi_2(x)\langle D_1|D_2\rangle \right] \big)
 \end{align*}
 where $A+ A ^\dagger = 2 \mathfrak{R} (A)$.
 It can be seen that the interference condition depend on the distinguishability of detector state.
@@ -93,31 +93,31 @@ For
 \begin{equation*}
   |\braket{D_1  | D_2}|=1
 \end{equation*}
-means $\theta =0$. 
+means $\theta =0$.
 They are physically identical, has maximal overlap, and at most differ only by a phase.
 The overlap tells you how much the two states project onto each other in Hilbert space.
 If
 \begin{equation*}
-  0<|\braket{D_1  | D_2}|<1  
+  0<|\braket{D_1  | D_2}|<1
 \end{equation*}
-it means $0<\theta<\pi/2$. 
+it means $0<\theta<\pi/2$.
 They are different but still have partial overlap.
-In other hand 
+In other hand
 \begin{equation*}
   |\braket{D_1  | D_2}|=0
 \end{equation*}
-means $\theta=\pi/2$. 
+means $\theta=\pi/2$.
 The states are orthogonal, perfectly distinguishable, and has no overlap.
 
 In the case of the detector state being distinct $\braket{D_1 |D_2 }=0$, their evolution are
 \begin{equation*}
   |1\rangle \otimes |D_0\rangle \xrightarrow{} |1\rangle \otimes |D_1\rangle
   \qquad
-|2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_2\rangle
+  |2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_2\rangle
 \end{equation*}
 and the final state is entangled
 \begin{equation*}
-  |\Psi_{\text{final}}\rangle = 
+  |\Psi_{\text{final}}\rangle =
   \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
 \end{equation*}
 and no interference occurs.
@@ -125,27 +125,27 @@ When the detector states are orthogonal, the particle subsystem has no accessibl
 
 Similarly, in the case $  0<|\braket{D_1  | D_2}|<1 $, the state is still entangled
 \begin{equation*}
-  |\Psi_{\text{final}}\rangle = 
+  |\Psi_{\text{final}}\rangle =
   \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
 \end{equation*}
 It is however only partial entangled.
 Interference still occurs, but its visibility is reduced.
 
-In the other hand, the evolution if both state are identical, the equation$  |\braket{D_1  | D_2}|=1$ implies $\ket{D_1 }=\ket{D_2}$. 
-Their evolution are 
+In the other hand, the evolution if both state are identical, the equation$  |\braket{D_1  | D_2}|=1$ implies $\ket{D_1 }=\ket{D_2}$.
+Their evolution are
 \begin{equation*}
   |1\rangle \otimes |D_0\rangle \xrightarrow{} |1\rangle \otimes |D_1\rangle
   \qquad
-|2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_1\rangle
-\end{equation*} 
+  |2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_1\rangle
+\end{equation*}
 and no entanglement occurs at the final state
 \begin{equation*}
-  |\Psi_{\text{final}}\rangle = 
+  |\Psi_{\text{final}}\rangle =
   \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes \ket{D_1}
 \end{equation*}
 Interference thus occurs in this case.
 
-The information about which-path does not cause interference to disappear by quantum information postulate, unlike the case of Born postulate. 
+The information about which-path does not cause interference to disappear by quantum information postulate, unlike the case of Born postulate.
 It is the same interaction that makes the detector states distinguishable simultaneously reduces their overlap, and the overlap directly controls the interference term.
 
 \subsubsection{Another example.}
@@ -157,12 +157,12 @@ The error in the direction of incident light due to diffraction is expressed by 
 \begin{equation*}
   \Delta \theta \approx 1.22 \frac{\lambda }{E}
 \end{equation*}
-In order for the ladybug to determine which slit a photon passed through, the angular error $\Delta \theta$ must be smaller than the angle at which the ladybug views the slit interval 
+In order for the ladybug to determine which slit a photon passed through, the angular error $\Delta \theta$ must be smaller than the angle at which the ladybug views the slit interval
 \begin{equation*}
   \tan \Theta \approx \Theta =\frac{d }{L}
 \end{equation*}
-that is $\Delta \theta <\Theta$. 
-Thus, the bug eye condition for resolving the two slits is 
+that is $\Delta \theta <\Theta$.
+Thus, the bug eye condition for resolving the two slits is
 \begin{equation*}
   E> \frac{\lambda }{d}L
 \end{equation*}
@@ -170,66 +170,66 @@ Thus, the bug eye condition for resolving the two slits is
 In other hand, the interval between bright fringe is $L \lambda/d$.
 Hence, lens size $E$ must be smaller than the fringe width, otherwise the slit would just combine into one
 \begin{equation*}
-  E< \frac{\lambda }{d}L  
+  E< \frac{\lambda }{d}L
 \end{equation*}
 
-This yields a fundamental physical contradiction with the condition required to resolve the two slits. 
-While a large aperture is necessary for slit discrimination, a small aperture is necessary for the visualization of interference fringes. 
+This yields a fundamental physical contradiction with the condition required to resolve the two slits.
+While a large aperture is necessary for slit discrimination, a small aperture is necessary for the visualization of interference fringes.
 These two conditions are mutually exclusive.
 
 \subsubsection{Yet another example: Mach-Zender Interferometer.}
-The device demonstrates that interference is a consequence of coherent superposition and relative phase. 
-If no which-path information is available, interference is maximal. 
+The device demonstrates that interference is a consequence of coherent superposition and relative phase.
+If no which-path information is available, interference is maximal.
 If a measurement determines the path, the superposition is destroyed (or equivalently, the system becomes entangled with a detector and coherence is lost), and the outputs reduce to classical probabilities without interference.
 
 \begin{figure}
   \centering
-\begin{BVerbatim}
-(A) ----> [BS1] -- (B) -- [Mirror]
-            |               |
-           (C)              |
-            |               |
-         [Mirror] ------> [BS2] -- (E) -- [Mirror]
-                            |               |
-                           (F)              |
-                            |               |
-                         [Mirror] ------> [BS3] ----> (D)
-                                            |
-                                           (D')
-\end{BVerbatim}  
-\caption*{Figure: Mach-Zender interferometer configuration}
+  \begin{BVerbatim}
+    (A) ----> [BS1] -- (B) -- [Mirror]
+    |               |
+    (C)              |
+    |               |
+    [Mirror] ------> [BS2] -- (E) -- [Mirror]
+    |               |
+    (F)              |
+    |               |
+    [Mirror] ------> [BS3] ----> (D)
+    |
+    (D')
+  \end{BVerbatim}
+  \caption*{Figure: Mach-Zender interferometer configuration}
 \end{figure}
 
 The input $|A\rangle$ is split into a coherent superposition of the two paths $|B\rangle$ and $|C\rangle$
 \begin{equation*}
-U_1 |A\rangle  = \frac{1}{\sqrt{2}} (|B\rangle + |C\rangle)   
+  U_1 |A\rangle  = \frac{1}{\sqrt{2}} (|B\rangle + |C\rangle)
 \end{equation*}
 Each incoming path is recombined into the two output ports $|D\rangle$ and $|E\rangle$
 \begin{equation*}
-U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |E\rangle), \quad
-U_2 |C\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |E\rangle)  
+  U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |E\rangle), \quad
+  U_2 |C\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |E\rangle)
 \end{equation*}
 The $\pm$ sign of $\ket{E}$ ensures constructive interference in $E$ and destructive interference in $F$.
-The state after BS2 then 
+The state after BS2 then
 \begin{equation*}
   \ket{E }=U_2U_1 \ket{A} = \ket{A} \qquad \ket{F}=0
 \end{equation*}
 
 If a detector is inserted into the Mach–Zehnder interferometer to detect the photon, and it is found to have taken path B, State after passing BS2 is
 \begin{equation*}
-U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|E\rangle + |F\rangle)
+  U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|E\rangle + |F\rangle)
 \end{equation*}
-In other words, even in the Mach–Zehnder interferometer, if the path is known, interference disappears. 
+In other words, even in the Mach–Zehnder interferometer, if the path is known, interference disappears.
 Conversely, if it cannot be determined whether the photon went through B or C, it can be considered to have passed through both, thus causing interference.
 
-Had the path not known, the final state from BS3 is 
+Had the path not known, the final state from BS3 is
 \begin{equation*}
-U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle) 
+  U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle)
 \end{equation*}
 If however the path is known at B, the final state is $U_3U_2 \ket{B}= \ket{D}$, since
 \begin{equation*}
-U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle)  \qquad
-U_3|F\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |D'\rangle) 
+  U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle)  \qquad
+  U_3|F\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |D'\rangle)
 \end{equation*}
 
 \subsection{Bit}
@@ -249,7 +249,8 @@ The state can be indicated by a point in one of two positions, indicated by the 
 Next consider probabilistic classical bit whose value is not known exactly, but is known to be either 0 or 1 with corresponding probabilities $p_0$ and $p_1$, which satisfies $p_0+p_1=1$.
 We can represent these two probabilities by the 2-dimensional unit vector
 \begin{equation*}
-  \psi = \begin{bmatrix}
+  \psi =
+  \begin{bmatrix}
     p_0 \\p_1
   \end{bmatrix}
 \end{equation*}
@@ -267,7 +268,7 @@ Points on the surface of the Bloch sphere can also be expressed in Cartesian coo
 \end{equation*}
 with $\theta$ as polar angle of the Bloch vector $\alpha$ relative to the positive $z$-axis and $\phi$ gives the azimuthal angle of the Bloch vector in the $xy$-plane such that
 \begin{equation*}
-\theta = \arccos(\alpha_z), \quad \phi = \arctan2(\alpha_y, \alpha_x)
+  \theta = \arccos(\alpha_z), \quad \phi = \arctan2(\alpha_y, \alpha_x)
 \end{equation*}
 
 \subsection{Quantum Gate}
@@ -352,7 +353,7 @@ Any pure state $\ket{\psi_i}$ define a Bloch vector $\boldsymbol{\alpha}_i=(\alp
 Since this vector is unit vector, it satisfies $|\boldsymbol{\alpha}_i|=1$.
 If the mixed state described as
 \begin{equation*}
-  \rho= \sum_i p_i \ket{\psi_i} \bra{\psi_i}\qquad 
+  \rho= \sum_i p_i \ket{\psi_i} \bra{\psi_i}\qquad
   \sum_{i } p_i=1
 \end{equation*}
 then the Bloch vector for the mixed state is
@@ -369,7 +370,7 @@ Any density operator for a single qubit can be written as
 \begin{equation*}
   \rho = \frac{1}{2} I + \alpha_x X + \alpha_y Y + \alpha_z Z=\frac{1 }{2 }I +\boldsymbol{\alpha} \cdot \boldsymbol{\sigma}
 \end{equation*}
-All components can be determined from 
+All components can be determined from
 \begin{equation*}
   \alpha_i = \frac{1 }{2} \mathrm{Tr} (\rho\sigma_i)
 \end{equation*}
@@ -378,45 +379,96 @@ All components can be determined from
 When two physical systems are treated as one combined bizarre system, the state space of the combined physical system is the tensor product space $\mathcal{H}=\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces of the component subsystems.
 If the first system is in the state $\ket{\psi_1}$ and the second system in the state $\ket{\psi_2}$, then the state $\ket{\psi}\in \mathcal{H}$ of the combined system is
 \begin{equation*}
-    \ket{\psi}=\ket{\psi_1} \otimes \ket{\psi_2}
+  \ket{\psi}=\ket{\psi_1} \otimes \ket{\psi_2}
 \end{equation*}
 which also means that the system is not entangled.
 Conversely, the combined system is said to be entangled if those two subsystem cannot be factored into a tensor product
 \begin{equation*}
-    \ket{\psi}\neq\ket{\psi_1} \otimes \ket{\psi_2}
+  \ket{\psi}\neq\ket{\psi_1} \otimes \ket{\psi_2}
 \end{equation*}
 
 Suppose we apply the $\mathrm{NOT}$ gate $X$ to a ﬁrst qubi of a 2-qubit system.
 We implicitly apply the identity operator $I$ to the second qubit at the same time and the operators maps
 \begin{equation*}
-    \ket{\psi_1} \otimes \ket{\psi_2} \to X \ket{\psi_1} \otimes I \ket{\psi_2} = (X \otimes I)(\ket{\psi_1} \otimes \ket{\psi_2})
+  \ket{\psi_1} \otimes \ket{\psi_2} \to X \ket{\psi_1} \otimes I \ket{\psi_2} = (X \otimes I)(\ket{\psi_1} \otimes \ket{\psi_2})
 \end{equation*}
 In the matrix representation
 \begin{equation*}
-    X \otimes I =
-    \begin{bmatrix}
-        0 & 1 \\
-        1 & 0
-    \end{bmatrix} \otimes \begin{bmatrix}
-        1 & 0 \\
-        0 & 1
-    \end{bmatrix} = \begin{bmatrix}
-        0 & 0 & 1 & 0 \\
-        0 & 0 & 0 & 1 \\
-        1 & 0 & 0 & 0 \\
-        0 & 1 & 0 & 0
-    \end{bmatrix}
+  X \otimes I =
+  \begin{bmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{bmatrix} \otimes \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+  \end{bmatrix} = \begin{bmatrix}
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0
+  \end{bmatrix}
 \end{equation*}
 
 \subsubsection{Einstein, Podolsky, and Rosen state.}
 The EPR pair represents an idealized bipartite quantum system whose defining feature is maximal entanglement between two subsystems
 The canonical example is a Bell state, such as
 \begin{equation*}
-    |\Phi^+\rangle = \frac{1}{\sqrt{2}} \left( |00\rangle + |11\rangle \right)
+  |\Phi^+\rangle = \frac{1}{\sqrt{2}} \left( |00\rangle + |11\rangle \right)
 \end{equation*}
 
 In the original EPR argument, the subsystems were two particles that interacted briefly and then separated.
 After separation, the total system remained in an entangled state.
 Measuring an observable on subsystem $A$ allowed one to predict with certainty the outcome of a corresponding measurement on subsystem $B$, without interacting with it.
+
+\subsection{Zeeman Effect}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[tdplot_main_coords, scale=5]
+
+    \draw[thick,->] (0,0,0) -- (1.1,0,0) node[anchor=north east]{$x$};
+    \draw[thick,->] (0,0,0) -- (0,1.1,0) node[anchor=north west]{$y$};
+    \draw[thick,->] (0,0,0) -- (0,0,1.1) node[anchor=south]{$z$};
+
+    \def\rvec{1}
+    \def\rvecb{1/2}
+    \def\th{45} % angle between spin and B
+    \def\ph{60}   % azimuthal angle in xy plane
+    \pgfmathsetmacro{\r}{\rvecb*tan(\th/2)}
+    \pgfmathsetmacro{\rxy}{sin(\th/2)}
+
+    \coordinate (O) at (0,0,0);
+
+    \tdplotsetcoord{P}{1}{\th/2}{\ph}
+    \draw[thick,->,>=Stealth] (O) -- (P) node [anchor=south west]{$\mathbf{B}$};
+    \draw[dashed]  (O) -- (Pxy);
+    \draw[dashed ]  (P) -- (Pxy);
+
+    \tdplotdrawarc[->]{(O)}{\rxy}{0}{\ph}{anchor=north}{$\phi$}
+
+    \tdplotsetcoord{P2}{1}{\th}{\ph}
+    \draw[dashed] (O) -- (P2);
+
+    \tdplotsetcoord{P3}{\rvecb}{\th/2}{\ph}
+    \tdplotsetrotatedcoords{\ph}{\th/2}{0}
+    \tdplotdrawarc[->,,tdplot_rotated_coords]{(P3)}{\r}{270}{360+270}{}{}
+    
+    \begin{scope}[tdplot_rotated_coords]
+      \coordinate (A) at ($(P3)+({\r*cos(0)},{\r*sin(0)},0)$);
+      \coordinate (B) at ($(P3)+({\r*cos(180)},{\r*sin(180)},0)$);
+    \end{scope}
+    \draw[->,thick, >=Stealth] (O) -- (A) node [anchor=north west]{$\psi(\pi/2\omega)$};
+    \draw[->,thick, >=Stealth] (O) -- (B) node [anchor=south east]{$\psi(0)$};
+
+    \tdplotsetthetaplanecoords{\ph}
+    \tdplotdrawarc[->,tdplot_rotated_coords]{(0,0,0)}{\rvec}{0}{\th/2}{anchor=south west}{$\theta/2$}
+
+    \draw[dashed,tdplot_rotated_coords] (\rvec,0,0) arc (0:90:\rvec);
+    \draw[dashed] (\rvec,0,0) arc (0:90:\rvec);
+  \end{tikzpicture}
+  \caption*{Figure: Spin direction changes overtime due to Zeeman effect.}
+\end{figure}
+
+
 
 \end{document}

@@ -1,4 +1,4 @@
-\usepackage{amsmath, esdiff, esint, indentfirst, titlesec, mathdots, amssymb, upgreek, amsthm, graphicx, subfiles, caption, longtable, csquotes,amsopn, braket, relsize, mathtools,mhchem, array, mathtools, comment, booktabs, mhchem, listing, fancyvrb}
+\usepackage{amsmath, esdiff, esint, indentfirst, titlesec, mathdots, amssymb, upgreek, amsthm, graphicx, subfiles, caption, longtable, csquotes,amsopn, braket, relsize, mathtools,mhchem, array, mathtools, comment, booktabs, mhchem, listing, fancyvrb,tikz,tikz-3dplot}
 
 \graphicspath{{./Rss/}}
 \newcommand{\normfig}[1]{\includegraphics[width=0.5\textwidth]{#1}}
@@ -64,3 +64,7 @@
   {} % empty = no paragraph number
   {0pt}
   {\indent}
+
+% Set the viewing angles for 3D
+\tdplotsetmaincoords{70}{110}
+\usetikzlibrary{arrows.meta}
