@@ -5,7 +5,7 @@ In framework of many-body system, the fundamental object is the many-body wavefu
   \Psi(x_1,\ldots,x_N)
   =\Psi(\mathbf{r}_1,\sigma_1\dots,\mathbf{r}_N,\sigma_N)
 \]
-where the generalized coordinate $x = (\mathbf{r}, \sigma)$ takes into account the spatial coordinate $\mathbf{r}$ but also the intrinsic spin $\sigma$ pertaining to the particle.
+where the generalized coordinate $x = (\mathbf{r}, \sigma)$ not only takes into account the spatial coordinate $\mathbf{r}$ but also the intrinsic spin $\sigma$ pertaining to the particle.
 The state of the system therefore lives in the tensor product Hilbert space $\mathcal{H}^{\otimes N}$.
 For identical particles, the wavefunction must satisfy permutation symmetry,
 \begin{equation*}
@@ -222,10 +222,13 @@ The one-particle operator is also diagonal in its basis, hence we can write the 
   = \sum_{\alpha } \braket{1_\alpha  | \hat{o } ^{(1)}| 1_\alpha} \hat{a}_\alpha ^\dagger \hat{a}_\alpha
 \end{equation*}
 Transform into arbitrary one-particle basis by using the completeness relations
-\begin{equation*}
-  \hat{o }_1
-  =\sum_{i,j}  \sum_{\alpha } \braket{1_\alpha  | 1_i} \braket{1_i | \hat{o } ^{(1)}|1_j   } \braket{1_j  | 1_\alpha} \hat{a}_\alpha ^\dagger \hat{a}_\alpha
+\begin{multline*}
+    \hat{o }_1
+  =\sum_{i,j}  \sum_{\alpha } \braket{1_\alpha  | 1_i} \braket{1_i | \hat{o } ^{(1)}|1_j   } \braket{1_j  | 1_\alpha} \hat{a}_\alpha ^\dagger \hat{a}_\alpha\\
   =\sum_{i,j}  \sum_{\alpha } \braket{1_i | \hat{o } ^{(1)}|1_j   } \delta_{\alpha i} \hat{a}_\alpha ^\dagger \delta_{\alpha j}a_\alpha
+  =\sum_{i,j}  \ \braket{1_i | \hat{o } ^{(1)}|1_j   }  \hat{a}_i ^\dagger a_j
+\end{multline*}
+\begin{equation*}
 \end{equation*}
 The $\alpha$ index collapse, then the representation is obtained.
 
@@ -265,7 +268,9 @@ Imposing translational invariance $\hat{o}^{(2)}(\mathbf{r}, \mathbf{r}') = \hat
 where \( \hat{o}^{(2)}(\mathbf{q}) \) is the Fourier transform of \( \hat{o}^{(2)}(\mathbf{r}) \)
 \begin{equation*}
   \hat{o}^{(2)}(\mathbf{q}) = \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i\mathbf{q} \cdot r}
+  \qquad
   \begin{cases}
+    \mathbf{r} = \mathbf{r}_1-\mathbf{r}_2\\
     \mathbf{q} = \mathbf{k}_1 + \mathbf{k}_1' \\
     \mathbf{q}= \mathbf{k}_2' - \mathbf{k}_2
   \end{cases}
@@ -293,6 +298,85 @@ a_m a_n|1_m1_n\rangle
 a_m a_n|1_m1_n\rangle&= -|0\rangle
 \end{align*}
 an extra negative sign was produced
+
+\subsubsection{Example: Coulomb potential.}
+Two-particle Coulomb interaction is 
+\begin{equation*}
+  \hat{o}^{(2)} 
+  = \frac{e^2}{4\pi\varepsilon_0}\frac{1}{|{\mathbf r}_1-{\mathbf r}_2|} 
+\end{equation*}
+Then the second quantization of Coulomb potential is 
+\begin{equation*}
+  \hat{V}
+  = \frac{1}{2}\sum_{i,j,m,n}V_{ijmn} a_i^\dagger a_j^\dagger a_n a_m 
+\end{equation*}
+with $u_i(\mathbf{r}_n) = \braket{\mathbf{r}_n  | 1_i}$ as the single particle orbital and factor $1/2$ to avoid double counting.
+The derivation is quite straightforward, with the integral term 
+\begin{equation*}
+  V_{ijmn}
+  = \int d^3r_1\;d^3r_2 u_i^*({\mathbf r}_1)u_j^*({\mathbf r}_2)\frac{e^2}{4\pi\varepsilon_0|{\mathbf r}_1-{\mathbf r}_2|}u_m({\mathbf r}_1)u_n({\mathbf r}_2)
+\end{equation*}
+as the matrix element of the Coulomb potential in that basis.
+
+Writing in the momentum space, yields
+\begin{align*}
+  \hat{V } 
+  & = \frac{1}{2V} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{q}} V(\mathbf{q}) a_{\mathbf{k}_1+\mathbf{q}}^\dagger a_{\mathbf{k}_2-\mathbf{q}}^\dagger a_{\mathbf{k}_2} a_{\mathbf{k}_1}\\
+  \hat{V } 
+  & = \frac{1}{2V} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{q}} \frac{e^2 }{\epsilon_0 q^2} a_{\mathbf{k}_1+\mathbf{q}}^\dagger a_{\mathbf{k}_2-\mathbf{q}}^\dagger a_{\mathbf{k}_2} a_{\mathbf{k}_1}
+\end{align*}
+\begin{equation*}
+\end{equation*}
+with $V(\mathbf{q})$ as the Fourier transform of the spatial Coulomb potential
+\begin{equation*}
+V(\mathbf{q }) 
+= \int d^3r\;    \frac{e^2}{4\pi\varepsilon_0}\frac{1}{|{\mathbf r}_1-{\mathbf r}_2|}   
+=\frac{e^2}{4\pi\varepsilon_0} \int d^3r\;    \frac{e ^{i \mathbf{q }\cdot \mathbf{r}}}{r}   
+= \frac{e^2 }{\epsilon_0 q^2}
+\end{equation*}
+
+The integral evaluation is as follows
+\begin{align*}
+    I(q) & =  \int d^3 r \; \frac{e^{i \mathbf{q }\cdot \mathbf{ r }}}{r } \\
+  & = \int_{0}^{\infty}dr\,r^{2}\int_{0}^{\pi}d\theta\,\sin\theta\int_{0}^{2\pi}d\phi\,\frac{1}{r}e^{iqr\cos\theta} \\
+  I(q) & =  2\pi\int_{0}^{\infty}dr\,r\int_{0}^{\pi}d\theta\,\sin\theta\,e^{iqr\cos\theta}
+\end{align*}
+The second term can be evaluated by substituting $u = \cos \theta$ and $du = -\sin \theta\;d\theta$
+\begin{equation*}
+\int_{0}^{\pi} d\theta\;\sin\theta\,e^{iqr\cos\theta}
+= \int_{-1}^{1} du\; e^{iqru}
+= \frac{e^{iqr}-e^{-iqr}}{iqr}
+= \frac{2\sin(qr)}{qr}
+\end{equation*}
+The integral now reads
+\begin{equation*}
+  I(q) 
+  = \frac{4\pi}{q}\int_{0}^{\infty}dr\;\sin(qr)
+\end{equation*}
+This can be evaluated using Feynman's method of parameterization 
+\begin{equation*}
+  I(\epsilon) 
+  = \int_{0 }^{\infty}dr\; e ^{(iq -\epsilon )r}
+\end{equation*}
+with real $e ^{-\epsilon r}$. 
+Then, to evaluate the integral, we simply have to 
+\begin{equation*}
+  \int_{0}^{\infty}dr\;\sin(qr)  
+  = \lim_{\epsilon \rightarrow 0} \mathrm{Im} \left(\int_{0 }^{\infty}dr\; e ^{(iq -\epsilon )r}\right) 
+\end{equation*}
+Evaluate the function
+\begin{equation*}
+  I(\epsilon)  
+  =\left[-\frac{1}{\epsilon-iq}e^{-(\epsilon-iq)r}\right]_{0}^{\infty}
+  =\frac{1}{\epsilon-iq}
+  = \frac{\epsilon+iq }{\epsilon^2 + q^2}
+\end{equation*}
+Taking the imaginary component we obtain the integral value 
+\begin{equation*}
+  I(q) \frac{2\pi }{q }\frac{1 }{q } = \frac{4\pi }{q^2}
+\end{equation*}
+Multiplying this with the other Coulomb constant, we obtain the Fourier transform of the Coulomb potential. 
+
 
 \subsubsection{Derivation: momentum representation.}
 Translational invariance requires that shifting the entire system by a vector $\mathbf{a}$ leaves the interaction unchanged
@@ -327,11 +411,11 @@ Then the integral reduces
 In this composite state,  the plane wave representation reads as
 \begin{equation*}
   \langle \mathbf{r}_1,\mathbf{r}_2 | \mathbf{k}_1 \mathbf{k}_2 \rangle
-  = \frac{1 }{\sqrt{V}}  e ^{i(\mathbf{k}_1 \cdot  \mathbf{r}_1)+\mathbf{k}_2 \cdot  \mathbf{r}_2}
+  = \frac{1 }{\sqrt{V}}  e ^{i(\mathbf{k}_1 \cdot  \mathbf{r}_1+\mathbf{k}_2 \cdot  \mathbf{r}_2)}
 \end{equation*}
 Substituting back
 \begin{equation*}
-  \frac{1}{V} \int d^3 \mathbf{r}_1 d^3 \mathbf{r}_2 \mathcal{o}^{(2)}(\mathbf{r}_1 -\mathbf{r}_2) e^{-i(\mathbf{k}_1 - \mathbf{k}_1') \cdot \mathbf{r}_1} e^{-i(\mathbf{k}_2 -\mathbf{k}_2') \cdot \mathbf{r}_2}
+  \frac{1}{V} \int d^3 \mathbf{r}_1 d^3 \mathbf{r}_2 \hat{o}^{(2)}(\mathbf{r}_1 -\mathbf{r}_2) e^{-i(\mathbf{k}_1 - \mathbf{k}_1') \cdot \mathbf{r}_1} e^{-i(\mathbf{k}_2 -\mathbf{k}_2') \cdot \mathbf{r}_2}
 \end{equation*}
 Introduce new coordinates
 \begin{equation*}
