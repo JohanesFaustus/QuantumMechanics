@@ -24,10 +24,8 @@ The energy eigenvalue $E$ is doubly degenerate because two distinct momentum eig
 Suppose we expand the Hamiltonian in $X$ basis
 \begin{equation*}
   -\frac{\hbar^2 }{2m }\frac{d^2 }{dx } \psi(x)=E\psi
-\end{equation*}
-or
-\begin{equation*}
-  \frac{d^2 }{dx^2}\psi+k^2\psi=0
+  \rightarrow
+  \frac{d^2 }{dx^2}\psi+k^2\psi=0 
 \end{equation*}
 with
 \begin{equation*}
@@ -38,6 +36,31 @@ The solution is
   \psi(x)=Ae^{ikx}+Be^{-ikx}
 \end{equation*}
 From $E=p^2/2m$, we also obtain the relation $p=\hbar k$.
+This solution represent plane wave with momentum $\hbar k$ toward$x$ and one with momentum $-\hbar k$ negative $-x$.
+
+In general, we can obtain the expression for position-space representation of the plane wave by considering the eigenstate of the momentum operator
+\begin{equation*}
+  \mathbf{p }\ket{\mathbf{k }}  = \hbar \mathbf{k }\ket{\mathbf{k}}
+\end{equation*} 
+Then project it in position-space
+\begin{align*}
+    \braket{\mathbf{r }|\mathbf{p } | \mathbf{k }} 
+  & =  \hbar \mathbf{k} \braket{\mathbf{r } | \mathbf{k}}\\
+  -i \hbar \nabla \psi(\mathbf{r }) 
+  & =  \hbar \mathbf{k }\psi(\mathbf{r })\\
+  \psi(\mathbf{r})
+  & = C e ^{i \mathbf{k }\cdot \mathbf{r}}
+\end{align*}
+To normalize, we use the momentum–space Dirac delta normalization
+\begin{equation*}
+    \langle \mathbf{k}|\mathbf{k}'\rangle = \int d^3r\,\langle \mathbf{k}|\mathbf{r}\rangle\langle \mathbf{r}|\mathbf{k}'\rangle
+= |C|^2\int d^3r \; e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}=
+(2\pi)^{3/2}\delta^{(3)}({\mathbf{k }-\mathbf{k}'})
+\end{equation*}
+With $\mathbf{k }=\mathbf{k}'$, the normalization constant is 
+\begin{equation*}
+  C = \frac{1 }{(2\pi) ^{3/2}}
+\end{equation*}
 
 \subsection{Step Potential}
 \subsubsection{Infinite Potential Well.}
