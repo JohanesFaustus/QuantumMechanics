@@ -179,7 +179,7 @@ Consider the one–particle Hamiltonian
 \end{equation*}
 In the momentum eigenbasis, the one-particle operator reads
 \begin{equation*}
-  H = \sum_{\mathbf{k}} \frac{\mathbf{k}^{2}}{2m} a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}}    + \sum_{\mathbf{k} \mathbf{k}'} V_{\mathbf{k}-\mathbf{k}'}\, a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}'}
+  H = \sum_{\mathbf{k}} \frac{\mathbf{k}^{2}}{2m} a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}}    + \sum_{\mathbf{k} \mathbf{k}'} V_{\mathbf{k}-\mathbf{k}'} a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}'}
 \end{equation*}
 with $V_{\mathbf{q}}$ as Fourier component of the spatial potential that scatters a particle from momentum $\mathbf{k}'$ to $\mathbf{k}$ with momentum transfer $\mathbf{q}=\mathbf{k}-\mathbf{k}'$
 \begin{equation*}
@@ -187,13 +187,13 @@ with $V_{\mathbf{q}}$ as Fourier component of the spatial potential that scatter
 \end{equation*}
 In the position eigenbasis
 \begin{equation*}
-  H = \int d^3r\, \psi^\dagger(\mathbf r)\left(-\frac{1}{2m}\nabla^2 + V(\mathbf r)\right)\psi(\mathbf r)
+  H = \int d^3r\; \psi^\dagger(\mathbf r)\left(-\frac{1}{2m}\nabla^2 + V(\mathbf r)\right)\psi(\mathbf r)
 \end{equation*}
 
 The derivation in position eigenstate is quite straightforward since the Hamiltonian is local in position representation.
 For the momentum eigenstate, the kinetic term  reads  
 \begin{equation*}
-    K=\frac{1 }{2m} \sum_{\mathbf{k},\mathbf{k}'} \langle k|\hat{\mathbf{p}}^2 |k'\rangle a^\dagger_{\mathbf{k}} a_{\mathbf{k}'} = \sum_{\mathbf{k}} \frac{k^2}{2m}\, a^\dagger_{\mathbf{k}} a_{\mathbf{k}}
+    K=\frac{1 }{2m} \sum_{\mathbf{k},\mathbf{k}'} \langle k|\hat{\mathbf{p}}^2 |k'\rangle a^\dagger_{\mathbf{k}} a_{\mathbf{k}'} = \sum_{\mathbf{k}} \frac{k^2}{2m} a^\dagger_{\mathbf{k}} a_{\mathbf{k}}
 \end{equation*}
 For the potential term 
 \begin{equation*}
@@ -201,8 +201,8 @@ For the potential term
 \end{equation*}
 We evaluate the element in position representation, since the wavefunction is known to be the plane wave 
 \begin{align*}
-    \langle \mathbf{k}|V(\mathbf{r})|\mathbf{k}'\rangle &= \frac{1}{V}\int d^3r\,e^{-i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}}\,V(\mathbf{r})\\
-    V_{\mathbf{k} - \mathbf{k}'} = V_{\mathbf{q}} &= \frac{1}{V}\int d^3r\,e^{-i\mathbf{q}\cdot\mathbf{r}}\,V(\mathbf{r})
+    \langle \mathbf{k}|V(\mathbf{r})|\mathbf{k}'\rangle &= \frac{1}{V}\int d^3r\;e^{-i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}}V(\mathbf{r})\\
+    V_{\mathbf{k} - \mathbf{k}'} = V_{\mathbf{q}} &= \frac{1}{V}\int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}V(\mathbf{r})
 \end{align*}
 This is just Fourier transform of the potential.
 
@@ -338,12 +338,12 @@ V(\mathbf{q })
 The integral evaluation is as follows
 \begin{align*}
     I(q) & =  \int d^3 r \; \frac{e^{i \mathbf{q }\cdot \mathbf{ r }}}{r } \\
-  & = \int_{0}^{\infty}dr\,r^{2}\int_{0}^{\pi}d\theta\,\sin\theta\int_{0}^{2\pi}d\phi\,\frac{1}{r}e^{iqr\cos\theta} \\
-  I(q) & =  2\pi\int_{0}^{\infty}dr\,r\int_{0}^{\pi}d\theta\,\sin\theta\,e^{iqr\cos\theta}
+  & = \int_{0}^{\infty}dr\;r^{2}\int_{0}^{\pi}d\theta\;\sin\theta\int_{0}^{2\pi}d\phi\;\frac{1}{r}e^{iqr\cos\theta} \\
+  I(q) & =  2\pi\int_{0}^{\infty}dr\;r\int_{0}^{\pi}d\theta\sin\theta e^{iqr\cos\theta}
 \end{align*}
 The second term can be evaluated by substituting $u = \cos \theta$ and $du = -\sin \theta\;d\theta$
 \begin{equation*}
-\int_{0}^{\pi} d\theta\;\sin\theta\,e^{iqr\cos\theta}
+\int_{0}^{\pi} d\theta\;\sin\theta\;e^{iqr\cos\theta}
 = \int_{-1}^{1} du\; e^{iqru}
 = \frac{e^{iqr}-e^{-iqr}}{iqr}
 = \frac{2\sin(qr)}{qr}
@@ -1018,5 +1018,132 @@ where the second term is the mean-field potential.
 
 \subsection{Hartree-Fock for Fermion}
 Rather than simple product, the Hartree-Fock method assumes the wavefunction using Slater determinant
+\begin{equation*}
+  \Psi_F(x_1, \ldots, x_N) 
+  = \frac{1}{\sqrt{N!}} \sum_{P \in S_N} \text{sgn}(P) \prod_{i=1}^N \phi_i(x_{P(i)})
+\end{equation*}
+The expectation value of the total Hamiltonian
+\begin{equation*}
+  \langle \Psi | \hat{H} | \Psi \rangle = \int dx_1 dx_2 \ldots dx_N \Psi^*(x_1, x_2, \ldots, x_N) \hat{H} \Psi(x_1, x_2, \ldots, x_N)
+\end{equation*}
+using the fermion wavefunction yields the Hartree-Fock functional
+\begin{multline*}
+      \langle \Psi | \hat{H} | \Psi \rangle 
+  = \sum_{i=1}^N \int dx\phi_i^*(x)\hat h(x)\phi_i(x) \\
+  + \frac{1}{2}\sum_{\substack{i,j=1\\i\neq j}}^N \int dx\;dx' \Bigg[ |\phi_i(x)|^2V(x,x')|\phi_j(x')|^2 \\
+  - \phi_i^*(x)\phi_j(x)V(x,x')\phi_j^*(x')\phi_i(x') \Bigg]
+\end{multline*}
+
+\subsubsection{Derivation: Hartree-Fock}
+The following derivation shall use the second quantization formalism.
+The expectation value of single particle in this formalism is written as 
+\begin{equation*}
+  \braket{\Phi  | \hat{H}_1|\Phi} = \sum_{j}   \langle i|\hat{h}|j\rangle \braket{\Phi  | c_i^\dagger c_j|\Phi}
+\end{equation*}
+with the fermion wavefunction written as
+\begin{equation*}
+  \ket{\Phi }= \prod_{k \in \text{occ}} c ^\dagger_k \ket{0}
+\end{equation*}
+and $i$ as the occupied state.
+We can evaluate the expectation value of fermion creation and annihilation operator on the fermion wavefunction as
+\begin{equation*}
+  \bra{\Phi} c ^\dagger_i  c_j \prod_{k \in \text{occ}} c ^\dagger_k \ket{0} = \delta_{ij}n_i 
+\end{equation*}
+with $n_i\in \left\{ 0,1 \right\} $ as the number occupation of state $i$.
+The interpretation of this result is as follows.
+If $j \neq \text{occ}$, then the annihilation $c_i$ act on vaccum
+\begin{equation*}
+  c_j \ket{\Phi} =0
+\end{equation*}
+If $j \in \text{occ}$, the result generally not zero
+\begin{equation*}
+  c_j \ket{\Phi} = (\pm) \ket{\Phi^{(j)}}
+\end{equation*}
+There are two further possible subcase after this.
+If $i \neq j$, then creation $c ^\dagger_i$ creates particle in already occupied state, 
+\begin{equation*}
+  c ^\dagger_i \ket{\Phi^{(j)}} = 0
+\end{equation*}
+or it creates particle in different orbital $\ket{\Phi^{(j \to i)}}$ such that the resulting state is orthogonal with $\bra{\Phi}$
+\begin{equation*}
+  \braket{\Phi  | \Phi^{(j \to i)}} = 0
+\end{equation*}
+The result is zero overall.
+Second possibilities are that $i =j$, which meant that creation $c_i$ re-create the particle that the annihilation $c_j$ annihilate, thus the state is again identical to $\ket{\Phi}$.
+Hence, the expectation value reads 
+\begin{equation*}
+  \braket{\Phi  | \hat{H}_1|\Phi} 
+  = \sum_{i \in \text{occ}}   \langle i|\hat{h}|i\rangle   
+\end{equation*}
+To obtain the desired form, we insert the completeness relation 
+\begin{equation*}
+   \braket{\Phi  | \hat{H}_1|\Phi} 
+  = \sum_{p \in \text{occ}}    \int dx\;dx'\;\phi^*(x)\langle x | \hat{h} | x' \rangle\phi(x')
+\end{equation*}
+The Hamiltonian is local, so $\langle x | \hat{h} | x' \rangle = \hat{h}(x)\delta(x-x')$ and the integral turns 
+\begin{equation*}
+   \braket{\Phi  | \hat{H}_1|\Phi} 
+  = \sum_{i=1}^N \int dx\phi_i^*(x)\hat h(x)\phi_i(x) 
+\end{equation*}
+where we relabel the orbital such that $\left\{ i,\dots,N \right\} $ is the occupied orbital.
+
+Now for the two-particle Hamiltonian
+\begin{equation*}
+  \braket{\Phi  | \hat{H}_2|\Phi} = \sum_{i,j}\sum_{k,l}   \langle ij|\hat{h}|kl \rangle \braket{\Phi  | c_i^\dagger c ^\dagger_j c_l c_k|\Phi}
+\end{equation*}
+Note the order of the annihilation operators are swapped.
+The expectation value of the annihilation and creation term in the Slater determinant is 
+% ij kl
+% pq rs
+\begin{equation*}
+  \braket{\Phi  | c ^\dagger_i c ^\dagger_j c _l c_k|\Phi }=\delta_{ik }\delta_{jl } -\delta_{il }\delta_{jk }
+\end{equation*}
+This is obtained by considering the fact that the annihilation operators yields non-zero result if they act on occupied state
+\begin{equation*}
+  c_l c_k \ket{\Phi} \neq 0,
+  \qquad k,l \in \text{occ}
+\end{equation*}
+As before, in order to produce non-zero inner product, the creation operators must re-create the annihilated fermion.
+There are two possible way to achieve this.
+First is the direct reconstruction $i=k$ and $j=l$, where the operators re-create the fermion in the same order they were annihilated
+\begin{equation*}
+ c_i^\dagger c ^\dagger_j c_l c_k \ket{\Phi} 
+ \to c_i^\dagger c ^\dagger_j c_j c_i \ket{\Phi} 
+ =c_i^\dagger (1-c_jc ^\dagger_j ) c_i \ket{\Phi} 
+ = c ^\dagger_i c_i \ket{\Phi}
+\end{equation*}
+since $c ^\dagger_j$ acts on occupied state $q$.
+Second is the exchange reconstruction $i=l$ and $j=k$, where their order are swapped
+\begin{equation*}
+ c_i^\dagger c ^\dagger_j c_l c_k \ket{\Phi} 
+ \to c_i^\dagger c ^\dagger_j c_i c_j \ket{\Phi} 
+ = -c_i^\dagger c_i c ^\dagger_j c_j  \ket{\Phi} 
+\end{equation*}
+Enforcing this result, the expectation value reads 
+\begin{equation*}
+  \braket{\Phi  | \hat{H}_2|\Phi} = 
+  \frac{1 }{2}\sum_{p,q\in \text{occ}}   \langle ij|\hat{V}|ij \rangle -\langle ij|\hat{V}|ji \rangle 
+\end{equation*}
+Again, we insert the completeness relation to express it in position representation.
+For the direct term 
+\begin{multline*}
+   \langle ij|\hat{V}|ij \rangle  \\
+= \int dx_1\;dx_2\;dx_1'\;dx_2'\; \phi_i^*(x_1)\phi_j^*(x_2)\langle x_1 x_2|\hat{V}|x_1' x_2'\rangle \phi_i(x_1')\phi_j(x_2')
+\end{multline*}
+The operators also local $\langle x_1 x_2|\hat{V} |x_1' x_2'\rangle = V(x_1,x_2)\delta(x_1-x_1')\delta(x_2-x_2')$
+\begin{equation*}
+ \langle ij|\hat{V}|ij \rangle  
+= \int dx_1\;dx_2\; \phi_i^*(x_1)\phi_j^*(x_2) V(x_1,x_2) \phi_i(x_1)\phi_j(x_2)
+\end{equation*}
+As for the exchange term 
+\begin{multline*}
+   \langle ij|\hat{V}|ji \rangle  \\
+= \int dx_1\;dx_2\;dx_1'\;dx_2'\; \phi_i^*(x_1)\phi_j^*(x_2)\langle x_1 x_2|\hat{V}|x_1' x_2'\rangle \phi_j(x_1')\phi_i(x_2')
+\end{multline*}
+and with locality
+\begin{equation*}
+ \langle ij|\hat{V}|ji \rangle  
+= \int dx_1\;dx_2\; \phi_i^*(x_1)\phi_j^*(x_2) V(x_1,x_2) \phi_j(x_1)\phi_i(x_2)
+\end{equation*}
 
 \end{document}
