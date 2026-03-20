@@ -982,33 +982,32 @@ We normalized the single-orbital Hartree functional with respect to normalizatio
 \end{equation*}
 For the non-interacting Hamiltonian, we construct functional
 \begin{equation*}
-  F = N \int dx\; \phi ^*(x)\hat{h }(x)\phi(x) + \lambda \left( \int dx \left| \phi (x)\right|^2 - 1 \right)
+  \mathcal{L}_1+\mathcal{L}_c = N \int dx\; \phi ^*(x)\hat{h }(x)\phi(x) + \lambda \left( \int dx \left| \phi (x)\right|^2 - 1 \right)
 \end{equation*}
-Minimizing with respect to $\phi$ yields
+Minimizing with respect to $\phi ^*$ yields
 \begin{equation*}
-  \delta{F} = N \int dx \; \delta \phi^{*} (x)\hat{h}(x) \phi(x) + \lambda \int  d x \; \delta\phi^{*} \phi(x)=0
+  \delta{\mathcal{L}_1}+\delta \mathcal{L}_c 
+  = N \int dx \; \delta \phi^{*} (x)\hat{h}(x) \phi(x) + \lambda \int  d x \; \delta\phi^{*} \phi(x)
 \end{equation*}
-For arbitrary variational $\delta\phi$, in order to make sure that the integral is zero is that the other integrand factor is zero, thus
-\begin{equation*}
-  N \hat{h }(x  )\phi(x)+\lambda\phi(x)=0
-\end{equation*}
-
 For the case of interacting Hamiltonian, the functional reads
 \begin{equation*}
-  F = \frac{1}{2} N (N - 1) \int d{x} \; dx' \; |\phi(x)|^2 V(x,x') |\phi(x')|^2 + \lambda \left( \int dx \left| \phi (x)\right|^2 - 1 \right)
+  \mathcal{L}_2 = \frac{1}{2} N (N - 1) \int d{x} \; dx' \; |\phi(x)|^2 V(x,x') |\phi(x')|^2 
 \end{equation*}
-where we used the same constraint.
-Again, we vary $\delta\phi$ (with the constraint omitted)
+Again, we vary $\phi ^*$ 
 \begin{multline*}
-  \delta F = \frac{1}{2} N(N-1) \bigg[ \int dx\;dx' \; \delta \phi ^*(x)  \phi(x)V(x,x') |\phi(x')|^2 \\+ \int dx\;dx' \; |\phi(x)|^2  V(x,x')  \delta\phi ^*(x ) \phi(x)\bigg]\\
+  \delta \mathcal{L}_2 = \frac{1}{2} N(N-1) \bigg[ \int dx\;dx' \; \delta \phi ^*(x)  \phi(x)V(x,x') |\phi(x')|^2 \\+ \int dx\;dx' \; |\phi(x)|^2  V(x,x')  \delta\phi ^*(x ) \phi(x)\bigg]\\
   = N (N-1)\int dx\;dx' \; \delta \phi ^*(x)  \phi(x)V(x,x') |\phi(x')|^2
 \end{multline*}
-Repeating the same argument (now with the constraint included)
-\begin{equation*}
-  N (N-1)\int dx' \;   \phi(x)V(x,x') |\phi(x')|^2  +\lambda\phi(x)=0
-\end{equation*}
+where both integral contribute the same value.
+Combining both
+\begin{multline*}
+  \delta F 
+  = N \int dx \; \delta \phi^{*} (x)\hat{h}(x) \phi(x) \\
+  +  N (N-1)\int dx\;dx' \; \delta \phi ^*(x)  \phi(x)V(x,x') |\phi(x')|^2 \\
+  +\lambda \int  d x \; \delta\phi^{*} \phi(x)
+\end{multline*}
 
-Recall that both term are to be constrained with the same function, so the result is simply
+For arbitrary variational $\delta\phi ^*$, in order to make sure that the integral is zero, the other integrand factor must be zero, thus
 \begin{align*}
   \left(   N \hat{h }(x  )+   N (N-1)\int dx' \;V(x,x') |\phi(x')|^2 \right) \phi(x)
   +\lambda\phi(x)                                                                & = 0               \\
@@ -1022,6 +1021,11 @@ Rather than simple product, the Hartree-Fock method assumes the wavefunction usi
   \Psi_F(x_1, \ldots, x_N) 
   = \frac{1}{\sqrt{N!}} \sum_{P \in S_N} \text{sgn}(P) \prod_{i=1}^N \phi_i(x_{P(i)})
 \end{equation*}
+or the second quantization representation
+\begin{equation*}
+  \ket{\Phi }= \prod_{i \in \text{occ}} c ^\dagger_i \ket{0}
+\end{equation*}
+with $i$ as the occupied state.
 The expectation value of the total Hamiltonian
 \begin{equation*}
   \langle \Psi | \hat{H} | \Psi \rangle = \int dx_1 dx_2 \ldots dx_N \Psi^*(x_1, x_2, \ldots, x_N) \hat{H} \Psi(x_1, x_2, \ldots, x_N)
@@ -1033,8 +1037,28 @@ using the fermion wavefunction yields the Hartree-Fock functional
   + \frac{1}{2}\sum_{\substack{i,j=1\\i\neq j}}^N \int dx\;dx' \Bigg[ |\phi_i(x)|^2V(x,x')|\phi_j(x')|^2 \\
   - \phi_i^*(x)\phi_j(x)V(x,x')\phi_j^*(x')\phi_i(x') \Bigg]
 \end{multline*}
+In abstract basis, this expression reads
+\begin{equation*}
+      \langle \Psi | \hat{H} | \Psi \rangle 
+  = \sum_{i=1}^{N}\langle i|\hat{h}|i\rangle + \frac{1}{2}\sum_{i,j=1}^{N}\big(\langle ij|\hat{V}|ij\rangle - \langle ij|\hat{V}|ji\rangle\big)
+\end{equation*}
 
-\subsubsection{Derivation: Hartree-Fock}
+Enforcing the normalization constraint yields the Hartree-Fock equation
+\begin{equation*}
+  \left[\hat{h}(x)+\hat{V}_{\mathrm{mf}}(x)\right]\phi_i(x) =\epsilon_i\phi_i(x)
+\end{equation*}
+where $\epsilon_i$ are the Lagrange multipliers ﬁxed by the normalization and $\hat{V}_\text{mf}$ is a nonlocal mean-ﬁeld operator
+\begin{equation*}
+  \hat{V}_\text{mf}(x) \phi_i(x)
+  =  V_d(x) \phi_i(x) - \sum_{j=1}^N V^{ji}_\text{ex}(x) \phi_j(x)
+\end{equation*}
+where the direct mean-ﬁeld ${V}_d(x)$ and exchange mean-field ${V}_\text{ex} ^{ji}(x)$ read as 
+\begin{align*}
+  V_\text{d}(x) & =  \sum_{j\neq i}^N \int dx'\; V(x,x')\left|\phi_j(x')\right|^2\\\
+  V_\text{ex}^{ji}(x) & =  \int dx'\; \phi_j^*(x')V(x,x')\phi_i(x')
+\end{align*}
+
+\subsubsection{Derivation: Hartree-Fock.}
 The following derivation shall use the second quantization formalism.
 The expectation value of single particle in this formalism is written as 
 \begin{equation*}
@@ -1044,7 +1068,7 @@ with the fermion wavefunction written as
 \begin{equation*}
   \ket{\Phi }= \prod_{k \in \text{occ}} c ^\dagger_k \ket{0}
 \end{equation*}
-and $i$ as the occupied state.
+and $k$ as the occupied state.
 We can evaluate the expectation value of fermion creation and annihilation operator on the fermion wavefunction as
 \begin{equation*}
   \bra{\Phi} c ^\dagger_i  c_j \prod_{k \in \text{occ}} c ^\dagger_k \ket{0} = \delta_{ij}n_i 
@@ -1124,6 +1148,7 @@ Enforcing this result, the expectation value reads
   \braket{\Phi  | \hat{H}_2|\Phi} = 
   \frac{1 }{2}\sum_{p,q\in \text{occ}}   \langle ij|\hat{V}|ij \rangle -\langle ij|\hat{V}|ji \rangle 
 \end{equation*}
+
 Again, we insert the completeness relation to express it in position representation.
 For the direct term 
 \begin{multline*}
@@ -1146,4 +1171,143 @@ and with locality
 = \int dx_1\;dx_2\; \phi_i^*(x_1)\phi_j^*(x_2) V(x_1,x_2) \phi_j(x_1)\phi_i(x_2)
 \end{equation*}
 
+\subsubsection{Derivation: Hartree-Fock state functional minimization.}
+With the orbital orthonormality, we construc the functional
+\begin{equation*}
+  \mathcal{L}
+  = \sum_{i=1}^{N}\langle i|\hat{h}|i\rangle
++ \frac{1}{2}\sum_{i,j=1}^{N}\big(\langle ij|\hat{V}|ij\rangle-\langle ij|\hat{V}|ji\rangle\big)
++ \sum_{i,j=1}^{N}\epsilon_{ij}\big(\langle i| j\rangle-\delta_{ij}\big)
+\end{equation*}
+For one-particle and the constraint term, we vary $\ket{i}$ 
+\begin{equation*}
+  \delta \mathcal{L }_1+\mathcal{L }_c
+  = \sum_{i=1}^{N}\langle\delta i|\hat{h}|i\rangle + \sum_{i,j=1}^{N}\epsilon_{ij}\langle \delta i| j\rangle
+\end{equation*} 
+Same goes for the two-particle term, only we vary for the set of $\left\{ \ket{i} \right\} $
+\begin{align*}
+  \mathcal{L }_2
+  & =  \frac{1}{2}\sum_{i,j=1}^{N}\big(\langle\delta i,j|\hat{V}|ij\rangle +\langle i,\delta j|\hat{V}| i, j\rangle-\langle\delta i,j|\hat{V}|ji\rangle - \langle i, \delta j|\hat{V}|ji\rangle\big)\\
+  \mathcal{L }_2
+  & = \sum_{i,j=1}^{N}\big(\langle\delta i,j|\hat{V}|ij\rangle -\langle\delta i,j|\hat{V}|ji\rangle \big)
+\end{align*}
+Combining both 
+\begin{equation*}
+  \delta\mathcal{L }
+  = \sum_{i=1}^{N}\langle\delta i|\hat{h}|i\rangle + \sum_{i,j=1}^{N}\big(\langle \delta i,j|\hat{V}|ij\rangle -\langle\delta i,j|\hat{V}|ji\rangle \big)+ \sum_{i,j=1}^{N}\epsilon_{ij}\langle \delta i| j\rangle  
+\end{equation*}
+
+We now want to define operator that express the idea 
+\begin{equation*}
+  \braket{ij  | \hat{V}|ij} \to \bra{i } \braket{j  | \hat{V}|j }\ket{i}
+\end{equation*}
+The realization is as the part of $\hat{V}$ that acts on $\ket{i}$ when $j$ is fixed. 
+First we project particle $j$ onto $\ket{j}$, then apply $\hat{V}$ to represent the part of that operator $\hat{V}$ which act on $i$.
+This still lives on $\mathcal{H}_i \otimes \mathcal{H}_j$, so tracing over $j$ reduce the operator into the $\mathcal{H}_i$ only.
+We define this by the direct operator
+\begin{equation*}
+  \hat{J }_j = \mathrm{Tr}_j[\hat{V}(\mathbf{1 }_i \otimes \ket{j}\bra{j})]
+\end{equation*}
+With the same logic we can define the exchange operator, only we want to encodes the particle exchange.
+Instead of leaving $\ket{i}$ on $i$ unchanged, we want $\ket{i}$ on $i$ and $\ket{j}$ on $j$ in the ket of $\hat{V}$ become $\ket{j}$ on $i$ and $\ket{i}$ on $j$ in the bra.
+Order exchange in other words.
+With this, we define the exchange operator as 
+\begin{equation*}
+  \hat{K }_j = \mathrm{Tr}_j[\hat{V}(\ket{j} \bra{i} \otimes \ket{i}\bra{j})]  
+\end{equation*}
+With this in mind, we can write
+\begin{equation*}
+  \delta\mathcal{L }
+  = \sum_{i=1}^{N}\langle\delta i|\hat{h}|i\rangle 
+  + \sum_{i,j=1}^{N} \langle \delta i| (\hat{J}_j-\hat{K }_j)|i\rangle 
+  + \sum_{i,j=1}^{N}\epsilon_{ij}\langle \delta i| j\rangle  
+\end{equation*}
+
+For arbitrary variation for $\left\{ \bra{\delta i} \right\} $, it is obvious that 
+\begin{equation*}
+  \hat{h}\lvert i\rangle + \sum_{j=1}^{N}\big(\hat{J}_j - \hat{K}_j\big)\lvert i\rangle - \sum_{j=1}^{N}\epsilon_{ij}\lvert j\rangle =0
+\end{equation*}
+To simplify even further, we can choose an orthonormal orbital basis that can diagonalize $\epsilon_{ij}$
+\begin{equation*}
+  \hat{h}\lvert i\rangle + \sum_{j=1}^{N}\big(\hat{J}_j - \hat{K}_j\big)\lvert i\rangle = \epsilon_i \ket{i}
+\end{equation*}
+
+Next we evaluate the position representation.
+It is trivial for the one-particle and the constraint term, as for the direct term 
+\begin{align*}
+  \hat{J}_j & =  \operatorname{Tr}_j \big[\hat{V}\big(\mathbf{1}_i\otimes |j\rangle\langle j|\big)\big]
+   = \sum_n \left( \mathbf{1 }_i \otimes \bra{n_j} \right) \hat{V}(\mathbf{1 }_i \otimes \ket{j}\bra{j}) \left( \mathbf{1 }_i \otimes \ket{n_j} \right)  \\
+  & = \sum_n \left( \mathbf{1 }_i \otimes \bra{n_j} \right) \hat{V}(\mathbf{1 }_i \otimes \ket{j}\braket{j|n_j})  \\
+  & = \sum_n \left( \mathbf{1 }_i \otimes \bra{n_j} \right) \hat{V}(\mathbf{1 }_i \otimes \ket{j} )\delta_{j,n_j}  \\
+& = \left( \mathbf{1 }_i \otimes \bra{j} \right) \hat{V}(\mathbf{1 }_i \otimes \ket{j} )
+\end{align*}
+The position representation for the operator is expressed as 
+\begin{equation*}
+  (\hat{J}_j\phi)(x) = \int dx'\,\langle x|\hat{J}_j|x'\rangle\,\phi(x')
+\end{equation*}
+All that matter is to compute the kernel then 
+\begin{equation*}
+  \langle x|\hat{J}_j|x'\rangle 
+  = (\langle x|\otimes\langle j|)\hat{V} (|x'\rangle\otimes|j\rangle) 
+   =  \int dy\;dy'\;\phi^*(y)\,\langle x,y|\hat{V}|x',y'\rangle\phi(y')
+\end{equation*}
+Assuming the operator being local
+\begin{equation*}
+  \langle x|\hat{J}_j|x'\rangle 
+  =\delta(x-x')\int dy\,V(x,y)\,\lvert\phi_j(y)\rvert^2.
+\end{equation*}
+Substituting 
+\begin{align*}
+    (\hat{J}_j\phi)(x) 
+  &= \int dx'\;\delta(x-x')\Bigg[\int dy\;V(x,y)|\phi_j(y)|^2\Bigg]\phi(x)\\
+  (\hat{J}_j\phi)(x) 
+&= \Bigg[\int dy\;V(x,y)|\phi_j(y)|^2\Bigg]\phi(x)
+\end{align*}
+
+As for the exchange term
+\begin{align*}
+  \hat{K }_j & =  \mathrm{Tr}_j[\hat{V}(\ket{j} \bra{i} \otimes \ket{i}\bra{j})]  
+  = \sum_n \left( \mathbf{1 }_i \otimes \bra{n_j} \right) \hat{V } \left( \ket{j }\bra{i }\otimes \ket{i }\bra{j } \right) \left( \mathbf{1 }_i \otimes \ket{n_j} \right)  \\
+  \hat{K }_j
+  & =  \sum_n \delta_{j,nj}\left( \mathbf{1 }_i \otimes \bra{n_j} \right) \hat{V } \left( \ket{j }\bra{i }\otimes \ket{i }\right)   
+  =  \left( \mathbf{1 }_i \otimes \bra{j} \right) \hat{V } \left( \ket{j }\bra{i }\otimes \ket{i }\right)
+\end{align*}
+By inserting the completeness relation
+\begin{equation*}
+  \mathbf{1}_i\otimes \mathbf{1}_j = \int dx_i\,dx_j\,\ket{x_i x_j} \bra{x_i x_j} 
+\end{equation*}
+one obtain the 
+\begin{align*}
+  \hat{K }_{j} 
+  & =   \int dx_i\;dx_j\;dx_i'\;dx_j'\;(\mathbf{1}_i\otimes\langle j|)|x_i x_j\rangle\langle x_i x_j|\hat{ V}|x_i' x_j'\rangle\langle x_i' x_j'|\big(|j\rangle\langle i|\otimes|i\rangle\big)\\
+  & =   \int dx_i\;dx_j\;dx_i'\;dx_j'\;\lvert x_i \rangle \otimes \langle j \rvert x_j \rangle \langle x_i x_j|\hat{ V}|x_i' x_j'\rangle \langle x_i'|j\rangle\langle i|\otimes\langle x_j'|i\rangle\\
+  & =   \int dx_i\;dx_j\;dx_i'\;dx_j'\;\phi_j ^*(x_j) \ket{x_i}\langle x_i x_j|\hat{ V}|x_i' x_j'\rangle \phi_j(x_i')\phi_i(x_j')\langle i|
+\end{align*}
+Using locality
+\begin{equation*}
+  \hat{K }_{j}   
+   =   \int dx_i\;dx_j\; \phi_j ^*(x_j) V(x_i,x_j) \phi_j(x_i)\phi_i(x_j)\ket{x_i} \bra{i}
+\end{equation*}
+From the position representation
+\begin{equation*}
+  (\hat{K}_j\phi_i)(x_i) = \int dx_i'\;\langle x_i|\hat{K}_j|x_i'\rangle\phi_i(x_i')
+\end{equation*}
+
+To avoid confusion, we define 
+\begin{equation*}
+  \hat{K }_{j}   
+   =   \int d\xi_i\;dx_j\; \phi_j ^*(x_j) V(\xi_i,x_j) \phi_j(\xi_i)\phi_i(x_j)\ket{\xi_i} \bra{i}
+\end{equation*}
+The kernel evaluate as 
+\begin{align*}
+   \langle x_i|\hat{K}_j|x_i'\rangle 
+   & =    \int d\xi_i\;dx_j\; \phi_j ^*(x_j) V(\xi_i,x_j) \phi_j(\xi_i)\phi_i(x_j)\braket{x_i  | \xi_i} \braket{i  | x_i'}\\
+   \langle x_i|\hat{K}_j|x_i'\rangle 
+   & = \phi_i ^*(x_i')\int dx_j\; \phi_j ^*(x_j) V(x_i,x_j) \phi_j(x_i)\phi_i(x_j) 
+\end{align*}
+Substituting
+\begin{align*}
+  (\hat{K}_j\phi_i)(x_i) &= \int dx_i'\, \phi_i^*(x_i')\, \phi_i(x_i') \int dx_j\, \phi_j^*(x_j)\, V(x_i,x_j)\, \phi_j(x_i)\, \phi_i(x_j)\\
+  (\hat{K}_j\phi_i)(x_i) &= \int dx_j\, \phi_j^*(x_j)\, V(x_i,x_j)\, \phi_j(x_i)\, \phi_i(x_j)
+\end{align*}
 \end{document}

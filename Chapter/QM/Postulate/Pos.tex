@@ -447,9 +447,9 @@ For general case $n$-qubit composite system with Hilbert space
 \end{equation*}
 the reduced density operator on $A$ is defined by the partial trace over the complementary subsystem, ${A}'$ of $A \subset \{1, \ldots, n\}$
 \begin{equation*}
-    \rho^{A} \equiv \mathrm{Tr}_{{A}'}(\rho)
+    \rho^{A} \equiv \mathrm{Tr}_{{A}'}(\rho) = \sum_{n} \left( \mathbf{1 }_A\otimes\bra{n_{A'}} \right) \rho \left( \mathbf{1 }_A\otimes\ket{n_{A'}} \right)  
 \end{equation*}
-where $\rho$ denote the density operator acting on $\mathcal{H}$.
+where $\rho$ denote the density operator acting on $\mathcal{H}$ and $\left\{ \ket{n}_{A'}\right\} $ is a complete basis for subsystem $A'$, and it only lives on said subspace, thus the identity tensor product.
 
 \subsubsection{Derivation.}
 Suppose we measure in the probability of obtaining the outcome $\ket{\phi}$,
