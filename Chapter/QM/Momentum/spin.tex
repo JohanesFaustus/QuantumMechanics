@@ -1,6 +1,7 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
 \subsection{Spin of Single Particle}
+\subsubsection{Spin operator.}
 There is a fundamental distinction between particles with half-odd integer spin, called Fermions, which obey the Pauli exclusion principle, and those with integer spin, called Bosons, which do not obey the Pauli exclusion principle.
 For special case $l=1/2\equiv s$, we introduce operator $\mathbf{S}$, which satisfies
 \begin{equation*}
@@ -17,6 +18,7 @@ with
 \end{equation*}
 where $s$ denote the spin of quantum particle.
 
+\subsubsection{spinor.}
 The general element of the space spawned by this basis is called a spinor and can be formally written as
 \begin{equation*}
     \ket{\boldsymbol{\chi}}= \begin{bmatrix}
@@ -30,6 +32,7 @@ In this coordinate system, we have two possible state: one for $m_s=1/2$ and oth
     \big| \frac{1 }{2 },-\frac{1 }{2 }\big\rangle = \ket{\downarrow} = \begin{bmatrix} 0\\1 \end{bmatrix}
 \end{equation*}
 
+\subsubsection{Pauli matrices.}
 The components of spin $S_i$ can be written in terms of Pauli spin matrix
 \begin{equation*}
     \mathbf{S} = \frac{1 }{2 } \boldsymbol{\sigma}
@@ -77,7 +80,7 @@ such that
 The Pauli matrices satisfy
 \begin{gather*}
     \sigma_i^2=\mathbf{1}  \\
-    [\sigma_i, \sigma_j] = 2i \epsilon_{ijk} \sigma_k\qquad    \left\{ \sigma_i,\sigma_j \right\} = i\delta_{ij }\mathbf{1}\\
+    [\sigma_i, \sigma_j] = 2i \epsilon_{ijk} \sigma_k\qquad    \left\{ \sigma_i,\sigma_j \right\} = 2\delta_{ij }\mathbf{1}\\
     (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) = \mathbf{a} \cdot \mathbf{b} + i(\mathbf{a} \times \mathbf{b}) \cdot \boldsymbol{\sigma}
 \end{gather*}
 with vector $\mathbf{a}$ and $\mathbf{b}$.
@@ -96,6 +99,7 @@ If $i\neq j$, then
 Since $S_iS_j = i\epsilon_{ijk }S_k/2$ and $S_jS_i= -i \epsilon_{ijk }S_k/2$.
 Along with $\mathbf{1}$, the Pauli matrices span the $2 \times  2$ Hermitian matrices.
 
+\subsubsection{Bloch vector.}
 The Bloch vector associated with spinor state $\ket{\chi}$ is
 \begin{equation*}
     \mathbf{e }= \braket{\boldsymbol{\sigma}  }_{\chi}= \braket{\chi  | \boldsymbol{\sigma }|\chi}
@@ -117,6 +121,7 @@ we can work backward by determining the Bloch vector first the evaluating the sp
     \theta = \arccos(e_z), \quad \varphi = \arctan2(e_y, e_x)
 \end{equation*}
 
+\subsubsection{Ladder operator.}
 The Ladder operator for spin-$1/2$ particle is written as
 \begin{equation*}
     S_\pm = S_1 \pm iS_2
@@ -790,48 +795,174 @@ Then simply evaluate it
 \begin{align*}
     \exp \left( \frac{\alpha \sigma_z}{2}  \right)
      & =  \cosh \left( \frac{\alpha }{2 }  \right) I + \sinh \left( \frac{\alpha }{2 }  \right) \sigma_3 \\
-     & = \begin{pmatrix}
+     & = \begin{bmatrix}
              \cosh(\alpha/2) + \sinh(\alpha/2) & 0                                 \\
              0                                 & \cosh(\alpha/2) - \sinh(\alpha/2)
-         \end{pmatrix}                           \\
+         \end{bmatrix}                           \\
     \exp \left( \frac{\alpha \sigma_z}{2}  \right)
-     & = \begin{pmatrix}
+     & = \begin{bmatrix}
              e^{\alpha/2} & 0             \\
              0            & e^{-\alpha/2}
-         \end{pmatrix}
+         \end{bmatrix}
 \end{align*}
 same goes for the negative exponent.
 All that left is direct multiplication
 \begin{align*}
     \exp \left( \frac{\alpha \sigma_z}{2} \right)  \sigma_+ \exp \left(- \frac{\alpha \sigma_z}{2} \right)
      & =
-    \begin{pmatrix}
+    \begin{bmatrix}
         e^{\alpha/2} & 0             \\
         0            & e^{-\alpha/2}
-    \end{pmatrix}
-    \begin{pmatrix}
+    \end{bmatrix}
+    \begin{bmatrix}
         0 & 1 \\
         0 & 0
-    \end{pmatrix}
-    \begin{pmatrix}
+    \end{bmatrix}
+    \begin{bmatrix}
         e^{-\alpha/2} & 0            \\
         0             & e^{\alpha/2}
-    \end{pmatrix} \\
+    \end{bmatrix} \\
      & =
-    \begin{pmatrix}
+    \begin{bmatrix}
         e^{\alpha/2} & 0             \\
         0            & e^{-\alpha/2}
-    \end{pmatrix}
-    \begin{pmatrix}
+    \end{bmatrix}
+    \begin{bmatrix}
         0 & e^{\alpha/2} \\
         0 & 0
-    \end{pmatrix}             \\
-     & = \begin{pmatrix}
+    \end{bmatrix}             \\
+     & = \begin{bmatrix}
              0 & e^{\alpha} \\
              0 & 0
-         \end{pmatrix}
+         \end{bmatrix}
     = e^{\alpha} \sigma_+
 \end{align*}
 Once again, the same goes for the negative exponent.
 
+
+\subsection{Dirac Equation}
+The Dirac equation is
+\begin{equation*}
+    i \hbar \; \partial_t \Phi(\mathbf{r },t) = H \Phi(\mathbf{r },t)
+\end{equation*}
+with the Hamiltionian
+\begin{equation*}
+    H = c \hat{\boldsymbol{\alpha}} \cdot \mathbf{p} + \hat{\beta}mc^2
+    = \begin{bmatrix}
+        m c^{2} \mathbf{1}                        & c\,\boldsymbol{\sigma}\cdot\hat{\mathbf{p}} \\
+        c\boldsymbol{\sigma}\cdot\hat{\mathbf{p}} & -m c^{2} \mathbf{1}
+    \end{bmatrix}
+\end{equation*}
+and $\Phi(\mathbf{r },t)$ as the four-component spinor. 
+
+The matrices $\hat{\alpha}_i$ and $\hat{\beta}$ defined as
+\begin{equation*}
+    {\hat{\alpha}}_i = \begin{bmatrix} \mathbf{0} & {\sigma}_i\\  {\sigma}_i & \mathbf{0} \end{bmatrix}\qquad
+    \beta = \begin{bmatrix} \mathbf{1} & \mathbf{0}\\ \mathbf{0} & -\mathbf{1} \end{bmatrix}
+\end{equation*}
+and satisfies
+\begin{equation*}
+    \{\hat{\alpha}_i,\alpha_j\}=2\delta_{ij} \qquad
+    \{\hat{\alpha}_i,\beta\}=\mathbf{0} \qquad
+    \hat{\beta}^2=\mathbf{0}
+\end{equation*}
+
+The equation has the same structure with the Schrödinger equation, in fact this is the relativistic generalization of the Schrödinger equation.
+This equation is constructed specifically to satisfy the relativistic energy $E= \sqrt{\mathbf{p }^2c^2+m^2c^4}$.
+
+\subsubsection{Spinor-field.}
+The four-components spinor encode two states of spin-$1/2$ particle and degenerate solution of relativistic dispersion relation $E^2 = p^2c^2+m^2c^4$.
+The components can be grouped as 
+\begin{equation*}
+\Psi = \begin{bmatrix}\phi\\\chi\end{bmatrix} \qquad
+\phi = \begin{bmatrix}\psi_1\\\psi_2\end{bmatrix} \qquad
+\chi = \begin{bmatrix}\psi_3\\\psi_4\end{bmatrix}
+\end{equation*}
+$\phi$ component encode degrees of freedom at low energy; while $\chi$ encode relativistic correction responsible for spin–orbit coupling, magnetic moment, relativistic effects.
+The coupling of $\phi$ and $\chi$
+\begin{equation*}
+ \begin{bmatrix}
+        m c^{2}                         & c\,\boldsymbol{\sigma}\cdot\hat{\mathbf{p}} \\
+        c\boldsymbol{\sigma}\cdot\hat{\mathbf{p}} & -m c^{2} 
+    \end{bmatrix}
+\begin{bmatrix}\phi\\\chi\end{bmatrix}
+= \begin{bmatrix}
+mc^{2}\phi + c\bigl(\boldsymbol{\sigma}\cdot\mathbf{p}\bigr)\chi\\
+c\bigl(\boldsymbol{\sigma}\cdot\mathbf{p}\bigr)\phi - mc^{2}
+\end{bmatrix}
+\end{equation*}
+via $\boldsymbol{\sigma}\cdot \mathbf{p}$  is what makes the theory relativistic.
+
+\subsubsection{Dirac approach.}
+He considered a wave equation with only first derivatives with respect to time and space and introduced the classical energy
+\begin{equation*}
+    E = c\boldsymbol{\hat{\alpha}}\cdot\mathbf{p} + \hat{\beta}m c^2
+\end{equation*}
+such that squaring it one recovers the relativistic energy
+\begin{equation*}
+    E ^{2 } =  \mathbf{p }^2c^2 +m^2c^4
+\end{equation*}
+Since spatial translations are generated by momentum and time translations are generated by the Hamiltonian, we introduce quantization prescription
+\begin{equation*}
+    \mathbf{p} \to -i\hbar\nabla \qquad
+    H \to i\hbar \;\partial_t
+\end{equation*}
+The classical energy now reads
+\begin{equation*}
+    i\hbar \;\partial_t \Psi(\mathbf{r},t)=\left(-i\hbar c\hat{\boldsymbol{\alpha}}\cdot\nabla + \hat{\beta}m c^{2}\right)\Psi(\mathbf{r},t)
+\end{equation*}
+Notice that the wavefunction $\Psi(\mathbf{r },t)$, has four components in the abstract space of Dirac matrices, as such
+\begin{equation*}
+    i\hbar\partial_t
+    \begin{bmatrix}
+        \psi_1(\mathbf{r},t) \\
+        \psi_2(\mathbf{r},t) \\
+        \psi_3(\mathbf{r},t) \\
+        \psi_4(\mathbf{r},t)
+    \end{bmatrix}
+    =
+    \hat{H}
+    \begin{bmatrix}
+        \psi_1(\mathbf{r},t) \\
+        \psi_2(\mathbf{r},t) \\
+        \psi_3(\mathbf{r},t) \\
+        \psi_4(\mathbf{r},t)
+    \end{bmatrix}
+\end{equation*}
+
+The first term of the Hamiltonian has the elements of 
+\begin{align*}
+    \boldsymbol{\sigma}\cdot \hat{\mathbf p}
+     & = -i\hbar\left( \sigma_x \partial_x + \sigma_y \partial_y + \sigma_z \partial_z \right) \\
+     & = -i\hbar \left(
+    \begin{bmatrix}
+            0          & \partial_x \\
+            \partial_x & 0
+        \end{bmatrix}
+    +
+    \begin{bmatrix}
+            0           & -i\partial_y \\
+            i\partial_y & 0
+        \end{bmatrix}
+    +
+    \begin{bmatrix}
+            \partial_z & 0 \\
+            0          & -\partial_z
+        \end{bmatrix}
+    \right) \\
+     & = -i\hbar
+    \begin{bmatrix}
+        \partial_z               & \partial_x - i\partial_y \\
+        \partial_x + i\partial_y & -\partial_z
+    \end{bmatrix}
+\end{align*}
+Along the second term being trivial, the Hamiltonian explicitly written as 
+\begin{equation*}
+    \begin{bmatrix}
+        mc^2                                             & 0                                                & -i\hbar c\;\partial_z                            & -i \hbar c \left( \partial_x-i \;\partial_y \right) \\
+        0                                                & mc^2                                             & -i\hbar c\left(\partial_x + i\;\partial_y\right) & i\hbar c\,\partial_z                                \\
+        -i\hbar c\;\partial_z                            & -i\hbar c\left(\partial_x - i\;\partial_y\right) & -mc^2                                            & 0                                                   \\
+        -i\hbar c\left(\partial_x + i\;\partial_y\right) & i\hbar c\;\partial_z                             & 0                                                & -mc^2
+    \end{bmatrix}
+\end{equation*}
 \end{document}
