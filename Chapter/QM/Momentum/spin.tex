@@ -843,7 +843,7 @@ Once again, the same goes for the negative exponent.
 \subsection{Dirac Equation}
 The Dirac equation is
 \begin{equation*}
-    i \hbar \; \partial_t \Phi(\mathbf{r },t) = H \Phi(\mathbf{r },t)
+    i \hbar \; \partial_t \Psi(\mathbf{r },t) = H \Psi(\mathbf{r },t)
 \end{equation*}
 with the Hamiltionian
 \begin{equation*}
@@ -853,7 +853,11 @@ with the Hamiltionian
         c\boldsymbol{\sigma}\cdot\hat{\mathbf{p}} & -m c^{2} \mathbf{1}
     \end{bmatrix}
 \end{equation*}
-and $\Phi(\mathbf{r },t)$ as the four-component spinor. 
+and $\Psi(\mathbf{r },t)$ as the four-component spinor. 
+It can also be written in this way 
+\begin{equation*}
+    i\hbar \;\partial_t \Psi(\mathbf{r},t)=\left(-i\hbar c\hat{\boldsymbol{\alpha}}\cdot\nabla + \hat{\beta}m c^{2}\right)\Psi(\mathbf{r},t)
+\end{equation*}
 
 The matrices $\hat{\alpha}_i$ and $\hat{\beta}$ defined as
 \begin{equation*}
@@ -891,9 +895,59 @@ mc^{2}\phi + c\bigl(\boldsymbol{\sigma}\cdot\mathbf{p}\bigr)\chi\\
 c\bigl(\boldsymbol{\sigma}\cdot\mathbf{p}\bigr)\phi - mc^{2}
 \end{bmatrix}
 \end{equation*}
-via $\boldsymbol{\sigma}\cdot \mathbf{p}$  is what makes the theory relativistic.
+via $\boldsymbol{\sigma}\cdot \mathbf{p}$  is what makes the theory relatGivistic.
 
-\subsubsection{Dirac approach.}
+\subsubsection{Klein-Gordon equation.}
+The Klein-Gordon originaly interpreted to generalize the Schrödinger equation in relativistic.
+It starts with the relativistic energy
+\begin{equation*}
+    E^2 = p^2c^2+ m^2c^4
+\end{equation*}
+then introduce the prescription $    \mathbf{p} \to -i\hbar\nabla \qquad$ and  $    H \to i\hbar \;\partial_t$
+\begin{equation*}
+    \bigg(\frac{1}{c^2}\frac{\partial^2}{\partial t^2} - \nabla^2 + \frac{m^2 c^2}{\hbar^2}\bigg)\psi(\mathbf r,t) = 0
+\end{equation*}
+The equation is also known as the generalization of Maxwell’s wave equation for massive particles.
+Asidem, the equation suffer two problem.
+\begin{enumerate}
+    \item \textbf{Negative energy.}
+    The equation was supposed to describe single relativistic particle $\psi(\mathbf{r},t)$, it however include both spectrum of $+E$ and $-E$, so the theory is unbounded below if interpreted as a single-particle system. 
+
+    In relativistic quantum field theory, this is corrected by interpreting $\psi(\mathbf{r},t)$ as the quantum field, and the negative energy as antiparticle. 
+    \item \textbf{Incorrect probability density.} 
+    A probability density must satisfies conserved
+    \begin{equation*}
+        \frac{d }{dt } \int d^3 \mathbf{r} \rho(\mathbf{r},t) = 0
+    \end{equation*} 
+    and positive definite
+    \begin{equation*}
+        \rho(\mathbf{r},t) \geq  0
+    \end{equation*}
+    quantity.
+    Single plane wave state $\rho(\mathbf{r},t) = |\psi|^2$ does produce time-independent $\rho(\mathbf{r})$, however superpositions of pure states cause interference term to appear and time dependence to be produced.
+    There exists a conserved current
+    \begin{equation*}
+        \rho = \frac{i\hbar}{2 m c^{2}}\bigl(\psi^{*}\partial_{t}\psi - \psi\partial_{t}\psi^{*}\bigr)
+    \end{equation*}
+    that satisfies the time-independence.
+    This probability density, however, is not positive definite, so it still invalidates its interpretation as a probability density.
+\end{enumerate}
+
+Dirac's equation able to produce the continuity equation
+\begin{equation*}
+    \partial_t \rho(\mathbf{r },t) + c \nabla \cdot \mathbf{j}(\mathbf{r },t)=0
+\end{equation*}
+with $\rho(\mathbf{r },t)$ and $\mathbf{j}(\mathbf{r },t)$ three-valued 
+\begin{equation*}
+    \rho  (\mathbf{r },t)= \Psi ^\dagger(\mathbf{r },t)\Psi(\mathbf{r },t) \qquad
+    \mathbf{j}(\mathbf{r },t)=\Psi ^\dagger (\mathbf{r },t)\hat{\boldsymbol{\alpha } }\Psi(\mathbf{r },t)
+\end{equation*}
+which does not suffer from non-conserved probability density
+\begin{equation*}
+\partial_t \int d^3r\;\rho =0
+\end{equation*}
+
+\subsubsection{Derivation: Dirac approach.}
 He considered a wave equation with only first derivatives with respect to time and space and introduced the classical energy
 \begin{equation*}
     E = c\boldsymbol{\hat{\alpha}}\cdot\mathbf{p} + \hat{\beta}m c^2
@@ -964,5 +1018,61 @@ Along the second term being trivial, the Hamiltonian explicitly written as
         -i\hbar c\;\partial_z                            & -i\hbar c\left(\partial_x - i\;\partial_y\right) & -mc^2                                            & 0                                                   \\
         -i\hbar c\left(\partial_x + i\;\partial_y\right) & i\hbar c\;\partial_z                             & 0                                                & -mc^2
     \end{bmatrix}
+\end{equation*}
+
+\subsubsection{Derivation: continuity equation.}
+Start from the Dirac equation and its conjugate
+\begin{gather*}
+    \partial_t \Psi(\mathbf{r},t)=-c\hat{\boldsymbol{\alpha}}\cdot\nabla \Psi(\mathbf{r},t) 
+     + (i m c^{2}/\hbar )\hat{\beta} \Psi(\mathbf{r},t) \\
+    \partial_t \Psi ^\dagger(\mathbf{r},t)=-c [\nabla \Psi ^\dagger(\mathbf{r},t)] \cdot \hat{\boldsymbol{\alpha}}
+    -(i m c^{2}/\hbar )\Psi ^\dagger(\mathbf{r},t) \hat{\beta} 
+\end{gather*}
+Left multiply the Dirac equation with the Hermitian conjugate of the wavefunction
+\begin{equation*}
+    \Psi ^\dagger \partial_t \Psi=c\Psi ^\dagger\hat{\boldsymbol{\alpha}}\cdot\nabla \Psi 
+    + (i m c^{2}/\hbar ) \Psi ^\dagger \hat{\beta} \Psi 
+\end{equation*}
+the right multiply the Hermitian conjugate of the Dirac equation with the wavefunction
+\begin{equation*}
+    (\partial_t \Psi ^\dagger) \Psi=c [\nabla \Psi ^\dagger] \cdot \hat{\boldsymbol{\alpha}}\Psi
+    -(i m c^{2}/\hbar )\Psi ^\dagger \hat{\beta} \Psi
+\end{equation*}
+and add both 
+\begin{equation*}
+    \partial_t \Psi ^\dagger\Psi 
+    = -c \left[     \Psi ^\dagger\hat{\boldsymbol{\alpha}}\cdot\nabla \Psi + (\nabla \Psi ^\dagger) \cdot \hat{\boldsymbol{\alpha}}\Psi \right] 
+\end{equation*}
+
+Noting that $\hat{\boldsymbol{\alpha}}$ is constant in space such that $\nabla \hat{\boldsymbol{\alpha}} = 0$, can write
+\begin{align*}
+    \nabla \cdot (\Psi ^\dagger \hat{\boldsymbol{\alpha } }\Psi) 
+    & = \sum_{i } \partial_i\big(\Psi^\dagger\hat{\alpha}_i\Psi\big)\\
+    & =  \sum_{i } (\partial_i\Psi^\dagger)\,\hat{\alpha}_i\,\Psi + \Psi^\dagger(\partial_i\hat{\alpha}_i)\Psi + \Psi^\dagger\hat{\alpha}_i(\partial_i\Psi)\\
+    & = \sum_i\big[(\partial_i\Psi^\dagger)\hat{\alpha}_i\,\Psi + \Psi^\dagger\hat{\alpha}_i(\partial_i\Psi)\big]\\
+    \nabla \cdot (\Psi ^\dagger \hat{\boldsymbol{\alpha } }\Psi) 
+    & = (\nabla\Psi^\dagger)\cdot\boldsymbol{\hat{\alpha}}\Psi + \Psi^\dagger\big(\boldsymbol{\hat{\alpha}}\cdot\nabla\Psi\big)
+\end{align*}
+So we obtain the continuity equation
+\begin{equation*}
+    \partial_t \rho + c \nabla \cdot \mathbf{j}=0
+\end{equation*}
+where 
+\begin{equation*}
+    \rho  = \Psi ^\dagger\Psi \qquad
+    \mathbf{j}=\Psi ^\dagger \hat{\boldsymbol{\alpha } }\Psi
+\end{equation*}
+
+Now integrate over all space
+\begin{equation*}
+\int d^3r\;\partial_t \rho + \int d^3r\;\nabla \cdot  \mathbf{j} = 0    
+\end{equation*}
+Using divergence theorem 
+\begin{equation*}
+\partial_t \int d^3r\;\rho + \oint d \mathbf{a}\cdot  \mathbf{j} = 0        
+\end{equation*}
+Applying vanishing current at infinity, we obtain the conserved probability density
+\begin{equation*}
+\partial_t \int d^3r\;\rho =0
 \end{equation*}
 \end{document}
