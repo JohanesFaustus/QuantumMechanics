@@ -375,6 +375,46 @@ All components can be determined from
   \alpha_i = \frac{1 }{2} \mathrm{Tr} (\rho\sigma_i)
 \end{equation*}
 
+\subsubsection{Schrödinger's mixture theorem.}
+The expression for $\rho$ is not unique, the same state can be realized by combinations of different states $\ket{\psi_n}$ and probability $p_n$
+\begin{equation*}
+  \rho = \sum_{n} p_n \ket{\psi_n }\bra{\psi_n} \to \sum_{i } \lambda_i   \ket{e_i }\bra{e_i}
+\end{equation*}
+with $\ket{e_i}$ as the eigenstate of the $\rho$.
+It is understood that there is an arbitrariness corresponding only to the unitary matrix $U$, in other words 
+\begin{equation*}
+  \left|\psi_n\right\rangle = \sum_j \sqrt{\frac{\lambda_j}{p_n}}U_{nj}|e_j\rangle\qquad
+p_n = \sum_i \lambda_i\big|U_{ni}\big|^2
+\end{equation*}
+
+The proof start with basis transformation from state $\ket{\psi_n}$ to eigenstate $\ket{e_i}$
+\begin{equation*}
+  |\psi_n\rangle = \sum_i C_{ni}\,|e_i\rangle 
+\end{equation*} 
+The density operator now reads 
+\begin{equation*}
+  \rho = \sum_n p_n\left(\sum_i C_{ni}|e_i\rangle\right)\left(\sum_j C^*_{nj}\langle e_j|\right)  \\
+  = \sum_{ij}\left(\sum_n p_n C_{ni} C^*_{nj}\right)\,|e_i\rangle\langle e_j|
+\end{equation*}
+Comparing both expression
+\begin{equation*}
+  \sum_n p_n C_{ni} C_{nj}^* = \lambda_i \delta_{ij} \\
+\end{equation*}
+Set 
+\begin{equation*}
+  C_{ni} = \sqrt{\frac{\lambda_i}{p_n}} U_{ni} 
+\end{equation*}
+to obtain the fact that $U$ is a unitary operator such that 
+\begin{equation*}
+  U_{nj }U_{nj } ^* = \delta_{ij}
+\end{equation*}
+
+From the normalization condition, we also obtain
+\begin{align*}
+   \sum_i |C_{ni}|^2 & =  \sum_i \frac{\lambda_i}{p_n}|U_{ni}|^2 =1 \\
+ p_n &= \sum_i \lambda_i|U_{ni}|^2
+\end{align*}
+
 \subsubsection{Proof: mixed state lives inside the Bloch sphere.}
 The purity of a state has the maximum value of $\mathrm{Tr} [\rho^2]=1$.
 We can compute this 
