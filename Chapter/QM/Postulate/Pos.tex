@@ -421,6 +421,14 @@ We can determine the outcome of measuring state $\ket{\phi}$ using density opera
     P(\phi)= \braket{\phi  | \rho|\phi}= \mathrm{Tr } \left( \ket{\phi }\bra{\phi }\rho \right)
 \end{equation*}
 
+\subsubsection{Purity.}
+Mixedness of a state may be defined
+\begin{equation*}
+    \mu \equiv 1 - \mathrm{Tr} [\rho^2]
+\end{equation*}
+where $\mathrm{Tr} [\rho^2]$ as the purity of the state.
+The minimum value $\mu=0$ represent pure state and maximum value $\mu=1-1/N$, with $N$ being the dimension, represents a completely mixed state.
+
 \subsubsection{Partial trace.}
 Consider a pure state $|\psi\rangle_{AB} \in \mathcal{H}_A \otimes \mathcal{H}_B$ of two qubits.
 It may not be possible to factor out the state vector $|\psi\rangle_A \in \mathcal{H}_A$ for the state of the first qubit, however the state of the first qubit can in general be described as a mixed state.

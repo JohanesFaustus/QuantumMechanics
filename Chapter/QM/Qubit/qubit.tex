@@ -368,11 +368,30 @@ where the sum is ranged over all pure state $i$ in the ensemble.
 The vector $\left( \alpha_{x} , \alpha_{y}, \alpha_{z}\right)$ gives the coordinates for the point in the Bloch sphere corresponding to the state $\rho$.
 Any density operator for a single qubit can be written as
 \begin{equation*}
-  \rho = \frac{1}{2} I + \alpha_x X + \alpha_y Y + \alpha_z Z=\frac{1 }{2 }I +\boldsymbol{\alpha} \cdot \boldsymbol{\sigma}
+  \rho = \frac{1}{2} I + \alpha_x X + \alpha_y Y + \alpha_z Z=\frac{1 }{2 } \left( I +\boldsymbol{\alpha} \cdot \boldsymbol{\sigma} \right) 
 \end{equation*}
 All components can be determined from
 \begin{equation*}
   \alpha_i = \frac{1 }{2} \mathrm{Tr} (\rho\sigma_i)
+\end{equation*}
+
+\subsubsection{Proof: mixed state lives inside the Bloch sphere.}
+The purity of a state has the maximum value of $\mathrm{Tr} [\rho^2]=1$.
+We can compute this 
+\begin{equation*}
+  \mathrm{Tr} [\rho^2   ]= \mathrm{Tr} \left[ \frac{1 }{4 }(\mathbf{1 }+\boldsymbol{\alpha }\cdot \boldsymbol{\sigma})^2 \right] = \frac{1 }{4} \mathrm{Tr} [\mathbf{1}+r^2\mathbf{1}]+\frac{1 }{4 }\mathrm{Tr} [2 \boldsymbol{\alpha } \cdot \boldsymbol{\sigma} ]
+\end{equation*}
+The dot product of those two matrix is 
+\begin{equation*}
+  \boldsymbol{\alpha }\cdot \boldsymbol{\sigma } =
+  \begin{pmatrix}
+    \alpha_z&\alpha_x-i \alpha_y\\
+    \alpha_x+i\alpha_y&-\alpha_z
+  \end{pmatrix}
+\end{equation*}
+so the trace is 
+\begin{equation*}
+  \mathrm{Tr} [\rho^2] = \frac{1 }{2 }(1+r^2) \leq1
 \end{equation*}
 
 \subsection{Composite Systems}
@@ -387,7 +406,7 @@ Conversely, the combined system is said to be entangled if those two subsystem c
   \ket{\psi}\neq\ket{\psi_1} \otimes \ket{\psi_2}
 \end{equation*}
 
-Suppose we apply the $\mathrm{NOT}$ gate $X$ to a ﬁrst qubi of a 2-qubit system.
+Suppose we apply the $\mathrm{NOT}$ gate $X$ to a ﬁrst qubit of a 2-qubit system.
 We implicitly apply the identity operator $I$ to the second qubit at the same time and the operators maps
 \begin{equation*}
   \ket{\psi_1} \otimes \ket{\psi_2} \to X \ket{\psi_1} \otimes I \ket{\psi_2} = (X \otimes I)(\ket{\psi_1} \otimes \ket{\psi_2})
