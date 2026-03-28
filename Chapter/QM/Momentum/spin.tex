@@ -895,7 +895,7 @@ mc^{2}\phi + c\bigl(\boldsymbol{\sigma}\cdot\mathbf{p}\bigr)\chi\\
 c\bigl(\boldsymbol{\sigma}\cdot\mathbf{p}\bigr)\phi - mc^{2}
 \end{bmatrix}
 \end{equation*}
-via $\boldsymbol{\sigma}\cdot \mathbf{p}$  is what makes the theory relatGivistic.
+via $\boldsymbol{\sigma}\cdot \mathbf{p}$  is what makes the theory relativistic.
 
 \subsubsection{Klein-Gordon equation.}
 The Klein-Gordon originaly interpreted to generalize the Schrödinger equation in relativistic.
@@ -1075,4 +1075,134 @@ Applying vanishing current at infinity, we obtain the conserved probability dens
 \begin{equation*}
 \partial_t \int d^3r\;\rho =0
 \end{equation*}
+
+\subsection{Pauli Equation}
+The origin of spin can be traced back in the Pauli equation.
+The standard form is
+\begin{equation*}
+    i\hbar \; \partial_t\psi 
+     =  \left[\frac{1}{2m}(\mathbf{{\hat{p}}}-q\mathbf{A}) ^{2}-\frac{q \hbar}{2m }\mathbf{B }\cdot  \boldsymbol{\sigma} +q\phi\right]\psi    
+\end{equation*}
+Explicitly, the spin appear as 
+\begin{equation*}
+        i\hbar \; \partial_t\psi 
+     =  \left[\frac{1}{2m}(\mathbf{{\hat{p}}}-q\mathbf{A}) ^{2}-\frac{q }{m }\mathbf{B }\cdot \mathbf{S} +q\phi\right]\psi        
+\end{equation*}
+
+\subsubsection{Derivation.}
+Suppose the relativistic particle has the electric charge $q$, by using the Gauge-invariant substitution
+\begin{equation*}
+    E \to i\hbar\;\partial_t-q\phi(\mathbf r,t)  \qquad \mathbf{p} \to -i\hbar\nabla - q\mathbf{A}(\mathbf r,t)
+\end{equation*}
+We obtain the Dirac equation in the form 
+\begin{equation*}
+    i\hbar\;\partial_t\Psi(\mathbf r,t) = 
+    \Big(c\hat{\boldsymbol\alpha}\cdot\big(\hat{\mathbf p}-q\mathbf{A}(\mathbf r,t)\big)+\beta\,mc^2+q\phi(\mathbf r,t)\Big)\Psi(\mathbf{ r},t)
+\end{equation*}
+The spinor then is set as 
+\begin{equation*}
+\Psi(\mathbf r,t)
+\to e^{-imc^2t/\hbar}
+\begin{bmatrix}
+\psi(\mathbf r,t)\\ 
+\chi(\mathbf r,t)
+\end{bmatrix}
+\end{equation*}
+so that we obtain
+\begin{align*}
+    (    i\hbar \; \partial_t- mc^2)
+\begin{bmatrix}
+\psi\\
+\chi
+\end{bmatrix}
+& = 
+\begin{bmatrix}
+q\phi+mc^2 & c\boldsymbol{\sigma}\cdot(\hat{\mathbf p}-q\mathbf{A})\\
+c\boldsymbol{\sigma}\cdot(\hat{\mathbf p}-q\mathbf{A}) & q\phi-mc^2
+\end{bmatrix}
+\begin{bmatrix}
+\psi\\
+\chi
+\end{bmatrix}
+\\
+    i\hbar \; \partial_t
+\begin{bmatrix}
+\psi\\
+\chi
+\end{bmatrix}
+& = 
+\begin{bmatrix}
+q\phi & c\boldsymbol{\sigma}\cdot(\hat{\mathbf p}-q\mathbf{A})\\
+c\boldsymbol{\sigma}\cdot(\hat{\mathbf p}-q\mathbf{A}) & q\phi-2mc^2
+\end{bmatrix}
+\begin{bmatrix}
+\psi\\
+\chi
+\end{bmatrix}
+\end{align*}
+
+Consider non-relativistic approximation
+\begin{equation*}
+\bigl(i\hbar \; \partial_t - q\phi + 2mc^{2}\bigr)\chi \approx 2mc^{2}\chi
+\end{equation*}
+The term $i\hbar \; \partial_t - q\phi$ represent kinetic operator in this case, since it is equal to total energy $i\hbar \; \partial_t$ minus the potential $q\phi$ operator.
+The non-relativistic condition reads $v \ll c$, which this approximation satisfies by $T \sim mv^2/2$.
+Under this approximation, the equation reads 
+\begin{equation*}
+    i\hbar \; \partial_t
+\begin{bmatrix}
+\psi\\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}
+q\phi & c\boldsymbol{\sigma}\cdot(\hat{\mathbf p}-q\mathbf{A})\\
+c\boldsymbol{\sigma}\cdot(\hat{\mathbf p}-q\mathbf{A}) & -2mc^2
+\end{bmatrix}
+\begin{bmatrix}
+\psi\\
+\chi
+\end{bmatrix} 
+\end{equation*}
+
+We have then the lower equation
+\begin{equation*}
+    \chi = \frac{\hat{\boldsymbol{\sigma}}\cdot(\hat{\mathbf{p}}-qA)}{2mc}\psi
+\end{equation*}
+Inserting this expression in the upper equation 
+\begin{equation*}
+    i\hbar \; \partial_t\psi 
+    = \left(\frac{\big[\hat{\sigma}\cdot(\hat{\mathbf{p}}-qA)\big]^2}{2m}+q\phi\right)\psi
+\end{equation*}
+Using
+\begin{equation*}
+    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) = \mathbf{a} \cdot \mathbf{b} + i(\mathbf{a} \times \mathbf{b}) \cdot \boldsymbol{\sigma}
+\end{equation*}
+we can evaluate
+\begin{align*}
+    (\boldsymbol{\sigma}\cdot(\mathbf{{\hat{p}}}-q\mathbf{A}))^2 
+    &= (\mathbf{{\hat{p}}}-q\mathbf{A}) ^{2}+ i\big((\mathbf{{\hat{p}}}-q\mathbf{A})\times(\mathbf{{\hat{p}}}-q\mathbf{A})\big)\cdot\boldsymbol{\sigma}\\
+    &= (\mathbf{{\hat{p}}}-q\mathbf{A}) ^{2}+ i\big(    \mathbf{{\hat{p}}}\times\mathbf{{\hat{p}}} - q\mathbf{{\hat{p}}}\times\mathbf{A} \\
+    &\qquad- q\mathbf{A}\times\mathbf{{\hat{p}}} + q^{2}\mathbf{A}\times\mathbf{A}\big)\cdot\boldsymbol{\sigma}\\
+    &= (\mathbf{{\hat{p}}}-q\mathbf{A}) ^{2}+ iq\big(\mathbf{{\hat{p}}}\times\mathbf{A} + \mathbf{A}\times\mathbf{{\hat{p}}} \big)\cdot\boldsymbol{\sigma}\\
+    (\boldsymbol{\sigma}\cdot(\mathbf{{\hat{p}}}-q\mathbf{A}))^2 
+    &= (\mathbf{{\hat{p}}}-q\mathbf{A}) ^{2}+ q \hbar \mathbf{B}\cdot\boldsymbol{\sigma}
+\end{align*}
+The anticommutator is evaluated on test function as 
+\begin{align*}
+    \left\{ \mathbf{\hat{p },\mathbf{A }} \right\} \psi
+    & =-i\hbar\nabla\times\mathbf{A}\psi - i \hbar\mathbf{A}\times\nabla\psi \\
+    & = -i\hbar\big[(\nabla\times\mathbf{A}) \psi + (\nabla \psi) \times  \mathbf{A}+\mathbf{A}\times(\nabla\psi)\big]\\
+    & = -i\hbar\big[(\nabla\times\mathbf{A}) \psi + (\nabla \psi) \times  \mathbf{A} - (\nabla \psi) \times  \mathbf{A} \big]\\
+    \left\{ \mathbf{\hat{p },\mathbf{A }} \right\} \psi
+    & = -i\hbar(\nabla\times\mathbf{A}) \psi = -i\hbar \mathbf{B} \psi 
+\end{align*}
+The spin naturally occur by design 
+\begin{align*}
+    i\hbar \; \partial_t\psi 
+     =  \left[\frac{1}{2m}(\mathbf{{\hat{p}}}-q\mathbf{A}) ^{2}-\frac{q \hbar}{2m }\mathbf{B }\cdot  \boldsymbol{\sigma} +q\phi\right]\psi    \\
+    i\hbar \; \partial_t\psi 
+     =  \left[\frac{1}{2m}(\mathbf{{\hat{p}}}-q\mathbf{A}) ^{2}-\frac{q }{m }\mathbf{B }\cdot \mathbf{S} +q\phi\right]\psi    
+\end{align*}
+It is an unavoidable consequence of the Dirac algebra structure once the non-relativistic limit is taken.
 \end{document}
