@@ -637,4 +637,64 @@ Suppose that the magnetic field is greater at north.
 Classically, particle can be described as having two poles.
 When the south pole of the magnetic moment is located on the upper side, the magnetic moment is pulled toward the region where the magnetic field is stronger and the atom as a whole is attracted upward.
 On the other hand, if the north pole of the magnetic moment is on the upper side, the attraction acts in the opposite direction and the atom as a whole is pulled downward.
+
+\subsection{Einstein, Podolsky, and Rosen Paradox}
+Einstein questioned the Copenhagen interpretation, which asserts that physical quantities do not possess definite values prior to measurement, the so called being realism, and that measurement plays a constitutive role rather than merely revealing pre-existing properties
+They infer that quantum mechanics is incomplete and the wavefunction is missing hidden variables that would assign definite values to observables.
+This theory, however, makes invalid assumption in local realism.
+
+They considered that a certain spin-zero particle decays into two spin-$1/2$.
+To satisfies angular momentum conservation, the state after decay is 
+\begin{equation*}
+  \lvert s\rangle = \frac{1}{\sqrt{2}}\bigl(\lvert\uparrow\rangle\otimes\lvert\downarrow\rangle - \lvert\downarrow\rangle\otimes\lvert\uparrow\rangle\bigr)
+\end{equation*}
+This spin singlet state satisfies $[\mathbf{S}(1) + \mathbf{S}(2)] \ket{s} =0$, which implies antisymmetric eigenvalue $s(1)=-s(2)$.
+
+One then can obtain definite value of $s_x(1)$ by direct measurement and $s_z(1)$ by indirectly measuring $S_z(2) \ket{s}$.
+This is allowed since both operator $S_x(1)$ and $S_z(2)$ act on different operator and therefore commute.
+However, $S_x(1)$ and $S_z(1)$ do not commute, hence the result is invalid regardless.
+
+The mistake here is assuming localization of particle.
+Both statement about $s_x(1)$ and $s_z(1)$ are true individually, but not simultaneously.
+Measuring on particle 1 changes the state on particle 2, hence both statement cannot be made simultaneously.
+
+The same statement can be explained in terms of density matrix.
+Suppose observer at particle one Alice performs some unitary operation  on her own state as 
+\begin{equation*}
+  |s\rangle \to |s'\rangle = \frac{1}{\sqrt{2}}\bigl(U_1\lvert\uparrow\rangle\otimes\lvert\downarrow\rangle - U_1\lvert\downarrow\rangle\otimes\lvert\uparrow\rangle\bigr)
+\end{equation*}
+Then information would have been transmitted from Alice to observer on particle 2 Bob, which is described by 
+\begin{equation*}
+  \rho_B = \mathrm{Tr} _A [\rho'] 
+\end{equation*}
+The total density operator is written as 
+\begin{align*}
+    \ket{s' }\bra{s'} 
+  & =  \frac{1}{2}\Big[(U_1|\uparrow\rangle_1\otimes|\downarrow\rangle_2)(\langle\uparrow|_1U_1^\dagger\otimes\langle\downarrow|_2)\\
+  &\qquad-(U_1|\uparrow\rangle_1\otimes|\downarrow\rangle_2)(\langle\downarrow|_1U_1^\dagger\otimes\langle\uparrow|_2)\\
+  &\qquad-(U_1|\downarrow\rangle_1\otimes|\uparrow\rangle_2)(\langle\uparrow|_1U_1^\dagger\otimes\langle\downarrow|_2)\\
+  &\qquad +(U_1|\downarrow\rangle_1\otimes|\uparrow\rangle_2)(\langle\downarrow|_1U_1^\dagger\otimes\langle\uparrow|_2)\Big]
+\end{align*}
+Evaluating
+\begin{multline*}
+    \rho'
+    =\frac{1}{2}\Big[U_{1}\lvert\uparrow\rangle\langle\uparrow\rvert U_{1}^{\dagger}\otimes\lvert\downarrow\rangle\langle\downarrow\rvert
+- U_{1}\lvert\uparrow\rangle\langle\downarrow\rvert U_{1}^{\dagger}\otimes\lvert\downarrow\rangle\langle\uparrow\rvert\\
+ - U_{1}\lvert\downarrow\rangle\langle\uparrow\rvert U_{1}^{\dagger}\otimes\lvert\uparrow\rangle\langle\downarrow\rvert
++ U_{1}\lvert\downarrow\rangle\langle\downarrow\rvert U_{1}^{\dagger}\otimes\lvert\uparrow\rangle\langle\uparrow\rvert\Big]
+\end{multline*}
+Using cyclicity and partial trace definition 
+\begin{equation*}
+  \mathrm{Tr}_B \left(\ket{a_1}\bra{a_2}\otimes \ket{b_1} \bra{b_2}  \right)  = \ket{a_1}\bra{a_2} \braket{b_2|b_1}
+\end{equation*}
+the partial trace over Alice is 
+\begin{align*}
+    \rho_B & =  \frac{1 }{2 }\left[ \braket{\uparrow | \uparrow} \ket{ \downarrow }\bra{\downarrow} -\braket{\uparrow | \downarrow} \ket{ \downarrow }\bra{\uparrow}  - \braket{\downarrow | \uparrow} \ket{ \uparrow }\bra{\downarrow}+\braket{\downarrow | \downarrow} \ket{ \uparrow }\bra{\uparrow}\right] \\
+  \rho_B &= \frac{1 }{2 }\left[ \ket{\downarrow }\bra{\downarrow}+ \ket{\uparrow }\bra{\uparrow} \right] 
+  = \frac{1 }{2 }\mathbf{1}
+\end{align*}
+In general $\rho = \mathbf{1}/N$ is a maximally mixed state.
+With dimension of $N=2$, the Bob state is also a maximally mixed state.
+Also, being independent of Alice action $U_1$, the information that Alice intended to send is not transmitted to Bob.
+
 \end{document}
