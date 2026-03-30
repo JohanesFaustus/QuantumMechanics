@@ -206,6 +206,61 @@ We evaluate the element in position representation, since the wavefunction is kn
 \end{align*}
 This is just Fourier transform of the potential.
 
+\subsubsection{Example: Spin operator.}
+For a system of $N$ electrons
+\begin{equation*}
+  \mathbf{S} = \sum_{i=1}^{N} \mathbf{S}_i
+\end{equation*}
+where $\mathbf{S }$ act on particle $i$.
+Let $\mathbf{S}=(S_x,S_y,S_z)$, then the second quantization version is 
+\begin{equation*}
+  \mathbf{S} = \frac{\hbar}{2}\sum_{k}\Bigl(\bigl[c_{\mathbf{k}\uparrow}^\dagger c_{\mathbf{k}\downarrow}+c_{\mathbf{k}\downarrow}^\dagger c_{\mathbf{k}\uparrow}\,\bigr],
+i\bigl[c_{\mathbf{k}\downarrow}^\dagger c_{\mathbf{k}\uparrow}-c_{\mathbf{k}\uparrow}^\dagger c_{\mathbf{k}\downarrow}\bigr], 
+\bigl[c_{\mathbf{k}\uparrow}^\dagger c_{\mathbf{k}\uparrow}-c_{\mathbf{k}\downarrow}^\dagger c_{\mathbf{k}\downarrow}\bigr]\Bigr)
+\end{equation*}
+More generally
+\begin{equation*}
+  \mathbf{\hat{S}} = \frac{\hbar}{2}\sum_{\mathbf{k}}\sum_{\sigma,\sigma'} a^\dagger_{\mathbf{k}\sigma}\boldsymbol{\sigma}_{\sigma\sigma'}a_{\mathbf{k}\sigma'}
+\end{equation*}
+where $\boldsymbol{\sigma}_{\sigma\sigma'} = \braket{\sigma  | \boldsymbol{\sigma }|\sigma'}$ is the matrix element in $\ket{\mathbf{k }\sigma}$ basis.
+
+The derivation start with recognizing $\mathbf{S }= \hbar \boldsymbol{\sigma }/2$.
+Insert into the general one-body operator formula to obtain the general form
+\begin{equation*}
+  \mathbf{\hat{S} } 
+  = \sum_{\mathbf{k}\sigma} \sum_{\mathbf{k}'\sigma'}  \langle \mathbf{k}\sigma|\mathbf{\hat{S}}|\mathbf{k}'\sigma'\rangle a^\dagger_{\mathbf{k}\sigma} a_{\mathbf{k}'\sigma'} 
+  = \sum_{\mathbf{k}}\sum_{\sigma,\sigma'} \frac{\hbar}{2}\boldsymbol{\sigma}_{\sigma\sigma'} a^\dagger_{\mathbf{k}\sigma} a_{\mathbf{k}\sigma'}
+\end{equation*}
+The explicit component is evaluated using these components of Pauli matrices
+\begin{equation*}
+    \sigma_1 =
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix}
+    \quad
+    \sigma_2 =
+    \begin{bmatrix}
+        0 & -i \\
+        i & 0
+    \end{bmatrix}
+    \quad
+    \sigma_3    =
+    \begin{bmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{bmatrix}
+\end{equation*}a
+In spin $1/2$, all elements is evaluated as 
+\begin{equation*}
+  \sigma_n = 
+\begin{bmatrix}
+\langle\uparrow|\sigma_n|\uparrow\rangle & \langle\uparrow|\sigma_n|\downarrow\rangle\\[6pt]
+\langle\downarrow|\sigma_n|\uparrow\rangle & \langle\downarrow|\sigma_n|\downarrow\rangle
+\end{bmatrix}.
+\end{equation*}
+and the rest is trivial.
+
 \subsubsection{Derivation: second quantization representation.}
 First consider the action of $\hat{o} ^{1}$ on one-particle basis $\ket{\left\{ 1_\alpha \right\} }$, which we assume as its eigenstate
 \begin{equation*}
