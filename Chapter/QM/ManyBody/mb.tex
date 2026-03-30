@@ -98,18 +98,41 @@ has the Fourier transform of
 \begin{equation*}
   \rho(\mathbf{q}) = \sum_{\mathbf{k}} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{equation*}
+The many-body definition of this operator is 
+\begin{equation*}
+  \rho(\mathbf{r}) = \sum_{i=1}^{N} \delta\bigl(\mathbf{r}-\mathbf{r}'_{i}\bigr)
+\end{equation*}
+Its action can by considering the spatial integral of the function, which is expected to give value only if $\mathbf{r} $ is at particle position $\mathbf{r}'$.
+In the momentum eigenstate, the second quantization reads
+\begin{equation*}
+  \rho (\mathbf{r}) = \frac{1 }{V }\sum_{\mathbf{q }} e ^{i \mathbf{q }\cdot \mathbf{r }}n _{\mathbf{q}} 
+\end{equation*}
 
-The derivation is as follows.
+The transformation is as follows.
 \begin{align*}
   \rho(\mathbf{q})
    & = \int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}\;\rho(\mathbf{r})                                                                                                          \\
    & =  \sum_{\mathbf{k},\mathbf{k}'}\left(\int d^3r\;e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}e^{-i\mathbf{q}\cdot\mathbf{r}}\right) \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'} \\
    & =  \sum_{\mathbf{k},\mathbf{k}'} \delta (\mathbf{k}'-\mathbf{k}-\mathbf{q})   \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'} \\
-   & = \sum_{\mathbf{k}} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
+   & = \sum_{\mathbf{k}} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}= 
+   \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{align*}
 Where the last line is obtained by index relabelling $\mathbf{k} \rightarrow \mathbf{k}-\mathbf{q}/2$.
 
-\subsubsection{Example: particle current}
+Next is the quantization.
+The matrix elements reads
+\begin{equation*}
+  \braket{\mathbf{k }' | \delta(\mathbf{r }-\mathbf{r }) |\mathbf{k}}
+  =\frac{1}{V}\int d^3r'\; e^{-i\mathbf{k}'\cdot\mathbf{r}'}\delta(\mathbf{r}-\mathbf{r}')e^{i\mathbf{k}\cdot\mathbf{r}'} = \frac{1 }{V } e ^{i(\mathbf{k }'-\mathbf{k  })\cdot \mathbf{r}}
+\end{equation*}
+Then  substituting back 
+\begin{equation*}
+  \rho(\mathbf{r})
+  = \frac{1 }{V } \sum_{\mathbf{k},\mathbf{k}'}  e ^{i(\mathbf{k }'-\mathbf{k  })\cdot \mathbf{r}} a ^\dagger _{\mathbf{k }' } a_{\mathbf{k}} 
+ =\frac{1 }{V }\sum_{\mathbf{q }} e ^{i \mathbf{q }\cdot \mathbf{r }}n _{\mathbf{q}} 
+\end{equation*}
+
+\subsubsection{Example: particle current.}
 The particle current, defined as
 \begin{equation*}
   \mathbf{j}(\mathbf{r}) = -\frac{i}{2m}\left[\psi^\dagger(\mathbf{r})[\nabla\psi(\mathbf{r})] - [\nabla\psi^\dagger(\mathbf{r})]\;\psi(\mathbf{r})\right]
@@ -179,12 +202,13 @@ Consider the one–particle Hamiltonian
 \end{equation*}
 In the momentum eigenbasis, the one-particle operator reads
 \begin{equation*}
-  H = \sum_{\mathbf{k}} \frac{\mathbf{k}^{2}}{2m} a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}}    + \sum_{\mathbf{k} \mathbf{k}'} V_{\mathbf{k}-\mathbf{k}'} a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}'}
+  H = \sum_{\mathbf{k}} \frac{\mathbf{k}^{2}}{2m} a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}}    + \sum_{\mathbf{k} \mathbf{k}'} V_{\mathbf{q}} a_{\mathbf{k} + \mathbf{q}}^{\dagger} a_{\mathbf{k}}
 \end{equation*}
 with $V_{\mathbf{q}}$ as Fourier component of the spatial potential that scatters a particle from momentum $\mathbf{k}'$ to $\mathbf{k}$ with momentum transfer $\mathbf{q}=\mathbf{k}-\mathbf{k}'$
 \begin{equation*}
   V_\mathbf{q} = \frac{1 }{V } \int d^3r\; e^{- i\mathbf{q }\cdot \mathbf{r}} V(\mathbf{r})
 \end{equation*}
+From the action of annihilation and creation operator, it can also be interpreted that $a_{\mathbf{k}} $ annihilate particle with momentum $\mathbf{k }$, then particle with momentum $\mathbf{k}+\mathbf{q}$ is created by $a_{\mathbf{k }+\mathbf{q}}$.
 In the position eigenbasis
 \begin{equation*}
   H = \int d^3r\; \psi^\dagger(\mathbf r)\left(-\frac{1}{2m}\nabla^2 + V(\mathbf r)\right)\psi(\mathbf r)
