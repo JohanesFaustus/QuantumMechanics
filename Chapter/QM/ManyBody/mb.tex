@@ -98,6 +98,11 @@ has the Fourier transform of
 \begin{equation*}
   \rho(\mathbf{q}) = \sum_{\mathbf{k}} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{equation*}
+in plane wave basis. 
+In Bloch state basis, this read 
+\begin{equation*}
+  n_{\mathbf{q}} = \sum_{\mathbf{k}\sigma}\sum_{nn'} \langle n\mathbf{k}\sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n'\,\mathbf{k}+\mathbf{q}\,\sigma\rangle \, c^{\dagger}_{n\mathbf{k}\sigma}\, c_{n'\,\mathbf{k}+\mathbf{q}\,\sigma}
+\end{equation*}
 The many-body definition of this operator is 
 \begin{equation*}
   \rho(\mathbf{r}) = \sum_{i=1}^{N} \delta\bigl(\mathbf{r}-\mathbf{r}'_{i}\bigr)
@@ -118,6 +123,43 @@ The transformation is as follows.
    \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{align*}
 Where the last line is obtained by index relabelling $\mathbf{k} \rightarrow \mathbf{k}-\mathbf{q}/2$.
+
+We can do the same without assuming plane wave basis
+\begin{equation*}
+    \rho(\mathbf{q})
+    =\sum_{i}^{N}  \int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}\delta(\mathbf{r }-\mathbf{r}_i) 
+    =\sum_{i}^{N}  e^{-i\mathbf{q}\cdot\mathbf{r}_i}
+\end{equation*}
+Choose the Bloch basis $\ket{n \mathbf{k }\sigma}$, then
+\begin{equation*}
+  n_{\mathbf{q}}=\sum_{n \mathbf{k} \sigma}\sum_{n' \mathbf{k}k' \sigma'} \langle n \mathbf{k} \sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n' \mathbf{k}' \sigma'\rangle c_{n \mathbf{k} \sigma}^{\dagger}c_{n' \mathbf{k}' \sigma'}
+\end{equation*}
+Use Bloch wavefunctions $\psi_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}}\,u_{n\mathbf{k}}(\mathbf{r})$ to compute the matrix elements
+\begin{equation*}
+ \langle n \mathbf{k} \sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n' \mathbf{k}' \sigma'\rangle
+  = \delta_{\sigma\sigma'}\int \mathrm{d}^3 r\,u_{n\mathbf{k}}^*(\mathbf{r})\,u_{n'\mathbf{k}'}(\mathbf{r})\,e^{i(\mathbf{k}'-\mathbf{k}-\mathbf{q})\cdot\mathbf{r}}
+\end{equation*}
+The Bloch function $u_{n\mathbf{k}}(\mathbf{r}+\mathbf{R}) = u_{n\mathbf{k}}(\mathbf{r})$ is periodic, so we can rewrite the integral as 
+\begin{equation*}
+\sum_{\mathbf R} \int_{\mathrm{cell}} d^3r\; u_{n\mathbf k}^*(\mathbf r+\mathbf R)\, u_{n'\mathbf k'}(\mathbf r+\mathbf R)\, e^{i(\mathbf k'-\mathbf k-\mathbf q)\cdot(\mathbf r+\mathbf R)}
+\end{equation*}
+The term
+\begin{equation*}
+ \sum_{\mathbf{R}} 
+ e^{i(\mathbf k'-\mathbf k-\mathbf q)\cdot \mathbf R} 
+\end{equation*}
+produce the selection rule $\mathbf k'-\mathbf k-\mathbf q = \mathbf{G}$.
+Restricting to the first Brillouin zone $\mathbf{G}=0$ gives $\mathbf{k}' = \mathbf{k} +\mathbf{q}$.
+Under this result, our matrix element reads
+\begin{equation*}
+     \langle n \mathbf{k} \sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n' \mathbf{k}' \sigma'\rangle    
+=  \delta_{\sigma\sigma'}\,\delta_{\mathbf{k}',\mathbf{k}+\mathbf{q}}
+   \langle n \mathbf{k} \sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n' \mathbf{k}+\mathbf{q} \sigma'\rangle    
+\end{equation*}
+Substituting this matrix element
+\begin{equation*}
+  n_{\mathbf{q}} = \sum_{\mathbf{k}\sigma}\sum_{nn'} \langle n\mathbf{k}\sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n'\,\mathbf{k}+\mathbf{q}\,\sigma\rangle \, c^{\dagger}_{n\mathbf{k}\sigma}\, c_{n'\,\mathbf{k}+\mathbf{q}\,\sigma}
+\end{equation*}
 
 Next is the quantization.
 The matrix elements reads
