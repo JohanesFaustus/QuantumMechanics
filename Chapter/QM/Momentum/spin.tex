@@ -1205,4 +1205,171 @@ The spin naturally occur by design
      =  \left[\frac{1}{2m}(\mathbf{{\hat{p}}}-q\mathbf{A}) ^{2}-\frac{q }{m }\mathbf{B }\cdot \mathbf{S} +q\phi\right]\psi    
 \end{align*}
 It is an unavoidable consequence of the Dirac algebra structure once the non-relativistic limit is taken.
+
+\subsection{Spin wave}
+The Heisenberg Hamiltionian
+\begin{equation*}
+    H = -\frac{J}{2}\sum_{\langle ij\rangle}\mathbf{S}_i\cdot\mathbf{S}_j
+\end{equation*}
+describes exchange interactions between localized spins on a lattice.
+The sum runs over pair of neighboring sites $i$ and $j$ that are nearest neighbors on the lattice, and the factor $1/2$ there to prevent double counting.
+By mapping spin operators to bosonic operators and retaining only quadratic terms, the Hamiltonian can be approximately diagonalized in momentum space
+\begin{equation*}
+    H = \text{const} + \sum_{\mathbf{k}} \hbar \omega_{\mathbf{k}}\, \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}} 
+\end{equation*}
+with 
+\begin{equation*}
+    \hbar \omega_{\mathbf{k }} 
+    = Js\left[z - \gamma_\mathbf{k} \right] 
+    \qquad  \gamma_\mathbf{k} = \sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}
+\end{equation*}
+The resulting eigenmodes are plane-wave superpositions of local spin deviations, created by $\hat{a }_\mathbf{k} ^\dagger$
+The spin wave appears in the structure of the eigenmodes
+\begin{equation*}
+    a_{k}^ \dagger\lvert 0\rangle = \frac{1}{\sqrt{N}} \sum_{i} e^{-i\mathbf{k}\cdot\mathbf{R}_{i}}\,a_{i}^ \dagger\lvert 0\rangle
+\end{equation*}
+These modes correspond to collective excitations of the spin system, known as spin waves or magnons in the quantized description.
+
+\subsubsection{Derivation.}
+Even in this case, the spin operator satisfy the usual commutation relations
+\begin{equation*}
+\left[S_i^{\alpha}, S_j^{\beta}\right] = i\,\delta_{ij}\,\epsilon_{\alpha\beta\gamma}\,S_i^{\gamma}    
+\end{equation*}
+Here, $\delta_{ij }$ enforces that different sites commute.
+As it the case with the ladder operator
+\begin{equation*}
+    S_i^{+} = S_i^{x} + iS_i^{y} 
+    \qquad S_i^{-} = S_i^{x} - iS_i^{y}
+\end{equation*}
+This also satisfies the usual relation
+\begin{equation*}
+    [S_i^z, S_i^\pm] = \pm S_i^\pm\qquad
+    [S_i^+, S_i^-] = 2S_i^z
+\end{equation*}
+
+We now introduce the Holstein–Primakoff transformation
+\begin{gather*}
+    S_i^+ = \sqrt{2s}\left(1-\frac{a_i^\dagger a_i}{2s}\right)^{1/2}a_i\qquad
+    S_i^- = \sqrt{2s}a_i^\dagger\left(1-\frac{a_i^\dagger a_i}{2s}\right)^{1/2}\\
+    S_i^z = s-a_i^\dagger a_i
+\end{gather*}
+The transformation is constructed so that the spin commutation relations, under bosonic transformation, are exactly preserved.
+
+The third transformation arises from matching the spectrum of $S^z$ with a boson number operator.
+It can be derived from this relation
+\begin{equation*}
+    (S_i^z)^2 = s(s+1) - (S_i^x)^2 - (S_i^y)^2
+\end{equation*}
+After computing the square of $x$ and $y$ components operator
+\begin{equation*}
+    (S_i^z)^2 = s(s+1) - \frac{1}{2}\bigl(S_i^+ S_i^- + S_i^- S_i^+\bigr)
+\end{equation*}
+The products of ladder operators are calculated as
+\begin{align*}
+    S_i^+ S_i^-  
+    & =  2s\left(1-\frac{n_i}{2s}\right)^{1/2} a_i a_i^\dagger\left(1-\frac{n_i}{2s}\right)^{1/2} =  2s\left(n_i + 1\right)\left(1 - \frac{n_i}{2s}\right)\\
+    S_i^+ S_i^-  
+    & =   \left(2s - n_i\right) (n_i+1) = 2 s n_i + 2 s - n_i^2 - n_i,
+\end{align*}
+and
+\begin{equation*}
+        S_i^- S_i^+ 
+ =  2s\, a_i^\dagger\left(1-\frac{n_i}{2s}\right) a_i  
+=  a_i^\dagger\left(2s a_i - n_i a_i\right) \\
+ =     2s n_i - n_i ^2 + n_i  
+\end{equation*}
+Substituting back
+\begin{align*}
+    (S_i^z)^2 
+    & =  s^2 +s - (2s n_i + s - n_i ^2 ) = s^2 - 2s n_i + n_i^2\\
+    (S_i^z)^2 
+    & = (s - n_i)^2\\
+    S_i^z = \pm s - n_i
+\end{align*}
+The vacuum $n_i=0$ must correspond to the fully polarized state $S_i^z=+s$.
+So we take the positive side 
+\begin{equation*}
+    S_i^z = s - n_i = s - a_i ^\dagger a_i
+\end{equation*}
+
+The dot product is evaluated as 
+\begin{align*}
+    \mathbf{S}_i \cdot \mathbf{S}_j 
+    & = S_i^z S_j^z + \frac{1}{2}\bigl(S_i^+ S_j^- + S_i^- S_j^+\bigr)\\
+    \mathbf{S}_i \cdot \mathbf{S}_j 
+    & = s^2 - s a_i^\dagger a_i - s  a_j^\dagger a_j + a_i^\dagger a_i a_j^\dagger a_j\\
+    &\qquad+ s\Bigg[\left(1-\frac{a_i^\dagger a_i}{2s}\right)^{1/2} a_i a_j^\dagger \left(1-\frac{a_j^\dagger a_j}{2s}\right)^{1/2}\\
+    &\qquad\qquad+ a_i ^\dagger\left(1-\frac{a_i ^\dagger a_i}{2s}\right)^{1/2}\left(1-\frac{a_j ^\dagger a_j}{2s}\right)^{1/2} a_j
+    \Bigg]
+\end{align*}
+Use binomial expansion
+\begin{equation*}
+    (1-x)^{1/2} = \sum_{n=0}^{\infty} \binom{1/2}{n}(-x)^n = 1 - \frac{x}{2} - \frac{x^2}{8} + \cdots
+\end{equation*}
+to rewrite the result as 
+\begin{align*}
+    \mathbf{S}_i \cdot \mathbf{S}_j 
+    & = s^2 - s a_i^\dagger a_i - s  a_j^\dagger a_j + a_i^\dagger a_i a_j^\dagger a_j\\
+    &\qquad+ s\Bigg[\left(1-\frac{a_i^\dagger a_i}{4s} - \dots\right)  a_i a_j^\dagger \left(1-\frac{a_j^\dagger a_j}{4s} - \dots\right) \\
+    &\qquad\qquad+ a_i ^\dagger\left(1-\frac{a_i ^\dagger a_i}{4s} - \dots\right) \left(1-\frac{a_j ^\dagger a_j}{4s} - \dots\right)  a_j
+    \Bigg]
+\end{align*}
+Under second order approximation
+\begin{equation*}
+    \mathbf{S}_i \cdot \mathbf{S}_j  = s^2 - s\big(a_i^\dagger a_i + a_j^\dagger a_j\big) + s\big(a_i^\dagger a_j + a_j^\dagger a_i\big)
+\end{equation*}
+
+Inserting this into the Hamiltionian
+\begin{align*}
+        H 
+    & = \frac{J }{2} \sum_{\braket{ij }} \left[ s^2 - s(n_i+n_j) + s\big(a_i^\dagger a_j + a_j^\dagger a_i\big) \right] \\
+    H & =  C + \frac{J s z}{2}\sum_i n_i - \frac{J s}{2}\sum_{\langle i j\rangle}\left(a_i^\dagger a_j + a_j^\dagger a_i\right)
+\end{align*}
+with $C$ being constant and $z$ being the coordination number.
+For a fixed  site $i$, the sum runs over all its neighbors site $j$, the number of which is $z$.
+Therefore, $n_i$ is counted $z$ times in the sum.
+Next insert the Fourier transform 
+\begin{equation*}
+a_{\mathbf{k}} = \frac{1}{\sqrt{N}}\sum_{i} e^{\,i\mathbf{k}\cdot\mathbf{R}_{i}}a_{i}\qquad
+a_{\mathbf{k}}^{\dagger} = \frac{1}{\sqrt{N}}\sum_{i} e^{-\,i\mathbf{k}\cdot\mathbf{R}_{i}}\,a_{i}^{\dagger}.
+\end{equation*}
+or more precisely, we use its inverse in terms of displacement vector $\boldsymbol{\delta}$
+\begin{equation*}
+a_i^\dagger = \frac{1}{\sqrt{N}}\sum_\mathbf{k} e^{i\mathbf{k}\cdot\mathbf{R}_i} a_\mathbf{k}^\dagger\qquad
+a_{i+\boldsymbol{\delta}} = \frac{1}{\sqrt{N}}\sum_\mathbf{k} e^{-i\mathbf{k}\cdot(\mathbf{R}_i+\boldsymbol{\delta})} a_\mathbf{k}
+\end{equation*}
+The product of creation and annihilation operator is 
+\begin{align*}
+       \sum_{\langle i j\rangle} a_i^\dagger a_j 
+    & =  \frac{1}{N} \sum_{\langle i j\rangle} \sum_{\mathbf{k},\mathbf{k}'} e^{i\mathbf{k}\cdot\mathbf{R}_i}\,e^{-i\mathbf{k}'\cdot(\mathbf{R}_i+\boldsymbol{\delta})}\,a_{\mathbf{k}}^{\dagger}a_{\mathbf{k}'}\\
+    & =  \frac{1}{N} \sum_{\mathbf{k},\mathbf{k}'}\sum_i\sum_{\boldsymbol{\delta}} e^{i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{R}_i}\, e^{-i\mathbf{k}'\cdot\boldsymbol{\delta}}\, a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}'}\\
+    & =  \sum_{\mathbf{k}} \left(\sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}\right) a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}}
+\end{align*}
+By the symmetric under inversion $\boldsymbol{\delta}\to-  \boldsymbol{\delta}$ property of displacement vector, we have 
+\begin{equation*}
+   \left(\sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}\right) ^\dagger = \sum_{\boldsymbol{\delta}} e^{i \mathbf{k}\cdot \boldsymbol{\delta}} = \sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}} 
+\end{equation*} 
+so that 
+\begin{equation*}
+       \sum_{\langle i j\rangle} a_j^\dagger a_i     
+    = \left(        \sum_{\langle i j\rangle} a_i^\dagger a_j  \right) ^\dagger 
+    =  \sum_{\mathbf{k}} \left(\sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}\right) a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}}
+\end{equation*}
+The Hamiltonian now reads 
+\begin{equation*}
+    H = C +  \sum_{\mathbf{k}} Js\left[z - \left(\sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}\right) \right] a_{\mathbf{k}}^\dagger a_{\mathbf{k}}
+\end{equation*}
+Defining 
+\begin{equation*}
+    \hbar \omega_{\mathbf{k }} = Js\left[z - \left(\sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}\right) \right] 
+\end{equation*}
+we can also write 
+\begin{equation*}
+    H = C +  \sum_{\mathbf{k}}\hbar \omega_{\mathbf{k }}a_{\mathbf{k}}^\dagger a_{\mathbf{k}}
+\end{equation*}
+
+
+
+
+
 \end{document}

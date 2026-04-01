@@ -58,6 +58,11 @@ Boson and fermion annihilation and creation operator obey commutator and anti-co
 \end{equation*}
 Now consider the case of $i \neq j$.
 Boson obey symmetrization, so $a_ia_j=a_ja_i$; fermion in other hand obey antisymmetrization, so $a_ia_j=-a_ja_i$.
+Other useful commutator relation include
+\begin{equation*}
+ [N,\hat{a}_{\mathbf{k }s} ] = - \hat{a}_{\mathbf{k }s} \qquad
+ [N,\hat{a}_{\mathbf{k }s} ^\dagger] = \hat{a}_{\mathbf{k }s} ^\dagger
+\end{equation*}
 
 \subsubsection{Fermion phase factor.}
 To see how the phase factor come to be, consider the Fock state of fermion
@@ -123,14 +128,14 @@ Next for the creation operator
 We use the commutator relation $[AB,C]=A[B,C]-[C,A]$ to obtain the relation
 \begin{align*}
   [N,\hat{a}_{\mathbf{k }s} ]                                    & = \hat{a}^\dagger_{\mathbf{k }s} [\hat{a}_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s} ]+[\hat{a}^\dagger_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s} ]\hat{a}_{\mathbf{k }s} \\
-  \hat{N }\hat{a}_{\mathbf{k }s} -\hat{a}_{\mathbf{k }s} \hat{N} & = \hat{a}_{\mathbf{k }s}                                                                                                                                           \\
+  \hat{N }\hat{a}_{\mathbf{k }s} -\hat{a}_{\mathbf{k }s} \hat{N} & = - \hat{a}_{\mathbf{k }s}                                                                                                                                           \\
   \hat{N }\hat{a}_{\mathbf{k }s}                                 & =  \hat{a}_{\mathbf{k }s} (\hat{N }-1)
 \end{align*}
 and
 \begin{align*}
-  [N,\hat{a}_{\mathbf{k }s}^\dagger ]=\hat{a}_{\mathbf{k }s} [\hat{a}_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s}^\dagger ]+[\hat{a}^\dagger_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s}^\dagger ]\hat{a}_{\mathbf{k }s} \\
+  [N,\hat{a}_{\mathbf{k }s}^\dagger ] & = \hat{a}_{\mathbf{k }s} [\hat{a}_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s}^\dagger ]+[\hat{a}^\dagger_{\mathbf{k }s} ,\hat{a}_{\mathbf{k }s}^\dagger ]\hat{a}_{\mathbf{k }s} \\
   \hat{N }\hat{a}_{\mathbf{k }s}^\dagger -\hat{a}_{\mathbf{k }s}^\dagger \hat{N} & = \hat{a}^\dagger_{\mathbf{k }s}                                                                                            \\
-  \hat{N }\hat{a}_{\mathbf{k }s}^\dagger = \hat{a}_{\mathbf{k }s}^\dagger (\hat{N }+1)
+  \hat{N }\hat{a}_{\mathbf{k }s}^\dagger & =  \hat{a}_{\mathbf{k }s}^\dagger (\hat{N }+1)
 \end{align*}
 
 Next is to find the coefﬁcients
@@ -506,7 +511,7 @@ multiplying both gives the minimum uncertainty.
 \subsection{Quantum Field Operator}
 The quantum field operators  annihilate and create, respectively, a particle at position $\mathbf{r}$
 \begin{equation*}
-  \psi^{\dagger}(\mathbf{r})|0\rangle = |r\rangle
+  \psi^{\dagger}(\mathbf{r})|0\rangle = |r\rangle\qquad
   \psi(\mathbf{r})|r'\rangle = \delta(\mathbf{r} - \mathbf{r}')|0\rangle
 \end{equation*}
 The field operator defined as transformation from single particle basis into position basis of the annihilation and creation operator
