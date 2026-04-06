@@ -1,237 +1,5 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-
-\subsection{Complementarity}
-The principle of complementarity, traditionally associated with Niels Bohr, posits that "which-path" information (particle-like behavior) and the formation of an interference pattern (wave-like behavior) are fundamentally mutually exclusive.
-Mathematically, the wave nature manifests through the interference term in the probability density equation
-\begin{equation*}
-  P_\text{total}(x) = |F_1(x)+F_2(x)|^2 = |F_1(x)|^2 +|F_2(x)|^2 +2 \mathfrak{R}[F_1(x)^* F_2(x)]
-\end{equation*}
-with $F_n(x)$ as the complex amplitude for path $n$.
-If an experimental setup allows an observer to identify the specific slit traversed by a particle, the system behaves as a classical particle, the interference term vanishes, and the resulting distribution is merely the arithmetic sum of individual slit probabilities
-\begin{equation*}
-  P_\text{total}(x) = P_1(x)+P_2(x)
-\end{equation*}
-
-\subsubsection{Single photon experiment.}
-Example of complementarity exist in Young's double-slit experiment with extremely weak light such that only one photon is measured at a time
-The experiment is repeated and the results of many particle-like detections are overlaid, an interference pattern gradually emerges.
-This demonstrates that wave-like characteristics are a statistical property of the collective "event," while individual detections remain particle-like "things".
-
-Historically, the disappearance of interference fringes upon path detection was explained via the disturbance caused by measurement.
-To resolve which slit was traversed, the position measurement error $\Delta q$ must be less than the distance of two slit $a$.
-\begin{equation*}
-  \Delta q \leq a
-\end{equation*}
-According to the uncertainty relation $\Delta q \Delta p \geq \hbar $, this localization necessitates a momentum disturbance
-\begin{equation*}
-  \Delta p \geq \hbar /a
-\end{equation*}
-Utilizing the de Broglie relation $p=\hbar /\lambda$ and small angle approximation $\tan \phi \approx \phi$, this disturbance induces an angular uncertainty
-\begin{equation*}
-  \Delta \phi \approx \Delta p/p \geq \lambda/a
-\end{equation*}
-Since the fringe interval is approximately $\lambda/a$, this angular uncertainty due to position measurement is sufficient to blur and erase the interference pattern.
-
-\subsubsection{Single photon experiment: modern interpretation.}
-More recent scholarship, specifically the debate between Storey and the team of Scully and Englert, has shifted the focus from mechanical disturbance to information-theoretic constraints.
-Storey maintained that determining a particle's position must inherently impart a random momentum transfer $\Delta p$ to the particle.
-In this view, the interference fringes are physically washed out because the momentum kick shifts the phase of the wave functions unpredictably.
-
-However, Scully and Englert devised a thought experiment and contemplated a model in which the momentum of the electron does not change before and after the experiment, concluding that the uncertainty relation is not the essence.
-The disappearance of fringes is caused by entanglement between the particle and the measuring apparatus.
-Given the initial state
-\begin{equation*}
-  |\Psi_{\text{initial}}\rangle = \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes |D_0\rangle
-\end{equation*}
-with $\ket{n}$ as the state of particle passing through slit $n$ and \( |D_0\rangle \) as the  initial state of the detector.
-When a measurement occurs the detector state changes based on which path the particle takes.
-The total system state evolves into:
-\begin{equation*}
-  |\Psi_{\text{final}}\rangle =
-  \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
-\end{equation*}
-There exists no combination of a single particle state \( |\psi\rangle \) and a single detector state \( |D\rangle \) such that
-\begin{align*}
-  |\Psi_{\text{final}} \rangle  \neq |\psi\rangle \otimes |D\rangle & =
-  \frac{1}{\sqrt{4}} (|1\rangle + |2\rangle) \otimes (\ket{D_1}+\ket{D_2}) \\
-                                                                    & =
-  \frac{1}{\sqrt{4}} ( \ket{1,D_1} + \ket{1,D_2}+ \ket{2,D_1}+ \ket{2,D_2})
-\end{align*}
-
-With the projector onto particle position \( x \)  as
-\begin{equation*}
-  \Pi_x = |x\rangle\langle x| \otimes I_D
-\end{equation*}
-and $I_D$ identity operator on the detector Hilbert space, the the probability density is
-\begin{equation*}
-  P(x) = \langle \Psi | (|x\rangle\langle x| \otimes I_D) | \Psi \rangle
-\end{equation*}
-The action of the projector on the ket is
-\begin{align*}
-  \left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle
-   & =  \frac{1}{\sqrt{2}} \left(\left|x\right\rangle \braket{x  | 1} \otimes |D_1\rangle + |x\rangle \braket{x  | 2}\otimes  |D_2\rangle\right) \\
-  \left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle
-   & =  \frac{1}{\sqrt{2}} \left( \psi_1(x) |x\rangle \otimes |D_1\rangle + \psi_2(x) |x\rangle \otimes |D_2\rangle \right)
-\end{align*}
-Projecting this again on the bra
-\begin{equation*}
-  \langle \Psi | = \frac{1}{\sqrt{2}} \left(\langle 1 | \otimes \langle D_1| + \langle 2 | \otimes \langle D_2 |\right)
-\end{equation*}
-yields the probabilities distribution
-\begin{align*}
-  P(x)
-   & = \frac{1}{2} \big[ |\psi_1(x)|^2 + |\psi_2(x)|^2 + \psi_1^*(x)\psi_2(x)\langle D_1|D_2\rangle + \psi_2^*(x)\psi_1(x)\langle D_2|D_1\rangle \big] \\
-  P(x)
-   & =  \frac{1}{2} \big( |\psi_1(x)|^2 + |\psi_2(x)|^2 + 2 \text{Re} \left[ \psi_1^*(x)\psi_2(x)\langle D_1|D_2\rangle \right] \big)
-\end{align*}
-where $A+ A ^\dagger = 2 \mathfrak{R} (A)$.
-It can be seen that the interference condition depend on the distinguishability of detector state.
-
-In the Hilbert space, normalized state satisfies $|\braket{D_1  | D_2 }=\cos \theta$, with $\theta$  as the angle between the state.
-For
-\begin{equation*}
-  |\braket{D_1  | D_2}|=1
-\end{equation*}
-means $\theta =0$.
-They are physically identical, has maximal overlap, and at most differ only by a phase.
-The overlap tells you how much the two states project onto each other in Hilbert space.
-If
-\begin{equation*}
-  0<|\braket{D_1  | D_2}|<1
-\end{equation*}
-it means $0<\theta<\pi/2$.
-They are different but still have partial overlap.
-In other hand
-\begin{equation*}
-  |\braket{D_1  | D_2}|=0
-\end{equation*}
-means $\theta=\pi/2$.
-The states are orthogonal, perfectly distinguishable, and has no overlap.
-
-In the case of the detector state being distinct $\braket{D_1 |D_2 }=0$, their evolution are
-\begin{equation*}
-  |1\rangle \otimes |D_0\rangle \xrightarrow{} |1\rangle \otimes |D_1\rangle
-  \qquad
-  |2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_2\rangle
-\end{equation*}
-and the final state is entangled
-\begin{equation*}
-  |\Psi_{\text{final}}\rangle =
-  \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
-\end{equation*}
-and no interference occurs.
-When the detector states are orthogonal, the particle subsystem has no accessible phase coherence, because the coherence is stored in correlations with the detector.
-
-Similarly, in the case $  0<|\braket{D_1  | D_2}|<1 $, the state is still entangled
-\begin{equation*}
-  |\Psi_{\text{final}}\rangle =
-  \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
-\end{equation*}
-It is however only partial entangled.
-Interference still occurs, but its visibility is reduced.
-
-In the other hand, the evolution if both state are identical, the equation$  |\braket{D_1  | D_2}|=1$ implies $\ket{D_1 }=\ket{D_2}$.
-Their evolution are
-\begin{equation*}
-  |1\rangle \otimes |D_0\rangle \xrightarrow{} |1\rangle \otimes |D_1\rangle
-  \qquad
-  |2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_1\rangle
-\end{equation*}
-and no entanglement occurs at the final state
-\begin{equation*}
-  |\Psi_{\text{final}}\rangle =
-  \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes \ket{D_1}
-\end{equation*}
-Interference thus occurs in this case.
-
-The information about which-path does not cause interference to disappear by quantum information postulate, unlike the case of Born postulate.
-It is the same interaction that makes the detector states distinguishable simultaneously reduces their overlap, and the overlap directly controls the interference term.
-
-\subsubsection{Another example.}
-Consider a ladybug positioned on the screen, observing the direction of incoming light.
-The critical factor for consideration whether it perceive a single slit or two slits is the resolving power of the ladybug's eye.
-
-Let $E$ represent the size of the lens, $d$ signify the distance between the slits, and $L$ indicate the distance from the slits to the screen.
-The error in the direction of incident light due to diffraction is expressed by Rayleigh criterion
-\begin{equation*}
-  \Delta \theta \approx 1.22 \frac{\lambda }{E}
-\end{equation*}
-In order for the ladybug to determine which slit a photon passed through, the angular error $\Delta \theta$ must be smaller than the angle at which the ladybug views the slit interval
-\begin{equation*}
-  \tan \Theta \approx \Theta =\frac{d }{L}
-\end{equation*}
-that is $\Delta \theta <\Theta$.
-Thus, the bug eye condition for resolving the two slits is
-\begin{equation*}
-  E> \frac{\lambda }{d}L
-\end{equation*}
-
-In other hand, the interval between bright fringe is $L \lambda/d$.
-Hence, lens size $E$ must be smaller than the fringe width, otherwise the slit would just combine into one
-\begin{equation*}
-  E< \frac{\lambda }{d}L
-\end{equation*}
-
-This yields a fundamental physical contradiction with the condition required to resolve the two slits.
-While a large aperture is necessary for slit discrimination, a small aperture is necessary for the visualization of interference fringes.
-These two conditions are mutually exclusive.
-
-\subsubsection{Yet another example: Mach-Zender Interferometer.}
-The device demonstrates that interference is a consequence of coherent superposition and relative phase.
-If no which-path information is available, interference is maximal.
-If a measurement determines the path, the superposition is destroyed (or equivalently, the system becomes entangled with a detector and coherence is lost), and the outputs reduce to classical probabilities without interference.
-
-\begin{figure}
-  \centering
-  \begin{BVerbatim}
-    (A) ----> [BS1] -- (B) -- [Mirror]
-    |               |
-    (C)              |
-    |               |
-    [Mirror] ------> [BS2] -- (E) -- [Mirror]
-    |               |
-    (F)              |
-    |               |
-    [Mirror] ------> [BS3] ----> (D)
-    |
-    (D')
-  \end{BVerbatim}
-  \caption*{Figure: Mach-Zender interferometer configuration}
-\end{figure}
-
-The input $|A\rangle$ is split into a coherent superposition of the two paths $|B\rangle$ and $|C\rangle$
-\begin{equation*}
-  U_1 |A\rangle  = \frac{1}{\sqrt{2}} (|B\rangle + |C\rangle)
-\end{equation*}
-Each incoming path is recombined into the two output ports $|D\rangle$ and $|E\rangle$
-\begin{equation*}
-  U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |E\rangle), \quad
-  U_2 |C\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |E\rangle)
-\end{equation*}
-The $\pm$ sign of $\ket{E}$ ensures constructive interference in $E$ and destructive interference in $F$.
-The state after BS2 then
-\begin{equation*}
-  \ket{E }=U_2U_1 \ket{A} = \ket{A} \qquad \ket{F}=0
-\end{equation*}
-
-If a detector is inserted into the Mach–Zehnder interferometer to detect the photon, and it is found to have taken path B, State after passing BS2 is
-\begin{equation*}
-  U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|E\rangle + |F\rangle)
-\end{equation*}
-In other words, even in the Mach–Zehnder interferometer, if the path is known, interference disappears.
-Conversely, if it cannot be determined whether the photon went through B or C, it can be considered to have passed through both, thus causing interference.
-
-Had the path not known, the final state from BS3 is
-\begin{equation*}
-  U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle)
-\end{equation*}
-If however the path is known at B, the final state is $U_3U_2 \ket{B}= \ket{D}$, since
-\begin{equation*}
-  U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle)  \qquad
-  U_3|F\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |D'\rangle)
-\end{equation*}
-
 \subsection{Bit}
 \begin{figure}[b]
   \centering
@@ -479,6 +247,420 @@ In the original EPR argument, the subsystems were two particles that interacted 
 After separation, the total system remained in an entangled state.
 Measuring an observable on subsystem $A$ allowed one to predict with certainty the outcome of a corresponding measurement on subsystem $B$, without interacting with it.
 
+\subsection{Complementarity}
+The principle of complementarity, traditionally associated with Niels Bohr, posits that "which-path" information (particle-like behavior) and the formation of an interference pattern (wave-like behavior) are fundamentally mutually exclusive.
+Mathematically, the wave nature manifests through the interference term in the probability density equation
+\begin{equation*}
+  P_\text{total}(x) = |F_1(x)+F_2(x)|^2 = |F_1(x)|^2 +|F_2(x)|^2 +2 \mathfrak{R}[F_1(x)^* F_2(x)]
+\end{equation*}
+with $F_n(x)$ as the complex amplitude for path $n$.
+If an experimental setup allows an observer to identify the specific slit traversed by a particle, the system behaves as a classical particle, the interference term vanishes, and the resulting distribution is merely the arithmetic sum of individual slit probabilities
+\begin{equation*}
+  P_\text{total}(x) = P_1(x)+P_2(x)
+\end{equation*}
+
+\subsubsection{Single photon experiment.}
+Example of complementarity exist in Young's double-slit experiment with extremely weak light such that only one photon is measured at a time
+The experiment is repeated and the results of many particle-like detections are overlaid, an interference pattern gradually emerges.
+This demonstrates that wave-like characteristics are a statistical property of the collective "event," while individual detections remain particle-like "things".
+
+Historically, the disappearance of interference fringes upon path detection was explained via the disturbance caused by measurement.
+To resolve which slit was traversed, the position measurement error $\Delta q$ must be less than the distance of two slit $a$.
+\begin{equation*}
+  \Delta q \leq a
+\end{equation*}
+According to the uncertainty relation $\Delta q \Delta p \geq \hbar $, this localization necessitates a momentum disturbance
+\begin{equation*}
+  \Delta p \geq \hbar /a
+\end{equation*}
+Utilizing the de Broglie relation $p=\hbar /\lambda$ and small angle approximation $\tan \phi \approx \phi$, this disturbance induces an angular uncertainty
+\begin{equation*}
+  \Delta \phi \approx \Delta p/p \geq \lambda/a
+\end{equation*}
+Since the fringe interval is approximately $\lambda/a$, this angular uncertainty due to position measurement is sufficient to blur and erase the interference pattern.
+
+\subsubsection{Single photon experiment: modern interpretation.}
+More recent scholarship, specifically the debate between Storey and the team of Scully and Englert, has shifted the focus from mechanical disturbance to information-theoretic constraints.
+Storey maintained that determining a particle's position must inherently impart a random momentum transfer $\Delta p$ to the particle.
+In this view, the interference fringes are physically washed out because the momentum kick shifts the phase of the wave functions unpredictably.
+
+However, Scully and Englert devised a thought experiment and contemplated a model in which the momentum of the electron does not change before and after the experiment, concluding that the uncertainty relation is not the essence.
+The disappearance of fringes is caused by entanglement between the particle and the measuring apparatus.
+Given the initial state
+\begin{equation*}
+  |\Psi_{\text{initial}}\rangle = \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes |D_0\rangle
+\end{equation*}
+with $\ket{n}$ as the state of particle passing through slit $n$ and \( |D_0\rangle \) as the  initial state of the detector.
+When a measurement occurs the detector state changes based on which path the particle takes.
+The total system state evolves into:
+\begin{equation*}
+  |\Psi_{\text{final}}\rangle =
+  \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
+\end{equation*}
+There exists no combination of a single particle state \( |\psi\rangle \) and a single detector state \( |D\rangle \) such that
+\begin{align*}
+  |\Psi_{\text{final}} \rangle  \neq |\psi\rangle \otimes |D\rangle & =
+  \frac{1}{\sqrt{4}} (|1\rangle + |2\rangle) \otimes (\ket{D_1}+\ket{D_2}) \\
+                                                                    & =
+  \frac{1}{\sqrt{4}} ( \ket{1,D_1} + \ket{1,D_2}+ \ket{2,D_1}+ \ket{2,D_2})
+\end{align*}
+
+With the projector onto particle position \( x \)  as
+\begin{equation*}
+  \Pi_x = |x\rangle\langle x| \otimes I_D
+\end{equation*}
+and $I_D$ identity operator on the detector Hilbert space, the the probability density is
+\begin{equation*}
+  P(x) = \langle \Psi | (|x\rangle\langle x| \otimes I_D) | \Psi \rangle
+\end{equation*}
+The action of the projector on the ket is
+\begin{align*}
+  \left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle
+   & =  \frac{1}{\sqrt{2}} \left(\left|x\right\rangle \braket{x  | 1} \otimes |D_1\rangle + |x\rangle \braket{x  | 2}\otimes  |D_2\rangle\right) \\
+  \left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle
+   & =  \frac{1}{\sqrt{2}} \left( \psi_1(x) |x\rangle \otimes |D_1\rangle + \psi_2(x) |x\rangle \otimes |D_2\rangle \right)
+\end{align*}
+Projecting this again on the bra
+\begin{equation*}
+  \langle \Psi | = \frac{1}{\sqrt{2}} \left(\langle 1 | \otimes \langle D_1| + \langle 2 | \otimes \langle D_2 |\right)
+\end{equation*}
+yields the probabilities distribution
+\begin{align*}
+  P(x)
+   & = \frac{1}{2} \big[ |\psi_1(x)|^2 + |\psi_2(x)|^2 + \psi_1^*(x)\psi_2(x)\langle D_1|D_2\rangle + \psi_2^*(x)\psi_1(x)\langle D_2|D_1\rangle \big] \\
+  P(x)
+   & =  \frac{1}{2} \big( |\psi_1(x)|^2 + |\psi_2(x)|^2 + 2 \text{Re} \left[ \psi_1^*(x)\psi_2(x)\langle D_1|D_2\rangle \right] \big)
+\end{align*}
+where $A+ A ^\dagger = 2 \mathfrak{R} (A)$.
+It can be seen that the interference condition depend on the distinguishability of detector state.
+
+In the Hilbert space, normalized state satisfies $|\braket{D_1  | D_2 }=\cos \theta$, with $\theta$  as the angle between the state.
+For
+\begin{equation*}
+  |\braket{D_1  | D_2}|=1
+\end{equation*}
+means $\theta =0$.
+They are physically identical, has maximal overlap, and at most differ only by a phase.
+The overlap tells you how much the two states project onto each other in Hilbert space.
+If
+\begin{equation*}
+  0<|\braket{D_1  | D_2}|<1
+\end{equation*}
+it means $0<\theta<\pi/2$.
+They are different but still have partial overlap.
+In other hand
+\begin{equation*}
+  |\braket{D_1  | D_2}|=0
+\end{equation*}
+means $\theta=\pi/2$.
+The states are orthogonal, perfectly distinguishable, and has no overlap.
+
+In the case of the detector state being distinct $\braket{D_1 |D_2 }=0$, their evolution are
+\begin{equation*}
+  |1\rangle \otimes |D_0\rangle \xrightarrow{} |1\rangle \otimes |D_1\rangle
+  \qquad
+  |2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_2\rangle
+\end{equation*}
+and the final state is entangled
+\begin{equation*}
+  |\Psi_{\text{final}}\rangle =
+  \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
+\end{equation*}
+and no interference occurs.
+When the detector states are orthogonal, the particle subsystem has no accessible phase coherence, because the coherence is stored in correlations with the detector.
+
+Similarly, in the case $  0<|\braket{D_1  | D_2}|<1 $, the state is still entangled
+\begin{equation*}
+  |\Psi_{\text{final}}\rangle =
+  \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
+\end{equation*}
+It is however only partial entangled.
+Interference still occurs, but its visibility is reduced.
+
+In the other hand, the evolution if both state are identical, the equation$  |\braket{D_1  | D_2}|=1$ implies $\ket{D_1 }=\ket{D_2}$.
+Their evolution are
+\begin{equation*}
+  |1\rangle \otimes |D_0\rangle \xrightarrow{} |1\rangle \otimes |D_1\rangle
+  \qquad
+  |2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_1\rangle
+\end{equation*}
+and no entanglement occurs at the final state
+\begin{equation*}
+  |\Psi_{\text{final}}\rangle =
+  \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes \ket{D_1}
+\end{equation*}
+Interference thus occurs in this case.
+
+The information about which-path does not cause interference to disappear by quantum information postulate, unlike the case of Born postulate.
+It is the same interaction that makes the detector states distinguishable simultaneously reduces their overlap, and the overlap directly controls the interference term.
+
+\subsubsection{Another example.}
+Consider a ladybug positioned on the screen, observing the direction of incoming light.
+The critical factor for consideration whether it perceive a single slit or two slits is the resolving power of the ladybug's eye.
+
+Let $E$ represent the size of the lens, $d$ signify the distance between the slits, and $L$ indicate the distance from the slits to the screen.
+The error in the direction of incident light due to diffraction is expressed by Rayleigh criterion
+\begin{equation*}
+  \Delta \theta \approx 1.22 \frac{\lambda }{E}
+\end{equation*}
+In order for the ladybug to determine which slit a photon passed through, the angular error $\Delta \theta$ must be smaller than the angle at which the ladybug views the slit interval
+\begin{equation*}
+  \tan \Theta \approx \Theta =\frac{d }{L}
+\end{equation*}
+that is $\Delta \theta <\Theta$.
+Thus, the bug eye condition for resolving the two slits is
+\begin{equation*}
+  E> \frac{\lambda }{d}L
+\end{equation*}
+
+In other hand, the interval between bright fringe is $L \lambda/d$.
+Hence, lens size $E$ must be smaller than the fringe width, otherwise the slit would just combine into one
+\begin{equation*}
+  E< \frac{\lambda }{d}L
+\end{equation*}
+
+This yields a fundamental physical contradiction with the condition required to resolve the two slits.
+While a large aperture is necessary for slit discrimination, a small aperture is necessary for the visualization of interference fringes.
+These two conditions are mutually exclusive.
+
+\subsubsection{Yet another example: Mach-Zender Interferometer.}
+The device demonstrates that interference is a consequence of coherent superposition and relative phase.
+If no which-path information is available, interference is maximal.
+If a measurement determines the path, the superposition is destroyed (or equivalently, the system becomes entangled with a detector and coherence is lost), and the outputs reduce to classical probabilities without interference.
+
+\begin{figure}
+  \centering
+  \begin{BVerbatim}
+    (A) ----> [BS1] -- (B) -- [Mirror]
+    |               |
+    (C)              |
+    |               |
+    [Mirror] ------> [BS2] -- (E) -- [Mirror]
+    |               |
+    (F)              |
+    |               |
+    [Mirror] ------> [BS3] ----> (D)
+    |
+    (D')
+  \end{BVerbatim}
+  \caption*{Figure: Mach-Zender interferometer configuration}
+\end{figure}
+
+The input $|A\rangle$ is split into a coherent superposition of the two paths $|B\rangle$ and $|C\rangle$
+\begin{equation*}
+  U_1 |A\rangle  = \frac{1}{\sqrt{2}} (|B\rangle + |C\rangle)
+\end{equation*}
+Each incoming path is recombined into the two output ports $|D\rangle$ and $|E\rangle$
+\begin{equation*}
+  U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |E\rangle), \quad
+  U_2 |C\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |E\rangle)
+\end{equation*}
+The $\pm$ sign of $\ket{E}$ ensures constructive interference in $E$ and destructive interference in $F$.
+The state after BS2 then
+\begin{equation*}
+  \ket{E }=U_2U_1 \ket{A} = \ket{A} \qquad \ket{F}=0
+\end{equation*}
+
+If a detector is inserted into the Mach–Zehnder interferometer to detect the photon, and it is found to have taken path B, State after passing BS2 is
+\begin{equation*}
+  U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|E\rangle + |F\rangle)
+\end{equation*}
+In other words, even in the Mach–Zehnder interferometer, if the path is known, interference disappears.
+Conversely, if it cannot be determined whether the photon went through B or C, it can be considered to have passed through both, thus causing interference.
+
+Had the path not known, the final state from BS3 is
+\begin{equation*}
+  U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle)
+\end{equation*}
+If however the path is known at B, the final state is $U_3U_2 \ket{B}= \ket{D}$, since
+\begin{equation*}
+  U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle)  \qquad
+  U_3|F\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |D'\rangle)
+\end{equation*}
+
+\subsection{Einstein, Podolsky, and Rosen Paradox}
+Einstein questioned the Copenhagen interpretation, which asserts that physical quantities do not possess definite values prior to measurement, the so called being realism, and that measurement plays a constitutive role rather than merely revealing pre-existing properties
+They infer that quantum mechanics is incomplete and the wavefunction is missing hidden variables that would assign definite values to observables.
+This theory, however, makes invalid assumption in local realism.
+
+They considered that a certain spin-zero particle decays into two spin-$1/2$.
+To satisfies angular momentum conservation, the state after decay is
+\begin{equation*}
+  \lvert s\rangle = \frac{1}{\sqrt{2}}\bigl(\lvert\uparrow\rangle\otimes\lvert\downarrow\rangle - \lvert\downarrow\rangle\otimes\lvert\uparrow\rangle\bigr)
+\end{equation*}
+This spin singlet state satisfies $[\mathbf{S}(1) + \mathbf{S}(2)] \ket{s} =0$, which implies antisymmetric eigenvalue $s(1)=-s(2)$.
+
+One then can obtain definite value of $s_x(1)$ by direct measurement and $s_z(1)$ by indirectly measuring $S_z(2) \ket{s}$.
+This is allowed since both operator $S_x(1)$ and $S_z(2)$ act on different operator and therefore commute.
+However, $S_x(1)$ and $S_z(1)$ do not commute, hence the result is invalid regardless.
+
+The mistake here is assuming localization of particle.
+Both statement about $s_x(1)$ and $s_z(1)$ are true individually, but not simultaneously.
+Measuring on particle 1 changes the state on particle 2, hence both statement cannot be made simultaneously.
+
+The same statement can be explained in terms of density matrix.
+Suppose observer at particle one Alice performs some unitary operation  on her own state as
+\begin{equation*}
+  |s\rangle \to |s'\rangle = \frac{1}{\sqrt{2}}\bigl(U_1\lvert\uparrow\rangle\otimes\lvert\downarrow\rangle - U_1\lvert\downarrow\rangle\otimes\lvert\uparrow\rangle\bigr)
+\end{equation*}
+Then information would have been transmitted from Alice to observer on particle 2 Bob, which is described by
+\begin{equation*}
+  \rho_B = \mathrm{Tr} _A [\rho']
+\end{equation*}
+The total density operator is written as
+\begin{align*}
+  \ket{s' }\bra{s'}
+   & =  \frac{1}{2}\Big[(U_1|\uparrow\rangle_1\otimes|\downarrow\rangle_2)(\langle\uparrow|_1U_1^\dagger\otimes\langle\downarrow|_2) \\
+   & \qquad-(U_1|\uparrow\rangle_1\otimes|\downarrow\rangle_2)(\langle\downarrow|_1U_1^\dagger\otimes\langle\uparrow|_2)             \\
+   & \qquad-(U_1|\downarrow\rangle_1\otimes|\uparrow\rangle_2)(\langle\uparrow|_1U_1^\dagger\otimes\langle\downarrow|_2)             \\
+   & \qquad +(U_1|\downarrow\rangle_1\otimes|\uparrow\rangle_2)(\langle\downarrow|_1U_1^\dagger\otimes\langle\uparrow|_2)\Big]
+\end{align*}
+Evaluating
+\begin{multline*}
+  \rho'
+  =\frac{1}{2}\Big[U_{1}\lvert\uparrow\rangle\langle\uparrow\rvert U_{1}^{\dagger}\otimes\lvert\downarrow\rangle\langle\downarrow\rvert
+    - U_{1}\lvert\uparrow\rangle\langle\downarrow\rvert U_{1}^{\dagger}\otimes\lvert\downarrow\rangle\langle\uparrow\rvert\\
+    - U_{1}\lvert\downarrow\rangle\langle\uparrow\rvert U_{1}^{\dagger}\otimes\lvert\uparrow\rangle\langle\downarrow\rvert
+    + U_{1}\lvert\downarrow\rangle\langle\downarrow\rvert U_{1}^{\dagger}\otimes\lvert\uparrow\rangle\langle\uparrow\rvert\Big]
+\end{multline*}
+Using cyclicity and partial trace definition
+\begin{equation*}
+  \mathrm{Tr}_B \left(\ket{a_1}\bra{a_2}\otimes \ket{b_1} \bra{b_2}  \right)  = \ket{a_1}\bra{a_2} \braket{b_2|b_1}
+\end{equation*}
+the partial trace over Alice is
+\begin{align*}
+  \rho_B & =  \frac{1 }{2 }\left[ \braket{\uparrow | \uparrow} \ket{ \downarrow }\bra{\downarrow} -\braket{\uparrow | \downarrow} \ket{ \downarrow }\bra{\uparrow}  - \braket{\downarrow | \uparrow} \ket{ \uparrow }\bra{\downarrow}+\braket{\downarrow | \downarrow} \ket{ \uparrow }\bra{\uparrow}\right] \\
+  \rho_B & = \frac{1 }{2 }\left[ \ket{\downarrow }\bra{\downarrow}+ \ket{\uparrow }\bra{\uparrow} \right]
+  = \frac{1 }{2 }\mathbf{1}
+\end{align*}
+In general $\rho = \mathbf{1}/N$ is a maximally mixed state.
+With dimension of $N=2$, the Bob state is also a maximally mixed state.
+Also, being independent of Alice action $U_1$, the information that Alice intended to send is not transmitted to Bob.
+
+\subsubsection{Experimental verification.}
+
+\begin{figure*}
+  \centering
+  \begin{tikzpicture}[]
+    \draw[ thick] (-1,0) -- (1,0);
+
+    \draw[thick, ->] (-1,0) -- (-2,-1) node[below left] {c};
+    \draw[thick, ->] (-1,0) -- (-2,1) node[above left] {a};
+
+    \draw[thick, ->] (1,0) -- (2,-1) node[below right] {b};
+    \draw[thick, ->] (1,0) -- (2,1) node[above right] {d};
+
+    \node[left] at (-2.5, 0) {Particle 1};
+    \node[right] at (2.5, 0) {Particle 2};
+  \end{tikzpicture}
+  \caption*{Figure: Measurement axis.}
+\end{figure*}
+
+Let us consider the spin operators of two particles.
+Let twice the three-component spin of particle 1 be  $\boldsymbol{\sigma}_1$, which is measured along $ac$ axis, and of particle two $\boldsymbol{\sigma}_2$, which is measured along $bd$.
+Then define the observables as
+\begin{equation*}
+  a = \mathbf{a}\cdot\boldsymbol{\sigma}_{1},
+  \quad b = \mathbf{b} \cdot\boldsymbol{\sigma}_{2},
+  \quad c = \mathbf{c}\cdot\boldsymbol{\sigma}_{1},
+  \quad d = \mathbf{d}\cdot\boldsymbol{\sigma}_{2}
+\end{equation*}
+which then takes the value $\pm 1$ upon measurement.
+
+By the EPR assumption of local realism, measurement merely reveal their value and that measurements of their spins do not influence each other.
+In this case, this equality should hold
+\begin{equation*}
+  (a - c)b - (a + c)d = \pm 2
+\end{equation*}
+This is obtained by considering the fact that $a\pm c$ can only be $0$ or $\pm 2$, then the rest should follow.
+Then define the averaged value
+\begin{equation*}
+  C \equiv \braket{ab } - \braket{cb} - \braket{ad } -\braket{cd}
+\end{equation*}
+Using linearity  of expectation, the Bell inequality, or CHSH inequality, is obtained
+\begin{equation*}
+  | C | \le 2
+\end{equation*}
+
+Experiment did not agree with this result, instead quantum mechanics predictions of $|C| = 2 \sqrt{2}$ prove true.
+We start with the EPR state that conserve the angular momentum
+\begin{equation*}
+  \lvert s\rangle = \frac{1}{\sqrt{2}}\bigl(\lvert\uparrow \downarrow\rangle - \lvert\downarrow\uparrow\rangle\bigr)
+\end{equation*}
+Then The expectation value in this state reads
+\begin{equation*}
+  \langle s| nm |s\rangle = \langle s|(\mathbf{n}\cdot\boldsymbol\sigma_1)(\mathbf m\cdot\boldsymbol\sigma_2)|s\rangle = -\langle s|(\mathbf{n}\cdot\boldsymbol\sigma_1)(\mathbf{m}\cdot\boldsymbol\sigma_1)|s\rangle
+\end{equation*}
+via $\boldsymbol{\sigma_1} \ket{s} = - \boldsymbol{\sigma}_2 \ket{s}$.
+Using Pauli matrices identity
+\begin{equation*}
+  \langle s| nm |s\rangle  = - \mathbf n\cdot\mathbf m - i\langle s|\sigma_1|s\rangle\cdot(\mathbf n\times\mathbf m)
+\end{equation*}
+Each particle individually has no preferred spin direction, therefore $\braket{s  | \boldsymbol{\sigma}_1|s}=0$ and
+\begin{equation*}
+  \langle s| nm |s\rangle  = - \mathbf n\cdot\mathbf m
+\end{equation*}
+The CHSH function becomes
+\begin{equation*}
+  |C| = \left| -\mathbf{a}\cdot \mathbf{b} + \mathbf{c}\cdot \mathbf{b} + \mathbf{a}\cdot \mathbf{d} + \mathbf{c}\cdot \mathbf{d} \right|
+\end{equation*}
+To obtain the bounding value, we maximize this under the normalization constraints $a ^{2}=b ^{2} = c ^{2} = d ^{2}=1$.
+The Lagrange function thus
+\begin{equation*}
+  L = C - \frac{\alpha}{2}\left(a^2 - 1\right) - \frac{\beta}{2}\left(b^2 - 1\right) - \frac{\gamma}{2}\left(c^2 - 1\right) - \frac{\delta}{2}\left(d^2 - 1\right)
+\end{equation*}
+differentiate with respect $\mathbf{a},\mathbf{b},\mathbf{c},\mathbf{d}$ and setting it to zero
+\begin{equation*}
+  \begin{cases}
+    \alpha a = -b + d \\
+    \beta b  = -a + c \\
+    \gamma c = b + d  \\
+    \delta d = a + c
+  \end{cases}
+\end{equation*}
+Taken the dot product for $\mathbf{a}$ and $\mathbf{c}$ along with $\mathbf{b } $ and $\mathbf{d}$
+\begin{align*}
+  a\cdot c
+   & =   \frac{1}{\alpha\gamma}\big(-b\cdot b - b\cdot d + d\cdot b + d\cdot d\big)
+  = \frac{-1+1}{\alpha\gamma}=0                                                     \\
+  b\cdot d
+   & =   \frac{1}{\beta\delta}\big(-a\cdot a - a\cdot c + c\cdot a + c\cdot c\big)
+  = \frac{-1+1}{\beta\delta}=0
+\end{align*}
+reveals that they are orthogonal.
+Next, squaring both sides of each equation, constraints condition enforce the Lagrange multipliers to have the value of $\pm\sqrt{2}$
+\begin{equation*}
+  \begin{cases}
+    a = \pm\frac{-b+d}{\sqrt{2}} \\
+    b = \pm\frac{-a+c}{\sqrt{2}} \\
+    c = \pm\frac{b+d}{\sqrt{2}}  \\
+    d = \pm\frac{a+c}{\sqrt{2}}
+  \end{cases}
+\end{equation*}
+Inserting this into the CHSH function
+\begin{equation*}
+  |C| =
+  - \frac{-1 + a\cdot c}{\sqrt{2}} + \frac{-a\cdot c + 1}{\sqrt{2}} + \frac{1 + a\cdot c}{\sqrt{2}} + \frac{1 + a\cdot c}{\sqrt{2}}
+   = 2 \sqrt{2}
+\end{equation*}
+
+Such experiments were carried out almost simultaneously in 2015 in three places.
+Color centers, a type of lattice defect in a crystal in which electrons or holes are trapped at a point defect, formed by embedding nitrogen atoms into lattice defects of diamond are used. 
+The positions A and B where these spins are located are far apart, so that locality is ensured under the assumption of relativity. 
+Then, the two spins placed at A and B are controlled by microwaves from C.
+From the experimental data, one reads $\braket{ad } , \braket{cb }, \braket{cd }, \approx 1/\sqrt{2}$ and $\braket{ab }\approx -1/\sqrt{2}$.
+In other words, $C \approx 2 \sqrt{2}$
+\begin{figure*}
+  \centering
+  \begin{tikzpicture}[]
+    \draw[thick, ] (-2,0) node[left] {A} -- (2,0) node[right] {B};
+    \draw[thick,] (-2,0) -- (0,-1)-- (2,0);
+    \draw[draw=none] (0,-1) node[below] {C}; 
+    \draw[draw=none] (0,0) node[above] {1280 m}; 
+  \end{tikzpicture}
+  \caption*{Figure: Electron spins located at A and B, separated by 1280 m, are controlled from C.}
+\end{figure*}
+
 \subsection{Zeeman Effect and Stern-Gerlach Experiment}
 
 \begin{figure}
@@ -637,189 +819,4 @@ Suppose that the magnetic field is greater at north.
 Classically, particle can be described as having two poles.
 When the south pole of the magnetic moment is located on the upper side, the magnetic moment is pulled toward the region where the magnetic field is stronger and the atom as a whole is attracted upward.
 On the other hand, if the north pole of the magnetic moment is on the upper side, the attraction acts in the opposite direction and the atom as a whole is pulled downward.
-
-\subsection{Einstein, Podolsky, and Rosen Paradox}
-Einstein questioned the Copenhagen interpretation, which asserts that physical quantities do not possess definite values prior to measurement, the so called being realism, and that measurement plays a constitutive role rather than merely revealing pre-existing properties
-They infer that quantum mechanics is incomplete and the wavefunction is missing hidden variables that would assign definite values to observables.
-This theory, however, makes invalid assumption in local realism.
-
-They considered that a certain spin-zero particle decays into two spin-$1/2$.
-To satisfies angular momentum conservation, the state after decay is
-\begin{equation*}
-  \lvert s\rangle = \frac{1}{\sqrt{2}}\bigl(\lvert\uparrow\rangle\otimes\lvert\downarrow\rangle - \lvert\downarrow\rangle\otimes\lvert\uparrow\rangle\bigr)
-\end{equation*}
-This spin singlet state satisfies $[\mathbf{S}(1) + \mathbf{S}(2)] \ket{s} =0$, which implies antisymmetric eigenvalue $s(1)=-s(2)$.
-
-One then can obtain definite value of $s_x(1)$ by direct measurement and $s_z(1)$ by indirectly measuring $S_z(2) \ket{s}$.
-This is allowed since both operator $S_x(1)$ and $S_z(2)$ act on different operator and therefore commute.
-However, $S_x(1)$ and $S_z(1)$ do not commute, hence the result is invalid regardless.
-
-The mistake here is assuming localization of particle.
-Both statement about $s_x(1)$ and $s_z(1)$ are true individually, but not simultaneously.
-Measuring on particle 1 changes the state on particle 2, hence both statement cannot be made simultaneously.
-
-The same statement can be explained in terms of density matrix.
-Suppose observer at particle one Alice performs some unitary operation  on her own state as
-\begin{equation*}
-  |s\rangle \to |s'\rangle = \frac{1}{\sqrt{2}}\bigl(U_1\lvert\uparrow\rangle\otimes\lvert\downarrow\rangle - U_1\lvert\downarrow\rangle\otimes\lvert\uparrow\rangle\bigr)
-\end{equation*}
-Then information would have been transmitted from Alice to observer on particle 2 Bob, which is described by
-\begin{equation*}
-  \rho_B = \mathrm{Tr} _A [\rho']
-\end{equation*}
-The total density operator is written as
-\begin{align*}
-  \ket{s' }\bra{s'}
-   & =  \frac{1}{2}\Big[(U_1|\uparrow\rangle_1\otimes|\downarrow\rangle_2)(\langle\uparrow|_1U_1^\dagger\otimes\langle\downarrow|_2) \\
-   & \qquad-(U_1|\uparrow\rangle_1\otimes|\downarrow\rangle_2)(\langle\downarrow|_1U_1^\dagger\otimes\langle\uparrow|_2)             \\
-   & \qquad-(U_1|\downarrow\rangle_1\otimes|\uparrow\rangle_2)(\langle\uparrow|_1U_1^\dagger\otimes\langle\downarrow|_2)             \\
-   & \qquad +(U_1|\downarrow\rangle_1\otimes|\uparrow\rangle_2)(\langle\downarrow|_1U_1^\dagger\otimes\langle\uparrow|_2)\Big]
-\end{align*}
-Evaluating
-\begin{multline*}
-  \rho'
-  =\frac{1}{2}\Big[U_{1}\lvert\uparrow\rangle\langle\uparrow\rvert U_{1}^{\dagger}\otimes\lvert\downarrow\rangle\langle\downarrow\rvert
-    - U_{1}\lvert\uparrow\rangle\langle\downarrow\rvert U_{1}^{\dagger}\otimes\lvert\downarrow\rangle\langle\uparrow\rvert\\
-    - U_{1}\lvert\downarrow\rangle\langle\uparrow\rvert U_{1}^{\dagger}\otimes\lvert\uparrow\rangle\langle\downarrow\rvert
-    + U_{1}\lvert\downarrow\rangle\langle\downarrow\rvert U_{1}^{\dagger}\otimes\lvert\uparrow\rangle\langle\uparrow\rvert\Big]
-\end{multline*}
-Using cyclicity and partial trace definition
-\begin{equation*}
-  \mathrm{Tr}_B \left(\ket{a_1}\bra{a_2}\otimes \ket{b_1} \bra{b_2}  \right)  = \ket{a_1}\bra{a_2} \braket{b_2|b_1}
-\end{equation*}
-the partial trace over Alice is
-\begin{align*}
-  \rho_B & =  \frac{1 }{2 }\left[ \braket{\uparrow | \uparrow} \ket{ \downarrow }\bra{\downarrow} -\braket{\uparrow | \downarrow} \ket{ \downarrow }\bra{\uparrow}  - \braket{\downarrow | \uparrow} \ket{ \uparrow }\bra{\downarrow}+\braket{\downarrow | \downarrow} \ket{ \uparrow }\bra{\uparrow}\right] \\
-  \rho_B & = \frac{1 }{2 }\left[ \ket{\downarrow }\bra{\downarrow}+ \ket{\uparrow }\bra{\uparrow} \right]
-  = \frac{1 }{2 }\mathbf{1}
-\end{align*}
-In general $\rho = \mathbf{1}/N$ is a maximally mixed state.
-With dimension of $N=2$, the Bob state is also a maximally mixed state.
-Also, being independent of Alice action $U_1$, the information that Alice intended to send is not transmitted to Bob.
-
-\subsubsection{Experimental verification.}
-
-\begin{figure*}
-  \centering
-  \begin{tikzpicture}[]
-    \draw[ thick] (-1,0) -- (1,0);
-
-    \draw[thick, ->] (-1,0) -- (-2,-1) node[below left] {c};
-    \draw[thick, ->] (-1,0) -- (-2,1) node[above left] {a};
-
-    \draw[thick, ->] (1,0) -- (2,-1) node[below right] {b};
-    \draw[thick, ->] (1,0) -- (2,1) node[above right] {d};
-
-    \node[left] at (-2.5, 0) {Particle 1};
-    \node[right] at (2.5, 0) {Particle 2};
-  \end{tikzpicture}
-  \caption*{Figure: Measurement axis.}
-\end{figure*}
-
-Let us consider the spin operators of two particles.
-Let twice the three-component spin of particle 1 be  $\boldsymbol{\sigma}_1$, which is measured along $ac$ axis, and of particle two $\boldsymbol{\sigma}_2$, which is measured along $bd$.
-Then define the observables as
-\begin{equation*}
-  a = \mathbf{a}\cdot\boldsymbol{\sigma}_{1},
-  \quad b = \mathbf{b} \cdot\boldsymbol{\sigma}_{2},
-  \quad c = \mathbf{c}\cdot\boldsymbol{\sigma}_{1},
-  \quad d = \mathbf{d}\cdot\boldsymbol{\sigma}_{2}
-\end{equation*}
-which then takes the value $\pm 1$ upon measurement.
-
-By the EPR assumption of local realism, measurement merely reveal their value and that measurements of their spins do not influence each other.
-In this case, this equality should hold
-\begin{equation*}
-  (a - c)b - (a + c)d = \pm 2
-\end{equation*}
-This is obtained by considering the fact that $a\pm c$ can only be $0$ or $\pm 2$, then the rest should follow.
-Then define the averaged value
-\begin{equation*}
-  C \equiv \braket{ab } - \braket{cb} - \braket{ad } -\braket{cd}
-\end{equation*}
-Using linearity  of expectation, the Bell inequality, or CHSH inequality, is obtained
-\begin{equation*}
-  | C | \le 2
-\end{equation*}
-
-Experiment did not agree with this result, instead quantum mechanics predictions of $|C| = 2 \sqrt{2}$ prove true.
-We start with the EPR state that conserve the angular momentum
-\begin{equation*}
-  \lvert s\rangle = \frac{1}{\sqrt{2}}\bigl(\lvert\uparrow \downarrow\rangle - \lvert\downarrow\uparrow\rangle\bigr)
-\end{equation*}
-Then The expectation value in this state reads
-\begin{equation*}
-  \langle s| nm |s\rangle = \langle s|(\mathbf{n}\cdot\boldsymbol\sigma_1)(\mathbf m\cdot\boldsymbol\sigma_2)|s\rangle = -\langle s|(\mathbf{n}\cdot\boldsymbol\sigma_1)(\mathbf{m}\cdot\boldsymbol\sigma_1)|s\rangle
-\end{equation*}
-via $\boldsymbol{\sigma_1} \ket{s} = - \boldsymbol{\sigma}_2 \ket{s}$.
-Using Pauli matrices identity
-\begin{equation*}
-  \langle s| nm |s\rangle  = - \mathbf n\cdot\mathbf m - i\langle s|\sigma_1|s\rangle\cdot(\mathbf n\times\mathbf m)
-\end{equation*}
-Each particle individually has no preferred spin direction, therefore $\braket{s  | \boldsymbol{\sigma}_1|s}=0$ and
-\begin{equation*}
-  \langle s| nm |s\rangle  = - \mathbf n\cdot\mathbf m
-\end{equation*}
-The CHSH function becomes
-\begin{equation*}
-  |C| = \left| -\mathbf{a}\cdot \mathbf{b} + \mathbf{c}\cdot \mathbf{b} + \mathbf{a}\cdot \mathbf{d} + \mathbf{c}\cdot \mathbf{d} \right|
-\end{equation*}
-To obtain the bounding value, we maximize this under the normalization constraints $a ^{2}=b ^{2} = c ^{2} = d ^{2}=1$.
-The Lagrange function thus
-\begin{equation*}
-  L = C - \frac{\alpha}{2}\left(a^2 - 1\right) - \frac{\beta}{2}\left(b^2 - 1\right) - \frac{\gamma}{2}\left(c^2 - 1\right) - \frac{\delta}{2}\left(d^2 - 1\right)
-\end{equation*}
-differentiate with respect $\mathbf{a},\mathbf{b},\mathbf{c},\mathbf{d}$ and setting it to zero
-\begin{equation*}
-  \begin{cases}
-    \alpha a = -b + d \\
-    \beta b  = -a + c \\
-    \gamma c = b + d  \\
-    \delta d = a + c
-  \end{cases}
-\end{equation*}
-Taken the dot product for $\mathbf{a}$ and $\mathbf{c}$ along with $\mathbf{b } $ and $\mathbf{d}$
-\begin{align*}
-  a\cdot c
-   & =   \frac{1}{\alpha\gamma}\big(-b\cdot b - b\cdot d + d\cdot b + d\cdot d\big)
-  = \frac{-1+1}{\alpha\gamma}=0                                                     \\
-  b\cdot d
-   & =   \frac{1}{\beta\delta}\big(-a\cdot a - a\cdot c + c\cdot a + c\cdot c\big)
-  = \frac{-1+1}{\beta\delta}=0
-\end{align*}
-\begin{equation*}
-\end{equation*}
-reveals that they are orthogonal.
-Next, squaring both sides of each equation, constraints condition enforce the Lagrange multipliers to have the value of $\pm\sqrt{2}$
-\begin{equation*}
-  \begin{cases}
-    a = \pm\frac{-b+d}{\sqrt{2}} \\
-    b = \pm\frac{-a+c}{\sqrt{2}} \\
-    c = \pm\frac{b+d}{\sqrt{2}}  \\
-    d = \pm\frac{a+c}{\sqrt{2}}
-  \end{cases}
-\end{equation*}
-Inserting this into the CHSH function
-\begin{equation*}
-  |C| =
-  - \frac{-1 + a\cdot c}{\sqrt{2}} + \frac{-a\cdot c + 1}{\sqrt{2}} + \frac{1 + a\cdot c}{\sqrt{2}} + \frac{1 + a\cdot c}{\sqrt{2}}
-   = 2 \sqrt{2}
-\end{equation*}
-
-Such experiments were carried out almost simultaneously in 2015 in three places.
-Color centers, a type of lattice defect in a crystal in which electrons or holes are trapped at a point defect, formed by embedding nitrogen atoms into lattice defects of diamond are used. 
-The positions A and B where these spins are located are far apart, so that locality is ensured under the assumption of relativity. 
-Then, the two spins placed at A and B are controlled by microwaves from C.
-From the experimental data, one reads $\braket{ad } , \braket{cb }, \braket{cd }, \approx 1/\sqrt{2}$ and $\braket{ab }\approx -1/\sqrt{2}$.
-In other words, $C \approx 2 \sqrt{2}$
-\begin{figure*}
-  \centering
-  \begin{tikzpicture}[]
-    \draw[thick, ] (-2,0) node[left] {A} -- (2,0) node[right] {B};
-    \draw[thick,] (-2,0) -- (0,-1)-- (2,0);
-    \draw[draw=none] (0,-1) node[below] {C}; 
-    \draw[draw=none] (0,0) node[above] {1280 m}; 
-  \end{tikzpicture}
-  \caption*{Figure: Electron spins located at A and B, separated by 1280 m, are controlled from C.}
-\end{figure*}
 \end{document}
