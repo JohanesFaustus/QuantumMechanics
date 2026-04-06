@@ -15,7 +15,7 @@ This entropy is defined in such way to satisfy
   \item \textbf{Monotonicity.}
         Less probable events carry larger information, so $S(p)$ is decreasing in $p$
   \item \textbf{Additivity.}
-        If two independent events occur with probabilities \( p \) and \( q \) \((0 \leq p, q \leq 1)\), then the surprise when both occur should be the sum of the individual surprises 
+        If two independent events occur with probabilities \( p \) and \( q \) \((0 \leq p, q \leq 1)\), then the surprise when both occur should be the sum of the individual surprises
         \begin{equation*}
           S(p) + S(q) = S(pq)
         \end{equation*}
@@ -31,42 +31,69 @@ This entropy is defined in such way to satisfy
         \end{equation*}
 \end{enumerate}
 
-The definition can be easily confirmed by 
+The definition can be easily confirmed by
 \begin{align*}
-      S(\{p_i\}, \{q_j\}) & = -\sum_{i,j} p_i q_j \log (p_i q_j) = -\sum_{i,j} p_i q_j \log p_i - \sum_{i,j} p_i q_j \log q_j \\
-    S(\{p_i\}, \{q_j\}) & = -\sum_i p_i \log p_i - \sum_j q_j \log q_j = S(\{p_i\}) + S(\{q_j\})
+  S(\{p_i\}, \{q_j\}) & = -\sum_{i,j} p_i q_j \log (p_i q_j) = -\sum_{i,j} p_i q_j \log p_i - \sum_{i,j} p_i q_j \log q_j \\
+  S(\{p_i\}, \{q_j\}) & = -\sum_i p_i \log p_i - \sum_j q_j \log q_j = S(\{p_i\}) + S(\{q_j\})
 \end{align*}
 
 Let us express this in another way. If the uncertainty before measurement is large, then the information obtained after measurement (in this case, the Shannon information) is also large. Thus, Shannon information quantifies the uncertainty of the probability distribution before the event occurs.
 \subsubsection{Example: Coin toss.}
-Suppose a coin is tossed, and the probability of obtaining heads is \( p \) (denoted as 0), while the probability of tails is \( 1-p \) (denoted as 1). In this case, the Shannon information \( S(p) \) is  
+Suppose a coin is tossed, and the probability of obtaining heads is \( p \) (denoted as 0), while the probability of tails is \( 1-p \) (denoted as 1). In this case, the Shannon information \( S(p) \) is
 \begin{equation*}
   S(p) = -p \log_2 p - (1 - p)\log_2 (1 - p) = H(p)
 \end{equation*}
 The base of the logarithm has been taken as 2 for later convenience; in this case, it is often written as \( H(p) \).
 
-In particular, for \( p = 1/2 \), the Shannon information \( H(p) \) attains its maximum value. When \( p = 0 \) or \( p = 1 \), the Shannon information takes its minimum value of 0. 
+In particular, for \( p = 1/2 \), the Shannon information \( H(p) \) attains its maximum value. When \( p = 0 \) or \( p = 1 \), the Shannon information takes its minimum value of 0.
 This corresponds to the situation where the result is completely determined in advance, meaning that no new information is obtained.
-
 
 \begin{figure}
   \centering
   \begin{tikzpicture}
-\begin{axis}[
-    xmin=0, xmax=1,
-    ymin=0, ymax=1.1,
-    xlabel={$p$},
-    ylabel={$H(p)$},
-]
-\addplot[
-    domain=0.001:0.999,
-    samples=1000,
-    smooth,
-] {-(x*ln(x) + (1-x)*ln(1-x))/ln(2)};
-\end{axis}
-\end{tikzpicture}
-\caption*{Figure: $H(p)$ with respect to $p$.}
+    \begin{axis}[
+        xmin=0, xmax=1,
+        ymin=0, ymax=1.1,
+        xlabel={$p$},
+        ylabel={$H(p)$},
+      ]
+      \addplot[
+        domain=0.001:0.999,
+        samples=1000,
+        smooth,
+      ] {-(x*ln(x) + (1-x)*ln(1-x))/ln(2)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{Figure: $H(p)$ with respect to $p$.}
 \end{figure}
 
+\subsubsection{Example: Partition function.}
+Let the states with energies $\varepsilon_i$ $(i = 1,2,\dots,N)$ be realized with probabilities $p_i$.
+Under the condition that the average energy is fixed and unitary probability
+\begin{equation*}
+  \sum_{i=1}^{N} p_i \varepsilon_i = E
+  \qquad
+  \sum_{i=1}^{N} p_i = 1
+\end{equation*}
+Introduce Lagrange multipliers $\alpha$ and $\beta$, and consider maximizing under this constraints.
+Let $p_i$ $(i=1,\dots,N)$ be independent variables, then
+\begin{equation*}
+  L = -\sum_{i=1}^{N} p_i \log p_i
+  + \alpha \left(\sum_{i=1}^{N} p_i - 1\right)
+  + \beta \left(E - \sum_{i=1}^{N} p_i \varepsilon_i \right)
+\end{equation*}
+Differentiate with respect to $p_i$ and set it to zero
+\begin{equation*}
+  \frac{\partial L}{\partial p_i} = -\log p_i - 1 + \alpha - \beta \varepsilon_i = 0
+\end{equation*}
+From this
+\begin{equation*}
+  p_i = \frac{e^{-\beta \varepsilon_i}}{e^{1-\alpha}}= \frac{e^{-\beta \varepsilon_i}}{Z}
+\end{equation*}
+Furthermore, from the constraint condition
+\begin{equation*}
+  \sum_{i=1}^{N} \frac{e^{-\beta \varepsilon_i}}{Z}  =  1\implies
+  Z  =  \sum_{i=1}^{N} e^{-\beta \varepsilon_i}
+\end{equation*}
 
 \end{document}
