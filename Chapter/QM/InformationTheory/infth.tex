@@ -37,11 +37,43 @@ The definition can be easily confirmed by
   S(\{p_i\}, \{q_j\}) & = -\sum_i p_i \log p_i - \sum_j q_j \log q_j = S(\{p_i\}) + S(\{q_j\})
 \end{align*}
 
-Let us express this in another way. If the uncertainty before measurement is large, then the information obtained after measurement (in this case, the Shannon information) is also large. Thus, Shannon information quantifies the uncertainty of the probability distribution before the event occurs.
+Let us express this in another way. 
+If the uncertainty before measurement is large, then the information obtained after measurement, the Shannon information, is also large. 
+Thus, Shannon information quantifies the uncertainty of the probability distribution before the event occurs.
+
+The asymptotic characterization of Shannon entropy
+\begin{equation*}
+  H(p) = \frac{1 }{N }\log_2 W
+\end{equation*}
+represents the degree of incompressibility; which means the smaller the value, the greater the degree of compression.
+Here $W= {}_N C_m = 2^{NH(p)}$ refer to the possiblities associated with probability $p$.
+The Shannon entropy or $H(p)$ can take the value $0\leq H(p) \leq 1$.
+\begin{enumerate}
+  \item $H(p)=1$. 
+  Corresponds to the case of where no compression is possible, meaning all sequences equally likely.
+  Consider the case of $N$ bits where all bits have the same probability.
+  The entropy in this case is $H[p(N)]=1$, so the number of possible string is $W=2^N$.
+  This is the upper bound for representing $N$ bit, meaning no compression is possible.
+  \item $0<H(p)<1$. 
+  Corresponds to the case of biased distribution where $p \neq 1/2$.
+  \begin{equation*}
+    W \approx 2^{N H(p)} < 2^{N}
+  \end{equation*}
+  Consequently, the sequence can be encoded using fewer than $N$ bits, specifically $NH(p)$ bits.
+  \begin{equation*}
+    \log_2 W \approx N H(p) < N
+  \end{equation*}
+  \item $H(p)=0$.
+  Outcome is deterministic, where $p=0$ or $p=1$.
+  In this case, $W=1$ and $\log_2 W=0$.
+\end{enumerate}
+
 \subsubsection{Example: Coin toss.}
 Suppose a coin is tossed, and the probability of obtaining heads is \( p \) (denoted as 0), while the probability of tails is \( 1-p \) (denoted as 1). In this case, the Shannon information \( S(p) \) is
 \begin{equation*}
-  S(p) = -p \log_2 p - (1 - p)\log_2 (1 - p) = H(p)
+  S(p) 
+  = -p \log_2 p - (1 - p)\log_2 (1 - p) 
+  = H(p)
 \end{equation*}
 The base of the logarithm has been taken as 2 for later convenience; in this case, it is often written as \( H(p) \).
 
@@ -94,6 +126,39 @@ Furthermore, from the constraint condition
 \begin{equation*}
   \sum_{i=1}^{N} \frac{e^{-\beta \varepsilon_i}}{Z}  =  1\implies
   Z  =  \sum_{i=1}^{N} e^{-\beta \varepsilon_i}
+\end{equation*}
+
+\subsubsection{Derivation.}
+Previously, an intuitive introduction of Shannon information was given.
+But, here a derivation closer to Shannon’s original paper.
+
+Messages are generally transmitted in binary form using 0 and 1. For example, 
+Consider a string of $N$ bits such as $010010110100\ldots$. 
+Suppose that among the $N$ characters, there are $m$ zeros. 
+Then, the number of distinct binary sequences that contain exactly $m$ zeros, or $N-m$ ones, is
+\begin{equation*}
+  W = {}_N C_m = \binom{N}{m} = \frac{N!}{m!(N-m)!}
+\end{equation*}
+When $N$ and $m$ are large, we use Stirling’s formula 
+\begin{align*}
+  \log W & = N \log N - N - m \log m + m - (N - m)\log (N - m) + N - m \\
+&= N \log N - m \log m - N\left(1 - \frac{m}{N}\right)\log \left(1 - \frac{m}{N}\right) - (N - m)\log N \\
+\log W
+&= N \left[ -\frac{m}{N} \log \frac{m}{N} - \left(1 - \frac{m}{N}\right)\log \left(1 - \frac{m}{N}\right) \right] \\
+\ln W
+&=N H(p) \log 2\\
+W & = [\exp (\ln 2) ]^{N H(p) } = 2 ^{N H(p) } 
+\end{align*}
+with $p(m)=m/N$ as the probability that 0 appears.
+
+Shannon entropy appears in the binary case as 
+\begin{equation*}
+H(p)
+=  -\frac{m}{N} \log \frac{m}{N} - \left(1 - \frac{m}{N}\right)\log \left(1 - \frac{m}{N}\right) 
+\end{equation*}
+The step from sequences to probabilities in general $N$-ary sources generalizes this same reasoning to
+\begin{equation*}
+  S(\left\{ p_i \right\} ) = -\sum_{i=1}^{N} p_i \log p_i
 \end{equation*}
 
 \end{document}
