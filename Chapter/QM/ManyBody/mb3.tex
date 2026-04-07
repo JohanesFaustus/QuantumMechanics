@@ -1,0 +1,454 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+
+\subsection{Hartree-Fock for Fermion}
+Rather than simple product, the Hartree-Fock method assumes the wavefunction using Slater determinant
+\begin{equation*}
+  \Psi_F(x_1, \ldots, x_N)
+  = \frac{1}{\sqrt{N!}} \sum_{P \in S_N} \text{sgn}(P) \prod_{i=1}^N \phi_i(x_{P(i)})
+\end{equation*}
+or the second quantization representation
+\begin{equation*}
+  \ket{\Phi }= \prod_{i \in \text{occ}} c ^\dagger_i \ket{0}
+\end{equation*}
+with $i$ as the occupied state.
+The expectation value of the total Hamiltonian
+\begin{equation*}
+  \langle \Psi | \hat{H} | \Psi \rangle = \int dx_1 dx_2 \ldots dx_N \Psi^*(x_1, x_2, \ldots, x_N) \hat{H} \Psi(x_1, x_2, \ldots, x_N)
+\end{equation*}
+using the fermion wavefunction yields the Hartree-Fock functional
+\begin{multline*}
+  \langle \Psi | \hat{H} | \Psi \rangle
+  = \sum_{i=1}^N \int dx\phi_i^*(x)\hat h(x)\phi_i(x) \\
+  + \frac{1}{2}\sum_{\substack{i,j=1\\i\neq j}}^N \int dx\;dx' \Bigg[ |\phi_i(x)|^2V(x,x')|\phi_j(x')|^2 \\
+    - \phi_i^*(x)\phi_j(x)V(x,x')\phi_j^*(x')\phi_i(x') \Bigg]
+\end{multline*}
+In abstract basis, this expression reads
+\begin{equation*}
+  \langle \Psi | \hat{H} | \Psi \rangle
+  = \sum_{i=1}^{N}\langle i|\hat{h}|i\rangle + \frac{1}{2}\sum_{i,j=1}^{N}\big(\langle ij|\hat{V}|ij\rangle - \langle ij|\hat{V}|ji\rangle\big)
+\end{equation*}
+
+Enforcing the normalization constraint yields the Hartree-Fock equation
+\begin{equation*}
+  \left[\hat{h}(x)+\hat{V}_{\mathrm{mf}}(x)\right]\phi_i(x) =\epsilon_i\phi_i(x)
+\end{equation*}
+where $\epsilon_i$ are the Lagrange multipliers ﬁxed by the normalization and $\hat{V}_\text{mf}$ is a nonlocal mean-ﬁeld operator
+\begin{equation*}
+  \hat{V}_\text{mf}(x) \phi_i(x)
+  =  V_d(x) \phi_i(x) - \sum_{j=1}^N V^{ji}_\text{ex}(x) \phi_j(x)
+\end{equation*}
+where the direct mean-ﬁeld ${V}_d(x)$ and exchange mean-field ${V}_\text{ex} ^{ji}(x)$ read as
+\begin{align*}
+  V_\text{d}(x)       & =  \sum_{j\neq i}^N \int dx'\; V(x,x')\left|\phi_j(x')\right|^2 \\\
+  V_\text{ex}^{ji}(x) & =  \int dx'\; \phi_j^*(x')V(x,x')\phi_i(x')
+\end{align*}
+
+\subsubsection{Derivation: Hartree-Fock.}
+The following derivation shall use the second quantization formalism.
+The expectation value of single particle in this formalism is written as
+\begin{equation*}
+  \braket{\Phi  | \hat{H}_1|\Phi} = \sum_{j}   \langle i|\hat{h}|j\rangle \braket{\Phi  | c_i^\dagger c_j|\Phi}
+\end{equation*}
+with the fermion wavefunction written as
+\begin{equation*}
+  \ket{\Phi }= \prod_{k \in \text{occ}} c ^\dagger_k \ket{0}
+\end{equation*}
+and $k$ as the occupied state.
+We can evaluate the expectation value of fermion creation and annihilation operator on the fermion wavefunction as
+\begin{equation*}
+  \bra{\Phi} c ^\dagger_i  c_j \prod_{k \in \text{occ}} c ^\dagger_k \ket{0} = \delta_{ij}n_i
+\end{equation*}
+with $n_i\in \left\{ 0,1 \right\} $ as the number occupation of state $i$.
+The interpretation of this result is as follows.
+If $j \neq \text{occ}$, then the annihilation $c_i$ act on vaccum
+\begin{equation*}
+  c_j \ket{\Phi} =0
+\end{equation*}
+If $j \in \text{occ}$, the result generally not zero
+\begin{equation*}
+  c_j \ket{\Phi} = (\pm) \ket{\Phi^{(j)}}
+\end{equation*}
+There are two further possible subcase after this.
+If $i \neq j$, then creation $c ^\dagger_i$ creates particle in already occupied state,
+\begin{equation*}
+  c ^\dagger_i \ket{\Phi^{(j)}} = 0
+\end{equation*}
+or it creates particle in different orbital $\ket{\Phi^{(j \to i)}}$ such that the resulting state is orthogonal with $\bra{\Phi}$
+\begin{equation*}
+  \braket{\Phi  | \Phi^{(j \to i)}} = 0
+\end{equation*}
+The result is zero overall.
+Second possibilities are that $i =j$, which meant that creation $c_i$ re-create the particle that the annihilation $c_j$ annihilate, thus the state is again identical to $\ket{\Phi}$.
+Hence, the expectation value reads
+\begin{equation*}
+  \braket{\Phi  | \hat{H}_1|\Phi}
+  = \sum_{i \in \text{occ}}   \langle i|\hat{h}|i\rangle
+\end{equation*}
+To obtain the desired form, we insert the completeness relation
+\begin{equation*}
+  \braket{\Phi  | \hat{H}_1|\Phi}
+  = \sum_{p \in \text{occ}}    \int dx\;dx'\;\phi^*(x)\langle x | \hat{h} | x' \rangle\phi(x')
+\end{equation*}
+The Hamiltonian is local, so $\langle x | \hat{h} | x' \rangle = \hat{h}(x)\delta(x-x')$ and the integral turns
+\begin{equation*}
+  \braket{\Phi  | \hat{H}_1|\Phi}
+  = \sum_{i=1}^N \int dx\phi_i^*(x)\hat h(x)\phi_i(x)
+\end{equation*}
+where we relabel the orbital such that $\left\{ i,\dots,N \right\} $ is the occupied orbital.
+
+Now for the two-particle Hamiltonian
+\begin{equation*}
+  \braket{\Phi  | \hat{H}_2|\Phi} = \sum_{i,j}\sum_{k,l}   \langle ij|\hat{h}|kl \rangle \braket{\Phi  | c_i^\dagger c ^\dagger_j c_l c_k|\Phi}
+\end{equation*}
+Note the order of the annihilation operators are swapped.
+The expectation value of the annihilation and creation term in the Slater determinant is
+\begin{equation*}
+  \braket{\Phi  | c ^\dagger_i c ^\dagger_j c _l c_k|\Phi }=\delta_{ik }\delta_{jl } -\delta_{il }\delta_{jk }
+\end{equation*}
+This is obtained by considering the fact that the annihilation operators yields non-zero result if they act on occupied state
+\begin{equation*}
+  c_l c_k \ket{\Phi} \neq 0,
+  \qquad k,l \in \text{occ}
+\end{equation*}
+As before, in order to produce non-zero inner product, the creation operators must re-create the annihilated fermion.
+There are two possible way to achieve this.
+First is the direct reconstruction $i=k$ and $j=l$, where the operators re-create the fermion in the same order they were annihilated
+\begin{equation*}
+  c_i^\dagger c ^\dagger_j c_l c_k \ket{\Phi}
+  \to c_i^\dagger c ^\dagger_j c_j c_i \ket{\Phi}
+  =c_i^\dagger (1-c_jc ^\dagger_j ) c_i \ket{\Phi}
+  = c ^\dagger_i c_i \ket{\Phi}
+\end{equation*}
+since $c ^\dagger_j$ acts on occupied state $q$.
+Second is the exchange reconstruction $i=l$ and $j=k$, where their order are swapped
+\begin{equation*}
+  c_i^\dagger c ^\dagger_j c_l c_k \ket{\Phi}
+  \to c_i^\dagger c ^\dagger_j c_i c_j \ket{\Phi}
+  = -c_i^\dagger c_i c ^\dagger_j c_j  \ket{\Phi}
+\end{equation*}
+Enforcing this result, the expectation value reads
+\begin{equation*}
+  \braket{\Phi  | \hat{H}_2|\Phi} =
+  \frac{1 }{2}\sum_{p,q\in \text{occ}}   \langle ij|\hat{V}|ij \rangle -\langle ij|\hat{V}|ji \rangle
+\end{equation*}
+
+Again, we insert the completeness relation to express it in position representation.
+For the direct term
+\begin{multline*}
+  \langle ij|\hat{V}|ij \rangle  \\
+  = \int dx_1\;dx_2\;dx_1'\;dx_2'\; \phi_i^*(x_1)\phi_j^*(x_2)\langle x_1 x_2|\hat{V}|x_1' x_2'\rangle \phi_i(x_1')\phi_j(x_2')
+\end{multline*}
+The operators also local $\langle x_1 x_2|\hat{V} |x_1' x_2'\rangle = V(x_1,x_2)\delta(x_1-x_1')\delta(x_2-x_2')$
+\begin{equation*}
+  \langle ij|\hat{V}|ij \rangle
+  = \int dx_1\;dx_2\; \phi_i^*(x_1)\phi_j^*(x_2) V(x_1,x_2) \phi_i(x_1)\phi_j(x_2)
+\end{equation*}
+As for the exchange term
+\begin{multline*}
+  \langle ij|\hat{V}|ji \rangle  \\
+  = \int dx_1\;dx_2\;dx_1'\;dx_2'\; \phi_i^*(x_1)\phi_j^*(x_2)\langle x_1 x_2|\hat{V}|x_1' x_2'\rangle \phi_j(x_1')\phi_i(x_2')
+\end{multline*}
+and with locality
+\begin{equation*}
+  \langle ij|\hat{V}|ji \rangle
+  = \int dx_1\;dx_2\; \phi_i^*(x_1)\phi_j^*(x_2) V(x_1,x_2) \phi_j(x_1)\phi_i(x_2)
+\end{equation*}
+
+\subsubsection{Derivation: Hartree-Fock state functional minimization.}
+With the orbital orthonormality, we construct the functional
+\begin{equation*}
+  \mathcal{L}
+  = \sum_{i=1}^{N}\langle i|\hat{h}|i\rangle
+  + \frac{1}{2}\sum_{i,j=1}^{N}\big(\langle ij|\hat{V}|ij\rangle-\langle ij|\hat{V}|ji\rangle\big)
+  + \sum_{i,j=1}^{N}\epsilon_{ij}\big(\langle i| j\rangle-\delta_{ij}\big)
+\end{equation*}
+For one-particle and the constraint term, we vary $\ket{i}$
+\begin{equation*}
+  \delta \mathcal{L }_1+\mathcal{L }_c
+  = \sum_{i=1}^{N}\langle\delta i|\hat{h}|i\rangle + \sum_{i,j=1}^{N}\epsilon_{ij}\langle \delta i| j\rangle
+\end{equation*}
+Same goes for the two-particle term, only we vary for the set of $\left\{ \ket{i} \right\} $
+\begin{align*}
+  \mathcal{L }_2
+   & =  \frac{1}{2}\sum_{i,j=1}^{N}\big(\langle\delta i,j|\hat{V}|ij\rangle +\langle i,\delta j|\hat{V}| i, j\rangle-\langle\delta i,j|\hat{V}|ji\rangle - \langle i, \delta j|\hat{V}|ji\rangle\big) \\
+  \mathcal{L }_2
+   & = \sum_{i,j=1}^{N}\big(\langle\delta i,j|\hat{V}|ij\rangle -\langle\delta i,j|\hat{V}|ji\rangle \big)
+\end{align*}
+Combining both
+\begin{equation*}
+  \delta\mathcal{L }
+  = \sum_{i=1}^{N}\langle\delta i|\hat{h}|i\rangle + \sum_{i,j=1}^{N}\big(\langle \delta i,j|\hat{V}|ij\rangle -\langle\delta i,j|\hat{V}|ji\rangle \big)+ \sum_{i,j=1}^{N}\epsilon_{ij}\langle \delta i| j\rangle
+\end{equation*}
+
+We now want to define operator that express the idea
+\begin{equation*}
+  \braket{ij  | \hat{V}|ij} \to \bra{i } \braket{j  | \hat{V}|j }\ket{i}
+\end{equation*}
+The realization is as the part of $\hat{V}$ that acts on $\ket{i}$ when $j$ is fixed.
+First we project particle $j$ onto $\ket{j}$, then apply $\hat{V}$ to represent the part of that operator $\hat{V}$ which act on $i$.
+This still lives on $\mathcal{H}_i \otimes \mathcal{H}_j$, so tracing over $j$ reduce the operator into the $\mathcal{H}_i$ only.
+We define this by the direct operator
+\begin{equation*}
+  \hat{J }_j = \mathrm{Tr}_j[\hat{V}(\mathbf{1 }_i \otimes \ket{j}\bra{j})]
+\end{equation*}
+With the same logic we can define the exchange operator, only we want to encodes the particle exchange.
+Instead of leaving $\ket{i}$ on $i$ unchanged, we want $\ket{i}$ on $i$ and $\ket{j}$ on $j$ in the ket of $\hat{V}$ become $\ket{j}$ on $i$ and $\ket{i}$ on $j$ in the bra.
+Order exchange in other words.
+With this, we define the exchange operator as
+\begin{equation*}
+  \hat{K }_j = \mathrm{Tr}_j[\hat{V}(\ket{j} \bra{i} \otimes \ket{i}\bra{j})]
+\end{equation*}
+With this in mind, we can write
+\begin{equation*}
+  \delta\mathcal{L }
+  = \sum_{i=1}^{N}\langle\delta i|\hat{h}|i\rangle
+  + \sum_{i,j=1}^{N} \langle \delta i| (\hat{J}_j-\hat{K }_j)|i\rangle
+  + \sum_{i,j=1}^{N}\epsilon_{ij}\langle \delta i| j\rangle
+\end{equation*}
+
+For arbitrary variation for $\left\{ \bra{\delta i} \right\} $, it is obvious that
+\begin{equation*}
+  \hat{h}\lvert i\rangle + \sum_{j=1}^{N}\big(\hat{J}_j - \hat{K}_j\big)\lvert i\rangle - \sum_{j=1}^{N}\epsilon_{ij}\lvert j\rangle =0
+\end{equation*}
+To simplify even further, we can choose an orthonormal orbital basis that can diagonalize $\epsilon_{ij}$
+\begin{equation*}
+  \hat{h}\lvert i\rangle + \sum_{j=1}^{N}\big(\hat{J}_j - \hat{K}_j\big)\lvert i\rangle = \epsilon_i \ket{i}
+\end{equation*}
+
+Next we evaluate the position representation.
+It is trivial for the one-particle and the constraint term, as for the direct term
+\begin{align*}
+  \hat{J}_j & =  \operatorname{Tr}_j \big[\hat{V}\big(\mathbf{1}_i\otimes |j\rangle\langle j|\big)\big]
+  = \sum_n \left( \mathbf{1 }_i \otimes \bra{n_j} \right) \hat{V}(\mathbf{1 }_i \otimes \ket{j}\bra{j}) \left( \mathbf{1 }_i \otimes \ket{n_j} \right) \\
+            & = \sum_n \left( \mathbf{1 }_i \otimes \bra{n_j} \right) \hat{V}(\mathbf{1 }_i \otimes \ket{j}\braket{j|n_j})                             \\
+            & = \sum_n \left( \mathbf{1 }_i \otimes \bra{n_j} \right) \hat{V}(\mathbf{1 }_i \otimes \ket{j} )\delta_{j,n_j}                            \\
+            & = \left( \mathbf{1 }_i \otimes \bra{j} \right) \hat{V}(\mathbf{1 }_i \otimes \ket{j} )
+\end{align*}
+The position representation for the operator is expressed as
+\begin{equation*}
+  (\hat{J}_j\phi)(x) = \int dx'\langle x|\hat{J}_j|x'\rangle\phi(x')
+\end{equation*}
+All that matter is to compute the kernel then
+\begin{equation*}
+  \langle x|\hat{J}_j|x'\rangle
+  = (\langle x|\otimes\langle j|)\hat{V} (|x'\rangle\otimes|j\rangle)
+  =  \int dy\;dy'\;\phi^*(y)\langle x,y|\hat{V}|x',y'\rangle\phi(y')
+\end{equation*}
+Assuming the operator being local
+\begin{equation*}
+  \langle x|\hat{J}_j|x'\rangle
+  =\delta(x-x')\int dyV(x,y)\lvert\phi_j(y)\rvert^2.
+\end{equation*}
+Substituting
+\begin{align*}
+  (\hat{J}_j\phi)(x)
+   & = \int dx'\;\delta(x-x')\Bigg[\int dy\;V(x,y)|\phi_j(y)|^2\Bigg]\phi(x) \\
+  (\hat{J}_j\phi)(x)
+   & = \Bigg[\int dy\;V(x,y)|\phi_j(y)|^2\Bigg]\phi(x)
+\end{align*}
+
+As for the exchange term
+\begin{align*}
+  \hat{K }_j & =  \mathrm{Tr}_j[\hat{V}(\ket{j} \bra{i} \otimes \ket{i}\bra{j})]
+  = \sum_n \left( \mathbf{1 }_i \otimes \bra{n_j} \right) \hat{V } \left( \ket{j }\bra{i }\otimes \ket{i }\bra{j } \right) \left( \mathbf{1 }_i \otimes \ket{n_j} \right) \\
+  \hat{K }_j
+             & =  \sum_n \delta_{j,nj}\left( \mathbf{1 }_i \otimes \bra{n_j} \right) \hat{V } \left( \ket{j }\bra{i }\otimes \ket{i }\right)
+  =  \left( \mathbf{1 }_i \otimes \bra{j} \right) \hat{V } \left( \ket{j }\bra{i }\otimes \ket{i }\right)
+\end{align*}
+By inserting the completeness relation
+\begin{equation*}
+  \mathbf{1}_i\otimes \mathbf{1}_j = \int dx_idx_j\ket{x_i x_j} \bra{x_i x_j}
+\end{equation*}
+one obtain the
+\begin{align*}
+  \hat{K }_{j}
+   & =   \int dx_i\;dx_j\;dx_i'\;dx_j'\;(\mathbf{1}_i\otimes\langle j|)|x_i x_j\rangle\langle x_i x_j|\hat{ V}|x_i' x_j'\rangle\langle x_i' x_j'|\big(|j\rangle\langle i|\otimes|i\rangle\big)        \\
+   & =   \int dx_i\;dx_j\;dx_i'\;dx_j'\;\lvert x_i \rangle \otimes \langle j \rvert x_j \rangle \langle x_i x_j|\hat{ V}|x_i' x_j'\rangle \langle x_i'|j\rangle\langle i|\otimes\langle x_j'|i\rangle \\
+   & =   \int dx_i\;dx_j\;dx_i'\;dx_j'\;\phi_j ^*(x_j) \ket{x_i}\langle x_i x_j|\hat{ V}|x_i' x_j'\rangle \phi_j(x_i')\phi_i(x_j')\langle i|
+\end{align*}
+Using locality
+\begin{equation*}
+  \hat{K }_{j}
+  =   \int dx_i\;dx_j\; \phi_j ^*(x_j) V(x_i,x_j) \phi_j(x_i)\phi_i(x_j)\ket{x_i} \bra{i}
+\end{equation*}
+From the position representation
+\begin{equation*}
+  (\hat{K}_j\phi_i)(x_i) = \int dx_i'\;\langle x_i|\hat{K}_j|x_i'\rangle\phi_i(x_i')
+\end{equation*}
+
+To avoid confusion, we define
+\begin{equation*}
+  \hat{K }_{j}
+  =   \int d\xi_i\;dx_j\; \phi_j ^*(x_j) V(\xi_i,x_j) \phi_j(\xi_i)\phi_i(x_j)\ket{\xi_i} \bra{i}
+\end{equation*}
+The kernel evaluate as
+\begin{align*}
+  \langle x_i|\hat{K}_j|x_i'\rangle
+   & =    \int d\xi_i\;dx_j\; \phi_j ^*(x_j) V(\xi_i,x_j) \phi_j(\xi_i)\phi_i(x_j)\braket{x_i  | \xi_i} \braket{i  | x_i'} \\
+  \langle x_i|\hat{K}_j|x_i'\rangle
+   & = \phi_i ^*(x_i')\int dx_j\; \phi_j ^*(x_j) V(x_i,x_j) \phi_j(x_i)\phi_i(x_j)
+\end{align*}
+Substituting
+\begin{align*}
+  (\hat{K}_j\phi_i)(x_i) & = \int dx_i' \phi_i^*(x_i') \phi_i(x_i') \int dx_j \phi_j^*(x_j) V(x_i,x_j) \phi_j(x_i) \phi_i(x_j) \\
+  (\hat{K}_j\phi_i)(x_i) & = \int dx_j \phi_j^*(x_j) V(x_i,x_j) \phi_j(x_i) \phi_i(x_j)
+\end{align*}
+
+\subsection{Graphene}
+Graphene consists of two sublattices, one of type $A$ and one of type $B$.
+Sublattice $A$ consists of all the sites of type $A$, and sublattice $B$ consists of all the sites of type $B$.
+The tight binding Hamiltonian is
+\begin{equation*}
+  H = -t \sum_{i\sigma}\sum_{\delta=1}^{3} a_{i\sigma}^\dagger b_{i+\delta,\sigma}
+  - t \sum_{i\sigma}\sum_{\delta=1}^{3} b_{i\sigma}^\dagger a_{i+\delta,\sigma}
+\end{equation*}
+where $a_{i \sigma}$ annihilates an electron with spin $\sigma$ on site $i$ of type $A$ and $b_{i \sigma}$ annihilates an electron with spin $\sigma$ on site $i$ of type $B$.
+Introduce Fourier transform
+\begin{equation*}
+  a_{i\sigma} = \frac{1}{\sqrt{N}}\sum_{\mathbf{k}} e^{i\mathbf{k}\cdot\mathbf{R}_i}a_{\mathbf{k}\sigma}
+  \qquad
+  b_{j\sigma} = \frac{1}{\sqrt{N}}\sum_{\mathbf{k}} e^{i\mathbf{k}\cdot\mathbf{R}_j}b_{\mathbf{k}\sigma}
+\end{equation*}
+with $j = i + \delta$ and $\mathbf{R}_j = \mathbf{R }_i + \boldsymbol{\delta}$, we can write the Hamiltonian in matrix form 
+\begin{equation*}
+  H= t\sum_{\mathbf{k}\sigma}
+  \begin{bmatrix} a_{\mathbf{k}\sigma}^\dagger & b_{\mathbf{k}\sigma}^\dagger \end{bmatrix}
+  \begin{bmatrix} 0 & - g_\mathbf{k} \\ - g_\mathbf{k}^* & 0 \end{bmatrix}
+  \begin{bmatrix} a_{\mathbf{k}\sigma} \\ b_{\mathbf{k}\sigma} \end{bmatrix}  
+\end{equation*}
+Further, diagonalizing it, the Hamiltonian reads 
+\begin{equation*}
+    H = \sum_{n=1}^{2}\sum_{k\sigma} E_{n k} c_{n k \sigma}^{\dagger} c_{n k \sigma}
+\end{equation*}
+
+\subsubsection{Derivation.}
+The first term reads
+\begin{align*}
+  H_1 & = -t \sum_{i\sigma}\sum_{\delta=1}^{3} a_{i\sigma}^\dagger b_{i+\delta,\sigma}                                                                                                                                                         \\
+      & = -\frac{t}{N}\sum_{i\sigma}\sum_{\delta}\sum_{\mathbf{k},\mathbf{k}'} e^{-i\mathbf{k}\cdot\mathbf{R}_i} e^{i\mathbf{k}'\cdot\mathbf{R}_i} e^{i\mathbf{k}'\cdot\boldsymbol{\delta}} a_{\mathbf{k}\sigma}^\dagger b_{\mathbf{k}'\sigma} \\
+      & = -\frac{t}{N}\sum_{\sigma}\sum_{\delta}\sum_{\mathbf{k},\mathbf{k}'}\left[\sum_i e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{R}_i}\right] e^{i\mathbf{k}'\cdot\boldsymbol{\delta}}a_{\mathbf{k}\sigma}^\dagger b_{\mathbf{k}'\sigma}     \\
+  H_1
+      & = -t \sum_{\sigma}\sum_{\delta}\sum_{\mathbf{k}} e^{i\mathbf{k}\cdot\boldsymbol{\delta}} a_{\mathbf{k}\sigma}^{\dagger} b_{\mathbf{k}\sigma}
+\end{align*}
+and the second
+\begin{align*}
+  H_2 & = -t \sum_{j\sigma}\sum_{\delta} b_{j-\delta,\sigma}^{\dagger}a_{j\sigma}                                                                                                                                                             \\
+      & = -\frac{t}{N}\sum_{j\sigma}\sum_{\delta}\sum_{\mathbf{k},\mathbf{k}'} e^{-i\mathbf{k}\cdot\mathbf{R}_j} e^{i\mathbf{k}'\cdot(\mathbf{R}_j-\boldsymbol{\delta})}  b^\dagger_{\mathbf{k}\sigma}  a_{\mathbf{k}'\sigma}                 \\
+      & = -\frac{t}{N}\sum_{\sigma}\sum_{\delta}\sum_{\mathbf{k},\mathbf{k}'}\left[\sum_j e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{R}_j}\right] e^{i\mathbf{k}'\cdot\boldsymbol{\delta}}  b^\dagger_{\mathbf{k}\sigma}  a_{\mathbf{k}'\sigma} \\
+      & = -t\sum_{\sigma}\sum_{\delta}\sum_{\mathbf{k}} e^{-i\mathbf{k}\cdot\boldsymbol{\delta}}  b^\dagger_{\mathbf{k}\sigma}  a_{\mathbf{k}\sigma}
+\end{align*}
+Combine both
+\begin{equation*}
+  H = -t \sum_{\mathbf{k}\sigma} \big[ g_\mathbf{k} a_{\mathbf{k}\sigma}^{\dagger} b_{\mathbf{k}\sigma} + g_\mathbf{k} b_{\mathbf{k}\sigma}^{\dagger} a_{\mathbf{k}\sigma} \big]
+  \qquad
+  g_\mathbf{k} = \sum_{\delta=1}^{3} e^{i\mathbf{k}\cdot\boldsymbol{\delta}}
+\end{equation*}
+Or in matrix form
+\begin{equation*}
+  H  = \sum_{\mathbf{k}\sigma}
+  \begin{bmatrix} a_{\mathbf{k}\sigma}^\dagger & b_{\mathbf{k}\sigma}^\dagger \end{bmatrix}
+  \begin{bmatrix} -t g_\mathbf{k} a_{\mathbf{k }\sigma} \\ -t g_\mathbf{k}^* b_{\mathbf{k }\sigma} \end{bmatrix}
+  = t\sum_{\mathbf{k}\sigma}
+  \begin{bmatrix} a_{\mathbf{k}\sigma}^\dagger & b_{\mathbf{k}\sigma}^\dagger \end{bmatrix}
+  \begin{bmatrix} 0 & - g_\mathbf{k} \\ - g_\mathbf{k}^* & 0 \end{bmatrix}
+  \begin{bmatrix} a_{\mathbf{k}\sigma} \\ b_{\mathbf{k}\sigma} \end{bmatrix}
+\end{equation*}
+
+Introduce unitary operator
+\begin{equation*}
+  H = \sum_{\mathbf{k}\sigma}
+  \begin{bmatrix} a_{\mathbf{k}\sigma}^\dagger & b_{\mathbf{k}\sigma}^\dagger \end{bmatrix}
+  U_\mathbf{k } U_{\mathbf{ k}} ^\dagger
+  \begin{bmatrix} 0 & -t g_\mathbf{k} \\ -t g_\mathbf{k}^* & 0 \end{bmatrix}
+  U_\mathbf{k }U_\mathbf{k }^\dagger
+  \begin{bmatrix} a_{\mathbf{k}\sigma} \\ b_{\mathbf{k}\sigma} \end{bmatrix}
+\end{equation*}
+to diagonalize the Hamiltonian.
+The similarity transformation $\hat{H}_\mathbf{k}^{(\mathrm{diag})} = U_\mathbf{k}^\dagger \hat{H}_\mathbf{k} U_\mathbf{k}$ is performed by computing the eigenvalue and eigenvector of $\hat{H}_\mathbf{k}$
+\begin{align*}
+  \begin{vmatrix}
+    -E                & -t g_\mathbf{k} \\
+    -t g_\mathbf{k}^* & -E
+  \end{vmatrix}
+     =  E^2 - t^2 |g_\mathbf{k}|^2 &= 0 \\
+  E & = 
+  \begin{cases}
+    E_{1\mathbf{k}} = -t|g_\mathbf{k}| \\
+    E_{2\mathbf{k}} = +t|g_\mathbf{k}|
+  \end{cases}
+\end{align*}
+Next the eigenvector
+\begin{align*}
+    \begin{bmatrix} 
+      \pm t |g_{\mathbf{k}}| & -t |g_{\mathbf{k}}| e^{i \phi_\mathbf{k}} \\ 
+      -t |g_{\mathbf{k}}|e^{i \phi_\mathbf{k}} & \pm t|g_{\mathbf{k}}| 
+    \end{bmatrix}
+  \begin{bmatrix}
+    u\\v
+  \end{bmatrix} & =  0\\
+ \pm t|g_\mathbf{k}| -t |g_\mathbf{k}| e^{i \phi_\mathbf{k}} & =  0 \\
+ \pm v e^{-i \phi_\mathbf{k}}  & =  u
+\end{align*}
+Choosing $v=1$, we obtain $u = \pm e^{-i \phi_\mathbf{k}}$ and the eigenvectors 
+\begin{equation*}
+  \psi_{1\mathbf{k}} = \frac{1}{\sqrt{2}}\begin{bmatrix}e^{i\phi_\mathbf{k}}\\1\end{bmatrix}
+\qquad
+\psi_{2\mathbf{k}} = \frac{1}{\sqrt{2}}\begin{bmatrix}-e^{i\phi_\mathbf{k}}\\1\end{bmatrix}
+\end{equation*}
+Then we construct the unitary transform
+\begin{equation*}
+  U_\mathbf{k} = \frac{1}{\sqrt{2}}\begin{bmatrix} e^{i\phi_\mathbf{k}} & -e^{i\phi_\mathbf{k}} \\ 1 & 1 \end{bmatrix}
+\end{equation*}
+Under this transformation, the Hamiltonian is diagonal 
+\begin{equation*}
+\hat{H}_\mathbf{k}^{(\mathrm{diag})} = U_\mathbf{k}^\dagger \hat{H}_\mathbf{k} U_\mathbf{k}  
+  = \begin{bmatrix} -t g_\mathbf{k} & 0 \\  &t |g_\mathbf{k}| \end{bmatrix}
+\end{equation*}
+while the creation and annihilation terms turn
+\begin{equation*}
+  \begin{bmatrix} c_{1\mathbf{k}\sigma} \\ c_{2\mathbf{k}\sigma} \end{bmatrix}
+  = \frac{1}{\sqrt{2}}
+  \begin{bmatrix} e^{-i\phi_\mathbf{k}} & 1 \\ -e^{-i\phi_\mathbf{k}} & 1 \end{bmatrix}
+\begin{bmatrix} a_{k\sigma} \\ b_{k\sigma} \end{bmatrix}
+  = \frac{1}{\sqrt{2}}
+  \begin{bmatrix}
+  e^{-i\phi_\mathbf{k}}a_{k\sigma}+b_{k\sigma}\\
+-e^{-i\phi_\mathbf{k}}a_{k\sigma}+b_{k\sigma}
+\end{bmatrix}
+\end{equation*}
+and 
+\begin{equation*}
+  \begin{bmatrix}
+    c^\dagger_{1\mathbf{k}\sigma}&c^\dagger_{2\mathbf{k}\sigma}
+  \end{bmatrix}
+=\frac{1}{\sqrt{2}}
+\begin{bmatrix}
+  a^\dagger_{k\sigma} & b^\dagger_{k\sigma}
+\end{bmatrix}
+\begin{bmatrix}
+e^{i\phi_\mathbf{k}} & -e^{i\phi_\mathbf{k}}\\
+1 & 1
+\end{bmatrix}
+=\frac{1}{\sqrt{2}}
+\begin{bmatrix}
+  e^{i\phi_\mathbf{k}}a^\dagger_{k\sigma}+b^\dagger_{k\sigma}\\
+-e^{i\phi_\mathbf{k}}a^\dagger_{k\sigma}+b^\dagger_{k\sigma}
+\end{bmatrix}
+\end{equation*}
+The tight binding Hamiltonian now reads 
+\begin{align*}
+    H & = 
+  \sum_{k\sigma}
+  \begin{bmatrix}
+    c^\dagger_{1\mathbf{k}\sigma}&c^\dagger_{2\mathbf{k}\sigma}
+  \end{bmatrix}
+\begin{pmatrix}
+E_{1\mathbf{k}} & 0 \\
+0 & E_{2\mathbf{k}}
+\end{pmatrix}
+  \begin{bmatrix} c_{1\mathbf{k}\sigma} \\ c_{2\mathbf{k}\sigma} \end{bmatrix}\\
+  H & =  \sum_{k\sigma}\left[ E_{1\mathbf{k}} c^\dagger_{1\mathbf{k}\sigma} c_{1\mathbf{k}\sigma} + E_{2\mathbf{k}} c^\dagger_{2\mathbf{k}\sigma} c_{2\mathbf{k}\sigma} \right]\\
+  H &= \sum_{n=1}^{2}\sum_{k\sigma} E_{n k} c_{n k \sigma}^{\dagger} c_{n k \sigma}
+\end{align*}
+\end{document}
