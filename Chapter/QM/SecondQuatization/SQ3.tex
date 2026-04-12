@@ -22,8 +22,8 @@ Any higher Foch state then can be written as
 
 For Fermion, the action of creation and annihilation operators are as follows
 \begin{align*}
-  \hat{c}_{i} | \cdots n_{i} \cdots \rangle         & = (-1)^{v_i}\sqrt{n_{i}} |  \cdots n_{i} - 1 \cdots \rangle    \\
-  \hat{c}^\dagger_{i} | \cdots n_{i} \cdots \rangle & = (-1)^{v_i} \sqrt{ 1 - n_i} |\cdots  n_{i} + 1 \cdots \rangle
+  \hat{c}_{i} | \cdots n_{i} \cdots \rangle         & = (-1)^{\nu_i}\sqrt{n_{i}} |  \cdots n_{i} - 1 \cdots \rangle    \\
+  \hat{c}^\dagger_{i} | \cdots n_{i} \cdots \rangle & = (-1)^{\nu_i} \sqrt{ 1 - n_i} |\cdots  n_{i} + 1 \cdots \rangle
 \end{align*}
 with $n_i \equiv n_{\mathbf{k }s} \in \{0,1\}$ and $(-1)^{\nu_i}$ being the phase factor.
 The phase factor is defined in a way such that if levels that are occupied by a Fermion $n_i$ is even for the levels which are predecessors of the level $i$, then the phase is $(+1)$, and if it is odd, then put $(-1)$
@@ -123,7 +123,7 @@ As such, the operator $\hat{a}_{\mathbf{k }s}  $ is an operator that reduce $n_{
 Next for the creation operator
 \begin{align*}
   \hat{N} \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) & =  \hat{a}^\dagger_{\mathbf{k }s} (\hat{N }+1  ) \ket{n_{\mathbf{k }s}}                        \\
-  \hat{N} \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) & =  (n_{\mathbf{k }s}-+  ) \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right)
+  \hat{N} \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right) & =  (n_{\mathbf{k }s}+1) \left( \hat{a}^\dagger_{\mathbf{k }s} \ket{n_{\mathbf{k }s}} \right)
 \end{align*}
 We use the commutator relation $[AB,C]=A[B,C]-[C,A]$ to obtain the relation
 \begin{align*}
@@ -511,8 +511,8 @@ multiplying both gives the minimum uncertainty.
 \subsection{Quantum Field Operator}
 The quantum field operators  annihilate and create, respectively, a particle at position $\mathbf{r}$
 \begin{equation*}
-  \psi^{\dagger}(\mathbf{r})|0\rangle = |r\rangle\qquad
-  \psi(\mathbf{r})|r'\rangle = \delta(\mathbf{r} - \mathbf{r}')|0\rangle
+  \psi^{\dagger}(\mathbf{r})|0\rangle = |\mathbf{r}\rangle\qquad
+  \psi(\mathbf{r})|\mathbf{r}'\rangle = \delta(\mathbf{r} - \mathbf{r}')|0\rangle
 \end{equation*}
 The field operator defined as transformation from single particle basis into position basis of the annihilation and creation operator
 \begin{align*}
@@ -520,6 +520,12 @@ The field operator defined as transformation from single particle basis into pos
   \psi^{\dagger}(\mathbf{r}) & =  \sum_{\alpha} \langle 1_\alpha | \mathbf{r} \rangle a_{\alpha}^{\dagger} = \sum_{\alpha} u_{\alpha}^{*}(\mathbf{r}) a_{\alpha}^{\dagger}
 \end{align*}
 where $u_\alpha(\mathbf{r})$ is the wave function of the one-particle state $\ket{1_\alpha}$.
+With this in mind, the position eigenstate reads 
+\begin{equation*}
+  \ket{\mathbf{r}} 
+  =  \sum_{\alpha} \langle 1_\alpha | \mathbf{r} \rangle a_{\alpha}^{\dagger} \ket{0} 
+  = \sum_{\alpha} u_{\alpha}^{*}(\mathbf{r}) a_{\alpha}^{\dagger} \ket{0}
+\end{equation*}
 Meanwhile, the inverse transformation are
 \begin{align*}
   a_{\alpha}           & =  \int d^3 r \; \langle 1_{\alpha} | \mathbf{r} \rangle \psi_{\sigma} (\mathbf{r}) = \int d^3 r \, u_{\alpha}^{*} (\mathbf{r}) \psi (\mathbf{r})       \\
@@ -528,8 +534,10 @@ Meanwhile, the inverse transformation are
 
 The field operators obey similar commutator relation as the creation and annihilation counterpart
 \begin{equation*}
- [\psi(\mathbf{r }), \psi^{\dagger}(\mathbf{r}')] = \delta(\mathbf{r }-\mathbf{r}') 
+ [\psi(\mathbf{r }), \psi^{\dagger}(\mathbf{r}')] = \delta(\mathbf{r }-\mathbf{r}') \qquad
+ \{\psi(\mathbf{r }), \psi^{\dagger}(\mathbf{r}')\} = \delta(\mathbf{r }-\mathbf{r}')  
 \end{equation*}
+where boson obey the commutator relation while fermion obey the anticommutation.
 
 As with the case of number operator for annihilation and creation, the number of particle in a volume $V$ is
 \begin{equation*}
@@ -549,6 +557,27 @@ and its inverse
   \psi(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}\qquad
   \psi^{\dagger}(\mathbf{r}) = \frac{1}{V} \sum_\mathbf{k} e^{-i \mathbf{k} \cdot \mathbf{r}} a_\mathbf{k}^{\dagger}
 \end{equation*}
+
+\subsubsection{Derivation: field operator action}
+We consider the action of 
+\begin{align*}
+\hat{\psi} ^\dagger (\mathbf{r},t)\lvert 0\rangle 
+&= \sum_\alpha \hat{c}^\dagger_\alpha(t)\,\phi^*_\alpha(\mathbf{r})\lvert 0\rangle \\
+& =  \sum_\alpha \hat{c}^\dagger_\alpha e^{i\epsilon_\alpha t/\hbar}\langle \alpha|\mathbf{r}\rangle\lvert 0\rangle \\
+&= \sum_\alpha e^{i\epsilon_\alpha t/\hbar}\lvert \alpha\rangle\langle \alpha|\mathbf{r}\rangle \\
+&= \sum_{\alpha} e^{i H t/\hbar} \lvert \alpha\rangle\langle \alpha|\mathbf{r}\rangle \\
+\hat{\psi} ^\dagger (\mathbf{r},t)\lvert 0\rangle 
+& =  e^{i H t/\hbar}\ket{\mathbf{r}} = \ket{\mathbf{r },t}\\
+\end{align*}
+and
+\begin{align*}
+\hat{\psi}  (\mathbf{r},t)\lvert \mathbf{r},t\rangle 
+&= \sum_{\alpha\beta} \hat{c}_\alpha(t)\,\phi_\alpha(\mathbf{r})\hat{c}_\beta ^\dagger(t) \ket{0}\\
+&= \sum_{\alpha\beta} \phi_\alpha(\mathbf{r})\phi_\beta^*(\mathbf{r })e ^{-i \epsilon_\alpha t/\hbar }  e^{i \epsilon_\beta t/\hbar} \hat{c}_\alpha  \hat{c}_\beta ^\dagger \ket{0}\\
+\hat{\psi} ^\dagger (\mathbf{r},t)\lvert \mathbf{r }, t \rangle  
+&= \sum_{\alpha\beta} \phi_\alpha(\mathbf{r})\phi_\beta^*(\mathbf{r })e ^{i \epsilon_\alpha t/\hbar }  e^{i \epsilon_\beta t/\hbar} (\delta_{\alpha\beta} - \hat{c }^\dagger_\beta \hat{c}_\alpha)\ket{0}
+= \ket{0}
+\end{align*}
 
 \subsubsection{Derivation: field operator transformation}
 Start with basis transform of two orthonormal basis
@@ -605,5 +634,15 @@ We use the annihilation and creation transformation to derive the relation
   & = \sum_{\alpha } u_{\alpha}(\mathbf{r})u_{\alpha}^{*}(\mathbf{r}') \\
   [\psi(\mathbf{r}), \psi^{\dagger}(\mathbf{r}')] 
   & = \sum_{\alpha } \braket{\mathbf{r }  | 1_\alpha }\braket{1_\alpha  | \mathbf{r}'} = \delta (\mathbf{r }-\mathbf{r})
+\end{align*}
+Same goes for the anticommutator
+\begin{align*}
+\{\psi(\mathbf{r}),\psi^\dagger(\mathbf{r}')\} 
+&= \left\{\sum_\alpha u_\alpha(\mathbf{r})c_\alpha,\ \sum_\beta u^*_\beta(\mathbf{r}')c^\dagger_\beta\right\}\\
+&= \sum_{\alpha\beta} u_\alpha(\mathbf{r})u^*_\beta(\mathbf{r}')\{c_\alpha,c^\dagger_\beta\}\\
+&= \sum_{\alpha\beta} u_\alpha(\mathbf{r})u^*_\beta(\mathbf{r}')\delta_{\alpha\beta}\\
+&= \sum_\alpha u_\alpha(\mathbf{r})u^*_\alpha(\mathbf{r}')\\
+\{\psi(\mathbf{r}),\psi^\dagger(\mathbf{r}')\} 
+&= \sum_\alpha \langle \mathbf{r}|1_\alpha\rangle\langle1_\alpha|\mathbf{r}'\rangle = \delta(\mathbf{r}-\mathbf{r}')
 \end{align*}
 \end{document}
