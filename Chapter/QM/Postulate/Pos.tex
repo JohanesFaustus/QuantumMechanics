@@ -281,7 +281,7 @@ This value is obtained by the following method.
 
 This method can be expressed in density matrix formalism as follows.
 \begin{enumerate}
-    \item Let the observable $\Omega$ be a self-adjoint operator with spectral decomposition $\Omega = \sum_i \omega_i \, \mathbb{P}_i$, where $\mathbb{P}_i = \ket{\omega_i}\bra{\omega_i}$ are orthogonal projection operators, satisfying $\mathbb{P}_i \mathbb{P}_j = \delta_{ij}\mathbb{P}_i,$ and $\sum_i \mathbb{P}_i = I$.
+    \item Let the observable $\Omega$ be a self-adjoint operator with spectral decomposition $\Omega = \sum_i \omega_i   \mathbb{P}_i$, where $\mathbb{P}_i = \ket{\omega_i}\bra{\omega_i}$ are orthogonal projection operators, satisfying $\mathbb{P}_i \mathbb{P}_j = \delta_{ij}\mathbb{P}_i,$ and $\sum_i \mathbb{P}_i = I$.
     \item Prepare the mixed state written as an ensemble of pure state
           \begin{equation*}
               \rho = \sum_k p_k \ket{\psi_k}\bra{\psi_k},
@@ -289,8 +289,8 @@ This method can be expressed in density matrix formalism as follows.
           \end{equation*}
     \item The probability of obtaining the outcome $\omega_i$ is
           \begin{equation*}
-              P(\omega_i) = \mathrm{Tr}(\rho\,\mathbb{P}_i)
-              = \sum_k p_k \, |\braket{\omega_i|\psi_k}|^2
+              P(\omega_i) = \mathrm{Tr}(\rho \mathbb{P}_i)
+              = \sum_k p_k   |\braket{\omega_i|\psi_k}|^2
           \end{equation*}
           For a pure state $\rho = \ket{\psi}\bra{\psi}$, this obviously reduces to
           \begin{equation*}
@@ -317,7 +317,7 @@ If the eigenvalues $\omega$ is degenerate, the $\mathbb{P }_\omega$ is the proje
 The same can be said for the density matrix formalism
 \begin{equation*}
     \rho  \xrightarrow{\omega_i\text{ obtained}}\rho_i
-    = \frac{\mathbb{P}_i \rho \mathbb{P}_i}{\operatorname{Tr}(\rho\,\mathbb{P}_i)}
+    = \frac{\mathbb{P}_i \rho \mathbb{P}_i}{\operatorname{Tr}(\rho \mathbb{P}_i)}
 \end{equation*}
 where $\mathbb{P}_i = \ket{\omega_i}\bra{\omega_i}$.
 
@@ -455,7 +455,7 @@ For general case $n$-qubit composite system with Hilbert space
 \end{equation*}
 the reduced density operator on $A$ is defined by the partial trace over the complementary subsystem, ${A}'$ of $A \subset \{1, \ldots, n\}$
 \begin{equation*}
-    \rho^{A} \equiv \mathrm{Tr}_{{A}'}(\rho) = \sum_{n} \left( \mathbf{1 }_A\otimes\bra{n_{A'}} \right) \rho \left( \mathbf{1 }_A\otimes\ket{n_{A'}} \right)  
+    \rho^{A} \equiv \mathrm{Tr}_{{A}'}(\rho) = \sum_{n} \left( \mathbf{1 }_A\otimes\bra{n_{A'}} \right) \rho \left( \mathbf{1 }_A\otimes\ket{n_{A'}} \right)
 \end{equation*}
 where $\rho$ denote the density operator acting on $\mathcal{H}$ and $\left\{ \ket{n}_{A'}\right\} $ is a complete basis for subsystem $A'$, and it only lives on said subspace, thus the identity tensor product.
 
@@ -508,7 +508,7 @@ Repeating the same argument yields that trace is invariant under cyclic permutat
     \mathrm{Tr}(ABC) = \mathrm{Tr}(BCA) = \mathrm{Tr}(CAB).
 \end{equation*}
 
-\subsection{Coherence}
+\subsubsection{Coherence}
 Let a system have basis $\left\{ \ket{i } \right\} $, the density operator is written
 \begin{equation*}
     \rho = \sum_{i,j} \rho_{ij} \ket{i }\bra{j}
@@ -545,13 +545,67 @@ Combining both sums gives:
     \sum_{i \neq j} \rho_{ij} \psi_i(x) \psi_j^*(x)
      & =  \sum_{i < j} 2 \text{Re} \left[ \rho_{ij} \psi_i^*(x) \psi_j(x) \right]
 \end{align*}
-\[
-\]
 Thus, the familiar expression can be obtained as
 \begin{equation*}
     P(x) = \sum_{i} \rho_{ii} |\psi_{i}(x)|^{2} +  \sum_{i < j} 2 \text{Re} \left[ \rho_{ij} \psi_i^*(x) \psi_j(x) \right]
 \end{equation*}
 Here the diagonal terms contribute like classical probabilities and cause no interference, while the off-diagonal terms contribute to cross terms and responsible for interference.
+
+\subsubsection{Time evolution.}
+The evolution of density equation
+\begin{align*}
+    \rho(t) =
+    \sum p_{i}U \lvert \psi_{i}\rangle\langle \psi_{i}\rvert U^{\dagger}   = U(t)\rho(0)U^\dagger(t)
+\end{align*}
+with $U(t)      = e^{-iHt/\hbar}$, is a direct consequence of how quantum states evolve $\ket{\psi(t)} = U(t) \ket{\psi(0)}$.
+The equation of motion for density operator is described by the von Neumann
+\begin{equation*}
+    \frac{d\rho}{dt} = \frac{1 }{i\hbar }[H,\rho]
+\end{equation*}
+This is obtained from
+\begin{align*}
+    \frac{d\rho}{dt} & = \frac{d e^{-iHt/\hbar}}{dt}\rho U^\dagger + U\rho\frac{de^{iHt/\hbar}}{dt},       \\
+                     & = -\frac{i}{\hbar}HU\rho U^\dagger + \frac{i}{\hbar}U\rho U^\dagger H,              \\
+    \frac{d\rho}{dt} & = -\frac{i}{\hbar}H\rho(t) + \frac{i}{\hbar}\rho(t) H = \frac{1}{i\hbar}[H,\rho(t)]
+\end{align*}
+
+\subsection{Time Evolution}
+\subsubsection{Schrödinger picture.}
+This corresponds to active transformation where the  state is being act upon by the unitary transformation $\ket{\psi (t)} =  U(t)\ket{\psi}$.
+The observable is fixed $    O (t)= O$ and the expectation value reads 
+\begin{equation*}
+\langle O\rangle(t) = \langle\psi(t)|O|\psi(t)\rangle
+=\braket{\psi | U ^\dagger (t)O U(t)|\psi}
+\end{equation*}
+
+The Schrödinger equation can be derived from this view alongside with unitary operator structure
+\begin{equation*}
+\frac{d}{dt}\ket{\psi(t)} = \frac{d e^{-iHt/\hbar}}{dt}\ket{\psi(0)}
+= -\frac{i}{\hbar}H\ket{\psi(t)}
+= -\frac{i}{\hbar}H\ket{\psi(t  )}
+\end{equation*}
+
+
+\subsubsection{Heisenberg picture.}
+Here, the observables is the unitary operator act upon $O(t) = U ^\dagger (t)O U(t)$.
+The state is fixed $\ket{\psi (t)} = \ket{\psi}$, so this is the passive picture and the expectation value remains the same
+\begin{equation*}
+\langle O\rangle(t) = \langle\psi|O(t)|\psi\rangle
+=\braket{\psi | U ^\dagger (t)O U(t)|\psi}
+\end{equation*}
+Then the Heisenberg equation 
+\begin{equation*}
+    \frac{dO_H}{dt}     =  \frac{1}{i \hbar} [O(t),H(t)]
+\end{equation*}
+is derived as 
+\begin{align*}
+    \frac{dO_H}{dt} 
+    & =  \frac{de^{iHt/\hbar}}{dt}\,O\,U + U^\dagger\,O\,\frac{de^{-iHt/\hbar}}{dt}\\
+    & =  \frac{i}{\hbar} (U ^\dagger H O U - U ^\dagger O H U)\\
+    & =  \frac{i}{\hbar} (U ^\dagger H U U ^\dagger O U - U ^\dagger O U U ^\dagger H U)\\
+    \frac{dO_H}{dt} 
+    & =  \frac{i}{\hbar} [H(t) O(t) - O(t) H(t)]  =  \frac{1}{i \hbar} [O(t),H(t)]\\
+\end{align*}
 
 \subsection{Compatibility}
 The compatibility measure the degree of incompatibility between two observables; it is defined by the commutator
@@ -651,7 +705,7 @@ Given a state $\ket{\psi}$ and its position representation $\psi(x) = \braket{x|
 
 If $\ket{\psi}$ is an eigenstate of the parity operator, then under spatial inversion it transforms as
 \begin{equation*}
-    \psi(-x) = \lambda \, \psi(x) ,
+    \psi(-x) = \lambda   \psi(x) ,
 \end{equation*}
 where $\lambda$ is the corresponding eigenvalue.
 Since $\Pi^2 = I $ its eigenvalues can only be $\lambda = \pm 1$.
@@ -738,16 +792,16 @@ Although not physical states themselves, $\ket{n^k}$ have physical interpretatio
 The result of zeroth order approximation is our previous assumption
 \begin{equation*}
     H^0 \ket{n^0}=E_n^0 \ket{n ^0}
-\end{equation*} 
-The result of first order approximation are 
+\end{equation*}
+The result of first order approximation are
 \begin{align*}
-        \ket{n}
-    &     =\ket{n^0}+\sum_{m \neq n} \frac{ \braket{m^{0} | H^{1} | n^{0} }}{E^{0}_n - E^{0}_m}\ket{m^0} \\
-    E^1_n                                                             & =  \langle n^0 | H^1 | n^0 \rangle
+    \ket{n}
+          & =\ket{n^0}+\sum_{m \neq n} \frac{ \braket{m^{0} | H^{1} | n^{0} }}{E^{0}_n - E^{0}_m}\ket{m^0} \\
+    E^1_n & =  \langle n^0 | H^1 | n^0 \rangle
 \end{align*}
 Using the result of first order approximation, the second order approximation can be obtained as follows
 \begin{align*}
-    E_n^{2} = \sum_{m \neq n} \frac{|\langle n^0 | H | m^0 \rangle|^2}{E^0_n - E^0_m}     
+    E_n^{2} = \sum_{m \neq n} \frac{|\langle n^0 | H | m^0 \rangle|^2}{E^0_n - E^0_m}
 \end{align*}
 
 \subsubsection{Derivation.}
@@ -776,10 +830,10 @@ This result state the first-order change in energy is the expectation value of $
 
 Let us next dot both sides with another eigenket of the same unperturbed Hamiltonian $\bra{m^0}$, with $m \neq n$
 \begin{align*}
-    \langle m^{0}|H^{0}|n^{1}\rangle + \langle m^{0}|H^{1}|n^{0}\rangle &= E^{0}_n\langle m^{0}|n^{1}\rangle + E^{1}_n\langle m^{0}|n^{0}\rangle\\
-    E^{0}_m\langle m^{0}|n^{1}\rangle + \langle m^{0}|H^{1}|n^{0}\rangle & =  E^{0}_n\langle m^{0}|n^{1}\rangle\\
-(E^{0}_n - E^{0}_m) \langle m^{0} | n^{1} \rangle & =  \langle m^{0} | H^{1} | n^{0} \rangle\\
-\langle m^{0} | n^{1} \rangle & =  \frac{\langle m^{0} | H^{1} | n^{0} \rangle}{E^{0}_n - E^{0}_m}
+    \langle m^{0}|H^{0}|n^{1}\rangle + \langle m^{0}|H^{1}|n^{0}\rangle  & = E^{0}_n\langle m^{0}|n^{1}\rangle + E^{1}_n\langle m^{0}|n^{0}\rangle \\
+    E^{0}_m\langle m^{0}|n^{1}\rangle + \langle m^{0}|H^{1}|n^{0}\rangle & =  E^{0}_n\langle m^{0}|n^{1}\rangle                                    \\
+    (E^{0}_n - E^{0}_m) \langle m^{0} | n^{1} \rangle                    & =  \langle m^{0} | H^{1} | n^{0} \rangle                                \\
+    \langle m^{0} | n^{1} \rangle                                        & =  \frac{\langle m^{0} | H^{1} | n^{0} \rangle}{E^{0}_n - E^{0}_m}
 \end{align*}
 Also recall that the unperturbed eigenstates are orthonormal $\braket{m^0  | n^0 }=\delta_{mn}$.
 This gives the projection of  $\ket{n^1}$ onto the unperturbed basis vector $\ket{m^0}$, except for the case of $m=n$, which correspond to the parallel of $\ket{n ^{1 }}$ with respect $\ket{m ^{1}}$.
@@ -794,17 +848,17 @@ However, as we have seen, the projection coefficient is undetermined for $m=n$, 
 \end{equation*}
 Here the first term correspond to the parallel components, as mentioned, while the second to the perpendicular component.
 
-With $\ket{n^1}=\ket{n_\parallel^1}+\ket{n_\perp^1}$ with respect to $\ket{n^0}$ and first order approximation $\ket{n}=\ket{n^0}+\ket{n ^{1}}$, normalization require 
+With $\ket{n^1}=\ket{n_\parallel^1}+\ket{n_\perp^1}$ with respect to $\ket{n^0}$ and first order approximation $\ket{n}=\ket{n^0}+\ket{n ^{1}}$, normalization require
 \begin{align*}
-    \braket{n  | n } & =  \braket{\bra{n^0}+\bra{n_\parallel^1}+\bra{n_\perp^1} | \ket{n^0}+\ket{n_\parallel^1}+\ket{n_\perp^1}}\\
-    1 & =  \langle n^0 | n^0 \rangle + \langle n^1_{\parallel} | n^0 \rangle + \langle n^0 | n^1_{\parallel} \rangle + \text{higher order}
+    \braket{n  | n } & =  \braket{\bra{n^0}+\bra{n_\parallel^1}+\bra{n_\perp^1} | \ket{n^0}+\ket{n_\parallel^1}+\ket{n_\perp^1}}                          \\
+    1                & =  \langle n^0 | n^0 \rangle + \langle n^1_{\parallel} | n^0 \rangle + \langle n^0 | n^1_{\parallel} \rangle + \text{higher order}
 \end{align*}
-Only the orthonormal has real value $\braket{n^0 | n^0 }=1$, so 
+Only the orthonormal has real value $\braket{n^0 | n^0 }=1$, so
 \begin{equation*}
-    0 = \langle n^1 | n^0 \rangle + \langle n^0 | n^1 \rangle + \text{higher order} = 2 \mathrm{Re }\braket{n ^{0 } | n ^{1 }_{\parallel}}+ \text{higher order} 
+    0 = \langle n^1 | n^0 \rangle + \langle n^0 | n^1 \rangle + \text{higher order} = 2 \mathrm{Re }\braket{n ^{0 } | n ^{1 }_{\parallel}}+ \text{higher order}
 \end{equation*}
 This mean  that $\braket{n ^{0 } | n ^{1 }_{\parallel}}= i\alpha$.
-By definition, parallel vector mean 
+By definition, parallel vector mean
 \begin{equation*}
     \ket{n_{\parallel} ^{1}} = \braket{n ^{0 } | n ^{1 }} \ket{n ^{0}}
     =\braket{n ^{0 } | n ^{1 }_\parallel} \ket{n ^{0}} + \braket{n ^{0 } | n ^{1 }_\perp} \ket{n ^{0}}
@@ -814,12 +868,12 @@ where the inner product of $\ket{n ^{1}_\perp}$ is $\ket{n ^{0}}$ is zero.
 Substituting this back into the first order approximation
 \begin{align*}
     \ket{n}
-    & = \ket{n^0}+\ket{n_\parallel^1}+\ket{n_\perp^1} 
-    =\ket{n^0}+i\alpha\ket{n^0}+\ket{n_\perp^1} 
-    =(1+i\alpha)\ket{n^0}+\ket{n_\perp^1} \\
+     & = \ket{n^0}+\ket{n_\parallel^1}+\ket{n_\perp^1}
+    =\ket{n^0}+i\alpha\ket{n^0}+\ket{n_\perp^1}
+    =(1+i\alpha)\ket{n^0}+\ket{n_\perp^1}                                                                           \\
     \ket{n}
-    & =  e ^{i\alpha}\ket{n^0}+\sum_{m \neq n} \frac{ \braket{m^{0} | H^{1} | n^{0} }}{E^{0}_n - E^{0}_m}\ket{m^0} 
-\end{align*} 
+     & =  e ^{i\alpha}\ket{n^0}+\sum_{m \neq n} \frac{ \braket{m^{0} | H^{1} | n^{0} }}{E^{0}_n - E^{0}_m}\ket{m^0}
+\end{align*}
 By multiplying with $e ^{-i\alpha}$ we can remove the phase factor to the first term, all while the second term being unaffected, since for first order approximation
 \begin{equation*}
     (1 - i\alpha)(\text{first order}) = \text{first order} + \text{second order}
@@ -828,21 +882,21 @@ the second order term $-i\alpha (\text{second order})$  gets  discarded.
 Calling the perturbed eigenket with the new phase also $\ket{n }$, we obtain the result to the first order
 \begin{equation*}
     \ket{n}
-    = \ket{n ^{0 }} + \ket{n ^{1 } } 
-    = \ket{n _{\parallel}} +\ket{n _{\perp} } 
-    =\ket{n^0}+\sum_{m \neq n} \frac{ \braket{m^{0} | H^{1} | n^{0} }}{E^{0}_n - E^{0}_m}\ket{m^0} 
+    = \ket{n ^{0 }} + \ket{n ^{1 } }
+    = \ket{n _{\parallel}} +\ket{n _{\perp} }
+    =\ket{n^0}+\sum_{m \neq n} \frac{ \braket{m^{0} | H^{1} | n^{0} }}{E^{0}_n - E^{0}_m}\ket{m^0}
 \end{equation*}
 
-To obtain the second order, we collect the coefficient for  $\epsilon^2$ term 
+To obtain the second order, we collect the coefficient for  $\epsilon^2$ term
 \begin{equation*}
-H^0|n^2\rangle + H^1|n^1\rangle = E^0_n \ket{n^2} + E^1_n \ket{n^1} + E^2_n \ket{n^0}
+    H^0|n^2\rangle + H^1|n^1\rangle = E^0_n \ket{n^2} + E^1_n \ket{n^1} + E^2_n \ket{n^0}
 \end{equation*}
 Then dotting with $\ket{n ^{0}}$
 \begin{align*}
-    E^0_n \braket{n^0 |n^2 }+ \braket{n ^{0 } | H^1|n ^{1}} & =  E_n^{0} \langle n^{0} | n^{2} \rangle + E_n^{1} \langle n^{0} | n^{1} \rangle + E_n^{2} \langle n^{0} | n^{0} \rangle\\
-    E_n^{2} & =      \braket{n ^{0 } | H^1|n ^{1}} \\
-    & = \sum_{m \neq n} \frac{\langle n^0 | H | m^0 \rangle \langle m^0 | H | n^0 \rangle}{E^0_n - E^0_m} \\
+    E^0_n \braket{n^0 |n^2 }+ \braket{n ^{0 } | H^1|n ^{1}} & =  E_n^{0} \langle n^{0} | n^{2} \rangle + E_n^{1} \langle n^{0} | n^{1} \rangle + E_n^{2} \langle n^{0} | n^{0} \rangle \\
+    E_n^{2}                                                 & =      \braket{n ^{0 } | H^1|n ^{1}}                                                                                     \\
+                                                            & = \sum_{m \neq n} \frac{\langle n^0 | H | m^0 \rangle \langle m^0 | H | n^0 \rangle}{E^0_n - E^0_m}                      \\
     E_n^{2}
-    & = \sum_{m \neq n} \frac{|\langle n^0 | H | m^0 \rangle|^2}{E^0_n - E^0_m} 
+                                                            & = \sum_{m \neq n} \frac{|\langle n^0 | H | m^0 \rangle|^2}{E^0_n - E^0_m}
 \end{align*}
 \end{document}
