@@ -161,4 +161,56 @@ The step from sequences to probabilities in general $N$-ary sources generalizes 
   S(\left\{ p_i \right\} ) = -\sum_{i=1}^{N} p_i \log p_i
 \end{equation*}
 
+\subsection{Shannon Compression}
+Shannon coding theorem state that the average number of bits $\braket{l }$ is bounded by $H \le \bar{\ell} < H + 1$.
+Shannon proposed the strategy: “represent frequently occurring symbols with a small number of bits, and rarely appearing symbols with a large number of bits, thereby reducing the total number of bits.”
+Although in general, this does not achieve the lower bound $H$.
+The algorithm is as follows.
+\begin{enumerate}
+  \item \textbf{Ordering}. 
+  Arrange the symbols $a_1,a_2,\ldots,a_i,\ldots,a_n$ in order of decreasing frequency, and let their probabilities be $p_1>p_2>\cdots>p_i>\cdots>p_n$. 
+  \item \textbf{Probabilities}. 
+  Compute the $i$-th sum of probabilities from $1$ to $i-1$
+  \begin{equation*}
+    q_i = \sum_{k=1}^{i-1} p_k 
+  \end{equation*}
+  \item \textbf{Self-information}. 
+  Compute the surprise (self-information) and take the integer, which is represented using the floor function
+  \begin{equation*}
+    s_i = \lfloor -\log_2 p_i \rfloor
+  \end{equation*}
+  \item \textbf{Binary representation.} 
+ Express $q_i$ in binary fraction form, and take the digits after the decimal point up to the $s_i$-th place. 
+ This becomes the code for each symbol.
+\end{enumerate}
+
+\subsubsection{Example.}
+Consider a message consisting of the characters A, B, C, and D, which appear with probabilities 1/2,1/4,1/8,1/8, respectively.
+Frequently appearing characters like A are represented with a few bits, and rarely appearing characters like C and D are represented with a larger number of bits, such as 
+\begin{equation*}
+  A = [0] \qquad B = [10]\qquad C = [110]\qquad  D = [111] 
+\end{equation*}
+Compression using this encoding can be done as 
+\begin{align*}
+    [0100101110011010010] &\rightarrow [0,10,0,10,111,0,0,110,10,0,10] \\
+ &\rightarrow \textit{ABABDAACBAB}
+\end{align*}
+The average bits used is 
+\begin{equation*}
+  \braket{l } = \sum_{i } p_i l_i =
+  \frac{1}{2}\cdot 1 + \frac{1}{4}\cdot 2 + \frac{1}{8}\cdot 3 + \frac{1}{8}\cdot 3 = \frac{7}{4} = 1.75
+\end{equation*}
+The Shannon entropy in this case 
+\begin{align*}
+    H & = 2 -\frac{1}{2}\log_2\left(\frac{1}{2}\right) - \frac{1}{4}\log_2\left(\frac{1}{4}\right) - \frac{1}{8}\log_2\left(\frac{1}{8}\right) - \frac{1}{8}\log_2\left(\frac{1}{8}\right)\\
+    H & =  \frac{7}{4} = 1.75
+\end{align*}
+This is less that the average bits using simple 2-bit encoding, such as 
+\begin{equation*}
+   A = [00] \qquad B = [01] \qquad C = [10]\qquad  D = [11]  
+\end{equation*}
+which obviously have the average of 2. 
+In this case, $H=1.75$ represent the theoretical minimum average bit length.
+
+
 \end{document}
