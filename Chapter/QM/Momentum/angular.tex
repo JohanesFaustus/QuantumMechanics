@@ -19,14 +19,14 @@ where $\varepsilon_{jkl}$ are the components of the totally antisymmetric Levi-C
 \end{equation*}
 Even permutations of $(123)$, beside the identity $(123)$ itself, are
 \begin{align*}
-    (231) & =  \mathcal{T}_{13} \mathcal{T}_{12}(123) \\
-    (312) & =  \mathcal{T}_{12} \mathcal{T}_{13}(123)
+    (231)  =  \mathcal{T}_{13} \mathcal{T}_{12}(123) \qquad
+    (312)  =  \mathcal{T}_{12} \mathcal{T}_{13}(123)
 \end{align*}
 while the odd permutations are
 \begin{align*}
-    (213) & =  \mathcal{T}_{12}(123) \\
-    (132) & =  \mathcal{T}_{23}(123) \\
-    (321) & =  \mathcal{T}_{13}(123)
+    (213)  =  \mathcal{T}_{12}(123) \qquad
+    (132)  =  \mathcal{T}_{23}(123) \qquad
+    (321)  =  \mathcal{T}_{13}(123)
 \end{align*}
 
 Another one for the position case
@@ -47,7 +47,7 @@ we find that the square $L^2$, and one component $Lj$ of the angular momentum $L
 
 The simultaneous eigenstates of $\hat{L}^2$
 \begin{equation*}
-    \hat{L}^2 \ket{l,m} = l \hbar ^2 (l+1) \ket{l,m}
+    \hat{L}^2 \ket{l} = l \hbar ^2 (l+1) \ket{l}
 \end{equation*}
 and $\hat{L}_3$
 \begin{equation*}
@@ -145,6 +145,13 @@ Using this we can derive the commutator relation
     [\hat{L}_i, \hat{L}_j]
      & = i \hbar \epsilon_{ijk}\hat{L}_k
 \end{align*}
+since 
+\begin{equation*}
+    \epsilon_{ijk}\epsilon_{klm} r_l p_l =  
+    \epsilon_{ijk}\epsilon_{lmk} r_l p_l =  
+    (\delta_{il}\delta_{jm} - \delta_{im}\delta_{lj})    r_l p_l =  
+    r_i p_j  -r_jp_i
+\end{equation*}
 Next for the commutator with posistion
 \begin{align*}
     [r_i,\hat{L}_j]
@@ -199,7 +206,7 @@ While for the commutator of annihilation and creation with each other
      & =  [\hat{L}_1, \hat{L}_1] - i[\hat{L}_1, \hat{L}_2] + i[\hat{L}_2, \hat{L}_1] + (i)(-i)[\hat{L}_2, \hat{L}_2] \\
      & =  -i[\hat{L}_1, \hat{L}_2] + i[\hat{L}_2, \hat{L}_1]=-2i[\hat{L}_1, \hat{L}_2]                               \\
     [\hat{L}_{+}, \hat{L}_{-}]
-     & =  2\hbar \hat{L}_3                                                                                           \\
+     & =  2\hbar \hat{L}_3                                                                                         
 \end{align*}
 
 \subsubsection{Derivation: annihilation and creation operator action.}
@@ -316,7 +323,7 @@ Writing $L^2$ as
     L^2 & = \frac{1}{4} \left( \hat{L}_+^2 + \hat{L}_+ \hat{L}_- + \hat{L}_- \hat{L}_+ + \hat{L}_-^2 \right)                     \\
         & \qquad - \frac{1}{4} \left( \hat{L}_+^2 - \hat{L}_+ \hat{L}_- - \hat{L}_- \hat{L}_+ + \hat{L}_-^2 \right) +\hat{L}_3^2 \\
     L^2
-        & = \hat{L}_3^2 +\hbar  \hat{L}_3 + L^- L^+ =  \hat{L}_3^2 - \hat{L}_3 + L^+ L^-
+        & = \hat{L}_3^2 +\hbar  \hat{L}_3 + L^- L^+ =  \hat{L}_3^2 - \hbar \hat{L}_3 + L^+ L^-
 \end{align*}
 using $    [\hat{L}_+,\hat{L}_-]=2 \hbar \hat{L}_3$.
 Choosing $| m_{\text{max}} \rangle$ and $| m_{\text{min}} \rangle$ as simultaneous eigenstates of $L^2$, we find
