@@ -37,8 +37,8 @@ The definition can be easily confirmed by
   S(\{p_i\}, \{q_j\}) & = -\sum_i p_i \log p_i - \sum_j q_j \log q_j = S(\{p_i\}) + S(\{q_j\})
 \end{align*}
 
-Let us express this in another way. 
-If the uncertainty before measurement is large, then the information obtained after measurement, the Shannon information, is also large. 
+Let us express this in another way.
+If the uncertainty before measurement is large, then the information obtained after measurement, the Shannon information, is also large.
 Thus, Shannon information quantifies the uncertainty of the probability distribution before the event occurs.
 
 The asymptotic characterization of Shannon entropy
@@ -49,30 +49,30 @@ represents the degree of incompressibility; which means the smaller the value, t
 Here $W= {}_N C_m = 2^{NH(p)}$ refer to the possiblities associated with probability $p$.
 The Shannon entropy or $H(p)$ can take the value $0\leq H(p) \leq 1$.
 \begin{enumerate}
-  \item $H(p)=1$. 
-  Corresponds to the case of where no compression is possible, meaning all sequences equally likely.
-  Consider the case of $N$ bits where all bits have the same probability.
-  The entropy in this case is $H[p(N)]=1$, so the number of possible string is $W=2^N$.
-  This is the upper bound for representing $N$ bit, meaning no compression is possible.
-  \item $0<H(p)<1$. 
-  Corresponds to the case of biased distribution where $p \neq 1/2$.
-  \begin{equation*}
-    W \approx 2^{N H(p)} < 2^{N}
-  \end{equation*}
-  Consequently, the sequence can be encoded using fewer than $N$ bits, specifically $NH(p)$ bits.
-  \begin{equation*}
-    \log_2 W \approx N H(p) < N
-  \end{equation*}
+  \item $H(p)=1$.
+        Corresponds to the case of where no compression is possible, meaning all sequences equally likely.
+        Consider the case of $N$ bits where all bits have the same probability.
+        The entropy in this case is $H[p(N)]=1$, so the number of possible string is $W=2^N$.
+        This is the upper bound for representing $N$ bit, meaning no compression is possible.
+  \item $0<H(p)<1$.
+        Corresponds to the case of biased distribution where $p \neq 1/2$.
+        \begin{equation*}
+          W \approx 2^{N H(p)} < 2^{N}
+        \end{equation*}
+        Consequently, the sequence can be encoded using fewer than $N$ bits, specifically $NH(p)$ bits.
+        \begin{equation*}
+          \log_2 W \approx N H(p) < N
+        \end{equation*}
   \item $H(p)=0$.
-  Outcome is deterministic, where $p=0$ or $p=1$.
-  In this case, $W=1$ and $\log_2 W=0$.
+        Outcome is deterministic, where $p=0$ or $p=1$.
+        In this case, $W=1$ and $\log_2 W=0$.
 \end{enumerate}
 
 \subsubsection{Example: Coin toss.}
 Suppose a coin is tossed, and the probability of obtaining heads is \( p \) (denoted as 0), while the probability of tails is \( 1-p \) (denoted as 1). In this case, the Shannon information \( S(p) \) is
 \begin{equation*}
-  S(p) 
-  = -p \log_2 p - (1 - p)\log_2 (1 - p) 
+  S(p)
+  = -p \log_2 p - (1 - p)\log_2 (1 - p)
   = H(p)
 \end{equation*}
 The base of the logarithm has been taken as 2 for later convenience; in this case, it is often written as \( H(p) \).
@@ -132,29 +132,29 @@ Furthermore, from the constraint condition
 Previously, an intuitive introduction of Shannon information was given.
 But, here a derivation closer to Shannon’s original paper.
 
-Messages are generally transmitted in binary form using 0 and 1. For example, 
-Consider a string of $N$ bits such as $010010110100\ldots$. 
-Suppose that among the $N$ characters, there are $m$ zeros. 
+Messages are generally transmitted in binary form using 0 and 1. For example,
+Consider a string of $N$ bits such as $010010110100\ldots$.
+Suppose that among the $N$ characters, there are $m$ zeros.
 Then, the number of distinct binary sequences that contain exactly $m$ zeros, or $N-m$ ones, is
 \begin{equation*}
   W = {}_N C_m = \binom{N}{m} = \frac{N!}{m!(N-m)!}
 \end{equation*}
-When $N$ and $m$ are large, we use Stirling’s formula 
+When $N$ and $m$ are large, we use Stirling’s formula
 \begin{align*}
-  \log W & = N \log N - N - m \log m + m - (N - m)\log (N - m) + N - m \\
-&= N \log N - m \log m - N\left(1 - \frac{m}{N}\right)\log \left(1 - \frac{m}{N}\right) - (N - m)\log N \\
-\log W
-&= N \left[ -\frac{m}{N} \log \frac{m}{N} - \left(1 - \frac{m}{N}\right)\log \left(1 - \frac{m}{N}\right) \right] \\
-\ln W
-&=N H(p) \log 2\\
-W & = [\exp (\ln 2) ]^{N H(p) } = 2 ^{N H(p) } 
+  \log W & = N \log N - N - m \log m + m - (N - m)\log (N - m) + N - m                                                      \\
+         & = N \log N - m \log m - N\left(1 - \frac{m}{N}\right)\log \left(1 - \frac{m}{N}\right) - (N - m)\log N           \\
+  \log W
+         & = N \left[ -\frac{m}{N} \log \frac{m}{N} - \left(1 - \frac{m}{N}\right)\log \left(1 - \frac{m}{N}\right) \right] \\
+  \ln W
+         & =N H(p) \log 2                                                                                                   \\
+  W      & = [\exp (\ln 2) ]^{N H(p) } = 2 ^{N H(p) }
 \end{align*}
 with $p(m)=m/N$ as the probability that 0 appears.
 
-Shannon entropy appears in the binary case as 
+Shannon entropy appears in the binary case as
 \begin{equation*}
-H(p)
-=  -\frac{m}{N} \log \frac{m}{N} - \left(1 - \frac{m}{N}\right)\log \left(1 - \frac{m}{N}\right) 
+  H(p)
+  =  -\frac{m}{N} \log \frac{m}{N} - \left(1 - \frac{m}{N}\right)\log \left(1 - \frac{m}{N}\right)
 \end{equation*}
 The step from sequences to probabilities in general $N$-ary sources generalizes this same reasoning to
 \begin{equation*}
@@ -165,52 +165,94 @@ The step from sequences to probabilities in general $N$-ary sources generalizes 
 Shannon coding theorem state that the average number of bits $\braket{l }$ is bounded by $H \le \bar{\ell} < H + 1$.
 Shannon proposed the strategy: “represent frequently occurring symbols with a small number of bits, and rarely appearing symbols with a large number of bits, thereby reducing the total number of bits.”
 Although in general, this does not achieve the lower bound $H$.
+More precisely, any encoding with lengths $l_i$
+\begin{equation*}
+  \sum_i p_i l_i \ge H(p)
+\end{equation*}
+with equality if and only if $p_i = 2^{l_i}$.
+
 The algorithm is as follows.
 \begin{enumerate}
-  \item \textbf{Ordering}. 
-  Arrange the symbols $a_1,a_2,\ldots,a_i,\ldots,a_n$ in order of decreasing frequency, and let their probabilities be $p_1>p_2>\cdots>p_i>\cdots>p_n$. 
-  \item \textbf{Probabilities}. 
-  Compute the $i$-th sum of probabilities from $1$ to $i-1$
-  \begin{equation*}
-    q_i = \sum_{k=1}^{i-1} p_k 
-  \end{equation*}
-  \item \textbf{Self-information}. 
-  Compute the surprise (self-information) and take the integer, which is represented using the floor function
-  \begin{equation*}
-    s_i = \lfloor -\log_2 p_i \rfloor
-  \end{equation*}
-  \item \textbf{Binary representation.} 
- Express $q_i$ in binary fraction form, and take the digits after the decimal point up to the $s_i$-th place. 
- This becomes the code for each symbol.
+  \item \textbf{Ordering}.
+        Arrange the symbols $a_1,a_2,\ldots,a_i,\ldots,a_n$ in order of decreasing frequency, and let their probabilities be $p_1>p_2>\cdots>p_i>\cdots>p_n$.
+  \item \textbf{Probabilities}.
+        Compute the $i$-th sum of probabilities from $1$ to $i-1$
+        \begin{equation*}
+          q_i = \sum_{k=1}^{i-1} p_k
+        \end{equation*}
+  \item \textbf{Self-information}.
+        Compute the surprise (self-information) and take the integer, which is represented using the floor function
+        \begin{equation*}
+          s_i = \lfloor -\log_2 p_i \rfloor
+        \end{equation*}
+  \item \textbf{Binary representation.}
+        Express $q_i$ in binary fraction form, and take the digits after the decimal point up to the $s_i$-th place.
+        This becomes the code for each symbol.
 \end{enumerate}
 
 \subsubsection{Example.}
 Consider a message consisting of the characters A, B, C, and D, which appear with probabilities 1/2,1/4,1/8,1/8, respectively.
-Frequently appearing characters like A are represented with a few bits, and rarely appearing characters like C and D are represented with a larger number of bits, such as 
+Frequently appearing characters like A are represented with a few bits, and rarely appearing characters like C and D are represented with a larger number of bits, such as
 \begin{equation*}
-  A = [0] \qquad B = [10]\qquad C = [110]\qquad  D = [111] 
+  A = [0] \qquad B = [10]\qquad C = [110]\qquad  D = [111]
 \end{equation*}
-Compression using this encoding can be done as 
+Compression using this encoding can be done as
 \begin{align*}
-    [0100101110011010010] &\rightarrow [0,10,0,10,111,0,0,110,10,0,10] \\
- &\rightarrow \textit{ABABDAACBAB}
+  [0100101110011010010]
+   & \rightarrow [0,10,0,10,111,0,0,110,10,0,10] \\
+  [0100101110011010010]
+   & \rightarrow \textit{ABABDAACBAB}
 \end{align*}
-The average bits used is 
+The average bits used is
 \begin{equation*}
   \braket{l } = \sum_{i } p_i l_i =
   \frac{1}{2}\cdot 1 + \frac{1}{4}\cdot 2 + \frac{1}{8}\cdot 3 + \frac{1}{8}\cdot 3 = \frac{7}{4} = 1.75
 \end{equation*}
-The Shannon entropy in this case 
+The Shannon entropy in this case
 \begin{align*}
-    H & = 2 -\frac{1}{2}\log_2\left(\frac{1}{2}\right) - \frac{1}{4}\log_2\left(\frac{1}{4}\right) - \frac{1}{8}\log_2\left(\frac{1}{8}\right) - \frac{1}{8}\log_2\left(\frac{1}{8}\right)\\
-    H & =  \frac{7}{4} = 1.75
+  H & = 2 -\frac{1}{2}\log_2\left(\frac{1}{2}\right) - \frac{1}{4}\log_2\left(\frac{1}{4}\right) - \frac{1}{8}\log_2\left(\frac{1}{8}\right) - \frac{1}{8}\log_2\left(\frac{1}{8}\right) \\
+  H & =  \frac{7}{4} = 1.75
 \end{align*}
-This is less that the average bits using simple 2-bit encoding, such as 
+This is less that the average bits using simple 2-bit encoding, such as
 \begin{equation*}
-   A = [00] \qquad B = [01] \qquad C = [10]\qquad  D = [11]  
+  A = [00] \qquad B = [01] \qquad C = [10]\qquad  D = [11]
 \end{equation*}
-which obviously have the average of 2. 
+which obviously have the average of 2.
 In this case, $H=1.75$ represent the theoretical minimum average bit length.
 
+\subsubsection{Another example.}
+With the given symbols and their probabilities, the average number of bits is
+\begin{align*}
+  \braket{l }
+   & = \frac{1}{2}\cdot 1+\frac{1}{4}\cdot 2+\frac{1}{8}\cdot 3+\frac{1}{16}\cdot 4+\frac{1}{32}\cdot 5+\frac{1}{64}\cdot 6+\frac{1}{128}\cdot 7+\frac{1}{128}\cdot 7 \\
+  \braket{l }
+   & =  \frac{127}{64} \approx 1.98
+\end{align*}
+and the Shannon entropy is
+\begin{align*}
+  H(p) & = -\frac{1}{2}\log_2\left(\tfrac{1}{2}\right)-\frac{1}{4}\log_2\left(\tfrac{1}{4}\right)-\frac{1}{8}\log_2\left(\tfrac{1}{8}\right)-\frac{1}{16}\log_2\left(\tfrac{1}{16}\right)                \\
+       & \qquad -\frac{1}{32}\log_2\left(\tfrac{1}{32}\right)-\frac{1}{64}\log_2\left(\tfrac{1}{64}\right)-\frac{1}{128}\log_2\left(\tfrac{1}{128}\right)-\frac{1}{128}\log_2\left(\tfrac{1}{128}\right) \\
+  H(p) & = \frac{127}{64}\approx 1.98.
+\end{align*}
+Thus, the average number of bits and the Shannon information coincide.
+
+\begin{table}[]
+  \centering
+  \caption{Table: Encoding of symbols}
+  \begin{tabular}{@{}llllll@{}}
+    \toprule
+    Symbol & $p_i$ & $q_i$   & $s_i$ & Binary of $q_i$ & Code      \\
+    \midrule
+    $a_1$  & 1/2   & 0       & 1     & 0               & [0]       \\
+    $a_2$  & 1/4   & 1/2     & 2     & 0.1             & [10]      \\
+    $a_3 $ & 1/8   & 3/4     & 3     & 0.11            & [110]     \\
+    $a_4$  & 1/16  & 7/8     & 4     & 0.111           & [1110]    \\
+    $a_5 $ & 1/32  & 15/16   & 5     & 0.1111          & [11110]   \\
+    $a_6$  & 1/64  & 31/32   & 6     & 0.11111         & [111110]  \\
+    $a_7$  & 1/128 & 63/64   & 7     & 0.111111        & [1111110] \\
+    $a_8$  & 1/128 & 127/128 & 7     & 0.1111111       & [1111111] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \end{document}
