@@ -100,10 +100,10 @@ This corresponds to the situation where the result is completely determined in a
 \end{figure}
 
 \subsubsection{Example: Partition function.}
-Let the states with energies $\varepsilon_i$ $(i = 1,2,\dots,N)$ be realized with probabilities $p_i$.
+Let the states with energies $\epsilon_i$ $(i = 1,2,\dots,N)$ be realized with probabilities $p_i$.
 Under the condition that the average energy is fixed and unitary probability
 \begin{equation*}
-  \sum_{i=1}^{N} p_i \varepsilon_i = E
+  \sum_{i=1}^{N} p_i \epsilon_i = E
   \qquad
   \sum_{i=1}^{N} p_i = 1
 \end{equation*}
@@ -112,20 +112,20 @@ Let $p_i$ $(i=1,\dots,N)$ be independent variables, then
 \begin{equation*}
   L = -\sum_{i=1}^{N} p_i \log p_i
   + \alpha \left(\sum_{i=1}^{N} p_i - 1\right)
-  + \beta \left(E - \sum_{i=1}^{N} p_i \varepsilon_i \right)
+  + \beta \left(E - \sum_{i=1}^{N} p_i \epsilon_i \right)
 \end{equation*}
 Differentiate with respect to $p_i$ and set it to zero
 \begin{equation*}
-  \frac{\partial L}{\partial p_i} = -\log p_i - 1 + \alpha - \beta \varepsilon_i = 0
+  \frac{\partial L}{\partial p_i} = -\log p_i - 1 + \alpha - \beta \epsilon_i = 0
 \end{equation*}
 From this
 \begin{equation*}
-  p_i = \frac{e^{-\beta \varepsilon_i}}{e^{1-\alpha}}= \frac{e^{-\beta \varepsilon_i}}{Z}
+  p_i = \frac{e^{-\beta \epsilon_i}}{e^{1-\alpha}}= \frac{e^{-\beta \epsilon_i}}{Z}
 \end{equation*}
 Furthermore, from the constraint condition
 \begin{equation*}
-  \sum_{i=1}^{N} \frac{e^{-\beta \varepsilon_i}}{Z}  =  1\implies
-  Z  =  \sum_{i=1}^{N} e^{-\beta \varepsilon_i}
+  \sum_{i=1}^{N} \frac{e^{-\beta \epsilon_i}}{Z}  =  1\implies
+  Z  =  \sum_{i=1}^{N} e^{-\beta \epsilon_i}
 \end{equation*}
 
 \subsubsection{Derivation.}
@@ -254,5 +254,60 @@ Thus, the average number of bits and the Shannon information coincide.
     \bottomrule
   \end{tabular}
 \end{table}
+
+\subsection{Law of Large Number}
+Roughly speaking, if one takes sufficiently many samples, the average value of the measured physical quantity approaches the expected value of that quantity.
+Suppose a physical quantity $A$ is measured independently $N$ times, yielding values $a_1,\dots a_N$.
+Also suppose that $P(A)$ is the probability distribution of $A$.
+Then for sufficiently large number of measurements $N$, the average $S_N$ approaches the expectation value $E(A)$
+\begin{equation*}
+S_N=\sum_{i=1}^N\frac{a_i}{N}\rightarrow
+E(A)=\int dP(A)\;A 
+\end{equation*}
+for finite $E(A)$.
+
+\subsubsection{Proof.}
+First compute the expectation value of average
+\begin{equation*}
+E\big(S_N^2\big) = E \left( \frac{1}{N^2}\sum_{i,j} a_i a_j \right) = \frac{1}{N^2}\sum_{i,j} E(a_i a_j)
+\end{equation*}
+Under the independent and identically distributed (IID) assumption, $E(a_ia_j)=E(a_i)E(a_j)$ for distinct $(i,j)$.
+Then
+\begin{equation*}
+E\big(S_N^2\big) 
+= 
+\frac{1 }{N^2}\sum_i E(a_i^2) + \sum_{i\neq j} E(a_i a_j)
+=\frac{1 }{N^2} \sum_i E(a_i^2) = 
+\end{equation*}
+where we have assumed $E(a_i)=0$.
+Since the variables are identically distributed, $E(a_i^2)=E(A^2)$
+\begin{equation*}
+E\big(S_N^2\big) 
+= 
+\frac{1 }{N^2} N E(A^2)
+=
+\frac{1 }{N} E(A^2)
+\end{equation*}
+
+Using the probability distribution, we can also evaluate
+\begin{equation*}
+  E(S_N^2) =\int dP\;S_N^2=\int_{|S_N|>\epsilon} dP\,S_N^2+\int_{|S_N|\le\epsilon} dP\;S_N^2
+\end{equation*}
+By definition of $|S_N| > \epsilon$ region, we have $S_N^2 > \epsilon^2$.
+We can rewrite second term as 
+\begin{equation*}
+  \int_{|S_N|>\epsilon} dP\;S_N^{2} \ge \epsilon ^{2}\int_{|S_N|>\epsilon} \epsilon^{2}dP = \epsilon ^2 p(|S_N|>\epsilon)
+\end{equation*}
+Therefore
+\begin{equation*}
+ p(|S_N|>\epsilon) < \frac{E(A^2)}{\epsilon^2 N}
+\end{equation*}
+Since the right-hand side of this expression goes to zero in the limit $N \rightarrow \infty$ with $\epsilon$ fixed, the probability that the sample mean deviates from zero (which is the expectation in this special case) by more than $\epsilon$.
+This completes the proof in the case where the expectation value $E(A)$ is zero.
+For non-zero case, consider $A-E(A)$ in place of $A$ and, as $N \rightarrow \infty$, one obtain
+\begin{equation*}
+ p(|S_N-E(A)|>\epsilon) =0
+\end{equation*}
+This means that the probabilities of $S_N$ deviate by $\epsilon$ from $E(A)$ approaches zero.
 
 \end{document}
