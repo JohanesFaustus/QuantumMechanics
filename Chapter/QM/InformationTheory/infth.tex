@@ -311,7 +311,7 @@ For non-zero case, consider $A-E(A)$ in place of $A$ and, as $N \rightarrow \inf
 This means that the probabilities of $S_N$ deviate by $\epsilon$ from $E(A)$ approaches zero.
 
 \subsection{Type of Entropy}
-\subsubsection{Average difference.}
+\subsubsection{Relative entropy.}
 Suppose one had been told in advance that the probability distribution is \( \{q_i\} \), but in reality it is \( \{p_i\} \). 
 Thus, the difference between the two is \( \log_2 (p_i/q_i) \). 
 The average of this with respect to the actual probability distribution \( \{p_i\} \) is
@@ -321,9 +321,10 @@ The average of this with respect to the actual probability distribution \( \{p_i
 This is called the relative entropy, which represents the average difference between the two probability distributions $\{p_i\}, \{q_i\} $. 
 \subsubsection{Joint entropy.}
 First, let $i \in I$ and $j \in J$ be events, and denote by $p(i,j)$ the joint probability that both occur, that is $I$ takes value $i$ and $J$ takes value $j$. 
+
 Then the joint entropy is given by
 \begin{equation*}
-  S(I, J) = - \sum_{i \in I,\, j \in J} p(i,j) \log_2 p(i,j)
+  S(I, J) = - \sum_{ij} p(i,j) \log_2 p(i,j)
 \end{equation*}
 This represents the uncertainty before observation of the distribution obtained when $(i,j)$ is regarded as a single combined event.
 
@@ -333,23 +334,168 @@ In other words, it is the uncertainty under the condition $J$.
 \begin{equation*}
 S(I|J) = S(I, J) - S(J)
 \end{equation*}
+hat is the remaining uncertainty, in $I$ after the value of $J$ is known.
+Then, the zero value $S(I|J)=0$ means that $J$ completely predict $I$. 
 
 \subsubsection{Mutual information.}
 This can be expressed in various ways. 
-For example, it represents the reduction of uncertainty about $I$ due to knowing $J$, that is, the increase in knowledge about $I$. 
-From this, it is likely that the name ``mutual information'' was given.
+It is likely that the name ``mutual information'' was given.
 \begin{align*}
   S(I : J) &= S(I) + S(J) - S(I, J) \\
          S(I : J)&= S(I) - S(I|J) = S(J) - S(J|I)
 \end{align*}
+For example, it represents the reduction of uncertainty about $I$ due to knowing $J$, that is, the increase in knowledge about $I$. 
+
 Expanding explicitly, its relation to the relative entropy becomes visible
 \begin{align*}
   S(I : J) &= S(I) + S(J) - S(I, J) \\
-&= - \sum_{i=1}^{N} p_i \log_2 p_i - \sum_{j=1}^{N} q_j \log_2 q_j + \sum_{i,j=1}^{N} p(i,j) \log_2 p(i,j) \\
-&= - \sum_{ij}^{N} p(i,j) \log_2 p_i - \sum_{ij}^{N} p(i,j) \log_2 q_j + \sum_{i,j=1}^{N} p(i,j) \log_2 p(i,j) \\
+&= - \sum_{i=1} p_i \log_2 p_i - \sum_{j=1} q_j \log_2 q_j + \sum_{i,j=1} p(i,j) \log_2 p(i,j) \\
+&= - \sum_{ij} p(i,j) \log_2 p_i - \sum_{ij} p(i,j) \log_2 q_j + \sum_{i,j=1} p(i,j) \log_2 p(i,j) \\
 S(I : J) 
-&= \sum_{i,j=1}^{N} p(i,j) \log_2 \frac{p(i,j)}{p_i q_j}
+&= \sum_{i,j=1} p(i,j) \log_2 \frac{p(i,j)}{p_i q_j}
+= S(p(i,j)||p_iq_j)
 \end{align*}
 since $p_i = \sum_j p(i,j)$ and $q_j = \sum_i p(i,j)$.
 One sees that $S(I:J)$ represent relative entropy expressing the deviation of the joint probability distribution $\{p(i,j)\}$ from the product distribution of two independent distributions $\{p_i\}, \{q_j\}$.
+
+\subsubsection{Entropy property.}
+First is the symmetry and asymmetry
+\begin{equation*}
+  S(X, Y) = S(Y, X), \quad S(X : Y) = S(Y : X) \qquad S(X|Y) \neq S(Y|X)
+\end{equation*}
+Then the inequality 
+\begin{equation*}
+  S(X) \leq S(X,Y)
+\end{equation*}
+When the goal is \( Y \), it depends only on the relationship with \( X \). 
+The interpretation of this relationship can be seen in the mutual information and the proof of its validity.
+
+\subsubsection{Examlpe: Average entropy.}
+Consider a coin which is said to come up heads 0 and tails 1 with equal probability, that is $q_0 = q_1 = 1/2$; but in reality is finely adjusted so that it always comes up heads 0, that is $p_0 = 1$ and $ p_1 = 0$.
+The true probability distribution is \( \{p_i\} \), and the assumed distribution is \( \{q_i\} \). 
+Then, and the relative entropy becomes
+\begin{equation*}
+  S(p||q) = - p_0 \log_2 q_0 - p_1 \log_2 q_1 + p_0 \log_2 p_0 + p_1 \log_2 p_1 = 1
+\end{equation*}
+
+On the other hand, if the coin is said to always come up heads, but in reality is a fair coin that comes up heads and tails with equal probability, then \( p_0 = p_1 = 1/2, q_0 = 1, q_1 = 0 \), and the relative entropy is
+\begin{equation*}
+  S(p\|q) = - p_0 \log_2 q_0 - p_1 \log_2 q_1 + p_0 \log_2 p_0 + p_1 \log_2 p_1 = \infty
+\end{equation*}
+In the first scenario, all events that occur under $p$ are assigned nonzero probability by $q$. 
+Hence, the divergence is finite.
+In the second scenario, the assumed model $q$ assigns zero probability to an event that actually occurs under $p$. 
+This leads to a logarithmic divergence, which corresponds to the statement that the prior assumption is completely false, it is falsified immediately by observation.
+
+\subsubsection{Example: Mutual Information.}
+Suppose the joint probability distribution $\{p_{ij}\}$ is expressed by the following matrix:
+\begin{align*}
+  p(i,j) = [p_{ij}] =
+\begin{bmatrix}
+p_{11} & p_{12} \\
+p_{21} & p_{22}
+\end{bmatrix}
+=
+\begin{bmatrix}
+1/2 & 0 \\
+0 & 1/2
+\end{bmatrix}
+\end{align*}
+In this case, the probability distributions are
+\begin{equation*}
+  p_i = \sum_j p_{ij} =
+\begin{bmatrix}
+1/2 \\
+1/2
+\end{bmatrix}\qquad
+q_j = \sum_i p_{ij} =
+\begin{bmatrix}
+1/2 & 1/2
+\end{bmatrix}
+\end{equation*}
+Therefore, since $S(I) = S(J) $, the mutual information is
+\begin{equation*}
+  S(I : J) = 
+  -2\left(\frac{1}{2}\log_2\frac{1}{2}+\frac{1}{2}\log_2\frac{1}{2}\right)
+  +\left(\frac{1}{2}\log_2\frac{1}{2}+\frac{1}{2}\log_2\frac{1}{2}\right)
+  =1
+\end{equation*}
+Since the only possible outcomes are $(I,J)=\{(1,1);(2,2)\}$, if 1 bit of $J$, the second bit, information is known, then $I$, the first bit, information can be completely known as well.
+
+\subsubsection{Example: Mutual Information (Complete independent correlation).}
+Consider the following joint probability distribution \( p_{ij} \):
+\begin{equation*}
+  [p_{ij}] =
+\begin{bmatrix}
+1/4 & 1/4 \\
+1/4 & 1/4
+\end{bmatrix}
+\end{equation*}
+In this case, the probability distributions are
+\begin{equation*}
+  [p_i] = \sum_j p_{ij} =
+\begin{bmatrix}
+1/2 \\
+1/2
+\end{bmatrix}, \qquad
+[q_j] = \sum_i p_{ij} =
+\begin{bmatrix}
+1/2 & 1/2
+\end{bmatrix}
+\end{equation*}
+Like before \( S(I) = S(J)  \), so the mutual information is
+\begin{equation*}
+  S(I : J) =2 -4\left(\frac{1}{4}\log_2\frac{1}{4}\right)= 0
+\end{equation*}
+This indicates that even if one knows 1 bit of information about \( J \), no information about \( I \) can be obtained.
+
+\subsubsection{Example: ABCD model}
+Examples 1 and 2 make the meaning of mutual information clear. 
+Let the alphabet be \( A = [00], B = [10], C = [01], D = [11] \), and assign occurrence probabilities \( 1/2, 1/4, 1/8, 1/8 \), respectively. 
+Then the occurrence probabilities of \( A, B, C, D \) can be written in matrix form as follows.
+\begin{equation*}
+  [p_{ij}] =
+\begin{bmatrix}
+p_{00} & p_{01} \\
+p_{10} & p_{11}
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 / 2 & 1 / 8 \\
+1 / 4 & 1 / 8
+\end{bmatrix}
+\end{equation*}
+Then
+\begin{equation*}
+  [p_i] = \sum_j p_{ij} =
+\begin{bmatrix}
+5 / 8 \\
+3 / 8
+\end{bmatrix}\qquad
+[q_j] = \sum_i p_{ij} =
+\begin{bmatrix}
+3 / 4 & 1 / 4
+\end{bmatrix}
+\end{equation*}
+We obtain the mutual information
+\begin{equation*}
+  S(I : J) = S(I) + S(J) - S(I,J) = 0.015
+\end{equation*}
+This shows that when \( A,B,C,D \) are encoded as \( [00],[10],[01],[11] \), and only the second entry is measured, the extent to which the first entry can be inferred is approximately \( 0.015 \), which is small but nonzero.
+
+On the other hand, if the occurrence probabilities of \( A,B,C,D \) are changed to
+\begin{equation*}
+  [p_{ij}] =
+\begin{bmatrix}
+1 / 3 & 1 / 3 \\
+1/3& 0
+\end{bmatrix}
+\end{equation*}
+then the mutual information becomes
+\begin{equation*}
+  S(I : J) = 0.25
+\end{equation*}
+which is significantly larger. 
+In this case, the lower-right entry has zero probability, which contributes strongly to the correlation.
+
 \end{document}
