@@ -230,8 +230,8 @@ With the given symbols and their probabilities, the average number of bits is
 \end{align*}
 and the Shannon entropy is
 \begin{align*}
-  H(p) & = -\frac{1}{2}\log_2\left(\tfrac{1}{2}\right)-\frac{1}{4}\log_2\left(\tfrac{1}{4}\right)-\frac{1}{8}\log_2\left(\tfrac{1}{8}\right)-\frac{1}{16}\log_2\left(\tfrac{1}{16}\right)                \\
-       & \qquad -\frac{1}{32}\log_2\left(\tfrac{1}{32}\right)-\frac{1}{64}\log_2\left(\tfrac{1}{64}\right)-\frac{1}{128}\log_2\left(\tfrac{1}{128}\right)-\frac{1}{128}\log_2\left(\tfrac{1}{128}\right) \\
+  H(p) & = -\frac{1}{2}\log_2\left(\frac{1}{2}\right)-\frac{1}{4}\log_2\left(\frac{1}{4}\right)-\frac{1}{8}\log_2\left(\frac{1}{8}\right)-\frac{1}{16}\log_2\left(\frac{1}{16}\right)                \\
+       & \qquad -\frac{1}{32}\log_2\left(\frac{1}{32}\right)-\frac{1}{64}\log_2\left(\frac{1}{64}\right)-\frac{1}{128}\log_2\left(\frac{1}{128}\right)-\frac{1}{128}\log_2\left(\frac{1}{128}\right) \\
   H(p) & = \frac{127}{64}\approx 1.98.
 \end{align*}
 Thus, the average number of bits and the Shannon information coincide.
@@ -310,4 +310,46 @@ For non-zero case, consider $A-E(A)$ in place of $A$ and, as $N \rightarrow \inf
 \end{equation*}
 This means that the probabilities of $S_N$ deviate by $\epsilon$ from $E(A)$ approaches zero.
 
+\subsection{Type of Entropy}
+\subsubsection{Average difference.}
+Suppose one had been told in advance that the probability distribution is \( \{q_i\} \), but in reality it is \( \{p_i\} \). 
+Thus, the difference between the two is \( \log_2 (p_i/q_i) \). 
+The average of this with respect to the actual probability distribution \( \{p_i\} \) is
+\begin{equation*}
+  S(p||q) = \sum_i p_i \log_2 \frac{p_i}{q_i}
+\end{equation*}
+This is called the relative entropy, which represents the average difference between the two probability distributions $\{p_i\}, \{q_i\} $. 
+\subsubsection{Joint entropy.}
+First, let $i \in I$ and $j \in J$ be events, and denote by $p(i,j)$ the joint probability that both occur, that is $I$ takes value $i$ and $J$ takes value $j$. 
+Then the joint entropy is given by
+\begin{equation*}
+  S(I, J) = - \sum_{i \in I,\, j \in J} p(i,j) \log_2 p(i,j)
+\end{equation*}
+This represents the uncertainty before observation of the distribution obtained when $(i,j)$ is regarded as a single combined event.
+
+\subsubsection{Conditional entropy.}
+This can be interpreted as the average surprise after knowing $J$. 
+In other words, it is the uncertainty under the condition $J$.
+\begin{equation*}
+S(I|J) = S(I, J) - S(J)
+\end{equation*}
+
+\subsubsection{Mutual information.}
+This can be expressed in various ways. 
+For example, it represents the reduction of uncertainty about $I$ due to knowing $J$, that is, the increase in knowledge about $I$. 
+From this, it is likely that the name ``mutual information'' was given.
+\begin{align*}
+  S(I : J) &= S(I) + S(J) - S(I, J) \\
+         S(I : J)&= S(I) - S(I|J) = S(J) - S(J|I)
+\end{align*}
+Expanding explicitly, its relation to the relative entropy becomes visible
+\begin{align*}
+  S(I : J) &= S(I) + S(J) - S(I, J) \\
+&= - \sum_{i=1}^{N} p_i \log_2 p_i - \sum_{j=1}^{N} q_j \log_2 q_j + \sum_{i,j=1}^{N} p(i,j) \log_2 p(i,j) \\
+&= - \sum_{ij}^{N} p(i,j) \log_2 p_i - \sum_{ij}^{N} p(i,j) \log_2 q_j + \sum_{i,j=1}^{N} p(i,j) \log_2 p(i,j) \\
+S(I : J) 
+&= \sum_{i,j=1}^{N} p(i,j) \log_2 \frac{p(i,j)}{p_i q_j}
+\end{align*}
+since $p_i = \sum_j p(i,j)$ and $q_j = \sum_i p(i,j)$.
+One sees that $S(I:J)$ represent relative entropy expressing the deviation of the joint probability distribution $\{p(i,j)\}$ from the product distribution of two independent distributions $\{p_i\}, \{q_j\}$.
 \end{document}
