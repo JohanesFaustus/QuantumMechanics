@@ -5,7 +5,7 @@ The Dirac equation is
 \begin{equation*}
     i \hbar \; \partial_t \Psi(\mathbf{r },t) = H \Psi(\mathbf{r },t)
 \end{equation*}
-with the Hamiltionian
+with the Hamiltonian
 \begin{equation*}
     H = c \hat{\boldsymbol{\alpha}} \cdot \mathbf{p} + \hat{\beta}mc^2
     = \begin{bmatrix}
@@ -367,7 +367,7 @@ The spin naturally occur by design
 It is an unavoidable consequence of the Dirac algebra structure once the non-relativistic limit is taken.
 
 \subsection{Spin wave}
-The Heisenberg Hamiltionian
+The Heisenberg Hamiltonian
 \begin{equation*}
     H = -\frac{J}{2}\sum_{\langle ij\rangle}\mathbf{S}_i\cdot\mathbf{S}_j
 \end{equation*}
@@ -397,6 +397,18 @@ The spin wave appears in the structure of the eigenmodes
     a_{k}^ \dagger\lvert 0\rangle = \frac{1}{\sqrt{N}} \sum_{i} e^{-i\mathbf{k}\cdot\mathbf{R}_{i}}\,a_{i}^ \dagger\lvert 0\rangle
 \end{equation*}
 These modes correspond to collective excitations of the spin system, known as spin waves or magnons in the quantized description.
+
+In one dimension and assuming boundary condition $\boldsymbol{\sigma}_{N+1} = \boldsymbol{\sigma}_1$, the Heisenberg Hamiltonian can be written as 
+\begin{equation*}
+    \mathcal{H} = -\mathcal{J}\sum_{j=1}^{N}\boldsymbol{\sigma}_j\cdot\boldsymbol{\sigma}_{j+1} 
+\end{equation*}
+with $\mathcal{J}>0$.
+It can be shown that the Hamiltonian commute with the third component of the total spin operator
+\begin{equation*}
+    [H,\sigma_3]=0,\qquad
+    \sigma_3 = \sum_{i } ^N \sigma_{3j}
+\end{equation*}
+
 
 \subsubsection{Derivation.}
 Even in this case, the spin operator satisfy the usual commutation relations
@@ -487,7 +499,7 @@ Under second order approximation
     \mathbf{S}_i \cdot \mathbf{S}_j  = s^2 - s\big(a_i^\dagger a_i + a_j^\dagger a_j\big) + s\big(a_i a_j ^\dagger+ a_i^\dagger a_j\big)
 \end{equation*}
 
-Inserting this into the Hamiltionian
+Inserting this into the Hamiltonian
 \begin{align*}
         H 
     & = \frac{J }{2} \sum_{\braket{ij }} \left[ s^2 - s(n_i+n_j) + s\big(a_i a_j ^\dagger+ a_i^\dagger a_j \big) \right] \\
@@ -545,4 +557,51 @@ Then
 \begin{equation*}
     g_{\mathbf{k}} = e^{-i a k_y } +\exp \left[ -i\left(\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right] + \exp \left[ -i\left(-\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right]
 \end{equation*}
+
+\subsubsection{Derivation: Commutator relation}
+Start with the ladder operator definition
+\begin{equation*}
+\sigma_j^{\pm} = \sigma_{j}^{x} \pm i \sigma_{j}^{y}
+\qquad
+\sigma_j^{x} = \frac{1}{2}(\sigma_j^{+} + \sigma_j^{-})
+\qquad
+\sigma_j^{y} = \frac{1}{2i}(\sigma_j^{+} - \sigma_j^{-}) \\
+\end{equation*}
+We write 
+\begin{equation*}
+    \boldsymbol{\sigma}*j \cdot \boldsymbol{\sigma}*{j+1}
+ =  \sigma_j^x \sigma_{j+1}^x + \sigma_j^y \sigma_{j+1}^y + \sigma_j^z \sigma_{j+1}^z
+= \frac{1}{2} \left( \sigma_j^{+}\sigma_{j+1}^{-} + \sigma_j^{-}\sigma_{j+1}^{+} \right)+ \sigma_j^z \sigma_{j+1}^z
+\end{equation*}
+Thus the Hamiltonian becomes
+\begin{equation*}
+    \mathcal{H}
+= -\mathcal{J} \sum_{j=1}^{N}
+\left[
+\frac{1}{2} \left( \sigma_j^{+}\sigma_{j+1}^{-} + \sigma_j^{-}\sigma_{j+1}^{+} \right)+ \sigma_j^z \sigma_{j+1}^z
+  \right]
+\end{equation*}
+
+Now  the commutator is evaluated with the relation
+\begin{equation*}
+[\sigma_i^z,\sigma_j^{\pm}] = \pm 2\delta_{ij}\sigma_j^{\pm}\qquad
+[\sigma_i^z,\sigma_j^z] = 0
+\end{equation*}
+Consider from the first term 
+\begin{align*}
+    [\sigma_3, \sigma_j^{+}\sigma_{j+1}^{-}]
+& =  \sum_i [\sigma_i^z, \sigma_j^{+}\sigma_{j+1}^{-}]
+=\sum_{i}  [\sigma_i^z, \sigma_j^{+}]\sigma_{j+1}^{-} +  \sum_{i}\sigma_j^{+}[\sigma_{i}^z, \sigma_{j+1}^{-}]\\
+& =  2\sigma_j^{+}\sigma_{j+1}^{-} -  2\sigma_j^{+}\sigma_{j+1}^{-} = 0
+\end{align*}
+since only $i=j$ and $i=j+1$ contribute.
+The same goes for the second term 
+\begin{align*}
+    [\sigma_3, \sigma_j^{-}\sigma_{j+1}^{+}]
+& =  \sum_i [\sigma_i^z, \sigma_j^{-}\sigma_{j+1}^{+}]
+=\sum_{i}  [\sigma_i^z, \sigma_j^{-}]\sigma_{j+1}^{+} +  \sum_{i}\sigma_j^{-}[\sigma_{i}^z, \sigma_{j+1}^{+}]\\
+& =  - 2\sigma_j^{-}\sigma_{j+1}^{+} +  2\sigma_j^{-}\sigma_{j+1}^{+} = 0    
+\end{align*}
+The third term is trivial since both operator are of the same component.
+Hence, each term in the Hamiltonian commute with the third component of the total spin operator $ [H,\sigma_3]=0$.
 \end{document}
