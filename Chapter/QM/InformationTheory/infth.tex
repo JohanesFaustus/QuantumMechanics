@@ -498,4 +498,38 @@ then the mutual information becomes
 which is significantly larger. 
 In this case, the lower-right entry has zero probability, which contributes strongly to the correlation.
 
+\subsubsection{Key-Search Paradox}
+It is assumed that a key exists in a pocket with a probability of $1/2$, and within one of 16 drawers with a probability of $1/2$. 
+Assuming all 16 drawers are equivalent, the uncertainty before searching for the key, expressed as Shannon entropy, is derived as
+\begin{equation*}
+  S(\text{before}) = -\frac{1}{2} \log_2 \frac{1}{2} + 16 \cdot \left( -\frac{1}{32} \log_2 \frac{1}{32} \right) = 3
+\end{equation*}
+Suppose the pocket is searched, and it is determined that the key is not there. 
+In that case, the key must be in one of the drawers, so the Shannon information content is:
+\begin{equation*}
+  S(\text{after, drawers}) = 16 \cdot \left( -\frac{1}{16} \log_2 \frac{1}{16} \right) = 4
+\end{equation*}
+Thus, the uncertainty increases compared to before searching the pocket. 
+This implies that uncertainty increased because an experiment was conducted, which is perceived as strange. 
+This is the reason it is called a paradox.
+
+The problem occurs due to different probability spaces are being mixed. 
+This then is resolved by calculating the overall average uncertainty, taking into account the change caused by searching the pocket
+\begin{equation*}
+  S(\text{after}) = \frac{1}{2} S(\text{after, pocket}) + \frac{1}{2} S(\text{after, drawers})
+  = \frac{1}{2} \times 0 + \frac{1}{2} \times 4 = 2
+\end{equation*}
+
+When memory is introduced into the information manipulation of the key-searching problem, another perspective becomes apparent. 
+First, the search for the key is performed; it is recorded as $P0$ if it is found in the pocket, and as $P1$ if not. 
+Based on that record, if $P0$, no further action is taken; if $P1$, the drawers are searched one by one.
+
+If this key-searching process is performed numerous times, the Shannon information content in the memory of the pocket search results becomes $1$. 
+Similarly, the Shannon information content in the memory of the drawer search results becomes $4$. 
+Finally, since the information entropy of the system becomes zero once the key is found, the sum of the Shannon information content held by the system and the memory is $3$. This is equal to the Shannon information content of $3$ that the system possessed prior to measurement.
+Taking the overall average, the Shannon information content of the memory is $1 + \frac{1}{2} \times 0 + \frac{1}{2} \times 4 = 3$.
+
+In this manner, acquiring "knowledge" is the reduction of "uncertainty." 
+This "uncertainty" can be quantified using the concept of probability as Shannon information content. 
+Ultimately, acquired "knowledge" can be expressed in terms of Shannon information content.
 \end{document}
