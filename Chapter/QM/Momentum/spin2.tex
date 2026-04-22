@@ -409,8 +409,23 @@ It can be shown that the Hamiltonian commute with the third component of the tot
     \sigma_3 = \sum_{i } ^N \sigma_{3j}
 \end{equation*}
 
+With the ground state of 
+\begin{equation*}
+    |0\rangle = \bigotimes_{j=1}^{N} |\uparrow\rangle_j = \bigotimes_{j=1}^{N} \begin{pmatrix}1\\ 0 \end{pmatrix}_j
+\end{equation*}
+the action of the Heisenberg Hamiltonian in this state reads
+\begin{equation*}
+    \mathcal{H}\lvert 0\rangle 
+    = -\mathcal{J}N\lvert 0\rangle
+\end{equation*}
+such that the ground state energy is $E_0 = \mathcal{J }N$.
+This is derived using the following relation
+\begin{equation*}
+    \boldsymbol{\sigma}*i\cdot\boldsymbol{\sigma}*{i+1}=2P_{i,i+1}-1
+\end{equation*}
+The $P_{i,i+1}$ is the permutation operator that exchange the state $i$ with $i+1$.
 
-\subsubsection{Derivation.}
+\subsubsection{Derivation: Fourier transform}
 Even in this case, the spin operator satisfy the usual commutation relations
 \begin{equation*}
 \left[S_i^{\alpha}, S_j^{\beta}\right] = i\,\delta_{ij}\,\epsilon_{\alpha\beta\gamma}\,S_i^{\gamma}    
@@ -604,4 +619,15 @@ The same goes for the second term
 \end{align*}
 The third term is trivial since both operator are of the same component.
 Hence, each term in the Hamiltonian commute with the third component of the total spin operator $ [H,\sigma_3]=0$.
+
+\subsubsection{Derivation: Ground state energy.}
+Simply use the permutation relation
+\begin{equation*}
+    \mathcal H |0\rangle = -\mathcal{J} \sum_{i=1}^{N} (\boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}) |0\rangle
+    = -\mathcal{J} \sum_{i=1}^{N} (2P_{i,i+1}-1)|0\rangle
+    = -\mathcal{J} \sum_{i=1}^{N} (2-1)|0\rangle
+    = -\mathcal{J} N
+\end{equation*}
+since the permutation does nothing to the ground state.
 \end{document}
+
