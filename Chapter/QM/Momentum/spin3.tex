@@ -6,7 +6,7 @@ The electron in solid has the Hamiltonian
     H = \sum_{i}\left[\frac{p_i^2}{2m}+V(\mathbf{r}_i)\right]+\frac{1}{2}\sum_{i\neq j}\frac{e^2}{\lvert\mathbf{r}_i-\mathbf{r}_j\rvert}
 \end{equation*}
 which contains kinetic energy, the periodic crystal potential, and Coulomb repulsion. At this stage there are no explicit spin–spin interactions.
-One rewrites this in second quantization and chooses Bloch eigenstates as a basis, which diagonalizes the one-body part. 
+One rewrites this in second quantization and chooses Bloch eigenstates as a basis, which diagonalizes the one-body part.
 \begin{multline*}
     H = \sum_{n\mathbf{k}  \sigma} \epsilon_{\mathbf{k }} ^{n} a^\dagger_{n\mathbf{k}  \sigma} a_{n \mathbf{k} \sigma} +   \frac{1}{2}\sum_{\substack{n_1 n_2                                                                                                                             \\ n_1' n_2'}}\sum_{\substack{\mathbf{k}_1 \mathbf{k}_2 \\ \mathbf{k}_1' \mathbf{k}_2'}}\sum_{\sigma\sigma'}
     \braket{n_1 \mathbf{k}_1  n_2 \mathbf{k}_2  | \frac{1}{r} |  n_1' \mathbf{k}_1' n_2'\mathbf{k}_2'   }\\
@@ -32,7 +32,7 @@ or further upon decomposition
     \item \textbf{Hopping term.} It describes electron initially at site $j$ move to  $i$ with amplitude $\epsilon_{ij}$.
     \item \textbf{On-site Coulomb repulsion.} It penalizes double occupation with energy $I$ and leaving single occupied state, where either $n_{i\sigma}$ or $n_{i-\sigma}$ equal to zero.
     \item \textbf{Intersite direct Coulomb repulsion.} ordinary electrostatic repulsion between charge densities on different sites $n_i$ and $n_j$.
-    \item \textbf{Exchange interaction.} The origin of Heisenberg Hamiltonian. The spins are exchanged between the two sites: at site $j$ spin $\sigma\to\sigma'$ and at site $i$ $\sigma'\to\sigma$ 
+    \item \textbf{Exchange interaction.} The origin of Heisenberg Hamiltonian. The spins are exchanged between the two sites: at site $j$ spin $\sigma\to\sigma'$ and at site $i$ $\sigma'\to\sigma$
     \item \textbf{Pair hopping.} This moves an electron pair together, two from site $j$ into two $i$.
 \end{enumerate}
 
@@ -44,7 +44,7 @@ The generate effective Hamiltonian called the Heisenberg Hamiltonian
 \end{equation*}
 or under nearest-neighbor approximation
 \begin{equation*}
-    H_H = -\sum_{\braket{ij }} J_{ij} \boldsymbol{\sigma}_i  \cdot \boldsymbol{\sigma}_j    
+    H_H = -\sum_{\braket{ij }} J_{ij} \boldsymbol{\sigma}_i  \cdot \boldsymbol{\sigma}_j
 \end{equation*}
 Therefore, it is a low-energy effective theory describing interacting localized spins after electronic charge fluctuations have been eliminated.
 
@@ -59,7 +59,7 @@ with
     = Js\left[z - g_\mathbf{k} \right]
     \qquad  g_\mathbf{k} = \sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}
 \end{equation*}
-and $\boldsymbol{\delta}$ as displacement vector.  
+and $\boldsymbol{\delta}$ as displacement vector.
 For spin chain, we have
 \begin{equation*}
     g_\mathbf{k} = e^{-ika}+e^{ika}=2\cos(ka)
@@ -79,7 +79,7 @@ This mode of $\mathbf{k}$ correspond to collective excitations of the spin syste
 $a_{\mathbf{k}}^ \dagger\lvert 0\rangle$ also called the delocalized momentum eigenstate.
 Working in one dimension
 \begin{equation*}
-    a_{k}^ \dagger\lvert 0\rangle = \frac{1}{\sqrt{N}} \sum_{j} e^{-ikaj} a_{j}^ \dagger\lvert 0\rangle    
+    a_{k}^ \dagger\lvert 0\rangle = \frac{1}{\sqrt{N}} \sum_{j} e^{-ikaj} a_{j}^ \dagger\lvert 0\rangle
 \end{equation*}
 with $\mathbf{k }=k$ and $\mathbf{R}_j = aj$.
 Do note the $a ^\dagger$ here is defined as abstract operator that create excitations state, regardless of how the ground state $\ket{0}$ is defined, whether all up or all down.
@@ -112,19 +112,35 @@ This is derived using the following relation
 \end{equation*}
 The $P_{i,i+1}$ is the permutation operator that exchange the state $i$ with $i+1$.
 
-With one magnon state $\ket{m} = \sigma^-_m \ket{0}$, we see that the Hamiltonian action is 
+With one magnon state $\ket{m} = \sigma^-_m \ket{0}$, we see that the Hamiltonian action is
 \begin{equation*}
     H\ket{m}= E_0 |m\rangle + 2J\left(2|m\rangle - |m+1\rangle - |m-1\rangle\right)
 \end{equation*}
 Along with this, we define the magnon state $\ket{k} = a ^\dagger_k \ket{0}$, which satisfies
 \begin{equation*}
-    \ket{k} = \frac{1}{\sqrt{N}} \sum_{m} e^{-ikam} \ket{m}
+    \ket{k} = \sum_{m} e^{-ikam} \ket{m}
 \end{equation*}
-This state has the energy eigenvalue of 
+This state has the energy eigenvalue of
 \begin{equation*}
-    H \ket{k }= \left[ E_0 +4J (1- \cos ka) \right] 
+    H \ket{k }= \left[ E_0 +4J (1- \cos ka) \right]
 \end{equation*}
-Taking into account constant-energy $E_0$ offset and normalization due to Pauli matrices $2\sigma = S$, this produce the same result with energy spectrum derived using Fourier transform $\hbar \omega_\mathbf{k} = J(1- \cos ka)$
+Taking into account constant-energy $E_0$ offset and normalization due to Pauli matrices $2\sigma = S$, this produce the same result with energy spectrum derived using Fourier transform $\hbar \omega_\mathbf{k} = J(1- \cos ka)$.
+
+Following the periodic boundary, the condition $\ket{m+N} = \ket{m}$
+\begin{align*}
+    \ket{k} = \sum_{m} e^{-ikam} \ket{m} & =  \sum_{m} e^{-ika(m+N)} \ket{m+N} \\
+    e^{ikam}                             & = e^{ika(m+N)}                      \\
+    e^{ikaN}                            & = 1=e^{2n\pi i}
+\end{align*}
+yields discrete set for the wavenumber
+\begin{equation*}
+    k \in \left\{ \frac{2\pi n }{Na} \right\}
+\end{equation*}
+Aside, the total third component of magnon state is 
+\begin{equation*}
+    \sigma_3 \ket{3} =\sum_{m} e^{-ikam} \sigma_3\ket{m} = (N-2) \ket{k}
+\end{equation*}
+since there are ($N-1$) spin up and $1$ spin down at state $\ket{m}$, bringing the total third component to $N-1-1=N-2$. 
 
 \subsubsection{Derivation: Fourier transform of the Heisenberg Hamiltonian.}
 Even in this case, the spin operator satisfy the usual commutation relations
@@ -324,9 +340,9 @@ Hence, each term in the Hamiltonian commute with the third component of the tota
 \subsubsection{Derivation: Ground state and magnon state energy.}
 For the ground state, simply use the permutation relation
 \begin{align*}
-        \mathcal H \ket{0} & =  -J \sum_{i=1}^{N} (\boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}) \ket{0}
-    = -J \sum_{i=1}^{N} (2P_{i,i+1}-1)\ket{0}\\
-    & =  -J \sum_{i=1}^{N} (2-1)\ket{0}
+    \mathcal H \ket{0} & =  -J \sum_{i=1}^{N} (\boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}) \ket{0}
+    = -J \sum_{i=1}^{N} (2P_{i,i+1}-1)\ket{0}                                                               \\
+                       & =  -J \sum_{i=1}^{N} (2-1)\ket{0}
     = -J N = E_0
 \end{align*}
 since the permutation does nothing to the ground state.
@@ -335,26 +351,26 @@ For the magnon, recall that the Hamiltonian only act on nearest–neighbor terms
 \begin{equation*}
     H \ket{m} = J \left[ \sum_{i'} \boldsymbol{\sigma}_i \cdot \boldsymbol{\sigma}_{i+1} + \boldsymbol{\sigma}_{m-1} \cdot \boldsymbol{\sigma}_{m} + \boldsymbol{\sigma}_m \cdot \boldsymbol{\sigma}_{m+1}\right]  \ket{m}
 \end{equation*}
-with $i'\neq (m-1,m)$. 
+with $i'\neq (m-1,m)$.
 When acting on $\ket{m}$, terms with $i'$ act on pairs of spins that are both up, hence they contribute exactly as in the ground state.
-For the other two terms, we use the permutation relation once again 
+For the other two terms, we use the permutation relation once again
 \begin{align*}
-    H \ket{m} 
-    & =   J\left[ (N-2)+ (2P_{m-1,m}-1) + (2P_{m,m+1}-1) \right] \ket{m}\\
-    & = -J(N-4) \ket{m} - 2J \ket{m-1} - 2J \ket{m+1} \\
-    H \ket{m} 
-    & = E_0 \ket{m} +2J \left(2 \ket{m}-  \ket{m-1}- \ket{m+1} \right)  
+    H \ket{m}
+     & =   J\left[ (N-2)+ (2P_{m-1,m}-1) + (2P_{m,m+1}-1) \right] \ket{m} \\
+     & = -J(N-4) \ket{m} - 2J \ket{m-1} - 2J \ket{m+1}                    \\
+    H \ket{m}
+     & = E_0 \ket{m} +2J \left(2 \ket{m}-  \ket{m-1}- \ket{m+1} \right)
 \end{align*}
 
 Now consider the spin-wave state
 \begin{align*}
-            \mathcal{H}|k\rangle
-& =  \sum_m e^{-ikam} {H}|m\rangle\\
-& =  \sum_{m} e^{-ikam} \left[J(N-4) \ket{m} +2J \ket{m-1}+ 2J \ket{m+1} \right]   \\
-& =  (E_0+4J)\sum_{m} e^{-ikam} \ket{m} - 2J \sum_{m} e^{-ika(m+1)}\ket{m} 
-\\ &\qquad - 2J \sum_{m} e^{-ika(m-1)}\ket{m} \\
-& = \left[ E_0  + J \left(4 - 2e^{-ika} - 2e^{ika} \right) \right]  \ket{m}
-= \left[ E_0 +4J(1- \cos ka) \right] \ket{m}
+    \mathcal{H}|k\rangle
+     & =  \sum_m e^{-ikam} {H}|m\rangle                                               \\
+     & =  \sum_{m} e^{-ikam} \left[J(N-4) \ket{m} +2J \ket{m-1}+ 2J \ket{m+1} \right] \\
+     & =  (E_0+4J)\sum_{m} e^{-ikam} \ket{m} - 2J \sum_{m} e^{-ika(m+1)}\ket{m}
+    \\ &\qquad - 2J \sum_{m} e^{-ika(m-1)}\ket{m} \\
+     & = \left[ E_0  + J \left(4 - 2e^{-ika} - 2e^{ika} \right) \right]  \ket{m}
+    = \left[ E_0 +4J(1- \cos ka) \right] \ket{m}
 \end{align*}
 
 \subsubsection{Derivation: The Heisenberg Hamiltonian.}
@@ -556,15 +572,15 @@ Or in terms of Pauli matrices
 \end{align*}
 Next we written the operator in exchange term
 \begin{align*}
-    \sum_{\sigma\sigma'} a_{i\sigma}^\dagger a_{i\sigma'} a_{j\sigma'}^\dagger a_{j\sigma} 
-    & =   a_{i\uparrow}^\dagger a_{i\uparrow} a_{j\uparrow}^\dagger a_{j\uparrow} + a_{i\uparrow}^\dagger a_{i\downarrow} a_{j\downarrow}^\dagger a_{j\uparrow}  \\
-    &\qquad+ a_{i\downarrow}^\dagger a_{i\downarrow} a_{j\downarrow}^\dagger a_{j\downarrow}    + a_{i\downarrow}^\dagger a_{i\uparrow} a_{j\uparrow}^\dagger a_{j\downarrow}\\
-    & = \frac{1}{4}\big[(\sigma_{3i}+1)(\sigma_{3j}+1)+(\sigma_{1i}+i\sigma_{2i})(\sigma_{1j}-i\sigma_{2j})\\
-    &\qquad+(\sigma_{1i}-i\sigma_{2i})(\sigma_{1j}+i\sigma_{2j})+(1-\sigma_{3i})(1-\sigma_{3j})\big]\\
-    & = \frac{1 }{2 }\left( \sigma_{1i  }\sigma_{1j} +\sigma_{2i  }\sigma_{2j}+\sigma_{3i  }\sigma_{3j}+1\right) = \frac{1 }{2 } (\boldsymbol{\sigma}_i \cdot \boldsymbol{\sigma}_j+1)
+    \sum_{\sigma\sigma'} a_{i\sigma}^\dagger a_{i\sigma'} a_{j\sigma'}^\dagger a_{j\sigma}
+     & =   a_{i\uparrow}^\dagger a_{i\uparrow} a_{j\uparrow}^\dagger a_{j\uparrow} + a_{i\uparrow}^\dagger a_{i\downarrow} a_{j\downarrow}^\dagger a_{j\uparrow}                        \\
+     & \qquad+ a_{i\downarrow}^\dagger a_{i\downarrow} a_{j\downarrow}^\dagger a_{j\downarrow}    + a_{i\downarrow}^\dagger a_{i\uparrow} a_{j\uparrow}^\dagger a_{j\downarrow}         \\
+     & = \frac{1}{4}\big[(\sigma_{3i}+1)(\sigma_{3j}+1)+(\sigma_{1i}+i\sigma_{2i})(\sigma_{1j}-i\sigma_{2j})                                                                            \\
+     & \qquad+(\sigma_{1i}-i\sigma_{2i})(\sigma_{1j}+i\sigma_{2j})+(1-\sigma_{3i})(1-\sigma_{3j})\big]                                                                                  \\
+     & = \frac{1 }{2 }\left( \sigma_{1i  }\sigma_{1j} +\sigma_{2i  }\sigma_{2j}+\sigma_{3i  }\sigma_{3j}+1\right) = \frac{1 }{2 } (\boldsymbol{\sigma}_i \cdot \boldsymbol{\sigma}_j+1)
 \end{align*}
 Thus, neglecting the diagonal term, which are immaterial in determining the spin configuration, we have the Heisenberg Hamiltonian
 \begin{equation*}
-    H_H = -\frac{1 }{4 }\sum_{ij}{}' J_{ij} \boldsymbol{\sigma}_i \cdot \boldsymbol{\sigma}_j  
+    H_H = -\frac{1 }{4 }\sum_{ij}{}' J_{ij} \boldsymbol{\sigma}_i \cdot \boldsymbol{\sigma}_j
 \end{equation*}
 \end{document}
