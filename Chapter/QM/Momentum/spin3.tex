@@ -7,7 +7,13 @@ The electron in solid has the Hamiltonian
 \end{equation*}
 which contains kinetic energy, the periodic crystal potential, and Coulomb repulsion. At this stage there are no explicit spin–spin interactions.
 One rewrites this in second quantization and chooses Bloch eigenstates as a basis, which diagonalizes the one-body part. 
-Because a full treatment over all bands is impractical, one also projects onto a single partially relevant band near the Fermi level
+\begin{multline*}
+    H = \sum_{n\mathbf{k}  \sigma} \epsilon_{\mathbf{k }} ^{n} a^\dagger_{n\mathbf{k}  \sigma} a_{n \mathbf{k} \sigma} +   \frac{1}{2}\sum_{\substack{n_1 n_2                                                                                                                             \\ n_1' n_2'}}\sum_{\substack{\mathbf{k}_1 \mathbf{k}_2 \\ \mathbf{k}_1' \mathbf{k}_2'}}\sum_{\sigma\sigma'}
+    \braket{n_1 \mathbf{k}_1  n_2 \mathbf{k}_2  | \frac{1}{r} |  n_1' \mathbf{k}_1' n_2'\mathbf{k}_2'   }\\
+    \times     a^\dagger_{n_1\mathbf{k}_1  \sigma} a^\dagger_{n_2 \mathbf{k}_2  \sigma'} a_{ n_2'\mathbf{k}_2'  \sigma'}a_{n_1' \mathbf{k}_1'  \sigma}
+\end{multline*}
+Because a full treatment over all bands is impractical, one also projects onto a single partially relevant band near the Fermi level.
+We also use Warner function to represent the Hamiltonian in real space
 \begin{equation*}
     H =  \sum_{ij \sigma} \epsilon_{ij} a ^\dagger_{i \sigma} a_{j \sigma}  +
     \frac{1}{2}\sum_{\substack{i j \sigma \\ k l \sigma'}}
@@ -23,7 +29,7 @@ or further upon decomposition
     + \sum_{ij} {} ' \sum_{\sigma\sigma'}\langle ii|\frac{1}{r}|jj\rangle\,a_{i\sigma}^{\dagger}a_{i\sigma'}^{\dagger}a_{j\sigma'}a_{j\sigma}
 \end{multline*}
 \begin{enumerate}
-    \item \textbf{Hopping term.} It describe electron initially at site $j$ move to  $i$ with amplitude $\epsilon_{ij}$.
+    \item \textbf{Hopping term.} It describes electron initially at site $j$ move to  $i$ with amplitude $\epsilon_{ij}$.
     \item \textbf{On-site Coulomb repulsion.} It penalizes double occupation with energy $I$ and leaving single occupied state, where either $n_{i\sigma}$ or $n_{i-\sigma}$ equal to zero.
     \item \textbf{Intersite direct Coulomb repulsion.} ordinary electrostatic repulsion between charge densities on different sites $n_i$ and $n_j$.
     \item \textbf{Exchange interaction.} The origin of Heisenberg Hamiltonian. The spins are exchanged between the two sites: at site $j$ spin $\sigma\to\sigma'$ and at site $i$ $\sigma'\to\sigma$ 
@@ -38,11 +44,276 @@ The generate effective Hamiltonian called the Heisenberg Hamiltonian
 \end{equation*}
 or under nearest-neighbor approximation
 \begin{equation*}
-    H_H = -\sum_{ij } J_{\braket{ij }} \boldsymbol{\sigma}_i  \cdot \boldsymbol{\sigma}_j    
+    H_H = -\sum_{\braket{ij }} J_{ij} \boldsymbol{\sigma}_i  \cdot \boldsymbol{\sigma}_j    
 \end{equation*}
 Therefore, it is a low-energy effective theory describing interacting localized spins after electronic charge fluctuations have been eliminated.
 
-\subsubsection{Derivation.}
+\subsubsection{Spin wave theory.}
+By mapping spin operators to bosonic operators via Holstein–Primakoff transformation and retaining only quadratic terms, the Hamiltonian can be approximately diagonalized in momentum space
+\begin{equation*}
+    H = \text{const} + \sum_{\mathbf{k}} \hbar \omega_{\mathbf{k}}  \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}}
+\end{equation*}
+with
+\begin{equation*}
+    \hbar \omega_{\mathbf{k }}
+    = Js\left[z - g_\mathbf{k} \right]
+    \qquad  g_\mathbf{k} = \sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}
+\end{equation*}
+For spin chain, we have
+\begin{equation*}
+    g_\mathbf{k} = e^{-ika}+e^{ika}=2\cos(ka)
+\end{equation*}
+While for 2D graphene
+\begin{equation*}
+    g_{\mathbf{k}} = e^{-i a k_y } +\exp \left[ -i\left(\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right] + \exp \left[ -i\left(-\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right]
+\end{equation*}
+
+The resulting eigenmodes are plane-wave superpositions of local spin deviations $a_i ^\dagger \ket{0}$.
+The spin wave appears in the structure of the eigenmodes
+\begin{equation*}
+    a_{\mathbf{k}}^ \dagger\lvert 0\rangle = \frac{1}{\sqrt{N}} \sum_{j} e^{-i\mathbf{k}\cdot\mathbf{R}_{j}} a_{j}^ \dagger\lvert 0\rangle
+\end{equation*}
+This mode of $\mathbf{k}$ correspond to collective excitations of the spin system, known as spin waves or magnon in the quantized description.
+$a_{\mathbf{k}}^ \dagger\lvert 0\rangle$ also called the delocalized momentum eigenstate.
+Working in one dimension
+\begin{equation*}
+    a_{k}^ \dagger\lvert 0\rangle = \frac{1}{\sqrt{N}} \sum_{i} e^{-ikaj} a_{i}^ \dagger\lvert 0\rangle    
+\end{equation*}
+with $\mathbf{k }=k$ and $\mathbf{R}_j = aj$
+
+In one dimension and assuming boundary condition $\boldsymbol{\sigma}_{N+1} = \boldsymbol{\sigma}_1$, the Heisenberg Hamiltonian can be written as
+\begin{equation*}
+    \mathcal{H} = -\mathcal{J}\sum_{j=1}^{N}\boldsymbol{\sigma}_j\cdot\boldsymbol{\sigma}_{j+1}
+\end{equation*}
+with $\mathcal{J}>0$.
+It can be shown that the Hamiltonian commute with the third component of the total spin operator
+\begin{equation*}
+    [H,\sigma_3]=0,\qquad
+    \sigma_3 = \sum_{i } ^N \sigma_{3j}
+\end{equation*}
+
+With the ground state of
+\begin{equation*}
+    \ket{0} = \bigotimes_{j=1}^{N} \ket{\uparrow}_j = \bigotimes_{j=1}^{N} \begin{pmatrix}1\\ 0 \end{pmatrix}_j
+\end{equation*}
+the action of the Heisenberg Hamiltonian in this state reads
+\begin{equation*}
+    \mathcal{H}\lvert 0\rangle
+    = -\mathcal{J}N\lvert 0\rangle
+\end{equation*}
+such that the ground state energy is $E_0 = \mathcal{J }N$.
+This is derived using the following relation
+\begin{equation*}
+    \boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}=2P_{i,i+1}-1
+\end{equation*}
+The $P_{i,i+1}$ is the permutation operator that exchange the state $i$ with $i+1$.
+
+\subsubsection{Derivation: Fourier transform of the Heisenberg Hamiltonian.}
+Even in this case, the spin operator satisfy the usual commutation relations
+\begin{equation*}
+    \left[S_i^{\alpha}, S_j^{\beta}\right] = i \delta_{ij} \epsilon_{\alpha\beta\gamma} S_i^{\gamma}
+\end{equation*}
+Here, $\delta_{ij }$ enforces that different sites commute.
+As it the case with the ladder operator
+\begin{equation*}
+    S_i^{+} = S_i^{x} + iS_i^{y}
+    \qquad S_i^{-} = S_i^{x} - iS_i^{y}
+\end{equation*}
+This also satisfies the usual relation
+\begin{equation*}
+    [S_i^z, S_i^\pm] = \pm S_i^\pm\qquad
+    [S_i^+, S_i^-] = 2S_i^z
+\end{equation*}
+
+We now introduce the Holstein–Primakoff transformation
+\begin{gather*}
+    S_i^+ = \sqrt{2s}\left(1-\frac{a_i^\dagger a_i}{2s}\right)^{1/2}a_i\qquad
+    S_i^- = \sqrt{2s}a_i^\dagger\left(1-\frac{a_i^\dagger a_i}{2s}\right)^{1/2}\\
+    S_i^z = s-a_i^\dagger a_i
+\end{gather*}
+The transformation is constructed so that the spin commutation relations, under bosonic transformation, are exactly preserved.
+
+The third transformation arises from matching the spectrum of $S^z$ with a boson number operator.
+It can be derived from this relation
+\begin{equation*}
+    (S_i^z)^2 = s(s+1) - (S_i^x)^2 - (S_i^y)^2
+\end{equation*}
+After computing the square of $x$ and $y$ components operator
+\begin{equation*}
+    (S_i^z)^2 = s(s+1) - \frac{1}{2}\bigl(S_i^+ S_i^- + S_i^- S_i^+\bigr)
+\end{equation*}
+The products of ladder operators are calculated as
+\begin{align*}
+    S_i^+ S_i^-
+     & =  2s\left(1-\frac{n_i}{2s}\right)^{1/2} a_i a_i^\dagger\left(1-\frac{n_i}{2s}\right)^{1/2} =  2s\left(n_i + 1\right)\left(1 - \frac{n_i}{2s}\right) \\
+    S_i^+ S_i^-
+     & =   \left(2s - n_i\right) (n_i+1) = 2 s n_i + 2 s - n_i^2 - n_i,
+\end{align*}
+and
+\begin{equation*}
+    S_i^- S_i^+
+    =  2s  a_i^\dagger\left(1-\frac{n_i}{2s}\right) a_i
+    =  a_i^\dagger\left(2s a_i - n_i a_i\right) \\
+    =     2s n_i - n_i ^2 + n_i
+\end{equation*}
+Substituting back
+\begin{align*}
+    (S_i^z)^2
+     & =  s^2 +s - (2s n_i + s - n_i ^2 ) = s^2 - 2s n_i + n_i^2 \\
+    (S_i^z)^2
+     & = (s - n_i)^2                                             \\
+    S_i^z = \pm s - n_i
+\end{align*}
+The vacuum $n_i=0$ must correspond to the fully polarized state $S_i^z=+s$.
+So we take the positive side
+\begin{equation*}
+    S_i^z = s - n_i = s - a_i ^\dagger a_i
+\end{equation*}
+
+The dot product is evaluated as
+\begin{align*}
+    \mathbf{S}_i \cdot \mathbf{S}_j
+     & = S_i^z S_j^z + \frac{1}{2}\bigl(S_i^+ S_j^- + S_i^- S_j^+\bigr)                                                               \\
+    \mathbf{S}_i \cdot \mathbf{S}_j
+     & = s^2 - s a_i^\dagger a_i - s  a_j^\dagger a_j + a_i^\dagger a_i a_j^\dagger a_j                                               \\
+     & \qquad+ s\Bigg[\left(1-\frac{a_i^\dagger a_i}{2s}\right)^{1/2} a_i a_j^\dagger \left(1-\frac{a_j^\dagger a_j}{2s}\right)^{1/2} \\
+     & \qquad\qquad+ a_i ^\dagger\left(1-\frac{a_i ^\dagger a_i}{2s}\right)^{1/2}\left(1-\frac{a_j ^\dagger a_j}{2s}\right)^{1/2} a_j
+        \Bigg]
+\end{align*}
+Use binomial expansion
+\begin{equation*}
+    (1-x)^{1/2} = \sum_{n=0}^{\infty} \binom{1/2}{n}(-x)^n = 1 - \frac{x}{2} - \frac{x^2}{8} + \cdots
+\end{equation*}
+to rewrite the result as
+\begin{align*}
+    \mathbf{S}_i \cdot \mathbf{S}_j
+     & = s^2 - s a_i^\dagger a_i - s  a_j^\dagger a_j + a_i^\dagger a_i a_j^\dagger a_j                                                     \\
+     & \qquad+ s\Bigg[\left(1-\frac{a_i^\dagger a_i}{4s} - \dots\right)  a_i a_j^\dagger \left(1-\frac{a_j^\dagger a_j}{4s} - \dots\right)  \\
+     & \qquad\qquad+ a_i ^\dagger\left(1-\frac{a_i ^\dagger a_i}{4s} - \dots\right) \left(1-\frac{a_j ^\dagger a_j}{4s} - \dots\right)  a_j
+        \Bigg]
+\end{align*}
+Under second order approximation
+\begin{equation*}
+    \mathbf{S}_i \cdot \mathbf{S}_j  = s^2 - s\big(a_i^\dagger a_i + a_j^\dagger a_j\big) + s\big(a_i a_j ^\dagger+ a_i^\dagger a_j\big)
+\end{equation*}
+
+Inserting this into the Hamiltonian
+\begin{align*}
+    H
+      & = \frac{J }{2} \sum_{\braket{ij }} \left[ s^2 - s(n_i+n_j) + s\big(a_i a_j ^\dagger+ a_i^\dagger a_j \big) \right] \\
+    H & =  C + J s z \sum_i a_i ^\dagger a_i - Js\sum_{\braket{ i j}} a_i^\dagger a_j
+\end{align*}
+with $C$ being constant and $z$ being the coordination number.
+For a fixed  site $i$, the sum runs over all its neighbors site $j$, the number of which is $z$.
+Therefore, $n_i$ is counted $z$ times in the sum.
+
+Next insert the Fourier transform
+\begin{equation*}
+    a_{\mathbf{k}} = \frac{1}{\sqrt{N}}\sum_{i} e^{ i\mathbf{k}\cdot\mathbf{R}_{i}}a_{i}\qquad
+    a_{\mathbf{k}}^{\dagger} = \frac{1}{\sqrt{N}}\sum_{i} e^{- i\mathbf{k}\cdot\mathbf{R}_{i}} a_{i}^{\dagger}.
+\end{equation*}
+or more precisely, we use its inverse in terms of displacement vector $\boldsymbol{\delta}$
+\begin{equation*}
+    a_i^\dagger = \frac{1}{\sqrt{N}}\sum_\mathbf{k} e^{i\mathbf{k}\cdot\mathbf{R}_i} a_\mathbf{k}^\dagger\qquad
+    a_{i+\boldsymbol{\delta}} = \frac{1}{\sqrt{N}}\sum_\mathbf{k} e^{-i\mathbf{k}\cdot(\mathbf{R}_i+\boldsymbol{\delta})} a_\mathbf{k}
+\end{equation*}
+The product of creation and annihilation operator is
+\begin{align*}
+    \sum_{\braket{ i j}} a_i^\dagger a_j
+     & =  \frac{1}{N} \sum_{\braket{ i j}} \sum_{\mathbf{k},\mathbf{k}'} e^{i\mathbf{k}\cdot\mathbf{R}_i} e^{-i\mathbf{k}'\cdot(\mathbf{R}_i+\boldsymbol{\delta})} a_{\mathbf{k}}^{\dagger}a_{\mathbf{k}'}              \\
+     & =  \frac{1}{N} \sum_{\mathbf{k},\mathbf{k}'}\sum_i\sum_{\boldsymbol{\delta}} e^{i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{R}_i}  e^{-i\mathbf{k}'\cdot\boldsymbol{\delta}}  a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}'} \\
+     & =  \sum_{\mathbf{k}} \left(\sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}\right) a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}}
+\end{align*}
+The Hamiltonian now reads
+\begin{equation*}
+    H = C +  \sum_{\mathbf{k}} Js\left[z - \left(\sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}\right) \right] a_{\mathbf{k}}^\dagger a_{\mathbf{k}}
+\end{equation*}
+Defining
+\begin{equation*}
+    \hbar \omega_{\mathbf{k }} = Js\left[z - g_\mathbf{k }  \right]
+    \qquad
+    g_\mathbf{k } = \sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}
+\end{equation*}
+we can also write
+\begin{equation*}
+    H = C +  \sum_{\mathbf{k}}\hbar \omega_{\mathbf{k }}a_{\mathbf{k}}^\dagger a_{\mathbf{k}}
+\end{equation*}
+
+In spin chain, each site has two nearest neighbors, so $\boldsymbol{\delta}= \pm a$ and
+\begin{equation*}
+    g_\mathbf{k} = e^{-ika}+e^{ika}=2\cos(ka)
+\end{equation*}
+For graphene, each site has three nearest neighbors which are not collinear.
+Defining
+\begin{equation*}
+    \boldsymbol{\delta}_1 = a(0,1)\quad
+    \boldsymbol{\delta}_2 = a\left(\frac{\sqrt{3}}{2},-\frac{1}{2}\right)\quad
+    \boldsymbol{\delta}_3 = a\left(-\frac{\sqrt{3}}{2},-\frac{1}{2}\right)
+\end{equation*}
+and $\mathbf{k} = (k_x,k_y)$.
+Then
+\begin{equation*}
+    g_{\mathbf{k}} = e^{-i a k_y } +\exp \left[ -i\left(\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right] + \exp \left[ -i\left(-\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right]
+\end{equation*}
+
+\subsubsection{Derivation: Commutator relation}
+Start with the ladder operator definition
+\begin{equation*}
+    \sigma_j^{\pm} = \sigma_{j}^{x} \pm i \sigma_{j}^{y}
+    \qquad
+    \sigma_j^{x} = \frac{1}{2}(\sigma_j^{+} + \sigma_j^{-})
+    \qquad
+    \sigma_j^{y} = \frac{1}{2i}(\sigma_j^{+} - \sigma_j^{-}) \\
+\end{equation*}
+We write
+\begin{equation*}
+    \boldsymbol{\sigma}*j \cdot \boldsymbol{\sigma}*{j+1}
+    =  \sigma_j^x \sigma_{j+1}^x + \sigma_j^y \sigma_{j+1}^y + \sigma_j^z \sigma_{j+1}^z
+    = \frac{1}{2} \left( \sigma_j^{+}\sigma_{j+1}^{-} + \sigma_j^{-}\sigma_{j+1}^{+} \right)+ \sigma_j^z \sigma_{j+1}^z
+\end{equation*}
+Thus the Hamiltonian becomes
+\begin{equation*}
+    \mathcal{H}
+    = -\mathcal{J} \sum_{j=1}^{N}
+    \left[
+        \frac{1}{2} \left( \sigma_j^{+}\sigma_{j+1}^{-} + \sigma_j^{-}\sigma_{j+1}^{+} \right)+ \sigma_j^z \sigma_{j+1}^z
+        \right]
+\end{equation*}
+
+Now  the commutator is evaluated with the relation
+\begin{equation*}
+    [\sigma_i^z,\sigma_j^{\pm}] = \pm 2\delta_{ij}\sigma_j^{\pm}\qquad
+    [\sigma_i^z,\sigma_j^z] = 0
+\end{equation*}
+Consider from the first term
+\begin{align*}
+    [\sigma_3, \sigma_j^{+}\sigma_{j+1}^{-}]
+     & =  \sum_i [\sigma_i^z, \sigma_j^{+}\sigma_{j+1}^{-}]
+    =\sum_{i}  [\sigma_i^z, \sigma_j^{+}]\sigma_{j+1}^{-} +  \sum_{i}\sigma_j^{+}[\sigma_{i}^z, \sigma_{j+1}^{-}] \\
+     & =  2\sigma_j^{+}\sigma_{j+1}^{-} -  2\sigma_j^{+}\sigma_{j+1}^{-} = 0
+\end{align*}
+since only $i=j$ and $i=j+1$ contribute.
+The same goes for the second term
+\begin{align*}
+    [\sigma_3, \sigma_j^{-}\sigma_{j+1}^{+}]
+     & =  \sum_i [\sigma_i^z, \sigma_j^{-}\sigma_{j+1}^{+}]
+    =\sum_{i}  [\sigma_i^z, \sigma_j^{-}]\sigma_{j+1}^{+} +  \sum_{i}\sigma_j^{-}[\sigma_{i}^z, \sigma_{j+1}^{+}] \\
+     & =  - 2\sigma_j^{-}\sigma_{j+1}^{+} +  2\sigma_j^{-}\sigma_{j+1}^{+} = 0
+\end{align*}
+The third term is trivial since both operator are of the same component.
+Hence, each term in the Hamiltonian commute with the third component of the total spin operator $ [H,\sigma_3]=0$.
+
+\subsubsection{Derivation: Ground state energy.}
+Simply use the permutation relation
+\begin{align*}
+        \mathcal H \ket{0} & =  -\mathcal{J} \sum_{i=1}^{N} (\boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}) \ket{0}
+    = -\mathcal{J} \sum_{i=1}^{N} (2P_{i,i+1}-1)\ket{0}\\
+    & =  -\mathcal{J} \sum_{i=1}^{N} (2-1)\ket{0}
+    = -\mathcal{J} N
+\end{align*}
+since the permutation does nothing to the ground state.
+
+\subsubsection{Derivation: The Heisenberg Hamiltonian.}
 We start from the Hamiltonian
 \begin{equation*}
     H = \sum_{i}\left[\frac{p_i^2}{2m}+V(\mathbf{r}_i)\right]+\frac{1}{2}\sum_{i\neq j}\frac{e^2}{\lvert\mathbf{r}_i-\mathbf{r}_j\rvert}
