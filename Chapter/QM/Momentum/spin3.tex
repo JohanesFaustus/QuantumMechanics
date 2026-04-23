@@ -59,10 +59,12 @@ with
     = Js\left[z - g_\mathbf{k} \right]
     \qquad  g_\mathbf{k} = \sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}
 \end{equation*}
+and $\boldsymbol{\delta}$ as displacement vector.  
 For spin chain, we have
 \begin{equation*}
     g_\mathbf{k} = e^{-ika}+e^{ika}=2\cos(ka)
 \end{equation*}
+so that the dispersion relation is $E_k = J(1- \cos ka)$.
 While for 2D graphene
 \begin{equation*}
     g_{\mathbf{k}} = e^{-i a k_y } +\exp \left[ -i\left(\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right] + \exp \left[ -i\left(-\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right]
@@ -77,15 +79,17 @@ This mode of $\mathbf{k}$ correspond to collective excitations of the spin syste
 $a_{\mathbf{k}}^ \dagger\lvert 0\rangle$ also called the delocalized momentum eigenstate.
 Working in one dimension
 \begin{equation*}
-    a_{k}^ \dagger\lvert 0\rangle = \frac{1}{\sqrt{N}} \sum_{i} e^{-ikaj} a_{i}^ \dagger\lvert 0\rangle    
+    a_{k}^ \dagger\lvert 0\rangle = \frac{1}{\sqrt{N}} \sum_{j} e^{-ikaj} a_{j}^ \dagger\lvert 0\rangle    
 \end{equation*}
-with $\mathbf{k }=k$ and $\mathbf{R}_j = aj$
+with $\mathbf{k }=k$ and $\mathbf{R}_j = aj$.
+Do note the $a ^\dagger$ here is defined as abstract operator that create excitations state, regardless of how the ground state $\ket{0}$ is defined, whether all up or all down.
 
+\subsubsection{One-dimensional case.}
 In one dimension and assuming boundary condition $\boldsymbol{\sigma}_{N+1} = \boldsymbol{\sigma}_1$, the Heisenberg Hamiltonian can be written as
 \begin{equation*}
-    \mathcal{H} = -\mathcal{J}\sum_{j=1}^{N}\boldsymbol{\sigma}_j\cdot\boldsymbol{\sigma}_{j+1}
+    H = -J\sum_{j=1}^{N}\boldsymbol{\sigma}_j\cdot\boldsymbol{\sigma}_{j+1}
 \end{equation*}
-with $\mathcal{J}>0$.
+with $J>0$.
 It can be shown that the Hamiltonian commute with the third component of the total spin operator
 \begin{equation*}
     [H,\sigma_3]=0,\qquad
@@ -98,15 +102,29 @@ With the ground state of
 \end{equation*}
 the action of the Heisenberg Hamiltonian in this state reads
 \begin{equation*}
-    \mathcal{H}\lvert 0\rangle
-    = -\mathcal{J}N\lvert 0\rangle
+    H\lvert 0\rangle
+    = -JN\lvert 0\rangle
 \end{equation*}
-such that the ground state energy is $E_0 = \mathcal{J }N$.
+such that the ground state energy is $E_0 = -\mathcal{J }N$.
 This is derived using the following relation
 \begin{equation*}
     \boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}=2P_{i,i+1}-1
 \end{equation*}
 The $P_{i,i+1}$ is the permutation operator that exchange the state $i$ with $i+1$.
+
+With one magnon state $\ket{m} = \sigma^-_m \ket{0}$, we see that the Hamiltonian action is 
+\begin{equation*}
+    H\ket{m}= E_0 |m\rangle + 2J\left(2|m\rangle - |m+1\rangle - |m-1\rangle\right)
+\end{equation*}
+Along with this, we define the magnon state $\ket{k} = a ^\dagger_k \ket{0}$, which satisfies
+\begin{equation*}
+    \ket{k} = \frac{1}{\sqrt{N}} \sum_{m} e^{-ikam} \ket{m}
+\end{equation*}
+This state has the energy eigenvalue of 
+\begin{equation*}
+    H \ket{k }= \left[ E_0 +4J (1- \cos ka) \right] 
+\end{equation*}
+Taking into account constant-energy $E_0$ offset and normalization due to Pauli matrices $2\sigma = S$, this produce the same result with energy spectrum derived using Fourier transform $\hbar \omega_\mathbf{k} = J(1- \cos ka)$
 
 \subsubsection{Derivation: Fourier transform of the Heisenberg Hamiltonian.}
 Even in this case, the spin operator satisfy the usual commutation relations
@@ -273,8 +291,8 @@ We write
 \end{equation*}
 Thus the Hamiltonian becomes
 \begin{equation*}
-    \mathcal{H}
-    = -\mathcal{J} \sum_{j=1}^{N}
+    H
+    = -J \sum_{j=1}^{N}
     \left[
         \frac{1}{2} \left( \sigma_j^{+}\sigma_{j+1}^{-} + \sigma_j^{-}\sigma_{j+1}^{+} \right)+ \sigma_j^z \sigma_{j+1}^z
         \right]
@@ -303,15 +321,41 @@ The same goes for the second term
 The third term is trivial since both operator are of the same component.
 Hence, each term in the Hamiltonian commute with the third component of the total spin operator $ [H,\sigma_3]=0$.
 
-\subsubsection{Derivation: Ground state energy.}
-Simply use the permutation relation
+\subsubsection{Derivation: Ground state and magnon state energy.}
+For the ground state, simply use the permutation relation
 \begin{align*}
-        \mathcal H \ket{0} & =  -\mathcal{J} \sum_{i=1}^{N} (\boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}) \ket{0}
-    = -\mathcal{J} \sum_{i=1}^{N} (2P_{i,i+1}-1)\ket{0}\\
-    & =  -\mathcal{J} \sum_{i=1}^{N} (2-1)\ket{0}
-    = -\mathcal{J} N
+        \mathcal H \ket{0} & =  -J \sum_{i=1}^{N} (\boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}) \ket{0}
+    = -J \sum_{i=1}^{N} (2P_{i,i+1}-1)\ket{0}\\
+    & =  -J \sum_{i=1}^{N} (2-1)\ket{0}
+    = -J N = E_0
 \end{align*}
 since the permutation does nothing to the ground state.
+
+For the magnon, recall that the Hamiltonian only act on nearest–neighbor terms, so it can be split
+\begin{equation*}
+    H \ket{m} = J \left[ \sum_{i'} \boldsymbol{\sigma}_i \cdot \boldsymbol{\sigma}_{i+1} + \boldsymbol{\sigma}_{m-1} \cdot \boldsymbol{\sigma}_{m} + \boldsymbol{\sigma}_m \cdot \boldsymbol{\sigma}_{m+1}\right]  \ket{m}
+\end{equation*}
+with $i'\neq (m-1,m)$. 
+When acting on $\ket{m}$, terms with $i'$ act on pairs of spins that are both up, hence they contribute exactly as in the ground state.
+For the other two terms, we use the permutation relation once again 
+\begin{align*}
+    H \ket{m} 
+    & =   J\left[ (N-2)+ (2P_{m-1,m}-1) + (2P_{m,m+1}-1) \right] \ket{m}\\
+    & = -J(N-4) \ket{m} - 2J \ket{m-1} - 2J \ket{m+1} \\
+    H \ket{m} 
+    & = E_0 \ket{m} +2J \left(2 \ket{m}-  \ket{m-1}- \ket{m+1} \right)  
+\end{align*}
+
+Now consider the spin-wave state
+\begin{align*}
+            \mathcal{H}|k\rangle
+& =  \sum_m e^{-ikam} {H}|m\rangle\\
+& =  \sum_{m} e^{-ikam} \left[J(N-4) \ket{m} +2J \ket{m-1}+ 2J \ket{m+1} \right]   \\
+& =  (E_0+4J)\sum_{m} e^{-ikam} \ket{m} - 2J \sum_{m} e^{-ika(m+1)}\ket{m} 
+\\ &\qquad - 2J \sum_{m} e^{-ika(m-1)}\ket{m} \\
+& = \left[ E_0  + J \left(4 - 2e^{-ika} - 2e^{ika} \right) \right]  \ket{m}
+= \left[ E_0 +4J(1- \cos ka) \right] \ket{m}
+\end{align*}
 
 \subsubsection{Derivation: The Heisenberg Hamiltonian.}
 We start from the Hamiltonian
