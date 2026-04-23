@@ -1,0 +1,255 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Heisenberg Hamiltonian}
+The electron in solid has the Hamiltonian
+\begin{equation*}
+    H = \sum_{i}\left[\frac{p_i^2}{2m}+V(\mathbf{r}_i)\right]+\frac{1}{2}\sum_{i\neq j}\frac{e^2}{\lvert\mathbf{r}_i-\mathbf{r}_j\rvert}
+\end{equation*}
+which contains kinetic energy, the periodic crystal potential, and Coulomb repulsion. At this stage there are no explicit spin–spin interactions.
+One rewrites this in second quantization and chooses Bloch eigenstates as a basis, which diagonalizes the one-body part. 
+Because a full treatment over all bands is impractical, one also projects onto a single partially relevant band near the Fermi level
+\begin{equation*}
+    H =  \sum_{ij \sigma} \epsilon_{ij} a ^\dagger_{i \sigma} a_{j \sigma}  +
+    \frac{1}{2}\sum_{\substack{i j \sigma \\ k l \sigma'}}
+    \braket{ i   j  | \frac{1}{r} |   k l   }
+    a^\dagger_{ i  \sigma} a^\dagger_{  j  \sigma'} a_{l  \sigma'}a_{  k  \sigma}
+\end{equation*}
+or further upon decomposition
+\begin{multline*}
+    H = \sum_{ij\sigma} \epsilon_{ij}\,a_{i\sigma}^{\dagger}a_{j\sigma}
+    + \frac{I}{2}\sum_{i\sigma}n_{i\sigma}n_{i-\sigma}
+    + \frac{1}{2}\sum_{ij}^{ }{} '  \sum_{\sigma\sigma'}\langle ij|\frac{1}{r}|ij\rangle\,n_{i\sigma}n_{j\sigma'}\\
+    -\frac{1}{2}\sum_{ij}{}' \sum_{\sigma\sigma'}J_{ij}a_{i\sigma}^{\dagger}a_{i\sigma'}a_{j\sigma'}^{\dagger}a_{j\sigma}
+    + \sum_{ij} {} ' \sum_{\sigma\sigma'}\langle ii|\frac{1}{r}|jj\rangle\,a_{i\sigma}^{\dagger}a_{i\sigma'}^{\dagger}a_{j\sigma'}a_{j\sigma}
+\end{multline*}
+\begin{enumerate}
+    \item \textbf{Hopping term.} It describe electron initially at site $j$ move to  $i$ with amplitude $\epsilon_{ij}$.
+    \item \textbf{On-site Coulomb repulsion.} It penalizes double occupation with energy $I$ and leaving single occupied state, where either $n_{i\sigma}$ or $n_{i-\sigma}$ equal to zero.
+    \item \textbf{Intersite direct Coulomb repulsion.} ordinary electrostatic repulsion between charge densities on different sites $n_i$ and $n_j$.
+    \item \textbf{Exchange interaction.} The origin of Heisenberg Hamiltonian. The spins are exchanged between the two sites: at site $j$ spin $\sigma\to\sigma'$ and at site $i$ $\sigma'\to\sigma$ 
+    \item \textbf{Pair hopping.} This moves an electron pair together, two from site $j$ into two $i$.
+\end{enumerate}
+
+In the $I\gg \epsilon_{ij}$, double occupancy costs so much energy that low-energy states satisfy $n_i =1$ for all site.
+The charge degrees of freedom are then frozen, leaving only local spin variables.
+The generate effective Hamiltonian called the Heisenberg Hamiltonian
+\begin{equation*}
+    H_H = -\sum_{ij } J_{ij} \boldsymbol{\sigma}_i  \cdot \boldsymbol{\sigma}_j
+\end{equation*}
+or under nearest-neighbor approximation
+\begin{equation*}
+    H_H = -\sum_{ij } J_{\braket{ij }} \boldsymbol{\sigma}_i  \cdot \boldsymbol{\sigma}_j    
+\end{equation*}
+Therefore, it is a low-energy effective theory describing interacting localized spins after electronic charge fluctuations have been eliminated.
+
+\subsubsection{Derivation.}
+We start from the Hamiltonian
+\begin{equation*}
+    H = \sum_{i}\left[\frac{p_i^2}{2m}+V(\mathbf{r}_i)\right]+\frac{1}{2}\sum_{i\neq j}\frac{e^2}{\lvert\mathbf{r}_i-\mathbf{r}_j\rvert}
+\end{equation*}
+The second quantization reads
+\begin{equation*}
+    H = \sum_{ij}\langle i|h|j\rangle a_{i}^{\dagger}a_{j} +\frac{1}{2}\sum_{ijlm}\langle ij|v|lm\rangle a_{i}^{\dagger}a_{j}^{\dagger}a_{m}a_{l}
+\end{equation*}
+With the matrix elements
+\begin{align*}
+    \langle i|h|j\rangle   & = \int d \mathbf{r}\;\phi_{i}^{*}(\mathbf{r}) h(\mathbf{r}) \phi_{j}(\mathbf{r})                                                                              \\
+    \langle ij|v|lm\rangle & = \int d \mathbf{r} \;d \mathbf{r}'\; \phi_{i}^{*}(\mathbf{r}) \phi_{j}^{*}(\mathbf{r}') v(\mathbf{r}-\mathbf{r}') \phi_{l}(\mathbf{r}) \phi_{m}(\mathbf{r}')
+\end{align*}
+Here we use the Bloch state $\ket{n \mathbf{k }\sigma}$.
+The translational symmetry of the state implies diagonal one particle operator
+\begin{equation*}
+    H_1 = \sum_{n\mathbf{k}  \sigma} \braket{n \mathbf{k }\sigma  | h | n \mathbf{k }\sigma} a^\dagger_{n \mathbf{k} \sigma} a_{  n \mathbf{k} \sigma}
+    = \sum_{n\mathbf{k}  \sigma} \epsilon_{\mathbf{k }} ^{n} a^\dagger_{n\mathbf{k}  \sigma} a_{n \mathbf{k} \sigma}
+\end{equation*}
+As for the two particle operator
+\begin{align*}
+    H_2
+     & =   \frac{1}{2}\sum_{\substack{n_1 n_2                                                                                                                             \\ n_1' n_2'}}\sum_{\substack{\mathbf{k}_1 \mathbf{k}_2 \\ \mathbf{k}_1' \mathbf{k}_2'}}\sum_{\substack{\sigma_1 \sigma_2\\\sigma_1' \sigma_2'}}
+    \braket{n_1 \mathbf{k}_1 \sigma_1  n_2 \mathbf{k}_2\sigma_2  | \frac{1}{r} |  n_1' \mathbf{k}_1' \sigma_1' n_2'\mathbf{k}_2' \sigma_2'}                               \\
+     & \qquad\qquad\times a^\dagger_{n_1\mathbf{k}_1  \sigma_1} a^\dagger_{n_2 \mathbf{k}_2  \sigma_2} a_{ n_2'\mathbf{k}_2'  \sigma_2'}a_{n_1' \mathbf{k}_1'  \sigma_1'} \\
+     & =   \frac{1}{2}\sum_{\substack{n_1 n_2                                                                                                                             \\ n_1' n_2'}}\sum_{\substack{\mathbf{k}_1 \mathbf{k}_2 \\ \mathbf{k}_1' \mathbf{k}_2'}}\sum_{\sigma\sigma'}
+    \braket{n_1 \mathbf{k}_1  n_2 \mathbf{k}_2  | \frac{1}{r} |  n_1' \mathbf{k}_1' n_2'\mathbf{k}_2'   }
+    a^\dagger_{n_1\mathbf{k}_1  \sigma} a^\dagger_{n_2 \mathbf{k}_2  \sigma'} a_{ n_2'\mathbf{k}_2'  \sigma'}a_{n_1' \mathbf{k}_1'  \sigma}
+\end{align*}
+since the two-body interaction is spin-independent.
+The matrix element for the two body operator is
+\begin{equation*}
+    \langle \mathbf{k}_1 n_1 \mathbf{k}_2 n_2|\frac{1}{r}|\mathbf{k}_1' n_1' \mathbf{k}_2' n_2'\rangle = e^2 \int d\mathbf r\;d\mathbf r'\;
+    \frac{\psi_{\mathbf{k}_1}^{n_1}(\mathbf r)\,\psi_{\mathbf{k}_2}^{n_2}(\mathbf r')\,\psi_{\mathbf{k}_1'}^{n_1'}(\mathbf r)\,\psi_{\mathbf{k}_2'}^{n_2'}(\mathbf r')}
+    {|\mathbf r-\mathbf r'|}
+\end{equation*}
+Since it is impractical to handle the whole sum, we perform the single band approximation.
+This is only valid if the whole band are energetically well separated, and that the band we retained is the one closest to the Fermi level.
+The Hamiltonian now reads
+\begin{equation*}
+    H =\sum_{\mathbf{k}  \sigma} \epsilon_{\mathbf{k }}  a^\dagger_{\mathbf{k}  \sigma} a_{ \mathbf{k} \sigma}
+    +\frac{1}{2}\sum_{\substack{\mathbf{k}_1 \mathbf{k}_2 \sigma \\ \mathbf{k}_1' \mathbf{k}_2' \sigma'}}
+    \braket{ \mathbf{k}_1   \mathbf{k}_2  | \frac{1}{r} |   \mathbf{k}_1' \mathbf{k}_2'   }
+    a^\dagger_{ \mathbf{k}_1  \sigma} a^\dagger_{  \mathbf{k}_2  \sigma'} a_{\mathbf{k}_2'  \sigma'}a_{  \mathbf{k}_1'  \sigma}
+\end{equation*}
+
+We now introduce the Warner function $w(\mathbf{r} - \mathbf{R}_i)$ to transform the Hamiltonian from the momentum space into the real space.
+The function is defined as
+\begin{equation*}
+    \psi_{\mathbf{k}}(\mathbf{r}) = \frac{1}{\sqrt{N}}\sum_{i} w(\mathbf{r}-\mathbf{R}_i)e^{i\mathbf{k}\cdot\mathbf{R}_i}\quad
+    w(\mathbf{r}-\mathbf{R}_i) = \frac{1}{\sqrt{N}}\sum_{\mathbf{k}}\psi_{\mathbf{k}}(\mathbf{r})e^{-i\mathbf{k}\cdot\mathbf{R}_i}
+\end{equation*}
+Note that index $i$ denote real site $i$.
+Using $\sum_{\mathbf{k}} \exp[i\mathbf{k}\cdot(\mathbf{R}_i-\mathbf{R}_j)] = N\delta_{ij}$, the inversion performed as
+\begin{align*}
+    \sum_{\mathbf{k}} \psi_{\mathbf{k}}(\mathbf{r}) e ^{-i \mathbf{k} \mathbf{R}_j} & = \frac{1}{\sqrt{N}}\sum_{\mathbf{k} i} w(\mathbf{r}-\mathbf{R}_i)e^{i\mathbf{k}\cdot(\mathbf{R}_i-\mathbf{R}_j)} \\
+    \sum_{\mathbf{k}} \psi_{\mathbf{k}}(\mathbf{r}) e ^{-i \mathbf{k} \mathbf{R}_j} & = \sqrt{N} w(\mathbf{r}- \mathbf{R}_i)
+\end{align*}
+From this, we define
+\begin{equation*}
+    a_{i\sigma} = \frac{1}{\sqrt{N}}\sum_{\mathbf{k}} a_{\mathbf{k}\sigma} e^{i\mathbf{k}\cdot\mathbf{R}_i} \qquad
+    a_{i\sigma}^{\dagger} = \frac{1}{\sqrt{N}}\sum_{\mathbf{k}} a_{\mathbf{k}\sigma}^{\dagger} e^{-i\mathbf{k}\cdot\mathbf{R}_i}
+\end{equation*}
+its inversion
+\begin{equation*}
+    a_{\mathbf{k}\sigma} = \frac{1}{\sqrt{N}}\sum_{i} a_{i \sigma}e^{-i\mathbf{k}\cdot\mathbf{R}_i} \\
+    a_{\mathbf{k}\sigma}^{\dagger} = \frac{1}{\sqrt{N}}\sum_{i} a_{i \sigma}^{\dagger}e^{i\mathbf{k}\cdot\mathbf{R}_i}
+\end{equation*}
+and
+\begin{equation*}
+    \ket{\mathbf{k } } = \frac{1 }{\sqrt{N } } \sum_{i } \ket{w_i } e ^{i \mathbf{k }\mathbf{R_i}} \qquad
+    \ket{w_i } = \frac{ 1 }{\sqrt{N }  } \sum_{\mathbf{k }} \ket{\mathbf{k} } e ^{-i \mathbf{k }\mathbf{R_i}}
+\end{equation*}
+so that
+\begin{align*}
+    \sum_{\mathbf{k} } \ket{\mathbf{k}} a_{\mathbf{k}\sigma}         & =  \frac{1}{\sqrt{N}}\sum_{\mathbf{k} i} \ket{\mathbf{k}}  a_{i \sigma}e^{-i\mathbf{k}\cdot\mathbf{R}_i} = \sum_{i}\ket{w_i} a_{i \sigma}                  \\
+    \sum_{\mathbf{k} } \bra{\mathbf{k}} a_{\mathbf{k}\sigma}^\dagger & =  \frac{1}{\sqrt{N}}\sum_{\mathbf{k} i} \bra{\mathbf{k}}  a_{i \sigma}^\dagger e^{i\mathbf{k}\cdot\mathbf{R}_i} = \sum_{i}\bra{w_i} a_{i \sigma} ^\dagger
+\end{align*}
+The one particle operator transform as
+\begin{equation*}
+    H_1  =  \sum_{\mathbf{k} \sigma} \braket{ \mathbf{k }\sigma | h | \mathbf{k }\sigma} a^\dagger_{ \mathbf{k} \sigma} a_{ \mathbf{k} \sigma}
+    =  \sum_{ij\sigma } \braket{w_i \sigma | h|w_j \sigma }a ^\dagger_{i \sigma} a_{j \sigma}
+    =  \sum_{ij \sigma} \epsilon_{ij} a ^\dagger_{i \sigma} a_{j \sigma}
+\end{equation*}
+Whereas the two-particle operator
+\begin{align*}
+    H_2 & =  \frac{1}{2}\sum_{\substack{\mathbf{k}_1 \mathbf{k}_2 \sigma                                                        \\ \mathbf{k}_1' \mathbf{k}_2' \sigma'}}
+    \braket{ \mathbf{k}_1   \mathbf{k}_2  | \frac{1}{r} |   \mathbf{k}_1' \mathbf{k}_2'   }
+    a^\dagger_{ \mathbf{k}_1  \sigma} a^\dagger_{  \mathbf{k}_2  \sigma'} a_{\mathbf{k}_2'  \sigma'}a_{  \mathbf{k}_1'  \sigma} \\
+    H_2 & =  \frac{1}{2}\sum_{\substack{i j \sigma                                                                              \\ k l \sigma'}}
+    \braket{ i   j  | \frac{1}{r} |   k l   }
+    a^\dagger_{ i  \sigma} a^\dagger_{  j  \sigma'} a_{l  \sigma'}a_{  k  \sigma}
+\end{align*}
+
+Thus, the Hamiltonian reads
+\begin{equation*}
+    H =  \sum_{ij \sigma} \epsilon_{ij} a ^\dagger_{i \sigma} a_{j \sigma}  +
+    \frac{1}{2}\sum_{\substack{i j \sigma \\ k l \sigma'}}
+    \braket{ i   j  | \frac{1}{r} |   k l   }
+    a^\dagger_{ i  \sigma} a^\dagger_{  j  \sigma'} a_{l  \sigma'}a_{  k  \sigma}
+\end{equation*}
+with $\ket{w_i} = \ket{i} $ and the same goes for all indices.
+The component can be split to shown how each contribute into the Hamiltonian
+\begin{multline*}
+    H = \sum_{ij\sigma} \epsilon_{ij}\,a_{i\sigma}^{\dagger}a_{j\sigma}
+    + \frac{I}{2}\sum_{i\sigma}n_{i\sigma}n_{i-\sigma}
+    + \frac{1}{2}\sum_{ij}^{ }{} '  \sum_{\sigma\sigma'}\langle ij|\frac{1}{r}|ij\rangle\,n_{i\sigma}n_{j\sigma'}\\
+    -\frac{1}{2}\sum_{ij}{}' \sum_{\sigma\sigma'}J_{ij}a_{i\sigma}^{\dagger}a_{i\sigma'}a_{j\sigma'}^{\dagger}a_{j\sigma}
+    + \sum_{ij} {} ' \sum_{\sigma\sigma'}\langle ii|\frac{1}{r}|jj\rangle\,a_{i\sigma}^{\dagger}a_{i\sigma'}^{\dagger}a_{j\sigma'}a_{j\sigma}
+\end{multline*}
+
+The second term occur at $i=j=k=l$.
+The number particle operator appears after considering that the sum over spin having four terms, where each spin can take the value of up and down
+\begin{equation*}
+    \frac{1}{2}
+    \sum_{i\sigma\sigma'} \braket{ii| \frac{1}{r} | ii } a^\dagger_{i\sigma} a^\dagger_{i\sigma'} a_{i\sigma'} a_{i\sigma} =
+    \frac{I}{2}  \sum_{i,\sigma} a^\dagger_{i\sigma} a^\dagger_{i\sigma} a_{i\sigma} a_{i\sigma}
+    +\frac{I}{2} \sum_{i,\sigma\neq\sigma'} a^\dagger_{i\sigma} a^\dagger_{i\sigma'} a_{i\sigma'} a_{i\sigma}
+\end{equation*}
+The matrix element reads
+\begin{equation*}
+    I =e^{2}\int d \mathbf{r}\;d \mathbf{r}'\;\frac{\big|w(\mathbf{r}-\mathbf{R}_{i})\big|^{2}\,\big|w(\mathbf{r}'-\mathbf{R}_{i})\big|^{2}}{|\mathbf{r}'-\mathbf{r}|}
+    =e^{2} \int  d\mathbf r \;d\mathbf r'\; \frac{|w(\mathbf r)|^{2}\,|w(\mathbf r')|^{2}}{|\mathbf r'-\mathbf r|}
+\end{equation*}
+It is the energy cost for putting two electrons on the same site.
+In the last term, we make the substitution $\mathbf{r} \rightarrow \mathbf{r} - \mathbf{R}_i $ so the integral become independent of $i$.
+Only $\sigma \neq \sigma'$ survives, so
+\begin{equation*}
+    \frac{I}{2} \sum_{\sigma\neq\sigma'} a^\dagger_{i\sigma} a^\dagger_{i\sigma'} a_{i\sigma'} a_{i\sigma} = \frac{I}{2} \sum_{\sigma} a^\dagger_{i\sigma}a_{i\sigma} a^\dagger_{i-\sigma} a_{i-\sigma}
+\end{equation*}
+
+The third term occur at $i=k$ and $k=l$.
+\begin{equation*}
+    \frac{1}{2}\sum_{ij}{}' \sum_{\sigma \sigma'}
+    \braket{ i   j  | \frac{1}{r} |   ij   }
+    a^\dagger_{ i  \sigma} a^\dagger_{  j  \sigma'} a_{j  \sigma'}a_{i \sigma}
+    = \frac{1}{2}\sum_{ij}^{ }{} '  \sum_{\sigma\sigma'}\langle ij|\frac{1}{r}|ij\rangle\,n_{i\sigma}n_{j\sigma'}
+\end{equation*}
+
+The fourth term occur at $i=l$ and $j=k$.
+\begin{equation*}
+    \frac{1}{2}\sum_{ij}{}' \sum_{\sigma \sigma'}
+    \braket{ i   j  | \frac{1}{r} | ji   }
+    a^\dagger_{ i  \sigma} a^\dagger_{  j  \sigma'} a_{i  \sigma'}a_{  j  \sigma}
+    = -\frac{1}{2}\sum_{ij}{}' \sum_{\sigma\sigma'}J_{ij}a_{i\sigma}^{\dagger}a_{i\sigma'}a_{j\sigma'}^{\dagger}a_{j\sigma}
+\end{equation*}
+with the exchange integral of
+\begin{equation*}
+    J_{ij} = e^{2}\int d \mathbf{r}\;d \mathbf{r}' \frac{w ^*(\mathbf{r}-\mathbf{R}_{i})w(\mathbf{r}-\mathbf{R}_{j})w ^*(\mathbf{r}'-\mathbf{R}_{j})w(\mathbf{r}'-\mathbf{R}_{i})}{|\mathbf{r}'-\mathbf{r}|}
+\end{equation*}
+
+The fifth term occur at $i=j$ and $l=k$, with no further algebraic manipulation performed.
+
+As the energy to put two electrons in single state approaching infinite $I \to \infty$, the state is single occupied.
+This state is given by Block-Zener state
+\begin{equation*}
+    \lvert \sigma_1 \dots \sigma_N \rangle  a^\dagger_{1\sigma(1)} a^\dagger_{2\sigma(2)}\dots a^\dagger_{N\sigma(N)}\lvert 0\rangle
+\end{equation*}
+with $\sigma(i)$ specifies whether the electron at site $i$ is spin up or down.
+The Hamiltonian
+\begin{multline*}
+    H = \sum_{ij\sigma} \epsilon_{ij}\,a_{i\sigma}^{\dagger}a_{j\sigma}
+    + \frac{I}{2}\sum_{i\sigma}n_{i\sigma}n_{i-\sigma}
+    + \frac{1}{2}\sum_{ij}^{ }{} '  \sum_{\sigma\sigma'}\langle ij|\frac{1}{r}|ij\rangle\,n_{i\sigma}n_{j\sigma'}\\
+    -\frac{1}{2}\sum_{ij}{}' \sum_{\sigma\sigma'}J_{ij}a_{i\sigma}^{\dagger}a_{i\sigma'}a_{j\sigma'}^{\dagger}a_{j\sigma}
+    + \sum_{ij} {} ' \sum_{\sigma\sigma'}\langle ii|\frac{1}{r}|jj\rangle\,a_{i\sigma}^{\dagger}a_{i\sigma'}^{\dagger}a_{j\sigma'}a_{j\sigma}
+\end{multline*}
+has the matrix element in this state
+\begin{multline*}
+    \braket{\left\{ \sigma_i(i) \right\}  |H |\left\{ \sigma_i(i)  \right\} } = \prod_{i=1}^N \delta_{\sigma'(i)\sigma(i)} \left[N\varepsilon_{ii}+\frac{1}{2}\sum_{ij} {}' \langle ij|\frac{1}{r}|ij\rangle\right] \\
+    -\frac{1}{2}\sum_{ij} {}' \sum_{\sigma\sigma'}J_{ij}
+    \braket{\left\{ \sigma_i(i) \right\}  |a^\dagger_{i\sigma}a_{i\sigma}a^\dagger_{j\sigma'}a_{j\sigma'}|\left\{ \sigma_i(i) \right\} }
+\end{multline*}
+The first three terms contribute diagonal component that is independent of spin.
+As $I \rightarrow \infty$, $J_{ij}$ determine the state of the system.
+The next step is then to determine the effective Hamiltonian in terms of this spin operator.
+
+Based on their action on up and down  state, the product of annihilation and creation can be written as
+\begin{equation*}
+    \begin{matrix}
+        a_{\uparrow}^{\dagger} a_{\uparrow} \equiv \begin{pmatrix}1 & 0 \\ 0 & 0\end{pmatrix}
+         &
+        a_{\uparrow}^{\dagger} a_{\downarrow} \equiv \begin{pmatrix}0 & 1 \\ 0 & 0\end{pmatrix}
+        \\\\
+        a_{\downarrow}^{\dagger} a_{\uparrow} \equiv \begin{pmatrix}0 & 0 \\ 1 & 0\end{pmatrix}
+         &
+        a_{\downarrow}^{\dagger} a_{\downarrow} \equiv \begin{pmatrix}0 & 0 \\ 0 & 1\end{pmatrix}
+    \end{matrix}
+\end{equation*}
+Or in terms of Pauli matrices
+\begin{align*}
+    a_{\uparrow}^{\dagger} a_{\uparrow}   & = \frac{1 }{2 }\left[ \begin{pmatrix}    1&0\\1&-1   \end{pmatrix} +1\right] = \frac{1 }{2 }\left[ \sigma_3+1 \right]                                                     \\
+    a_{\uparrow}^{\dagger} a_{\downarrow} & = \frac{1 }{2 }\left[ \begin{pmatrix}    0&1\\1&0   \end{pmatrix} +i \begin{pmatrix}    0&-i\\i&0   \end{pmatrix}\right] = \frac{1 }{2 }\left[ \sigma_1+i\sigma_y \right] \\
+    a_{\downarrow}^{\dagger} a_{\uparrow} & = \frac{1 }{2 }\left[ \begin{pmatrix}    0&1\\1&0   \end{pmatrix} -i \begin{pmatrix}    0&-i\\i&0   \end{pmatrix}\right] = \frac{1 }{2 }\left[ \sigma_1-i\sigma_y \right] \\
+    a_{\uparrow}^{\dagger} a_{\uparrow}   & = \frac{1 }{2 }\left[ 1 - \begin{pmatrix}    1&0\\1&-1   \end{pmatrix}\right] = \frac{1 }{2 }\left[ 1 -\sigma_3 \right]
+\end{align*}
+Next we written the operator in exchange term
+\begin{align*}
+    \sum_{\sigma\sigma'} a_{i\sigma}^\dagger a_{i\sigma'} a_{j\sigma'}^\dagger a_{j\sigma} 
+    & =   a_{i\uparrow}^\dagger a_{i\uparrow} a_{j\uparrow}^\dagger a_{j\uparrow} + a_{i\uparrow}^\dagger a_{i\downarrow} a_{j\downarrow}^\dagger a_{j\uparrow}  \\
+    &\qquad+ a_{i\downarrow}^\dagger a_{i\downarrow} a_{j\downarrow}^\dagger a_{j\downarrow}    + a_{i\downarrow}^\dagger a_{i\uparrow} a_{j\uparrow}^\dagger a_{j\downarrow}\\
+    & = \frac{1}{4}\big[(\sigma_{3i}+1)(\sigma_{3j}+1)+(\sigma_{1i}+i\sigma_{2i})(\sigma_{1j}-i\sigma_{2j})\\
+    &\qquad+(\sigma_{1i}-i\sigma_{2i})(\sigma_{1j}+i\sigma_{2j})+(1-\sigma_{3i})(1-\sigma_{3j})\big]\\
+    & = \frac{1 }{2 }\left( \sigma_{1i  }\sigma_{1j} +\sigma_{2i  }\sigma_{2j}+\sigma_{3i  }\sigma_{3j}+1\right) = \frac{1 }{2 } (\boldsymbol{\sigma}_i \cdot \boldsymbol{\sigma}_j+1)
+\end{align*}
+Thus, neglecting the diagonal term, which are immaterial in determining the spin configuration, we have the Heisenberg Hamiltonian
+\begin{equation*}
+    H_H = -\frac{1 }{4 }\sum_{ij}{}' J_{ij} \boldsymbol{\sigma}_i \cdot \boldsymbol{\sigma}_j  
+\end{equation*}
+\end{document}
