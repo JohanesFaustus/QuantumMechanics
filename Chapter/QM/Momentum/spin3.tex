@@ -144,57 +144,84 @@ Aside, the total third component of magnon state is
 \end{equation*}
 since there are ($N-1$) spin up and $1$ spin down at state $\ket{m}$, bringing the total third component to $N-1-1=N-2$. 
 
-\subsubsection{One dimensional case: open chain.}
+\subsubsection{One dimensional case: open chain with external field.}
 Also suppose we add external non modulation field
 \begin{equation*}
-    H = -J\sum_{j=1}^{N}\boldsymbol{\sigma}_j\cdot\boldsymbol{\sigma}_{j+1} - \sum_{i } ^N B \sigma_{3i} 
+    H = -J\sum_{j=1}^{N-1}\boldsymbol{\sigma}_j\cdot\boldsymbol{\sigma}_{j+1} - \sum_{i } ^N B \sigma_{3i} 
 \end{equation*}
-Here we use common convention of all down ground state $\ket{0}$ and one magnon state $\ket{\mathbf{j }}$ as the state at which the spin at the $j$th site has been flipped to the $\ket{1}$ state.
+or equivalently 
+\begin{equation*}
+    H = -2J\sum_{j=1}^{N-1}P_{i,i+1} + J(N-1) - \sum_{i } ^N B \sigma_{3i}     
+\end{equation*}
+Note that the sum for the Heisenberg Hamiltonian run up to $N-1$, since at $j=N$, the contribution due to $\boldsymbol{\sigma}_{N+1}$ does not exist.
+The Hamiltonian due to external field is simply the Zeeman Hamiltonian.
+Here we use common convention of all down ground state $\ket{0}$ and one magnon state $\ket{j}$ as the state at which the spin at the $j$th site has been flipped to the $\ket{1}$ state.
+
 The boundary condition differs with the case of periodic boundary,  thus the action of the Hamiltonian also different in the case of boundary state
 \begin{align*}
-    H_1 \ket{1} 
-    & =   -J \boldsymbol{\sigma}_{1} \cdot \sigma_{2} \ket{1}    -J \sum_{i \neq i}  \boldsymbol{\sigma}_{i} \cdot \sigma_{i+1} \ket{1} \\
-    & =   -J (2P_{1,2} -1)\ket{1}    -J (N-1) \ket{1} \\
-    & =  -2 J \ket{2 } -J (N-2) \ket{1}
+    H \ket{1} 
+    & =   -2J P_{1,2} \ket{1}    -2J \sum_{i  = 2}^{N-1}  P_{i,i+1}\ket{1} + J(N-1) \ket{1} - B\sigma_3\ket{1} \\
+    & =  -2 J \ket{2 } -J (N-3) \ket{1} + B (N-2) \ket{1}
 \end{align*}
-with $H_1$ as the Heisenberg Hamiltonian at the first term.
 For the other end 
 \begin{align*}
-    H_1 \ket{N} 
-    & =   -J \boldsymbol{\sigma}_{N-1} \cdot \sigma_{N} \ket{N}    -J \sum_{i \neq N-1}  \boldsymbol{\sigma}_{i} \cdot \sigma_{i+1} \ket{N} \\
-    & =   -J (2P_{N-1,N} -1)\ket{N}    -J (N-1) \ket{N} \\
-    & = -2 J \ket{N-1 } -J (N-2) \ket{N}
+        H \ket{N} 
+    & =   -2J P_{N-1,N} \ket{N} -2J \sum_{i  = 1}^{N-2}  P_{i,i+1}\ket{N} + J(N-1) \ket{N} - B\sigma_3 \ket{N} \\
+    & =  -2 J \ket{N-1 } -J (N-3) \ket{N} + B (N-2) \ket{N}
 \end{align*}
 while for the interior is the same as the periodic boundary case 
+\begin{align*}
+    H \ket{j} 
+    & =   - 2J \sum_{\substack{i=1\\i\neq j,j-1}}^{N-1}  P_{i,i+1}\ket{j} -2JP_{j-1,j} \ket{j} - 2JP_{j,j+1} \ket{j} \\
+    &\qquad+  J(N-1) \ket{j} - B\sigma_3 \ket{j} \\
+    & = -J(N-5) \ket{j }+B(N-2) \ket{j }-2J ( \ket{j-1 } \ket{j+1})
+\end{align*} 
+Noting the ground state energy
+\begin{align*}
+    H \ket{0} 
+    & =  -2J \sum_{i  = 1}^{N-1}  (2P_{i,i+1}-1)\ket{0}   - B\sigma_3 \ket{0} \\
+    & =  -J (N-1) \ket{0} + B N \ket{0}    
+\end{align*}
+and setting it to zero, we have the action of the Hamiltonian as 
 \begin{equation*}
-    H_1 \ket{j} = E_0 \ket{j} + 2J (2 \ket{j }- \ket{j-1} - \ket{j+1})
-\end{equation*} 
+    H \ket{j } = 
+    \begin{cases}
+        (2J-2B)\ket{j} -2 J \ket{j+1}& j=1\\
+        (4J-2B) \ket{j} - 2J(\ket{j-1}+\ket{j+1}) & 2\leq j \leq N-1\\
+        (2J-2B)\ket{j} -2 J \ket{j-1}& j=N\\
+    \end{cases}
+\end{equation*}
 
 We then introduce the magnon state 
 \begin{equation*}
     \ket{\tilde{m}  } = 
-    \sum_{j } a_j ^{m }\ket{\mathbf{j}}
+    \sum_{j } a_j ^{m }\ket{j}
 \end{equation*}
 The action of the Heisenberg Hamiltonian in this state is 
 \begin{align*}
-    H_1 \ket{\tilde{m}  } & = 
-    a_1 ^{m} H_1 \ket{1} + \sum_{j=2 }^{N-1} a_j ^{m } H_1\ket{\mathbf{j}} + a_N ^{m} H_1 \ket{N}\\
-    & = -a_1 ^{m} \left[ 2J \ket{2 } + J (N-2) \ket{1} \right] - a_N ^{m} \left[ 2J \ket{N-1} + J(N-2) \ket{N}\right]  \\
-    & \qquad- \sum_{j=2 } ^{N-1} a_j ^{m} \left[  E_0 \ket{j} + 2J (2 \ket{j }- \ket{j-1} - \ket{j+1}) \right]  
+    H \ket{\tilde{m}  } & = 
+    a ^{m} H \ket{1} + \sum_{j=2 }^{N-1} a_j ^{m } H\ket{j} + a_N ^{m} H \ket{N}\\
+    \sum_{j=1} ^{N} a_j^m E_0 \ket{j} & = a_1 ^{m} \left[ (2J-2B) \ket{1} - 2J \ket{2 }   \right] \\
+    & \qquad + a_N ^{m} \left[ (2J-2B) \ket{N} - 2J \ket{N-1 }\right]  \\
+    & \qquad + \sum_{j=2 } ^{N-1} a_j ^{m} \left[  (4J-2B) \ket{j} - 2J ( \ket{j-1} + \ket{j+1}) \right]  \\
+    \sum_{j=1} ^{N} a_j^m E_0 \delta_{pj} & = a_1 ^{m} \left[ (2J-2B) \delta_{p,1} - 2J \delta_{p,2}\right] \\
+    & \qquad + a_N ^{m} \left[ (2J-2B) \delta_{p,N} - 2J \delta_{p,N-1 }\right]  \\
+    & \qquad + \sum_{j=2 } ^{N-1} a_j ^{m} (4J-2B) \delta_{p,j} - \sum_{j=1 } ^{N-2}a_{j+1} ^{m}2J \delta_{p,j} - \sum_{j=3 } ^{N}a_{j-1} ^{m}2J \delta_{p,j} 
 \end{align*}
 From this we obtain the cases for the interior and the boundary 
 \begin{equation*}
-    (E_m - E_0 )a_j = 
+    E_m a_j = 
     \begin{cases}
-        2J(2a_j -a_{j-1} - a_{j+1}) & 2 \leq j \leq N-1\\
-        2J(2a_j -a_{j\pm 1}) & j = (1,2)\\
+        a_1(2J-2B) - a_22J & j = 1\\
+        a_j(4J-2B)-2J(a_{j-1}+a_{j+1}) & 2 \leq j \leq N-1\\
+        a_N(2J-2B) - a_{N-1}2J & j = N\\
     \end{cases}
 \end{equation*}
 with $a_0 = a_{N+1} = 0$. 
 
 To obtain the solution, first we write the interior equation as 
 \begin{equation*}
-    a_{j-1} + a_{j+1} = \left( 2 - \frac{E_m }{2J} \right) a_j  = \lambda a_j
+    a_{j-1} + a_{j+1} =\frac{1 }{2J} \left( 4J -2B - E_m \right) a_j  = \lambda a_j
 \end{equation*}
 along with $E_0 = 0$.
 Here we use $a_j=r^j$ as ansatz 
@@ -207,42 +234,63 @@ which has the solution
     r = \frac{\lambda \pm \sqrt{\lambda^2 -4 } }{2 }
 \end{equation*}
 To make the solution valid for open boundary, we need solution that oscillate, which occur if the solution is complex or the square is imaginer.
-From this we require $|\lambda|\geq 2$ or that it lies within $\lambda = [-2,2]$.
-We can the write $\lambda=2 \cos k$ since it bound the same region, and 
+From this we impose $|\lambda|\leq 2$ or that it lies within $\lambda = [-2,2]$.
+We can then write $\lambda=2 \cos k$ since it bound the same region, and 
 \begin{equation*}
     r = \frac{2 \cos k \pm \sqrt{4 \cos ^2 k -4 } }{2 } = \cos k \pm i \sin k = e^{\pm ik}
 \end{equation*}
 Adding the constant, the solution is then $a_j = r^j =A e ^{ikj }+B e^{-ikj}$. 
 We now impose the boundary condition at $j=1$
 \begin{align*}
-    E_m a_2 & = 2J (a_1-a_2)\\
-    a_2 & = \left( 1- \frac{E_m }{2J }  \right) a_1 = (2 \cos  k -1)a_1\\
+    E_m a_1 & = a_1 (2J-2B) -a_22J\\
+    a_2 & = \frac{1 }{2J} \left( 2J- 2B -E_m  \right) a_1 = (2 \cos  k -1)a_1\\
     Ae ^{2ik } +B e ^{-2ik} & =  (e ^{ik } + e ^{-ik}-1) (Ae ^{ik } +B e ^{-ik})\\
-    & = A(e ^{2ik } + 1 - e ^{ik}) + B(1+ e ^{-2ik } - e ^{-ik})\\
-    \frac{A }{B} & =  - \frac{1- e ^{ik } }{1- e ^{ik } } = - \frac{e ^{-ik/2 } \left( e ^{ik/2 }-e ^{-ik/2} \right) }{e ^{ik/2 } \left( e ^{-ik/2 }-e ^{ik/2} \right) } = e ^{-ik}
+    Ae ^{2ik } +B e ^{-2ik} & = A(e ^{2ik } + 1 - e ^{ik}) + B(1+ e ^{-2ik } - e ^{-ik})\\
+    A(1-e ^{ik }) & = - B(1 - e^{-ik})\\
+    \frac{A }{B} & =  - \frac{1- e ^{-ik } }{1- e ^{ik } } = - \frac{e ^{-ik/2 } \left( e ^{ik/2 }-e ^{-ik/2} \right) }{e ^{ik/2 } \left( e ^{-ik/2 }-e ^{ik/2} \right) } = e ^{-ik}
 \end{align*}
 so that $B=A e ^{ik}$. 
 Furthermore, we can write the solution in terms of this result
 \begin{align*}
-    a_j & = A e ^{ikj }+B e^{-ikj} = A(e ^{ik }+ e ^{-ik (j-1)})\\
-    a_j & = A e^{ik/2} (e ^{ik(j-1/2)}+ e ^{ik(j-1/2)}) = C \cos [k (j-1/2)]
+    a_j & = A e ^{ikj }+B e^{-ikj} = A(e ^{ikj }+ e ^{-ik (j-1)})\\
+    a_j & = A e^{ik/2} (e ^{ik(j-1/2)}+ e ^{-ik(j-1/2)}) = C \cos [k (j-1/2)]
 \end{align*}
 Next we move to the other end at $j=N$
 \begin{align*}
-    E_m a_n & = 2J (a_N - a_{N-1})\\
+    E_m a_N & = a_N(2J-2B)-a_{N-1}2J\\
     a_{N-1} & = (2 \cos k -1 )a_N \\
     C \cos [k(N-3/2)] & = C (2 \cos k -1)\cos [k(N-1/2)]\\
     \cos [k(N-3/2)] - \cos [k(N-1/2)] & = 2 \cos k \cos [k(N-1/2)]
 \end{align*}
-Use the trigonometry indentity 
+Use the trigonometry identity 
+\begin{equation*}
+    \cos (x-y) - \cos (x+y) = 2 \sin x \sin y
+\end{equation*}
 with 
+\begin{equation*}
+    \begin{cases}
+        x-y = k(N-3/2)\\
+        x+y = k(N-1/2)
+    \end{cases}
+    \qquad
+    \begin{cases}
+        x=k(N-1)\\
+        y=k/2
+    \end{cases}
+\end{equation*}
 to write 
 \begin{align*}
     \sin [k(N-1)]\sin [k/2] & =  4 \sin ^2 (k/2) \cos [k(N-1/2)]\\
     \sin [k(N-1)] & =  4 \sin  (k/2) \cos [k(N-1/2)]
 \end{align*}
 Once more, use 
+\begin{equation*}
+    2 \sin x \cos y = \sin (x+y )  + \sin (x-y)
+\end{equation*}
 with 
+\begin{equation*}
+    x= k(N-1)\qquad y=k/2
+\end{equation*}
 to write
 \begin{align*}
     \sin [k(N-1)] & =  - \sin (kN) - \sin (-k(N-1))\\
@@ -262,7 +310,7 @@ Now the complete amplitude reads
 Inserting the amplitude into the eigenstate
 \begin{equation*}
     \ket{\tilde{m}  } = 
-    \sum_{j } a_m \cos \left[ \frac{\pi }{2 N }(m-1 )(2j-1) \right] \ket{\mathbf{j}}    
+    \sum_{j } a_m \cos \left[ \frac{\pi }{2 N }(m-1 )(2j-1) \right] \ket{j}    
 \end{equation*}
 All that left is the normalization.
 At $m=1$, the cosine term equal to 1 due to the $(m-1)$ term, so 
