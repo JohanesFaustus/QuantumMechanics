@@ -358,6 +358,10 @@ S(I : J)
 since $p_i = \sum_j p(i,j)$ and $q_j = \sum_i p(i,j)$.
 One sees that $S(I:J)$ represent relative entropy expressing the deviation of the joint probability distribution $\{p(i,j)\}$ from the product distribution of two independent distributions $\{p_i\}, \{q_j\}$.
 
+For instance, if $I$ and $J$ are independent, then knowing $I$ does not give any information about $J$ and vice versa, so their mutual information should be zero.
+On the other extreme, if $I$ and $J$ are identical, which is a case of “perfect correlation”, then all information conveyed by $I$ is shared with $Y$. 
+Or in other words, knowing $X$ determines the value of $Y$ and vice versa. 
+
 \subsubsection{Entropy property.}
 First is the symmetry and asymmetry
 \begin{equation*}
@@ -532,4 +536,5 @@ Taking the overall average, the Shannon information content of the memory is $1 
 In this manner, acquiring "knowledge" is the reduction of "uncertainty." 
 This "uncertainty" can be quantified using the concept of probability as Shannon information content. 
 Ultimately, acquired "knowledge" can be expressed in terms of Shannon information content.
+
 \end{document}

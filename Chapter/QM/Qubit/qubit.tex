@@ -27,7 +27,7 @@ In the figure, the probabilities $p_0$ and $p_1$ are represented by the position
 
 The state of a quantum bit is described by a complex unit vector $\ket{\psi}$ in a 2-dimensional Hilbert space
 \begin{equation*}
-  | \psi \rangle = \cos\frac{\theta}{2} | 0 \rangle + e^{i \phi} \sin\frac{\theta}{2}  | 1 \rangle
+  \ket{ \psi} = \cos\frac{\theta}{2} \ket{ 0} + e^{i \phi} \sin\frac{\theta}{2}  \ket{ 1}
 \end{equation*}
 Such a state vector is often depicted as a point on the surface of a 3-dimensional sphere, known as the Bloch sphere,
 Points on the surface of the Bloch sphere can also be expressed in Cartesian coordinates as
@@ -37,6 +37,23 @@ Points on the surface of the Bloch sphere can also be expressed in Cartesian coo
 with $\theta$ as polar angle of the Bloch vector $\alpha$ relative to the positive $z$-axis and $\phi$ gives the azimuthal angle of the Bloch vector in the $xy$-plane such that
 \begin{equation*}
   \theta = \arccos(\alpha_z), \quad \phi = \arctan2(\alpha_y, \alpha_x)
+\end{equation*}
+
+\subsubsection{Bloch sphere parametrization.}
+Any normalized pure qubit can be written as
+\begin{equation*}
+  \ket{\psi} = \alpha \ket{0 } + \beta \ket{1}
+\end{equation*}
+The parameter $\alpha =  \cos \theta/2$ and $\beta = e ^{i\phi} \sin \theta/2$ with $\theta \in [0,\phi]$ and $\phi = [0,2\pi]$ is chosen to map each pure state to a point on the Bloch sphere.
+The probabilities are
+\begin{equation*}
+  P(0) = \cos ^2 \theta/2\qquad
+  P(1) = \sin ^2 \theta/2
+\end{equation*}
+the parametrization ensure
+\begin{equation*}
+  \theta = 0 \implies \ket{0}\qquad
+  \theta = \pi \implies \ket{1}
 \end{equation*}
 
 \subsection{Quantum Gate}
@@ -108,7 +125,7 @@ Formally, in the computational basis  the action of the CNOT gate is
 \end{align*}
 Acting on separable states, it can generate entanglement, for example
 \begin{equation*}
-  \mathrm{CNOT}\left(\frac{1}{\sqrt{2}}\left(|0\rangle + |1\rangle\right) \otimes |0\rangle\right) =\frac{1}{\sqrt{2}}\left(|00\rangle + |11\rangle\right)
+  \mathrm{CNOT}\left(\frac{1}{\sqrt{2}}\left(\ket{0} + \ket{1}\right) \otimes \ket{0}\right) =\frac{1}{\sqrt{2}}\left(|00\rangle + |11\rangle\right)
 \end{equation*}
 which is an entangled Bell state.
 
@@ -202,6 +219,19 @@ so the trace is
   \mathrm{Tr} [\rho^2] = \frac{1 }{2 }(1+r^2) \leq1
 \end{equation*}
 
+\subsubsection{Proof: Pauli matrix relation with Bloch state}
+The 3 Pauli matrix and identity matrix span the $2 \times 2$ dimension matrix.
+Hence, we can write
+\begin{equation*}
+  \mathrm{Tr} \rho = \mathrm{Tr} [c_0I + c_1X+c_2Y+c_3Z] = 2c_0 = 1
+\end{equation*}
+since the trace of Pauli matrix is zero.
+Thus
+\begin{equation*}
+  \rho = \frac{1 }{2 } I + c_1X+c_2Y+c_3Z
+\end{equation*}
+All that left is to define the remaining constant as the Bloch vector.
+
 \subsection{Composite Systems}
 When two physical systems are treated as one combined bizarre system, the state space of the combined physical system is the tensor product space $\mathcal{H}=\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces of the component subsystems.
 If the first system is in the state $\ket{\psi_1}$ and the second system in the state $\ket{\psi_2}$, then the state $\ket{\psi}\in \mathcal{H}$ of the combined system is
@@ -288,7 +318,7 @@ However, Scully and Englert devised a thought experiment and contemplated a mode
 The disappearance of fringes is caused by entanglement between the particle and the measuring apparatus.
 Given the initial state
 \begin{equation*}
-  |\Psi_{\text{initial}}\rangle = \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes |D_0\rangle
+  |\Psi_{\text{initial}}\rangle = \frac{1}{\sqrt{2}} (\ket{1} + \ket{2}) \otimes |D_0\rangle
 \end{equation*}
 with $\ket{n}$ as the state of particle passing through slit $n$ and \( |D_0\rangle \) as the  initial state of the detector.
 When a measurement occurs the detector state changes based on which path the particle takes.
@@ -297,28 +327,28 @@ The total system state evolves into:
   |\Psi_{\text{final}}\rangle =
   \frac{1}{\sqrt{2}} (|1,D_1\rangle + |2,D_2\rangle)
 \end{equation*}
-There exists no combination of a single particle state \( |\psi\rangle \) and a single detector state \( |D\rangle \) such that
+There exists no combination of a single particle state \( |\psi\rangle \) and a single detector state \( \ket{D} \) such that
 \begin{align*}
-  |\Psi_{\text{final}} \rangle  \neq |\psi\rangle \otimes |D\rangle & =
-  \frac{1}{\sqrt{4}} (|1\rangle + |2\rangle) \otimes (\ket{D_1}+\ket{D_2}) \\
-                                                                    & =
+  \ket{\Psi_{\text{final}}}  \neq |\psi\rangle \otimes \ket{D} & =
+  \frac{1}{\sqrt{4}} (\ket{1} + \ket{2}) \otimes (\ket{D_1}+\ket{D_2}) \\
+                                                               & =
   \frac{1}{\sqrt{4}} ( \ket{1,D_1} + \ket{1,D_2}+ \ket{2,D_1}+ \ket{2,D_2})
 \end{align*}
 
 With the projector onto particle position \( x \)  as
 \begin{equation*}
-  \Pi_x = |x\rangle\langle x| \otimes I_D
+  \Pi_x = \ket{x}\langle x| \otimes I_D
 \end{equation*}
 and $I_D$ identity operator on the detector Hilbert space, the the probability density is
 \begin{equation*}
-  P(x) = \langle \Psi | (|x\rangle\langle x| \otimes I_D) | \Psi \rangle
+  P(x) = \langle \Psi \ket{ (\ket{x}\langle x| \otimes I_D) | \Psi}
 \end{equation*}
 The action of the projector on the ket is
 \begin{align*}
-  \left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle
-   & =  \frac{1}{\sqrt{2}} \left(\left|x\right\rangle \braket{x  | 1} \otimes |D_1\rangle + |x\rangle \braket{x  | 2}\otimes  |D_2\rangle\right) \\
-  \left(|x\rangle\langle x| \otimes 1\right)|\Psi\rangle
-   & =  \frac{1}{\sqrt{2}} \left( \psi_1(x) |x\rangle \otimes |D_1\rangle + \psi_2(x) |x\rangle \otimes |D_2\rangle \right)
+  \left(\ket{x}\langle x| \otimes 1\right)|\Psi\rangle
+   & =  \frac{1}{\sqrt{2}} \left(\left|x\right\rangle \braket{x  | 1} \otimes |D_1\rangle + \ket{x} \braket{x  | 2}\otimes  |D_2\rangle\right) \\
+  \left(\ket{x}\langle x| \otimes 1\right)|\Psi\rangle
+   & =  \frac{1}{\sqrt{2}} \left( \psi_1(x) \ket{x} \otimes |D_1\rangle + \psi_2(x) \ket{x} \otimes |D_2\rangle \right)
 \end{align*}
 Projecting this again on the bra
 \begin{equation*}
@@ -357,9 +387,9 @@ The states are orthogonal, perfectly distinguishable, and has no overlap.
 
 In the case of the detector state being distinct $\braket{D_1 |D_2 }=0$, their evolution are
 \begin{equation*}
-  |1\rangle \otimes |D_0\rangle \xrightarrow{} |1\rangle \otimes |D_1\rangle
+  \ket{1} \otimes |D_0\rangle \xrightarrow{} \ket{1} \otimes |D_1\rangle
   \qquad
-  |2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_2\rangle
+  \ket{2} \otimes |D_0\rangle \xrightarrow{} \ket{2} \otimes |D_2\rangle
 \end{equation*}
 and the final state is entangled
 \begin{equation*}
@@ -380,14 +410,14 @@ Interference still occurs, but its visibility is reduced.
 In the other hand, the evolution if both state are identical, the equation$  |\braket{D_1  | D_2}|=1$ implies $\ket{D_1 }=\ket{D_2}$.
 Their evolution are
 \begin{equation*}
-  |1\rangle \otimes |D_0\rangle \xrightarrow{} |1\rangle \otimes |D_1\rangle
+  \ket{1} \otimes |D_0\rangle \xrightarrow{} \ket{1} \otimes |D_1\rangle
   \qquad
-  |2\rangle \otimes |D_0\rangle \xrightarrow{} |2\rangle \otimes |D_1\rangle
+  \ket{2} \otimes |D_0\rangle \xrightarrow{} \ket{2} \otimes |D_1\rangle
 \end{equation*}
 and no entanglement occurs at the final state
 \begin{equation*}
   |\Psi_{\text{final}}\rangle =
-  \frac{1}{\sqrt{2}} (|1\rangle + |2\rangle) \otimes \ket{D_1}
+  \frac{1}{\sqrt{2}} (\ket{1} + \ket{2}) \otimes \ket{D_1}
 \end{equation*}
 Interference thus occurs in this case.
 
@@ -446,14 +476,14 @@ If a measurement determines the path, the superposition is destroyed (or equival
   \caption*{Figure: Mach-Zender interferometer configuration}
 \end{figure}
 
-The input $|A\rangle$ is split into a coherent superposition of the two paths $|B\rangle$ and $|C\rangle$
+The input $\ket{A}$ is split into a coherent superposition of the two paths $\ket{B}$ and $\ket{C}$
 \begin{equation*}
-  U_1 |A\rangle  = \frac{1}{\sqrt{2}} (|B\rangle + |C\rangle)
+  U_1 \ket{A}  = \frac{1}{\sqrt{2}} (\ket{B} + \ket{C})
 \end{equation*}
-Each incoming path is recombined into the two output ports $|D\rangle$ and $|E\rangle$
+Each incoming path is recombined into the two output ports $\ket{D}$ and $\ket{E}$
 \begin{equation*}
-  U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |E\rangle), \quad
-  U_2 |C\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |E\rangle)
+  U_2 \ket{B}  = \frac{1}{\sqrt{2}} (\ket{D} + \ket{E}), \quad
+  U_2 \ket{C}  = \frac{1}{\sqrt{2}} (\ket{D} - \ket{E})
 \end{equation*}
 The $\pm$ sign of $\ket{E}$ ensures constructive interference in $E$ and destructive interference in $F$.
 The state after BS2 then
@@ -463,19 +493,19 @@ The state after BS2 then
 
 If a detector is inserted into the Mach–Zehnder interferometer to detect the photon, and it is found to have taken path B, State after passing BS2 is
 \begin{equation*}
-  U_2 |B\rangle  = \frac{1}{\sqrt{2}} (|E\rangle + |F\rangle)
+  U_2 \ket{B}  = \frac{1}{\sqrt{2}} (\ket{E} + \ket{F})
 \end{equation*}
 In other words, even in the Mach–Zehnder interferometer, if the path is known, interference disappears.
 Conversely, if it cannot be determined whether the photon went through B or C, it can be considered to have passed through both, thus causing interference.
 
 Had the path not known, the final state from BS3 is
 \begin{equation*}
-  U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle)
+  U_3\ket{E}  = \frac{1}{\sqrt{2}} (\ket{D} + \ket{D'}
 \end{equation*}
 If however the path is known at B, the final state is $U_3U_2 \ket{B}= \ket{D}$, since
 \begin{equation*}
-  U_3|E\rangle  = \frac{1}{\sqrt{2}} (|D\rangle + |D'\rangle)  \qquad
-  U_3|F\rangle  = \frac{1}{\sqrt{2}} (|D\rangle - |D'\rangle)
+  U_3\ket{E}  = \frac{1}{\sqrt{2}} (\ket{D} + \ket{D'}  \qquad
+  U_3\ket{F}  = \frac{1}{\sqrt{2}} (\ket{D} - \ket{D'}
 \end{equation*}
 
 \subsection{Einstein, Podolsky, and Rosen Paradox}
@@ -501,7 +531,7 @@ Measuring on particle 1 changes the state on particle 2, hence both statement ca
 The same statement can be explained in terms of density matrix.
 Suppose observer at particle one Alice performs some unitary operation  on her own state as
 \begin{equation*}
-  |s\rangle \to |s'\rangle = \frac{1}{\sqrt{2}}\bigl(U_1\lvert\uparrow\rangle\otimes\lvert\downarrow\rangle - U_1\lvert\downarrow\rangle\otimes\lvert\uparrow\rangle\bigr)
+  \ket{s} \to |s'\rangle = \frac{1}{\sqrt{2}}\bigl(U_1\lvert\uparrow\rangle\otimes\lvert\downarrow\rangle - U_1\lvert\downarrow\rangle\otimes\lvert\uparrow\rangle\bigr)
 \end{equation*}
 Then information would have been transmitted from Alice to observer on particle 2 Bob, which is described by
 \begin{equation*}
@@ -589,16 +619,16 @@ We start with the EPR state that conserve the angular momentum
 \end{equation*}
 Then The expectation value in this state reads
 \begin{equation*}
-  \langle s| nm |s\rangle = \langle s|(\mathbf{n}\cdot\boldsymbol\sigma_1)(\mathbf m\cdot\boldsymbol\sigma_2)|s\rangle = -\langle s|(\mathbf{n}\cdot\boldsymbol\sigma_1)(\mathbf{m}\cdot\boldsymbol\sigma_1)|s\rangle
+  \langle s| nm \ket{s} = \langle s|(\mathbf{n}\cdot\boldsymbol\sigma_1)(\mathbf m\cdot\boldsymbol\sigma_2)\ket{s} = -\langle s|(\mathbf{n}\cdot\boldsymbol\sigma_1)(\mathbf{m}\cdot\boldsymbol\sigma_1)\ket{s}
 \end{equation*}
 via $\boldsymbol{\sigma_1} \ket{s} = - \boldsymbol{\sigma}_2 \ket{s}$.
 Using Pauli matrices identity
 \begin{equation*}
-  \langle s| nm |s\rangle  = - \mathbf n\cdot\mathbf m - i\langle s|\sigma_1|s\rangle\cdot(\mathbf n\times\mathbf m)
+  \langle s| nm \ket{s}  = - \mathbf n\cdot\mathbf m - i\langle s|\sigma_1\ket{s}\cdot(\mathbf n\times\mathbf m)
 \end{equation*}
 Each particle individually has no preferred spin direction, therefore $\braket{s  | \boldsymbol{\sigma}_1|s}=0$ and
 \begin{equation*}
-  \langle s| nm |s\rangle  = - \mathbf n\cdot\mathbf m
+  \langle s| nm \ket{s}  = - \mathbf n\cdot\mathbf m
 \end{equation*}
 The CHSH function becomes
 \begin{equation*}
@@ -641,12 +671,12 @@ Inserting this into the CHSH function
 \begin{equation*}
   |C| =
   - \frac{-1 + a\cdot c}{\sqrt{2}} + \frac{-a\cdot c + 1}{\sqrt{2}} + \frac{1 + a\cdot c}{\sqrt{2}} + \frac{1 + a\cdot c}{\sqrt{2}}
-   = 2 \sqrt{2}
+  = 2 \sqrt{2}
 \end{equation*}
 
 Such experiments were carried out almost simultaneously in 2015 in three places.
-Color centers, a type of lattice defect in a crystal in which electrons or holes are trapped at a point defect, formed by embedding nitrogen atoms into lattice defects of diamond are used. 
-The positions A and B where these spins are located are far apart, so that locality is ensured under the assumption of relativity. 
+Color centers, a type of lattice defect in a crystal in which electrons or holes are trapped at a point defect, formed by embedding nitrogen atoms into lattice defects of diamond are used.
+The positions A and B where these spins are located are far apart, so that locality is ensured under the assumption of relativity.
 Then, the two spins placed at A and B are controlled by microwaves from C.
 From the experimental data, one reads $\braket{ad } , \braket{cb }, \braket{cd }, \approx 1/\sqrt{2}$ and $\braket{ab }\approx -1/\sqrt{2}$.
 In other words, $C \approx 2 \sqrt{2}$
@@ -655,8 +685,8 @@ In other words, $C \approx 2 \sqrt{2}$
   \begin{tikzpicture}[]
     \draw[thick, ] (-2,0) node[left] {A} -- (2,0) node[right] {B};
     \draw[thick,] (-2,0) -- (0,-1)-- (2,0);
-    \draw[draw=none] (0,-1) node[below] {C}; 
-    \draw[draw=none] (0,0) node[above] {1280 m}; 
+    \draw[draw=none] (0,-1) node[below] {C};
+    \draw[draw=none] (0,0) node[above] {1280 m};
   \end{tikzpicture}
   \caption*{Figure: Electron spins located at A and B, separated by 1280 m, are controlled from C.}
 \end{figure*}
@@ -782,13 +812,13 @@ if the phase constant $i$ was ignored.
     \end{scope}
 
     \draw[thick, ->] (0, 1.3) -- (0,-0.5);
-    \draw[draw=none] (0,0.5) node[anchor=south east] {$\mathbf{B}(z)$}; 
+    \draw[draw=none] (0,0.5) node[anchor=south east] {$\mathbf{B}(z)$};
 
     \draw[very thick,] (0,0) -- (-5,-0)   node[left] {$|\psi_f\rangle$};
 
     \begin{scope}[shift={(0,0)}]
-      \draw[thick, ->] (0,0) .. controls (1,0) and (2.5,0.5) .. (3.5,2) node[above] {$|0\rangle$};
-      \draw[thick, ->] (0,0) .. controls (1,0) and (2.5,-0.5) .. (3.5,-2) node[below] {$|1\rangle$};
+      \draw[thick, ->] (0,0) .. controls (1,0) and (2.5,0.5) .. (3.5,2) node[above] {$\ket{0}$};
+      \draw[thick, ->] (0,0) .. controls (1,0) and (2.5,-0.5) .. (3.5,-2) node[below] {$\ket{1}$};
     \end{scope}
 
   \end{tikzpicture}
@@ -819,4 +849,234 @@ Suppose that the magnetic field is greater at north.
 Classically, particle can be described as having two poles.
 When the south pole of the magnetic moment is located on the upper side, the magnetic moment is pulled toward the region where the magnetic field is stronger and the atom as a whole is attracted upward.
 On the other hand, if the north pole of the magnetic moment is on the upper side, the attraction acts in the opposite direction and the atom as a whole is pulled downward.
+
+\subsection{Fidelity}
+Assume all down ground state
+\begin{equation*}
+  \ket{\mathbf{0 } } = \bigotimes_{i=1}^N \ket{0_i} = \ket{\downarrow_1\ldots \downarrow_N}
+\end{equation*}
+and state $\ket{\mathbf{j}}$ such that $j$-th site has been excited, with
+\begin{equation*}
+  \mathbf{j}=\mathbf{1},\dots,\mathbf{s},\dots,\mathbf{r},\dots,\mathbf{N}
+\end{equation*}
+Then the sender Alice places a spin in the unknown state
+\begin{equation*}
+  \ket{\psi_\text{in }} = \cos \frac{\theta }{2 }\ket{0} + e ^{i\phi} \sin \frac{\theta }{2 } \ket{1} = \alpha \ket{0} + \beta \ket{1}
+\end{equation*}
+at the $s$-th site in the spin chain.
+We can describe the state of the whole chain at this instant
+\begin{equation*}
+  \ket{\Psi(0)} = \cos \frac{\theta }{2 }\ket{\mathbf{0 }} + e ^{i\phi} \sin \frac{\theta }{2 } \ket{\mathbf{s}}
+\end{equation*}
+Do note the difference of Alice encoded state $\ket{\psi_\text{in}}$ with the whole spin chain state $\ket{\Psi(t)}$, also $\ket{\mathbf{s}}$ denote the state at which $s$-th site, which is Alice's, is excited.
+As $[H,\sigma_3]=0$, the total 3rd component is conserved and state $\ket{\mathbf{s}}$ evolve into $\ket{\mathbf{j}}$
+\begin{align*}
+  \ket{\Psi(t)}
+   & =  \cos \frac{\theta }{2 } e ^{-iHt/\hbar } \ket{\mathbf{0 }} + e ^{i\phi} \sin \frac{\theta }{2 } e ^{-iHt/\hbar }\ket{\mathbf{s}}                                    \\
+   & =  \cos \frac{\theta }{2 }  \ket{\mathbf{0 }} + e ^{i\phi} \sin \frac{\theta }{2 } \sum_{j=1 } ^N \ket{\mathbf{j } } \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}} \\
+  \ket{\Psi(t)}
+   & = \alpha \ket{\mathbf{0 }} + \beta \sum_{j=1 } ^N f_j(t) \ket{\mathbf{j}}
+\end{align*}
+with the ground state energy set as zero, $\hbar = 1$ and transition amplitude $f_j(t) = \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}}$.
+
+The density matrix in this case
+\begin{align*}
+  \rho(t) & =
+  \left(\alpha \ket{\mathbf{0 }} + \beta \sum_{j=1 } ^N f_j(t) \ket{\mathbf{\mathbf{j}}} \right)
+  \left(\alpha \bra{\mathbf{0 }} + \beta \sum_{k=1 } ^N f_k(t) ^* \bra{\mathbf{\mathbf{k}}} \right)                                                                                                                                                    \\
+  \rho(t) & = \alpha^2   \ket{\mathbf{0}}\bra{\mathbf{0}} + \alpha \beta^* \sum_k f_k^*  \ket{\mathbf{0}}\bra{\mathbf{k}} + \alpha \beta \sum_j f_j \ket{\mathbf{j}}\bra{\mathbf{0}} + |\beta|^2 \sum_{j,k} f_j f_k^* \ket{\mathbf{j}}\bra{\mathbf{k}}
+\end{align*}
+since $\alpha$ is real.
+To obtain the sender Bob state, we use the definition of partial trace
+\begin{equation*}
+  \rho_{\text{out}} (t) = \mathrm{Tr} _{A'} [\rho(t)]
+  = \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r}\otimes\bra{\boldsymbol{\ell}}_{A'} \right) \rho \left( \mathbf{1 }_\mathbf{r}\otimes\ket{\boldsymbol{\ell}}_{A'} \right)
+\end{equation*}
+with $A' = \{\mathbf{j}\}\setminus \mathbf{r}$.
+The basis can be factored in terms of these subspaces
+\begin{equation*}
+  \ket{\mathbf{0} } = \ket{0}_\mathbf{r} \otimes \ket{\mathbf{0} }_{A'}
+  \qquad
+  \ket{\mathbf{j} } =
+  \begin{cases}
+    \ket{1}_\mathbf{r} \otimes \ket{\mathbf{0} }_{A'} & \mathbf{j } = \mathbf{r}     \\
+    \ket{0}_\mathbf{r} \otimes \ket{\mathbf{j} }_{A'} & \mathbf{j } \neq  \mathbf{r} \\
+  \end{cases}
+\end{equation*}
+Unlike $\ket{\mathbf{j}}$, the $\ket{\boldsymbol{\ell}}_{A'}$ spans the full Hilbert space of $A'$, not just the one-excitation sector
+\begin{equation*}
+  \ket{\boldsymbol{\ell}}_{A'} = \ket{\ell,\dots,\ell_{r-1},\ell_{r+1},\dots,\ell_{N}}, \qquad\ell_i \in \{0,1\}
+\end{equation*}
+The partial trace can be performed term by term, starting with the vacuum term
+\begin{align*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{0}}
+   & = \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r}\otimes\bra{\boldsymbol{\ell}}_{A'} \right)\ket{\mathbf{0}}\bra{\mathbf{0}} \left( \mathbf{1 }_\mathbf{r}\otimes\ket{\boldsymbol{\ell}}_{A'} \right) \\
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{0}}
+   & = \sum_{\boldsymbol{\ell}} \ket{0}_\mathbf{r}  \braket{\boldsymbol{\ell}| \mathbf{0}}_{A'} \braket{\mathbf{0}| \boldsymbol{\ell}}_{A'}
+  = \ket{0}_\mathbf{r} \bra{0}_\mathbf{r}
+\end{align*}
+For the cross term
+\begin{equation*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
+  = \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r}\otimes\bra{\boldsymbol{\ell}}_{A'} \right)\ket{\mathbf{0}}\bra{\mathbf{j}} \left( \mathbf{1 }_\mathbf{r}\otimes\ket{\boldsymbol{\ell}}_{A'} \right)
+\end{equation*}
+there are two possibilities, at $\mathbf{j} = \mathbf{r}$
+\begin{align*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
+   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{0}_\mathbf{r} \ket{\mathbf{0}}_{A'} \right) \left( \bra{{1}}_\mathbf{r}  \ket{\mathbf{0}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
+   & = \sum_{\boldsymbol{\ell}}  \ket{0}_\mathbf{r} \braket{\boldsymbol{\ell  }  |\mathbf{0} }_{A'} \bra{1}_\mathbf{r} \braket{\mathbf{0 } | \boldsymbol{\ell }}_{A'}
+  = \ket{0}_\mathbf{r} \bra{1}_\mathbf{r}
+\end{align*}
+and at $\mathbf{j} \neq \mathbf{r}$
+\begin{align*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
+   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{0}_\mathbf{r} \ket{\mathbf{0}}_{A'} \right) \left( \bra{{0}}_\mathbf{r}  {\mathbf{j}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
+   & = \sum_{\boldsymbol{\ell}}  \ket{0}_\mathbf{r} \braket{\boldsymbol{\ell  }  |\mathbf{0} }_{A'} \bra{1}_\mathbf{r} \braket{\mathbf{j } | \boldsymbol{\ell }}_{A'}
+  = 0
+\end{align*}
+since  the one excitation state $\ket{\mathbf{j}} \neq \ket{\mathbf{0}}$ and so no $\ket{\mathbf{\ell }}$ which survive in both case.
+Now for the one excitation product
+\begin{equation*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{j}}\bra{\mathbf{k}}
+  = \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r}\otimes\bra{\boldsymbol{\ell}}_{A'} \right)\ket{\mathbf{j}}\bra{\mathbf{k}} \left( \mathbf{1 }_\mathbf{r}\otimes\ket{\boldsymbol{\ell}}_{A'} \right)
+\end{equation*}
+There are three possibilities, first $\mathbf{j} = \mathbf{k} = \mathbf{r}$
+\begin{align*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
+   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{1}_\mathbf{r} \ket{\mathbf{0}}_{A'} \right) \left( \bra{{1}}_\mathbf{r}  \ket{\mathbf{0}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
+   & = \sum_{\boldsymbol{\ell}}  \ket{0}_\mathbf{r} \braket{\boldsymbol{\ell  }  |\mathbf{0} }_{A'} \bra{1}_\mathbf{r} \braket{\mathbf{0 } | \boldsymbol{\ell }}_{A'}
+  = \ket{1}_\mathbf{r} \bra{1}_\mathbf{r}
+\end{align*}
+Next is $\mathbf{j } =\mathbf{k } \neq \mathbf{r}$
+\begin{align*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
+   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{0}_\mathbf{r} \ket{\mathbf{j}}_{A'} \right) \left( \bra{{0}}_\mathbf{r}  \bra{\mathbf{k}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
+   & = \sum_{\boldsymbol{\ell}}  \ket{0}_\mathbf{r} \braket{\boldsymbol{\ell  }  |\mathbf{j} }_{A'} \bra{0}_\mathbf{r} \braket{\mathbf{k } | \boldsymbol{\ell }}_{A'}
+  = \ket{0}_\mathbf{r} \bra{0}_\mathbf{r} \delta_{\mathbf{jk}}
+\end{align*}
+Finally, $\mathbf{j } \neq \mathbf{k } $, which is already covered here.
+Putting them all together
+\begin{gather*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{0}}  = \ket{0}_\mathbf{r } \bra{0}_\mathbf{r} \\
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}  = \delta_{\mathbf{jr}} \ket{0}_\mathbf{r } \bra{1}_\mathbf{r} \\
+  \mathrm{Tr} _{A'} \ket{\mathbf{j}}\bra{\mathbf{0}} = \delta_{\mathbf{jr}} \ket{1}_\mathbf{r } \bra{0}_\mathbf{r} \\
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}} =\delta_{\mathbf{jk}} [(1-\delta_{\mathbf{jr}}) \ket{0}_\mathbf{r}\bra{0}_\mathbf{r}+\delta_{\mathbf{jr}} \ket{1}_\mathbf{r} \bra{1}_\mathbf{r}]
+\end{gather*}
+Therefore, the density operator
+\begin{equation*}
+  \rho(t) = \alpha^2   \ket{\mathbf{0}}\bra{\mathbf{0}} + \alpha \beta^* \sum_k f_k^*  \ket{\mathbf{0}}\bra{\mathbf{k}} + \alpha \beta \sum_j f_j \ket{\mathbf{j}}\bra{\mathbf{0}} + |\beta|^2 \sum_{j,k} f_j f_k^* \ket{\mathbf{j}}\bra{\mathbf{k}}
+\end{equation*}
+has the reduced state of
+\begin{align*}
+  \rho_\text{out}
+   & = \alpha^2 \ket{0}_\mathbf{r } \bra{0}_\mathbf{r} + \alpha\beta^* \sum_k f_k^*  \delta_{kr}\ket{0}_\mathbf{r}\bra{1}_\mathbf{r} + \alpha \beta \sum_j f_j \delta_{jr}\ket{1}_\mathbf{r}\bra{0}_\mathbf{r} \\
+   & \qquad + |\beta|^2 \sum_{j,k} f_j f_k^* \delta_{ {jk}} [(1-\delta_{ {jr}}) \ket{0}_\mathbf{r}\bra{0}_\mathbf{r}+\delta_{ {jr}} \ket{1}_\mathbf{r} \bra{1}_\mathbf{r}]                                     \\
+   & = \alpha^2 \ket{0}_\mathbf{r } \bra{0}_\mathbf{r} + \alpha\beta^*  f_r^*\ket{0}_\mathbf{r}\bra{1}_\mathbf{r} + \alpha \beta f_r\ket{1}_\mathbf{r}\bra{0}_\mathbf{r}                                       \\
+   & \qquad + |\beta|^2 \sum_{j \neq r} |f_j|^2 \ket{0}_\mathbf{r}\bra{0}_\mathbf{r} + |\beta|^2 |f_r|^2 \ket{1}_\mathbf{r} \bra{1}_\mathbf{r}                                                                 \\
+  \rho_\text{out}
+   & = \begin{bmatrix}
+         \alpha^2 + |\beta|^2 \displaystyle\sum_{j \neq r} |f_j|^2 & \alpha\beta^*  f_r^* \\
+         \alpha\beta  f_r                                          & |\beta|^2 |f_r|^2
+       \end{bmatrix}
+\end{align*}
+The total normalized transition amplitude $\sum_{j}|f_j|^2 $ must equal to one, so we can write the (0,0) element as
+\begin{equation*}
+  \rho_\text{out}
+  = \begin{bmatrix}
+    \alpha^2 + |\beta|^2 (1-|f_r|^2) & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r                 & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+\end{equation*}
+
+By defining output state
+\begin{equation*}
+  \ket{\psi_{\text{out}}(t)} = \frac{1}{\sqrt{P(t)}}\left(\cos\frac{\theta}{2} \ket{0} + e^{i\phi}\sin\frac{\theta}{2}f_r(t)\ket{1}\right) = \frac{1 }{\sqrt{P}} (\alpha \ket{0 }+\beta f_r \ket{1})
+\end{equation*}
+we can rewrite the reduced density operator
+\begin{align*}
+  \rho_\text{out}
+   & =  P(t) \ket{\psi_{\text{out}}(t)} \bra{\psi_{\text{out}}(t)} + (1-P(t)) \ket{0} \bra{0} \\
+   & =  \begin{bmatrix}
+          \alpha^2         & \alpha\beta^*  f_r^* \\
+          \alpha\beta  f_r & |\beta|^2 |f_r|^2
+        \end{bmatrix}  +
+  \begin{bmatrix}
+    1-P(t) & 0 \\
+    0      & 0
+  \end{bmatrix}                                                                              \\
+   & =  \begin{bmatrix}
+          \alpha^2 +1 - P(t) & \alpha\beta^*  f_r^* \\
+          \alpha\beta  f_r   & |\beta|^2 |f_r|^2
+        \end{bmatrix}
+\end{align*}
+where it is understood $\ket{0}_\mathbf{r} = \ket{0}$.
+Equating the (0,0)  element
+\begin{align*}
+  P & = 1 - |\beta|^2\bigl(1 - |f_r|^2\bigr) = 1 - |\beta|^2 + |\beta|^2|f_r|^2 \\
+  P & = \alpha^2 + |\beta|^2|f_r|^2
+\end{align*}
+
+The fidelity is computed as
+\begin{align*}
+  F & =  \braket{\psi_\text{in} | \rho_{\text{out}}|\psi_\text{in} } \\
+    & = \begin{bmatrix}
+          \alpha & \beta ^*
+        \end{bmatrix}
+  \begin{bmatrix}
+    \alpha^2 + |\beta|^2 (1-|f_r|^2) & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r                 & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+  \begin{bmatrix}
+    \alpha \\  \beta
+  \end{bmatrix}\\
+    & = \begin{bmatrix}
+          \alpha & \beta ^*
+        \end{bmatrix}
+          \begin{bmatrix}
+    \alpha^3 + \alpha|\beta|^2 (1-|f_r|^2 + f_r ^*) \\
+    \alpha^2\beta  f_r + |\beta|^2 |f_r|^2\beta
+  \end{bmatrix}\\
+  & =     \alpha^4 + \alpha^2|\beta|^2 (1-|f_r|^2 + f_r ^*) +    \alpha^2|\beta|^2  f_r + |\beta|^4 |f_r|^2\\
+  F & =     \alpha^4 + \alpha^2|\beta|^2 (1-|f_r|^2 ) + |\beta|^4 |f_r|^2 + 2\alpha^2|\beta|^2 \mathrm{Re}(f_r)
+\end{align*}
+The fidelity then averaged over the Bloch sphere
+\begin{align*}
+  \braket{F } = \frac{1 }{4\pi} \int_\Omega F \;d\Omega = \frac{1 }{2 } \int_0^\pi F(\theta) \sin \theta\;d\theta
+\end{align*}
+Recall that the total solid angle of a unit sphere is $4\pi$, thus the normalization constant.
+Few helpful average value may be computated as follows
+\begin{align*}
+    \braket{\cos^4 \theta/2 } 
+    &= \frac{1 }{2 } \int_{0 }^{\pi} \cos^4 \frac{\theta }{2} \sin \theta\;d\theta
+    = \frac{1 }{2 } \int_{0 }^{\pi} \left( \frac{1 +\cos \theta }{2} \right)^2  \sin \theta\;d\theta\\
+    &= \frac{1}{8}\left[\int_0^\pi \sin\theta\,d\theta + 2\int_0^\pi \cos\theta\sin\theta\,d\theta + \int_0^\pi \cos^2\theta\sin\theta\,d\theta\right]\\
+        \braket{\sin^4 \theta/2 } 
+    & = \frac{1}{8} \left[ \cos \theta\big|_\pi^0 +2 \int_{-1 }^{1 }u\;du + \int_{-1 }^{1 }u^2\;du\right]  = \frac{1 }{8 }\left[ 2+0+\frac{2 }{3} \right]  = \frac{1 }{3}
+\end{align*}
+with $u = \cos\theta$ and $du = -\sin \theta \;d\theta$.
+Other 
+\begin{align*}
+    \braket{\sin^4 \theta/2 } 
+    &= \frac{1 }{2 } \int_{0 }^{\pi} \sin^4 \frac{\theta }{2} \sin \theta\;d\theta
+    = \frac{1 }{2 } \int_{0 }^{\pi} \left( \frac{1 - \cos \theta }{2} \right)^2  \sin \theta\;d\theta\\
+    &= \frac{1}{8}\left[\int_0^\pi \sin\theta\,d\theta - 2\int_0^\pi \cos\theta\sin\theta\,d\theta + \int_0^\pi \cos^2\theta\sin\theta\,d\theta\right]\\
+        \braket{\sin^4 \theta/2 } 
+    & = \frac{1}{8} \left[ \cos \theta\big|_\pi^0 + \int_{1 }^{-1 }u\;du + \int_{-1 }^{1 }u^2\;du\right]  = \frac{1 }{8 }\left[ 2+0+\frac{2 }{3} \right]  = \frac{1 }{3}
+\end{align*}
+and 
+\begin{align*}
+    \braket{\cos ^2\theta/2\sin^2 \theta/2 }   
+    & =  \frac{1 }{2 }\int_{0 }^{\pi }\frac{1}{4 }(1+\cos \theta)(1-\cos \theta)\sin \theta\;d\theta\\
+    & =  \frac{1 }{8 }\int_{0 }^{\pi }(1-\cos^2 \theta)\sin \theta\;d\theta\\
+    \braket{\cos ^2\theta/2\sin^2 \theta/2 }   
+    & =  \frac{1 }{8 }\int_{-1 }^{1 }(1-u^2)\;du = \frac{1 }{8 }\left[ 2- \frac{2 }{3}\right]  = \frac{1 }{6}\\
+\end{align*}
+Then, with the fidelity as 
+\begin{equation*}
+  F =     \cos^4 \frac{\theta}{2 } + \cos^2\frac{\theta}{2 }\sin ^2\frac{\theta}{2 } (1-|f_r|^2 ) + \sin ^4\frac{\theta}{2 } |f_r|^2 + 2\cos^2\frac{\theta}{2 }\sin ^2\frac{\theta}{2 } \mathrm{Re}(f_r)  
+\end{equation*}
+The average is simply 
+\begin{equation*}
+  \braket{F } = \frac{1 }{3 } + \frac{1 }{6} (1-|f_r|^2 ) + \frac{1 }{3 }|f_r|^2 + \frac{2 }{6 }\mathrm{Re }(f_r) = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
+\end{equation*}
 \end{document}
