@@ -851,6 +851,16 @@ When the south pole of the magnetic moment is located on the upper side, the mag
 On the other hand, if the north pole of the magnetic moment is on the upper side, the attraction acts in the opposite direction and the atom as a whole is pulled downward.
 
 \subsection{Fidelity}
+The fidelity of quantum channel is  
+\begin{equation*}
+  \braket{F }  = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
+\end{equation*}
+Another relevant quantum state transition amplitude
+\begin{equation*}
+  f_j(t) = \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}}  
+\end{equation*}
+
+\subsubsection{Derivation.}
 Assume all down ground state
 \begin{equation*}
   \ket{\mathbf{0 } } = \bigotimes_{i=1}^N \ket{0_i} = \ket{\downarrow_1\ldots \downarrow_N}
@@ -1079,4 +1089,6 @@ The average is simply
 \begin{equation*}
   \braket{F } = \frac{1 }{3 } + \frac{1 }{6} (1-|f_r|^2 ) + \frac{1 }{3 }|f_r|^2 + \frac{2 }{6 }\mathrm{Re }(f_r) = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
 \end{equation*}
+
+
 \end{document}

@@ -1,5 +1,9 @@
 \usepackage{amsmath, esdiff, esint, indentfirst, titlesec, mathdots, amssymb, upgreek, amsthm, graphicx, subfiles, caption, longtable, csquotes,amsopn, braket, relsize, mathtools,mhchem, array, mathtools, comment, booktabs, mhchem, listing, fancyvrb,tikz,tikz-3dplot, pgfplots}
 
+\usepackage{pgf,lmodern}
+\def\mathdefault#1{#1}
+\everymath=\expandafter{\the\everymath\displaystyle}
+
 \graphicspath{{./Rss/}}
 \newcommand{\normfig}[1]{\includegraphics[width=0.5\textwidth]{#1}}
 \newcommand{\normfigL}[1]{\includegraphics[width=0.8\textwidth]{#1}}

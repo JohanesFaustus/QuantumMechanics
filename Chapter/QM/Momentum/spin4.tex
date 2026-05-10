@@ -158,12 +158,64 @@ Here we use common convention of all down ground state $\ket{0}$ and one magnon 
 
 The eigenvalue of this Hamiltonian is 
 \begin{equation*}
-    E_m = -2B + 4 (1 - \cos k),\qquad k = \frac{\pi     }{N     } (m-1)
+    E_m = 2B + 4J (1 - \cos k),\qquad k = \frac{\pi     }{N     } (m-1)
 \end{equation*}
 with $m=1,\dots,N$.
 The eigenstates of this Hamiltonian is 
 \begin{equation*}
     \ket{\tilde{m }} = a_m \sum_{j=1} ^{N} \cos \left[ \frac{\pi }{2N }(m-1 ) (2j-1)\right]  \ket{j}
+\end{equation*}
+
+\subsubsection{Optimization.}
+With known eigenvalue and eigenstates
+\begin{gather*}
+    \ket{\tilde{m }} = a_m \sum_{j=1} ^{N} \cos \left[ \frac{\pi }{2N }(m-1 ) (2j-1)\right]  \ket{\mathbf{j}}\\
+    E_m = 2B + 4 J (1 - \cos \pi(m-1)/N)
+\end{gather*}
+the fidelity may now be computed 
+\begin{equation*}
+    \braket{F }  = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
+\end{equation*}
+with transition amplitude
+\begin{equation*}
+  f_j(t) = \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}}  
+\end{equation*}
+
+\begin{figure}
+    \centering
+    \resizebox{\textwidth}{!}{\input{../../../Rss/QM/Momentum/fig.pgf}}
+    \caption*{Figure: The bar plot shows the maximum fidelity $F$ of quantum communication in a time interval [0, 4000/J] as a function of the chain length $N$ from 2 to 80.}
+\end{figure}
+
+With the $\mathbf{j}$ as the receiver site, we compute the transition amplitude from sender site to the receiver site 
+\begin{align*}
+  f_r (t) 
+  & = \sum_{m=1 } ^N  \bra{\mathbf{r}} e ^{-iHt/\hbar } \ket{\tilde{m }} \braket{\tilde{m }  | \mathbf{s}}\\
+  & = \sum_{m=1 } ^N  a_m e ^{-iE_m t/\hbar } \braket{\mathbf{r}|\tilde{m }} \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right] \\
+  & = \sum_{m=1 } ^N  a_m^2  e ^{-iE_m t/\hbar }\cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right] 
+\end{align*}
+Due to the phase factor $e ^{-i E_m t/\hbar}$, this generally complex number.
+However, note that we can write
+\begin{equation*}
+   \exp \left( -i E_m t/\hbar \right) =   \exp(-2iBt/\hbar ) \exp \left( -4Ji (1 - \cos \pi(m-1) t/N \hbar ) \right) 
+\end{equation*}
+so that 
+\begin{equation*}
+    f_r(t) = e ^{-2iBt/\hbar } g_N  = e ^{-2iBt/\hbar } | g_N | e ^{i\gamma(t)} = |g_N| e ^{i(\gamma(t)-2Bt)}
+\end{equation*}
+with $\hbar = 1$. 
+To maximize the fidelity, we impose that the phase is a multiple of $2\pi$
+At time $t=t_0$ which is the time at which Bob observes the $\mathbf{r}$-th site, we have 
+\begin{equation*}
+    B = \frac{\gamma_0- 2\pi k }{2 t_0}
+\end{equation*}
+In this condition, the fidelity is 
+\begin{equation*}
+    F = \frac{1 }{2 }+ \frac{1 }{3 }|g_N| + \frac{1 }{6 }|g_N|^2 
+\end{equation*}
+with 
+\begin{equation*}
+    g_N = \sum_{m=1 } ^N  a_m^2 e ^{-4it (1 - \cos \pi(m-1) /N )} \cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right] 
 \end{equation*}
 
 \subsubsection{Derivation.}
