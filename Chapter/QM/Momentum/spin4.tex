@@ -332,6 +332,28 @@ we write
 g_N(t)= 2\left(\frac{2}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \operatorname{Ai}\left[ 4J(t_c - t) \left( \frac{2 }{N }^{1/3} \right)   \right]    
 \end{equation*}
 
+Alternatively, starting from the integral
+\begin{equation*}
+    g_N = \frac{1 }{\pi} \int_{0} ^{\pi} dk\; \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]    
+\end{equation*}
+Using the Jacobi-Anger expansion
+\begin{equation*}
+    e^{i z \cos\theta} = \sum_{m=-\infty}^{\infty} i^{m} J_{m}(z)e^{i m \theta}
+    = J_0(4Jt) + 2 \sum_{m=1}^{\infty} i^m J_m(4Jt) \cos(mk)
+\end{equation*}
+we can write
+\begin{align*}
+    g_N 
+    &= \frac{e^{-i4Jt}}{2\pi}\int_{0}^{\pi} dk\;(1+\cos k) e^{iNk}\sum_{m=-\infty}^{\infty} i^{m} J_{m}(4Jt)e^{i m k} \\
+    &= \frac{e^{-i4Jt}}{2\pi} \sum_{m=-\infty}^{\infty} i^{m} J_{m}(4Jt) \int_{0}^{\pi} dk\; \big( e ^{i(N+m)k} \\
+    &\qquad + \frac{1}{2}e ^{i(N+m+1)k} + \frac{1 }{2 } e ^{i(N+m-1)k}  \big)  \\
+    & = \frac{e^{-i4Jt}}{2\pi} \left[ i ^{-N}\pi J_{-N}+ i ^{-N-1} \frac{\pi }{2 } J_{-N-1}+  i ^{-N+1} \frac{\pi }{2 } J_{-N+1} \right] \\
+    & = \frac{e^{-i4Jt}}{2} i ^{-N} \left[ J_{-N} -  \frac{i }{2 } J_{-N+1} + \frac{i }{2 } J_{-N+1} \right] \\
+    & = \frac{e^{-i4Jt}}{2} i ^{N} \left[(1)^{-N} J_{-N} -  \frac{i }{2 }(1)^{-N} J_{-N+1} + \frac{i }{2 }(1)^{-N} J_{-N+1} \right] \\
+    & = \frac{e^{-i4Jt}}{2} i ^{N} \left[ J_{N} -  \frac{i }{2 } J_{N-1} + \frac{i }{2 }J_{N-1} \right] \\
+    & = \frac{1}{2}e^{i(N\pi/2 -4Jt)}  \left[ J_{N}(4Jt) -i  J_N' (4Jt)\right] 
+\end{align*}
+
 \subsubsection{Derivation.}
 The boundary condition differs with the case of periodic boundary,  thus the action of the Hamiltonian also different in the case of boundary state
 \begin{align*}
