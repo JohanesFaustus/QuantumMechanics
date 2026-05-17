@@ -194,7 +194,7 @@ with transition amplitude
 With the $\mathbf{j}$ as the receiver site, we compute the transition amplitude from sender site to the receiver site 
 \begin{align*}
   f_r (t) 
-  & = \sum_{m=1 } ^N  \bra{\mathbf{r}} e ^{-iHt/\hbar } \ket{\tilde{m }} \braket{\tilde{m }  | \mathbf{s}}\\
+  & = \sum_{m=1 } ^N  \bra{\mathbf{r}} e ^{-iHt/\hbar } \ket{\tilde{m }} \braket{\tilde{m }  | \mathbf{s}} = \sum_{m=1 } ^N  \braket{\mathbf{r }  | \mathbf{m}} e ^{-iE_mt/\hbar }  \braket{\tilde{m }  | \mathbf{s}}\\
   & = \sum_{m=1 } ^N  a_m e ^{-iE_m t/\hbar } \braket{\mathbf{r}|\tilde{m }} \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right] \\
   & = \sum_{m=1 } ^N  a_m^2  e ^{-iE_m t/\hbar }\cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right] 
 \end{align*}
@@ -223,66 +223,114 @@ with
      \cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right] 
 \end{multline*}
 
-Further analytic consideration can be done with writing the amplitude back in terms of momentum $k = \pi(m-1)/N$
+Using the condition $r=N$, $s=1$, further analytic consideration can be done with writing the amplitude back in terms of $k = \pi(m-1)/N$
 \begin{align*}
     g_N 
     & = \sum_{m } a_m ^ 2 \exp \left[ -i4Jt(1 - \cos k) \right] \cos (k(N-1/2)) \cos (k/2)\\
-    & = \frac{1 }{2 }\sum_{m } a_m ^ 2 \exp \left[ -i4Jt(1 - \cos k) \right] \left[ \cos kN \cos k/2 - \sin kN \sin k/2 \right]  \cos (k/2)\\
-    & = \frac{1 }{2 }\sum_{m } a_m ^ 2\cos k/2 \exp \left[ -i4Jt(1 - \cos k) \right](-1)^{m-1} \\
-    & = \frac{1 }{2 }\sum_{m } a_m ^ 2\cos k/2 \exp \left[i \left\{\pi(m-1) - 4t (1-\cos k)  \right\}  \right]\\
-    & = \frac{1 }{2 }\sum_{m } a_m ^ 2\cos k/2 \exp \left[i \left\{Nk - 4t (1-\cos k)  \right\}  \right]
+    & = \sum_{m } a_m ^ 2 \exp \left[ -i4Jt(1 - \cos k) \right] \left[ \cos kN \cos k/2 + \sin kN \sin k/2 \right]  \cos (k/2)\\
+    & = \sum_{m } a_m ^ 2\cos^2 k/2 \exp \left[ -i4Jt(1 - \cos k) \right](-1)^{m-1} \\
+    & = \sum_{m } a_m ^ 2\cos^2 k/2 \exp \left[i \left\{\pi(m-1) - 4Jt (1-\cos k)  \right\}  \right]\\
+    g_N
+    & = \sum_{m =1} ^{N} a_m ^ 2\cos^2 k_m/2 \exp \left[i \left\{Nk_m - 4Jt (1-\cos k_m)  \right\}  \right]
 \end{align*}
-where $kN = \pi (m-1)$ and using the condition $r=N$, $s=1$. 
+where $kN = \pi (m-1)$, $a_1 = 1/\sqrt{N}$, $a_m = \sqrt{2/N}$ for $m>1$.
+Considering that $a_m$ depend on the value of $m$, we can split the summation 
+\begin{equation*}
+    g_N = \frac{1}{N} + \frac{2 }{N }\sum_{m=2 } ^{N} \cos^2 k/2 \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
+\end{equation*}
+
 With $\Delta k = \pi /N$, we can approximate the sum as integral 
 \begin{equation*}
-    g_N = \frac{N }{2 \pi } \int_m dk\;  a_m ^ 2\cos^2 (k/2) \exp \left[i \left\{Nk - 4t (1-\cos k)  \right\}  \right]
+    g_N = \frac{1 }{N} +  \frac{2}{\pi}\int_{k_2} ^{k_N} dk\;  \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
 \end{equation*}
-Considering that $a_m$ depend on the value of $m$, we can split the integral as 
-\begin{multline*}
-    g_N = \frac{1 }{2 \pi } \exp \left[i \left\{Nk - 4t (1-\cos k)  \right\}  \right] \\
-    + \int_{k_2} ^{k_N} dk\;  a_m ^ 2\cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]    
-\end{multline*}
-with $k_\text{2} = \pi/N$ and $k_N = \pi(N-1)/N$.
+with  $k_\text{2} = \pi/N$ and $k_N = \pi(N-1)/N$.
 Under large $N$, the limit can be approximated as 
 \begin{equation*}
-    g_N = \frac{1 }{2 \pi }     + \frac{1 }{\pi} \int_{0} ^{\pi} dk\; \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]    
+    g_N = \frac{2}{\pi} \int_{0} ^{\pi} dk\; \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]    
 \end{equation*}
 The  integral oscillates rapidly due to the phase $\Phi(k) $ of $e ^{i\Phi(k)}$.
-Integral over infinitesimal contribution $A(k) e ^{i \Phi(k)\;dk}$ produces cancellation, except at the saddle point or stationary point $k_0$.
-This can be rigorously proved using repeated integration by parts.
+Integral over infinitesimal contribution $A(k) e ^{i \Phi(k)} \;dk$ produces cancellation, except at the saddle point or stationary point $k_0$.
+
 We determine this $k_0$ by 
 \begin{equation*}
-    \frac{d\Phi(k )}{dk} = 0 \implies \sin k_0 = \frac{N }{4Jt}
+    \frac{d\Phi(k )}{dk} = 0 \implies 
+    \sin k_0 = \frac{N }{4Jt} \implies
+    k_0 = \arcsin \frac{N }{4Jt} = \arcsin \frac{t_c }{t}
 \end{equation*}
-Expanding the phase around $k_0$
+From this value, we separate the integral based on the value of the arc sin argument: at $t<t_c$, $t \approx t_c$, and at $t_c<t$.
+We will expand the phase around $k_0$
+\begin{equation*}
+    \Phi (k )  =  \Phi(k_0) +  \Phi'(k_0)(k-k_0) + \frac{1}{2}\Phi''(k_0)(k-k_0)^2 + \frac{1 }{6 }\Phi'''(k_0)(k-k_0)^3\dots
+\end{equation*}
+with $\Phi'(k_0) = 0$ and 
 \begin{align*}
-    \Phi (k ) & =  \Phi(k_0) + \Phi'(k_0)(k-k_0) + \tfrac{1}{2}\Phi''(k_0)(k-k_0)^2 + \dots\\
-    \phi(k) & \approx \Phi(k_0) - 2t\cos k_0(k-k_0)^2  
+        \Phi(k) & =  Nk - 4Jt (1  - \cos k) \\
+    \Phi'(k) & =  N -4Jt\sin k \\
+    \Phi''(k) & = - 4Jt \cos k \\
+    \Phi'''(k) & = 4Jt \sin k 
 \end{align*}
-with $\Phi'(k_0) = 0$.
-As such, the integral term reads
-\begin{equation*}
-    g_N = \frac{1 }{2 \pi }     + \frac{1 }{\pi} e ^{i\Phi(k_0)}\cos ^2 (k_0/2) \int_{0} ^{\pi} dk\;  \exp \left[-i  2t\cos k_0(k-k_0)^2    \right]
-\end{equation*}
-Next make the substitution $q= k - k_0$
-\begin{equation*}
-    g_N = \frac{1 }{2 \pi }     + \frac{1 }{\pi} e ^{i\Phi(k_0)}\cos ^2 (k_0/2) \int_{k_0} ^{\pi - k_0} dk\;  \exp \left[-i  2t\cos k_0q^2    \right]
-\end{equation*}
-We can also expand the integration limit 
-\begin{equation*}
-    g_N = \frac{1 }{2 \pi }     + \frac{1 }{\pi} e ^{i\Phi(k_0)}\cos ^2 (k_0/2) \int_{-\infty} ^{\infty} dk\;  \exp \left[-i  2t\cos k_0q^2    \right]
-\end{equation*}
-since it oscillates increasingly rapidly away from $k_0$, producing destructive interference.
-Evaluating the last Fresnel-type integral
-\begin{equation*}
-    g_N = \frac{1 }{2 \pi }     + \frac{1 }{\pi} e ^{i\Phi(k_0)}\cos ^2 (k_0/2) \sqrt{\frac{\pi }{2t |\cos k_0|} } \exp \left[ -i \frac{\pi }{4 } \mathrm{sgn } (\cos k_0) \right]     
-\end{equation*}
-or
+
+At $t<t_c$, we use pure saddle point approximation, where the saddle point is located at complex plane and the contour must be deformed accordingly.
+This yields
 \begin{multline*}
-    g_N = \frac{1 }{2 \pi }     + \frac{1 }{\pi} \cos ^2 (k_0/2) \sqrt{\frac{\pi }{2t |\cos k_0|} } \\
-    \times \exp \left[ iNk_0 -i4Jt (1-\cos k_0)-i \frac{\pi }{4 } \mathrm{sgn } (\cos k_0) \right]     
+    g_N(t) = \sqrt{\frac{2}{\pi}} \left[ \frac{4Jt - i \sqrt{N^2 - (4Jt)^2}}{4Jt \left( N^2 - (4Jt)^2 \right)^{1/4}} \right]
+    \exp\left[ i\left( \frac{\pi N}{2} - 4Jt \right) \right]\\
+    \times \exp\left[ -N \operatorname{arcosh} \left(\frac{N}{4Jt}\right) + \sqrt{N^2 - (4Jt)^2} \right]
 \end{multline*}
-with $k_0 = \arcsin (N/4Jt)$.
+
+At $t \approx t_c$, we want to use the Airy function.
+Here, we not only expand the phase around $k_0 = \pi/2$, but around $t_c = N/4J$.
+To do so, we use multivariable Taylor expansion
+\begin{equation*}
+    \Phi(k, t) \approx \sum_{m=0} \sum_{n=0} \frac{1}{m!n!} \frac{\partial^{m+n}\Phi}{\partial k^m \partial t^n}\left(k_0, t_c\right) q^m \tau^n
+\end{equation*}
+where $q=k-k_0 $ and $\tau = t-t_c$.
+Inserting the phase $        \Phi(k)  =  Nk - 4Jt (1  - \cos k) $
+% \begin{align*}
+%     \Phi (k,t) = \Phi(k_0,t_c) + q\partial_k\Phi  +\tau \partial_t \Phi  + \frac{1}{2} \big( q^2 \partial_k^2\Phi  + 2 q\tau \partial _k  \partial_t  \Phi  + \tau^2 \partial_t^2  \Phi\big) \\
+%     &\qquad + \frac{1}{6}\big(q^3\partial_k ^{3}\Phi  + 3q^2\tau \partial_k ^{2}\partial_t\Phi + 3 q\tau^2 \partial_k\partial_t^2\Phi + \tau^3 \partial_t^3\Phi \big) \\
+%     & = \Phi(k_0,t_c) + (N - 4Jt \sin k_0 ) +
+% \end{align*}
+\begin{align*}
+\Phi (k,t) &= \Phi(k_0,t_c) + q\partial_k\Phi  +\tau \partial_t \Phi  + \frac{1}{2} \big( q^2 \partial_k^2\Phi  + 2 q\tau \partial _k  \partial_t  \Phi  + \tau^2 \partial_t^2  \Phi\big) \\
+&\qquad + \frac{1}{6}\big(q^3\partial_k ^{3}\Phi  + 3q^2\tau \partial_k ^{2}\partial_t\Phi + 3 q\tau^2 \partial_k\partial_t^2\Phi + \tau^3 \partial_t^3\Phi \big) \\
+& = \Phi(k_0,t_c) + q(N - 4Jt_c \sin k_0 ) + \tau \big( -4J(1-\cos k_0) \big) \\
+&\qquad + \frac{1}{2} \big( q^2 (-4Jt_c \cos k_0) + 2q\tau (-4J \sin k_0) + \tau^2 (0) \big) \\
+    &\qquad + \frac{1}{6} \big( q^3 (4Jt_c \sin k_0) + 3q^2\tau (-4J \cos k_0) + 3q\tau^2 (0) + \tau^3 (0) \big) \\
+& = \left( \frac{\pi N}{2} - 4Jt_c \right) + q(0) - 4J\tau + \frac{1}{2} \big( q^2(0) - 8Jq\tau \big) + \frac{1}{6} \big( Nq^3 + 3q^2\tau(0) \big) \\
+& = \left( \frac{\pi N}{2} - 4Jt_c - 4J\tau \right) - 4J\tau q + \frac{N}{6}q^3 \\
+& = \left( \frac{\pi N}{2} - 4Jt \right) - 4J(t-t_c)q + \frac{N}{6}q^3
+\end{align*}
+% \begin{equation*}
+%     g_N(t) \approx \frac{2}{(2Jt_c)^{1/3}} \exp\left[ i \left(\frac{\pi N}{2} - 4Jt\right) \right] \operatorname{Ai}\left( -\frac{4J(t - t_c)}{(2Jt_c)^{1/3}} \right)
+% \end{equation*}
+Substituting this truncated bivariate expansion back into the original integral equation yields:
+\begin{equation*}
+g_N(t) \approx \frac{2}{\pi} \int_{0}^{\pi} dk \; \cos^2\left( k_0/2\right) \exp \left[ i \left\{ \left( \frac{\pi N}{2} - 4Jt \right) - 4J(t-t_c)q + \frac{N}{6}q^3 \right\} \right]
+\end{equation*}
+Substituting $q$, factoring the integrand, and changing the integration limit
+\begin{equation*}
+g_N(t) \approx \frac{1}{\pi} \exp \left( i\frac{\pi N}{2} -i 4Jt \right) \int_{-\infty}^{\infty} dq \;  \exp \left[ i \left\{\frac{N}{6}q^3 +\gamma_q q  \right\} \right]
+\end{equation*}
+with $\gamma_q = -4J(t-t_c)$ as the linear term
+Introduce the transformation
+\begin{equation*}
+\frac{1}{3}p^3 = \frac{N}{6}q^3 \quad dq = \left(\frac{2}{N}\right)^{1/3}dp
+\quad -4J(t-t_c)q = -4J(t-t_c)\left(\frac{2}{N}\right)^{1/3}p
+\end{equation*}
+into the integral
+\begin{equation*}
+g_N(t) \approx \frac{1}{\pi} \left(\frac{2}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \int_{-\infty}^{\infty} dp \; \exp \left[ i \left( \frac{1}{3}p^3 + xp \right) \right] 
+\end{equation*}
+with $\gamma_p = -4J(t-t_c)(2/N) ^{1/3}$.
+Using the definition of Airy function
+\begin{equation*}
+    \operatorname{Ai} (x) = \frac{1 }{2\pi} \int_{-\infty }^{\infty } dp\; \exp \left( \frac{p ^3}{3 } + xp \right) 
+\end{equation*}
+we write 
+\begin{equation*}
+g_N(t)= 2\left(\frac{2}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \operatorname{Ai}\left[ 4J(t_c - t) \left( \frac{2 }{N }^{1/3} \right)   \right]    
+\end{equation*}
 
 \subsubsection{Derivation.}
 The boundary condition differs with the case of periodic boundary,  thus the action of the Hamiltonian also different in the case of boundary state
