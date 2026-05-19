@@ -527,6 +527,11 @@ Further derivation reveal that the amplitude can be separated into three case ba
         & t_c <t
     \end{cases}
 \end{equation*}
+The amplitude can also be expressed in terms of Bessel function, although it yields worse result
+\begin{equation*}
+    g_N(t)
+    = \frac{1}{2}e^{i(N\pi/2 -4Jt)}  \left[ J_{N}(4Jt) -i  J_N' (4Jt)\right]
+\end{equation*}
 
 \subsubsection{Derivation.}
 With the $\mathbf{j}$ as the receiver site, we compute the transition amplitude from sender site to the receiver site
@@ -564,7 +569,7 @@ with
 \begin{figure}[t]
     \centering
     \resizebox{\textwidth}{!}{\input{../../../Rss/QM/code/plot_F_vs_k.pgf}}
-    \caption*{Figure: Behaviour of the integrand inside $g_N$, $f(k) =  \cos^2 k/2 \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]$}
+    \caption*{Figure: Behaviour of the integrand inside $g_N$ as a function of $k$. At $t < T_c$, there exist two saddle point, which to coalesce at $t = t_c$. It the move into the complex plane at $t<t_c$.}
 \end{figure}
 
 
@@ -725,6 +730,7 @@ we can write
      & = \frac{e^{-i4Jt}}{2} i ^{-N} \left[ J_{-N} -  \frac{i }{2 } J_{-N+1} + \frac{i }{2 } J_{-N+1} \right]                             \\
      & = \frac{e^{-i4Jt}}{2} i ^{N} \left[(1)^{-N} J_{-N} -  \frac{i }{2 }(1)^{-N} J_{-N+1} + \frac{i }{2 }(1)^{-N} J_{-N+1} \right]      \\
      & = \frac{e^{-i4Jt}}{2} i ^{N} \left[ J_{N} -  \frac{i }{2 } J_{N-1} + \frac{i }{2 }J_{N-1} \right]                                  \\
+     g_N(t)
      & = \frac{1}{2}e^{i(N\pi/2 -4Jt)}  \left[ J_{N}(4Jt) -i  J_N' (4Jt)\right]
 \end{align*}
 \end{document}
