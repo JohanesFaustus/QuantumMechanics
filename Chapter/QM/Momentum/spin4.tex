@@ -188,7 +188,35 @@ The eigenstates of this Hamiltonian is
     \end{cases}
 \end{equation*}
 
-\subsubsection{Derivation.}
+Suppose we use long range interaction with coupling of 
+\begin{equation*}
+    J_{ij} = \frac{C}{\left(a|i-j|\right)^\nu}
+\end{equation*}
+The Hamiltonian now reads
+\begin{equation*}
+        H =  - \sum_{i<j} J_{ij} \boldsymbol{\sigma}_i \cdot\boldsymbol{\sigma}_{j} - \sum_{i } ^N B \sigma_{3i}
+          =  -2\sum_{i<j}J_{ij}  P_{ij} + \sum_{i<j} J_{ij} - \sum_{i } ^N B \sigma_{3i}
+\end{equation*}
+and has the action on one excitation state of
+\begin{equation*}
+    H \ket{k } =
+    \begin{cases}
+        -2 \sum_{j=2}^{N}  J_{1j} \ket{j} +2 \sum_{j=2}^{N} J_{1j} \ket{k}  -2B\ket{k} & k=1              \\\\
+        -2\sum_{i \neq k}J_{ik}  \ket{i} +2 \sum_{i \neq k}  J_{ik}\ket{k} -2B\ket{k} & 2\leq k \leq N-1 \\\\
+        -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} +2 \sum_{i=1}^{N-1} J_{iN} \ket{k}  -2B \ket{k}& k=N              
+    \end{cases}
+\end{equation*}
+the boundary cases are already contained in the interior formula.
+The matrix element in this case is 
+\begin{equation*}
+    H_{ij} = 
+    \begin{cases}
+        H_{ij} = -2 J_{ij} & i\neq j \\\\
+        H_{ij} = 2 \sum_{k \neq i}  J_{ik} -2B & i=j
+    \end{cases}
+\end{equation*}
+
+\subsubsection{Derivation: Constant coupling.}
 The boundary condition differs with the case of periodic boundary,  thus the action of the Hamiltonian also different in the case of boundary state
 \begin{align*}
     H \ket{1}
@@ -376,402 +404,7 @@ From the definition of $\lambda$, we have the energy eigenvalue
     E_m                                         & = -2B + 4J(1- \cos [\pi(m-1)/N])
 \end{align*}
 
-% \subsection{Open Chain XX Heisenberg Hamiltonian}
-% The Heisenberg Hamiltonian in this case only exists in $xy$ plane
-% \begin{equation*}
-%     H = - \frac{J }{ 2 } \sum_{i=1 } ^{N-1} (\sigma_{1} ^{i} \sigma_1 ^{i+1} + \sigma_{2} ^{i} \sigma_2 ^{i+1})
-% \end{equation*}
-% or in terms of ladder operator $\sigma_{\pm} = (\sigma_1 \pm i\sigma_2 )/2$
-% \begin{equation*}
-%     H = - \frac{J }{4 } \sum_{i=1 } ^{N-1} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1})
-% \end{equation*}
-% Since the product of ladder operator commute with total third component of spin $\sigma_3$, then $[H,\sigma_3] = 0$.
-% Hence, we can work in one excitation state sector as previously.
-% The action of this Hamiltonian in one excitation state is
-% \begin{equation*}
-%     H \ket{j} =
-%     \begin{cases}
-%         - J/4 \ket{j+1}                            & j=1               \\
-%         - J/4 \left( \ket{j-1} + \ket{j+1} \right) & 2 \leq j \leq N-1 \\
-%         - J/4 \ket{N-1}                            & j=N
-%     \end{cases}
-% \end{equation*}
-% with $H \ket{0} = 0$.
-% In the $N \times N$ matrix of the same basis
-% \begin{equation*}
-%     H  = -\frac{J}{4}\begin{pmatrix}
-%         0      & 1      & 0      & \cdots \\
-%         1      & 0      & 1      & \cdots \\
-%         0      & 0      & 1      & \cdots \\
-%         \vdots & \vdots & \vdots & \ddots
-%     \end{pmatrix}
-% \end{equation*}
-
-% The eigenstates and eigenvalue of this Hamiltonian is
-% \begin{equation*}
-%     \ket{\tilde{m}  } =
-%     \frac{2 }{N+1}\sum_{j=1 }^N  \sin \left[\frac{\pi m j}{N+1} \right] \ket{j}        \qquad
-%     E_m = -2J \cos \frac{m \phi }{N+1}
-% \end{equation*}
-% with $m=1,\dots$.
-
-% \subsubsection{Derivation.}
-% First we determine the ground state
-% \begin{equation*}
-%     H \ket{0} =  - \frac{J }{4 } \sum_{i=1 } ^{N-1} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{0} = 0
-% \end{equation*}
-% since the action of $\sigma_- ^{i}$ for all $i$ to vacuum is to annihilate it.
-% Next the action at the boundary
-% \begin{align*}
-%     H \ket{1} & =  - \frac{J }{4 } (\sigma_{+} ^{1} \sigma_- ^{2} + \sigma_{-} ^{1} \sigma_+ ^{2}) \ket{1} + \frac{J }{4 }\sum_{i=2 } ^{N-1} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{1} \\
-%     H \ket{1} & = - \frac{J }{4 } \ket{2}
-% \end{align*}
-% Note that for the second term, $i$ start from 2, so $\sigma_-$ for all $i $ act on non excitation state and resulting in zero.
-% As for the other boundary
-% \begin{align*}
-%     H \ket{N} & =  - \frac{J }{4 } (\sigma_{+} ^{N-1} \sigma_- ^{N} + \sigma_{-} ^{N-1} \sigma_+ ^{N}) \ket{N} + \sum_{i=1 } ^{N-2} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{N} \\
-%     H \ket{N} & = - \frac{J }{4 } \ket{N-1}
-% \end{align*}
-% On the interior, it act as
-% \begin{align*}
-%     H \ket{j} & =  - \frac{J }{4 } (\sigma_{+} ^{j-1} \sigma_- ^{j} + \sigma_{-} ^{j-1} \sigma_+ ^{j}) \ket{j}  - \frac{J }{4 } (\sigma_{+} ^{j-1} \sigma_- ^{j} + \sigma_{-} ^{j-1} \sigma_+ ^{j}) \ket{j} \\
-%               & \qquad+ \sum_{i\neq j,j-1 }  (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{j}                                                                                    \\
-%               & = - \frac{J }{4 } \left( \ket{j-1} + \ket{j+1} \right)
-% \end{align*}
-% The action on the magnon state is then
-% \begin{align*}
-%     H \ket{\tilde{m}}                     & =
-%     a ^{m} H \ket{1} + \sum_{j=2 }^{N-1} a_j ^{m } H\ket{j} + a_N ^{m} H \ket{N}                                                                                                                                                                   \\
-%     \sum_{j=1} ^{N} a_j^m E_0 \ket{j}     & = - a_1 ^{m} \frac{J }{4 }\ket{2} - a_N ^{m}\frac{J }{4 } \ket{N-1}  - \sum_{j=2 } ^{N-1} a_j ^{m} \frac{J }{4 }\left[    \ket{j-1} + \ket{j+1} \right]                                                \\
-%     \sum_{j=1} ^{N} a_j^m E_0 \delta_{pj} & = -  a_1 ^{m} \frac{J }{4 } \delta_{p,2 } - a_N ^{m} \frac{J }{4 } \delta_{p,N-1 } - \sum_{j=1 } ^{N-2}a_{j+1} ^{m}\frac{J }{4 } \delta_{p,j} - \sum_{j=3 } ^{N}a_{j-1} ^{m}\frac{J }{4 } \delta_{p,j}
-% \end{align*}
-% We obtain
-% \begin{equation*}
-%     E_m a_j = \begin{cases}
-%         - J a_{j+1}/4         & j= 1              \\
-%         -J(a_{j-1}+a_{j+1})/4 & 2 \leq j \leq N-1 \\
-%         - J a_{j-1}/4         & j= N              \\
-%     \end{cases}
-% \end{equation*}
-
-% We again use the ansatz of $a=r^j$ for the interior equation
-% \begin{align*}
-%     a_{j-1} + a_{j+1}                    & =  - \frac{4 E_k}{J }  a_j  = \lambda a_j      \\
-%     r ^{j+1 } + r ^{j-1} -\lambda r ^{j} & =  0                                           \\
-%     r^2 -\lambda r +1                    & =  0                                           \\
-%     r                                    & = \frac{\lambda \pm \sqrt{\lambda^2 -4 } }{2 }
-% \end{align*}
-% For the same reason, we once again use $\lambda =2 \cos k$, which then imply $a_j = e ^{\pm ikj}$.
-% Now impose the boundary condition at $j=1$
-% \begin{align*}
-%     a_2                     & =  - \frac{4 E_m }{J} a_1 = \lambda a_1          \\
-%     Ae ^{2ik} + B e ^{-2ik} & = (e ^{ik } + e ^{-ik }) (Ae ^{ik} + B e ^{-ik}) \\
-%     Ae ^{2ik} + B e ^{-2ik} & = A(e ^{2ik } + 1) + B (1 + B e ^{-2ik})         \\
-%     A                       & = B
-% \end{align*}
-% and writing the solution as
-% \begin{equation*}
-%     a_j = A(e ^{ikj}- e ^{-ikj}) = C \sin kj
-% \end{equation*}
-% Now the boundary at $j=N$
-% \begin{align*}
-%     a_{N-1}     & =  - \frac{4 E_m }{J} a_N = \lambda a_N \\
-%     \sin k(N-1) & = 2 \cos k \sin kN                      \\
-%                 & = \sin k(N+1) + \sin k(N-1)             \\
-%     \sin k(N+1) & = 0                                     \\
-%     k           & =  \frac{m\pi}{N+1}
-% \end{align*}
-% where we have used the identity $2 \sin x \cos y = \sin (x+y) + \sin (x-y)$.
-% The yet to be normalized eigenstates reads
-% \begin{equation*}
-%     \ket{\tilde{m}  } =
-%     \sum_{j=1 }^N a_m \sin \left[\frac{\pi m j}{N+1} \right] \ket{j}
-% \end{equation*}
-
-% Next we normalize this state
-% \begin{equation*}
-%     \braket{\tilde{m } |\tilde{m} } =  a_m^2\sum_{j } ^{N } \sin ^2 x_j = a_m^2\sum_{j } ^{N } \frac{1 }{2 } - a_m^2\sum_{i } ^{N } \frac{1 }{2 }\cos 2x_j
-% \end{equation*}
-% with
-% \begin{equation*}
-%     x_j = \frac{\pi m j}{N+1}  = \frac{1 }{2}\kappa j, \qquad \kappa = \frac{2\pi m }{N+1}
-% \end{equation*}
-% The non-trivial term is the second one
-% \begin{equation*}
-%     \sum_{j } ^{N } \cos [\kappa j] =  \Re\left(\sum_{j=1}^{N} e^{i\kappa j}\right)  = \Re \left(  e^{i\kappa }  \frac{1 - (e^{i\kappa })^{N}}{1 - e^{i\kappa }} \right) \\
-% \end{equation*}
-% Note that
-% \begin{equation*}
-%     e ^{i\kappa(N+1)} = e ^{i 2\pi m} =1\implies e ^{i \kappa N} = e^{-i\kappa}
-% \end{equation*}
-% so that
-% \begin{equation*}
-%     \sum_{j } ^{N } \cos [\kappa j]
-%     = \Re \left(  e^{i\kappa }  \frac{1 - e^{-i\kappa}}{1 - e^{i\kappa }} \right)
-%     = - 1
-% \end{equation*}
-% Therefore the normalization constant is
-% \begin{equation*}
-%     1 = a_m^2 \left( \frac{N }{2}+ \frac{1 }{2} \right) \implies a_m =  \sqrt{\frac{2 }{N+1}}
-% \end{equation*}
-
-% From this, it can be seen that the energy eigenvalue is
-% \begin{equation*}
-%     2 \cos k = -\frac{4 }{J} E_k \implies E_k = - 2J \cos   \frac{m\pi}{N+1}
-% \end{equation*}
-
-% \subsection{Optimization For XXX Hamiltonian}
-% With known eigenvalue and eigenstates
-% \begin{gather*}
-%     \ket{\tilde{m }} = a_m \sum_{j=1} ^{N} \cos \left[ \frac{\pi }{2N }(m-1 ) (2j-1)\right]  \ket{\mathbf{j}}\\
-%     E_m = 2B + 4 J (1 - \cos \pi(m-1)/N)
-% \end{gather*}
-% the fidelity may now be computed
-% \begin{equation*}
-%     \braket{F }  = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
-% \end{equation*}
-% with transition amplitude
-% \begin{equation*}
-%     f_j(t) = \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}}
-% \end{equation*}
-
-% \begin{figure}
-%     \centering
-%     \resizebox{\textwidth}{!}{\input{../../../Rss/QM/code/plot_FvsN.pgf}}
-%     \caption*{Figure: The bar plot shows the maximum fidelity $F$ of quantum communication in a time interval [0, $3t_c$] as a function of the chain length $N$ from 2 to 1000.}
-% \end{figure}
-
-% The resulting transition amplitude is
-% \begin{equation*}
-%     g_N(t) = \sum_{m =1} ^{N} a_m ^ 2\cos^2 k_m/2 \exp \left[i \left\{Nk_m - 4Jt (1-\cos k_m)  \right\}  \right]
-% \end{equation*}
-% Further derivation reveal that the amplitude can be separated into three case based on critical time $t_c = N/4J$
-% \begin{equation*}
-%     g_N(t) =
-%     \begin{cases}
-%         \begin{aligned}
-%              & \sqrt{\frac{2}{\pi}} \left[ \frac{4Jt - i \sqrt{N^2 - (4Jt)^2}}{4Jt \left( N^2 - (4Jt)^2 \right)^{1/4}} \right]
-%             \exp\left[ i\left( \frac{\pi N}{2} - 4Jt \right) \right]                                                           \\
-%              & \qquad \times \exp\left[\sqrt{N^2 - (4Jt)^2} -N \operatorname{arcosh} \left(\frac{N}{4Jt}\right)  \right]
-%         \end{aligned}
-%          & t<t_c         \\\\
-%         \left(\frac{16}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \operatorname{Ai}\left[ \frac{4J(t_c - t) }{(2Jt_c)^{1/3}}   \right]
-%          & t \approx t_c \\\\
-%         \begin{aligned}
-%              & \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_1|}} \exp \left[ i\Phi(k_1) -i \frac{\pi }{4}\right]           \\
-%              & \qquad + \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_2|}} \exp \left[i\Phi(k_2) +i \frac{\pi }{4}  \right]
-%         \end{aligned}
-%          & t_c <t
-%     \end{cases}
-% \end{equation*}
-% The amplitude can also be expressed in terms of Bessel function, although it yields worse result
-% \begin{equation*}
-%     g_N(t)
-%     = \frac{1}{2}e^{i(N\pi/2 -4Jt)}  \left[ J_{N}(4Jt) -i  J_N' (4Jt)\right]
-% \end{equation*}
-
-% \subsubsection{Derivation.}
-% With the $\mathbf{j}$ as the receiver site, we compute the transition amplitude from sender site to the receiver site
-% \begin{align*}
-%     f_r (t)
-%      & = \sum_{m=1 } ^N  \bra{\mathbf{r}} e ^{-iHt/\hbar } \ket{\tilde{m }} \braket{\tilde{m }  | \mathbf{s}} = \sum_{m=1 } ^N  \braket{\mathbf{r }  | \mathbf{m}} e ^{-iE_mt/\hbar }  \braket{\tilde{m }  | \mathbf{s}} \\
-%      & = \sum_{m=1 } ^N  a_m e ^{-iE_m t/\hbar } \braket{\mathbf{r}|\tilde{m }} \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]                                                                                        \\
-%      & = \sum_{m=1 } ^N  a_m^2  e ^{-iE_m t/\hbar }\cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]
-% \end{align*}
-% Due to the phase factor $e ^{-i E_m t/\hbar}$, this generally complex number.
-% However, note that we can write
-% \begin{equation*}
-%     \exp \left( -i E_m t/\hbar \right) =   \exp(-2iBt/\hbar ) \exp \left( -4Ji (1 - \cos \pi(m-1) t/N \hbar ) \right)
-% \end{equation*}
-% so that
-% \begin{equation*}
-%     f_r(t) = e ^{-2iBt/\hbar } g_N  = e ^{-2iBt/\hbar } | g_N | e ^{i\gamma(t)} = |g_N| e ^{i(\gamma(t)-2Bt)}
-% \end{equation*}
-% with $\hbar = 1$.
-% To maximize the fidelity, we impose that the phase is a multiple of $2\pi$
-% At time $t=t_0$ which is the time at which Bob observes the $\mathbf{r}$-th site, we have
-% \begin{equation*}
-%     B = \frac{\gamma_0- 2\pi k }{2 t_0}
-% \end{equation*}
-% In this condition, the fidelity is
-% \begin{equation*}
-%     F = \frac{1 }{2 }+ \frac{1 }{3 }|g_N| + \frac{1 }{6 }|g_N|^2
-% \end{equation*}
-% with
-% \begin{multline*}
-%     g_N = \sum_{m=1 } ^N  a_m^2 \exp \left[ -i4Jt (1 - \cos \pi(m-1) /N ) \right]  \times\\
-%     \cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]
-% \end{multline*}
-
-% \begin{figure}[t]
-%     \centering
-%     \resizebox{\textwidth}{!}{\input{../../../Rss/QM/code/plot_F_vs_k.pgf}}
-%     \caption*{Figure: Behaviour of the integrand inside $g_N$ as a function of $k$. At $t < T_c$, there exist two saddle point, which to coalesce at $t = t_c$. It the move into the complex plane at $t<t_c$.}
-% \end{figure}
-
-
-% \subsubsection{Derivation: Saddle point method.}
-% Using the condition $r=N$, $s=1$, further analytic consideration can be done with writing the amplitude back in terms of $k = \pi(m-1)/N$
-% \begin{align*}
-%     g_N
-%      & = \sum_{m } a_m ^ 2 \exp \left[ -i4Jt(1 - \cos k) \right] \cos (k(N-1/2)) \cos (k/2)                                     \\
-%      & = \sum_{m } a_m ^ 2 \exp \left[ -i4Jt(1 - \cos k) \right] \left[ \cos kN \cos k/2 + \sin kN \sin k/2 \right]  \cos (k/2) \\
-%      & = \sum_{m } a_m ^ 2\cos^2 k/2 \exp \left[ -i4Jt(1 - \cos k) \right](-1)^{m-1}                                            \\
-%      & = \sum_{m } a_m ^ 2\cos^2 k/2 \exp \left[i \left\{\pi(m-1) - 4Jt (1-\cos k)  \right\}  \right]                           \\
-%     g_N
-%      & = \sum_{m =1} ^{N} a_m ^ 2\cos^2 k_m/2 \exp \left[i \left\{Nk_m - 4Jt (1-\cos k_m)  \right\}  \right]
-% \end{align*}
-% where $kN = \pi (m-1)$, $a_1 = 1/\sqrt{N}$, $a_m = \sqrt{2/N}$ for $m>1$.
-% Considering that $a_m$ depend on the value of $m$, we can split the summation
-% \begin{equation*}
-%     g_N = \frac{1}{N} + \frac{2 }{N }\sum_{m=2 } ^{N} \cos^2 k/2 \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
-% \end{equation*}
-
-% With $\Delta k = \pi /N$, we can approximate the sum as integral
-% \begin{equation*}
-%     g_N = \frac{1 }{N} +  \frac{2}{\pi}\int_{k_2} ^{k_N} dk\;  \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
-% \end{equation*}
-% with  $k_\text{2} = \pi/N$ and $k_N = \pi(N-1)/N$.
-% Under large $N$, the limit can be approximated as
-% \begin{equation*}
-%     g_N = \frac{2}{\pi} \int_{0} ^{\pi} dk\; \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
-% \end{equation*}
-% The  integral oscillates rapidly due to the phase $\Phi(k) $ of $e ^{i\Phi(k)}$.
-% Integral over infinitesimal contribution $A(k) e ^{i \Phi(k)} \;dk$ produces cancellation, except at the saddle point or stationary point $k_0$.
-
-% We determine this $k_0$ by
-% \begin{equation*}
-%     \frac{d\Phi(k )}{dk} = 0 \implies
-%     \sin k_0 = \frac{N }{4Jt} \implies
-%     k_0 = \arcsin \frac{N }{4Jt} = \arcsin \frac{t_c }{t}
-% \end{equation*}
-% From this value, we separate the integral based on the value of the arc sin argument: at $t<t_c$, $t \approx t_c$, and at $t_c<t$.
-% We will expand the phase around $k_0$
-% \begin{equation*}
-%     \Phi (k )  =  \Phi(k_0) +  \Phi'(k_0)(k-k_0) + \frac{1}{2}\Phi''(k_0)(k-k_0)^2 + \frac{1 }{6 }\Phi'''(k_0)(k-k_0)^3\dots
-% \end{equation*}
-% with $\Phi'(k_0) = 0$ and
-% \begin{align*}
-%     \Phi(k)    & =  Nk - 4Jt (1  - \cos k) \\
-%     \Phi'(k)   & =  N -4Jt\sin k           \\
-%     \Phi''(k)  & = - 4Jt \cos k            \\
-%     \Phi'''(k) & = 4Jt \sin k
-% \end{align*}
-
-% \subsubsection{Derivation: Complex saddle}
-% At $t<t_c$, we use pure saddle point approximation, where the saddle point is located at complex plane and the contour must be deformed accordingly.
-% This yields
-% \begin{multline*}
-%     g_N(t) = \sqrt{\frac{2}{\pi}} \left[ \frac{4Jt - i \sqrt{N^2 - (4Jt)^2}}{4Jt \left( N^2 - (4Jt)^2 \right)^{1/4}} \right]
-%     \exp\left[ i\left( \frac{\pi N}{2} - 4Jt \right) \right]\\
-%     \times \exp\left[ -N \operatorname{arcosh} \left(\frac{N}{4Jt}\right) + \sqrt{N^2 - (4Jt)^2} \right]
-% \end{multline*}
-
-% \subsubsection{Derivation: Airy regime}
-% At $t \approx t_c$, we want to use the Airy function.
-% Here, we not only expand the phase around $k_0 = \pi/2$, but around $t_c = N/4J$.
-% To do so, we use multivariable Taylor expansion
-% \begin{equation*}
-%     \Phi(k, t) \approx \sum_{m=0} \sum_{n=0} \frac{1}{m!n!} \frac{\partial^{m+n}\Phi}{\partial k^m \partial t^n}\left(k_0, t_c\right) q^m \tau^n
-% \end{equation*}
-% where $q=k-k_0 $ and $\tau = t-t_c$.
-% Inserting the phase $        \Phi(k)  =  Nk - 4Jt (1  - \cos k) $
-% \begin{align*}
-%     \Phi (k,t) & = \Phi(k_0,t_c) + q\partial_k\Phi  +\tau \partial_t \Phi  + \frac{1}{2} \big( q^2 \partial_k^2\Phi  + 2 q\tau \partial _k  \partial_t  \Phi  + \tau^2 \partial_t^2  \Phi\big) \\
-%                & \qquad + \frac{1}{6}\big(q^3\partial_k ^{3}\Phi  + 3q^2\tau \partial_k ^{2}\partial_t\Phi + 3 q\tau^2 \partial_k\partial_t^2\Phi + \tau^3 \partial_t^3\Phi \big)              \\
-%                & = \Phi(k_0,t_c) + q(N - 4Jt_c \sin k_0 ) + \tau \big( -4J(1-\cos k_0) \big)                                                                                                   \\
-%                & \qquad + \frac{1}{2} \big( q^2 (-4Jt_c \cos k_0) + 2q\tau (-4J \sin k_0) + \tau^2 (0) \big)                                                                                   \\
-%                & \qquad + \frac{1}{6} \big( q^3 (4Jt_c \sin k_0) + 3q^2\tau (-4J \cos k_0) + 3q\tau^2 (0) + \tau^3 (0) \big)                                                                   \\
-%                & = \left( \frac{\pi N}{2} - 4Jt_c \right) + q(0) - 4J\tau + \frac{1}{2} \big( q^2(0) - 8Jq\tau \big) + \frac{1}{6} \big( Nq^3 + 3q^2\tau(0) \big)                              \\
-%                & = \left( \frac{\pi N}{2} - 4Jt_c - 4J\tau \right) - 4J\tau q + \frac{N}{6}q^3                                                                                                 \\
-%                & = \left( \frac{\pi N}{2} - 4Jt \right) - 4J(t-t_c)q + \frac{N}{6}q^3
-% \end{align*}
-% Substituting this truncated  expansion back into the original integral equation yields
-% \begin{equation*}
-%     g_N(t) \approx \frac{2}{\pi} \int_{0}^{\pi} dk \; \cos^2\left( k_0/2\right) \exp \left[ i \left\{ \left( \frac{\pi N}{2} - 4Jt \right) - 4J(t-t_c)q + \frac{N}{6}q^3 \right\} \right]
-% \end{equation*}
-% Substituting $q$, factoring the integrand, and changing the integration limit
-% \begin{equation*}
-%     g_N(t) \approx \frac{1}{\pi} \exp \left( i\frac{\pi N}{2} -i 4Jt \right) \int_{-\infty}^{\infty} dq \;  \exp \left[ i \left\{\frac{N}{6}q^3 +\gamma_q q  \right\} \right]
-% \end{equation*}
-% with $\gamma_q = -4J(t-t_c)$ as the linear term
-% Introduce the transformation
-% \begin{equation*}
-%     \frac{1}{3}p^3 = \frac{N}{6}q^3 \quad dq = \left(\frac{2}{N}\right)^{1/3}dp
-%     \quad -4J(t-t_c)q = -4J(t-t_c)\left(\frac{2}{N}\right)^{1/3}p
-% \end{equation*}
-% into the integral
-% \begin{equation*}
-%     g_N(t) \approx \frac{1}{\pi} \left(\frac{2}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \int_{-\infty}^{\infty} dp \; \exp \left[ i \left( \frac{1}{3}p^3 + xp \right) \right]
-% \end{equation*}
-% with $\gamma_p = -4J(t-t_c)(2/N) ^{1/3}$.
-% Using the definition of Airy function
-% \begin{equation*}
-%     \operatorname{Ai} (x) = \frac{1 }{2\pi} \int_{-\infty }^{\infty } dp\; \exp \left( \frac{p ^3}{3 } + xp \right)
-% \end{equation*}
-% we write
-% \begin{equation*}
-%     g_N(t)= 2\left(\frac{2}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \operatorname{Ai}\left[ 4J(t_c - t) \left( \frac{2 }{N }\right) ^{1/3}   \right]
-% \end{equation*}
-
-% \subsubsection{Derivation: Gaussian regime}
-% At $t_c<t$, there are two possible saddle point
-% \begin{equation*}
-%     k_1 = \arcsin \frac{N }{4J}\qquad
-%     k_2 = \pi -k_1
-% \end{equation*}
-% Recall that horizontal line $|y(x)|<1$ touch the sine curve twice at the domain $[0,2\pi]$.
-% The phase $\Phi(k) =  Nk - 4Jt (1  - \cos k) $ expansion around $k_1$ is
-% \begin{align*}
-%     \Phi(k) & = \Phi(k_1) + \frac{1}{2}\Phi''(k_1) q_1^2                      \\
-%     \Phi(k) & =  \left[ N k_1 - 4Jt(1- \cos k_1) \right] - 2Jt \cos k_1 q_1^2
-% \end{align*}
-% and like wise for the $k_2$
-% \begin{equation*}
-%     \Phi(k)  =  \left[ N k_2 - 4Jt(1- \cos k_2) \right] - 2Jt \cos k_2 q_2^2
-% \end{equation*}
-% The integral splits after substituting this expansion
-% \begin{multline*}
-%     g_N = \frac{2}{\pi} \cos^2 (k_0/2) e ^{i\Phi(k_1)}\int_{-\infty} ^{\infty} dq_1\; \exp \left[ - i 2 Jt \cos k_1 q_1^2\right] \\
-%     + \frac{2}{\pi} \cos^2 (k_0/2) e ^{i\Phi(k_2)}\int_{-\infty} ^{\infty} dq_2\; \exp \left[ - i 2 Jt \cos k_2 q_2^2\right]
-% \end{multline*}
-% where we have also expanded the integration limit and using $q$ definition for both integral.
-% Evaluating the Fresnel integral
-% \begin{multline*}
-%     g_N = \frac{2}{\pi} \cos^2 (k_1/2) e ^{i\Phi(k_1)} \sqrt{\frac{\pi }{2Jt |\cos k_1|}} \exp \left( -i \frac{\pi }{4} \operatorname{sgn} (\cos k_1) \right)  \\
-%     + \frac{2}{\pi} \cos^2 (k_2/2) e ^{i\Phi(k_2)} \sqrt{\frac{\pi }{2Jt |\cos k_2|}} \exp \left( -i \frac{\pi }{4} \operatorname{sgn} (\cos k_2) \right)  \\
-% \end{multline*}
-% Now $k_1 \in (0,\pi/2)$ and $k_2 \in (\pi/2,\pi)$, so
-% \begin{multline*}
-%     g_N = \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_1|}} \exp \left[ i\Phi(k_1) -i \frac{\pi }{4}\right]  \\
-%     + \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_2|}} \exp \left[i\Phi(k_2) +i \frac{\pi }{4}  \right]
-% \end{multline*}
-
-% \subsubsection{Bessel function representation.}
-% Alternatively, starting from the integral
-% \begin{equation*}
-%     g_N = \frac{1 }{\pi} \int_{0} ^{\pi} dk\; \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
-% \end{equation*}
-% Using the Jacobi-Anger expansion
-% \begin{equation*}
-%     e^{i z \cos\theta} = \sum_{m=-\infty}^{\infty} i^{m} J_{m}(z)e^{i m \theta}
-%     = J_0(4Jt) + 2 \sum_{m=1}^{\infty} i^m J_m(4Jt) \cos(mk)
-% \end{equation*}
-% we can write
-% \begin{align*}
-%     g_N
-%      & = \frac{e^{-i4Jt}}{2\pi}\int_{0}^{\pi} dk\;(1+\cos k) e^{iNk}\sum_{m=-\infty}^{\infty} i^{m} J_{m}(4Jt)e^{i m k}                   \\
-%      & = \frac{e^{-i4Jt}}{2\pi} \sum_{m=-\infty}^{\infty} i^{m} J_{m}(4Jt) \int_{0}^{\pi} dk\; \big( e ^{i(N+m)k}                         \\
-%      & \qquad + \frac{1}{2}e ^{i(N+m+1)k} + \frac{1 }{2 } e ^{i(N+m-1)k}  \big)                                                           \\
-%      & = \frac{e^{-i4Jt}}{2\pi} \left[ i ^{-N}\pi J_{-N}+ i ^{-N-1} \frac{\pi }{2 } J_{-N-1}+  i ^{-N+1} \frac{\pi }{2 } J_{-N+1} \right] \\
-%      & = \frac{e^{-i4Jt}}{2} i ^{-N} \left[ J_{-N} -  \frac{i }{2 } J_{-N+1} + \frac{i }{2 } J_{-N+1} \right]                             \\
-%      & = \frac{e^{-i4Jt}}{2} i ^{N} \left[(-1)^{-N} J_{-N} -  \frac{i }{2 }(-1)^{-N} J_{-N+1} + \frac{i }{2 }(-1)^{-N} J_{-N+1} \right]      \\
-%      & = \frac{e^{-i4Jt}}{2} i ^{N} \left[ J_{N} -  \frac{i }{2 } J_{N-1} + \frac{i }{2 }J_{N-1} \right]                                  \\
-%     g_N(t)
-%      & = \frac{1}{2}e^{i(N\pi/2 -4Jt)}  \left[ J_{N}(4Jt) -i  J_N' (4Jt)\right]
-% \end{align*}
-
-\subsubsection{Long Range interaction.}
+\subsubsection{Derivation: Long range interaction.}
 In this case the coupling is 
 \begin{equation*}
     J_{ij} = \frac{C}{\left(a|i-j|\right)^\nu}
@@ -822,7 +455,7 @@ Now at opposite end
     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} - 2\sum_{\substack{i<j\\j < N}} J_{ij} \ket{N} + \sum_{i<j}  J_{ij} \ket{N} + B(N-2)\ket{N} \\
     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} -\sum_{\substack{i<j\\j<N}} J_{ij} \ket{N} + \sum_{i=1}^{N-1} J_{iN} \ket{N}  + B(N-2)\ket{N}    
 \end{align*}
-Now set the ground state to zero 
+Now set the ground state to zero , that is we define $H \to H -E_0$
 \begin{equation*}
     H \ket{N} =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} +2 \sum_{i=1}^{N-1} J_{iN} \ket{N}  -2B \ket{N}
 \end{equation*}
@@ -879,4 +512,442 @@ The matrix element in this case is
         H_{ij} = 2 \sum_{i \neq k}  J_{ik} -2B & i=j
     \end{cases}
 \end{equation*}
+
+Next we discuss the extra $z$ term contained in the Hamiltonian
+\begin{equation*}
+    H =  - \sum_{i<j} J_{ij} \boldsymbol{\sigma}_i \cdot\boldsymbol{\sigma}_{j} + 3\sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j  - \sum_{i } ^N B \sigma_{3i}
+\end{equation*}
+In the boundary, its action is 
+\begin{align*}
+    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{1}
+    & = \sum_{j=2}^{N}  J_{1j} \sigma^z_1 \sigma^z_j \ket{1} + \sum_{\substack{2\leq i\\i<j}} J_{ij}  \sigma^z_i \sigma^z_j \ket{1}\\
+    & =- \sum_{j=2}^{N}  J_{1j} \ket{1} + \sum_{\substack{2\leq i\\i<j}} J_{ij} \ket{1}
+\end{align*}
+and 
+\begin{align*}
+    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{N}
+    & =  \sum_{i=1}^{N-1}  J_{iN}\sigma^z_i \sigma^z_N  \ket{N} + \sum_{\substack{i<j\\j < N}} J_{ij}\sigma^z_i \sigma^z_j \ket{N} \\
+    & =  -\sum_{i=1}^{N-1}  J_{iN}\ket{N} + \sum_{\substack{i<j\\j < N}} J_{ij} \ket{N} 
+\end{align*}
+Next on the interior
+\begin{align*}
+    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{k}
+    & =\sum_{k<j}J_{kj}\sigma^z_k \sigma^z_j\ket{k} + \sum_{i<k}J_{ik} \sigma^z_i \sigma^z_k\ket{k}  + \sum_{\substack{i<j\\i,j \neq k}}J_{ij}\sigma^z_i \sigma^z_j\ket{k} \\
+    & = - \sum_{k<j}J_{kj} \ket{k} - \sum_{i<k}J_{ik} \ket{k}  + \sum_{\substack{i<j\\i,j \neq k}}J_{ij} \ket{k} \\
+    & = - \sum_{i \neq k} J_{ik} \ket{k}  + \sum_{\substack{i<j\\i,j \neq k}}J_{ij} \ket{k} \\
+\end{align*}
+Adding these action 
+\begin{equation*}
+    H \ket{k } =
+    \begin{cases}
+        -2 \sum_{j=2}^{N}  J_{1j} \ket{j} - \sum_{j=2}^{N} J_{1j} \ket{k}+3 \sum_{\substack{2\leq i\\i<j}} J_{ij} \ket{k}  -2B\ket{k} & k=1              \\\\
+        -2\sum_{i \neq k}J_{ik}  \ket{i} - \sum_{i \neq k}  J_{ik}\ket{k} +3 \sum_{\substack{i<j\\i,j \neq k}}J_{ij} \ket{k} -2B\ket{k} & \begin{matrix}1< k\\k<N \end{matrix} \\\\
+        -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} - \sum_{i=1}^{N-1} J_{iN} \ket{k} + 3 \sum_{\substack{i<j\\j<N}} J_{ij} \ket{k} -2B \ket{k}& k=N              
+    \end{cases}
+\end{equation*}
+we have the matrix element
+\begin{equation*}
+    H_{ij} = 
+    \begin{cases}
+        H_{ij} = -2 J_{ij} & i\neq j \\\\
+        H_{ij} =  3 \sum_{\substack{k<l\\k,l \neq i}} J_{kl} - \sum_{k \neq i}  J_{ik} -2B & i=j
+    \end{cases}
+\end{equation*}
+
+
+\subsection{Open Chain XX Heisenberg Hamiltonian}
+The Heisenberg Hamiltonian in this case only exists in $xy$ plane
+\begin{equation*}
+    H = - \frac{J }{ 2 } \sum_{i=1 } ^{N-1} (\sigma_{1} ^{i} \sigma_1 ^{i+1} + \sigma_{2} ^{i} \sigma_2 ^{i+1})
+\end{equation*}
+or in terms of ladder operator $\sigma_{\pm} = (\sigma_1 \pm i\sigma_2 )/2$
+\begin{equation*}
+    H = - \frac{J }{4 } \sum_{i=1 } ^{N-1} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1})
+\end{equation*}
+Since the product of ladder operator commute with total third component of spin $\sigma_3$, then $[H,\sigma_3] = 0$.
+Hence, we can work in one excitation state sector as previously.
+The action of this Hamiltonian in one excitation state is
+\begin{equation*}
+    H \ket{j} =
+    \begin{cases}
+        - J/4 \ket{j+1}                            & j=1               \\
+        - J/4 \left( \ket{j-1} + \ket{j+1} \right) & 2 \leq j \leq N-1 \\
+        - J/4 \ket{N-1}                            & j=N
+    \end{cases}
+\end{equation*}
+with $H \ket{0} = 0$.
+In the $N \times N$ matrix of the same basis
+\begin{equation*}
+    H  = -\frac{J}{4}\begin{pmatrix}
+        0      & 1      & 0      & \cdots \\
+        1      & 0      & 1      & \cdots \\
+        0      & 1      & 0      & \cdots \\
+        \vdots & \vdots & \vdots & \ddots
+    \end{pmatrix}
+\end{equation*}
+
+The eigenstates and eigenvalue of this Hamiltonian is
+\begin{equation*}
+    \ket{\tilde{m}  } =
+    \frac{2 }{N+1}\sum_{j=1 }^N  \sin \left[\frac{\pi m j}{N+1} \right] \ket{j}        \qquad
+    E_m = -2J \cos \frac{m \phi }{N+1}
+\end{equation*}
+with $m=1,\dots$.
+
+\subsubsection{Derivation.}
+First we determine the ground state
+\begin{equation*}
+    H \ket{0} =  - \frac{J }{4 } \sum_{i=1 } ^{N-1} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{0} = 0
+\end{equation*}
+since the action of $\sigma_- ^{i}$ for all $i$ to vacuum is to annihilate it.
+Next the action at the boundary
+\begin{align*}
+    H \ket{1} & =  - \frac{J }{4 } (\sigma_{+} ^{1} \sigma_- ^{2} + \sigma_{-} ^{1} \sigma_+ ^{2}) \ket{1} + \frac{J }{4 }\sum_{i=2 } ^{N-1} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{1} \\
+    H \ket{1} & = - \frac{J }{4 } \ket{2}
+\end{align*}
+Note that for the second term, $i$ start from 2, so $\sigma_-$ for all $i $ act on non excitation state and resulting in zero.
+As for the other boundary
+\begin{align*}
+    H \ket{N} & =  - \frac{J }{4 } (\sigma_{+} ^{N-1} \sigma_- ^{N} + \sigma_{-} ^{N-1} \sigma_+ ^{N}) \ket{N} + \sum_{i=1 } ^{N-2} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{N} \\
+    H \ket{N} & = - \frac{J }{4 } \ket{N-1}
+\end{align*}
+On the interior, it act as
+\begin{align*}
+    H \ket{j} & =  - \frac{J }{4 } (\sigma_{+} ^{j-1} \sigma_- ^{j} + \sigma_{-} ^{j-1} \sigma_+ ^{j}) \ket{j}  - \frac{J }{4 } (\sigma_{+} ^{j-1} \sigma_- ^{j} + \sigma_{-} ^{j-1} \sigma_+ ^{j}) \ket{j} \\
+              & \qquad+ \sum_{i\neq j,j-1 }  (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{j}                                                                                    \\
+              & = - \frac{J }{4 } \left( \ket{j-1} + \ket{j+1} \right)
+\end{align*}
+The action on the magnon state is then
+\begin{align*}
+    H \ket{\tilde{m}}                     & =
+    a ^{m} H \ket{1} + \sum_{j=2 }^{N-1} a_j ^{m } H\ket{j} + a_N ^{m} H \ket{N}                                                                                                                                                                   \\
+    \sum_{j=1} ^{N} a_j^m E_0 \ket{j}     & = - a_1 ^{m} \frac{J }{4 }\ket{2} - a_N ^{m}\frac{J }{4 } \ket{N-1}  - \sum_{j=2 } ^{N-1} a_j ^{m} \frac{J }{4 }\left[    \ket{j-1} + \ket{j+1} \right]                                                \\
+    \sum_{j=1} ^{N} a_j^m E_0 \delta_{pj} & = -  a_1 ^{m} \frac{J }{4 } \delta_{p,2 } - a_N ^{m} \frac{J }{4 } \delta_{p,N-1 } - \sum_{j=1 } ^{N-2}a_{j+1} ^{m}\frac{J }{4 } \delta_{p,j} - \sum_{j=3 } ^{N}a_{j-1} ^{m}\frac{J }{4 } \delta_{p,j}
+\end{align*}
+We obtain
+\begin{equation*}
+    E_m a_j = \begin{cases}
+        - J a_{j+1}/4         & j= 1              \\
+        -J(a_{j-1}+a_{j+1})/4 & 2 \leq j \leq N-1 \\
+        - J a_{j-1}/4         & j= N              \\
+    \end{cases}
+\end{equation*}
+
+We again use the ansatz of $a=r^j$ for the interior equation
+\begin{align*}
+    a_{j-1} + a_{j+1}                    & =  - \frac{4 E_k}{J }  a_j  = \lambda a_j      \\
+    r ^{j+1 } + r ^{j-1} -\lambda r ^{j} & =  0                                           \\
+    r^2 -\lambda r +1                    & =  0                                           \\
+    r                                    & = \frac{\lambda \pm \sqrt{\lambda^2 -4 } }{2 }
+\end{align*}
+For the same reason, we once again use $\lambda =2 \cos k$, which then imply $a_j = e ^{\pm ikj}$.
+Now impose the boundary condition at $j=1$
+\begin{align*}
+    a_2                     & =  - \frac{4 E_m }{J} a_1 = \lambda a_1          \\
+    Ae ^{2ik} + B e ^{-2ik} & = (e ^{ik } + e ^{-ik }) (Ae ^{ik} + B e ^{-ik}) \\
+    Ae ^{2ik} + B e ^{-2ik} & = A(e ^{2ik } + 1) + B (1 + B e ^{-2ik})         \\
+    A                       & = B
+\end{align*}
+and writing the solution as
+\begin{equation*}
+    a_j = A(e ^{ikj}- e ^{-ikj}) = C \sin kj
+\end{equation*}
+Now the boundary at $j=N$
+\begin{align*}
+    a_{N-1}     & =  - \frac{4 E_m }{J} a_N = \lambda a_N \\
+    \sin k(N-1) & = 2 \cos k \sin kN                      \\
+                & = \sin k(N+1) + \sin k(N-1)             \\
+    \sin k(N+1) & = 0                                     \\
+    k           & =  \frac{m\pi}{N+1}
+\end{align*}
+where we have used the identity $2 \sin x \cos y = \sin (x+y) + \sin (x-y)$.
+The yet to be normalized eigenstates reads
+\begin{equation*}
+    \ket{\tilde{m}  } =
+    \sum_{j=1 }^N a_m \sin \left[\frac{\pi m j}{N+1} \right] \ket{j}
+\end{equation*}
+
+Next we normalize this state
+\begin{equation*}
+    \braket{\tilde{m } |\tilde{m} } =  a_m^2\sum_{j } ^{N } \sin ^2 x_j = a_m^2\sum_{j } ^{N } \frac{1 }{2 } - a_m^2\sum_{i } ^{N } \frac{1 }{2 }\cos 2x_j
+\end{equation*}
+with
+\begin{equation*}
+    x_j = \frac{\pi m j}{N+1}  = \frac{1 }{2}\kappa j, \qquad \kappa = \frac{2\pi m }{N+1}
+\end{equation*}
+The non-trivial term is the second one
+\begin{equation*}
+    \sum_{j } ^{N } \cos [\kappa j] =  \Re\left(\sum_{j=1}^{N} e^{i\kappa j}\right)  = \Re \left(  e^{i\kappa }  \frac{1 - (e^{i\kappa })^{N}}{1 - e^{i\kappa }} \right) \\
+\end{equation*}
+Note that
+\begin{equation*}
+    e ^{i\kappa(N+1)} = e ^{i 2\pi m} =1\implies e ^{i \kappa N} = e^{-i\kappa}
+\end{equation*}
+so that
+\begin{equation*}
+    \sum_{j } ^{N } \cos [\kappa j]
+    = \Re \left(  e^{i\kappa }  \frac{1 - e^{-i\kappa}}{1 - e^{i\kappa }} \right)
+    = - 1
+\end{equation*}
+Therefore the normalization constant is
+\begin{equation*}
+    1 = a_m^2 \left( \frac{N }{2}+ \frac{1 }{2} \right) \implies a_m =  \sqrt{\frac{2 }{N+1}}
+\end{equation*}
+
+From this, it can be seen that the energy eigenvalue is
+\begin{equation*}
+    2 \cos k = -\frac{4 }{J} E_k \implies E_k = - 2J \cos   \frac{m\pi}{N+1}
+\end{equation*}
+
+\subsection{Optimization For XXX Hamiltonian}
+With known eigenvalue and eigenstates
+\begin{gather*}
+    \ket{\tilde{m }} = a_m \sum_{j=1} ^{N} \cos \left[ \frac{\pi }{2N }(m-1 ) (2j-1)\right]  \ket{\mathbf{j}}\\
+    E_m = 2B + 4 J (1 - \cos \pi(m-1)/N)
+\end{gather*}
+the fidelity may now be computed
+\begin{equation*}
+    \braket{F }  = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
+\end{equation*}
+with transition amplitude
+\begin{equation*}
+    f_j(t) = \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}}
+\end{equation*}
+
+\begin{figure}
+    \centering
+    \resizebox{\textwidth}{!}{\input{../../../Rss/QM/code/plot_FvsN.pgf}}
+    \caption*{Figure: The bar plot shows the maximum fidelity $F$ of quantum communication in a time interval [0, $3t_c$] as a function of the chain length $N$ from 2 to 1000.}
+\end{figure}
+
+The resulting transition amplitude is
+\begin{equation*}
+    g_N(t) = \sum_{m =1} ^{N} a_m ^ 2\cos^2 k_m/2 \exp \left[i \left\{Nk_m - 4Jt (1-\cos k_m)  \right\}  \right]
+\end{equation*}
+Further derivation reveal that the amplitude can be separated into three case based on critical time $t_c = N/4J$
+\begin{equation*}
+    g_N(t) =
+    \begin{cases}
+        \begin{aligned}
+             & \sqrt{\frac{2}{\pi}} \left[ \frac{4Jt - i \sqrt{N^2 - (4Jt)^2}}{4Jt \left( N^2 - (4Jt)^2 \right)^{1/4}} \right]
+            \exp\left[ i\left( \frac{\pi N}{2} - 4Jt \right) \right]                                                           \\
+             & \qquad \times \exp\left[\sqrt{N^2 - (4Jt)^2} -N \operatorname{arcosh} \left(\frac{N}{4Jt}\right)  \right]
+        \end{aligned}
+         & t<t_c         \\\\
+        \left(\frac{16}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \operatorname{Ai}\left[ \frac{4J(t_c - t) }{(2Jt_c)^{1/3}}   \right]
+         & t \approx t_c \\\\
+        \begin{aligned}
+             & \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_1|}} \exp \left[ i\Phi(k_1) -i \frac{\pi }{4}\right]           \\
+             & \qquad + \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_2|}} \exp \left[i\Phi(k_2) +i \frac{\pi }{4}  \right]
+        \end{aligned}
+         & t_c <t
+    \end{cases}
+\end{equation*}
+The amplitude can also be expressed in terms of Bessel function, although it yields worse result
+\begin{equation*}
+    g_N(t)
+    = e^{i(N\pi/2 -4Jt)}  \left[ J_{N}(4Jt) -i  J_N' (4Jt)\right]
+\end{equation*}
+
+\subsubsection{Derivation.}
+With the $\mathbf{j}$ as the receiver site, we compute the transition amplitude from sender site to the receiver site
+\begin{align*}
+    f_r (t)
+     & = \sum_{m=1 } ^N  \bra{\mathbf{r}} e ^{-iHt/\hbar } \ket{\tilde{m }} \braket{\tilde{m }  | \mathbf{s}} = \sum_{m=1 } ^N  \braket{\mathbf{r }  | \mathbf{m}} e ^{-iE_mt/\hbar }  \braket{\tilde{m }  | \mathbf{s}} \\
+     & = \sum_{m=1 } ^N  a_m e ^{-iE_m t/\hbar } \braket{\mathbf{r}|\tilde{m }} \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]                                                                                        \\
+     & = \sum_{m=1 } ^N  a_m^2  e ^{-iE_m t/\hbar }\cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]
+\end{align*}
+Due to the phase factor $e ^{-i E_m t/\hbar}$, this generally complex number.
+However, note that we can write
+\begin{equation*}
+    \exp \left( -i E_m t/\hbar \right) =   \exp(-2iBt/\hbar ) \exp \left( -4Ji (1 - \cos \pi(m-1) t/N \hbar ) \right)
+\end{equation*}
+so that
+\begin{equation*}
+    f_r(t) = e ^{-2iBt/\hbar } g_N  = e ^{-2iBt/\hbar } | g_N | e ^{i\gamma(t)} = |g_N| e ^{i(\gamma(t)-2Bt)}
+\end{equation*}
+with $\hbar = 1$.
+To maximize the fidelity, we impose that the phase is a multiple of $2\pi$
+At time $t=t_0$ which is the time at which Bob observes the $\mathbf{r}$-th site, we have
+\begin{equation*}
+    B = \frac{\gamma_0- 2\pi k }{2 t_0}
+\end{equation*}
+In this condition, the fidelity is
+\begin{equation*}
+    F = \frac{1 }{2 }+ \frac{1 }{3 }|g_N| + \frac{1 }{6 }|g_N|^2
+\end{equation*}
+with
+\begin{multline*}
+    g_N = \sum_{m=1 } ^N  a_m^2 \exp \left[ -i4Jt (1 - \cos \pi(m-1) /N ) \right]  \times\\
+    \cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]
+\end{multline*}
+
+\begin{figure}[t]
+    \centering
+    \resizebox{\textwidth}{!}{\input{../../../Rss/QM/code/plot_F_vs_k.pgf}}
+    \caption*{Figure: Behaviour of the integrand inside $g_N$ as a function of $k$. At $t < T_c$, there exist two saddle point, which to coalesce at $t = t_c$. It the move into the complex plane at $t<t_c$.}
+\end{figure}
+
+
+\subsubsection{Derivation: Saddle point method.}
+Using the condition $r=N$, $s=1$, further analytic consideration can be done with writing the amplitude back in terms of $k = \pi(m-1)/N$
+\begin{align*}
+    g_N
+     & = \sum_{m } a_m ^ 2 \exp \left[ -i4Jt(1 - \cos k) \right] \cos (k(N-1/2)) \cos (k/2)                                     \\
+     & = \sum_{m } a_m ^ 2 \exp \left[ -i4Jt(1 - \cos k) \right] \left[ \cos kN \cos k/2 + \sin kN \sin k/2 \right]  \cos (k/2) \\
+     & = \sum_{m } a_m ^ 2\cos^2 k/2 \exp \left[ -i4Jt(1 - \cos k) \right](-1)^{m-1}                                            \\
+     & = \sum_{m } a_m ^ 2\cos^2 k/2 \exp \left[i \left\{\pi(m-1) - 4Jt (1-\cos k)  \right\}  \right]                           \\
+    g_N
+     & = \sum_{m =1} ^{N} a_m ^ 2\cos^2 k_m/2 \exp \left[i \left\{Nk_m - 4Jt (1-\cos k_m)  \right\}  \right]
+\end{align*}
+where $kN = \pi (m-1)$, $a_1 = 1/\sqrt{N}$, $a_m = \sqrt{2/N}$ for $m>1$.
+Considering that $a_m$ depend on the value of $m$, we can split the summation
+\begin{equation*}
+    g_N = \frac{1}{N} + \frac{2 }{N }\sum_{m=2 } ^{N} \cos^2 k/2 \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
+\end{equation*}
+
+With $\Delta k = \pi /N$, we can approximate the sum as integral
+\begin{equation*}
+    g_N = \frac{1 }{N} +  \frac{2}{\pi}\int_{k_2} ^{k_N} dk\;  \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
+\end{equation*}
+with  $k_\text{2} = \pi/N$ and $k_N = \pi(N-1)/N$.
+Under large $N$, the limit can be approximated as
+\begin{equation*}
+    g_N = \frac{2}{\pi} \int_{0} ^{\pi} dk\; \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
+\end{equation*}
+The  integral oscillates rapidly due to the phase $\Phi(k) $ of $e ^{i\Phi(k)}$.
+Integral over infinitesimal contribution $A(k) e ^{i \Phi(k)} \;dk$ produces cancellation, except at the saddle point or stationary point $k_0$.
+
+We determine this $k_0$ by
+\begin{equation*}
+    \frac{d\Phi(k )}{dk} = 0 \implies
+    \sin k_0 = \frac{N }{4Jt} \implies
+    k_0 = \arcsin \frac{N }{4Jt} = \arcsin \frac{t_c }{t}
+\end{equation*}
+From this value, we separate the integral based on the value of the arc sin argument: at $t<t_c$, $t \approx t_c$, and at $t_c<t$.
+We will expand the phase around $k_0$
+\begin{equation*}
+    \Phi (k )  =  \Phi(k_0) +  \Phi'(k_0)(k-k_0) + \frac{1}{2}\Phi''(k_0)(k-k_0)^2 + \frac{1 }{6 }\Phi'''(k_0)(k-k_0)^3\dots
+\end{equation*}
+with $\Phi'(k_0) = 0$ and
+\begin{align*}
+    \Phi(k)    & =  Nk - 4Jt (1  - \cos k) \\
+    \Phi'(k)   & =  N -4Jt\sin k           \\
+    \Phi''(k)  & = - 4Jt \cos k            \\
+    \Phi'''(k) & = 4Jt \sin k
+\end{align*}
+
+\subsubsection{Derivation: Complex saddle}
+At $t<t_c$, we use pure saddle point approximation, where the saddle point is located at complex plane and the contour must be deformed accordingly.
+This yields
+\begin{multline*}
+    g_N(t) = \sqrt{\frac{2}{\pi}} \left[ \frac{4Jt - i \sqrt{N^2 - (4Jt)^2}}{4Jt \left( N^2 - (4Jt)^2 \right)^{1/4}} \right]
+    \exp\left[ i\left( \frac{\pi N}{2} - 4Jt \right) \right]\\
+    \times \exp\left[ -N \operatorname{arcosh} \left(\frac{N}{4Jt}\right) + \sqrt{N^2 - (4Jt)^2} \right]
+\end{multline*}
+
+\subsubsection{Derivation: Airy regime}
+At $t \approx t_c$, we want to use the Airy function.
+Here, we not only expand the phase around $k_0 = \pi/2$, but around $t_c = N/4J$.
+To do so, we use multivariable Taylor expansion
+\begin{equation*}
+    \Phi(k, t) \approx \sum_{m=0} \sum_{n=0} \frac{1}{m!n!} \frac{\partial^{m+n}\Phi}{\partial k^m \partial t^n}\left(k_0, t_c\right) q^m \tau^n
+\end{equation*}
+where $q=k-k_0 $ and $\tau = t-t_c$.
+Inserting the phase $        \Phi(k)  =  Nk - 4Jt (1  - \cos k) $
+\begin{align*}
+    \Phi (k,t) & = \Phi(k_0,t_c) + q\partial_k\Phi  +\tau \partial_t \Phi  + \frac{1}{2} \big( q^2 \partial_k^2\Phi  + 2 q\tau \partial _k  \partial_t  \Phi  + \tau^2 \partial_t^2  \Phi\big) \\
+               & \qquad + \frac{1}{6}\big(q^3\partial_k ^{3}\Phi  + 3q^2\tau \partial_k ^{2}\partial_t\Phi + 3 q\tau^2 \partial_k\partial_t^2\Phi + \tau^3 \partial_t^3\Phi \big)              \\
+               & = \Phi(k_0,t_c) + q(N - 4Jt_c \sin k_0 ) + \tau \big( -4J(1-\cos k_0) \big)                                                                                                   \\
+               & \qquad + \frac{1}{2} \big( q^2 (-4Jt_c \cos k_0) + 2q\tau (-4J \sin k_0) + \tau^2 (0) \big)                                                                                   \\
+               & \qquad + \frac{1}{6} \big( q^3 (4Jt_c \sin k_0) + 3q^2\tau (-4J \cos k_0) + 3q\tau^2 (0) + \tau^3 (0) \big)                                                                   \\
+               & = \left( \frac{\pi N}{2} - 4Jt_c \right) + q(0) - 4J\tau + \frac{1}{2} \big( q^2(0) - 8Jq\tau \big) + \frac{1}{6} \big( Nq^3 + 3q^2\tau(0) \big)                              \\
+               & = \left( \frac{\pi N}{2} - 4Jt_c - 4J\tau \right) - 4J\tau q + \frac{N}{6}q^3                                                                                                 \\
+               & = \left( \frac{\pi N}{2} - 4Jt \right) - 4J(t-t_c)q + \frac{N}{6}q^3
+\end{align*}
+Substituting this truncated  expansion back into the original integral equation yields
+\begin{equation*}
+    g_N(t) \approx \frac{2}{\pi} \int_{0}^{\pi} dk \; \cos^2\left( k_0/2\right) \exp \left[ i \left\{ \left( \frac{\pi N}{2} - 4Jt \right) - 4J(t-t_c)q + \frac{N}{6}q^3 \right\} \right]
+\end{equation*}
+Substituting $q$, factoring the integrand, and changing the integration limit
+\begin{equation*}
+    g_N(t) \approx \frac{1}{\pi} \exp \left( i\frac{\pi N}{2} -i 4Jt \right) \int_{-\infty}^{\infty} dq \;  \exp \left[ i \left\{\frac{N}{6}q^3 +\gamma_q q  \right\} \right]
+\end{equation*}
+with $\gamma_q = -4J(t-t_c)$ as the linear term
+Introduce the transformation
+\begin{equation*}
+    \frac{1}{3}p^3 = \frac{N}{6}q^3 \quad dq = \left(\frac{2}{N}\right)^{1/3}dp
+    \quad -4J(t-t_c)q = -4J(t-t_c)\left(\frac{2}{N}\right)^{1/3}p
+\end{equation*}
+into the integral
+\begin{equation*}
+    g_N(t) \approx \frac{1}{\pi} \left(\frac{2}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \int_{-\infty}^{\infty} dp \; \exp \left[ i \left( \frac{1}{3}p^3 + xp \right) \right]
+\end{equation*}
+with $\gamma_p = -4J(t-t_c)(2/N) ^{1/3}$.
+Using the definition of Airy function
+\begin{equation*}
+    \operatorname{Ai} (x) = \frac{1 }{2\pi} \int_{-\infty }^{\infty } dp\; \exp \left( \frac{p ^3}{3 } + xp \right)
+\end{equation*}
+we write
+\begin{equation*}
+    g_N(t)= 2\left(\frac{2}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \operatorname{Ai}\left[ 4J(t_c - t) \left( \frac{2 }{N }\right) ^{1/3}   \right]
+\end{equation*}
+
+\subsubsection{Derivation: Gaussian regime}
+At $t_c<t$, there are two possible saddle point
+\begin{equation*}
+    k_1 = \arcsin \frac{N }{4J}\qquad
+    k_2 = \pi -k_1
+\end{equation*}
+Recall that horizontal line $|y(x)|<1$ touch the sine curve twice at the domain $[0,2\pi]$.
+The phase $\Phi(k) =  Nk - 4Jt (1  - \cos k) $ expansion around $k_1$ is
+\begin{align*}
+    \Phi(k) & = \Phi(k_1) + \frac{1}{2}\Phi''(k_1) q_1^2                      \\
+    \Phi(k) & =  \left[ N k_1 - 4Jt(1- \cos k_1) \right] - 2Jt \cos k_1 q_1^2
+\end{align*}
+and like wise for the $k_2$
+\begin{equation*}
+    \Phi(k)  =  \left[ N k_2 - 4Jt(1- \cos k_2) \right] - 2Jt \cos k_2 q_2^2
+\end{equation*}
+The integral splits after substituting this expansion
+\begin{multline*}
+    g_N = \frac{2}{\pi} \cos^2 (k_0/2) e ^{i\Phi(k_1)}\int_{-\infty} ^{\infty} dq_1\; \exp \left[ - i 2 Jt \cos k_1 q_1^2\right] \\
+    + \frac{2}{\pi} \cos^2 (k_0/2) e ^{i\Phi(k_2)}\int_{-\infty} ^{\infty} dq_2\; \exp \left[ - i 2 Jt \cos k_2 q_2^2\right]
+\end{multline*}
+where we have also expanded the integration limit and using $q$ definition for both integral.
+Evaluating the Fresnel integral
+\begin{multline*}
+    g_N = \frac{2}{\pi} \cos^2 (k_1/2) e ^{i\Phi(k_1)} \sqrt{\frac{\pi }{2Jt |\cos k_1|}} \exp \left( -i \frac{\pi }{4} \operatorname{sgn} (\cos k_1) \right)  \\
+    + \frac{2}{\pi} \cos^2 (k_2/2) e ^{i\Phi(k_2)} \sqrt{\frac{\pi }{2Jt |\cos k_2|}} \exp \left( -i \frac{\pi }{4} \operatorname{sgn} (\cos k_2) \right)  \\
+\end{multline*}
+Now $k_1 \in (0,\pi/2)$ and $k_2 \in (\pi/2,\pi)$, so
+\begin{multline*}
+    g_N = \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_1|}} \exp \left[ i\Phi(k_1) -i \frac{\pi }{4}\right]  \\
+    + \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_2|}} \exp \left[i\Phi(k_2) +i \frac{\pi }{4}  \right]
+\end{multline*}
+
+\subsubsection{Bessel function representation.}
+Alternatively, starting from the integral
+\begin{equation*}
+    g_N = \frac{2 }{\pi} \int_{0} ^{\pi} dk\; \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
+\end{equation*}
+Using the Jacobi-Anger expansion
+\begin{equation*}
+    e^{i z \cos\theta} = \sum_{m=-\infty}^{\infty} i^{m} J_{m}(z)e^{i m \theta}
+    = J_0(4Jt) + 2 \sum_{m=1}^{\infty} i^m J_m(4Jt) \cos(mk)
+\end{equation*}
+we can write
+\begin{align*}
+    g_N
+     & = \frac{e^{-i4Jt}}{\pi}\int_{0}^{\pi} dk\;(1+\cos k) e^{iNk}\sum_{m=-\infty}^{\infty} i^{m} J_{m}(4Jt)e^{i m k}                   \\
+     & = \frac{e^{-i4Jt}}{\pi} \sum_{m=-\infty}^{\infty} i^{m} J_{m}(4Jt) \int_{0}^{\pi} dk\; \big( e ^{i(N+m)k}                         \\
+     & \qquad + \frac{1}{2}e ^{i(N+m+1)k} + \frac{1 }{2 } e ^{i(N+m-1)k}  \big)                                                           \\
+     & = \frac{e^{-i4Jt}}{\pi} \left[ i ^{-N}\pi J_{-N}+ i ^{-N-1} \frac{\pi }{2 } J_{-N-1}+  i ^{-N+1} \frac{\pi }{2 } J_{-N+1} \right] \\
+     & = e^{-i4Jt} i ^{-N} \left[ J_{-N} -  \frac{i }{2 } J_{-N+1} + \frac{i }{2 } J_{-N+1} \right]                             \\
+     & = e^{-i4Jt} i ^{N} \left[(-1)^{-N} J_{-N} -  \frac{i }{2 }(-1)^{-N} J_{-N+1} + \frac{i }{2 }(-1)^{-N} J_{-N+1} \right]      \\
+     & = e^{-i4Jt} i ^{N} \left[ J_{N} -  \frac{i }{2 } J_{N-1} + \frac{i }{2 }J_{N-1} \right]                                  \\
+    g_N(t)
+     & = e^{i(N\pi/2 -4Jt)}  \left[ J_{N}(4Jt) -i  J_N' (4Jt)\right]
+\end{align*}
+
 \end{document}
