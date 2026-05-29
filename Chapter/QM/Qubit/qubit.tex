@@ -209,10 +209,10 @@ We can compute this
 The dot product of those two matrix is
 \begin{equation*}
   \boldsymbol{\alpha }\cdot \boldsymbol{\sigma } =
-  \begin{pmatrix}
+  \begin{bmatrix}
     \alpha_z           & \alpha_x-i \alpha_y \\
     \alpha_x+i\alpha_y & -\alpha_z
-  \end{pmatrix}
+  \end{bmatrix}
 \end{equation*}
 so the trace is
 \begin{equation*}
@@ -851,20 +851,32 @@ When the south pole of the magnetic moment is located on the upper side, the mag
 On the other hand, if the north pole of the magnetic moment is on the upper side, the attraction acts in the opposite direction and the atom as a whole is pulled downward.
 
 \subsection{Fidelity}
-The fidelity of quantum channel is  
+The fidelity of quantum channel is
 \begin{equation*}
   \braket{F }  = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
 \end{equation*}
-Classical fidelity is 
+Classical fidelity is
 \begin{equation*}
-  \braket{F } = \frac{1 }{2 } \sum_{k}a_k + \frac{1 }{6 }\sum_{k } \mathbf{b }_k \cdot \mathbf{r}_k 
+  \braket{F } = \frac{1 }{2 } \sum_{k}a_k + \frac{1 }{6 }\sum_{k } \mathbf{b }_k \cdot \mathbf{r}_k
 \end{equation*}
 This is in general unoptimized, with the maximum of $\braket{F} = 2/3$
 Another relevant quantum state transition amplitude
 \begin{equation*}
-  f_j(t) = \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}}  
+  f_j(t) = \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}}
 \end{equation*}
 
+Quantum fidelity measured by averaging the output reduced density state with respect to input state $F=\int d\Omega \braket{\psi | \rho_\text{out}|\psi}$, with 
+\begin{equation*}
+  \rho_\text{out}
+  = \begin{bmatrix}
+    1- |\beta|^2 |f_r|^2 & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r     & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+\end{equation*}
+This state has the purity of 
+\begin{equation*}
+    \mathrm{Tr} [\rho_\text{out }^2] = 1+ 2|\beta|^{4}|f_{r}|^{2}(|f_r| ^2 -1)  
+\end{equation*}
 
 \subsubsection{Derivation: quantum fidelity}
 Assume all down ground state
@@ -995,7 +1007,11 @@ has the reduced state of
          \alpha\beta  f_r                                          & |\beta|^2 |f_r|^2
        \end{bmatrix}
 \end{align*}
-The total normalized transition amplitude $\sum_{j}|f_j|^2 $ must equal to one, so we can write the (0,0) element as
+The total normalized transition amplitude must equal to one,
+\begin{equation*}
+  \sum_j |f_j|^2 = \sum_j \braket{\mathbf{s}|U^\dagger|\mathbf{j} } \braket{\mathbf{j}|U|\mathbf{s}} = \braket{\mathbf{s}|U^\dagger U|\mathbf{s} } =1
+\end{equation*}
+so we can write the (0,0) element as
 \begin{equation*}
   \rho_\text{out}
   = \begin{bmatrix}
@@ -1034,7 +1050,7 @@ Equating the (0,0)  element
 
 The fidelity is computed as
 \begin{align*}
-  F & =  \braket{\psi_\text{in} | \rho_{\text{out}}|\psi_\text{in} } \\
+  F & =  \braket{\psi_\text{in} | \rho_{\text{out}}|\psi_\text{in} }                                            \\
     & = \begin{bmatrix}
           \alpha & \beta ^*
         \end{bmatrix}
@@ -1044,15 +1060,15 @@ The fidelity is computed as
   \end{bmatrix}
   \begin{bmatrix}
     \alpha \\  \beta
-  \end{bmatrix}\\
+  \end{bmatrix}                                                                                               \\
     & = \begin{bmatrix}
           \alpha & \beta ^*
         \end{bmatrix}
-          \begin{bmatrix}
+  \begin{bmatrix}
     \alpha^3 + \alpha|\beta|^2 (1-|f_r|^2 + f_r ^*) \\
     \alpha^2\beta  f_r + |\beta|^2 |f_r|^2\beta
-  \end{bmatrix}\\
-  & =     \alpha^4 + \alpha^2|\beta|^2 (1-|f_r|^2 + f_r ^*) +    \alpha^2|\beta|^2  f_r + |\beta|^4 |f_r|^2\\
+  \end{bmatrix}                                                               \\
+    & =     \alpha^4 + \alpha^2|\beta|^2 (1-|f_r|^2 + f_r ^*) +    \alpha^2|\beta|^2  f_r + |\beta|^4 |f_r|^2   \\
   F & =     \alpha^4 + \alpha^2|\beta|^2 (1-|f_r|^2 ) + |\beta|^4 |f_r|^2 + 2\alpha^2|\beta|^2 \mathrm{Re}(f_r)
 \end{align*}
 The fidelity then averaged over the Bloch sphere
@@ -1062,51 +1078,87 @@ The fidelity then averaged over the Bloch sphere
 Recall that the total solid angle of a unit sphere is $4\pi$, thus the normalization constant.
 Few helpful average value may be computated as follows
 \begin{align*}
-    \braket{\cos^4 \theta/2 } 
-    &= \frac{1 }{2 } \int_{0 }^{\pi} \cos^4 \frac{\theta }{2} \sin \theta\;d\theta
-    = \frac{1 }{2 } \int_{0 }^{\pi} \left( \frac{1 +\cos \theta }{2} \right)^2  \sin \theta\;d\theta\\
-    &= \frac{1}{8}\left[\int_0^\pi \sin\theta\,d\theta + 2\int_0^\pi \cos\theta\sin\theta\,d\theta + \int_0^\pi \cos^2\theta\sin\theta\,d\theta\right]\\
-        \braket{\sin^4 \theta/2 } 
-    & = \frac{1}{8} \left[ \cos \theta\big|_\pi^0 +2 \int_{-1 }^{1 }u\;du + \int_{-1 }^{1 }u^2\;du\right]  = \frac{1 }{8 }\left[ 2+0+\frac{2 }{3} \right]  = \frac{1 }{3}
+  \braket{\cos^4 \theta/2 }
+   & = \frac{1 }{2 } \int_{0 }^{\pi} \cos^4 \frac{\theta }{2} \sin \theta\;d\theta
+  = \frac{1 }{2 } \int_{0 }^{\pi} \left( \frac{1 +\cos \theta }{2} \right)^2  \sin \theta\;d\theta                                                                       \\
+   & = \frac{1}{8}\left[\int_0^\pi \sin\theta\,d\theta + 2\int_0^\pi \cos\theta\sin\theta\,d\theta + \int_0^\pi \cos^2\theta\sin\theta\,d\theta\right]                   \\
+  \braket{\sin^4 \theta/2 }
+   & = \frac{1}{8} \left[ \cos \theta\big|_\pi^0 +2 \int_{-1 }^{1 }u\;du + \int_{-1 }^{1 }u^2\;du\right]  = \frac{1 }{8 }\left[ 2+0+\frac{2 }{3} \right]  = \frac{1 }{3}
 \end{align*}
 with $u = \cos\theta$ and $du = -\sin \theta \;d\theta$.
-Other 
+Other
 \begin{align*}
-    \braket{\sin^4 \theta/2 } 
-    &= \frac{1 }{2 } \int_{0 }^{\pi} \sin^4 \frac{\theta }{2} \sin \theta\;d\theta
-    = \frac{1 }{2 } \int_{0 }^{\pi} \left( \frac{1 - \cos \theta }{2} \right)^2  \sin \theta\;d\theta\\
-    &= \frac{1}{8}\left[\int_0^\pi \sin\theta\,d\theta - 2\int_0^\pi \cos\theta\sin\theta\,d\theta + \int_0^\pi \cos^2\theta\sin\theta\,d\theta\right]\\
-        \braket{\sin^4 \theta/2 } 
-    & = \frac{1}{8} \left[ \cos \theta\big|_\pi^0 + \int_{1 }^{-1 }u\;du + \int_{-1 }^{1 }u^2\;du\right]  = \frac{1 }{8 }\left[ 2+0+\frac{2 }{3} \right]  = \frac{1 }{3}
+  \braket{\sin^4 \theta/2 }
+   & = \frac{1 }{2 } \int_{0 }^{\pi} \sin^4 \frac{\theta }{2} \sin \theta\;d\theta
+  = \frac{1 }{2 } \int_{0 }^{\pi} \left( \frac{1 - \cos \theta }{2} \right)^2  \sin \theta\;d\theta                                                                     \\
+   & = \frac{1}{8}\left[\int_0^\pi \sin\theta\,d\theta - 2\int_0^\pi \cos\theta\sin\theta\,d\theta + \int_0^\pi \cos^2\theta\sin\theta\,d\theta\right]                  \\
+  \braket{\sin^4 \theta/2 }
+   & = \frac{1}{8} \left[ \cos \theta\big|_\pi^0 + \int_{1 }^{-1 }u\;du + \int_{-1 }^{1 }u^2\;du\right]  = \frac{1 }{8 }\left[ 2+0+\frac{2 }{3} \right]  = \frac{1 }{3}
 \end{align*}
-and 
+and
 \begin{align*}
-    \braket{\cos ^2\theta/2\sin^2 \theta/2 }   
-    & =  \frac{1 }{2 }\int_{0 }^{\pi }\frac{1}{4 }(1+\cos \theta)(1-\cos \theta)\sin \theta\;d\theta\\
-    & =  \frac{1 }{8 }\int_{0 }^{\pi }(1-\cos^2 \theta)\sin \theta\;d\theta\\
-    \braket{\cos ^2\theta/2\sin^2 \theta/2 }   
-    & =  \frac{1 }{8 }\int_{-1 }^{1 }(1-u^2)\;du = \frac{1 }{8 }\left[ 2- \frac{2 }{3}\right]  = \frac{1 }{6}\\
+  \braket{\cos ^2\theta/2\sin^2 \theta/2 }
+   & =  \frac{1 }{2 }\int_{0 }^{\pi }\frac{1}{4 }(1+\cos \theta)(1-\cos \theta)\sin \theta\;d\theta          \\
+   & =  \frac{1 }{8 }\int_{0 }^{\pi }(1-\cos^2 \theta)\sin \theta\;d\theta                                   \\
+  \braket{\cos ^2\theta/2\sin^2 \theta/2 }
+   & =  \frac{1 }{8 }\int_{-1 }^{1 }(1-u^2)\;du = \frac{1 }{8 }\left[ 2- \frac{2 }{3}\right]  = \frac{1 }{6} \\
 \end{align*}
-Then, with the fidelity as 
+Then, with the fidelity as
 \begin{equation*}
-  F =     \cos^4 \frac{\theta}{2 } + \cos^2\frac{\theta}{2 }\sin ^2\frac{\theta}{2 } (1-|f_r|^2 ) + \sin ^4\frac{\theta}{2 } |f_r|^2 + 2\cos^2\frac{\theta}{2 }\sin ^2\frac{\theta}{2 } \mathrm{Re}(f_r)  
+  F =     \cos^4 \frac{\theta}{2 } + \cos^2\frac{\theta}{2 }\sin ^2\frac{\theta}{2 } (1-|f_r|^2 ) + \sin ^4\frac{\theta}{2 } |f_r|^2 + 2\cos^2\frac{\theta}{2 }\sin ^2\frac{\theta}{2 } \mathrm{Re}(f_r)
 \end{equation*}
-The average is simply 
+The average is simply
 \begin{equation*}
   \braket{F } = \frac{1 }{3 } + \frac{1 }{6} (1-|f_r|^2 ) + \frac{1 }{3 }|f_r|^2 + \frac{2 }{6 }\mathrm{Re }(f_r) = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
 \end{equation*}
 
-\subsubsection{Derivation: Classical fidelity.}
-The classical density operator can be written as ensemble of pure state 
+\subsubsection{Derivation: Purity of Bob's state.}
+With the reduced state of
 \begin{equation*}
-  \rho_\text{cl} (\phi) = \sum_{k} p_k \ket{\phi_k} \bra{\phi_k} 
+  \rho_\text{out}
+  = \begin{bmatrix}
+    \alpha^2 + |\beta|^2 (1-|f_r|^2) & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r                 & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+  = \begin{bmatrix}
+    1- |\beta|^2 |f_r|^2 & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r     & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+\end{equation*}
+we can compute the purity as follows
+\begin{align*}
+  \mathrm{Tr} [\rho_\text{out}^2]
+   & = \mathrm{Tr}
+    \begin{bmatrix}
+    1- |\beta|^2 |f_r|^2 & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r     & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+  \begin{bmatrix}
+    1- |\beta|^2 |f_r|^2 & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r     & |\beta|^2 |f_r|^2
+  \end{bmatrix}                                                                  \\
+   & =\mathrm{Tr} \begin{bmatrix}
+                    (1-|\beta|^{2}|f_{r}|^{2})^2 + |\alpha|^{2}|\beta|^{2}|f_{r}|^{2} & \alpha\beta^{*}f_{r}^{*} \\
+                    \alpha\beta f_{r}                                                 &
+                    |\alpha|^{2}|\beta|^{2}|f_{r}|^{2}+|\beta|^{4}|f_{r}|^{4}
+                  \end{bmatrix}\\
+  & = 1+ |\beta|^{4}|f_{r}|^{4} - 2|\beta|^{2}|f_{r}|^{2} +   2|\alpha|^{2}|\beta|^{2}|f_{r}|^{2} + |\beta|^{4}|f_{r}|^{4}\\
+  & = 1+ 2|\beta|^{4}|f_{r}|^{4} - 2|\beta|^{2}|f_{r}|^{2} +   2|\beta|^{2}|f_{r}|^{2} - 2|\beta|^{4}|f_{r}|^{2} \\
+  & = 1+ 2|\beta|^{4}|f_{r}|^{2}(|f_r| ^2 -1)  \\
+\end{align*}
+
+
+\subsubsection{Derivation: Classical fidelity.}
+The classical density operator can be written as ensemble of pure state
+\begin{equation*}
+  \rho_\text{cl} (\phi) = \sum_{k} p_k \ket{\phi_k} \bra{\phi_k}
 \end{equation*}
 It is classical–quantum hybrid object, not a quantum state evolving under Hamiltonian dynamics.
-The probability $p_k$ is a simple Born's rule 
+The probability $p_k$ is a simple Born's rule
 \begin{align*}
-  p_k & =  \braket{\psi  | E_k | \psi} = \mathrm{Tr} (E_k \rho_\psi)\\
-& =\frac{1 }{2} \mathrm{Tr}\big[(a_k \mathbf{1} +  \mathbf{b}_k\cdot \boldsymbol{\sigma})(\mathbf{1} + \mathbf{n}\cdot\boldsymbol{\sigma})\big],\\
-& = \frac{1  }{2 }\mathrm{Tr}\big[a_k \mathbf{1} + a_k \mathbf{n }\cdot\boldsymbol{\sigma} + (\mathbf{b}_k\cdot\boldsymbol{\sigma}) + (\mathbf{b}_k\cdot\boldsymbol{\sigma})(\mathbf{n}\cdot\boldsymbol{\sigma})\big]
+  p_k & =  \braket{\psi  | E_k | \psi} = \mathrm{Tr} (E_k \rho_\psi)                                                                                                                                                        \\
+      & =\frac{1 }{2} \mathrm{Tr}\big[(a_k \mathbf{1} +  \mathbf{b}_k\cdot \boldsymbol{\sigma})(\mathbf{1} + \mathbf{n}\cdot\boldsymbol{\sigma})\big],                                                                      \\
+      & = \frac{1  }{2 }\mathrm{Tr}\big[a_k \mathbf{1} + a_k \mathbf{n }\cdot\boldsymbol{\sigma} + (\mathbf{b}_k\cdot\boldsymbol{\sigma}) + (\mathbf{b}_k\cdot\boldsymbol{\sigma})(\mathbf{n}\cdot\boldsymbol{\sigma})\big]
 \end{align*}
 We write $E_k$ can in terms of Pauli matrices, along with the identity, since they span the $2 \times 2$ matrix space.
 Also $\ket{\psi}$ here denote the actual quantum state.
@@ -1117,30 +1169,30 @@ As for second term, we note that the trace of Pauli matrix is zero
 \end{equation*}
 and the same for the third term, we use the identity $    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) = \mathbf{a} \cdot \mathbf{b} + i(\mathbf{a} \times \mathbf{b}) \cdot \boldsymbol{\sigma}$
 \begin{align*}
-  \mathrm{Tr} \varsigma & =  \mathrm{Tr} (\mathbf{n} \cdot \mathbf{b}_k \mathbf{1}) + \mathrm{Tr} i(\mathbf{n} \times \mathbf{b}_k) \cdot \boldsymbol{\sigma}\\
-  & =  2\mathbf{n} \cdot \mathbf{b}_k  +i \sum_i (b_k \times n)_i \,\mathrm{Tr}(\sigma_i)
-  =  2\mathbf{n} \cdot \mathbf{b}_k 
+  \mathrm{Tr} \varsigma & =  \mathrm{Tr} (\mathbf{n} \cdot \mathbf{b}_k \mathbf{1}) + \mathrm{Tr} i(\mathbf{n} \times \mathbf{b}_k) \cdot \boldsymbol{\sigma} \\
+                        & =  2\mathbf{n} \cdot \mathbf{b}_k  +i \sum_i (b_k \times n)_i \,\mathrm{Tr}(\sigma_i)
+  =  2\mathbf{n} \cdot \mathbf{b}_k
 \end{align*}
 So $p_k = a_k + \mathbf{n }\cdot \mathbf{b}_k$.
-Substituting this 
+Substituting this
 \begin{equation*}
-    \rho_\text{cl} = \frac{1 }{2 }  \sum_k \left[ \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right)    (\mathbf{1 }+ \mathbf{r}_k \cdot \boldsymbol{\sigma})\right]  
+  \rho_\text{cl} = \frac{1 }{2 }  \sum_k \left[ \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right)    (\mathbf{1 }+ \mathbf{r}_k \cdot \boldsymbol{\sigma})\right]
 \end{equation*}
 Note that $a_k$ and $\mathbf{b}_k$ belong to the element of $E_k$, while $\mathbf{r}_k$ is the Bloch vector of prepared output state.
 Once the protocol is determine, $\mathbf{r}_k$ is fixed
 
 Next is to compute the fidelity
 \begin{align*}
-  F & =  \braket{\psi| \rho_\text{cl} | \phi} = \mathrm{Tr} (\rho_{\phi}\rho_\text{cl} )\\
-  & = \frac{1 }{4 } \mathrm{Tr} \sum_k \left( \mathbf{1} + \mathbf{n }\cdot \boldsymbol{\sigma} \right) \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right)    (\mathbf{1 }+ \mathbf{r}_k \cdot \boldsymbol{\sigma})   \\
-  & = \frac{1 }{4 } \sum_k \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right) \mathrm{Tr}  \left[\left( \mathbf{1} + \mathbf{n }\cdot \boldsymbol{\sigma} \right) (\mathbf{1 }+ \mathbf{r}_k \cdot \boldsymbol{\sigma})\right]  \\
-  & = \frac{1 }{4 } \sum_k \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right) \mathrm{Tr}  \left[\mathbf{1} + \mathbf{r}_k \cdot \boldsymbol{\sigma} + \mathbf{n }\cdot \boldsymbol{\sigma} + (\mathbf{n }\cdot \boldsymbol{\sigma})(\mathbf{r}_k \cdot \boldsymbol{\sigma})\right]  \\
-  & = \frac{1 }{4 } \sum_k \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right) \left( 2 + 2 \mathbf{n }\cdot \mathbf{r}_k\right)  \\
+  F & =  \braket{\psi| \rho_\text{cl} | \phi} = \mathrm{Tr} (\rho_{\phi}\rho_\text{cl} )                                                                                                                                                                                                         \\
+    & = \frac{1 }{4 } \mathrm{Tr} \sum_k \left( \mathbf{1} + \mathbf{n }\cdot \boldsymbol{\sigma} \right) \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right)    (\mathbf{1 }+ \mathbf{r}_k \cdot \boldsymbol{\sigma})                                                                 \\
+    & = \frac{1 }{4 } \sum_k \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right) \mathrm{Tr}  \left[\left( \mathbf{1} + \mathbf{n }\cdot \boldsymbol{\sigma} \right) (\mathbf{1 }+ \mathbf{r}_k \cdot \boldsymbol{\sigma})\right]                                                      \\
+    & = \frac{1 }{4 } \sum_k \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right) \mathrm{Tr}  \left[\mathbf{1} + \mathbf{r}_k \cdot \boldsymbol{\sigma} + \mathbf{n }\cdot \boldsymbol{\sigma} + (\mathbf{n }\cdot \boldsymbol{\sigma})(\mathbf{r}_k \cdot \boldsymbol{\sigma})\right] \\
+    & = \frac{1 }{4 } \sum_k \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right) \left( 2 + 2 \mathbf{n }\cdot \mathbf{r}_k\right)                                                                                                                                                     \\
   F & = \frac{1 }{2 }  \sum_k\left[ a_k + a_k(\mathbf{n }\cdot \mathbf{r }_k) + (\mathbf n\cdot\mathbf b_k) + (\mathbf n\cdot\mathbf b_k)(\mathbf{n }\cdot \mathbf{r }_k)\right]
 \end{align*}
-The averaged value is then 
+The averaged value is then
 \begin{equation*}
-    \braket{F } = \frac{1 }{8 \pi } \sum_{k} \int d\Omega\;\left[ a_k + a_k(\mathbf{n }\cdot \mathbf{r }_k) + (\mathbf n\cdot\mathbf b_k) + (\mathbf n\cdot\mathbf b_k)(\mathbf{n }\cdot \mathbf{r }_k)\right]
+  \braket{F } = \frac{1 }{8 \pi } \sum_{k} \int d\Omega\;\left[ a_k + a_k(\mathbf{n }\cdot \mathbf{r }_k) + (\mathbf n\cdot\mathbf b_k) + (\mathbf n\cdot\mathbf b_k)(\mathbf{n }\cdot \mathbf{r }_k)\right]
 \end{equation*}
 The averaged fidelity compute average over all possible unknown input states, which parameterized by $\mathbf{n} = (\sin \theta \cos \phi,\sin \theta \sin\phi,\cos \theta)$.
 This means that $d\Omega$ acts only on $\mathbf{n}$, not $a_k$ nor $\mathbf{r}_k$.
@@ -1148,36 +1200,36 @@ We evaluate term by term starting from the first
 \begin{equation*}
   \braket{F }_1 = \frac{1 }{8 \pi } \sum_{k} \int d\Omega\; a_k = \frac{1 }{2 }\sum_{k } a_k
 \end{equation*}
-The second 
+The second
 \begin{align*}
-  \braket{F }_2 & =  \frac{1 }{8 \pi } \sum_{k} \int d\Omega\; a_k(\mathbf{n }\cdot \mathbf{r }_k) 
-  = \frac{1 }{8 \pi } \sum_{k,l} \int d\Omega\; a_k n_l r_{rl} \\
-  & =  \frac{1 }{8 \pi } \sum_{k,l} a_k r_{rl} \int d\Omega\; n_l = 0
+  \braket{F }_2 & =  \frac{1 }{8 \pi } \sum_{k} \int d\Omega\; a_k(\mathbf{n }\cdot \mathbf{r }_k)
+  = \frac{1 }{8 \pi } \sum_{k,l} \int d\Omega\; a_k n_l r_{rl}                                     \\
+                & =  \frac{1 }{8 \pi } \sum_{k,l} a_k r_{rl} \int d\Omega\; n_l = 0
 \end{align*}
-The result is due to the integral being zero. 
+The result is due to the integral being zero.
 This can be understood as that for every $\mathbf{n}$, there exist $-\mathbf{n}$ such that the average over the solid angle is zero.
 Same reasoning applies to the third term.
-For the fourth 
+For the fourth
 \begin{align*}
   \braket{F }_4
-  & = \frac{1 }{8 \pi } \sum_{k} \int d\Omega\;  (\mathbf n\cdot\mathbf b_k)(\mathbf{n }\cdot \mathbf{r }_k)\\
-  & = \frac{1 }{8 \pi } \sum_{k,l,m} \int d\Omega\;  n_lb_{rl}n_{m}r_{km}\\
-  & = \frac{1 }{8 \pi } \sum_{k,l,m} b_{rl}r_{km}\int d\Omega\;  n_ln_{m}\\
+   & = \frac{1 }{8 \pi } \sum_{k} \int d\Omega\;  (\mathbf n\cdot\mathbf b_k)(\mathbf{n }\cdot \mathbf{r }_k) \\
+   & = \frac{1 }{8 \pi } \sum_{k,l,m} \int d\Omega\;  n_lb_{rl}n_{m}r_{km}                                    \\
+   & = \frac{1 }{8 \pi } \sum_{k,l,m} b_{rl}r_{km}\int d\Omega\;  n_ln_{m}                                    \\
 \end{align*}
-To evaluate the integral, we use the isotropic identity 
+To evaluate the integral, we use the isotropic identity
 \begin{equation*}
   n_x^2 + n_y^2 + n_z^2 = 1\qquad\langle n_x^2\rangle = \langle n_y^2\rangle = \langle n_z^2\rangle = \frac{1}{3}\qquad
   \frac{1 }{4\pi}\int d\Omega\;  n_j n_{j} = \frac{1 }{3} \delta_{ij}
 \end{equation*}
-Then 
+Then
 \begin{equation*}
   \braket{F }_4
-   = \frac{1 }{2} \sum_{k,l,m} b_{rl}r_{km}\frac{1 }{3 } \delta_{lm} =  \frac{1 }{6 }\sum_{k } \mathbf{b }_k \cdot \mathbf{r}_k
+  = \frac{1 }{2} \sum_{k,l,m} b_{rl}r_{km}\frac{1 }{3 } \delta_{lm} =  \frac{1 }{6 }\sum_{k } \mathbf{b }_k \cdot \mathbf{r}_k
 \end{equation*}
 and we obtain the average fidelity
 \begin{equation*}
-  \braket{F } = \frac{1 }{2 } \sum_{k}a_k + \frac{1 }{6 }\sum_{k } \mathbf{b }_k \cdot \mathbf{r}_k 
+  \braket{F } = \frac{1 }{2 } \sum_{k}a_k + \frac{1 }{6 }\sum_{k } \mathbf{b }_k \cdot \mathbf{r}_k
 \end{equation*}
-As a unit vector, $\mathbf{r}_k$ and $\mathbf{b}_k$ has magnitude of unitary. 
+As a unit vector, $\mathbf{r}_k$ and $\mathbf{b}_k$ has magnitude of unitary.
 At maximum therefore, the value of average fidelity is $\braket{F } = 1/2+1/6=2/3$, lower than quantum fidelity.
 \end{document}
