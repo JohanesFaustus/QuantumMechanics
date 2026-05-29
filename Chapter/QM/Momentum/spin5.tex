@@ -1,0 +1,374 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Optimization For XXX Hamiltonian: No Treatment Whatsoever}
+With known eigenvalue and eigenstates
+\begin{gather*}
+    \ket{\tilde{m }} = a_m \sum_{j=1} ^{N} \cos \left[ \frac{\pi }{2N }(m-1 ) (2j-1)\right]  \ket{\mathbf{j}}\\
+    E_m = 2B + 4 J (1 - \cos \pi(m-1)/N)
+\end{gather*}
+the fidelity may now be computed
+\begin{equation*}
+    \braket{F }  = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
+\end{equation*}
+with transition amplitude
+\begin{equation*}
+    f_j(t) = \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}}
+\end{equation*}
+
+\begin{figure}
+    \centering
+    \resizebox{\textwidth}{!}{\input{../../../Rss/QM/Momentum/plot_FvsN.pgf}}
+    \resizebox{\textwidth}{!}{\input{../../../Rss/QM/Momentum/plot_FvsN_tmore.pgf}}
+    \caption*{Figure: The plots shows the maximum fidelity $F$ of quantum communication as a function of the chain length $N$ from 2 to 1000. First figure show  in a time interval [0, $3t_c$] while second [0, $3t_c$ + 4000/J]}
+\end{figure}
+
+The resulting transition amplitude is
+\begin{equation*}
+    g_N(t) = \sum_{m =1} ^{N} a_m ^ 2\cos^2 k_m/2 \exp \left[i \left\{Nk_m - 4Jt (1-\cos k_m)  \right\}  \right]
+\end{equation*}
+Further derivation reveal that the amplitude can be separated into three case based on critical time $t_c = N/4J$
+\begin{equation*}
+    g_N(t) =
+    \begin{cases}
+        \begin{aligned}
+             & \sqrt{\frac{2}{\pi}} \left[ \frac{4Jt - i \sqrt{N^2 - (4Jt)^2}}{4Jt \left( N^2 - (4Jt)^2 \right)^{1/4}} \right]
+            \exp\left[ i\left( \frac{\pi N}{2} - 4Jt \right) \right]                                                           \\
+             & \qquad \times \exp\left[\sqrt{N^2 - (4Jt)^2} -N \operatorname{arcosh} \left(\frac{N}{4Jt}\right)  \right]
+        \end{aligned}
+         & t<t_c         \\\\
+        \left(\frac{16}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \operatorname{Ai}\left[ \frac{4J(t_c - t) }{(2Jt_c)^{1/3}}   \right]
+         & t \approx t_c \\\\
+        \begin{aligned}
+             & \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_1|}} \exp \left[ i\Phi(k_1) -i \frac{\pi }{4}\right]           \\
+             & \qquad + \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_2|}} \exp \left[i\Phi(k_2) +i \frac{\pi }{4}  \right]
+        \end{aligned}
+         & t_c <t
+    \end{cases}
+\end{equation*}
+The amplitude can also be expressed in terms of Bessel function, although it yields worse result
+\begin{equation*}
+    g_N(t)
+    = e^{i(N\pi/2 -4Jt)}  \left[ J_{N}(4Jt) -i  J_N' (4Jt)\right]
+\end{equation*}
+
+\subsubsection{Derivation.}
+With the $\mathbf{j}$ as the receiver site, we compute the transition amplitude from sender site to the receiver site
+\begin{align*}
+    f_r (t)
+     & = \sum_{m=1 } ^N  \bra{\mathbf{r}} e ^{-iHt/\hbar } \ket{\tilde{m }} \braket{\tilde{m }  | \mathbf{s}} 
+     = \sum_{m=1 } ^N  e ^{-iE_mt/\hbar }  \braket{\mathbf{r }  | \tilde{m}} \braket{\tilde{m }  | \mathbf{s}} \\
+     & = \sum_{m=1 } ^N  a_m e ^{-iE_m t/\hbar } \braket{\mathbf{r}|\tilde{m }} \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]                                                                                        \\
+     & = \sum_{m=1 } ^N  a_m^2  e ^{-iE_m t/\hbar }\cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]
+\end{align*}
+Due to the phase factor $e ^{-i E_m t/\hbar}$, this generally complex number.
+However, note that we can write
+\begin{equation*}
+    \exp \left( -i E_m t/\hbar \right) =   \exp(-2iBt/\hbar ) \exp \left( -4Ji (1 - \cos \pi(m-1) t/N \hbar ) \right)
+\end{equation*}
+so that
+\begin{equation*}
+    f_r(t) = e ^{-2iBt/\hbar } g_N  = e ^{-2iBt/\hbar } | g_N | e ^{i\gamma(t)} = |g_N| e ^{i(\gamma(t)-2Bt)}
+\end{equation*}
+with $\hbar = 1$.
+To maximize the fidelity, we impose that the phase is a multiple of $2\pi$
+At time $t=t_0$ which is the time at which Bob observes the $\mathbf{r}$-th site, we have
+\begin{equation*}
+    B = \frac{\gamma_0- 2\pi k }{2 t_0}
+\end{equation*}
+In this condition, the fidelity is
+\begin{equation*}
+    F = \frac{1 }{2 }+ \frac{1 }{3 }|g_N| + \frac{1 }{6 }|g_N|^2
+\end{equation*}
+with
+\begin{multline*}
+    g_N = \sum_{m=1 } ^N  a_m^2 \exp \left[ -i4Jt (1 - \cos \pi(m-1) /N ) \right]  \times\\
+    \cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]
+\end{multline*}
+
+\begin{figure}[t]
+    \centering
+    \resizebox{\textwidth}{!}{\input{../../../Rss/QM/Momentum/plot_F_vs_k.pgf}}
+    \caption*{Figure: Behavior of the integrand inside $g_N$ as a function of $k$. At $t < T_c$, there exist two saddle point, which to coalesce at $t = t_c$. It then moves into the complex plane at $t<t_c$.}
+\end{figure}
+
+
+\subsubsection{Derivation: Saddle point method.}
+Using the condition $r=N$, $s=1$, further analytic consideration can be done with writing the amplitude back in terms of $k = \pi(m-1)/N$
+\begin{align*}
+    g_N
+     & = \sum_{m } a_m ^ 2 \exp \left[ -i4Jt(1 - \cos k) \right] \cos (k(N-1/2)) \cos (k/2)                                     \\
+     & = \sum_{m } a_m ^ 2 \exp \left[ -i4Jt(1 - \cos k) \right] \left[ \cos kN \cos k/2 + \sin kN \sin k/2 \right]  \cos (k/2) \\
+     & = \sum_{m } a_m ^ 2\cos^2 k/2 \exp \left[ -i4Jt(1 - \cos k) \right](-1)^{m-1}                                            \\
+     & = \sum_{m } a_m ^ 2\cos^2 k/2 \exp \left[i \left\{\pi(m-1) - 4Jt (1-\cos k)  \right\}  \right]                           \\
+    g_N
+     & = \sum_{m =1} ^{N} a_m ^ 2\cos^2 k_m/2 \exp \left[i \left\{Nk_m - 4Jt (1-\cos k_m)  \right\}  \right]
+\end{align*}
+where $kN = \pi (m-1)$, $a_1 = 1/\sqrt{N}$, $a_m = \sqrt{2/N}$ for $m>1$.
+Considering that $a_m$ depend on the value of $m$, we can split the summation
+\begin{equation*}
+    g_N = \frac{1}{N} + \frac{2 }{N }\sum_{m=2 } ^{N} \cos^2 k/2 \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
+\end{equation*}
+
+With $\Delta k = \pi /N$, we can approximate the sum as integral
+\begin{equation*}
+    g_N = \frac{1 }{N} +  \frac{2}{\pi}\int_{k_2} ^{k_N} dk\;  \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
+\end{equation*}
+with  $k_\text{2} = \pi/N$ and $k_N = \pi(N-1)/N$.
+Under large $N$, the limit can be approximated as
+\begin{equation*}
+    g_N = \frac{2}{\pi} \int_{0} ^{\pi} dk\; \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
+\end{equation*}
+The  integral oscillates rapidly due to the phase $\Phi(k) $ of $e ^{i\Phi(k)}$.
+Integral over infinitesimal contribution $A(k) e ^{i \Phi(k)} \;dk$ produces cancellation, except at the saddle point or stationary point $k_0$.
+
+We determine this $k_0$ by
+\begin{equation*}
+    \frac{d\Phi(k )}{dk} = 0 \implies
+    \sin k_0 = \frac{N }{4Jt} \implies
+    k_0 = \arcsin \frac{N }{4Jt} = \arcsin \frac{t_c }{t}
+\end{equation*}
+From this value, we separate the integral based on the value of the arc sin argument: at $t<t_c$, $t \approx t_c$, and at $t_c<t$.
+We will expand the phase around $k_0$
+\begin{equation*}
+    \Phi (k )  =  \Phi(k_0) +  \Phi'(k_0)(k-k_0) + \frac{1}{2}\Phi''(k_0)(k-k_0)^2 + \frac{1 }{6 }\Phi'''(k_0)(k-k_0)^3\dots
+\end{equation*}
+with $\Phi'(k_0) = 0$ and
+\begin{align*}
+    \Phi(k)    & =  Nk - 4Jt (1  - \cos k) \\
+    \Phi'(k)   & =  N -4Jt\sin k           \\
+    \Phi''(k)  & = - 4Jt \cos k            \\
+    \Phi'''(k) & = 4Jt \sin k
+\end{align*}
+
+\subsubsection{Derivation: Complex saddle}
+At $t<t_c$, we use pure saddle point approximation, where the saddle point is located at complex plane and the contour must be deformed accordingly.
+This yields
+\begin{multline*}
+    g_N(t) = \sqrt{\frac{2}{\pi}} \left[ \frac{4Jt - i \sqrt{N^2 - (4Jt)^2}}{4Jt \left( N^2 - (4Jt)^2 \right)^{1/4}} \right]
+    \exp\left[ i\left( \frac{\pi N}{2} - 4Jt \right) \right]\\
+    \times \exp\left[ -N \operatorname{arcosh} \left(\frac{N}{4Jt}\right) + \sqrt{N^2 - (4Jt)^2} \right]
+\end{multline*}
+
+\subsubsection{Derivation: Airy regime}
+At $t \approx t_c$, we want to use the Airy function.
+Here, we not only expand the phase around $k_0 = \pi/2$, but around $t_c = N/4J$.
+To do so, we use multivariable Taylor expansion
+\begin{equation*}
+    \Phi(k, t) \approx \sum_{m=0} \sum_{n=0} \frac{1}{m!n!} \frac{\partial^{m+n}\Phi}{\partial k^m \partial t^n}\left(k_0, t_c\right) q^m \tau^n
+\end{equation*}
+where $q=k-k_0 $ and $\tau = t-t_c$.
+Inserting the phase $        \Phi(k)  =  Nk - 4Jt (1  - \cos k) $
+\begin{align*}
+    \Phi (k,t) & = \Phi(k_0,t_c) + q\partial_k\Phi  +\tau \partial_t \Phi  + \frac{1}{2} \big( q^2 \partial_k^2\Phi  + 2 q\tau \partial _k  \partial_t  \Phi  + \tau^2 \partial_t^2  \Phi\big) \\
+               & \qquad + \frac{1}{6}\big(q^3\partial_k ^{3}\Phi  + 3q^2\tau \partial_k ^{2}\partial_t\Phi + 3 q\tau^2 \partial_k\partial_t^2\Phi + \tau^3 \partial_t^3\Phi \big)              \\
+               & = \Phi(k_0,t_c) + q(N - 4Jt_c \sin k_0 ) + \tau \big( -4J(1-\cos k_0) \big)                                                                                                   \\
+               & \qquad + \frac{1}{2} \big( q^2 (-4Jt_c \cos k_0) + 2q\tau (-4J \sin k_0) + \tau^2 (0) \big)                                                                                   \\
+               & \qquad + \frac{1}{6} \big( q^3 (4Jt_c \sin k_0) + 3q^2\tau (-4J \cos k_0) + 3q\tau^2 (0) + \tau^3 (0) \big)                                                                   \\
+               & = \left( \frac{\pi N}{2} - 4Jt_c \right) + q(0) - 4J\tau + \frac{1}{2} \big( q^2(0) - 8Jq\tau \big) + \frac{1}{6} \big( Nq^3 + 3q^2\tau(0) \big)                              \\
+               & = \left( \frac{\pi N}{2} - 4Jt_c - 4J\tau \right) - 4J\tau q + \frac{N}{6}q^3                                                                                                 \\
+               & = \left( \frac{\pi N}{2} - 4Jt \right) - 4J(t-t_c)q + \frac{N}{6}q^3
+\end{align*}
+Substituting this truncated  expansion back into the original integral equation yields
+\begin{equation*}
+    g_N(t) \approx \frac{2}{\pi} \int_{0}^{\pi} dk \; \cos^2\left( k_0/2\right) \exp \left[ i \left\{ \left( \frac{\pi N}{2} - 4Jt \right) - 4J(t-t_c)q + \frac{N}{6}q^3 \right\} \right]
+\end{equation*}
+Substituting $q$, factoring the integrand, and changing the integration limit
+\begin{equation*}
+    g_N(t) \approx \frac{1}{\pi} \exp \left( i\frac{\pi N}{2} -i 4Jt \right) \int_{-\infty}^{\infty} dq \;  \exp \left[ i \left\{\frac{N}{6}q^3 +\gamma_q q  \right\} \right]
+\end{equation*}
+with $\gamma_q = -4J(t-t_c)$ as the linear term
+Introduce the transformation
+\begin{equation*}
+    \frac{1}{3}p^3 = \frac{N}{6}q^3 \quad dq = \left(\frac{2}{N}\right)^{1/3}dp
+    \quad -4J(t-t_c)q = -4J(t-t_c)\left(\frac{2}{N}\right)^{1/3}p
+\end{equation*}
+into the integral
+\begin{equation*}
+    g_N(t) \approx \frac{1}{\pi} \left(\frac{2}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \int_{-\infty}^{\infty} dp \; \exp \left[ i \left( \frac{1}{3}p^3 + xp \right) \right]
+\end{equation*}
+with $\gamma_p = -4J(t-t_c)(2/N) ^{1/3}$.
+Using the definition of Airy function
+\begin{equation*}
+    \operatorname{Ai} (x) = \frac{1 }{2\pi} \int_{-\infty }^{\infty } dp\; \exp \left( \frac{p ^3}{3 } + xp \right)
+\end{equation*}
+we write
+\begin{equation*}
+    g_N(t)= 2\left(\frac{2}{N}\right)^{1/3} \exp \left[ i \left( \frac{\pi N}{2} - 4Jt \right) \right] \operatorname{Ai}\left[ 4J(t_c - t) \left( \frac{2 }{N }\right) ^{1/3}   \right]
+\end{equation*}
+
+\subsubsection{Derivation: Gaussian regime}
+At $t_c<t$, there are two possible saddle point
+\begin{equation*}
+    k_1 = \arcsin \frac{N }{4J}\qquad
+    k_2 = \pi -k_1
+\end{equation*}
+Recall that horizontal line $|y(x)|<1$ touch the sine curve twice at the domain $[0,2\pi]$.
+The phase $\Phi(k) =  Nk - 4Jt (1  - \cos k) $ expansion around $k_1$ is
+\begin{align*}
+    \Phi(k) & = \Phi(k_1) + \frac{1}{2}\Phi''(k_1) q_1^2                      \\
+    \Phi(k) & =  \left[ N k_1 - 4Jt(1- \cos k_1) \right] - 2Jt \cos k_1 q_1^2
+\end{align*}
+and like wise for the $k_2$
+\begin{equation*}
+    \Phi(k)  =  \left[ N k_2 - 4Jt(1- \cos k_2) \right] - 2Jt \cos k_2 q_2^2
+\end{equation*}
+The integral splits after substituting this expansion
+\begin{multline*}
+    g_N = \frac{2}{\pi} \cos^2 (k_0/2) e ^{i\Phi(k_1)}\int_{-\infty} ^{\infty} dq_1\; \exp \left[ - i 2 Jt \cos k_1 q_1^2\right] \\
+    + \frac{2}{\pi} \cos^2 (k_0/2) e ^{i\Phi(k_2)}\int_{-\infty} ^{\infty} dq_2\; \exp \left[ - i 2 Jt \cos k_2 q_2^2\right]
+\end{multline*}
+where we have also expanded the integration limit and using $q$ definition for both integral.
+Evaluating the Fresnel integral
+\begin{multline*}
+    g_N = \frac{2}{\pi} \cos^2 (k_1/2) e ^{i\Phi(k_1)} \sqrt{\frac{\pi }{2Jt |\cos k_1|}} \exp \left( -i \frac{\pi }{4} \operatorname{sgn} (\cos k_1) \right)  \\
+    + \frac{2}{\pi} \cos^2 (k_2/2) e ^{i\Phi(k_2)} \sqrt{\frac{\pi }{2Jt |\cos k_2|}} \exp \left( -i \frac{\pi }{4} \operatorname{sgn} (\cos k_2) \right)  \\
+\end{multline*}
+Now $k_1 \in (0,\pi/2)$ and $k_2 \in (\pi/2,\pi)$, so
+\begin{multline*}
+    g_N = \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_1|}} \exp \left[ i\Phi(k_1) -i \frac{\pi }{4}\right]  \\
+    + \sqrt{\frac{2 \cos^4 (k_1/2)}{\pi Jt |\cos k_2|}} \exp \left[i\Phi(k_2) +i \frac{\pi }{4}  \right]
+\end{multline*}
+
+\subsubsection{Bessel function representation.}
+Alternatively, starting from the integral
+\begin{equation*}
+    g_N = \frac{2 }{\pi} \int_{0} ^{\pi} dk\; \cos^2 (k/2) \exp \left[i \left\{Nk - 4Jt (1-\cos k)  \right\}  \right]
+\end{equation*}
+Using the Jacobi-Anger expansion
+\begin{equation*}
+    e^{i z \cos\theta} = \sum_{m=-\infty}^{\infty} i^{m} J_{m}(z)e^{i m \theta}
+    = J_0(4Jt) + 2 \sum_{m=1}^{\infty} i^m J_m(4Jt) \cos(mk)
+\end{equation*}
+we can write
+\begin{align*}
+    g_N
+     & = \frac{e^{-i4Jt}}{\pi}\int_{0}^{\pi} dk\;(1+\cos k) e^{iNk}\sum_{m=-\infty}^{\infty} i^{m} J_{m}(4Jt)e^{i m k}                   \\
+     & = \frac{e^{-i4Jt}}{\pi} \sum_{m=-\infty}^{\infty} i^{m} J_{m}(4Jt) \int_{0}^{\pi} dk\; \big( e ^{i(N+m)k}                         \\
+     & \qquad + \frac{1}{2}e ^{i(N+m+1)k} + \frac{1 }{2 } e ^{i(N+m-1)k}  \big)                                                          \\
+     & = \frac{e^{-i4Jt}}{\pi} \left[ i ^{-N}\pi J_{-N}+ i ^{-N-1} \frac{\pi }{2 } J_{-N-1}+  i ^{-N+1} \frac{\pi }{2 } J_{-N+1} \right] \\
+     & = e^{-i4Jt} i ^{-N} \left[ J_{-N} -  \frac{i }{2 } J_{-N+1} + \frac{i }{2 } J_{-N+1} \right]                                      \\
+     & = e^{-i4Jt} i ^{N} \left[(-1)^{-N} J_{-N} -  \frac{i }{2 }(-1)^{-N} J_{-N+1} + \frac{i }{2 }(-1)^{-N} J_{-N+1} \right]            \\
+     & = e^{-i4Jt} i ^{N} \left[ J_{N} -  \frac{i }{2 } J_{N-1} + \frac{i }{2 }J_{N-1} \right]                                           \\
+    g_N(t)
+     & = e^{i(N\pi/2 -4Jt)}  \left[ J_{N}(4Jt) -i  J_N' (4Jt)\right]
+\end{align*}
+
+\subsection{Optimization For XXX Hamiltonian: Dual Hole Method}
+We start by considering the transition amplitude
+\begin{equation*}
+  f(t) = \sum_{j=1}^{N} e^{-i E_j t}\braket{\mathbf{r}|\lambda_j }\braket{\lambda_j |\mathbf{s} }
+\end{equation*}
+Defining the projection of eigenstates $\ket{\lambda_j}$ to sender as $|\sigma_j| e ^{\phi_j}$ and to receiver as $|\rho_j| e ^{\psi_j}$, we have
+\begin{equation*}
+  f(t) = \sum_{j=1}^{N} e^{-i E_j t}\rho_j \sigma_j ^*
+\end{equation*}
+Then
+\begin{align*}
+  |f(t)|^2 
+  &= \left(\sum_j e^{-iE_j t}\rho_j\sigma_j^*\right)\left(\sum_l e^{iE_l t}\rho_l^*\sigma_l\right) 
+  =  \sum_{j,l} e^{-i(E_j-E_l)t}\rho_j\rho_l^*\sigma_j^*\sigma_l\\
+  & = \sum_{j,l}|\rho_j||\rho_l||\sigma_j||\sigma_l|e^{-i(E_j-E_l)t} e^{i[(\psi_j-\psi_l)-(\phi_j-\phi_l)]}\\
+  & = \sum_{j=1}^N |\sigma_j|^2 |\rho_j|^2 + 2\sum_{k<l} |\sigma_k||\sigma_l||\rho_k||\rho_l|\\
+  &\qquad\times\cos\big([(E_l-E_k)t + (\psi_k-\psi_l) - (\phi_k-\phi_l)]\big) = f_m + f_t
+\end{align*}
+Since $|f(t)|^2\in [0,1]$ and $f_t$ oscillates rapidly, the allowed minimum value for $f_t$ is $-f_m$.
+This implies that $2f_m$ is an accurate estimate for the maximum value of $|f(t)|^2$.
+Hence, we investigate when
+\begin{equation*}
+    f_m = \sum_{j=1}^N |\sigma_j|^2 |\rho_j|^2
+\end{equation*}
+reaches its maximum value.
+This search is bounded by the few normalization constraints.
+First we write
+\begin{align*}
+    \braket{\mathbf{s} | \mathbf{s}} 
+    & =  \sum_{j } \braket{\mathbf{s }  | \lambda_j } \braket{\lambda_j  | \mathbf{s}}
+    = \sum_{j } |\sigma_j|^2 = 1\\
+    \braket{\mathbf{r} | \mathbf{r}} 
+    & =  \sum_{j } \braket{\mathbf{r }  | \lambda_j } \braket{\lambda_j  | \mathbf{r}}
+    = \sum_{j } |\rho_j|^2 = 1 
+\end{align*}
+For fixed $j$, we can also expand in terms of other one-excitation state
+\begin{equation*}
+    \braket{\lambda_j  | \lambda_j } 
+    = \sum_{ \mathbf{i} }  \braket{\lambda_j  | \mathbf{i } } \braket{\mathbf{i }  | \lambda_j }
+    = \sum_{\mathbf{i} \neq (\mathbf{s},\mathbf{r})}  |\braket{\lambda_j  | \mathbf{i }}|^2 + |\sigma_j|^2 + |\rho_j|^2 = 1
+\end{equation*}
+With the sum interior overlap as $|\gamma_j|^2$ (first term), we can write for fixed $j$
+\begin{align*}
+    |\sigma_j|^2|\rho_j|^2 = |\sigma_j|^2 \left( 1 - |\sigma_j|^2 -  |\gamma_j|^2\right) 
+    = \left( 1 - |\rho_j|^2 -  |\gamma_j|^2\right) |\rho_j|^2 
+\end{align*}
+Setting the derivative with respect to $|\sigma_j|^2$ to zero 
+\begin{align*}
+    \frac{d }{d|\sigma_j|^2} |\sigma_j|^2|\rho_j|^2 & =  1 - 2|\sigma_j|^2 -|\gamma_j|^2 = 0\\
+    \frac{d }{d|\rho_j|^2} |\sigma_j|^2|\rho_j|^2 & =  1 - 2|\rho_j|^2 -|\gamma_j|^2 = 0
+\end{align*}
+we find that 
+\begin{equation*}
+    |\rho_j|^2 = |\sigma_j|^2 = \frac{1 - |\gamma_j |^2}{2}
+\end{equation*}
+Suppose that the eigenstate is entirely localized in the boundary, which imply $|\gamma_j|^2=0$, we have then 
+\begin{equation*}
+   |\rho_j|^2 = |\sigma_j|^2 = \frac{1 }{2 } 
+\end{equation*}
+Explicitly, our eigenstates is in the form 
+\begin{equation*}
+    \ket{\lambda_\pm} = \frac{1 }{\sqrt{2}} \left( \ket{\mathbf{s }} \pm \ket{\mathbf{r}} \right) 
+\end{equation*}
+In this case, we have unitary amplitude
+\begin{align*}
+    f(t) & =  
+    e ^{-i E_+ t} \braket{\mathbf{r } |\lambda_+ } \braket{\lambda_+  | \mathbf{s}} +
+    e ^{-i E_- t} \braket{\mathbf{r } |\lambda_- } \braket{\lambda_-  | \mathbf{s}}\\
+    &= \frac{1 }{2 }e ^{-i E_+ t} - \frac{1 }{2} e ^{-i E_- t} = \frac{1}{2} e^{-i \bar{E} t}\left(e^{-i\Delta E t/2}-e^{i\Delta E t/2}\right)\\
+    & = - i e ^{-i \bar{E} t}\sin \left( \Delta E t /2 \right) 
+\end{align*}
+with $\bar{E} = (E_++E_-)/2$ and $\Delta E = E_+ - E_-$.
+Hence, the fidelity
+\begin{equation*}
+    F(t) = \frac{1 }{6 } \sin^2 \left( \Delta E t /2 \right) + \frac{1 }{3 }\sin \left( \Delta E t /2 \right) + \frac{1 }{2 }
+\end{equation*}
+will reach maximum value at $t_m = \pi/\Delta E$.
+Dual hole method is then applied by setting the coupling constants $J_{2,i}$ and $J_{N-1,i}$.
+Sender and receiver are still found at the two ends of the chain, but now their nearest neighboring sites are empty.
+
+The eigenvalue is obtained by considering the matrix element which is restricted to $\left\{ \ket{1},\ket{N} \right\} $
+\begin{equation*}
+    H_\text{eff} = 
+    \begin{bmatrix}
+        2\sum_{k \neq 1}  J_{1k}  - 2B & -2 J_{1N}\\
+        -2 J_{N1} & 2\sum_{k \neq N}  J_{Nk} - 2B
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        D_1 & A\\
+        A & D_N
+    \end{bmatrix}
+\end{equation*}
+The diagonal terms are equal, which can be seen from 
+\begin{equation*}
+    \sum_{k \neq 1}  J_{1k} = \sum_{k=2}^{N}\frac{C}{\bigl(a|k-1|\bigr)^{\nu}} = \sum_{m=1}^{N-1}\frac{1}{(am)^{\nu}}
+\end{equation*}
+and 
+\begin{equation*}
+    \sum_{k \neq N}  J_{Nk} = \sum_{k=1}^{N-1}\frac{C}{\bigl(a|k-N|\bigr)^{\nu}} = \sum_{m=1}^{N-1}\frac{1}{(am)^{\nu}}
+\end{equation*}
+The eigenvalue can be determined from characteristic equation
+\begin{align*}
+    (D_N-E)^2-A^2 & = 0 \\
+    E_\pm = D \pm |A| & =  3 \sum_{k<l} J_{kl} - 4\sum_{k \neq 1}  J_{1k} \pm \frac{2C}{a^\nu(N-1)^\nu } 
+\end{align*}
+Shifting in the asymmetric spectrum, we have 
+\begin{equation*}
+    E_+ = 0 \qquad E_- = - \frac{4 C}{a^\nu(N-1)^{\nu}} \quad t = \frac{\pi }{4C }a^\nu(N-1 )^\nu
+\end{equation*}
+
+
+
+\begin{figure}
+    \centering
+    \resizebox{\textwidth}{!}{\input{../../../Rss/QM/Momentum/plot_FvsN_long.pgf}}
+    \caption*{Figure: Maximum values of fidelity in dual-hole Hamiltonian as a function of the number of sites $N$ for various value of $\nu$.}
+\end{figure}
+
+\end{document}
