@@ -64,9 +64,9 @@ In the position basis, the matrix element can be written as
 \begin{equation*}
   \langle 1_i|\hat{o } ^{(1)}|1_j\rangle = \int d^3 \mathbf{r} d^3 \mathbf{r}' u^*_{i}(\mathbf{r}) \langle \mathbf{r}|\hat{o } ^{(1)}|\mathbf{r}'\rangle u_j(\mathbf{r}')
 \end{equation*}
-As such, the representation in position basis reads 
+As such, the representation in position basis reads
 \begin{equation*}
-  \hat{O}_1 
+  \hat{O}_1
   = \int d^3r\;d^3r'\; \psi^\dagger(\mathbf{r}) \langle \mathbf{r}|\hat{o}^{(1)}|\mathbf{r}'\rangle \psi(\mathbf{r}')
 \end{equation*}
 
@@ -78,7 +78,7 @@ the matrix elements turns diagonal
 \begin{equation*}
   \langle 1_i|\hat{o } ^{(1)}|1_j\rangle = \int d^3 \mathbf{r} \;u^*_{i}(\mathbf{r}) \hat{o }^{1}(\mathbf{r},\mathbf{p}) u_j(\mathbf{r}')
 \end{equation*}
-and the representation is 
+and the representation is
 \begin{equation*}
   \hat{O}_1 = \int d^3r\;\psi^\dagger(\mathbf{r}) \langle \mathbf{r}|\hat{o}^{(1)}|\mathbf{r}\rangle \psi(\mathbf{r})
 \end{equation*}
@@ -98,37 +98,37 @@ has the Fourier transform of
 \begin{equation*}
   \rho(\mathbf{q}) = \sum_{\mathbf{k}} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}= \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{equation*}
-in plane wave basis. 
-In Bloch state basis, this read 
+in plane wave basis.
+In Bloch state basis, this read
 \begin{equation*}
   n_{\mathbf{q}} = \sum_{\mathbf{k}\sigma}\sum_{nn'} \langle n\mathbf{k}\sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n'\,\mathbf{k}+\mathbf{q}\,\sigma\rangle \, c^{\dagger}_{n\mathbf{k}\sigma}\, c_{n'\,\mathbf{k}+\mathbf{q}\,\sigma}
 \end{equation*}
-The many-body definition of this operator is 
+The many-body definition of this operator is
 \begin{equation*}
   \rho(\mathbf{r}) = \sum_{i=1}^{N} \delta\bigl(\mathbf{r}-\mathbf{r}'_{i}\bigr)
 \end{equation*}
 Its action can by considering the spatial integral of the function, which is expected to give value only if $\mathbf{r} $ is at particle position $\mathbf{r}'$.
 In the momentum eigenstate, the second quantization reads
 \begin{equation*}
-  \rho (\mathbf{r}) = \frac{1 }{V }\sum_{\mathbf{q }} e ^{i \mathbf{q }\cdot \mathbf{r }}n _{\mathbf{q}} 
+  \rho (\mathbf{r}) = \frac{1 }{V }\sum_{\mathbf{q }} e ^{i \mathbf{q }\cdot \mathbf{r }}n _{\mathbf{q}}
 \end{equation*}
 
 The transformation is as follows.
 \begin{align*}
   \rho(\mathbf{q})
-   & = \int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}\;\rho(\mathbf{r})                                                                                                          \\
+   & = \int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}\;\rho(\mathbf{r})                                                                                                                       \\
    & =  \sum_{\mathbf{k},\mathbf{k}'}\left(\int d^3r\;e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}e^{-i\mathbf{q}\cdot\mathbf{r}}\right) \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'} \\
-   & =  \sum_{\mathbf{k},\mathbf{k}'} \delta (\mathbf{k}'-\mathbf{k}-\mathbf{q})   \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'} \\
-   & = \sum_{\mathbf{k}} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}= 
-   \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
+   & =  \sum_{\mathbf{k},\mathbf{k}'} \delta (\mathbf{k}'-\mathbf{k}-\mathbf{q})   \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'}                                                       \\
+   & = \sum_{\mathbf{k}} \hat{a}_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}=
+  \sum_{\mathbf{k}} \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{align*}
 Where the last line is obtained by index relabelling $\mathbf{k} \rightarrow \mathbf{k}-\mathbf{q}/2$.
 
 We can do the same without assuming plane wave basis
 \begin{equation*}
-    \rho(\mathbf{q})
-    =\sum_{i}^{N}  \int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}\delta(\mathbf{r }-\mathbf{r}_i) 
-    =\sum_{i}^{N}  e^{-i\mathbf{q}\cdot\mathbf{r}_i}
+  \rho(\mathbf{q})
+  =\sum_{i}^{N}  \int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}\delta(\mathbf{r }-\mathbf{r}_i)
+  =\sum_{i}^{N}  e^{-i\mathbf{q}\cdot\mathbf{r}_i}
 \end{equation*}
 Choose the Bloch basis $\ket{n \mathbf{k }\sigma}$, then
 \begin{equation*}
@@ -136,25 +136,25 @@ Choose the Bloch basis $\ket{n \mathbf{k }\sigma}$, then
 \end{equation*}
 Use Bloch wavefunctions $\psi_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}}\,u_{n\mathbf{k}}(\mathbf{r})$ to compute the matrix elements
 \begin{equation*}
- \langle n \mathbf{k} \sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n' \mathbf{k}' \sigma'\rangle
+  \langle n \mathbf{k} \sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n' \mathbf{k}' \sigma'\rangle
   = \delta_{\sigma\sigma'}\int \mathrm{d}^3 r\,u_{n\mathbf{k}}^*(\mathbf{r})\,u_{n'\mathbf{k}'}(\mathbf{r})\,e^{i(\mathbf{k}'-\mathbf{k}-\mathbf{q})\cdot\mathbf{r}}
 \end{equation*}
-The Bloch function $u_{n\mathbf{k}}(\mathbf{r}+\mathbf{R}) = u_{n\mathbf{k}}(\mathbf{r})$ is periodic, so we can rewrite the integral as 
+The Bloch function $u_{n\mathbf{k}}(\mathbf{r}+\mathbf{R}) = u_{n\mathbf{k}}(\mathbf{r})$ is periodic, so we can rewrite the integral as
 \begin{equation*}
-\sum_{\mathbf R} \int_{\mathrm{cell}} d^3r\; u_{n\mathbf k}^*(\mathbf r+\mathbf R)\, u_{n'\mathbf k'}(\mathbf r+\mathbf R)\, e^{i(\mathbf k'-\mathbf k-\mathbf q)\cdot(\mathbf r+\mathbf R)}
+  \sum_{\mathbf R} \int_{\mathrm{cell}} d^3r\; u_{n\mathbf k}^*(\mathbf r+\mathbf R)\, u_{n'\mathbf k'}(\mathbf r+\mathbf R)\, e^{i(\mathbf k'-\mathbf k-\mathbf q)\cdot(\mathbf r+\mathbf R)}
 \end{equation*}
 The term
 \begin{equation*}
- \sum_{\mathbf{R}} 
- e^{i(\mathbf k'-\mathbf k-\mathbf q)\cdot \mathbf R} 
+  \sum_{\mathbf{R}}
+  e^{i(\mathbf k'-\mathbf k-\mathbf q)\cdot \mathbf R}
 \end{equation*}
 produce the selection rule $\mathbf k'-\mathbf k-\mathbf q = \mathbf{G}$.
 Restricting to the first Brillouin zone $\mathbf{G}=0$ gives $\mathbf{k}' = \mathbf{k} +\mathbf{q}$.
 Under this result, our matrix element reads
 \begin{equation*}
-     \langle n \mathbf{k} \sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n' \mathbf{k}' \sigma'\rangle    
-=  \delta_{\sigma\sigma'}\,\delta_{\mathbf{k}',\mathbf{k}+\mathbf{q}}
-   \langle n \mathbf{k} \sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n' \mathbf{k}+\mathbf{q} \sigma'\rangle    
+  \langle n \mathbf{k} \sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n' \mathbf{k}' \sigma'\rangle
+  =  \delta_{\sigma\sigma'}\,\delta_{\mathbf{k}',\mathbf{k}+\mathbf{q}}
+  \langle n \mathbf{k} \sigma|e^{-i\mathbf{q}\cdot\mathbf{r}}|n' \mathbf{k}+\mathbf{q} \sigma'\rangle
 \end{equation*}
 Substituting this matrix element
 \begin{equation*}
@@ -167,43 +167,43 @@ The matrix elements reads
   \braket{\mathbf{k }' | \delta(\mathbf{r }-\mathbf{r }) |\mathbf{k}}
   =\frac{1}{V}\int d^3r'\; e^{-i\mathbf{k}'\cdot\mathbf{r}'}\delta(\mathbf{r}-\mathbf{r}')e^{i\mathbf{k}\cdot\mathbf{r}'} = \frac{1 }{V } e ^{i(\mathbf{k }'-\mathbf{k  })\cdot \mathbf{r}}
 \end{equation*}
-Then  substituting back 
+Then  substituting back
 \begin{equation*}
   \rho(\mathbf{r})
-  = \frac{1 }{V } \sum_{\mathbf{k},\mathbf{k}'}  e ^{i(\mathbf{k }'-\mathbf{k  })\cdot \mathbf{r}} a ^\dagger _{\mathbf{k }' } a_{\mathbf{k}} 
- =\frac{1 }{V }\sum_{\mathbf{q }} e ^{i \mathbf{q }\cdot \mathbf{r }}n _{\mathbf{q}} 
+  = \frac{1 }{V } \sum_{\mathbf{k},\mathbf{k}'}  e ^{i(\mathbf{k }'-\mathbf{k  })\cdot \mathbf{r}} a ^\dagger _{\mathbf{k }' } a_{\mathbf{k}}
+  =\frac{1 }{V }\sum_{\mathbf{q }} e ^{i \mathbf{q }\cdot \mathbf{r }}n _{\mathbf{q}}
 \end{equation*}
 
 \subsubsection{Example: particle current.}
 The particle current, defined as
 \begin{equation*}
   \mathbf{j}(\mathbf{r}) = -\frac{i}{2m}\left[\psi^\dagger(\mathbf{r})[\nabla\psi(\mathbf{r})] - [\nabla\psi^\dagger(\mathbf{r})]\;\psi(\mathbf{r})\right]
-\end{equation*} 
-has the Fourier transform of 
+\end{equation*}
+has the Fourier transform of
 \begin{equation*}
-  j(\mathbf{q}) 
-= \frac{1}{m}\sum_{\mathbf{k}} \left( \mathbf{k}+\frac{\mathbf{q } }{2} \right)  \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}} 
-= \frac{1}{m}\sum_{\mathbf{k}} \mathbf{k}\; \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
+  j(\mathbf{q})
+  = \frac{1}{m}\sum_{\mathbf{k}} \left( \mathbf{k}+\frac{\mathbf{q } }{2} \right)  \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}
+  = \frac{1}{m}\sum_{\mathbf{k}} \mathbf{k}\; \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{equation*}
 
 The derivation is as follows
 \begin{align*}
-\mathbf{j}(\mathbf{r}) 
-&= -\frac{i}{2m}\sum_{\mathbf{k},\mathbf{k}'}\Big[ \hat{a}_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\nabla \hat{a}_{\mathbf{k}'} e^{i\mathbf{k}'\cdot\mathbf{r}}-\big(\nabla  \hat{a}_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big)\cdot \hat{a}_{\mathbf{k}'}e^{i\mathbf{k}'\cdot\mathbf{r}}\Big] \\
-&= -\frac{i}{2m}\sum_{\mathbf{k},\mathbf{k}'}\Big[ \hat{a}_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big(i\mathbf{k}'\;a_{\mathbf{k}'}e^{i\mathbf{k}'\mathbf{r}}\big)
--\big(-i\mathbf{k}\;a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big)\cdot \hat{a}_{\mathbf{k}'}e^{i\mathbf{k}'\cdot\mathbf{r}}\Big] \\
-&= \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'}(\mathbf{k}+\mathbf{k}')\;a_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'}\;e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}
+  \mathbf{j}(\mathbf{r})
+   & = -\frac{i}{2m}\sum_{\mathbf{k},\mathbf{k}'}\Big[ \hat{a}_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\nabla \hat{a}_{\mathbf{k}'} e^{i\mathbf{k}'\cdot\mathbf{r}}-\big(\nabla  \hat{a}_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big)\cdot \hat{a}_{\mathbf{k}'}e^{i\mathbf{k}'\cdot\mathbf{r}}\Big] \\
+   & = -\frac{i}{2m}\sum_{\mathbf{k},\mathbf{k}'}\Big[ \hat{a}_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big(i\mathbf{k}'\;a_{\mathbf{k}'}e^{i\mathbf{k}'\mathbf{r}}\big)
+  -\big(-i\mathbf{k}\;a_\mathbf{k}^\dagger e^{-i\mathbf{k}\cdot\mathbf{r}}\big)\cdot \hat{a}_{\mathbf{k}'}e^{i\mathbf{k}'\cdot\mathbf{r}}\Big]                                                                                                                                                                            \\
+   & = \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'}(\mathbf{k}+\mathbf{k}')\;a_\mathbf{k}^\dagger \hat{a}_{\mathbf{k}'}\;e^{i(\mathbf{k}'-\mathbf{k})\cdot\mathbf{r}}
 \end{align*}
 Then apply the transformation
 \begin{align*}
-j(\mathbf{q}) &= \int d^3r\; e^{-i\mathbf{q}\cdot\mathbf{r}}\; j(\mathbf{r})
-= \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'} (\mathbf{k}+\mathbf{k}')\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}'} \int d^3r\; e^{i(\mathbf{k}'-\mathbf{k}-\mathbf{q})\cdot\mathbf{r}}\\
-& =  \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'} (\mathbf{k}+\mathbf{k}')\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}'} \delta(\mathbf{k}'-\mathbf{k }-\mathbf{q})\\
-&= \frac{1}{2m}\sum_{\mathbf{k}} (\mathbf{k}+(\mathbf{k}+\mathbf{q}))\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}} 
-= \frac{1}{2m}\sum_{\mathbf{k}} (2\mathbf{k}+\mathbf{q})\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}} \\
-j(\mathbf{q}) 
-&= \frac{1}{m}\sum_{\mathbf{k}} \left( \mathbf{k}+\frac{\mathbf{q } }{2} \right)  \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}} 
-= \frac{1}{m}\sum_{\mathbf{k}} \mathbf{k}\; \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
+  j(\mathbf{q}) & = \int d^3r\; e^{-i\mathbf{q}\cdot\mathbf{r}}\; j(\mathbf{r})
+  = \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'} (\mathbf{k}+\mathbf{k}')\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}'} \int d^3r\; e^{i(\mathbf{k}'-\mathbf{k}-\mathbf{q})\cdot\mathbf{r}} \\
+                & =  \frac{1}{2m}\sum_{\mathbf{k},\mathbf{k}'} (\mathbf{k}+\mathbf{k}')\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}'} \delta(\mathbf{k}'-\mathbf{k }-\mathbf{q})         \\
+                & = \frac{1}{2m}\sum_{\mathbf{k}} (\mathbf{k}+(\mathbf{k}+\mathbf{q}))\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}
+  = \frac{1}{2m}\sum_{\mathbf{k}} (2\mathbf{k}+\mathbf{q})\; \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}                                                                       \\
+  j(\mathbf{q})
+                & = \frac{1}{m}\sum_{\mathbf{k}} \left( \mathbf{k}+\frac{\mathbf{q } }{2} \right)  \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}}
+  = \frac{1}{m}\sum_{\mathbf{k}} \mathbf{k}\; \hat{a}_{\mathbf{k}-\mathbf{q}/2}^\dagger \hat{a}_{\mathbf{k}+\mathbf{q}/2}
 \end{align*}
 where the last line is obtained by index shift $\mathbf{k}\rightarrow \mathbf{k}-\mathbf{q}/2$.
 
@@ -212,28 +212,28 @@ Position operator, defined as $\hat{o }^{(1)}=\mathbf{\hat{r}}$, has the one-par
 We evaluated the expression in position basis
 \begin{equation*}
   \mathbf{R} = \int d^3r\;d^3r'\; \langle \mathbf{r}|\hat{\mathbf{r}} |\mathbf{r}'\rangle\psi^\dagger(\mathbf{r})\psi(\mathbf{r}')
-  = \int d^3r\;\mathbf{r}\;\psi^\dagger(\mathbf{r})\psi(\mathbf{r}) 
+  = \int d^3r\;\mathbf{r}\;\psi^\dagger(\mathbf{r})\psi(\mathbf{r})
 \end{equation*}
 
 \subsubsection{Example: linear momentum operator.}
 The one-particle operator of linear momentum $P$ has the representation in momentum eigenstate $\ket{\left\{ \mathbf{k} \right\} }$ and position eigenstate $\ket{\left\{ \mathbf{r} \right\} }$ as
 \begin{equation*}
   \mathbf{P}
-  = \sum_{\mathbf{k }} \mathbf{k}  \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }}    
+  = \sum_{\mathbf{k }} \mathbf{k}  \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }}
   =-i \int d^{3}r\; \psi^{\dagger}(\mathbf{r})[\nabla\psi(\mathbf{r})]
 \end{equation*}
 
 The derivation in momentum eigenstate is
 \begin{equation*}
-  \mathbf{P} = \sum_{\mathbf{k },\mathbf{k}'} \braket{\mathbf{k } | \mathbf{p }|\mathbf{k}'} \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }'}    
-  = \sum_{\mathbf{k },\mathbf{k}'} \mathbf{k}' \delta_{\mathbf{k}\mathbf{k}'} \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }'}    
-  = \sum_{\mathbf{k }} \mathbf{k}  \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }}    
+  \mathbf{P} = \sum_{\mathbf{k },\mathbf{k}'} \braket{\mathbf{k } | \mathbf{p }|\mathbf{k}'} \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }'}
+  = \sum_{\mathbf{k },\mathbf{k}'} \mathbf{k}' \delta_{\mathbf{k}\mathbf{k}'} \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }'}
+  = \sum_{\mathbf{k }} \mathbf{k}  \hat{a}^\dagger_{\mathbf{k }} \hat{a}_{\mathbf{k }}
 \end{equation*}
 while in position eigenstate
 \begin{equation*}
   \mathbf{P}
   = \int d^3r\;\psi^\dagger(\mathbf{r}) \langle \mathbf{r}| \mathbf{p} |\mathbf{r}\rangle \psi(\mathbf{r})
- =-i   \int d^3r\;d^3r'\;\psi^\dagger(\mathbf{r})\delta(\mathbf{r}-\mathbf{r'}) [\nabla   \psi(\mathbf{r}')]
+  =-i   \int d^3r\;d^3r'\;\psi^\dagger(\mathbf{r})\delta(\mathbf{r}-\mathbf{r'}) [\nabla   \psi(\mathbf{r}')]
 \end{equation*}
 and the Dirac function collapse the primed integral.
 
@@ -257,18 +257,18 @@ In the position eigenbasis
 \end{equation*}
 
 The derivation in position eigenstate is quite straightforward since the Hamiltonian is local in position representation.
-For the momentum eigenstate, the kinetic term  reads  
+For the momentum eigenstate, the kinetic term  reads
 \begin{equation*}
-    K=\frac{1 }{2m} \sum_{\mathbf{k},\mathbf{k}'} \langle k|\hat{\mathbf{p}}^2 |k'\rangle a^\dagger_{\mathbf{k}} a_{\mathbf{k}'} = \sum_{\mathbf{k}} \frac{k^2}{2m} a^\dagger_{\mathbf{k}} a_{\mathbf{k}}
+  K=\frac{1 }{2m} \sum_{\mathbf{k},\mathbf{k}'} \langle k|\hat{\mathbf{p}}^2 |k'\rangle a^\dagger_{\mathbf{k}} a_{\mathbf{k}'} = \sum_{\mathbf{k}} \frac{k^2}{2m} a^\dagger_{\mathbf{k}} a_{\mathbf{k}}
 \end{equation*}
-For the potential term 
+For the potential term
 \begin{equation*}
   V = \sum_{\mathbf{k},\mathbf{k}'} \langle \mathbf{k}|V(\mathbf{r})|\mathbf{k}'\rangle  a_{\mathbf{k}}^\dagger a_{\mathbf{k}'}
 \end{equation*}
-We evaluate the element in position representation, since the wavefunction is known to be the plane wave 
+We evaluate the element in position representation, since the wavefunction is known to be the plane wave
 \begin{align*}
-    \langle \mathbf{k}|V(\mathbf{r})|\mathbf{k}'\rangle &= \frac{1}{V}\int d^3r\;e^{-i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}}V(\mathbf{r})\\
-    V_{\mathbf{k} - \mathbf{k}'} = V_{\mathbf{q}} &= \frac{1}{V}\int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}V(\mathbf{r})
+  \langle \mathbf{k}|V(\mathbf{r})|\mathbf{k}'\rangle & = \frac{1}{V}\int d^3r\;e^{-i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}}V(\mathbf{r}) \\
+  V_{\mathbf{k} - \mathbf{k}'} = V_{\mathbf{q}}       & = \frac{1}{V}\int d^3r\;e^{-i\mathbf{q}\cdot\mathbf{r}}V(\mathbf{r})
 \end{align*}
 This is just Fourier transform of the potential.
 
@@ -278,11 +278,11 @@ For a system of $N$ electrons
   \mathbf{S} = \sum_{i=1}^{N} \mathbf{S}_i
 \end{equation*}
 where $\mathbf{S }$ act on particle $i$.
-Let $\mathbf{S}=(S_x,S_y,S_z)$, then the second quantization version is 
+Let $\mathbf{S}=(S_x,S_y,S_z)$, then the second quantization version is
 \begin{equation*}
   \mathbf{S} = \frac{\hbar}{2}\sum_{k}\Bigl(\bigl[c_{\mathbf{k}\uparrow}^\dagger c_{\mathbf{k}\downarrow}+c_{\mathbf{k}\downarrow}^\dagger c_{\mathbf{k}\uparrow}\,\bigr],
-i\bigl[c_{\mathbf{k}\downarrow}^\dagger c_{\mathbf{k}\uparrow}-c_{\mathbf{k}\uparrow}^\dagger c_{\mathbf{k}\downarrow}\bigr], 
-\bigl[c_{\mathbf{k}\uparrow}^\dagger c_{\mathbf{k}\uparrow}-c_{\mathbf{k}\downarrow}^\dagger c_{\mathbf{k}\downarrow}\bigr]\Bigr)
+  i\bigl[c_{\mathbf{k}\downarrow}^\dagger c_{\mathbf{k}\uparrow}-c_{\mathbf{k}\uparrow}^\dagger c_{\mathbf{k}\downarrow}\bigr],
+  \bigl[c_{\mathbf{k}\uparrow}^\dagger c_{\mathbf{k}\uparrow}-c_{\mathbf{k}\downarrow}^\dagger c_{\mathbf{k}\downarrow}\bigr]\Bigr)
 \end{equation*}
 More generally
 \begin{equation*}
@@ -293,37 +293,37 @@ where $\boldsymbol{\sigma}_{\sigma\sigma'} = \braket{\sigma  | \boldsymbol{\sigm
 The derivation start with recognizing $\mathbf{S }= \hbar \boldsymbol{\sigma }/2$.
 Insert into the general one-body operator formula to obtain the general form
 \begin{equation*}
-  \mathbf{\hat{S} } 
-  = \sum_{\mathbf{k}\sigma} \sum_{\mathbf{k}'\sigma'}  \langle \mathbf{k}\sigma|\mathbf{\hat{S}}|\mathbf{k}'\sigma'\rangle a^\dagger_{\mathbf{k}\sigma} a_{\mathbf{k}'\sigma'} 
+  \mathbf{\hat{S} }
+  = \sum_{\mathbf{k}\sigma} \sum_{\mathbf{k}'\sigma'}  \langle \mathbf{k}\sigma|\mathbf{\hat{S}}|\mathbf{k}'\sigma'\rangle a^\dagger_{\mathbf{k}\sigma} a_{\mathbf{k}'\sigma'}
   = \sum_{\mathbf{k}}\sum_{\sigma,\sigma'} \frac{\hbar}{2}\boldsymbol{\sigma}_{\sigma\sigma'} a^\dagger_{\mathbf{k}\sigma} a_{\mathbf{k}\sigma'}
 \end{equation*}
 The explicit component is evaluated using these components of Pauli matrices
 \begin{equation*}
-    \sigma_1 =
-    \begin{bmatrix}
-        0 & 1 \\
-        1 & 0
-    \end{bmatrix}
-    \quad
-    \sigma_2 =
-    \begin{bmatrix}
-        0 & -i \\
-        i & 0
-    \end{bmatrix}
-    \quad
-    \sigma_3    =
-    \begin{bmatrix}
-        1 & 0  \\
-        0 & -1
-    \end{bmatrix}
+  \sigma_1 =
+  \begin{bmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{bmatrix}
+  \quad
+  \sigma_2 =
+  \begin{bmatrix}
+    0 & -i \\
+    i & 0
+  \end{bmatrix}
+  \quad
+  \sigma_3    =
+  \begin{bmatrix}
+    1 & 0  \\
+    0 & -1
+  \end{bmatrix}
 \end{equation*}a
-In spin $1/2$, all elements is evaluated as 
+In spin $1/2$, all elements is evaluated as
 \begin{equation*}
-  \sigma_n = 
-\begin{bmatrix}
-\langle\uparrow|\sigma_n|\uparrow\rangle & \langle\uparrow|\sigma_n|\downarrow\rangle\\[6pt]
-\langle\downarrow|\sigma_n|\uparrow\rangle & \langle\downarrow|\sigma_n|\downarrow\rangle
-\end{bmatrix}.
+  \sigma_n =
+  \begin{bmatrix}
+    \langle\uparrow|\sigma_n|\uparrow\rangle   & \langle\uparrow|\sigma_n|\downarrow\rangle   \\[6pt]
+    \langle\downarrow|\sigma_n|\uparrow\rangle & \langle\downarrow|\sigma_n|\downarrow\rangle
+  \end{bmatrix}.
 \end{equation*}
 and the rest is trivial.
 
@@ -344,7 +344,7 @@ The one-particle operator is also diagonal in its basis, hence we can write the 
 \end{equation*}
 Transform into arbitrary one-particle basis by using the completeness relations
 \begin{multline*}
-    \hat{o }_1
+  \hat{o }_1
   =\sum_{i,j}  \sum_{\alpha } \braket{1_\alpha  | 1_i} \braket{1_i | \hat{o } ^{(1)}|1_j   } \braket{1_j  | 1_\alpha} \hat{a}_\alpha ^\dagger \hat{a}_\alpha\\
   =\sum_{i,j}  \sum_{\alpha } \braket{1_i | \hat{o } ^{(1)}|1_j   } \delta_{\alpha i} \hat{a}_\alpha ^\dagger \delta_{\alpha j}a_\alpha
   =\sum_{i,j}  \ \braket{1_i | \hat{o } ^{(1)}|1_j   }  \hat{a}_i ^\dagger a_j
@@ -391,7 +391,7 @@ where \( \hat{o}^{(2)}(\mathbf{q}) \) is the Fourier transform of \( \hat{o}^{(2
   \hat{o}^{(2)}(\mathbf{q}) = \int d^3 \mathbf{r}\; \hat{o}^{(2)}(\mathbf{r}) e^{-i\mathbf{q} \cdot r}
   \qquad
   \begin{cases}
-    \mathbf{r} = \mathbf{r}_1-\mathbf{r}_2\\
+    \mathbf{r} = \mathbf{r}_1-\mathbf{r}_2    \\
     \mathbf{q} = \mathbf{k}_1 + \mathbf{k}_1' \\
     \mathbf{q}= \mathbf{k}_2' - \mathbf{k}_2
   \end{cases}
@@ -401,38 +401,38 @@ where \( \hat{o}^{(2)}(\mathbf{q}) \) is the Fourier transform of \( \hat{o}^{(2
 As stated before, the purpose of the reversed ordering is to ensure that the annihilation operators remove the particles in the ket in the same order in which they were created, thereby avoiding an additional fermionic sign.
 To see this, consider the correctly ordered operators
 \begin{align*}
-a_n a_m \lvert 1_m 1_n\rangle 
-&= a_n a_m a_m^\dagger a_n^\dagger \lvert 0\rangle,\\
-& =  a_n(1 - a_m^\dagger a_m) a_n^\dagger \lvert 0\rangle \\
-& =  (a_n a_n^\dagger -  a_m^\dagger a_m a_n^\dagger )  \lvert 0\rangle \\
-& =  a_n a_n^\dagger   \lvert 0\rangle + a_m^\dagger a_n^\dagger a_m  \lvert 0\rangle \\
-a_n a_m \lvert 1_m 1_n\rangle 
-&= \lvert 0\rangle
+  a_n a_m \lvert 1_m 1_n\rangle
+   & = a_n a_m a_m^\dagger a_n^\dagger \lvert 0\rangle,                                  \\
+   & =  a_n(1 - a_m^\dagger a_m) a_n^\dagger \lvert 0\rangle                             \\
+   & =  (a_n a_n^\dagger -  a_m^\dagger a_m a_n^\dagger )  \lvert 0\rangle               \\
+   & =  a_n a_n^\dagger   \lvert 0\rangle + a_m^\dagger a_n^\dagger a_m  \lvert 0\rangle \\
+  a_n a_m \lvert 1_m 1_n\rangle
+   & = \lvert 0\rangle
 \end{align*}
 If the order was reversed, however
 \begin{align*}
-a_m a_n|1_m1_n\rangle 
-&= a_m a_n a_m^\dagger a_n^\dagger |0\rangle\\
-&= -a_m a_m^\dagger a_n a_n^\dagger|0\rangle\\
-&= -\big(1-a_m^\dagger a_m\big)a_n a_n^\dagger|0\rangle\\
-&= - a_n a_n^\dagger|0\rangle + a_m^\dagger a_m a_n a_n^\dagger|0\rangle\\
-a_m a_n|1_m1_n\rangle&= -|0\rangle
+  a_m a_n|1_m1_n\rangle
+                        & = a_m a_n a_m^\dagger a_n^\dagger |0\rangle                             \\
+                        & = -a_m a_m^\dagger a_n a_n^\dagger|0\rangle                             \\
+                        & = -\big(1-a_m^\dagger a_m\big)a_n a_n^\dagger|0\rangle                  \\
+                        & = - a_n a_n^\dagger|0\rangle + a_m^\dagger a_m a_n a_n^\dagger|0\rangle \\
+  a_m a_n|1_m1_n\rangle & = -|0\rangle
 \end{align*}
 an extra negative sign was produced
 
 \subsubsection{Example: Coulomb potential.}
-Two-particle Coulomb interaction is 
+Two-particle Coulomb interaction is
 \begin{equation*}
-  \hat{o}^{(2)} 
-  = \frac{e^2}{4\pi\varepsilon_0}\frac{1}{|{\mathbf r}_1-{\mathbf r}_2|} 
+  \hat{o}^{(2)}
+  = \frac{e^2}{4\pi\varepsilon_0}\frac{1}{|{\mathbf r}_1-{\mathbf r}_2|}
 \end{equation*}
-Then the second quantization of Coulomb potential is 
+Then the second quantization of Coulomb potential is
 \begin{equation*}
   \hat{V}
-  = \frac{1}{2}\sum_{i,j,m,n}V_{ijmn} a_i^\dagger a_j^\dagger a_n a_m 
+  = \frac{1}{2}\sum_{i,j,m,n}V_{ijmn} a_i^\dagger a_j^\dagger a_n a_m
 \end{equation*}
 with $u_i(\mathbf{r}_n) = \braket{\mathbf{r}_n  | 1_i}$ as the single particle orbital and factor $1/2$ to avoid double counting.
-The derivation is quite straightforward, with the integral term 
+The derivation is quite straightforward, with the integral term
 \begin{equation*}
   V_{ijmn}
   = \int d^3r_1\;d^3r_2 u_i^*({\mathbf r}_1)u_j^*({\mathbf r}_2)\frac{e^2}{4\pi\varepsilon_0|{\mathbf r}_1-{\mathbf r}_2|}u_m({\mathbf r}_1)u_n({\mathbf r}_2)
@@ -441,62 +441,62 @@ as the matrix element of the Coulomb potential in that basis.
 
 Writing in the momentum space, yields
 \begin{align*}
-  \hat{V } 
-  & = \frac{1}{2V} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{q}} V(\mathbf{q}) a_{\mathbf{k}_1+\mathbf{q}}^\dagger a_{\mathbf{k}_2-\mathbf{q}}^\dagger a_{\mathbf{k}_2} a_{\mathbf{k}_1}\\
-  \hat{V } 
-  & = \frac{1}{2V} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{q}} \frac{e^2 }{\epsilon_0 q^2} a_{\mathbf{k}_1+\mathbf{q}}^\dagger a_{\mathbf{k}_2-\mathbf{q}}^\dagger a_{\mathbf{k}_2} a_{\mathbf{k}_1}
+  \hat{V }
+   & = \frac{1}{2V} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{q}} V(\mathbf{q}) a_{\mathbf{k}_1+\mathbf{q}}^\dagger a_{\mathbf{k}_2-\mathbf{q}}^\dagger a_{\mathbf{k}_2} a_{\mathbf{k}_1}               \\
+  \hat{V }
+   & = \frac{1}{2V} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{q}} \frac{e^2 }{\epsilon_0 q^2} a_{\mathbf{k}_1+\mathbf{q}}^\dagger a_{\mathbf{k}_2-\mathbf{q}}^\dagger a_{\mathbf{k}_2} a_{\mathbf{k}_1}
 \end{align*}
 \begin{equation*}
 \end{equation*}
 with $V(\mathbf{q})$ as the Fourier transform of the spatial Coulomb potential
 \begin{equation*}
-V(\mathbf{q }) 
-= \int d^3r\;    \frac{e^2}{4\pi\varepsilon_0}\frac{1}{|{\mathbf r}_1-{\mathbf r}_2|}   
-=\frac{e^2}{4\pi\varepsilon_0} \int d^3r\;    \frac{e ^{i \mathbf{q }\cdot \mathbf{r}}}{r}   
-= \frac{e^2 }{\epsilon_0 q^2}
+  V(\mathbf{q })
+  = \int d^3r\;    \frac{e^2}{4\pi\varepsilon_0}\frac{1}{|{\mathbf r}_1-{\mathbf r}_2|}
+  =\frac{e^2}{4\pi\varepsilon_0} \int d^3r\;    \frac{e ^{i \mathbf{q }\cdot \mathbf{r}}}{r}
+  = \frac{e^2 }{\epsilon_0 q^2}
 \end{equation*}
 
 The integral evaluation is as follows
 \begin{align*}
-    I(q) & =  \int d^3 r \; \frac{e^{i \mathbf{q }\cdot \mathbf{ r }}}{r } \\
-  & = \int_{0}^{\infty}dr\;r^{2}\int_{0}^{\pi}d\theta\;\sin\theta\int_{0}^{2\pi}d\phi\;\frac{1}{r}e^{iqr\cos\theta} \\
+  I(q) & =  \int d^3 r \; \frac{e^{i \mathbf{q }\cdot \mathbf{ r }}}{r }                                                 \\
+       & = \int_{0}^{\infty}dr\;r^{2}\int_{0}^{\pi}d\theta\;\sin\theta\int_{0}^{2\pi}d\phi\;\frac{1}{r}e^{iqr\cos\theta} \\
   I(q) & =  2\pi\int_{0}^{\infty}dr\;r\int_{0}^{\pi}d\theta\sin\theta e^{iqr\cos\theta}
 \end{align*}
 The second term can be evaluated by substituting $u = \cos \theta$ and $du = -\sin \theta\;d\theta$
 \begin{equation*}
-\int_{0}^{\pi} d\theta\;\sin\theta\;e^{iqr\cos\theta}
-= \int_{-1}^{1} du\; e^{iqru}
-= \frac{e^{iqr}-e^{-iqr}}{iqr}
-= \frac{2\sin(qr)}{qr}
+  \int_{0}^{\pi} d\theta\;\sin\theta\;e^{iqr\cos\theta}
+  = \int_{-1}^{1} du\; e^{iqru}
+  = \frac{e^{iqr}-e^{-iqr}}{iqr}
+  = \frac{2\sin(qr)}{qr}
 \end{equation*}
 The integral now reads
 \begin{equation*}
-  I(q) 
+  I(q)
   = \frac{4\pi}{q}\int_{0}^{\infty}dr\;\sin(qr)
 \end{equation*}
-This can be evaluated using Feynman's method of parameterization 
+This can be evaluated using Feynman's method of parameterization
 \begin{equation*}
-  I(\epsilon) 
+  I(\epsilon)
   = \int_{0 }^{\infty}dr\; e ^{(iq -\epsilon )r}
 \end{equation*}
-with real $e ^{-\epsilon r}$. 
-Then, to evaluate the integral, we simply have to 
+with real $e ^{-\epsilon r}$.
+Then, to evaluate the integral, we simply have to
 \begin{equation*}
-  \int_{0}^{\infty}dr\;\sin(qr)  
-  = \lim_{\epsilon \rightarrow 0} \mathrm{Im} \left(\int_{0 }^{\infty}dr\; e ^{(iq -\epsilon )r}\right) 
+  \int_{0}^{\infty}dr\;\sin(qr)
+  = \lim_{\epsilon \rightarrow 0} \mathrm{Im} \left(\int_{0 }^{\infty}dr\; e ^{(iq -\epsilon )r}\right)
 \end{equation*}
 Evaluate the function
 \begin{equation*}
-  I(\epsilon)  
+  I(\epsilon)
   =\left[-\frac{1}{\epsilon-iq}e^{-(\epsilon-iq)r}\right]_{0}^{\infty}
   =\frac{1}{\epsilon-iq}
   = \frac{\epsilon+iq }{\epsilon^2 + q^2}
 \end{equation*}
-Taking the imaginary component we obtain the integral value 
+Taking the imaginary component we obtain the integral value
 \begin{equation*}
   I(q) \frac{2\pi }{q }\frac{1 }{q } = \frac{4\pi }{q^2}
 \end{equation*}
-Multiplying this with the other Coulomb constant, we obtain the Fourier transform of the Coulomb potential. 
+Multiplying this with the other Coulomb constant, we obtain the Fourier transform of the Coulomb potential.
 
 
 \subsubsection{Derivation: momentum representation.}
@@ -579,4 +579,23 @@ The delta function enforce $\mathbf{k }_1+\mathbf{k }_2=\mathbf{k }_1'+\mathbf{k
   \end{cases}
 \end{equation*}
 
+\subsection{Bloch Theorem}
+The theorem states that all eigenfunctions of this Hamiltonian can be written in the form
+\begin{equation*}
+  \psi_{k}(\mathbf{r}) = e^{i \mathbf{k} \cdot \mathbf{r}} u_{k}(\mathbf{r}),
+\end{equation*}
+where $u_\mathbf{k}(\mathbf{r})$ has the same periodicity as the lattice, namely
+\begin{equation*}
+  u_{k}(\mathbf{r} + \mathbf{R}) = u_{k}(\mathbf{r})
+\end{equation*}
+One consequence in that
+\begin{align*}
+  T_\mathbf{a}\psi(\mathbf{r})
+  = \psi_{\mathbf{k}}(\mathbf{r} + \mathbf{a})
+  = e^{i \mathbf{k}(\mathbf{r}+\mathbf{a})}u_{\mathbf{k}}(\mathbf{r} + \mathbf{a})
+  = e^{i \mathbf{k }\cdot \mathbf{r}} e^{i \mathbf{k }\cdot \mathbf{a}} u_{\mathbf{k}}(\mathbf{r})
+  = e ^{i \mathbf{k }\cdot \mathbf{a}}\psi_{\mathbf{k}}(\mathbf{r})
+\end{align*}
+In other words, a shift by $r$, yields extra phase constant $e^{i \mathbf{k }\cdot \mathbf{a}}$.
+It also can be interpreted that the constant is the eigenvalue of translational operator.
 \end{document}
