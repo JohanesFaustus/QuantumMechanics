@@ -14,14 +14,16 @@ It can be shown that the Hamiltonian commute with the third component of the tot
 This will make the computation easier, since according to Heisenberg equation, the $\sigma_3$ is conserved.
 We can then work in a state that is the both the simulnetaous eigenstate of $H$ and $\sigma_3$ along with state that has conserved angular momentum.
 
-With the ground state of
+With the ground state and one-excitation state as 
 \begin{equation*}
-    \ket{0} = \bigotimes_{j=1}^{N} \ket{\uparrow}_j = \bigotimes_{j=1}^{N} \begin{pmatrix}1\\ 0 \end{pmatrix}_j
+  \ket{\mathbf{0 } } = \bigotimes_{i=1}^N \ket{0_i} = \ket{\downarrow_1\ldots \downarrow_N}\qquad
+\ket{\mathbf{j } } = \bigotimes_{i \neq j} \ket{0_i}\otimes \ket{\mathbf{j}} = \ket{\downarrow_1\ldots\uparrow_j\ldots \downarrow_N}
 \end{equation*}
 the action of the Heisenberg Hamiltonian in this state reads
 \begin{equation*}
-    H\lvert 0\rangle
-    = -JN\lvert 0\rangle
+    H\ket{\mathbf{0}}
+    = -JN\ket{\mathbf{0}}\qquad
+    H\ket{\mathbf{j}}= E_0 \ket{\mathbf{j}} + 2J\left(2\ket{\mathbf{j}} - \ket{\mathbf{j+1}} - \ket{\mathbf{j-1}}\right)
 \end{equation*}
 such that the ground state energy is $E_0 = -\mathcal{J }N$.
 This is derived using the following relation
@@ -29,72 +31,253 @@ This is derived using the following relation
     \boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}=2P_{i,i+1}-1
 \end{equation*}
 The $P_{i,i+1}$ is the permutation operator that exchange the state $i$ with $i+1$.
-
-With one magnon state $\ket{m} = \sigma^-_m \ket{0}$, we see that the Hamiltonian action is
+Along with this, we define the magnon state which satisfies
 \begin{equation*}
-    H\ket{m}= E_0 |m\rangle + 2J\left(2|m\rangle - |m+1\rangle - |m-1\rangle\right)
-\end{equation*}
-Along with this, we define the magnon state $\ket{k} = a ^\dagger_k \ket{0}$, which satisfies
-\begin{equation*}
-    \ket{k} = \sum_{m} e^{-ikam} \ket{m}
+    \ket{\tilde{m}} = \sum_{j} e^{-ikaj} \ket{\mathbf{j}} = \sum_{j } e ^{-i2\pi m j/N} \ket{\mathbf{j}}
 \end{equation*}
 This state has the energy eigenvalue of
 \begin{equation*}
-    H \ket{k }= \left[ E_0 +4J (1- \cos ka) \right] \ket{k}
+    H \ket{\tilde{m} }= \left[ E_0 +4J (1- \cos ka) \right] \ket{\tilde{m}}
 \end{equation*}
 Taking into account constant-energy $E_0$ offset and normalization due to Pauli matrices $2\sigma = S$, this produce the same result with energy spectrum derived using Fourier transform $\hbar \omega_\mathbf{k} = J(1- \cos ka)$.
 
-Following the periodic boundary, the condition $\ket{m+N} = \ket{m}$
+Following the periodic boundary, the condition $\ket{j+N} = \ket{\mathbf{j}}$
 \begin{align*}
-    \ket{k} = \sum_{m} e^{-ikam} \ket{m} & =  \sum_{m} e^{-ika(m+N)} \ket{m+N} \\
-    e^{ikam}                             & = e^{ika(m+N)}                      \\
+    \sum_{j} e^{-ikaj} \ket{\mathbf{j}} & =  \sum_{j} e^{-ika(j+N)} \ket{j+N} \\
+    e^{-ikaj}                             & = e^{-ika(j+N)}                      \\
     e^{ikaN}                             & = 1=e^{2n\pi i}
 \end{align*}
 yields discrete set for the wavenumber
 \begin{equation*}
-    k \in \left\{ \frac{2\pi n }{Na} \right\}
+    k \in \left\{ \frac{2\pi m }{Na} \right\}
 \end{equation*}
 Aside, the total third component of magnon state is
 \begin{equation*}
-    \sigma_3 \ket{k} =\sum_{m} e^{-ikam} \sigma_3\ket{m} = (N-2) \ket{k}
+    \sigma_3 \ket{\tilde{m}} =\sum_{m} e^{-ikam} \sigma_3\ket{\mathbf{j}} = (N-2) \ket{\tilde{m}}
 \end{equation*}
-since there are ($N-1$) spin up and $1$ spin down at state $\ket{m}$, bringing the total third component to $N-1-1=N-2$.
+since there are ($N-1$) spin up and $1$ spin down at state $\ket{\mathbf{j}}$, bringing the total third component to $N-1-1=N-2$.
+
+
+\subsubsection{Spin wave theory.}
+By mapping spin operators to bosonic operators via Holstein–Primakoff transformation and retaining only quadratic terms, the Hamiltonian can be approximately diagonalized in momentum space
+\begin{equation*}
+    H = \text{const} + \sum_{\mathbf{k}} \hbar \omega_{\mathbf{k}}  \hat{a}_{\mathbf{k}}^\dagger \hat{a}_{\mathbf{k}}
+\end{equation*}
+with
+\begin{equation*}
+    \hbar \omega_{\mathbf{k }}
+    = Js\left[z - g_\mathbf{k} \right]
+    \qquad  g_\mathbf{k} = \sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}
+\end{equation*}
+and $\boldsymbol{\delta}$ as displacement vector.
+For spin chain, we have
+\begin{equation*}
+    g_\mathbf{k} = e^{-ika}+e^{ika}=2\cos(ka)
+\end{equation*}
+so that the dispersion relation is $E_k = J(1- \cos ka)$.
+While for 2D graphene
+\begin{equation*}
+    g_{\mathbf{k}} = e^{-i a k_y } +\exp \left[ -i\left(\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right] + \exp \left[ -i\left(-\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right]
+\end{equation*}
+
+The resulting eigenmodes are plane-wave superpositions of local spin deviations $a_i ^\dagger \ket{\mathbf{0}}$.
+The spin wave appears in the structure of the eigenmodes
+\begin{equation*}
+    a_{\mathbf{k}}^ \dagger\lvert 0\rangle = \frac{1}{\sqrt{N}} \sum_{j} e^{-i\mathbf{k}\cdot\mathbf{R}_{j}} a_{j}^ \dagger\lvert 0\rangle
+\end{equation*}
+This mode of $\mathbf{k}$ correspond to collective excitations of the spin system, known as spin waves or magnon in the quantized description.
+$a_{\mathbf{k}}^ \dagger\lvert 0\rangle$ also called the delocalized momentum eigenstate.
+Working in one dimension
+\begin{equation*}
+    a_{k}^ \dagger\lvert 0\rangle = \frac{1}{\sqrt{N}} \sum_{j} e^{-ikaj} a_{j}^ \dagger\lvert 0\rangle
+\end{equation*}
+with $\mathbf{k }=k$ and $\mathbf{R}_j = aj$.
+Do note the $a ^\dagger$ here is defined as abstract operator that create excitations state, regardless of how the ground state $\ket{\mathbf{0}}$ is defined, whether all up or all down.
 
 \subsubsection{Derivation: Ground state and magnon state energy.}
 For the ground state, simply use the permutation relation
 \begin{align*}
-    \mathcal H \ket{0} & =  -J \sum_{i=1}^{N} (\boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}) \ket{0}
-    = -J \sum_{i=1}^{N} (2P_{i,i+1}-1)\ket{0}                                                               \\
-                       & =  -J \sum_{i=1}^{N} (2-1)\ket{0}
+    \mathcal H \ket{\mathbf{0}} & =  -J \sum_{i=1}^{N} (\boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}) \ket{\mathbf{0}}
+    = -J \sum_{i=1}^{N} (2P_{i,i+1}-1)\ket{\mathbf{0}}                                                               \\
+                       & =  -J \sum_{i=1}^{N} (2-1)\ket{\mathbf{0}}
     = -J N = E_0
 \end{align*}
 since the permutation does nothing to the ground state.
 
 For the magnon, recall that the Hamiltonian only act on nearest–neighbor terms, so it can be split
 \begin{equation*}
-    H \ket{m} = J \left[ \sum_{i'} \boldsymbol{\sigma}_i \cdot \boldsymbol{\sigma}_{i+1} + \boldsymbol{\sigma}_{m-1} \cdot \boldsymbol{\sigma}_{m} + \boldsymbol{\sigma}_m \cdot \boldsymbol{\sigma}_{m+1}\right]  \ket{m}
+    H \ket{\mathbf{j}} = J \left[ \sum_{\substack{i=1\\i = \mathbf{j}-1,\mathbf{j}}}^N \boldsymbol{\sigma}_i \cdot \boldsymbol{\sigma}_{i+1} + \boldsymbol{\sigma}_{j-1} \cdot \boldsymbol{\sigma}_{j} + \boldsymbol{\sigma}_j \cdot \boldsymbol{\sigma}_{j+1}\right]  \ket{\mathbf{j}}
 \end{equation*}
-with $i'\neq (m-1,m)$.
-When acting on $\ket{m}$, terms with $i'$ act on pairs of spins that are both up, hence they contribute exactly as in the ground state.
+When acting on $\ket{\mathbf{j}}$, terms with $i'$ act on pairs of spins that are both up, hence they contribute exactly as in the ground state.
 For the other two terms, we use the permutation relation once again
 \begin{align*}
-    H \ket{m}
-     & =   J\left[ (N-2)+ (2P_{m-1,m}-1) + (2P_{m,m+1}-1) \right] \ket{m} \\
-     & = -J(N-4) \ket{m} - 2J \ket{m-1} - 2J \ket{m+1}                    \\
-    H \ket{m}
-     & = E_0 \ket{m} +2J \left(2 \ket{m}-  \ket{m-1}- \ket{m+1} \right)
+    H \ket{\mathbf{j}}
+     & =   J\left[ (N-2)+ (2P_{j-1,m}-1) + (2P_{j,m+1}-1) \right] \ket{\mathbf{j}} \\
+     & = -J(N-4) \ket{\mathbf{j}} - 2J \ket{m-1} - 2J \ket{m+1}                    \\
+    H \ket{\mathbf{j}}
+     & = E_0 \ket{\mathbf{j}} +2J \left(2 \ket{\mathbf{j}}-  \ket{m-1}- \ket{m+1} \right)
 \end{align*}
 
 Now consider the spin-wave state
 \begin{align*}
     \mathcal{H}|k\rangle
-     & =  \sum_m e^{-ikam} {H}|m\rangle                                               \\
-     & =  \sum_{m} e^{-ikam} \left[J(N-4) \ket{m} +2J \ket{m-1}+ 2J \ket{m+1} \right] \\
-     & =  (E_0+4J)\sum_{m} e^{-ikam} \ket{m} - 2J \sum_{m} e^{-ika(m+1)}\ket{m}
-    \\ &\qquad - 2J \sum_{m} e^{-ika(m-1)}\ket{m} \\
-     & = \left[ E_0  + J \left(4 - 2e^{-ika} - 2e^{ika} \right) \right]  \ket{m}
-    = \left[ E_0 +4J(1- \cos ka) \right] \ket{m}
+     & =  \sum_m e^{-ikam} {H}\ket{\mathbf{j}}                                               \\
+     & =  \sum_{m} e^{-ikam} \left[J(N-4) \ket{\mathbf{j}} +2J \ket{m-1}+ 2J \ket{m+1} \right] \\
+     & =  (E_0+4J)\sum_{m} e^{-ikam} \ket{\mathbf{j}} - 2J \sum_{m} e^{-ika(m+1)}\ket{\mathbf{j}}
+    \\ &\qquad - 2J \sum_{m} e^{-ika(m-1)}\ket{\mathbf{j}} \\
+     & = \left[ E_0  + J \left(4 - 2e^{-ika} - 2e^{ika} \right) \right]  \ket{\mathbf{j}}
+    = \left[ E_0 +4J(1- \cos ka) \right] \ket{\mathbf{j}}
 \end{align*}
+
+
+\subsubsection{Derivation: Fourier transform of the Heisenberg Hamiltonian.}
+Even in this case, the spin operator satisfy the usual commutation relations
+\begin{equation*}
+    \left[S_i^{\alpha}, S_j^{\beta}\right] = i \delta_{ij} \epsilon_{\alpha\beta\gamma} S_i^{\gamma}
+\end{equation*}
+Here, $\delta_{ij }$ enforces that different sites commute.
+As it the case with the ladder operator
+\begin{equation*}
+    S_i^{+} = S_i^{x} + iS_i^{y}
+    \qquad S_i^{-} = S_i^{x} - iS_i^{y}
+\end{equation*}
+This also satisfies the usual relation
+\begin{equation*}
+    [S_i^z, S_i^\pm] = \pm S_i^\pm\qquad
+    [S_i^+, S_i^-] = 2S_i^z
+\end{equation*}
+
+We now introduce the Holstein–Primakoff transformation
+\begin{gather*}
+    S_i^+ = \sqrt{2s}\left(1-\frac{a_i^\dagger a_i}{2s}\right)^{1/2}a_i\qquad
+    S_i^- = \sqrt{2s}a_i^\dagger\left(1-\frac{a_i^\dagger a_i}{2s}\right)^{1/2}\\
+    S_i^z = s-a_i^\dagger a_i
+\end{gather*}
+The transformation is constructed so that the spin commutation relations, under bosonic transformation, are exactly preserved.
+
+The third transformation arises from matching the spectrum of $S^z$ with a boson number operator.
+It can be derived from this relation
+\begin{equation*}
+    (S_i^z)^2 = s(s+1) - (S_i^x)^2 - (S_i^y)^2
+\end{equation*}
+After computing the square of $x$ and $y$ components operator
+\begin{equation*}
+    (S_i^z)^2 = s(s+1) - \frac{1}{2}\bigl(S_i^+ S_i^- + S_i^- S_i^+\bigr)
+\end{equation*}
+The products of ladder operators are calculated as
+\begin{align*}
+    S_i^+ S_i^-
+     & =  2s\left(1-\frac{n_i}{2s}\right)^{1/2} a_i a_i^\dagger\left(1-\frac{n_i}{2s}\right)^{1/2} =  2s\left(n_i + 1\right)\left(1 - \frac{n_i}{2s}\right) \\
+    S_i^+ S_i^-
+     & =   \left(2s - n_i\right) (n_i+1) = 2 s n_i + 2 s - n_i^2 - n_i,
+\end{align*}
+and
+\begin{equation*}
+    S_i^- S_i^+
+    =  2s  a_i^\dagger\left(1-\frac{n_i}{2s}\right) a_i
+    =  a_i^\dagger\left(2s a_i - n_i a_i\right) \\
+    =     2s n_i - n_i ^2 + n_i
+\end{equation*}
+Substituting back
+\begin{align*}
+    (S_i^z)^2
+     & =  s^2 +s - (2s n_i + s - n_i ^2 ) = s^2 - 2s n_i + n_i^2 \\
+    (S_i^z)^2
+     & = (s - n_i)^2                                             \\
+    S_i^z = \pm s - n_i
+\end{align*}
+The vacuum $n_i=0$ must correspond to the fully polarized state $S_i^z=+s$.
+So we take the positive side
+\begin{equation*}
+    S_i^z = s - n_i = s - a_i ^\dagger a_i
+\end{equation*}
+
+The dot product is evaluated as
+\begin{align*}
+    \mathbf{S}_i \cdot \mathbf{S}_j
+     & = S_i^z S_j^z + \frac{1}{2}\bigl(S_i^+ S_j^- + S_i^- S_j^+\bigr)                                                               \\
+    \mathbf{S}_i \cdot \mathbf{S}_j
+     & = s^2 - s a_i^\dagger a_i - s  a_j^\dagger a_j + a_i^\dagger a_i a_j^\dagger a_j                                               \\
+     & \qquad+ s\Bigg[\left(1-\frac{a_i^\dagger a_i}{2s}\right)^{1/2} a_i a_j^\dagger \left(1-\frac{a_j^\dagger a_j}{2s}\right)^{1/2} \\
+     & \qquad\qquad+ a_i ^\dagger\left(1-\frac{a_i ^\dagger a_i}{2s}\right)^{1/2}\left(1-\frac{a_j ^\dagger a_j}{2s}\right)^{1/2} a_j
+        \Bigg]
+\end{align*}
+Use binomial expansion
+\begin{equation*}
+    (1-x)^{1/2} = \sum_{n=0}^{\infty} \binom{1/2}{n}(-x)^n = 1 - \frac{x}{2} - \frac{x^2}{8} + \cdots
+\end{equation*}
+to rewrite the result as
+\begin{align*}
+    \mathbf{S}_i \cdot \mathbf{S}_j
+     & = s^2 - s a_i^\dagger a_i - s  a_j^\dagger a_j + a_i^\dagger a_i a_j^\dagger a_j                                                     \\
+     & \qquad+ s\Bigg[\left(1-\frac{a_i^\dagger a_i}{4s} - \dots\right)  a_i a_j^\dagger \left(1-\frac{a_j^\dagger a_j}{4s} - \dots\right)  \\
+     & \qquad\qquad+ a_i ^\dagger\left(1-\frac{a_i ^\dagger a_i}{4s} - \dots\right) \left(1-\frac{a_j ^\dagger a_j}{4s} - \dots\right)  a_j
+        \Bigg]
+\end{align*}
+Under second order approximation
+\begin{equation*}
+    \mathbf{S}_i \cdot \mathbf{S}_j  = s^2 - s\big(a_i^\dagger a_i + a_j^\dagger a_j\big) + s\big(a_i a_j ^\dagger+ a_i^\dagger a_j\big)
+\end{equation*}
+
+Inserting this into the Hamiltonian
+\begin{align*}
+    H
+      & = \frac{J }{2} \sum_{\braket{ij }} \left[ s^2 - s(n_i+n_j) + s\big(a_i a_j ^\dagger+ a_i^\dagger a_j \big) \right] \\
+    H & =  C + J s z \sum_i a_i ^\dagger a_i - Js\sum_{\braket{ i j}} a_i^\dagger a_j
+\end{align*}
+with $C$ being constant and $z$ being the coordination number.
+For a fixed  site $i$, the sum runs over all its neighbors site $j$, the number of which is $z$.
+Therefore, $n_i$ is counted $z$ times in the sum.
+
+Next insert the Fourier transform
+\begin{equation*}
+    a_{\mathbf{k}} = \frac{1}{\sqrt{N}}\sum_{i} e^{ i\mathbf{k}\cdot\mathbf{R}_{i}}a_{i}\qquad
+    a_{\mathbf{k}}^{\dagger} = \frac{1}{\sqrt{N}}\sum_{i} e^{- i\mathbf{k}\cdot\mathbf{R}_{i}} a_{i}^{\dagger}.
+\end{equation*}
+or more precisely, we use its inverse in terms of displacement vector $\boldsymbol{\delta}$
+\begin{equation*}
+    a_i^\dagger = \frac{1}{\sqrt{N}}\sum_\mathbf{k} e^{i\mathbf{k}\cdot\mathbf{R}_i} a_\mathbf{k}^\dagger\qquad
+    a_{i+\boldsymbol{\delta}} = \frac{1}{\sqrt{N}}\sum_\mathbf{k} e^{-i\mathbf{k}\cdot(\mathbf{R}_i+\boldsymbol{\delta})} a_\mathbf{k}
+\end{equation*}
+The product of creation and annihilation operator is
+\begin{align*}
+    \sum_{\braket{ i j}} a_i^\dagger a_j
+     & =  \frac{1}{N} \sum_{\braket{ i j}} \sum_{\mathbf{k},\mathbf{k}'} e^{i\mathbf{k}\cdot\mathbf{R}_i} e^{-i\mathbf{k}'\cdot(\mathbf{R}_i+\boldsymbol{\delta})} a_{\mathbf{k}}^{\dagger}a_{\mathbf{k}'}              \\
+     & =  \frac{1}{N} \sum_{\mathbf{k},\mathbf{k}'}\sum_i\sum_{\boldsymbol{\delta}} e^{i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{R}_i}  e^{-i\mathbf{k}'\cdot\boldsymbol{\delta}}  a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}'} \\
+     & =  \sum_{\mathbf{k}} \left(\sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}\right) a_{\mathbf{k}}^{\dagger} a_{\mathbf{k}}
+\end{align*}
+The Hamiltonian now reads
+\begin{equation*}
+    H = C +  \sum_{\mathbf{k}} Js\left[z - \left(\sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}\right) \right] a_{\mathbf{k}}^\dagger a_{\mathbf{k}}
+\end{equation*}
+Defining
+\begin{equation*}
+    \hbar \omega_{\mathbf{k }} = Js\left[z - g_\mathbf{k }  \right]
+    \qquad
+    g_\mathbf{k } = \sum_{\boldsymbol{\delta}} e^{-i \mathbf{k}\cdot \boldsymbol{\delta}}
+\end{equation*}
+we can also write
+\begin{equation*}
+    H = C +  \sum_{\mathbf{k}}\hbar \omega_{\mathbf{k }}a_{\mathbf{k}}^\dagger a_{\mathbf{k}}
+\end{equation*}
+
+In spin chain, each site has two nearest neighbors, so $\boldsymbol{\delta}= \pm a$ and
+\begin{equation*}
+    g_\mathbf{k} = e^{-ika}+e^{ika}=2\cos(ka)
+\end{equation*}
+For graphene, each site has three nearest neighbors which are not collinear.
+Defining
+\begin{equation*}
+    \boldsymbol{\delta}_1 = a(0,1)\quad
+    \boldsymbol{\delta}_2 = a\left(\frac{\sqrt{3}}{2},-\frac{1}{2}\right)\quad
+    \boldsymbol{\delta}_3 = a\left(-\frac{\sqrt{3}}{2},-\frac{1}{2}\right)
+\end{equation*}
+and $\mathbf{k} = (k_x,k_y)$.
+Then
+\begin{equation*}
+    g_{\mathbf{k}} = e^{-i a k_y } +\exp \left[ -i\left(\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right] + \exp \left[ -i\left(-\frac{\sqrt{3}}{2}k_x-\frac{1}{2}k_y\right)a \right]
+\end{equation*}
+
 
 \subsubsection{Derivation: Commutator relation}
 Start with the ladder operator definition
@@ -154,14 +337,14 @@ or equivalently using  $    \boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{j}=2P
 \end{equation*}
 Note that the sum for the Heisenberg Hamiltonian run up to $N-1$, since at $j=N$, the contribution due to $\boldsymbol{\sigma}_{N+1}$ does not exist.
 The Hamiltonian due to external field is simply the Zeeman Hamiltonian.
-Here we use common convention of all down ground state $\ket{0}$ and one magnon state $\ket{j}$ as the state at which the spin at the $j$th site has been flipped to the $\ket{1}$ state.
-With the ground state $ H \ket{0}= -J (N-1) \ket{0} + B N \ket{0}$ being set to 0,  the action of this Hamiltonian is
+Here we use common convention of all down ground state $\ket{\mathbf{0}}$ and one magnon state $\ket{\mathbf{j}}$ as the state at which the spin at the $j$th site has been flipped to the $\ket{\uparrow}$ state.
+With the ground state $ H \ket{\mathbf{0}}= -J (N-1) \ket{\mathbf{0}} + B N \ket{\mathbf{0}}$ being set to 0,  the action of this Hamiltonian is
 \begin{equation*}
-    H \ket{j } =
+    H \ket{\mathbf{j}} =
     \begin{cases}
-        (2J-2B)\ket{j} -2 J \ket{j+1}             & j=1              \\
-        (4J-2B) \ket{j} - 2J(\ket{j-1}+\ket{j+1}) & 2\leq j \leq N-1 \\
-        (2J-2B)\ket{j} -2 J \ket{j-1}             & j=N              \\
+        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j+1}}             & j=1              \\
+        (4J-2B) \ket{\mathbf{j}} - 2J(\ket{\mathbf{j-1}}+\ket{\mathbf{j+1}}) & 2\leq j \leq N-1 \\
+        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j-1}}             & j=N              \\
     \end{cases}
 \end{equation*}
 and the matrix representation is
@@ -182,7 +365,7 @@ The eigenvalue of this Hamiltonian is
 with $m=1,\dots,N$.
 The eigenstates of this Hamiltonian is
 \begin{equation*}
-    \ket{\tilde{m }} = a_m \sum_{j=1} ^{N} \cos \left[ \frac{\pi }{2N }(m-1 ) (2j-1)\right]  \ket{j} \qquad
+    \ket{\tilde{m }} = a_m \sum_{j=1} ^{N} \cos \left[ \frac{\pi }{2N }(m-1 ) (2j-1)\right]  \ket{\mathbf{j}} \qquad
     a_m = \begin{cases}
         \sqrt{1/N}, & m=1      \\
         \sqrt{2/N}, & m \neq 2 \\
@@ -202,7 +385,7 @@ and has the action on one excitation state of
 \begin{equation*}
     H \ket{k } =
     \begin{cases}
-        -2 \sum_{j=2}^{N}  J_{1j} \ket{j} +2 \sum_{j=2}^{N} J_{1j} \ket{k}  -2B\ket{k}      & k=1              \\\\
+        -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} +2 \sum_{j=2}^{N} J_{1j} \ket{k}  -2B\ket{k}      & k=1              \\\\
         -2\sum_{i \neq k}J_{ik}  \ket{i} +2 \sum_{i \neq k}  J_{ik}\ket{k} -2B\ket{k}       & 2\leq k \leq N-1 \\\\
         -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} +2 \sum_{i=1}^{N-1} J_{iN} \ket{k}  -2B \ket{k} & k=N
     \end{cases}
@@ -230,54 +413,55 @@ The matrix element in this case is
     \end{cases}
 \end{equation*}
 
-\subsubsection{Derivation: Constant coupling.}
+\subsubsection{Derivation: Constant short-range coupling.}
 The boundary condition differs with the case of periodic boundary,  thus the action of the Hamiltonian also different in the case of boundary state
 \begin{align*}
-    H \ket{1}
-     & =   -2J P_{1,2} \ket{1}    -2J \sum_{i  = 2}^{N-1}  P_{i,i+1}\ket{1} + J(N-1) \ket{1} - B\sigma_3\ket{1} \\
-     & =  -2 J \ket{2 } -J (N-3) \ket{1} + B (N-2) \ket{1}
+    H \ket{\mathbf{1}}
+     & =   -2J P_{1,2} \ket{\mathbf{1}}    -2J \sum_{i  = 2}^{N-1}  P_{i,i+1}\ket{\mathbf{1}} + J(N-1) \ket{\mathbf{1}} - B\sigma_3\ket{\mathbf{1}} \\
+     & =  -2 J \ket{\mathbf{2}} -J (N-3) \ket{\mathbf{1}} + B (N-2) \ket{\mathbf{1}}
 \end{align*}
 For the other end
 \begin{align*}
-    H \ket{N}
-     & =   -2J P_{N-1,N} \ket{N} -2J \sum_{i  = 1}^{N-2}  P_{i,i+1}\ket{N} + J(N-1) \ket{N} - B\sigma_3 \ket{N} \\
-     & =  -2 J \ket{N-1 } -J (N-3) \ket{N} + B (N-2) \ket{N}
+    H \ket{\mathbf{N}}
+     & =   -2J P_{N-1,N} \ket{\mathbf{N}} -2J \sum_{i  = 1}^{N-2}  P_{i,i+1}\ket{\mathbf{N}} + J(N-1) \ket{\mathbf{N}} - B\sigma_3 \ket{\mathbf{N}} \\
+     & =  -2 J \ket{\mathbf{N-1}} -J (N-3) \ket{\mathbf{N}} + B (N-2) \ket{\mathbf{N}}
 \end{align*}
 while for the interior is the same as the periodic boundary case
 \begin{align*}
-    H \ket{j}
-     & =   - 2J \sum_{\substack{i=1                                    \\i\neq j,j-1}}^{N-1}  P_{i,i+1}\ket{j} -2JP_{j-1,j} \ket{j} - 2JP_{j,j+1} \ket{j} \\
-     & \qquad+  J(N-1) \ket{j} - B\sigma_3 \ket{j}                     \\
-     & = -J(N-5) \ket{j }+B(N-2) \ket{j }-2J ( \ket{j-1 } + \ket{j+1})
+    H \ket{\mathbf{j}}
+     & =   - 2J \sum_{\substack{i=1                                    \\i\neq j,j-1}}^{N-1}  P_{i,i+1}\ket{\mathbf{j}} -2JP_{j-1,j} \ket{\mathbf{j}} - 2JP_{j,j+1} \ket{\mathbf{j}} \\
+     & \qquad+  J(N-1) \ket{\mathbf{j}} - B\sigma_3 \ket{\mathbf{j}}                     \\
+     & = -J(N-5) \ket{\mathbf{j}}+B(N-2) \ket{\mathbf{j}}-2J ( \ket{j-1 } + \ket{\mathbf{j+1}})
 \end{align*}
 Noting the ground state energy
 \begin{align*}
-    H \ket{0}
-     & =  -J \sum_{i  = 1}^{N-1}  (2P_{i,i+1}-1)\ket{0}   - B\sigma_3 \ket{0} \\
-     & =  -J (N-1) \ket{0} + B N \ket{0}
+    H \ket{\mathbf{0}}
+     & =  -J \sum_{i  = 1}^{N-1}  (2P_{i,i+1}-1)\ket{\mathbf{0}}   - B\sigma_3 \ket{\mathbf{0}} \\
+     & =  -J (N-1) \ket{\mathbf{0}} + B N \ket{\mathbf{0}}
 \end{align*}
 and setting it to zero, we have the action of the Hamiltonian as
 \begin{equation*}
-    H \ket{j } =
+    H \ket{\mathbf{j}} =
     \begin{cases}
-        (2J-2B)\ket{j} -2 J \ket{j+1}             & j=1              \\
-        (4J-2B) \ket{j} - 2J(\ket{j-1}+\ket{j+1}) & 2\leq j \leq N-1 \\
-        (2J-2B)\ket{j} -2 J \ket{j-1}             & j=N              \\
+        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j+1}}             & j=1              \\
+        (4J-2B) \ket{\mathbf{j}} - 2J(\ket{\mathbf{j-1}}+\ket{\mathbf{j+1}}) & 2\leq j \leq N-1 \\
+        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j-1}}             & j=N              \\
     \end{cases}
 \end{equation*}
 
 We then introduce the magnon state
 \begin{equation*}
     \ket{\tilde{m}  } =
-    \sum_{j } a_j ^{m }\ket{j}
+    \sum_{j } a_j ^{m }\ket{\mathbf{j}}
 \end{equation*}
+This can be intrepreted as a basis change form eigenstate $\ket{\tilde{m}}$ to one excitation state.
 The action of the Heisenberg Hamiltonian in this state is
 \begin{align*}
     H \ket{\tilde{m}  }                   & =
-    a ^{m} H \ket{1} + \sum_{j=2 }^{N-1} a_j ^{m } H\ket{j} + a_N ^{m} H \ket{N}                                                                                                                    \\
-    \sum_{j=1} ^{N} a_j^m E_0 \ket{j}     & = a_1 ^{m} \left[ (2J-2B) \ket{1} - 2J \ket{2 }   \right]                                                                                               \\
-                                          & \qquad + a_N ^{m} \left[ (2J-2B) \ket{N} - 2J \ket{N-1 }\right]                                                                                         \\
-                                          & \qquad + \sum_{j=2 } ^{N-1} a_j ^{m} \left[  (4J-2B) \ket{j} - 2J ( \ket{j-1} + \ket{j+1}) \right]                                                      \\
+    a ^{m} H \ket{\mathbf{1}} + \sum_{j=2 }^{N-1} a_j ^{m } H\ket{\mathbf{j}} + a_N ^{m} H \ket{\mathbf{N}}                                                                                                                    \\
+    \sum_{j=1} ^{N} a_j^m E_0 \ket{\mathbf{j}}     & = a_1 ^{m} \left[ (2J-2B) \ket{\mathbf{1}} - 2J \ket{\mathbf{2}}   \right]                                                                                               \\
+                                          & \qquad + a_N ^{m} \left[ (2J-2B) \ket{\mathbf{N}} - 2J \ket{\mathbf{N-1}}\right]                                                                                         \\
+                                          & \qquad + \sum_{j=2 } ^{N-1} a_j ^{m} \left[  (4J-2B) \ket{\mathbf{j}} - 2J ( \ket{\mathbf{j-1}} + \ket{\mathbf{j+1}}) \right]                                                      \\
     \sum_{j=1} ^{N} a_j^m E_0 \delta_{pj} & = a_1 ^{m} \left[ (2J-2B) \delta_{p,1} - 2J \delta_{p,2}\right]                                                                                         \\
                                           & \qquad + a_N ^{m} \left[ (2J-2B) \delta_{p,N} - 2J \delta_{p,N-1 }\right]                                                                               \\
                                           & \qquad + \sum_{j=2 } ^{N-1} a_j ^{m} (4J-2B) \delta_{p,j} - \sum_{j=1 } ^{N-2}a_{j+1} ^{m}2J \delta_{p,j} - \sum_{j=3 } ^{N}a_{j-1} ^{m}2J \delta_{p,j}
@@ -384,7 +568,7 @@ Now the complete amplitude reads
 Inserting the amplitude into the eigenstate
 \begin{equation*}
     \ket{\tilde{m}  } =
-    \sum_{j }^N a_m \cos \left[ \frac{\pi }{2 N }(m-1 )(2j-1) \right] \ket{j}
+    \sum_{j }^N a_m \cos \left[ \frac{\pi }{2 N }(m-1 )(2j-1) \right] \ket{\mathbf{j}}
 \end{equation*}
 All that left is the normalization.
 At $m=1$, the cosine term equal to 1 due to the $(m-1)$ term, so
@@ -434,9 +618,8 @@ Note that the interaction sum runs over all distinct pairs, not just the nearest
 
 The action in the ground state is
 \begin{align*}
-    H \ket{0}
-              & =  -\sum_{i<j}J_{ij}  (2P_{ij}-1)\ket{0}   - B\sigma_3 \ket{0} \\
-    H \ket{0} & =  -\sum_{i<j}J_{ij}\ket{0} + B N \ket{0}
+    H \ket{\mathbf{0}}& =  -\sum_{i<j}J_{ij}  (2P_{ij}-1)\ket{\mathbf{0}}   - B\sigma_3 \ket{\mathbf{0}} \\
+    H \ket{\mathbf{0}} & =  -\sum_{i<j}J_{ij}\ket{\mathbf{0}} + B N \ket{\mathbf{0}}
 \end{align*}
 Using identity
 \begin{equation*}
@@ -444,33 +627,33 @@ Using identity
 \end{equation*}
 which state that for a specific value of $r=|i-j|$, there are $N-r$ pairs, so we multiply $f(r)$ by that, we have
 \begin{equation*}
-    H \ket{0 } = -C \sum_{r=1}^{N-1} \frac{N-r}{(a r)^{\nu}} \ket{0} + BN \ket{0}
+    H \ket{\mathbf{0}} = -C \sum_{r=1}^{N-1} \frac{N-r}{(a r)^{\nu}} \ket{\mathbf{0}} + BN \ket{\mathbf{0}}
 \end{equation*}
 This recover previous result for $\nu=1$ and taking only term at $r=1$.
 The action at the first site is
 \begin{align*}
-    H \ket{1}
-     & =   -2\sum_{i<j}J_{ij}  P_{ij}\ket{1}  + \sum_{i<j} J_{ij}\ket{1} - \sum_{i } ^N B \sigma_{3i}\ket{1} \\
-     & =   -2 \sum_{j=2}^{N}  J_{1j} P_{1j} \ket{1} - 2\sum_{\substack{2\leq i                               \\i<j}} J_{ij}  P_{ij}\ket{1} + \sum_{i<j}  J_{ij} \ket{1} + B(N-2)\ket{1} \\
-     & =   -2 \sum_{j=2}^{N}  J_{1j} \ket{j} - 2\sum_{\substack{2\leq i                                      \\i<j}} J_{ij} \ket{1} + \sum_{i<j}  J_{ij} \ket{1} + B(N-2)\ket{1} \\
-     & =   -2 \sum_{j=2}^{N}  J_{1j} \ket{j} -\sum_{\substack{2\leq i                                        \\i<j}} J_{ij} \ket{1} + \sum_{j=2}^{N} J_{1j} \ket{1}  + B(N-2)\ket{1}
+    H \ket{\mathbf{1}}
+     & =   -2\sum_{i<j}J_{ij}  P_{ij}\ket{\mathbf{1}}  + \sum_{i<j} J_{ij}\ket{\mathbf{1}} - \sum_{i } ^N B \sigma_{3i}\ket{\mathbf{1}} \\
+     & =   -2 \sum_{j=2}^{N}  J_{1j} P_{1j} \ket{\mathbf{1}} - 2\sum_{\substack{2\leq i                               \\i<j}} J_{ij}  P_{ij}\ket{\mathbf{1}} + \sum_{i<j}  J_{ij} \ket{\mathbf{1}} + B(N-2)\ket{\mathbf{1}} \\
+     & =   -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} - 2\sum_{\substack{2\leq i                                      \\i<j}} J_{ij} \ket{\mathbf{1}} + \sum_{i<j}  J_{ij} \ket{\mathbf{1}} + B(N-2)\ket{\mathbf{1}} \\
+     & =   -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} -\sum_{\substack{2\leq i                                        \\i<j}} J_{ij} \ket{\mathbf{1}} + \sum_{j=2}^{N} J_{1j} \ket{\mathbf{1}}  + B(N-2)\ket{\mathbf{1}}
 \end{align*}
 Setting the ground state energy $E_0 = -\sum_{i<j}J_{ij}+BN $ to zero,
 \begin{equation*}
-    H \ket{1}  =   -2 \sum_{j=2}^{N}  J_{1j} \ket{j} +2 \sum_{j=2}^{N} J_{1j} \ket{1}  -2B\ket{1} \\
+    H \ket{\mathbf{1}}  =   -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} +2 \sum_{j=2}^{N} J_{1j} \ket{\mathbf{1}}  -2B\ket{\mathbf{1}} \\
 \end{equation*}
 Imposing $J= J\delta_{|i-j|,1}$ we see that it reduce to nearest neighbor result.
 Now at opposite end
 \begin{align*}
-    H \ket{N}
-     & =   -2\sum_{i<j}J_{ij}  P_{ij}\ket{N}  + \sum_{i<j} J_{ij}\ket{N} - \sum_{i } ^N B \sigma_{3i}\ket{N} \\
-     & =   -2 \sum_{i=1}^{N-1}  J_{iN} P_{iN} \ket{N} - 2\sum_{\substack{i<j                                 \\j < N}} J_{ij}  P_{ij}\ket{N} + \sum_{i<j}  J_{ij} \ket{N} + B(N-2)\ket{N} \\
-     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} - 2\sum_{\substack{i<j                                        \\j < N}} J_{ij} \ket{N} + \sum_{i<j}  J_{ij} \ket{N} + B(N-2)\ket{N} \\
-     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} -\sum_{\substack{i<j                                          \\j<N}} J_{ij} \ket{N} + \sum_{i=1}^{N-1} J_{iN} \ket{N}  + B(N-2)\ket{N}
+    H \ket{\mathbf{N}}
+     & =   -2\sum_{i<j}J_{ij}  P_{ij}\ket{\mathbf{N}}  + \sum_{i<j} J_{ij}\ket{\mathbf{N}} - \sum_{i } ^N B \sigma_{3i}\ket{\mathbf{N}} \\
+     & =   -2 \sum_{i=1}^{N-1}  J_{iN} P_{iN} \ket{\mathbf{N}} - 2\sum_{\substack{i<j                                 \\j < N}} J_{ij}  P_{ij}\ket{\mathbf{N}} + \sum_{i<j}  J_{ij} \ket{\mathbf{N}} + B(N-2)\ket{\mathbf{N}} \\
+     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} - 2\sum_{\substack{i<j                                        \\j < N}} J_{ij} \ket{\mathbf{N}} + \sum_{i<j}  J_{ij} \ket{\mathbf{N}} + B(N-2)\ket{\mathbf{N}} \\
+     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} -\sum_{\substack{i<j                                          \\j<N}} J_{ij} \ket{\mathbf{N}} + \sum_{i=1}^{N-1} J_{iN} \ket{\mathbf{N}}  + B(N-2)\ket{\mathbf{N}}
 \end{align*}
 Now set the ground state to zero, that is we define $H \to H -E_0$
 \begin{equation*}
-    H \ket{N} =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} +2 \sum_{i=1}^{N-1} J_{iN} \ket{N}  -2B \ket{N}
+    H \ket{\mathbf{N}} =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} +2 \sum_{i=1}^{N-1} J_{iN} \ket{\mathbf{N}}  -2B \ket{\mathbf{N}}
 \end{equation*}
 Next on the interior site
 \begin{equation*}
@@ -482,7 +665,7 @@ There are 3 possible cases: $i=k$, $j \neq k$; $j=k$, $i \neq k$; $i \neq  k$, $
 \begin{align*}
     -2\sum_{i<j}J_{ij}  P_{ij}\ket{k}
      & =    -2\sum_{k<j}J_{kj}  P_{kj}\ket{k} -2\sum_{i<k}J_{ik}  P_{ik}\ket{k}  -2\sum_{\substack{i<j \\i,j \neq k}}J_{ij}  P_{ij}\ket{k} \\
-     & =    -2\sum_{k<j}J_{kj}\ket{j} -2\sum_{i<k}J_{ik}  \ket{i}  -2\sum_{\substack{i<j               \\i,j \neq k}}J_{ij}\ket{k} \\
+     & =    -2\sum_{k<j}J_{kj}\ket{\mathbf{j}} -2\sum_{i<k}J_{ik}  \ket{i}  -2\sum_{\substack{i<j               \\i,j \neq k}}J_{ij}\ket{k} \\
      & = -2\sum_{i \neq k}J_{ik}  \ket{i} - 2\sum_{\substack{i<j                                       \\i,j \neq k}}J_{ij}\ket{k}
 \end{align*}
 where we have combined the sum over $k<j$ with $j<k$ into single $i \neq k$.
@@ -511,7 +694,7 @@ Therefore
 \begin{equation*}
     H \ket{k } =
     \begin{cases}
-        -2 \sum_{j=2}^{N}  J_{1j} \ket{j} +2 \sum_{j=2}^{N} J_{1j} \ket{k}  -2B\ket{k}      & k=1              \\\\
+        -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} +2 \sum_{j=2}^{N} J_{1j} \ket{k}  -2B\ket{k}      & k=1              \\\\
         -2\sum_{i \neq k}J_{ik}  \ket{i} +2 \sum_{i \neq k}  J_{ik}\ket{k} -2B\ket{k}       & 2\leq k \leq N-1 \\\\
         -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} +2 \sum_{i=1}^{N-1} J_{iN} \ket{k}  -2B \ket{k} & k=N
     \end{cases}
@@ -532,15 +715,15 @@ Next we discuss the extra $z$ term contained in the  dipole-like Hamiltonian
 \end{equation*}
 In the boundary, its action is
 \begin{align*}
-    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{1}
-     & = \sum_{j=2}^{N}  J_{1j} \sigma^z_1 \sigma^z_j \ket{1} + \sum_{\substack{2\leq i \\i<j}} J_{ij}  \sigma^z_i \sigma^z_j \ket{1}\\
-     & =- \sum_{j=2}^{N}  J_{1j} \ket{1} + \sum_{\substack{2\leq i                      \\i<j}} J_{ij} \ket{1}
+    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{\mathbf{1}}
+     & = \sum_{j=2}^{N}  J_{1j} \sigma^z_1 \sigma^z_j \ket{\mathbf{1}} + \sum_{\substack{2\leq i \\i<j}} J_{ij}  \sigma^z_i \sigma^z_j \ket{\mathbf{1}}\\
+     & =- \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{1}} + \sum_{\substack{2\leq i                      \\i<j}} J_{ij} \ket{\mathbf{1}}
 \end{align*}
 and
 \begin{align*}
-    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{N}
-     & =  \sum_{i=1}^{N-1}  J_{iN}\sigma^z_i \sigma^z_N  \ket{N} + \sum_{\substack{i<j \\j < N}} J_{ij}\sigma^z_i \sigma^z_j \ket{N} \\
-     & =  -\sum_{i=1}^{N-1}  J_{iN}\ket{N} + \sum_{\substack{i<j                       \\j < N}} J_{ij} \ket{N}
+    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{\mathbf{N}}
+     & =  \sum_{i=1}^{N-1}  J_{iN}\sigma^z_i \sigma^z_N  \ket{\mathbf{N}} + \sum_{\substack{i<j \\j < N}} J_{ij}\sigma^z_i \sigma^z_j \ket{\mathbf{N}} \\
+     & =  -\sum_{i=1}^{N-1}  J_{iN}\ket{\mathbf{N}} + \sum_{\substack{i<j                       \\j < N}} J_{ij} \ket{\mathbf{N}}
 \end{align*}
 Next on the interior
 \begin{align*}
@@ -553,7 +736,7 @@ Adding these action
 \begin{equation*}
     H \ket{k } =
     \begin{cases}
-        -2 \sum_{j=2}^{N}  J_{1j} \ket{j} - \sum_{j=2}^{N} J_{1j} \ket{k}+3 \sum_{\substack{2\leq i   \\i<j}} J_{ij} \ket{k}  -2B\ket{k} & k=1              \\\\
+        -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} - \sum_{j=2}^{N} J_{1j} \ket{k}+3 \sum_{\substack{2\leq i   \\i<j}} J_{ij} \ket{k}  -2B\ket{k} & k=1              \\\\
         -2\sum_{i \neq k}J_{ik}  \ket{i} - \sum_{i \neq k}  J_{ik}\ket{k} +3 \sum_{\substack{i<j      \\i,j \neq k}}J_{ij} \ket{k} -2B\ket{k} & \begin{matrix}1< k\\k<N \end{matrix} \\\\
         -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} - \sum_{i=1}^{N-1} J_{iN} \ket{k} + 3 \sum_{\substack{i<j \\j<N}} J_{ij} \ket{k} -2B \ket{k}& k=N
     \end{cases}
@@ -597,14 +780,14 @@ Since the product of ladder operator commute with total third component of spin 
 Hence, we can work in one excitation state sector as previously.
 The action of this Hamiltonian in one excitation state is
 \begin{equation*}
-    H \ket{j} =
+    H \ket{\mathbf{j}} =
     \begin{cases}
-        - J/4 \ket{j+1}                            & j=1               \\
-        - J/4 \left( \ket{j-1} + \ket{j+1} \right) & 2 \leq j \leq N-1 \\
-        - J/4 \ket{N-1}                            & j=N
+        - J/4 \ket{\mathbf{j+1}}                            & j=1               \\
+        - J/4 \left( \ket{\mathbf{j-1}} + \ket{\mathbf{j+1}} \right) & 2 \leq j \leq N-1 \\
+        - J/4 \ket{\mathbf{N-1}}                            & j=N
     \end{cases}
 \end{equation*}
-with $H \ket{0} = 0$.
+with $H \ket{\mathbf{0}} = 0$.
 In the $N \times N$ matrix of the same basis
 \begin{equation*}
     H  = -\frac{J}{4}\begin{pmatrix}
@@ -618,7 +801,7 @@ In the $N \times N$ matrix of the same basis
 The eigenstates and eigenvalue of this Hamiltonian is
 \begin{equation*}
     \ket{\tilde{m}  } =
-    \frac{2 }{N+1}\sum_{j=1 }^N  \sin \left[\frac{\pi m j}{N+1} \right] \ket{j}        \qquad
+    \frac{2 }{N+1}\sum_{j=1 }^N  \sin \left[\frac{\pi m j}{N+1} \right] \ket{\mathbf{j}}        \qquad
     E_m = -2J \cos \frac{m \phi }{N+1}
 \end{equation*}
 with $m=1,\dots$.
@@ -626,31 +809,31 @@ with $m=1,\dots$.
 \subsubsection{Derivation.}
 First we determine the ground state
 \begin{equation*}
-    H \ket{0} =  - \frac{J }{4 } \sum_{i=1 } ^{N-1} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{0} = 0
+    H \ket{\mathbf{0}} =  - \frac{J }{4 } \sum_{i=1 } ^{N-1} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{\mathbf{0}} = 0
 \end{equation*}
 since the action of $\sigma_- ^{i}$ for all $i$ to vacuum is to annihilate it.
 Next the action at the boundary
 \begin{align*}
-    H \ket{1} & =  - \frac{J }{4 } (\sigma_{+} ^{1} \sigma_- ^{2} + \sigma_{-} ^{1} \sigma_+ ^{2}) \ket{1} + \frac{J }{4 }\sum_{i=2 } ^{N-1} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{1} \\
-    H \ket{1} & = - \frac{J }{4 } \ket{2}
+    H \ket{\mathbf{1}} & =  - \frac{J }{4 } (\sigma_{+} ^{1} \sigma_- ^{2} + \sigma_{-} ^{1} \sigma_+ ^{2}) \ket{\mathbf{1}} + \frac{J }{4 }\sum_{i=2 } ^{N-1} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{\mathbf{1}} \\
+    H \ket{\mathbf{1}} & = - \frac{J }{4 } \ket{\mathbf{2}}
 \end{align*}
 Note that for the second term, $i$ start from 2, so $\sigma_-$ for all $i $ act on non excitation state and resulting in zero.
 As for the other boundary
 \begin{align*}
-    H \ket{N} & =  - \frac{J }{4 } (\sigma_{+} ^{N-1} \sigma_- ^{N} + \sigma_{-} ^{N-1} \sigma_+ ^{N}) \ket{N} + \sum_{i=1 } ^{N-2} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{N} \\
-    H \ket{N} & = - \frac{J }{4 } \ket{N-1}
+    H \ket{\mathbf{N}} & =  - \frac{J }{4 } (\sigma_{+} ^{N-1} \sigma_- ^{N} + \sigma_{-} ^{N-1} \sigma_+ ^{N}) \ket{\mathbf{N}} + \sum_{i=1 } ^{N-2} (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{\mathbf{N}} \\
+    H \ket{\mathbf{N}} & = - \frac{J }{4 } \ket{\mathbf{N-1}}
 \end{align*}
 On the interior, it act as
 \begin{align*}
-    H \ket{j} & =  - \frac{J }{4 } (\sigma_{+} ^{j-1} \sigma_- ^{j} + \sigma_{-} ^{j-1} \sigma_+ ^{j}) \ket{j}  - \frac{J }{4 } (\sigma_{+} ^{j-1} \sigma_- ^{j} + \sigma_{-} ^{j-1} \sigma_+ ^{j}) \ket{j} \\
-              & \qquad+ \sum_{i\neq j,j-1 }  (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{j}                                                                                    \\
-              & = - \frac{J }{4 } \left( \ket{j-1} + \ket{j+1} \right)
+    H \ket{\mathbf{j}} & =  - \frac{J }{4 } (\sigma_{+} ^{j-1} \sigma_- ^{j} + \sigma_{-} ^{j-1} \sigma_+ ^{j}) \ket{\mathbf{j}}  - \frac{J }{4 } (\sigma_{+} ^{j-1} \sigma_- ^{j} + \sigma_{-} ^{j-1} \sigma_+ ^{j}) \ket{\mathbf{j}} \\
+              & \qquad+ \sum_{i\neq j,j-1 }  (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{\mathbf{j}}                                                                                    \\
+              & = - \frac{J }{4 } \left( \ket{\mathbf{j-1}} + \ket{\mathbf{j+1}} \right)
 \end{align*}
 The action on the magnon state is then
 \begin{align*}
     H \ket{\tilde{m}}                     & =
-    a ^{m} H \ket{1} + \sum_{j=2 }^{N-1} a_j ^{m } H\ket{j} + a_N ^{m} H \ket{N}                                                                                                                                                                   \\
-    \sum_{j=1} ^{N} a_j^m E_0 \ket{j}     & = - a_1 ^{m} \frac{J }{4 }\ket{2} - a_N ^{m}\frac{J }{4 } \ket{N-1}  - \sum_{j=2 } ^{N-1} a_j ^{m} \frac{J }{4 }\left[    \ket{j-1} + \ket{j+1} \right]                                                \\
+    a ^{m} H \ket{\mathbf{1}} + \sum_{j=2 }^{N-1} a_j ^{m } H\ket{\mathbf{j}} + a_N ^{m} H \ket{\mathbf{N}}                                                                                                                                                                   \\
+    \sum_{j=1} ^{N} a_j^m E_0 \ket{\mathbf{j}}     & = - a_1 ^{m} \frac{J }{4 }\ket{\mathbf{2}} - a_N ^{m}\frac{J }{4 } \ket{\mathbf{N-1}}  - \sum_{j=2 } ^{N-1} a_j ^{m} \frac{J }{4 }\left[    \ket{\mathbf{j-1}} + \ket{\mathbf{j+1}} \right]                                                \\
     \sum_{j=1} ^{N} a_j^m E_0 \delta_{pj} & = -  a_1 ^{m} \frac{J }{4 } \delta_{p,2 } - a_N ^{m} \frac{J }{4 } \delta_{p,N-1 } - \sum_{j=1 } ^{N-2}a_{j+1} ^{m}\frac{J }{4 } \delta_{p,j} - \sum_{j=3 } ^{N}a_{j-1} ^{m}\frac{J }{4 } \delta_{p,j}
 \end{align*}
 We obtain
@@ -693,7 +876,7 @@ where we have used the identity $2 \sin x \cos y = \sin (x+y) + \sin (x-y)$.
 The yet to be normalized eigenstates reads
 \begin{equation*}
     \ket{\tilde{m}  } =
-    \sum_{j=1 }^N a_m \sin \left[\frac{\pi m j}{N+1} \right] \ket{j}
+    \sum_{j=1 }^N a_m \sin \left[\frac{\pi m j}{N+1} \right] \ket{\mathbf{j}}
 \end{equation*}
 
 Next we normalize this state

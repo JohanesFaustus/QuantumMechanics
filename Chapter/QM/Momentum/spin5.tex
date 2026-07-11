@@ -256,9 +256,9 @@ we can write
 \subsection{Optimization For XXX Hamiltonian: Dual Hole Method}
 We start by considering the transition amplitude
 \begin{equation*}
-  f(t) = \sum_{j=1}^{N} e^{-i E_j t}\braket{\mathbf{r}|\lambda_j }\braket{\lambda_j |\mathbf{s} }
+  f(t) = \sum_{j=1}^{N} e^{-i E_j t}\braket{\mathbf{r}|\tilde{m}_j }\braket{\tilde{m}_j |\mathbf{s} }
 \end{equation*}
-Defining the projection of eigenstates $\ket{\lambda_j}$ to sender as $|\sigma_j| e ^{\phi_j}$ and to receiver as $|\rho_j| e ^{\psi_j}$, we have
+Defining the projection of eigenstates $\ket{\tilde{m}_j}$ to sender as $|\sigma_j| e ^{\phi_j}$ and to receiver as $|\rho_j| e ^{\psi_j}$, we have
 \begin{equation*}
   f(t) = \sum_{j=1}^{N} e^{-i E_j t}\rho_j \sigma_j ^*
 \end{equation*}
@@ -282,17 +282,17 @@ This search is bounded by the few normalization constraints.
 First we write
 \begin{align*}
     \braket{\mathbf{s} | \mathbf{s}} 
-    & =  \sum_{j } \braket{\mathbf{s }  | \lambda_j } \braket{\lambda_j  | \mathbf{s}}
+    & =  \sum_{j } \braket{\mathbf{s }  | \tilde{m}_j } \braket{\tilde{m}_j  | \mathbf{s}}
     = \sum_{j } |\sigma_j|^2 = 1\\
     \braket{\mathbf{r} | \mathbf{r}} 
-    & =  \sum_{j } \braket{\mathbf{r }  | \lambda_j } \braket{\lambda_j  | \mathbf{r}}
+    & =  \sum_{j } \braket{\mathbf{r }  | \tilde{m}_j } \braket{\tilde{m}_j  | \mathbf{r}}
     = \sum_{j } |\rho_j|^2 = 1 
 \end{align*}
 For fixed $j$, we can also expand in terms of other one-excitation state
 \begin{equation*}
-    \braket{\lambda_j  | \lambda_j } 
-    = \sum_{ \mathbf{i} }  \braket{\lambda_j  | \mathbf{i } } \braket{\mathbf{i }  | \lambda_j }
-    = \sum_{\mathbf{i} \neq (\mathbf{s},\mathbf{r})}  |\braket{\lambda_j  | \mathbf{i }}|^2 + |\sigma_j|^2 + |\rho_j|^2 = 1
+    \braket{\tilde{m}_j  | \tilde{m}_j } 
+    = \sum_{ \mathbf{i} }  \braket{\tilde{m}_j  | \mathbf{i } } \braket{\mathbf{i }  | \tilde{m}_j }
+    = \sum_{\mathbf{i} \neq (\mathbf{s},\mathbf{r})}  |\braket{\tilde{m}_j  | \mathbf{i }}|^2 + |\sigma_j|^2 + |\rho_j|^2 = 1
 \end{equation*}
 With the sum interior overlap as $|\gamma_j|^2$ (first term), we can write for fixed $j$
 \begin{align*}
@@ -314,13 +314,13 @@ Suppose that the eigenstate is entirely localized in the boundary, which imply $
 \end{equation*}
 Explicitly, our eigenstates is in the form 
 \begin{equation*}
-    \ket{\lambda_\pm} = \frac{1 }{\sqrt{2}} \left( \ket{\mathbf{s }} \pm \ket{\mathbf{r}} \right) 
+    \ket{\tilde{m}_\pm} = \frac{1 }{\sqrt{2}} \left( \ket{\mathbf{s }} \pm \ket{\mathbf{r}} \right) 
 \end{equation*}
 In this case, we have unitary amplitude
 \begin{align*}
     f(t) & =  
-    e ^{-i E_+ t} \braket{\mathbf{r } |\lambda_+ } \braket{\lambda_+  | \mathbf{s}} +
-    e ^{-i E_- t} \braket{\mathbf{r } |\lambda_- } \braket{\lambda_-  | \mathbf{s}}\\
+    e ^{-i E_+ t} \braket{\mathbf{r } |\tilde{m}_+ } \braket{\tilde{m}_+  | \mathbf{s}} +
+    e ^{-i E_- t} \braket{\mathbf{r } |\tilde{m}_- } \braket{\tilde{m}_-  | \mathbf{s}}\\
     &= \frac{1 }{2 }e ^{-i E_+ t} - \frac{1 }{2} e ^{-i E_- t} = \frac{1}{2} e^{-i \bar{E} t}\left(e^{-i\Delta E t/2}-e^{i\Delta E t/2}\right)\\
     & = - i e ^{-i \bar{E} t}\sin \left( \Delta E t /2 \right) 
 \end{align*}
@@ -330,7 +330,7 @@ Hence, the fidelity
     F(t) = \frac{1 }{6 } \sin^2 \left( \Delta E t /2 \right) + \frac{1 }{3 }\sin \left( \Delta E t /2 \right) + \frac{1 }{2 }
 \end{equation*}
 will reach maximum value at $t_m = \pi/\Delta E$.
-Dual hole method is then applied by setting the coupling constants $J_{2,i}$ and $J_{N-1,i}$.
+Dual hole method is then applied by setting the coupling constants $J_{2,i}$ and $J_{N-1,i}$ to zero.
 Sender and receiver are still found at the two ends of the chain, but now their nearest neighboring sites are empty.
 
 The eigenvalue is obtained by considering the matrix element which is restricted to $\left\{ \ket{1},\ket{N} \right\} $
