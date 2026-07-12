@@ -537,31 +537,4 @@ In this manner, acquiring "knowledge" is the reduction of "uncertainty."
 This "uncertainty" can be quantified using the concept of probability as Shannon information content. 
 Ultimately, acquired "knowledge" can be expressed in terms of Shannon information content.
 
-\subsection{Ergotropy}
-Suppose the system is in a state $\rho$ with average energy of $U(\rho) = \mathrm{Tr}  (\rho H)$.
-Ergotropy is the maximum amount of work that can be extracted from a quantum system by a cyclic unitary process
-\begin{equation*}
-  \mathcal{E}(\rho) = \mathrm{Tr}[\rho \mathcal{H}] - \min_{U} \mathrm{Tr}[U_t \rho U_t^\dagger \mathcal{H}] 
-\end{equation*}
-The passive energy $U_p =  \min_{U} \mathrm{Tr}[U_t \rho U_t^\dagger \mathcal{H}] $ is the minimum energy reachable by unitary transformations.
-Recall that in statistical mechanics, heat corresponds to energy exchange between system and environment without altering its Hamiltonian, which then changes the population; while work represent changes in the energy spectrum while the occupations remain unchanged
-\begin{equation*}
-  dE = \sum_{s } (\epsilon_s\;dn_s+n_s\;\epsilon_s) = dQ+dW
-\end{equation*}
-Similarly, heat in quantum mechanics interpreted as changing occupation probabilities, while work changes the energy level 
-\begin{equation*}
-  dE = \mathrm{Tr} (d\rho\;H) + \mathrm{Tr} (\rho\;dH)= dQ+dW
-\end{equation*}
-In unitary transformations, the system is isolated from heat bath, $dQ = 0$, and all energy changes is due to work.
-Both the state and Hamiltonian do change over time, it just that the work contribution is due to changes in Hamiltonian $dH$.
-All this simply describe the protocol to extract energy from the system.
-
-By the  definition, ergotropy is the maximum extractable work, as such arbitrary energy extraction does not yield the ergotropy value.
-The protocol is as follows.
-\begin{enumerate}
-  \item Start with system at $\rho$ and apply external control (magnetic field, laser pulse, gate voltages, etc.), making the Hamiltonian time-dependent $H \to H(t)$, thus evolving the state $\rho \to U \rho U ^\dagger$.
-  \item Choose the external control such that the generated unitary brings the system to the passive state $    \rho(T) = \rho_p$, while the Hamiltonian is returned to its original form $    H(T) = H(0) = H$.
-  \item At this point, no further unitary operation can lower the energy. The system is work exhausted, and the energy extracted is the ergotropy
-\end{enumerate}
-
 \end{document}

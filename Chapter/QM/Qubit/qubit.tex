@@ -1232,4 +1232,61 @@ and we obtain the average fidelity
 \end{equation*}
 As a unit vector, $\mathbf{r}_k$ and $\mathbf{b}_k$ has magnitude of unitary.
 At maximum therefore, the value of average fidelity is $\braket{F } = 1/2+1/6=2/3$, lower than quantum fidelity.
+
+
+\subsection{Ergotropy}
+Suppose the system is in a state $\rho$ with average energy of $U(\rho) = \mathrm{Tr}  (\rho H)$.
+Ergotropy is the maximum amount of work that can be extracted from a quantum system by a cyclic unitary process
+\begin{equation*}
+  \mathcal{E}(\rho) = \mathrm{Tr}[\rho \mathcal{H}] - \min_{U} \mathrm{Tr}[U_t \rho U_t^\dagger \mathcal{H}] 
+\end{equation*}
+The passive energy $U_p =  \min_{U} \mathrm{Tr}[U_t \rho U_t^\dagger \mathcal{H}] $ is the minimum energy reachable by unitary transformations.
+Ergotropy can be stored in a system in two ways, either through a population inversion and/or in coherences in the energy eigenbasis
+
+Recall that in statistical mechanics, heat corresponds to energy exchange between system and environment without altering its Hamiltonian, which then changes the population; while work represent changes in the energy spectrum while the occupations remain unchanged
+\begin{equation*}
+  dE = \sum_{s } (\epsilon_s\;dn_s+n_s\;\epsilon_s) = dQ+dW
+\end{equation*}
+Similarly, heat in quantum mechanics interpreted as changing occupation probabilities, while work changes the energy level 
+\begin{equation*}
+  dE = \mathrm{Tr} (d\rho\;H) + \mathrm{Tr} (\rho\;dH)= dQ+dW
+\end{equation*}
+In unitary transformations, the system is isolated from heat bath, $dQ = 0$, and all energy changes is due to work.
+Both the state and Hamiltonian do change over time, it just that the work contribution is due to changes in Hamiltonian $dH$.
+All this simply describe the protocol to extract energy from the system.
+
+By the  definition, ergotropy is the maximum extractable work, as such arbitrary energy extraction does not yield the ergotropy value.
+The protocol is as follows.
+\begin{enumerate}
+  \item Start with system at $\rho$ and apply external control (magnetic field, laser pulse, gate voltages, etc.), making the Hamiltonian time-dependent $H \to H(t)$, thus evolving the state $\rho \to U \rho U ^\dagger$.
+  \item Choose the external control such that the generated unitary brings the system to the passive state $    \rho(T) = \rho_p$, while the Hamiltonian is returned to its original form $    H(T) = H(0) = H$.
+  \item At this point, no further unitary operation can lower the energy. The system is work exhausted, and the energy extracted is the ergotropy
+\end{enumerate}
+
+\subsubsection{Pure and mixed state.}
+Suppose we are given the pure and mixed state of spin chain in the form 
+\begin{align*}
+\ket{\psi(0)}&= \left(\alpha\ket{0}_1 + \beta\ket{1}_1\right)\bigotimes_{i=2}^{N}\ket{0}_i  = \alpha\ket{\mathbf{0}} + \beta\ket{\mathbf{1}}\\
+\rho(0) &= \left(q\ket{1}\bra{1}_1 + (1-q)\ket{0}\bra{0}_1\right)\bigotimes_{i=2}^{N}\ket{0}\bra{0}_i = q\ket{\mathbf{1}}\bra{\mathbf{1}} + (1-q)\ket{\mathbf{0}}\bra{\mathbf{0}}
+\end{align*}
+and we are tasked to determine the ergotropy of the same state.
+The first lines written in such way to demonstrate that the first site of spin chain is initially pure and mixed respectively.
+First we set the ground state as zero, that is $H \ket{\mathbf{0}} = E_0 \ket{\mathbf{0}} = 0$.
+This is the passive state for the pure state, while the initial energy is 
+\begin{equation*}
+  E_i = |\alpha|^2 \bra{\mathbf{0}} H \ket{\mathbf{0}} + |\beta|^2 \ket{\mathbf{1}} H \ket{\mathbf{1} }= |\beta|^2 \bra{\mathbf{1}} H \ket{\mathbf{1} }
+\end{equation*}
+This is also the ergotropy.
+The initial energy of the mixed state can be computed in similar manner 
+\begin{equation*}
+  E_i = \mathrm{Tr} (\rho(0)H) = q\mathrm{Tr} (\ket{\mathbf{1}}\bra{\mathbf{1}}H) + (1-q) \mathrm{Tr} (\ket{\mathbf{0}}\bra{\mathbf{0}}H) = q \braket{\mathbf{1 } | H| \mathbf{1}}
+\end{equation*}
+For passive state, however, things differ.
+The ergotropy is stored via population inversion, so the passive state has the following form 
+\begin{equation*}
+  \rho(0) =    (1-q)\ket{\mathbf{1}}\bra{\mathbf{1}} + q\ket{\mathbf{0}}\bra{\mathbf{0}}
+\end{equation*}
+Then the passive energy is simply $E_p = (1-q) \braket{\mathbf{1 } | H| \mathbf{1}}$ and the ergotropy  is $\mathcal{E} =(2q-1) \braket{\mathbf{1 } | H| \mathbf{1}} $.
+Suppose both case has the same initial ergotropy, then $q = (1+|\beta^2|)/2$.
+
 \end{document}
