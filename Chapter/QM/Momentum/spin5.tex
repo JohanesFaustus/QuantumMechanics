@@ -55,9 +55,9 @@ The amplitude can also be expressed in terms of Bessel function, although it yie
 With the $\mathbf{j}$ as the receiver site, we compute the transition amplitude from sender site to the receiver site
 \begin{align*}
     f_r (t)
-     & = \sum_{m=1 } ^N  \bra{\mathbf{r}} e ^{-iHt/\hbar } \ket{\tilde{m }} \braket{\tilde{m }  | \mathbf{s}} 
-     = \sum_{m=1 } ^N  e ^{-iE_mt/\hbar }  \braket{\mathbf{r }  | \tilde{m}} \braket{\tilde{m }  | \mathbf{s}} \\
-     & = \sum_{m=1 } ^N  a_m e ^{-iE_m t/\hbar } \braket{\mathbf{r}|\tilde{m }} \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]                                                                                        \\
+     & = \sum_{m=1 } ^N  \bra{\mathbf{r}} e ^{-iHt/\hbar } \ket{\tilde{m }} \braket{\tilde{m }  | \mathbf{s}}
+    = \sum_{m=1 } ^N  e ^{-iE_mt/\hbar }  \braket{\mathbf{r }  | \tilde{m}} \braket{\tilde{m }  | \mathbf{s}}                                          \\
+     & = \sum_{m=1 } ^N  a_m e ^{-iE_m t/\hbar } \braket{\mathbf{r}|\tilde{m }} \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]                      \\
      & = \sum_{m=1 } ^N  a_m^2  e ^{-iE_m t/\hbar }\cos \left[ \frac{\pi }{2N }(m-1 ) (2r-1) \right] \cos \left[ \frac{\pi }{2N }(m-1 ) (2s-1) \right]
 \end{align*}
 Due to the phase factor $e ^{-i E_m t/\hbar}$, this generally complex number.
@@ -254,22 +254,72 @@ we can write
 \end{align*}
 
 \subsection{Optimization For XXX Hamiltonian: Dual Hole Method}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1.4cm,y=1cm]
+        \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
+        % Main horizontal axis line
+        \draw[thick] (0,0) -- (6,0);
+        % index
+        \node[anchor=east] at (-0.3, 0.5) {$J_{j,j+1} =$};
+        \node[anchor=east] at (-0.3, 1.5) {$J_{j,j+2} =$};
+        \node[anchor=east] at (-0.3, 2.5) {$\vdots$};
+        \node[anchor=east] at (-0.3, 3.5) {$J_{j,j+6}= $};
+        \node[anchor=east] at (-0.3, -0.75) {$j =$};
+        % coupling str
+        \node at (0.5, 0.5) {$\alpha$};
+        \node at (1.5, 0.5) {$\alpha$};
+        \node at (2.5, 0.5) {$J_{34}$};
+        \node at (3.5, 0.5) {$J_{45}$};
+        \node at (4.5, 0.5) {$\alpha$};
+        \node at (5.5, 0.5) {$\alpha$};
+        % coupling str 2
+        \node at (1, 1.5) {$J_{13}$};
+        \node at (2, 1.5) {$J_{24}$};
+        \node at (3, 1.5) {$J_{35}$};
+        \node at (4, 1.5) {$J_{46}$};
+        \node at (5, 1.5) {$J_{57}$};
+        \node at (3, 2.5) {$\vdots$};
+        \node at (3, 3.5) {$J_{17}$};
+        %  lattice dot
+        \node[point] (N1) at (0,0) {};
+        \node[point] (N2) at (1,0) {};
+        \node[point] (N3) at (2,0) {};
+        \node[point] (N4) at (3,0) {};
+        \node[point] (N5) at (4,0) {};
+        \node[point] (N6) at (5,0) {};
+        \node[point] (N7) at (6,0) {};
+        %  index n
+        \node[anchor=north] at (0, -0.5) {$1$};
+        \node[anchor=north] at (1, -0.5) {$2$};
+        \node[anchor=north] at (2, -0.5) {$3$};
+        \node[anchor=north] at (3, -0.5) {$4$};
+        \node[anchor=north] at (4, -0.5) {$5$};
+        \node[anchor=north] at (5, -0.5) {$6$};
+        \node[anchor=north] at (6, -0.5) {$7$};
+        % site
+        \node[anchor=north] at (0, -1.5) {$\mathbf{\ket{1}}$};
+        \node[anchor=north] at (6, -1.5) {$\mathbf{\ket{N}}$};
+    \end{tikzpicture}
+    \caption*{Figure: Dual-Hole coupling}
+\end{figure}
+
 We start by considering the transition amplitude
 \begin{equation*}
-  f(t) = \sum_{j=1}^{N} e^{-i E_j t}\braket{\mathbf{r}|\tilde{m}_j }\braket{\tilde{m}_j |\mathbf{s} }
+    f(t) = \sum_{j=1}^{N} e^{-i E_j t}\braket{\mathbf{r}|\tilde{m}_j }\braket{\tilde{m}_j |\mathbf{s} }
 \end{equation*}
 Defining the projection of eigenstates $\ket{\tilde{m}_j}$ to sender as $|\sigma_j| e ^{\phi_j}$ and to receiver as $|\rho_j| e ^{\psi_j}$, we have
 \begin{equation*}
-  f(t) = \sum_{j=1}^{N} e^{-i E_j t}\rho_j \sigma_j ^*
+    f(t) = \sum_{j=1}^{N} e^{-i E_j t}\rho_j \sigma_j ^*
 \end{equation*}
 Then
 \begin{align*}
-  |f(t)|^2 
-  &= \left(\sum_j e^{-iE_j t}\rho_j\sigma_j^*\right)\left(\sum_l e^{iE_l t}\rho_l^*\sigma_l\right) 
-  =  \sum_{j,l} e^{-i(E_j-E_l)t}\rho_j\rho_l^*\sigma_j^*\sigma_l\\
-  & = \sum_{j,l}|\rho_j||\rho_l||\sigma_j||\sigma_l|e^{-i(E_j-E_l)t} e^{i[(\psi_j-\psi_l)-(\phi_j-\phi_l)]}\\
-  & = \sum_{j=1}^N |\sigma_j|^2 |\rho_j|^2 + 2\sum_{k<l} |\sigma_k||\sigma_l||\rho_k||\rho_l|\\
-  &\qquad\times\cos\big([(E_l-E_k)t + (\psi_k-\psi_l) - (\phi_k-\phi_l)]\big) = f_m + f_t
+    |f(t)|^2
+     & = \left(\sum_j e^{-iE_j t}\rho_j\sigma_j^*\right)\left(\sum_l e^{iE_l t}\rho_l^*\sigma_l\right)
+    =  \sum_{j,l} e^{-i(E_j-E_l)t}\rho_j\rho_l^*\sigma_j^*\sigma_l                                             \\
+     & = \sum_{j,l}|\rho_j||\rho_l||\sigma_j||\sigma_l|e^{-i(E_j-E_l)t} e^{i[(\psi_j-\psi_l)-(\phi_j-\phi_l)]} \\
+     & = \sum_{j=1}^N |\sigma_j|^2 |\rho_j|^2 + 2\sum_{k<l} |\sigma_k||\sigma_l||\rho_k||\rho_l|               \\
+     & \qquad\times\cos\big([(E_l-E_k)t + (\psi_k-\psi_l) - (\phi_k-\phi_l)]\big) = f_m + f_t
 \end{align*}
 Since $|f(t)|^2\in [0,1]$ and $f_t$ oscillates rapidly, the allowed minimum value for $f_t$ is $-f_m$.
 This implies that $2f_m$ is an accurate estimate for the maximum value of $|f(t)|^2$.
@@ -281,48 +331,48 @@ reaches its maximum value.
 This search is bounded by the few normalization constraints.
 First we write
 \begin{align*}
-    \braket{\mathbf{s} | \mathbf{s}} 
-    & =  \sum_{j } \braket{\mathbf{s }  | \tilde{m}_j } \braket{\tilde{m}_j  | \mathbf{s}}
-    = \sum_{j } |\sigma_j|^2 = 1\\
-    \braket{\mathbf{r} | \mathbf{r}} 
-    & =  \sum_{j } \braket{\mathbf{r }  | \tilde{m}_j } \braket{\tilde{m}_j  | \mathbf{r}}
-    = \sum_{j } |\rho_j|^2 = 1 
+    \braket{\mathbf{s} | \mathbf{s}}
+     & =  \sum_{j } \braket{\mathbf{s }  | \tilde{m}_j } \braket{\tilde{m}_j  | \mathbf{s}}
+    = \sum_{j } |\sigma_j|^2 = 1                                                            \\
+    \braket{\mathbf{r} | \mathbf{r}}
+     & =  \sum_{j } \braket{\mathbf{r }  | \tilde{m}_j } \braket{\tilde{m}_j  | \mathbf{r}}
+    = \sum_{j } |\rho_j|^2 = 1
 \end{align*}
 For fixed $j$, we can also expand in terms of other one-excitation state
 \begin{equation*}
-    \braket{\tilde{m}_j  | \tilde{m}_j } 
+    \braket{\tilde{m}_j  | \tilde{m}_j }
     = \sum_{ \mathbf{i} }  \braket{\tilde{m}_j  | \mathbf{i } } \braket{\mathbf{i }  | \tilde{m}_j }
     = \sum_{\mathbf{i} \neq (\mathbf{s},\mathbf{r})}  |\braket{\tilde{m}_j  | \mathbf{i }}|^2 + |\sigma_j|^2 + |\rho_j|^2 = 1
 \end{equation*}
 With the sum interior overlap as $|\gamma_j|^2$ (first term), we can write for fixed $j$
 \begin{align*}
-    |\sigma_j|^2|\rho_j|^2 = |\sigma_j|^2 \left( 1 - |\sigma_j|^2 -  |\gamma_j|^2\right) 
-    = \left( 1 - |\rho_j|^2 -  |\gamma_j|^2\right) |\rho_j|^2 
+    |\sigma_j|^2|\rho_j|^2 = |\sigma_j|^2 \left( 1 - |\sigma_j|^2 -  |\gamma_j|^2\right)
+    = \left( 1 - |\rho_j|^2 -  |\gamma_j|^2\right) |\rho_j|^2
 \end{align*}
-Setting the derivative with respect to $|\sigma_j|^2$ to zero 
+Setting the derivative with respect to $|\sigma_j|^2$ to zero
 \begin{align*}
-    \frac{d }{d|\sigma_j|^2} |\sigma_j|^2|\rho_j|^2 & =  1 - 2|\sigma_j|^2 -|\gamma_j|^2 = 0\\
-    \frac{d }{d|\rho_j|^2} |\sigma_j|^2|\rho_j|^2 & =  1 - 2|\rho_j|^2 -|\gamma_j|^2 = 0
+    \frac{d }{d|\sigma_j|^2} |\sigma_j|^2|\rho_j|^2 & =  1 - 2|\sigma_j|^2 -|\gamma_j|^2 = 0 \\
+    \frac{d }{d|\rho_j|^2} |\sigma_j|^2|\rho_j|^2   & =  1 - 2|\rho_j|^2 -|\gamma_j|^2 = 0
 \end{align*}
-we find that 
+we find that
 \begin{equation*}
     |\rho_j|^2 = |\sigma_j|^2 = \frac{1 - |\gamma_j |^2}{2}
 \end{equation*}
-Suppose that the eigenstate is entirely localized in the boundary, which imply $|\gamma_j|^2=0$, we have then 
+Suppose that the eigenstate is entirely localized in the boundary, which imply $|\gamma_j|^2=0$, we have then
 \begin{equation*}
-   |\rho_j|^2 = |\sigma_j|^2 = \frac{1 }{2 } 
+    |\rho_j|^2 = |\sigma_j|^2 = \frac{1 }{2 }
 \end{equation*}
-Explicitly, our eigenstates is in the form 
+Explicitly, our eigenstates is in the form
 \begin{equation*}
-    \ket{\tilde{m}_\pm} = \frac{1 }{\sqrt{2}} \left( \ket{\mathbf{s }} \pm \ket{\mathbf{r}} \right) 
+    \ket{\tilde{m}_\pm} = \frac{1 }{\sqrt{2}} \left( \ket{\mathbf{s }} \pm \ket{\mathbf{r}} \right)
 \end{equation*}
 In this case, we have unitary amplitude
 \begin{align*}
-    f(t) & =  
+    f(t) & =
     e ^{-i E_+ t} \braket{\mathbf{r } |\tilde{m}_+ } \braket{\tilde{m}_+  | \mathbf{s}} +
-    e ^{-i E_- t} \braket{\mathbf{r } |\tilde{m}_- } \braket{\tilde{m}_-  | \mathbf{s}}\\
-    &= \frac{1 }{2 }e ^{-i E_+ t} - \frac{1 }{2} e ^{-i E_- t} = \frac{1}{2} e^{-i \bar{E} t}\left(e^{-i\Delta E t/2}-e^{i\Delta E t/2}\right)\\
-    & = - i e ^{-i \bar{E} t}\sin \left( \Delta E t /2 \right) 
+    e ^{-i E_- t} \braket{\mathbf{r } |\tilde{m}_- } \braket{\tilde{m}_-  | \mathbf{s}}                                                              \\
+         & = \frac{1 }{2 }e ^{-i E_+ t} - \frac{1 }{2} e ^{-i E_- t} = \frac{1}{2} e^{-i \bar{E} t}\left(e^{-i\Delta E t/2}-e^{i\Delta E t/2}\right) \\
+         & = - i e ^{-i \bar{E} t}\sin \left( \Delta E t /2 \right)
 \end{align*}
 with $\bar{E} = (E_++E_-)/2$ and $\Delta E = E_+ - E_-$.
 Hence, the fidelity
@@ -333,42 +383,127 @@ will reach maximum value at $t_m = \pi/\Delta E$.
 Dual hole method is then applied by setting the coupling constants $J_{2,i}$ and $J_{N-1,i}$ to zero.
 Sender and receiver are still found at the two ends of the chain, but now their nearest neighboring sites are empty.
 
-The eigenvalue is obtained by considering the matrix element which is restricted to $\left\{ \ket{1},\ket{N} \right\} $
-\begin{equation*}
-    H_\text{eff} = 
-    \begin{bmatrix}
-        2\sum_{k \neq 1}  J_{1k}  - 2B & -2 J_{1N}\\
-        -2 J_{N1} & 2\sum_{k \neq N}  J_{Nk} - 2B
-    \end{bmatrix} = 
-    \begin{bmatrix}
-        D_1 & A\\
-        A & D_N
-    \end{bmatrix}
-\end{equation*}
-The diagonal terms are equal, which can be seen from 
-\begin{equation*}
-    \sum_{k \neq 1}  J_{1k} = \sum_{k=2}^{N}\frac{C}{\bigl(a|k-1|\bigr)^{\nu}} = \sum_{m=1}^{N-1}\frac{1}{(am)^{\nu}}
-\end{equation*}
-and 
-\begin{equation*}
-    \sum_{k \neq N}  J_{Nk} = \sum_{k=1}^{N-1}\frac{C}{\bigl(a|k-N|\bigr)^{\nu}} = \sum_{m=1}^{N-1}\frac{1}{(am)^{\nu}}
-\end{equation*}
-The eigenvalue can be determined from characteristic equation
-\begin{align*}
-    (D_N-E)^2-A^2 & = 0 \\
-    E_\pm = D \pm |A| & =  3 \sum_{k<l} J_{kl} - 4\sum_{k \neq 1}  J_{1k} \pm \frac{2C}{a^\nu(N-1)^\nu } 
-\end{align*}
-Shifting in the asymmetric spectrum, we have 
-\begin{equation*}
-    E_+ = 0 \qquad E_- = - \frac{4 C}{a^\nu(N-1)^{\nu}} \quad t = \frac{\pi }{4C }a^\nu(N-1 )^\nu
-\end{equation*}
-
-
-
 \begin{figure}
     \centering
     \resizebox{\textwidth}{!}{\input{../../../Rss/QM/Momentum/plot_FvsN_long.pgf}}
     \caption*{Figure: Maximum values of fidelity in dual-hole Hamiltonian as a function of the number of sites $N$ for various value of $\nu$.}
 \end{figure}
 
+The eigenvalue is obtained by considering the matrix element which is restricted to $\left\{ \ket{1},\ket{N} \right\} $
+\begin{equation*}
+    H_\text{eff} =
+    \begin{bmatrix}
+        2\sum_{k \neq 1}  J_{1k}  - 2B & -2 J_{1N}                     \\
+        -2 J_{N1}                      & 2\sum_{k \neq N}  J_{Nk} - 2B
+    \end{bmatrix} =
+    \begin{bmatrix}
+        D_1 & A   \\
+        A   & D_N
+    \end{bmatrix}
+\end{equation*}
+The diagonal terms are equal, which can be seen from
+\begin{equation*}
+    \sum_{k \neq 1}  J_{1k} = \sum_{k=2}^{N}\frac{C}{\bigl(a|k-1|\bigr)^{\nu}} = \sum_{m=1}^{N-1}\frac{1}{(am)^{\nu}}
+\end{equation*}
+and
+\begin{equation*}
+    \sum_{k \neq N}  J_{Nk} = \sum_{k=1}^{N-1}\frac{C}{\bigl(a|k-N|\bigr)^{\nu}} = \sum_{m=1}^{N-1}\frac{1}{(am)^{\nu}}
+\end{equation*}
+The eigenvalue can be determined from characteristic equation
+\begin{align*}
+    (D_N-E)^2-A^2     & = 0                                                                              \\
+    E_\pm = D \pm |A| & =  3 \sum_{k<l} J_{kl} - 4\sum_{k \neq 1}  J_{1k} \pm \frac{2C}{a^\nu(N-1)^\nu }
+\end{align*}
+Shifting in the asymmetric spectrum, we have
+\begin{equation*}
+    E_+ = 0 \qquad E_- = - \frac{4 C}{a^\nu(N-1)^{\nu}} \quad t = \frac{\pi }{4C }a^\nu(N-1 )^\nu
+\end{equation*}
+
+\subsection{Optimization For XXX Hamiltonian: Engineered Coupling}
+We begin by associating a fictitious spin $S = (N-1)/2$ particle with the chain and relabel the basis vectors as $\ket{m}$, where 
+\begin{equation*}
+    m = -(N-1)/2+j-1 = -S +j -1
+\end{equation*}
+What we are doing here is mapping our restricted $N$-dimensional one excitation sector to onto the Hilbert space of a fictitious single spin $S = (N-1)/2$.
+% For example, the input site can be labeled as $\mathbf{\ket{1}}  \to \ket{-(N-1)/2}$ and the output as $\ket{\mathbf{N}} \to \ket{+(N-1)/2}$.
+% Then we set magnetic field in such way that the diagonal vanishes, or equivalently we can start from XX Hamiltonian from the beginning.
+Now recall the raising and lowering of spin operator
+\begin{equation*}
+    S_{\pm}   \ket{S, m} =  \sqrt{S(S+1) - m(m \pm 1)}   \ket{S, m \pm 1}
+\end{equation*}
+or by substituting the mapping $2S = N-1$ and $m +1  = j-S$ 
+\begin{equation*}
+    S_{+}   \ket{S, m} =  \frac{1 }{2 }\sqrt{j(N \mp j)}   \ket{S, m +  1}\qquad
+    S_{-}   \ket{S, m} =  \frac{1 }{2 }\sqrt{(j-1(N-j+1))}   \ket{S, m - 1}
+\end{equation*}
+With this, we can determine the matrix element of $x$ component $S_x = (S_++S_-)/2$ as 
+\begin{equation*}
+    \braket{j+1 | S_x|j} = \frac{1 }{2 }\sqrt{j(N-j)}
+\end{equation*}
+This is the same as the element of XX Hamiltonian up to scaling constant
+\begin{equation*}
+    \braket{j+1 | H|j} = \frac{1 }{2 }\sqrt{j(N-j)}
+\end{equation*}
+In any case, we have the matrix element
+\begin{equation*}
+    H  = -\frac{\lambda}{4}\begin{pmatrix}
+        0      & J_{1}      & 0      & \cdots \\
+        J_1      & 0      & J_2      & \cdots \\
+        0      & J_2      & 0      & \cdots \\
+        \vdots & \vdots & \vdots & \ddots
+    \end{pmatrix}
+\end{equation*}
+
+Next we can write the propator as 
+\begin{equation*}
+    U(t) = \exp (-i \lambda t S_x)
+\end{equation*}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1.5cm,y=1cm]
+        \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
+        % Main horizontal axis line
+        \draw[thick] (0,0) -- (6,0);
+        % index
+        \node[anchor=east] at (-0.3, 0.8) {$J_j =$};
+        \node[anchor=east] at (-0.3, -0.5) {$j =$};
+        \node[anchor=east] at (-0.3, -1.1) {$m =$};
+        % coupling str
+        \node at (0.5, 0.8) {$\sqrt{1 \cdot 6}$};
+        \node at (1.5, 0.8) {$\sqrt{2 \cdot 5}$};
+        \node at (2.5, 0.8) {$\sqrt{3 \cdot 4}$};
+        \node at (3.5, 0.8) {$\sqrt{4 \cdot 3}$};
+        \node at (4.5, 0.8) {$\sqrt{5 \cdot 2}$};
+        \node at (5.5, 0.8) {$\sqrt{6 \cdot 1}$};
+        %  lattice dot
+        \node[point] (N1) at (0,0) {};
+        \node[point] (N2) at (1,0) {};
+        \node[point] (N3) at (2,0) {};
+        \node[point] (N4) at (3,0) {};
+        \node[point] (N5) at (4,0) {};
+        \node[point] (N6) at (5,0) {};
+        \node[point] (N7) at (6,0) {};
+        %  index n
+        \node[anchor=north] at (0, -0.2) {$1$};
+        \node[anchor=north] at (1, -0.2) {$2$};
+        \node[anchor=north] at (2, -0.2) {$3$};
+        \node[anchor=north] at (3, -0.2) {$4$};
+        \node[anchor=north] at (4, -0.2) {$5$};
+        \node[anchor=north] at (5, -0.2) {$6$};
+        \node[anchor=north] at (6, -0.2) {$7$};
+        % index m
+        \node[anchor=north] at (0, -0.8) {$-3$};
+        \node[anchor=north] at (1, -0.8) {$-2$};
+        \node[anchor=north] at (2, -0.8) {$-1$};
+        \node[anchor=north] at (3, -0.8) {$0$};
+        \node[anchor=north] at (4, -0.8) {$1$};
+        \node[anchor=north] at (5, -0.8) {$2$};
+        \node[anchor=north] at (6, -0.8) {$3$};
+        % site
+        \node[anchor=north] at (0, -1.5) {$\mathbf{\ket{1}}$};
+        \node[anchor=north] at (6, -1.5) {$\mathbf{\ket{N}}$};
+    \end{tikzpicture}
+    \caption*{Figure: Engineered coupling}
+\end{figure}
 \end{document}
