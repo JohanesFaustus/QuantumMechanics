@@ -424,29 +424,33 @@ We begin by associating a fictitious spin $S = (N-1)/2$ particle with the chain 
 \begin{equation*}
     m = -(N-1)/2+j-1 = -S +j -1
 \end{equation*}
+The input site can be labeled as $\mathbf{\ket{1}}  \to \ket{-(N-1)/2}$ and the output as $\ket{\mathbf{N}} \to \ket{+(N-1)/2}$.
+Then we set magnetic field in such way that the diagonal vanishes, or equivalently we can start from XX Hamiltonian from the beginning.
 What we are doing here is mapping our restricted $N$-dimensional one excitation sector to onto the Hilbert space of a fictitious single spin $S = (N-1)/2$.
-% For example, the input site can be labeled as $\mathbf{\ket{1}}  \to \ket{-(N-1)/2}$ and the output as $\ket{\mathbf{N}} \to \ket{+(N-1)/2}$.
-% Then we set magnetic field in such way that the diagonal vanishes, or equivalently we can start from XX Hamiltonian from the beginning.
 Now recall the raising and lowering of spin operator
 \begin{equation*}
     S_{\pm}   \ket{S, m} =  \sqrt{S(S+1) - m(m \pm 1)}   \ket{S, m \pm 1}
 \end{equation*}
 or by substituting the mapping $2S = N-1$ and $m +1  = j-S$ 
-\begin{equation*}
-    S_{+}   \ket{S, m} =  \frac{1 }{2 }\sqrt{j(N \mp j)}   \ket{S, m +  1}\qquad
+\begin{gather*}
+        S_{+}   \ket{S, m} =  \frac{1 }{2 }\sqrt{j(N \mp j)}   \ket{S, m +  1}\\
     S_{-}   \ket{S, m} =  \frac{1 }{2 }\sqrt{(j-1(N-j+1))}   \ket{S, m - 1}
-\end{equation*}
+\end{gather*}
 With this, we can determine the matrix element of $x$ component $S_x = (S_++S_-)/2$ as 
 \begin{equation*}
     \braket{j+1 | S_x|j} = \frac{1 }{2 }\sqrt{j(N-j)}
 \end{equation*}
 This is the same as the element of XX Hamiltonian up to scaling constant
 \begin{equation*}
-    \braket{j+1 | H|j} = \frac{1 }{2 }\sqrt{j(N-j)}
+    \braket{j+1 | H|j} = \lambda J_j
+\end{equation*}
+after we use the coupling constraints
+\begin{equation*}
+    J_j = \sqrt{j(N-j)}
 \end{equation*}
 In any case, we have the matrix element
 \begin{equation*}
-    H  = -\frac{\lambda}{4}\begin{pmatrix}
+    H  = -\lambda\begin{pmatrix}
         0      & J_{1}      & 0      & \cdots \\
         J_1      & 0      & J_2      & \cdots \\
         0      & J_2      & 0      & \cdots \\
@@ -454,9 +458,20 @@ In any case, we have the matrix element
     \end{pmatrix}
 \end{equation*}
 
-Next we can write the propator as 
+Next we can write the propagator as 
 \begin{equation*}
     U(t) = \exp (-i \lambda t S_x)
+\end{equation*}
+which responsible for internal spin rotation.
+The transfer amplitude $f_N = \braket{N |U(t)|1 }$ now reads after relabeling as 
+\begin{equation*}
+    f_N = \braket{S,S |U(t) |S,-S} =D^{(S)}_{S,-S} 
+\end{equation*}
+where $D^{(S)}_{S,-S} $ is the Wigner functions.
+Here it represents amplitude for the rotated state to be found in $\ket{S,S}$ when the original unrotated state is given by $\ket{S,-S}$.
+This element may be evaluated as 
+\begin{equation*}
+    f_N= \left[-i\sin\left(\frac{\lambda t}{2}\right)\right]^{N_-1}
 \end{equation*}
 
 \begin{figure}

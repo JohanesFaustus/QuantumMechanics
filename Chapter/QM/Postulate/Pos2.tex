@@ -367,13 +367,16 @@ We define translational invariance by the requirement
 \begin{equation*}
     \langle \psi | H | \psi \rangle = \langle \psi_{\epsilon} | H | \psi_{\epsilon} \rangle 
 \end{equation*}
-Since $\epsilon$ corresponds to no translation, we may expand $T(\epsilon)$ to order $\epsilon$ as
+Since $\epsilon=0$ corresponds to no translation, we may expand $T(\epsilon)$ to order $\epsilon$ as
 \begin{equation*}
     T(\epsilon) = I - \frac{i \epsilon}{\hbar} G
 \end{equation*}
 The operator $G$ is called the generator of transformation.
 It is equal to $P$ for spatial translation and equal to $H$ for temporal translation.
 It is also equal to $L$ and $S$ for rotation and spin rotation respectively.
+The rotation propagator $U_L(\theta) = e^{-i\theta\,\mathbf{n}\cdot\mathbf{L}/\hbar}$ responsible for the rotation of physical part of wavefunction, meanwhile $U_S(\theta) = e^{-i\theta\,\mathbf{n}\cdot\mathbf{S}/\hbar}$ responsible for the rotation of internal spin state.
+
+
 
 The operator $T(a)$ corresponding to a finite translation $a$ can be examined by divide the interval $a$ into $N$ parts of infinite size $a/N$ as $N \to \infty$, and we have $T(a/N) = I -iaP/\hbar N$.
 Since a translation by $a$ equals $N$ translations by $a/N$, we find 
@@ -381,5 +384,11 @@ Since a translation by $a$ equals $N$ translations by $a/N$, we find
     T(a) = \lim_{N \to \infty} \left( I - \frac{iaP }{\hbar N}\right)^N = \exp \left( -iaP/\hbar \right) 
 \end{equation*}
 
+In the same way, we can define vector operate $\mathbf{P}$ as 
+\begin{equation*}
+    \mathbf{P } = P_x \mathbf{i} + P_y \mathbf{j} = -i \hbar \mathbf{i}\frac{\partial }{\partial x} -i \hbar \mathbf{j} \frac{\partial }{\partial y} 
+\end{equation*}
+or generally $\mathbf{n} \cdot \mathbf{P} = P_n$ as the generator of translations in the direction of the unit vector $\mathbf{n}$.
+The commutativity of $P_x$ and $P_y$ then reflects the commutativity of translations in the $x$ and $y$ directions
 
 \end{document}
