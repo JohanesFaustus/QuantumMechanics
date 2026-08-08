@@ -350,7 +350,7 @@ Whereas the passive transformation picture that corresponds to moving the enviro
 
 \begin{table}[]
   \centering
-  \caption{Table: Correspondence between Classical and Quantum Mechanical Concepts Related to
+  \caption*{Table: Correspondence between Classical and Quantum Mechanical Concepts Related to
 Translational lnvariance}
   \begin{tabular}{@{}lll@{}}
     \toprule
@@ -365,7 +365,8 @@ Translational lnvariance}
 
 We define translational invariance by the requirement
 \begin{equation*}
-    \langle \psi | H | \psi \rangle = \langle \psi_{\epsilon} | H | \psi_{\epsilon} \rangle 
+    \langle \psi | H | \psi \rangle = \langle \psi_{\epsilon} | H | \psi_{\epsilon} \rangle \qquad\text{or}\qquad
+    H = T ^\dagger(\epsilon)H T(\epsilon)
 \end{equation*}
 Since $\epsilon=0$ corresponds to no translation, we may expand $T(\epsilon)$ to order $\epsilon$ as
 \begin{equation*}
@@ -390,5 +391,41 @@ In the same way, we can define vector operate $\mathbf{P}$ as
 \end{equation*}
 or generally $\mathbf{n} \cdot \mathbf{P} = P_n$ as the generator of translations in the direction of the unit vector $\mathbf{n}$.
 The commutativity of $P_x$ and $P_y$ then reflects the commutativity of translations in the $x$ and $y$ directions
+
+\subsubsection{Implication.}
+On front multiplying the translational invariance requirement $H = T ^\dagger(\epsilon)H T(\epsilon)$ by $T$, we have 
+\begin{equation*}
+    [H,T(a)] = 0\implies [T(a),U(t)]=0
+\end{equation*}
+with $U(t)$ being the propagator.
+Translational invariance of $H$ implies that the same experiment repeated at two different places will give the same result.
+In other words, the time evolution of each system appears the same to the observer who prepared it.
+
+Example can be shown by considering two observers $A$ and $B$ prepare identical systems at $x=O$ and $x=a$, respectively at $t=0$ both state is described by $\ket{\psi(0)}$ and $T(a)\ket{\psi(0)}$.
+After time $t$, the state vectors evolve into $U(t) \ket{\psi(0)}$ and $U(t)T(a)\ket{\psi(0)} = T(a)U(t)\ket{\psi(0)}$, which is just the translated version of $A$'s system at time $t$.
+
+\begin{figure*}
+    \centering
+    \normfigL{../Rss/QM/postulate/time-invariant.png}
+    \caption*{A symbolic depiction of translational invariance}
+\end{figure*}
+
+Just as the homogeneity of space ensures that the same experiment performed at two different places gives the same result, homogeneity in time ensures that the same experiment repeated at two different times gives the same result.
+Let us prepare state $\ket{\psi_0}$ evolve at $t_1+\epsilon$ and $t_1+\epsilon$
+\begin{equation*}
+    \ket{\psi(t_1+\epsilon)} = \left[I-\frac{i\epsilon}{\hbar}H(t_1)\right]\ket{\psi_0}\qquad
+\ket{\psi(t_2+\epsilon)} = \left[I-\frac{i\epsilon}{\hbar}H(t_2)\right]\ket{\psi_0}
+\end{equation*}
+The outcome will be the same in both cases if
+\begin{equation*}
+    \ket{\psi(t_2+\epsilon)} - \ket{\psi(t_1+\epsilon)} =\left( -\frac{i \epsilon }{\hbar } \right)  \left[H(t_2) - H(t_1)\right]\ket{\psi_0}    
+\end{equation*}
+Since $\ket{\psi_0}$ is arbitrary, it follows that $H(t_2) - H(t_1)$; and since $t_2$ and $t_1$ are arbitrary, it follows that $H$ is time-independent $dH/dt$.
+
+All known interactions-from gravitational to strong-are time translational invariant. 
+In particular, all known interactions-from gravitational to strong-are time translational invariant. 
+Consequently, if we suitably define the system (to include the sources of external fields that affect the experiment) the total $H$ will be independent of $t$. 
+The space-time invariance of natural laws has a profound impact on our quest for understanding nature. 
+The very cycle of physics-of deducing laws from some phenomena studied at some time and place and then applying them to other phenomena at a different time and place-rests on the assumption that natural laws are space-time invariant.
 
 \end{document}
