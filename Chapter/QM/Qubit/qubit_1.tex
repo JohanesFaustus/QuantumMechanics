@@ -1,0 +1,485 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Fidelity}
+The fidelity of quantum channel is
+\begin{equation*}
+  \braket{F }  = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
+\end{equation*}
+Classical fidelity is
+\begin{equation*}
+  \braket{F } = \frac{1 }{2 } \sum_{k}a_k + \frac{1 }{6 }\sum_{k } \mathbf{b }_k \cdot \mathbf{r}_k
+\end{equation*}
+This is in general unoptimized, with the maximum of $\braket{F} = 2/3$
+Another relevant quantum state transition amplitude
+\begin{equation*}
+  f_j(t) = \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}}
+\end{equation*}
+
+Quantum fidelity measured by averaging the output reduced density state with respect to input state $F=\int d\Omega \braket{\psi | \rho_\text{out}|\psi}$, with 
+\begin{equation*}
+  \rho_\text{out}
+  = \begin{bmatrix}
+    1- |\beta|^2 |f_r|^2 & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r     & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+\end{equation*}
+This state has the purity of 
+\begin{equation*}
+    \mathrm{Tr} [\rho_\text{out }^2] = 1+ 2|\beta|^{4}|f_{r}|^{2}(|f_r| ^2 -1)  
+\end{equation*}
+
+\subsubsection{Derivation: quantum fidelity}
+Assume all down ground state
+\begin{equation*}
+  \ket{\mathbf{0 } } = \bigotimes_{i=1}^N \ket{0_i} = \ket{\downarrow_1\ldots \downarrow_N}
+\end{equation*}
+and state $\ket{\mathbf{j}}$ such that $j$-th site has been excited, with
+\begin{equation*}
+  \mathbf{j}=\mathbf{1},\dots,\mathbf{s},\dots,\mathbf{r},\dots,\mathbf{N}
+\end{equation*}
+Then the sender Alice places a spin in the unknown state
+\begin{equation*}
+  \ket{\psi_\text{in }} = \cos \frac{\theta }{2 }\ket{0} + e ^{i\phi} \sin \frac{\theta }{2 } \ket{1} = \alpha \ket{0} + \beta \ket{1}
+\end{equation*}
+at the $s$-th site in the spin chain.
+We can describe the state of the whole chain at this instant
+\begin{equation*}
+  \ket{\Psi(0)} = \cos \frac{\theta }{2 }\ket{\mathbf{0 }} + e ^{i\phi} \sin \frac{\theta }{2 } \ket{\mathbf{s}}
+\end{equation*}
+Do note the difference of Alice encoded state $\ket{\psi_\text{in}}$ with the whole spin chain state $\ket{\Psi(t)}$, also $\ket{\mathbf{s}}$ denote the state at which $s$-th site, which is Alice's, is excited.
+As $[H,\sigma_3]=0$, the total 3rd component is conserved and state $\ket{\mathbf{s}}$ evolve into $\ket{\mathbf{j}}$
+\begin{align*}
+  \ket{\Psi(t)}
+   & =  \cos \frac{\theta }{2 } e ^{-iHt/\hbar } \ket{\mathbf{0 }} + e ^{i\phi} \sin \frac{\theta }{2 } e ^{-iHt/\hbar }\ket{\mathbf{s}}                                    \\
+   & =  \cos \frac{\theta }{2 }  \ket{\mathbf{0 }} + e ^{i\phi} \sin \frac{\theta }{2 } \sum_{j=1 } ^N \ket{\mathbf{j } } \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}} \\
+  \ket{\Psi(t)}
+   & = \alpha \ket{\mathbf{0 }} + \beta \sum_{j=1 } ^N f_j(t) \ket{\mathbf{j}}
+\end{align*}
+with the ground state energy set as zero, $\hbar = 1$ and transition amplitude $f_j(t) = \bra{\mathbf{j}} e ^{-iHt/\hbar }\ket{\mathbf{s}}$.
+
+The density matrix in this case
+\begin{align*}
+  \rho(t) & =
+  \left(\alpha \ket{\mathbf{0 }} + \beta \sum_{j=1 } ^N f_j(t) \ket{\mathbf{\mathbf{j}}} \right)
+  \left(\alpha \bra{\mathbf{0 }} + \beta \sum_{k=1 } ^N f_k(t) ^* \bra{\mathbf{\mathbf{k}}} \right)                                                                                                                                                    \\
+  \rho(t) & = \alpha^2   \ket{\mathbf{0}}\bra{\mathbf{0}} + \alpha \beta^* \sum_k f_k^*  \ket{\mathbf{0}}\bra{\mathbf{k}} + \alpha \beta \sum_j f_j \ket{\mathbf{j}}\bra{\mathbf{0}} + |\beta|^2 \sum_{j,k} f_j f_k^* \ket{\mathbf{j}}\bra{\mathbf{k}}
+\end{align*}
+since $\alpha$ is real.
+To obtain the sender Bob state, we use the definition of partial trace
+\begin{equation*}
+  \rho_{\text{out}} (t) = \mathrm{Tr} _{A'} [\rho(t)]
+  = \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r}\otimes\bra{\boldsymbol{\ell}}_{A'} \right) \rho \left( \mathbf{1 }_\mathbf{r}\otimes\ket{\boldsymbol{\ell}}_{A'} \right)
+\end{equation*}
+with $A' = \{\mathbf{j}\}\setminus \mathbf{r}$.
+The basis can be factored in terms of these subspaces
+\begin{equation*}
+  \ket{\mathbf{0} } = \ket{0}_\mathbf{r} \otimes \ket{\mathbf{0} }_{A'}
+  \qquad
+  \ket{\mathbf{j} } =
+  \begin{cases}
+    \ket{1}_\mathbf{r} \otimes \ket{\mathbf{0} }_{A'} & \mathbf{j } = \mathbf{r}     \\
+    \ket{0}_\mathbf{r} \otimes \ket{\mathbf{j} }_{A'} & \mathbf{j } \neq  \mathbf{r} \\
+  \end{cases}
+\end{equation*}
+Unlike $\ket{\mathbf{j}}$, the $\ket{\boldsymbol{\ell}}_{A'}$ spans the full Hilbert space of $A'$, not just the one-excitation sector
+\begin{equation*}
+  \ket{\boldsymbol{\ell}}_{A'} = \ket{\ell,\dots,\ell_{r-1},\ell_{r+1},\dots,\ell_{N}}, \qquad\ell_i \in \{0,1\}
+\end{equation*}
+The partial trace can be performed term by term, starting with the vacuum term
+\begin{align*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{0}}
+   & = \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r}\otimes\bra{\boldsymbol{\ell}}_{A'} \right)\ket{\mathbf{0}}\bra{\mathbf{0}} \left( \mathbf{1 }_\mathbf{r}\otimes\ket{\boldsymbol{\ell}}_{A'} \right) \\
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{0}}
+   & = \sum_{\boldsymbol{\ell}} \ket{0}_\mathbf{r}  \braket{\boldsymbol{\ell}| \mathbf{0}}_{A'} \braket{\mathbf{0}| \boldsymbol{\ell}}_{A'}
+  = \ket{0}_\mathbf{r} \bra{0}_\mathbf{r}
+\end{align*}
+For the cross term
+\begin{equation*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
+  = \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r}\otimes\bra{\boldsymbol{\ell}}_{A'} \right)\ket{\mathbf{0}}\bra{\mathbf{j}} \left( \mathbf{1 }_\mathbf{r}\otimes\ket{\boldsymbol{\ell}}_{A'} \right)
+\end{equation*}
+there are two possibilities, at $\mathbf{j} = \mathbf{r}$
+\begin{align*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
+   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{0}_\mathbf{r} \ket{\mathbf{0}}_{A'} \right) \left( \bra{{1}}_\mathbf{r}  \ket{\mathbf{0}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
+   & = \sum_{\boldsymbol{\ell}}  \ket{0}_\mathbf{r} \braket{\boldsymbol{\ell  }  |\mathbf{0} }_{A'} \bra{1}_\mathbf{r} \braket{\mathbf{0 } | \boldsymbol{\ell }}_{A'}
+  = \ket{0}_\mathbf{r} \bra{1}_\mathbf{r}
+\end{align*}
+and at $\mathbf{j} \neq \mathbf{r}$
+\begin{align*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
+   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{0}_\mathbf{r} \ket{\mathbf{0}}_{A'} \right) \left( \bra{{0}}_\mathbf{r}  {\mathbf{j}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
+   & = \sum_{\boldsymbol{\ell}}  \ket{0}_\mathbf{r} \braket{\boldsymbol{\ell  }  |\mathbf{0} }_{A'} \bra{1}_\mathbf{r} \braket{\mathbf{j } | \boldsymbol{\ell }}_{A'}
+  = 0
+\end{align*}
+since  the one excitation state $\ket{\mathbf{j}} \neq \ket{\mathbf{0}}$ and so no $\ket{\mathbf{\ell }}$ which survive in both case.
+Now for the one excitation product
+\begin{equation*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{j}}\bra{\mathbf{k}}
+  = \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r}\otimes\bra{\boldsymbol{\ell}}_{A'} \right)\ket{\mathbf{j}}\bra{\mathbf{k}} \left( \mathbf{1 }_\mathbf{r}\otimes\ket{\boldsymbol{\ell}}_{A'} \right)
+\end{equation*}
+There are three possibilities, first $\mathbf{j} = \mathbf{k} = \mathbf{r}$
+\begin{align*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
+   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{1}_\mathbf{r} \ket{\mathbf{0}}_{A'} \right) \left( \bra{{1}}_\mathbf{r}  \ket{\mathbf{0}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
+   & = \sum_{\boldsymbol{\ell}}  \ket{0}_\mathbf{r} \braket{\boldsymbol{\ell  }  |\mathbf{0} }_{A'} \bra{1}_\mathbf{r} \braket{\mathbf{0 } | \boldsymbol{\ell }}_{A'}
+  = \ket{1}_\mathbf{r} \bra{1}_\mathbf{r}
+\end{align*}
+Next is $\mathbf{j } =\mathbf{k } \neq \mathbf{r}$
+\begin{align*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
+   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{0}_\mathbf{r} \ket{\mathbf{j}}_{A'} \right) \left( \bra{{0}}_\mathbf{r}  \bra{\mathbf{k}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
+   & = \sum_{\boldsymbol{\ell}}  \ket{0}_\mathbf{r} \braket{\boldsymbol{\ell  }  |\mathbf{j} }_{A'} \bra{0}_\mathbf{r} \braket{\mathbf{k } | \boldsymbol{\ell }}_{A'}
+  = \ket{0}_\mathbf{r} \bra{0}_\mathbf{r} \delta_{\mathbf{jk}}
+\end{align*}
+Finally, $\mathbf{j } \neq \mathbf{k } $, which is already covered here.
+Putting them all together
+\begin{gather*}
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{0}}  = \ket{0}_\mathbf{r } \bra{0}_\mathbf{r} \\
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}  = \delta_{\mathbf{jr}} \ket{0}_\mathbf{r } \bra{1}_\mathbf{r} \\
+  \mathrm{Tr} _{A'} \ket{\mathbf{j}}\bra{\mathbf{0}} = \delta_{\mathbf{jr}} \ket{1}_\mathbf{r } \bra{0}_\mathbf{r} \\
+  \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}} =\delta_{\mathbf{jk}} [(1-\delta_{\mathbf{jr}}) \ket{0}_\mathbf{r}\bra{0}_\mathbf{r}+\delta_{\mathbf{jr}} \ket{1}_\mathbf{r} \bra{1}_\mathbf{r}]
+\end{gather*}
+Therefore, the density operator
+\begin{equation*}
+  \rho(t) = \alpha^2   \ket{\mathbf{0}}\bra{\mathbf{0}} + \alpha \beta^* \sum_k f_k^*  \ket{\mathbf{0}}\bra{\mathbf{k}} + \alpha \beta \sum_j f_j \ket{\mathbf{j}}\bra{\mathbf{0}} + |\beta|^2 \sum_{j,k} f_j f_k^* \ket{\mathbf{j}}\bra{\mathbf{k}}
+\end{equation*}
+has the reduced state of
+\begin{align*}
+  \rho_\text{out}
+   & = \alpha^2 \ket{0}_\mathbf{r } \bra{0}_\mathbf{r} + \alpha\beta^* \sum_k f_k^*  \delta_{kr}\ket{0}_\mathbf{r}\bra{1}_\mathbf{r} + \alpha \beta \sum_j f_j \delta_{jr}\ket{1}_\mathbf{r}\bra{0}_\mathbf{r} \\
+   & \qquad + |\beta|^2 \sum_{j,k} f_j f_k^* \delta_{ {jk}} [(1-\delta_{ {jr}}) \ket{0}_\mathbf{r}\bra{0}_\mathbf{r}+\delta_{ {jr}} \ket{1}_\mathbf{r} \bra{1}_\mathbf{r}]                                     \\
+   & = \alpha^2 \ket{0}_\mathbf{r } \bra{0}_\mathbf{r} + \alpha\beta^*  f_r^*\ket{0}_\mathbf{r}\bra{1}_\mathbf{r} + \alpha \beta f_r\ket{1}_\mathbf{r}\bra{0}_\mathbf{r}                                       \\
+   & \qquad + |\beta|^2 \sum_{j \neq r} |f_j|^2 \ket{0}_\mathbf{r}\bra{0}_\mathbf{r} + |\beta|^2 |f_r|^2 \ket{1}_\mathbf{r} \bra{1}_\mathbf{r}                                                                 \\
+  \rho_\text{out}
+   & = \begin{bmatrix}
+         \alpha^2 + |\beta|^2 \displaystyle\sum_{j \neq r} |f_j|^2 & \alpha\beta^*  f_r^* \\
+         \alpha\beta  f_r                                          & |\beta|^2 |f_r|^2
+       \end{bmatrix}
+\end{align*}
+The total normalized transition amplitude must equal to one,
+\begin{equation*}
+  \sum_j |f_j|^2 = \sum_j \braket{\mathbf{s}|U^\dagger|\mathbf{j} } \braket{\mathbf{j}|U|\mathbf{s}} = \braket{\mathbf{s}|U^\dagger U|\mathbf{s} } =1
+\end{equation*}
+so we can write the (0,0) element as
+\begin{equation*}
+  \rho_\text{out}
+  = \begin{bmatrix}
+    \alpha^2 + |\beta|^2 (1-|f_r|^2) & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r                 & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+\end{equation*}
+
+By defining output state
+\begin{equation*}
+  \ket{\psi_{\text{out}}(t)} = \frac{1}{\sqrt{P(t)}}\left(\cos\frac{\theta}{2} \ket{0} + e^{i\phi}\sin\frac{\theta}{2}f_r(t)\ket{1}\right) = \frac{1 }{\sqrt{P}} (\alpha \ket{0 }+\beta f_r \ket{1})
+\end{equation*}
+we can rewrite the reduced density operator
+\begin{align*}
+  \rho_\text{out}
+   & =  P(t) \ket{\psi_{\text{out}}(t)} \bra{\psi_{\text{out}}(t)} + (1-P(t)) \ket{0} \bra{0} \\
+   & =  \begin{bmatrix}
+          \alpha^2         & \alpha\beta^*  f_r^* \\
+          \alpha\beta  f_r & |\beta|^2 |f_r|^2
+        \end{bmatrix}  +
+  \begin{bmatrix}
+    1-P(t) & 0 \\
+    0      & 0
+  \end{bmatrix}                                                                              \\
+   & =  \begin{bmatrix}
+          \alpha^2 +1 - P(t) & \alpha\beta^*  f_r^* \\
+          \alpha\beta  f_r   & |\beta|^2 |f_r|^2
+        \end{bmatrix}
+\end{align*}
+where it is understood $\ket{0}_\mathbf{r} = \ket{0}$.
+Equating the (0,0)  element
+\begin{align*}
+  P & = 1 - |\beta|^2\bigl(1 - |f_r|^2\bigr) = 1 - |\beta|^2 + |\beta|^2|f_r|^2 \\
+  P & = \alpha^2 + |\beta|^2|f_r|^2
+\end{align*}
+
+The fidelity is computed as
+\begin{align*}
+  F & =  \braket{\psi_\text{in} | \rho_{\text{out}}|\psi_\text{in} }                                            \\
+    & = \begin{bmatrix}
+          \alpha & \beta ^*
+        \end{bmatrix}
+  \begin{bmatrix}
+    \alpha^2 + |\beta|^2 (1-|f_r|^2) & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r                 & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+  \begin{bmatrix}
+    \alpha \\  \beta
+  \end{bmatrix}                                                                                               \\
+    & = \begin{bmatrix}
+          \alpha & \beta ^*
+        \end{bmatrix}
+  \begin{bmatrix}
+    \alpha^3 + \alpha|\beta|^2 (1-|f_r|^2 + f_r ^*) \\
+    \alpha^2\beta  f_r + |\beta|^2 |f_r|^2\beta
+  \end{bmatrix}                                                               \\
+    & =     \alpha^4 + \alpha^2|\beta|^2 (1-|f_r|^2 + f_r ^*) +    \alpha^2|\beta|^2  f_r + |\beta|^4 |f_r|^2   \\
+  F & =     \alpha^4 + \alpha^2|\beta|^2 (1-|f_r|^2 ) + |\beta|^4 |f_r|^2 + 2\alpha^2|\beta|^2 \mathrm{Re}(f_r)
+\end{align*}
+The fidelity then averaged over the Bloch sphere
+\begin{align*}
+  \braket{F } = \frac{1 }{4\pi} \int_\Omega F \;d\Omega = \frac{1 }{2 } \int_0^\pi F(\theta) \sin \theta\;d\theta
+\end{align*}
+Recall that the total solid angle of a unit sphere is $4\pi$, thus the normalization constant.
+Few helpful average value may be computated as follows
+\begin{align*}
+  \braket{\cos^4 \theta/2 }
+   & = \frac{1 }{2 } \int_{0 }^{\pi} \cos^4 \frac{\theta }{2} \sin \theta\;d\theta
+  = \frac{1 }{2 } \int_{0 }^{\pi} \left( \frac{1 +\cos \theta }{2} \right)^2  \sin \theta\;d\theta                                                                       \\
+   & = \frac{1}{8}\left[\int_0^\pi \sin\theta\,d\theta + 2\int_0^\pi \cos\theta\sin\theta\,d\theta + \int_0^\pi \cos^2\theta\sin\theta\,d\theta\right]                   \\
+  \braket{\sin^4 \theta/2 }
+   & = \frac{1}{8} \left[ \cos \theta\big|_\pi^0 +2 \int_{-1 }^{1 }u\;du + \int_{-1 }^{1 }u^2\;du\right]  = \frac{1 }{8 }\left[ 2+0+\frac{2 }{3} \right]  = \frac{1 }{3}
+\end{align*}
+with $u = \cos\theta$ and $du = -\sin \theta \;d\theta$.
+Other
+\begin{align*}
+  \braket{\sin^4 \theta/2 }
+   & = \frac{1 }{2 } \int_{0 }^{\pi} \sin^4 \frac{\theta }{2} \sin \theta\;d\theta
+  = \frac{1 }{2 } \int_{0 }^{\pi} \left( \frac{1 - \cos \theta }{2} \right)^2  \sin \theta\;d\theta                                                                     \\
+   & = \frac{1}{8}\left[\int_0^\pi \sin\theta\,d\theta - 2\int_0^\pi \cos\theta\sin\theta\,d\theta + \int_0^\pi \cos^2\theta\sin\theta\,d\theta\right]                  \\
+  \braket{\sin^4 \theta/2 }
+   & = \frac{1}{8} \left[ \cos \theta\big|_\pi^0 + \int_{1 }^{-1 }u\;du + \int_{-1 }^{1 }u^2\;du\right]  = \frac{1 }{8 }\left[ 2+0+\frac{2 }{3} \right]  = \frac{1 }{3}
+\end{align*}
+and
+\begin{align*}
+  \braket{\cos ^2\theta/2\sin^2 \theta/2 }
+   & =  \frac{1 }{2 }\int_{0 }^{\pi }\frac{1}{4 }(1+\cos \theta)(1-\cos \theta)\sin \theta\;d\theta          \\
+   & =  \frac{1 }{8 }\int_{0 }^{\pi }(1-\cos^2 \theta)\sin \theta\;d\theta                                   \\
+  \braket{\cos ^2\theta/2\sin^2 \theta/2 }
+   & =  \frac{1 }{8 }\int_{-1 }^{1 }(1-u^2)\;du = \frac{1 }{8 }\left[ 2- \frac{2 }{3}\right]  = \frac{1 }{6} \\
+\end{align*}
+Then, with the fidelity as
+\begin{equation*}
+  F =     \cos^4 \frac{\theta}{2 } + \cos^2\frac{\theta}{2 }\sin ^2\frac{\theta}{2 } (1-|f_r|^2 ) + \sin ^4\frac{\theta}{2 } |f_r|^2 + 2\cos^2\frac{\theta}{2 }\sin ^2\frac{\theta}{2 } \mathrm{Re}(f_r)
+\end{equation*}
+The average is simply
+\begin{equation*}
+  \braket{F } = \frac{1 }{3 } + \frac{1 }{6} (1-|f_r|^2 ) + \frac{1 }{3 }|f_r|^2 + \frac{2 }{6 }\mathrm{Re }(f_r) = \frac{1 }{2 } + \frac{1 }{3} \mathrm{Re} (f_r) +\frac{1 }{6 }|f_r|^2
+\end{equation*}
+
+\subsubsection{Derivation: Purity of Bob's state.}
+With the reduced state of
+\begin{equation*}
+  \rho_\text{out}
+  = \begin{bmatrix}
+    \alpha^2 + |\beta|^2 (1-|f_r|^2) & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r                 & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+  = \begin{bmatrix}
+    1- |\beta|^2 |f_r|^2 & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r     & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+\end{equation*}
+we can compute the purity as follows
+\begin{align*}
+  \mathrm{Tr} [\rho_\text{out}^2]
+   & = \mathrm{Tr}
+    \begin{bmatrix}
+    1- |\beta|^2 |f_r|^2 & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r     & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+  \begin{bmatrix}
+    1- |\beta|^2 |f_r|^2 & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r     & |\beta|^2 |f_r|^2
+  \end{bmatrix}                                                                  \\
+   & =\mathrm{Tr} \begin{bmatrix}
+                    (1-|\beta|^{2}|f_{r}|^{2})^2 + |\alpha|^{2}|\beta|^{2}|f_{r}|^{2} & \alpha\beta^{*}f_{r}^{*} \\
+                    \alpha\beta f_{r}                                                 &
+                    |\alpha|^{2}|\beta|^{2}|f_{r}|^{2}+|\beta|^{4}|f_{r}|^{4}
+                  \end{bmatrix}\\
+  & = 1+ |\beta|^{4}|f_{r}|^{4} - 2|\beta|^{2}|f_{r}|^{2} +   2|\alpha|^{2}|\beta|^{2}|f_{r}|^{2} + |\beta|^{4}|f_{r}|^{4}\\
+  & = 1+ 2|\beta|^{4}|f_{r}|^{4} - 2|\beta|^{2}|f_{r}|^{2} +   2|\beta|^{2}|f_{r}|^{2} - 2|\beta|^{4}|f_{r}|^{2} \\
+  & = 1+ 2|\beta|^{4}|f_{r}|^{2}(|f_r| ^2 -1)  \\
+\end{align*}
+
+
+\subsubsection{Derivation: Classical fidelity.}
+The classical density operator can be written as ensemble of pure state
+\begin{equation*}
+  \rho_\text{cl} (\phi) = \sum_{k} p_k \ket{\phi_k} \bra{\phi_k}
+\end{equation*}
+It is classical–quantum hybrid object, not a quantum state evolving under Hamiltonian dynamics.
+The probability $p_k$ is a simple Born's rule
+\begin{align*}
+  p_k & =  \braket{\psi  | E_k | \psi} = \mathrm{Tr} (E_k \rho_\psi)                                                                                                                                                        \\
+      & =\frac{1 }{2} \mathrm{Tr}\big[(a_k \mathbf{1} +  \mathbf{b}_k\cdot \boldsymbol{\sigma})(\mathbf{1} + \mathbf{n}\cdot\boldsymbol{\sigma})\big],                                                                      \\
+      & = \frac{1  }{2 }\mathrm{Tr}\big[a_k \mathbf{1} + a_k \mathbf{n }\cdot\boldsymbol{\sigma} + (\mathbf{b}_k\cdot\boldsymbol{\sigma}) + (\mathbf{b}_k\cdot\boldsymbol{\sigma})(\mathbf{n}\cdot\boldsymbol{\sigma})\big]
+\end{align*}
+We write $E_k$ can in terms of Pauli matrices, along with the identity, since they span the $2 \times 2$ matrix space.
+Also $\ket{\psi}$ here denote the actual quantum state.
+The first term is trivial, the trace of identity is the dimension.
+As for second term, we note that the trace of Pauli matrix is zero
+\begin{equation*}
+  \mathrm{Tr} a_k \mathbf{n }\cdot \boldsymbol{\sigma} = a_k \mathrm{Tr} \sum_i n_i \sigma_i = a_k \sum_{i}  n_i  \mathrm{Tr} \sigma_i  = 0
+\end{equation*}
+and the same for the third term, we use the identity $    (\mathbf{a} \cdot \boldsymbol{\sigma})(\mathbf{b} \cdot \boldsymbol{\sigma}) = \mathbf{a} \cdot \mathbf{b} + i(\mathbf{a} \times \mathbf{b}) \cdot \boldsymbol{\sigma}$
+\begin{align*}
+  \mathrm{Tr} \varsigma & =  \mathrm{Tr} (\mathbf{n} \cdot \mathbf{b}_k \mathbf{1}) + \mathrm{Tr} i(\mathbf{n} \times \mathbf{b}_k) \cdot \boldsymbol{\sigma} \\
+                        & =  2\mathbf{n} \cdot \mathbf{b}_k  +i \sum_i (b_k \times n)_i \,\mathrm{Tr}(\sigma_i)
+  =  2\mathbf{n} \cdot \mathbf{b}_k
+\end{align*}
+So $p_k = a_k + \mathbf{n }\cdot \mathbf{b}_k$.
+Substituting this
+\begin{equation*}
+  \rho_\text{cl} = \frac{1 }{2 }  \sum_k \left[ \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right)    (\mathbf{1 }+ \mathbf{r}_k \cdot \boldsymbol{\sigma})\right]
+\end{equation*}
+Note that $a_k$ and $\mathbf{b}_k$ belong to the element of $E_k$, while $\mathbf{r}_k$ is the Bloch vector of prepared output state.
+Once the protocol is determine, $\mathbf{r}_k$ is fixed
+
+Next is to compute the fidelity
+\begin{align*}
+  F & =  \braket{\psi| \rho_\text{cl} | \phi} = \mathrm{Tr} (\rho_{\phi}\rho_\text{cl} )                                                                                                                                                                                                         \\
+    & = \frac{1 }{4 } \mathrm{Tr} \sum_k \left( \mathbf{1} + \mathbf{n }\cdot \boldsymbol{\sigma} \right) \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right)    (\mathbf{1 }+ \mathbf{r}_k \cdot \boldsymbol{\sigma})                                                                 \\
+    & = \frac{1 }{4 } \sum_k \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right) \mathrm{Tr}  \left[\left( \mathbf{1} + \mathbf{n }\cdot \boldsymbol{\sigma} \right) (\mathbf{1 }+ \mathbf{r}_k \cdot \boldsymbol{\sigma})\right]                                                      \\
+    & = \frac{1 }{4 } \sum_k \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right) \mathrm{Tr}  \left[\mathbf{1} + \mathbf{r}_k \cdot \boldsymbol{\sigma} + \mathbf{n }\cdot \boldsymbol{\sigma} + (\mathbf{n }\cdot \boldsymbol{\sigma})(\mathbf{r}_k \cdot \boldsymbol{\sigma})\right] \\
+    & = \frac{1 }{4 } \sum_k \left( a_k  \mathbf{1}+ \mathbf{n }\cdot \mathbf{b}_k \right) \left( 2 + 2 \mathbf{n }\cdot \mathbf{r}_k\right)                                                                                                                                                     \\
+  F & = \frac{1 }{2 }  \sum_k\left[ a_k + a_k(\mathbf{n }\cdot \mathbf{r }_k) + (\mathbf n\cdot\mathbf b_k) + (\mathbf n\cdot\mathbf b_k)(\mathbf{n }\cdot \mathbf{r }_k)\right]
+\end{align*}
+The averaged value is then
+\begin{equation*}
+  \braket{F } = \frac{1 }{8 \pi } \sum_{k} \int d\Omega\;\left[ a_k + a_k(\mathbf{n }\cdot \mathbf{r }_k) + (\mathbf n\cdot\mathbf b_k) + (\mathbf n\cdot\mathbf b_k)(\mathbf{n }\cdot \mathbf{r }_k)\right]
+\end{equation*}
+The averaged fidelity compute average over all possible unknown input states, which parameterized by $\mathbf{n} = (\sin \theta \cos \phi,\sin \theta \sin\phi,\cos \theta)$.
+This means that $d\Omega$ acts only on $\mathbf{n}$, not $a_k$ nor $\mathbf{r}_k$.
+We evaluate term by term starting from the first
+\begin{equation*}
+  \braket{F }_1 = \frac{1 }{8 \pi } \sum_{k} \int d\Omega\; a_k = \frac{1 }{2 }\sum_{k } a_k
+\end{equation*}
+The second
+\begin{align*}
+  \braket{F }_2 & =  \frac{1 }{8 \pi } \sum_{k} \int d\Omega\; a_k(\mathbf{n }\cdot \mathbf{r }_k)
+  = \frac{1 }{8 \pi } \sum_{k,l} \int d\Omega\; a_k n_l r_{rl}                                     \\
+                & =  \frac{1 }{8 \pi } \sum_{k,l} a_k r_{rl} \int d\Omega\; n_l = 0
+\end{align*}
+The result is due to the integral being zero.
+This can be understood as that for every $\mathbf{n}$, there exist $-\mathbf{n}$ such that the average over the solid angle is zero.
+Same reasoning applies to the third term.
+For the fourth
+\begin{align*}
+  \braket{F }_4
+   & = \frac{1 }{8 \pi } \sum_{k} \int d\Omega\;  (\mathbf n\cdot\mathbf b_k)(\mathbf{n }\cdot \mathbf{r }_k) \\
+   & = \frac{1 }{8 \pi } \sum_{k,l,m} \int d\Omega\;  n_lb_{rl}n_{m}r_{km}                                    \\
+   & = \frac{1 }{8 \pi } \sum_{k,l,m} b_{rl}r_{km}\int d\Omega\;  n_ln_{m}                                    \\
+\end{align*}
+To evaluate the integral, we use the isotropic identity
+\begin{equation*}
+  n_x^2 + n_y^2 + n_z^2 = 1\qquad\langle n_x^2\rangle = \langle n_y^2\rangle = \langle n_z^2\rangle = \frac{1}{3}\qquad
+  \frac{1 }{4\pi}\int d\Omega\;  n_j n_{j} = \frac{1 }{3} \delta_{ij}
+\end{equation*}
+Then
+\begin{equation*}
+  \braket{F }_4
+  = \frac{1 }{2} \sum_{k,l,m} b_{rl}r_{km}\frac{1 }{3 } \delta_{lm} =  \frac{1 }{6 }\sum_{k } \mathbf{b }_k \cdot \mathbf{r}_k
+\end{equation*}
+and we obtain the average fidelity
+\begin{equation*}
+  \braket{F } = \frac{1 }{2 } \sum_{k}a_k + \frac{1 }{6 }\sum_{k } \mathbf{b }_k \cdot \mathbf{r}_k
+\end{equation*}
+As a unit vector, $\mathbf{r}_k$ and $\mathbf{b}_k$ has magnitude of unitary.
+At maximum therefore, the value of average fidelity is $\braket{F } = 1/2+1/6=2/3$, lower than quantum fidelity.
+
+
+\subsection{Ergotropy}
+Suppose the system is in a state $\rho$ with average energy of $U(\rho) = \mathrm{Tr}  (\rho H)$.
+Ergotropy is the maximum amount of work that can be extracted from a quantum system by a cyclic unitary process
+\begin{equation*}
+  \mathcal{E}(\rho) = \mathrm{Tr}[\rho \mathcal{H}] - \min_{U} \mathrm{Tr}[U_t \rho U_t^\dagger \mathcal{H}] 
+\end{equation*}
+The passive energy $U_p =  \min_{U} \mathrm{Tr}[U_t \rho U_t^\dagger \mathcal{H}] $ is the minimum energy reachable by unitary transformations.
+Ergotropy can be stored in a system in two ways, either through a population inversion and/or in coherences in the energy eigenbasis
+
+Recall that in statistical mechanics, heat corresponds to energy exchange between system and environment without altering its Hamiltonian, which then changes the population; while work represent changes in the energy spectrum while the occupations remain unchanged
+\begin{equation*}
+  dE = \sum_{s } (\epsilon_s\;dn_s+n_s\;\epsilon_s) = dQ+dW
+\end{equation*}
+Similarly, heat in quantum mechanics interpreted as changing occupation probabilities, while work changes the energy level 
+\begin{equation*}
+  dE = \mathrm{Tr} (d\rho\;H) + \mathrm{Tr} (\rho\;dH)= dQ+dW
+\end{equation*}
+In unitary transformations, the system is isolated from heat bath, $dQ = 0$, and all energy changes is due to work.
+Both the state and Hamiltonian do change over time, it just that the work contribution is due to changes in Hamiltonian $dH$.
+All this simply describe the protocol to extract energy from the system.
+
+By the  definition, ergotropy is the maximum extractable work, as such arbitrary energy extraction does not yield the ergotropy value.
+The protocol is as follows.
+\begin{enumerate}
+  \item Start with system at $\rho$ and apply external control (magnetic field, laser pulse, gate voltages, etc.), making the Hamiltonian time-dependent $H \to H(t)$, thus evolving the state $\rho \to U \rho U ^\dagger$.
+  \item Choose the external control such that the generated unitary brings the system to the passive state $    \rho(T) = \rho_p$, while the Hamiltonian is returned to its original form $    H(T) = H(0) = H$.
+  \item At this point, no further unitary operation can lower the energy. The system is work exhausted, and the energy extracted is the ergotropy
+\end{enumerate}
+
+\subsubsection{Pure and mixed state.}
+Suppose we are given the pure and mixed state of spin chain in the form 
+\begin{gather*}
+  \ket{\psi(0)} = \left(\alpha\ket{0}_1 + \beta\ket{1}_1\right)\bigotimes_{i=2}^{N}\ket{0}_i  = \alpha\ket{\mathbf{0}} + \beta\ket{\mathbf{1}}\\
+\rho(0) = \left(q\ket{1}\bra{1}_1 + (1-q)\ket{0}\bra{0}_1\right)\bigotimes_{i=2}^{N}\ket{0}\bra{0}_i = q\ket{\mathbf{1}}\bra{\mathbf{1}} + (1-q)\ket{\mathbf{0}}\bra{\mathbf{0}}
+\end{gather*}
+and we are tasked to determine the ergotropy of the same state.
+The first lines written in such way to demonstrate that the first site of spin chain is initially pure and mixed respectively.
+First we set the ground state as zero, that is $H \ket{\mathbf{0}} = E_0 \ket{\mathbf{0}} = 0$.
+This is the passive state for the pure state, while the initial energy is 
+\begin{equation*}
+  E_i = |\alpha|^2 \bra{\mathbf{0}} H \ket{\mathbf{0}} + |\beta|^2 \bra{\mathbf{1}} H \ket{\mathbf{1} }= |\beta|^2 \bra{\mathbf{1}} H \ket{\mathbf{1} }
+\end{equation*}
+This is also the ergotropy.
+The initial energy of the mixed state can be computed in similar manner 
+\begin{equation*}
+  E_i = \mathrm{Tr} (\rho(0)H) = q\mathrm{Tr} (\ket{\mathbf{1}}\bra{\mathbf{1}}H) + (1-q) \mathrm{Tr} (\ket{\mathbf{0}}\bra{\mathbf{0}}H) = q \braket{\mathbf{1 } | H| \mathbf{1}}
+\end{equation*}
+For passive state, however, things differ.
+The ergotropy is stored via population inversion, so the passive state has the following form 
+\begin{equation*}
+  \rho(0) =    (1-q)\ket{\mathbf{1}}\bra{\mathbf{1}} + q\ket{\mathbf{0}}\bra{\mathbf{0}}
+\end{equation*}
+Then the passive energy is simply $E_p = (1-q) \braket{\mathbf{1 } | H| \mathbf{1}}$ and the ergotropy  is $\mathcal{E} =(2q-1) \braket{\mathbf{1 } | H| \mathbf{1}} $.
+Suppose both case has the same initial ergotropy, then $q = (1+|\beta^2|)/2$.
+
+Let us then write the density matrix in the following form 
+\begin{equation*}
+  \rho_\text{out}
+  = \begin{bmatrix}
+    \alpha^2 + |\beta|^2 (1-|f_r|^2) & \alpha\beta^*  f_r^* \\
+    \alpha\beta  f_r                 & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+\end{equation*}
+Of course for the case of mixed state, the off diagonal equal to zero.
+Then the product of the density state with the local Hamiltonian $H = -B\sigma_z$ is 
+\begin{equation*}
+  \rho H = \begin{bmatrix}
+    0&-B\rho_{01}\\
+    0&-B\rho_{11}
+  \end{bmatrix}
+\end{equation*}
+Hence, the initial energy is $E_i = -B |\beta|^2 |f_n|$ for both the pure and mixed state.
+Next we consider the passive energy of the pure state, which is obtained by putting the largest eigenvalue of $\rho$ into the lowest energy level.
+The eigenvalue of $\rho$ as $2 \times 2$ matrix has the following form 
+\begin{equation*}
+  \lambda_{\pm} = \frac{1 }{2 } \sqrt{1 \pm \sqrt{1-4 \det \rho}}
+\end{equation*}
+whereas the determinant is 
+\begin{align*}
+  \det \rho & = [\alpha^2 + |\beta|^2 (1-|f_n|^2)]|\beta|^2|f_n|^2 - |\alpha|^2|\beta^2||f_n|^2\\ 
+  \det \rho & = |\beta|^4|f_n|^2 (1-|f_n|^2) 
+\end{align*}
+So 
+\begin{equation*}
+  \lambda_{\pm} = \frac{1 }{2 } \left[ 1 \pm \sqrt{1+4 |\beta|^4|f_n|^2 (|f_n|^2-1)} \right] 
+\end{equation*}
+and we have the passive energy as $E_p = -B\lambda_-$.
+Using the initial and passive energy, we find that the ergotropy for coherent state is 
+\begin{equation*}
+  \mathcal{E}_\text{coh} (t) = 2|f_n(t)|^2\sin^2\left(\frac{\theta}{2}\right)-1+\sqrt{1+4\sin^4\left(\frac{\theta}{2}\right)|f_n(t)|^2\left(|f_n(t)|^2-1\right)}
+\end{equation*}
+after substituting $\alpha$ and $\beta$ parameter along with choosing $B=2$.
+As for mixed state, the ergotropy is stored in population inversion.
+Assuming that the lower state population $|\beta|^2|f_n|^2>0.5$, the passive energy after population inversion is $E_p = -B[\alpha^2 + |\beta|^2 (1-|f_r|^2) ]$ and the ergotropy of 
+\begin{equation*}
+  \mathcal{E}_\text{mix} (t) = [2+2\sin (\theta/2)^2]|f_n|^2  - 2
+\end{equation*}
+
+\end{document}
