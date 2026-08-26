@@ -232,7 +232,7 @@ Few helpful average value may be computated as follows
    & = \frac{1 }{2 } \int_{0 }^{\pi} \cos^4 \frac{\theta }{2} \sin \theta\;d\theta
   = \frac{1 }{2 } \int_{0 }^{\pi} \left( \frac{1 +\cos \theta }{2} \right)^2  \sin \theta\;d\theta                                                                       \\
    & = \frac{1}{8}\left[\int_0^\pi \sin\theta\,d\theta + 2\int_0^\pi \cos\theta\sin\theta\,d\theta + \int_0^\pi \cos^2\theta\sin\theta\,d\theta\right]                   \\
-  \braket{\sin^4 \theta/2 }
+  \braket{\cos^4 \theta/2 }
    & = \frac{1}{8} \left[ \cos \theta\big|_\pi^0 +2 \int_{-1 }^{1 }u\;du + \int_{-1 }^{1 }u^2\;du\right]  = \frac{1 }{8 }\left[ 2+0+\frac{2 }{3} \right]  = \frac{1 }{3}
 \end{align*}
 with $u = \cos\theta$ and $du = -\sin \theta \;d\theta$.
@@ -368,7 +368,7 @@ For the fourth
 \end{align*}
 To evaluate the integral, we use the isotropic identity
 \begin{equation*}
-  n_x^2 + n_y^2 + n_z^2 = 1\qquad\langle n_x^2\rangle = \langle n_y^2\rangle = \langle n_z^2\rangle = \frac{1}{3}\qquad
+  n_x^2 + n_y^2 + n_z^2 = 1\qquad\bra{ n_x^2} = \bra{ n_y^2} = \bra{ n_z^2} = \frac{1}{3}\qquad
   \frac{1 }{4\pi}\int d\Omega\;  n_j n_{j} = \frac{1 }{3} \delta_{ij}
 \end{equation*}
 Then
@@ -390,8 +390,8 @@ Ergotropy is the maximum amount of work that can be extracted from a quantum sys
 \begin{equation*}
   \mathcal{E}(\rho) = \mathrm{Tr}[\rho \mathcal{H}] - \min_{U} \mathrm{Tr}[U_t \rho U_t^\dagger \mathcal{H}] 
 \end{equation*}
-The passive energy $U_p =  \min_{U} \mathrm{Tr}[U_t \rho U_t^\dagger \mathcal{H}] $ is the minimum energy reachable by unitary transformations.
-Ergotropy can be stored in a system in two ways, either through a population inversion and/or in coherences in the energy eigenbasis
+The passive energy $U_p =  \min_{U} \mathrm{Tr}[U_t \rho U_t^\dagger \mathcal{H}] $ is the minimum energy reachable by unitary transformations performed by external agent, not via free evolution under $H$.
+Ergotropy can be stored in a system in two ways, either through a population inversion and/or in coherence in the energy eigenbasis
 
 Recall that in statistical mechanics, heat corresponds to energy exchange between system and environment without altering its Hamiltonian, which then changes the population; while work represent changes in the energy spectrum while the occupations remain unchanged
 \begin{equation*}
@@ -413,16 +413,82 @@ The protocol is as follows.
   \item At this point, no further unitary operation can lower the energy. The system is work exhausted, and the energy extracted is the ergotropy
 \end{enumerate}
 
+\subsubsection{Passive state.}
+The evolution of $\rho$ due to external potential is unitary, so that $\rho(\tau ) = U \rho_0 U ^\dagger$. 
+We look for the minimum of the final energy 
+\begin{equation*}
+  E_f = \mathrm{Tr}  [U \rho_0 U ^\dagger H]
+\end{equation*}
+over all unitary operators $U$. 
+We can parameterize the variations $\delta U$ of $U$ as $\delta U = X U$, where $X$ is an arbitrary infinitesimal anti-Hermitian operator $X = -X ^\dagger$. 
+$X$ is chosen to be anti-Hermitian to ensure the varied operator $U'=U + \delta U$ remain unitary in the first order perturbation
+\begin{align*}
+  U'^\dagger U' &= I = U^\dagger(I+X ^ \dagger) ( I + X ) U\\
+  U'^\dagger U' & \approx U^\dagger (I + X ^\dagger + X) U \\
+  X ^\dagger & = - X
+\end{align*}
+Hence, we find
+\begin{align*}
+  \delta E_f & =  \mathrm{Tr} [(\delta U)\rho U ^\dagger H + U \rho_0(\delta U ^\dagger)H]  =  \mathrm{Tr} [X U \rho U ^\dagger H - U \rho_0U ^\dagger XH]\\
+  \delta E_f&= \mathrm{Tr}  [X\rho(\tau ) H-\rho(\tau )X H] = \mathrm{Tr}  [X\rho(\tau ) H-X H\rho(\tau )] = \mathrm{Tr} X[\rho(\tau ), H] 
+\end{align*}
+The stationarity of $E_f$ thus implies that $\rho(\tau )$ should commute with $H$.
+And, the unitary transformation enforce that $\rho(\tau)$ have the same eigenvalues as $\rho_0$.
+
+Let the spectral resolutions of $\rho_0$ and $H$ be
+\begin{equation*}
+  \rho_0 = \sum_{j\geq 1} r_j \ket{ r_j}\bra{ r_j},\qquad H = \sum_{k\geq 1} \epsilon_k \ket{ \epsilon_k}\bra{ \epsilon_k}
+\end{equation*}
+where we ordered the eigenvalues $  r_1 \geq r_2 \geq \ldots$ and $ \epsilon_1 \leq \epsilon_2 \leq \ldots$.
+Those two condition admit the state in the form 
+\begin{equation*}
+  \rho(\tau) = \sum_{j}r_j \ket{\epsilon_j} \bra{\epsilon_j} 
+\end{equation*}
+This has a simple physical interpretation: the largest occupation fraction $r_1$ finally occupies the lowest level, the one-but-largest occupies the one-but-lowest, etc.
+The passive energy thus
+\begin{equation*}
+  E_p = \sum_{j} r_j\epsilon_j 
+\end{equation*}
+
 \subsubsection{Pure and mixed state.}
 Suppose we are given the pure and mixed state of spin chain in the form 
 \begin{gather*}
   \ket{\psi(0)} = \left(\alpha\ket{0}_1 + \beta\ket{1}_1\right)\bigotimes_{i=2}^{N}\ket{0}_i  = \alpha\ket{\mathbf{0}} + \beta\ket{\mathbf{1}}\\
 \rho(0) = \left(q\ket{1}\bra{1}_1 + (1-q)\ket{0}\bra{0}_1\right)\bigotimes_{i=2}^{N}\ket{0}\bra{0}_i = q\ket{\mathbf{1}}\bra{\mathbf{1}} + (1-q)\ket{\mathbf{0}}\bra{\mathbf{0}}
 \end{gather*}
-and we are tasked to determine the ergotropy of the same state.
+with $q = (1+|\beta^2|)/2$.
 The first lines written in such way to demonstrate that the first site of spin chain is initially pure and mixed respectively.
-First we set the ground state as zero, that is $H \ket{\mathbf{0}} = E_0 \ket{\mathbf{0}} = 0$.
-This is the passive state for the pure state, while the initial energy is 
+Also, we do not simply set $q=|\beta|^2$ so that, with the same choice of $\alpha$ and $\beta$, the initial state of both pure state and mixed state encode the same initial ergotropy.
+First we set the ground state as zero, that is $H \ket{\mathbf{0}} = E_0 \ket{\mathbf{0}} = 0$, or 
+\begin{equation*}
+  H = \begin{bmatrix}
+    0&0\\
+    0&2B
+  \end{bmatrix}  
+\end{equation*}
+The initial ergotropy for both cases are 
+\begin{equation*}
+  \mathcal{E}_\text{coh}(0) = |\beta|^2 \bra{\mathbf{1}} H \ket{\mathbf{1} }\qquad
+  \mathcal{E}_\text{mix}(0) =\mathcal{E} =(2q-1) \braket{\mathbf{1 } | H| \mathbf{1}}  
+\end{equation*}
+with $\braket{\mathbf{1 } | H| \mathbf{1}}  $ as $2B$ in the shifted Hamiltonian.
+As for the transferred ergotropy
+\begin{equation*}
+  \mathcal{E}_\text{coh} (t) = 2|f_N(t)|^2\sin^2\left(\frac{\theta}{2}\right)-1+\sqrt{1+4\sin^4\left(\frac{\theta}{2}\right)|f_N(t)|^2\left(|f_N(t)|^2-1\right)}
+\end{equation*}
+and
+\begin{equation*}
+  \mathcal{E}_\text{mix} (t) = 2[2q |f_N|^2 - 1]
+\end{equation*}
+
+
+\subsubsection{Derivation: ergotropy of pure and mixed state}
+First consider the initial encoded ergotropy.
+The passive state for the pure state is simply the ground state, that is 
+\begin{equation*}
+  H \ket{\mathbf{0}} = E_0 \ket{\mathbf{0}} = 0
+\end{equation*}
+while the initial energy is 
 \begin{equation*}
   E_i = |\alpha|^2 \bra{\mathbf{0}} H \ket{\mathbf{0}} + |\beta|^2 \bra{\mathbf{1}} H \ket{\mathbf{1} }= |\beta|^2 \bra{\mathbf{1}} H \ket{\mathbf{1} }
 \end{equation*}
@@ -441,45 +507,114 @@ Suppose both case has the same initial ergotropy, then $q = (1+|\beta^2|)/2$.
 
 Let us then write the density matrix in the following form 
 \begin{equation*}
-  \rho_\text{out}
+  \rho_\text{coh}
   = \begin{bmatrix}
-    \alpha^2 + |\beta|^2 (1-|f_r|^2) & \alpha\beta^*  f_r^* \\
-    \alpha\beta  f_r                 & |\beta|^2 |f_r|^2
+    \alpha^2 + |\beta|^2 (1-|f_N|^2) & \alpha\beta^*  f_N^* \\
+    \alpha\beta  f_N                 & |\beta|^2 |f_N|^2
   \end{bmatrix}
 \end{equation*}
-Of course for the case of mixed state, the off diagonal equal to zero.
+and for the mixed state
+\begin{equation*}
+  \rho_\text{mix}
+  = \begin{bmatrix}
+    q + (1-q) (1-|f_N|^2) & 0 \\
+    0                 & (1-q)|f_N|^2
+  \end{bmatrix}
+\end{equation*}
 Then the product of the density state with the local Hamiltonian $H = -B\sigma_z$ is 
 \begin{equation*}
   \rho H = \begin{bmatrix}
-    0&-B\rho_{01}\\
-    0&-B\rho_{11}
+    \rho_{00}&\rho_{01}\\
+    \rho_{10}&\rho_{11}
+  \end{bmatrix}\begin{bmatrix}
+    0&0\\
+    0&2B
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    0&2B\rho_{01}\\
+    0&2B\rho_{11}
   \end{bmatrix}
 \end{equation*}
-Hence, the initial energy is $E_i = -B |\beta|^2 |f_n|$ for both the pure and mixed state.
-Next we consider the passive energy of the pure state, which is obtained by putting the largest eigenvalue of $\rho$ into the lowest energy level.
-The eigenvalue of $\rho$ as $2 \times 2$ matrix has the following form 
+Hence, the initial energy for pure and mixed state respectively are 
 \begin{equation*}
-  \lambda_{\pm} = \frac{1 }{2 } \sqrt{1 \pm \sqrt{1-4 \det \rho}}
+  E_{\text{coh}_i} = 2B |\beta|^2 |f_N|^2,\qquad
+  E_{\text{mix}_i} = 2B (1-q) |f_N|^2
 \end{equation*}
-whereas the determinant is 
+Next we consider the passive energy of the pure state, which is obtained by putting the largest eigenvalue of $\rho$ into the lowest energy level.
+The characteristic equation for $\rho$ as $2 \times 2$ matrix is 
 \begin{align*}
-  \det \rho & = [\alpha^2 + |\beta|^2 (1-|f_n|^2)]|\beta|^2|f_n|^2 - |\alpha|^2|\beta^2||f_n|^2\\ 
-  \det \rho & = |\beta|^4|f_n|^2 (1-|f_n|^2) 
+  \det (\rho -\lambda I) & =  \det \begin{pmatrix}a-\lambda & b\\ c & d-\lambda\end{pmatrix}\\
+  & = \lambda^2-(a+d)\lambda+(ad-bc) \\
+  & = \lambda^2 - \mathrm{Tr} [\rho]\lambda+\det \rho\\
+  0 & =  \lambda^2 -\lambda + \det \rho 
+\end{align*}
+and using quadratic formula
+\begin{equation*}
+  \lambda_{\pm} = \frac{1 \pm \sqrt{1-4 \det \rho}}{2 } 
+\end{equation*}
+The determinant is 
+\begin{align*}
+  \det \rho & = [\alpha^2 + |\beta|^2 (1-|f_N|^2)]|\beta|^2|f_N|^2 - |\alpha|^2|\beta^2||f_N|^2\\ 
+  \det \rho & = |\beta|^4|f_N|^2 (1-|f_N|^2) 
 \end{align*}
 So 
 \begin{equation*}
-  \lambda_{\pm} = \frac{1 }{2 } \left[ 1 \pm \sqrt{1+4 |\beta|^4|f_n|^2 (|f_n|^2-1)} \right] 
+  \lambda_{\pm} = \frac{1 }{2 } \left[ 1 \pm \sqrt{1+4 |\beta|^4|f_N|^2 (|f_N|^2-1)} \right] 
 \end{equation*}
-and we have the passive energy as $E_p = -B\lambda_-$.
+and, we have the passive energy as
+\begin{equation*}
+  E_p = \lambda_+ H_{00} + \lambda_- H_{11} = 2B\lambda_- 
+\end{equation*}
 Using the initial and passive energy, we find that the ergotropy for coherent state is 
 \begin{equation*}
-  \mathcal{E}_\text{coh} (t) = 2|f_n(t)|^2\sin^2\left(\frac{\theta}{2}\right)-1+\sqrt{1+4\sin^4\left(\frac{\theta}{2}\right)|f_n(t)|^2\left(|f_n(t)|^2-1\right)}
+  \mathcal{E}_\text{coh} (t) = 2|f_N(t)|^2\sin^2\left(\frac{\theta}{2}\right)-1+\sqrt{1+4\sin^4\left(\frac{\theta}{2}\right)|f_N(t)|^2\left(|f_N(t)|^2-1\right)}
 \end{equation*}
-after substituting $\alpha$ and $\beta$ parameter along with choosing $B=2$.
+after substituting $(\alpha,\beta)$ parameters and normalizing by $2B$.
 As for mixed state, the ergotropy is stored in population inversion.
-Assuming that the lower state population $|\beta|^2|f_n|^2>0.5$, the passive energy after population inversion is $E_p = -B[\alpha^2 + |\beta|^2 (1-|f_r|^2) ]$ and the ergotropy of 
+Assuming that the higher state population $(1-q)|f_N|^2>0.5$, the passive energy after population inversion is 
 \begin{equation*}
-  \mathcal{E}_\text{mix} (t) = [2+2\sin (\theta/2)^2]|f_n|^2  - 2
+E_p = 2B[q + (1-q)(1-|f_N|^2)]
+\end{equation*}
+and the ergotropy of 
+\begin{equation*}
+  \mathcal{E}_\text{mix} (t) = 2[2q |f_N|^2 - 1]
+\end{equation*}
+
+In the same method as the fidelity derivation, we can determine the ergotropy transfer performance by averaging through all possible ergotropy value.
+By defining $a = |f_N|^2$ and $s = \sin ^2 (\theta/2)$, we average
+\begin{equation*}
+  \mathcal{E}_\text{coh} (t) = 2as-1+\sqrt{1+4a(a-1)s^2}
+\end{equation*}
+over the solid angle
+\begin{equation*}
+    \braket{\mathcal{E}_\text{coh}} = \int d\Omega\; \mathcal{E}_\text{coh} = \frac{1 }{2 }\int_{0}^{\pi} d\theta\;\sin\theta \left[  2as-1+\sqrt{1+4a(a-1)s^2} \right]
+\end{equation*}
+with the factor $1/2$ due to $\mathcal{E}_\text{coh}$ being independent of $\phi$.
+Substituting $ds = \sin (\theta/2)\cos (\theta/2)\;d\theta = \sin \theta\;d\theta/2$
+\begin{equation*}
+    \braket{\mathcal{E}_\text{coh}} = \int_{0}^{1} ds \left[  2as-1+\sqrt{1-4a(1-a)s^2} \right]
+\end{equation*}
+First and second term yield $a-1$, also note the sign changes on the third term.
+With $4a(1-a)s^2=k^2s^2=\sin ^2\phi$ and $k\;ds=\cos\theta\;d\phi$, the third term reads 
+\begin{align*}
+    \frac{1}{k }\int_{0}^{\arcsin k }d\phi\;\cos \phi \sqrt{1-\sin ^2\theta} & = 
+  \frac{1}{k }\int_{0}^{\arcsin k }d\phi\;\cos^2 \phi \\
+  & = \frac{1}{k }\int_{0}^{\arcsin k }d\phi\;\frac{1+\cos 2\phi}{2}\\
+  & = \frac{1 }{k }\left[ \frac{\phi}{2}+ \frac{\sin 2\phi}{4} \right] _0^{\arcsin k }\\
+  & = \frac{1 }{k }\left[ \frac{\arcsin k}{2}+ \frac{\sin 2\arcsin k}{4} \right] 
+\end{align*}
+We write 
+\begin{equation*}
+ \sin 2\arcsin k = 2 \sin(\arcsin k) \cos (\arcsin k) = 2k \cos \arcsin k
+\end{equation*}
+Since $k= \sin \theta$, $\cos \theta = \pm\sqrt{1+k^2}$, and $0\leq k\leq 1$ or equivalently $0\leq \arcsin k\leq \pi/2$ we have 
+\begin{equation*}
+ \sin 2\arcsin k = 2k \sqrt{1-k^2} = 2k \sqrt{1-4a+4a^2} = 2k \sqrt{(1-2a)^2} = 2k|1-2a|
+\end{equation*}
+Therefore
+\begin{equation*}
+    \braket{\mathcal{E}_\text{coh}} = |f_N|^2-1 + \frac{\arcsin 2|f_N|\sqrt{1-|f_N|^2 }}{4|f_N|\sqrt{1-|f_N|^2}} + \frac{1 }{2} |1-2|f_N|^2 |
 \end{equation*}
 
 \end{document}
