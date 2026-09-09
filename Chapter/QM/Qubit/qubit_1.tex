@@ -101,14 +101,14 @@ For the cross term
 there are two possibilities, at $\mathbf{j} = \mathbf{r}$
 \begin{align*}
   \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
-   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{0}_\mathbf{r} \ket{\mathbf{0}}_{A'} \right) \left( \bra{{1}}_\mathbf{r}  \ket{\mathbf{0}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
+   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{0}_\mathbf{r} \ket{\mathbf{0}}_{A'} \right) \left( \bra{{1}}_\mathbf{r}  \bra{\mathbf{0}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
    & = \sum_{\boldsymbol{\ell}}  \ket{0}_\mathbf{r} \braket{\boldsymbol{\ell  }  |\mathbf{0} }_{A'} \bra{1}_\mathbf{r} \braket{\mathbf{0 } | \boldsymbol{\ell }}_{A'}
   = \ket{0}_\mathbf{r} \bra{1}_\mathbf{r}
 \end{align*}
 and at $\mathbf{j} \neq \mathbf{r}$
 \begin{align*}
   \mathrm{Tr} _{A'} \ket{\mathbf{0}}\bra{\mathbf{j}}
-   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{0}_\mathbf{r} \ket{\mathbf{0}}_{A'} \right) \left( \bra{{0}}_\mathbf{r}  {\mathbf{j}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
+   & =  \sum_{\boldsymbol{\ell}} \left( \mathbf{1 }_\mathbf{r} \bra{\boldsymbol{\ell}}_{A'} \right)\left(\ket{0}_\mathbf{r} \ket{\mathbf{0}}_{A'} \right) \left( \bra{{0}}_\mathbf{r}  \bra{\mathbf{j}}_{A'}\right)  \left( \mathbf{1 }_\mathbf{r} \ket{\boldsymbol{\ell}}_{A'} \right) \\
    & = \sum_{\boldsymbol{\ell}}  \ket{0}_\mathbf{r} \braket{\boldsymbol{\ell  }  |\mathbf{0} }_{A'} \bra{1}_\mathbf{r} \braket{\mathbf{j } | \boldsymbol{\ell }}_{A'}
   = 0
 \end{align*}
@@ -167,6 +167,14 @@ so we can write the (0,0) element as
   = \begin{bmatrix}
     \alpha^2 + |\beta|^2 (1-|f_r|^2) & \alpha\beta^*  f_r^* \\
     \alpha\beta  f_r                 & |\beta|^2 |f_r|^2
+  \end{bmatrix}
+\end{equation*}
+Generally, it can be written as 
+\begin{equation*}
+  \rho_\text{out}(t) = 
+  \begin{bmatrix}
+    \rho_{00}(0) + \rho_{11}(0)(1-|f_N(t)|^2) & \rho_{01}(0)f_N(t)\\
+    \rho_{10}(0) f_N ^*(t) & \rho_{11}(0)|f_N(t)|^2
   \end{bmatrix}
 \end{equation*}
 
@@ -397,7 +405,7 @@ Recall that in statistical mechanics, heat corresponds to energy exchange betwee
 \begin{equation*}
   dE = \sum_{s } (\epsilon_s\;dn_s+n_s\;\epsilon_s) = dQ+dW
 \end{equation*}
-Similarly, heat in quantum mechanics interpreted as changing occupation probabilities, while work changes the energy level 
+Similarly, heat in quantum mechanics heat is interpreted as changing occupation probabilities, while work changes the energy level 
 \begin{equation*}
   dE = \mathrm{Tr} (d\rho\;H) + \mathrm{Tr} (\rho\;dH)= dQ+dW
 \end{equation*}
@@ -432,12 +440,16 @@ Hence, we find
   \delta E_f & =  \mathrm{Tr} [(\delta U)\rho U ^\dagger H + U \rho_0(\delta U ^\dagger)H]  =  \mathrm{Tr} [X U \rho U ^\dagger H - U \rho_0U ^\dagger XH]\\
   \delta E_f&= \mathrm{Tr}  [X\rho(\tau ) H-\rho(\tau )X H] = \mathrm{Tr}  [X\rho(\tau ) H-X H\rho(\tau )] = \mathrm{Tr} X[\rho(\tau ), H] 
 \end{align*}
-The stationarity of $E_f$ thus implies that $\rho(\tau )$ should commute with $H$.
-And, the unitary transformation enforce that $\rho(\tau)$ have the same eigenvalues as $\rho_0$.
+The stationary of $E_f$ thus implies that $\rho(\tau )$ should commute with $H$.
+And, the unitary transformation enforce that 
+\begin{equation*}
+  \rho(\tau)= \sum \lambda_n U(\tau) \ket{\psi_n}\bra{\psi_n}U ^\dagger(\tau) = U(\tau)\rho_0U ^\dagger(\tau)
+\end{equation*}
+have the same eigenvalues as $\rho_0$.
 
 Let the spectral resolutions of $\rho_0$ and $H$ be
 \begin{equation*}
-  \rho_0 = \sum_{j\geq 1} r_j \ket{ r_j}\bra{ r_j},\qquad H = \sum_{k\geq 1} \epsilon_k \ket{ \epsilon_k}\bra{ \epsilon_k}
+  \rho_0 = \sum_{j\geq 1} r_j \ket{ r_j}\bra{ r_j}, \qquad H = \sum_{k \geq 1} \epsilon_k \ket{\epsilon_k}\bra{\epsilon_k}
 \end{equation*}
 where we ordered the eigenvalues $  r_1 \geq r_2 \geq \ldots$ and $ \epsilon_1 \leq \epsilon_2 \leq \ldots$.
 Those two condition admit the state in the form 
@@ -459,19 +471,18 @@ Suppose we are given the pure and mixed state of spin chain in the form
 with $q = (1+|\beta^2|)/2$.
 The first lines written in such way to demonstrate that the first site of spin chain is initially pure and mixed respectively.
 Also, we do not simply set $q=|\beta|^2$ so that, with the same choice of $\alpha$ and $\beta$, the initial state of both pure state and mixed state encode the same initial ergotropy.
-First we set the ground state as zero, that is $H \ket{\mathbf{0}} = E_0 \ket{\mathbf{0}} = 0$, or 
+First note that the local Hamiltonian in this case is
 \begin{equation*}
   H = \begin{bmatrix}
-    0&0\\
-    0&2B
+    -B&0\\
+    0&B
   \end{bmatrix}  
 \end{equation*}
 The initial ergotropy for both cases are 
 \begin{equation*}
-  \mathcal{E}_\text{coh}(0) = |\beta|^2 \bra{\mathbf{1}} H \ket{\mathbf{1} }\qquad
-  \mathcal{E}_\text{mix}(0) =\mathcal{E} =(2q-1) \braket{\mathbf{1 } | H| \mathbf{1}}  
+  \mathcal{E}_\text{coh}(0) = 2B|\beta|^2 \qquad
+  \mathcal{E}_\text{mix}(0) =\mathcal{E} =2B(2q-1) 
 \end{equation*}
-with $\braket{\mathbf{1 } | H| \mathbf{1}}  $ as $2B$ in the shifted Hamiltonian.
 As for the transferred ergotropy
 \begin{equation*}
   \mathcal{E}_\text{coh} (t) = 2|f_N(t)|^2\sin^2\left(\frac{\theta}{2}\right)-1+\sqrt{1+4\sin^4\left(\frac{\theta}{2}\right)|f_N(t)|^2\left(|f_N(t)|^2-1\right)}
@@ -482,70 +493,17 @@ and
 \end{equation*}
 
 
-\subsubsection{Derivation: ergotropy of pure and mixed state}
-First consider the initial encoded ergotropy.
-The passive state for the pure state is simply the ground state, that is 
+\subsubsection{Derivation: general ergotropy.}
+The general expression for our state is 
 \begin{equation*}
-  H \ket{\mathbf{0}} = E_0 \ket{\mathbf{0}} = 0
-\end{equation*}
-while the initial energy is 
-\begin{equation*}
-  E_i = |\alpha|^2 \bra{\mathbf{0}} H \ket{\mathbf{0}} + |\beta|^2 \bra{\mathbf{1}} H \ket{\mathbf{1} }= |\beta|^2 \bra{\mathbf{1}} H \ket{\mathbf{1} }
-\end{equation*}
-This is also the ergotropy.
-The initial energy of the mixed state can be computed in similar manner 
-\begin{equation*}
-  E_i = \mathrm{Tr} (\rho(0)H) = q\mathrm{Tr} (\ket{\mathbf{1}}\bra{\mathbf{1}}H) + (1-q) \mathrm{Tr} (\ket{\mathbf{0}}\bra{\mathbf{0}}H) = q \braket{\mathbf{1 } | H| \mathbf{1}}
-\end{equation*}
-For passive state, however, things differ.
-The ergotropy is stored via population inversion, so the passive state has the following form 
-\begin{equation*}
-  \rho(0) =    (1-q)\ket{\mathbf{1}}\bra{\mathbf{1}} + q\ket{\mathbf{0}}\bra{\mathbf{0}}
-\end{equation*}
-Then the passive energy is simply $E_p = (1-q) \braket{\mathbf{1 } | H| \mathbf{1}}$ and the ergotropy  is $\mathcal{E} =(2q-1) \braket{\mathbf{1 } | H| \mathbf{1}} $.
-Suppose both case has the same initial ergotropy, then $q = (1+|\beta^2|)/2$.
-
-Let us then write the density matrix in the following form 
-\begin{equation*}
-  \rho_\text{coh}
-  = \begin{bmatrix}
-    \alpha^2 + |\beta|^2 (1-|f_N|^2) & \alpha\beta^*  f_N^* \\
-    \alpha\beta  f_N                 & |\beta|^2 |f_N|^2
+  \rho = \begin{bmatrix}
+        \rho_{00}&\rho_{01}\\
+        \rho_{10}&\rho_{11}
   \end{bmatrix}
 \end{equation*}
-and for the mixed state
-\begin{equation*}
-  \rho_\text{mix}
-  = \begin{bmatrix}
-    q + (1-q) (1-|f_N|^2) & 0 \\
-    0                 & (1-q)|f_N|^2
-  \end{bmatrix}
-\end{equation*}
-Then the product of the density state with the local Hamiltonian $H = -B\sigma_z$ is 
-\begin{equation*}
-  \rho H = \begin{bmatrix}
-    \rho_{00}&\rho_{01}\\
-    \rho_{10}&\rho_{11}
-  \end{bmatrix}\begin{bmatrix}
-    0&0\\
-    0&2B
-  \end{bmatrix}
-  =
-  \begin{bmatrix}
-    0&2B\rho_{01}\\
-    0&2B\rho_{11}
-  \end{bmatrix}
-\end{equation*}
-Hence, the initial energy for pure and mixed state respectively are 
-\begin{equation*}
-  E_{\text{coh}_i} = 2B |\beta|^2 |f_N|^2,\qquad
-  E_{\text{mix}_i} = 2B (1-q) |f_N|^2
-\end{equation*}
-Next we consider the passive energy of the pure state, which is obtained by putting the largest eigenvalue of $\rho$ into the lowest energy level.
-The characteristic equation for $\rho$ as $2 \times 2$ matrix is 
+The eigenvalue of this state is
 \begin{align*}
-  \det (\rho -\lambda I) & =  \det \begin{pmatrix}a-\lambda & b\\ c & d-\lambda\end{pmatrix}\\
-  & = \lambda^2-(a+d)\lambda+(ad-bc) \\
+  \det \begin{bmatrix}\rho_{00}-\lambda & \rho_{01}\\ \rho_{10} & \rho_{11}-\lambda\end{bmatrix}  & = \lambda^2-(\rho_{00}+\rho_{11})\lambda+(\rho_{00}\rho_{11}-\rho_{01}\rho_{10}) \\
   & = \lambda^2 - \mathrm{Tr} [\rho]\lambda+\det \rho\\
   0 & =  \lambda^2 -\lambda + \det \rho 
 \end{align*}
@@ -553,34 +511,251 @@ and using quadratic formula
 \begin{equation*}
   \lambda_{\pm} = \frac{1 \pm \sqrt{1-4 \det \rho}}{2 } 
 \end{equation*}
-The determinant is 
+From this the passive energy is 
+\begin{equation*}
+  E_p [\rho]= \lambda_+ H_{00} + \lambda_- H_{11}  = (\lambda_--\lambda_+)B = - B \sqrt{1-4 \det \rho}
+\end{equation*}
+The energy is simply
+\begin{equation*}
+  E_i [\rho]= \mathrm{Tr}  \begin{bmatrix}
+        \rho_{00}&\rho_{01}\\
+        \rho_{10}&\rho_{11}
+  \end{bmatrix}
+  \begin{bmatrix}
+    -B&0\\
+    0&B
+  \end{bmatrix}  
+  = \mathrm{Tr} 
+  \begin{bmatrix}
+    -B\rho_{00} & B\rho_{01}\\
+    -B \rho_{10}&B\rho_{11}
+  \end{bmatrix}
+   = B(\rho_{11}-\rho_{00})
+\end{equation*}
+Therefore the ergotropy
+\begin{equation*}
+  \mathcal{E} [\rho]
+   = B(\rho_{11}-\rho_{00} + \sqrt{1-4 \det \rho})
+   = B(2\rho_{11}- 1 + \sqrt{1-4 \det \rho})
+\end{equation*}
+
+For the case of population inversion, the derivation is very simple
 \begin{align*}
-  \det \rho & = [\alpha^2 + |\beta|^2 (1-|f_N|^2)]|\beta|^2|f_N|^2 - |\alpha|^2|\beta^2||f_N|^2\\ 
-  \det \rho & = |\beta|^4|f_N|^2 (1-|f_N|^2) 
+  \mathcal{E}_\text{pop}(\rho)
+  & = B(\rho_{11}-\rho_{00}) -  B(\rho_{00}-\rho_{11})\\
+  & = B(\rho_{11}-\rho_{00}) +  B(\rho_{11}-\rho_{00})\\
+  & = 2B(\rho_{11}-\rho_{00}) = 2B(2\rho_{11}-1)
 \end{align*}
-So 
+Alternatively, we can use our previous equation
+\begin{align*}
+  \mathcal{E}_\text{pop} [\rho]  
+& = B \left[ 2\rho_{11}-1+ \sqrt{1-4(1-\rho_{11})\rho_{11}} \right] \\
+& = B \left[ 2\rho_{11}-1+ \sqrt{(1 - 2\rho_{11})^2 } \right] \\
+& = B \left[ 2\rho_{11}-1+ |1 - 2\rho_{11}| \right] \\
+  \mathcal{E}_\text{pop} [\rho]  
+& = B \left[ 4\rho_{11}-2 \right]
+\end{align*}
+The coherence-associated ergotropy from coherence can be calculated 
+\begin{align*}
+  \mathcal{E}_\text{coh}[\rho] 
+  & =  \mathcal{E}[\rho] -   \mathcal{E}_\text{pop}[\rho]\\
+  & = B \left[  1 - 2 \rho_{11} + \sqrt{1-4 \det \rho}  \right] \\
+  & = B \left[  1 - 2 \rho_{11} + \sqrt{1-4 (\rho_{11}(1-\rho_{11}) - |\rho_{01}|^2)}  \right] \\
+  \mathcal{E}_\text{coh}[\rho] 
+  & = B \left[  1 - 2 \rho_{11} + \sqrt{(1-2\rho_{11})^2+ 4|\rho_{01}|^2}  \right] 
+\end{align*}
+This value is basically how much ergotropy is lost when I remove the coherence while keeping the populations unchanged.
+
+\subsubsection{Derivation: ergotropy for pure and mixed state.}
+The initial state can be written respectively as 
 \begin{equation*}
-  \lambda_{\pm} = \frac{1 }{2 } \left[ 1 \pm \sqrt{1+4 |\beta|^4|f_N|^2 (|f_N|^2-1)} \right] 
+  \rho_\text{coh}
+  = \begin{bmatrix}
+    \alpha^2  & \alpha\beta^*  \\
+    \alpha\beta      & |\beta|^2 
+  \end{bmatrix}
+  \qquad
+  \rho_\text{mix}
+  = \begin{bmatrix}
+    1-q& 0 \\
+    0 & q
+  \end{bmatrix}
 \end{equation*}
-and, we have the passive energy as
+respectively.
+The initial encoded ergotropy for pure state is 
 \begin{equation*}
-  E_p = \lambda_+ H_{00} + \lambda_- H_{11} = 2B\lambda_- 
+   \mathcal{E}[\rho_\text{coh}]
+   = B(2|\beta|^2-1 \sqrt{1-4(\alpha^2|\beta|^2-\alpha^2\beta^2)})  
+   = 2B|\beta|^2
 \end{equation*}
-Using the initial and passive energy, we find that the ergotropy for coherent state is 
+Whereas the mixed state 
+\begin{equation*}
+   \mathcal{E}[\rho_\text{mix}] = 2B(2q- 1)
+\end{equation*}
+Suppose both case has the same initial ergotropy, then $q = (1+|\beta|^2)/2$.
+
+Next consider the transferred ergotropy.
+Let us then write the density matrix in the following form 
+\begin{equation*}
+  \rho_\text{coh}^{(N)}
+  = \begin{bmatrix}
+    \alpha^2 + |\beta|^2 (1-|f_N|^2) & \alpha\beta^*  f_N^* \\
+    \alpha\beta  f_N                 & |\beta|^2 |f_N|^2
+  \end{bmatrix}
+\end{equation*}
+and for the mixed state
+\begin{equation*}
+  \rho_\text{mix}^{(N)}
+  = \begin{bmatrix}
+    q + (1-q) (1-|f_N|^2) & 0 \\
+    0                 & (1-q)|f_N|^2
+  \end{bmatrix}
+\end{equation*}
+Next finding the determinant.
+For the coherent
+\begin{align*}
+    \det \rho_\text{coh} & = [\alpha^2 + |\beta|^2 (1-|f_N|^2)]|\beta|^2|f_N|^2 - |\alpha|^2|\beta|^2|f_N|^2\\ 
+  \det \rho_\text{coh} & = |\beta|^4|f_N|^2 (1-|f_N|^2)   
+\end{align*}
+and for mixed state we'll just use population inversion like usual.
+Hence, the ergotropy for pure state
 \begin{equation*}
   \mathcal{E}_\text{coh} (t) = 2|f_N(t)|^2\sin^2\left(\frac{\theta}{2}\right)-1+\sqrt{1+4\sin^4\left(\frac{\theta}{2}\right)|f_N(t)|^2\left(|f_N(t)|^2-1\right)}
 \end{equation*}
-after substituting $(\alpha,\beta)$ parameters and normalizing by $2B$.
-As for mixed state, the ergotropy is stored in population inversion.
-Assuming that the higher state population $(1-q)|f_N|^2>0.5$, the passive energy after population inversion is 
+and for mixed 
 \begin{equation*}
-E_p = 2B[q + (1-q)(1-|f_N|^2)]
-\end{equation*}
-and the ergotropy of 
-\begin{equation*}
-  \mathcal{E}_\text{mix} (t) = 2[2q |f_N|^2 - 1]
+    \mathcal{E}_\text{mix}(t) = 2B((1-q)|f_N|^2-1)
 \end{equation*}
 
+\subsubsection{Derivation: ergotropy for another mixed state.}
+Now consider a mixed state created from an ensemble of pure state
+The pure state is given by
+\begin{equation*}
+  \ket{\psi_i}
+=
+\cos\frac{\theta_i}{2}\ket{0}
++
+e^{i\phi_i}\sin\frac{\theta_i}{2}\ket{1},
+\qquad i=1,2,
+\end{equation*}
+The statistical mixed state with probabilities \(p\) and \(1-p\) is
+\begin{align*}
+  \rho
+& =
+p\ket{\psi_1}\bra{\psi_1}
++
+(1-p)\ket{\psi_2}\bra{\psi_2}\\
+& = 
+p
+\begin{bmatrix}
+\cos^2\frac{\theta_1}{2}
+&
+e^{-i\phi_1}\cos\frac{\theta_1}{2}\sin\frac{\theta_1}{2}\\\\
+e^{i\phi_1}\cos\frac{\theta_1}{2}\sin\frac{\theta_1}{2}
+&
+\sin^2\frac{\theta_1}{2}
+\end{bmatrix}\\
+&\qquad
++(1-p)
+\begin{bmatrix}
+\cos^2\frac{\theta_2}{2}
+&
+e^{-i\phi_2}\cos\frac{\theta_2}{2}\sin\frac{\theta_2}{2}\\\\
+e^{i\phi_2}\cos\frac{\theta_2}{2}\sin\frac{\theta_2}{2}
+&
+\sin^2\frac{\theta_2}{2}
+\end{bmatrix}\\
+\rho & =
+\begin{bmatrix}
+p\cos^2\frac{\theta_1}{2}
++(1-p)\cos^2\frac{\theta_2}{2}
+&
+p e^{-i\phi_1}\frac{\sin \theta_1}{2}
++(1-p)e^{-i\phi_2}\frac{\sin \theta_2}{2}
+\\\\
+p e^{i\phi_1}\frac{\sin \theta_1}{2}
++(1-p)e^{i\phi_2}\frac{\sin \theta_2}{2}
+&
+p\sin^2\frac{\theta_1}{2}
++(1-p)\sin^2\frac{\theta_2}{2}
+\end{bmatrix}
+\end{align*}
+We impose then the constraint of $\theta_1=-\theta_2=\theta$ and $\phi_1=-\phi_2=\phi$
+\begin{align*}
+  \rho & = 
+  \begin{bmatrix}
+    \cos ^2 \theta/2 & \frac{\sin \theta  }{2} \left[p(e^{-i\phi}+e^{i\phi}) -e^{i\phi}  \right] \\
+   \frac{\sin \theta  }{2} \left[p(e^{-i\phi} + e^{i\phi} ) - e^{-i\phi}  \right] & \sin ^2 \theta /2
+  \end{bmatrix}\\
+    \rho & = 
+    \begin{bmatrix}
+    \cos ^2 \theta/2 &   \frac{\sin \theta  }{2} \left[2p \cos \phi - e^{i\phi}  \right]\\
+      \frac{\sin \theta  }{2} \left[2p \cos\phi - e^{-i\phi}  \right] &  \sin ^2 \theta /2
+  \end{bmatrix}
+\end{align*}
+From 
+\begin{equation*}
+  \rho_\text{out}(t) = 
+  \begin{bmatrix}
+    1 -\rho_{11}(0)|f_N(t)|^2 & \rho_{01}(0)f_N(t)\\
+    [\rho_{01}(0)f_N(t)]^* & \rho_{11}(0)|f_N(t)|^2
+  \end{bmatrix}
+\end{equation*}
+and the final state evolution
+\begin{equation*}
+  \rho (t)= \begin{bmatrix}
+    1 - \sin^2 \frac{\theta }{2} |f_N|^2 & \frac{\sin \theta }{2} \left( 2p \cos \phi-e^{i\phi} \right)f_N\\
+    \frac{\sin \theta }{2} \left( 2p \cos \phi-e^{-i\phi} \right) f_N ^*& \sin^2 \frac{\theta }{2 } |f_N|^2
+  \end{bmatrix}
+\end{equation*}
+
+Let us find first the initial state determinant
+\begin{align*}
+    \det\rho
+& = 
+\sin^2\frac{\theta}{2}\cos^2\frac{\theta}{2}
+-
+\frac{\sin^2\theta}{4}
+\left|p(e^{-i\phi}+e^{i\phi})-e^{i\phi}\right|^2\\
+& = 
+\frac{\sin^2\theta}{4}
+-\frac{\sin^2\theta}{4}
+\left[
+4p^2\cos^2\phi
+-2p\cos\phi(e^{i\phi}+e^{-i\phi})
++1
+\right]\\
+= &
+\frac{\sin^2\theta}{4}
+-\frac{\sin^2\theta}{4}
+\left[
+4p^2\cos^2\phi-4p\cos^2\phi+1
+\right]\\
+& = 
+\sin ^2\theta(p \cos ^2\phi - p^2 \cos \phi)\\
+\det \rho & = 
+p(1-p)\sin ^2\theta \cos^2 \phi
+\end{align*}
+And the evolved determinant
+\begin{align*}
+  \det \rho(t) & = (1-\rho_{11}|f_N|^2)\rho_{11}|f_N|^2 - |\rho_{01}f_N|^2\\
+  & = |f_N|^2 (\rho_{11}-\rho_{11}^2|f_N|^2-|\rho_{01}|^2)\\
+  & = |f_N|^2(\rho_{11} - \rho_{11}-|\rho_{01}|^2 + \rho_{11}^2 - \rho_{11}^2|f_N|^2)\\
+  & = |f_N|^2[\det \rho(0)+\rho_{11}^2(1-|f_N|^2)]\\
+ \det \rho^{(N)}(t) & = |f_N|^2 \left[ p(1-p)\sin ^2\theta \cos \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] 
+\end{align*}
+Therefore the ergotropy is 
+\begin{align*}
+  \mathcal{E} [\rho^{(1)}_\text{mix}] & =  B \left( 2\rho_{11}^{(1)}- 1 + \sqrt{1-4 \det \rho^{(1)}} \right) \\
+  & = B \left( 2\sin^2 \frac{\theta }{2} - 1 + \sqrt{1 - 4p(1-p)\sin ^2\theta \cos \phi}  \right) 
+\end{align*}
+and
+\begin{multline*}
+      \mathcal{E} [\rho^{(N)}_\text{mix}]    = B \bigg( 2\sin^2 \frac{\theta }{2} |f_N|^2 - 1 
+  \\  \qquad+  \sqrt{1 - 4|f_N|^2 \left[ p(1-p)\sin ^2\theta \cos \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right]}  \bigg)    
+\end{multline*}
+
+\subsubsection{Derivation: average ergotropy.}
 In the same method as the fidelity derivation, we can determine the ergotropy transfer performance by averaging through all possible ergotropy value.
 By defining $a = |f_N|^2$ and $s = \sin ^2 (\theta/2)$, we average
 \begin{equation*}
@@ -616,5 +791,4 @@ Therefore
 \begin{equation*}
     \braket{\mathcal{E}_\text{coh}} = |f_N|^2-1 + \frac{\arcsin 2|f_N|\sqrt{1-|f_N|^2 }}{4|f_N|\sqrt{1-|f_N|^2}} + \frac{1 }{2} |1-2|f_N|^2 |
 \end{equation*}
-
 \end{document}

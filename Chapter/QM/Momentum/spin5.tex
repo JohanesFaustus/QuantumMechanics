@@ -420,6 +420,55 @@ Shifting in the asymmetric spectrum, we have
 \end{equation*}
 
 \subsection{Optimization For XXX Hamiltonian: Engineered Coupling}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1.5cm,y=1cm]
+        \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
+        % Main horizontal axis line
+        \draw[thick] (0,0) -- (6,0);
+        % index
+        \node[anchor=east] at (-0.3, 0.8) {$J_j =$};
+        \node[anchor=east] at (-0.3, -0.5) {$j =$};
+        \node[anchor=east] at (-0.3, -1.1) {$m =$};
+        % coupling str
+        \node at (0.5, 0.8) {$\sqrt{1 \cdot 6}$};
+        \node at (1.5, 0.8) {$\sqrt{2 \cdot 5}$};
+        \node at (2.5, 0.8) {$\sqrt{3 \cdot 4}$};
+        \node at (3.5, 0.8) {$\sqrt{4 \cdot 3}$};
+        \node at (4.5, 0.8) {$\sqrt{5 \cdot 2}$};
+        \node at (5.5, 0.8) {$\sqrt{6 \cdot 1}$};
+        %  lattice dot
+        \node[point] (N1) at (0,0) {};
+        \node[point] (N2) at (1,0) {};
+        \node[point] (N3) at (2,0) {};
+        \node[point] (N4) at (3,0) {};
+        \node[point] (N5) at (4,0) {};
+        \node[point] (N6) at (5,0) {};
+        \node[point] (N7) at (6,0) {};
+        %  index n
+        \node[anchor=north] at (0, -0.2) {$1$};
+        \node[anchor=north] at (1, -0.2) {$2$};
+        \node[anchor=north] at (2, -0.2) {$3$};
+        \node[anchor=north] at (3, -0.2) {$4$};
+        \node[anchor=north] at (4, -0.2) {$5$};
+        \node[anchor=north] at (5, -0.2) {$6$};
+        \node[anchor=north] at (6, -0.2) {$7$};
+        % index m
+        \node[anchor=north] at (0, -0.8) {$-3$};
+        \node[anchor=north] at (1, -0.8) {$-2$};
+        \node[anchor=north] at (2, -0.8) {$-1$};
+        \node[anchor=north] at (3, -0.8) {$0$};
+        \node[anchor=north] at (4, -0.8) {$1$};
+        \node[anchor=north] at (5, -0.8) {$2$};
+        \node[anchor=north] at (6, -0.8) {$3$};
+        % site
+        \node[anchor=north] at (0, -1.5) {$\mathbf{\ket{1}}$};
+        \node[anchor=north] at (6, -1.5) {$\mathbf{\ket{N}}$};
+    \end{tikzpicture}
+    \caption*{Figure: Engineered coupling}
+\end{figure}
+
 We begin by associating a fictitious spin $S = (N-1)/2$ particle with the chain and relabel the basis vectors as $\ket{m}$, where 
 \begin{equation*}
     m = -(N-1)/2+j-1 = -S +j -1
@@ -473,53 +522,16 @@ This element may be evaluated as
 \begin{equation*}
     f_N= \left[-i\sin\left(\frac{\lambda t}{2}\right)\right]^{N_-1}
 \end{equation*}
-From this, it also can be seen that the fidelity reaches maximum at $t  = \pi/\lambda$
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}[x=1.5cm,y=1cm]
-        \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
-        % Main horizontal axis line
-        \draw[thick] (0,0) -- (6,0);
-        % index
-        \node[anchor=east] at (-0.3, 0.8) {$J_j =$};
-        \node[anchor=east] at (-0.3, -0.5) {$j =$};
-        \node[anchor=east] at (-0.3, -1.1) {$m =$};
-        % coupling str
-        \node at (0.5, 0.8) {$\sqrt{1 \cdot 6}$};
-        \node at (1.5, 0.8) {$\sqrt{2 \cdot 5}$};
-        \node at (2.5, 0.8) {$\sqrt{3 \cdot 4}$};
-        \node at (3.5, 0.8) {$\sqrt{4 \cdot 3}$};
-        \node at (4.5, 0.8) {$\sqrt{5 \cdot 2}$};
-        \node at (5.5, 0.8) {$\sqrt{6 \cdot 1}$};
-        %  lattice dot
-        \node[point] (N1) at (0,0) {};
-        \node[point] (N2) at (1,0) {};
-        \node[point] (N3) at (2,0) {};
-        \node[point] (N4) at (3,0) {};
-        \node[point] (N5) at (4,0) {};
-        \node[point] (N6) at (5,0) {};
-        \node[point] (N7) at (6,0) {};
-        %  index n
-        \node[anchor=north] at (0, -0.2) {$1$};
-        \node[anchor=north] at (1, -0.2) {$2$};
-        \node[anchor=north] at (2, -0.2) {$3$};
-        \node[anchor=north] at (3, -0.2) {$4$};
-        \node[anchor=north] at (4, -0.2) {$5$};
-        \node[anchor=north] at (5, -0.2) {$6$};
-        \node[anchor=north] at (6, -0.2) {$7$};
-        % index m
-        \node[anchor=north] at (0, -0.8) {$-3$};
-        \node[anchor=north] at (1, -0.8) {$-2$};
-        \node[anchor=north] at (2, -0.8) {$-1$};
-        \node[anchor=north] at (3, -0.8) {$0$};
-        \node[anchor=north] at (4, -0.8) {$1$};
-        \node[anchor=north] at (5, -0.8) {$2$};
-        \node[anchor=north] at (6, -0.8) {$3$};
-        % site
-        \node[anchor=north] at (0, -1.5) {$\mathbf{\ket{1}}$};
-        \node[anchor=north] at (6, -1.5) {$\mathbf{\ket{N}}$};
-    \end{tikzpicture}
-    \caption*{Figure: Engineered coupling}
-\end{figure}
+From this, it also can be seen that the fidelity reaches maximum at $t  = \pi/\lambda$.
+The time it took for fidelity to reaches maximum is invariant of the $N$ because the dependence is already embedded at the coupling $J_j$ which scale $O(N)$ with $N$.
+Compare to the coupling
+\begin{equation*}
+    J_j = \frac{2J }{N} \sqrt{j(N-j)}
+\end{equation*}
+which scale $O(1)$ with $N$. 
+Using this coupling, the optimum time scale with $N$, that is 
+\begin{equation*}
+    t = \left[\frac{\pi}{4G_N}\alpha^2 + \frac{\pi}{6}(1-\alpha^2)\right]N
+\end{equation*}
+with $\alpha=1$ at PST.
 \end{document}
