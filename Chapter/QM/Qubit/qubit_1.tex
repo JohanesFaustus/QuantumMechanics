@@ -636,82 +636,220 @@ The pure state is given by
 \cos\frac{\theta_i}{2}\ket{0}
 +
 e^{i\phi_i}\sin\frac{\theta_i}{2}\ket{1},
-\qquad i=1,2,
 \end{equation*}
 The statistical mixed state with probabilities \(p\) and \(1-p\) is
 \begin{align*}
-  \rho
+  \rho^{(1)}
 & =
-p\ket{\psi_1}\bra{\psi_1}
+p\ket{\psi_i}\bra{\psi_i}
 +
-(1-p)\ket{\psi_2}\bra{\psi_2}\\
+(1-p)\ket{\psi_j}\bra{\psi_j}\\
 & = 
 p
 \begin{bmatrix}
-\cos^2\frac{\theta_1}{2}
+\cos^2\frac{\theta_i}{2}
 &
-e^{-i\phi_1}\cos\frac{\theta_1}{2}\sin\frac{\theta_1}{2}\\\\
-e^{i\phi_1}\cos\frac{\theta_1}{2}\sin\frac{\theta_1}{2}
+e^{-i\phi_i}\cos\frac{\theta_i}{2}\sin\frac{\theta_i}{2}\\\\
+e^{i\phi_i}\cos\frac{\theta_i}{2}\sin\frac{\theta_i}{2}
 &
-\sin^2\frac{\theta_1}{2}
+\sin^2\frac{\theta_i}{2}
 \end{bmatrix}\\
 &\qquad
 +(1-p)
 \begin{bmatrix}
-\cos^2\frac{\theta_2}{2}
+\cos^2\frac{\theta_j}{2}
 &
-e^{-i\phi_2}\cos\frac{\theta_2}{2}\sin\frac{\theta_2}{2}\\\\
-e^{i\phi_2}\cos\frac{\theta_2}{2}\sin\frac{\theta_2}{2}
+e^{-i\phi_j}\cos\frac{\theta_j}{2}\sin\frac{\theta_j}{2}\\\\
+e^{i\phi_j}\cos\frac{\theta_j}{2}\sin\frac{\theta_j}{2}
 &
-\sin^2\frac{\theta_2}{2}
+\sin^2\frac{\theta_j}{2}
 \end{bmatrix}\\
-\rho & =
+\rho^{(1)} & =
 \begin{bmatrix}
-p\cos^2\frac{\theta_1}{2}
-+(1-p)\cos^2\frac{\theta_2}{2}
+p\cos^2\frac{\theta_i}{2}
++(1-p)\cos^2\frac{\theta_j}{2}
 &
-p e^{-i\phi_1}\frac{\sin \theta_1}{2}
-+(1-p)e^{-i\phi_2}\frac{\sin \theta_2}{2}
+p e^{-i\phi_i}\frac{\sin \theta_i}{2}
++(1-p)e^{-i\phi_j}\frac{\sin \theta_j}{2}
 \\\\
-p e^{i\phi_1}\frac{\sin \theta_1}{2}
-+(1-p)e^{i\phi_2}\frac{\sin \theta_2}{2}
+p e^{i\phi_i}\frac{\sin \theta_i}{2}
++(1-p)e^{i\phi_j}\frac{\sin \theta_j}{2}
 &
-p\sin^2\frac{\theta_1}{2}
-+(1-p)\sin^2\frac{\theta_2}{2}
+p\sin^2\frac{\theta_i}{2}
++(1-p)\sin^2\frac{\theta_j}{2}
 \end{bmatrix}
 \end{align*}
-We impose then the constraint of $\theta_1=-\theta_2=\theta$ and $\phi_1=-\phi_2=\phi$
-\begin{align*}
-  \rho & = 
-  \begin{bmatrix}
-    \cos ^2 \theta/2 & \frac{\sin \theta  }{2} \left[p(e^{-i\phi}+e^{i\phi}) -e^{i\phi}  \right] \\
-   \frac{\sin \theta  }{2} \left[p(e^{-i\phi} + e^{i\phi} ) - e^{-i\phi}  \right] & \sin ^2 \theta /2
-  \end{bmatrix}\\
-    \rho & = 
-    \begin{bmatrix}
-    \cos ^2 \theta/2 &   \frac{\sin \theta  }{2} \left[2p \cos \phi - e^{i\phi}  \right]\\
-      \frac{\sin \theta  }{2} \left[2p \cos\phi - e^{-i\phi}  \right] &  \sin ^2 \theta /2
-  \end{bmatrix}
-\end{align*}
-From 
+
+Looks complicated, so let's discuss the possible constraints.
+Recall spherical coordinate
 \begin{equation*}
-  \rho_\text{out}(t) = 
+  \mathbf r(x,y,z)
+  =
+  \mathbf r(\sin\theta\cos\phi,
+  \sin\theta\sin\phi,\;
+  \cos\theta)
+\end{equation*}
+First constraint is $\theta_2=-\theta_1=\theta$ and $ \phi_2=-\phi_1=\phi$
+\begin{equation*}
+C_2=\begin{cases}
+    x'
+=r\sin(-\theta)\cos(-\phi)
+=-r\sin\theta\cos\phi=-x,\\
+y'
+=r\sin(-\theta)\sin(-\phi)
+=r\sin\theta\sin\phi=y,\\
+z'
+=r\cos(-\theta)=z
+\end{cases}
+\end{equation*}
+Next is $\theta_2=\theta_1$ and $ \phi_2=-\phi_1$
+\begin{equation*}
+C_3=\begin{cases}
+    x'
+=r\sin(\theta)\cos(-\phi)
+=r\sin\theta\cos\phi=x,\\
+y'
+=r\sin(\theta)\sin(-\phi)
+=-r\sin\theta\sin\phi=-y,\\
+z'
+=r\cos(\theta)=z
+\end{cases}
+\end{equation*}
+Finally $\theta_2=-\theta_1$ and $ \phi_2=\phi_1$
+\begin{equation*}
+C_4=\begin{cases}
+    x'
+=r\sin(-\theta)\cos(\phi)
+=-r\sin\theta\cos\phi=-x,\\
+y'
+=r\sin(-\theta)\sin(\phi)
+=-r\sin\theta\sin\phi=-y,\\
+z'
+=r\cos(-\theta)=z
+\end{cases}
+\end{equation*}
+Note that negative \(\theta\) should be interpreted as a parameterization device, rather than as a conventional polar angle, since $0 \leq \theta \leq \pi$.
+Equivalently, the negative $\theta$ constraint can be represented by $C_2(\theta_2=\theta_1,\phi_2 = \pi-\phi_1)$ and $C_4\theta_2=\theta_1,\phi_2 = \pi+\phi_1$.
+
+
+% \begin{table}
+%     \centering
+%     \caption*{Table: List of Constraints}
+%     \begin{tabular}{ccc} 
+%         \toprule
+%         & Constraint&Transformation\\
+%         \midrule
+%         $C_2$& \(\theta_2=-\theta_1, \phi_2=-\phi_1\) & \((-x,y,z)\) \\
+%         $C_3$& \(\theta_2=\theta_1, \phi_2=-\phi_1\)  & \((x,-y,z)\)  \\
+%         $C_4$&\(\theta_2=-\theta_1, \phi_2=\phi_1\)  & \((-x,-y,z)\) \\
+%         \bottomrule
+%     \end{tabular}
+% \end{table}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[tdplot_main_coords,scale=4]
+    \draw[thick,->] (0,0,0) -- (1.2,0,0) node[anchor=north east]{$x$};
+    \draw[thick,->] (0,0,0) -- (0,1.1,0) node[anchor=north west]{$y$};
+
+    \def\r{1}
+    \def\th{50} 
+    \def\thm{-\th} 
+    \def\ph{40}
+    \def\phm{-\ph}
+    \pgfmathsetmacro{\rxy }{sin(\th)}
+    \pgfmathsetmacro{\rxym}{sin(\thm)}
+
+    \coordinate (O) at (0,0,0);
+
+    \tdplotsetcoord{A}{\r}{\th}{\ph}
+    \tdplotsetcoord{A1}{\r}{\thm}{\phm}
+    \tdplotsetcoord{A2}{\r}{\th}{\phm}
+    \tdplotsetcoord{A3}{\r}{\thm}{\ph}
+    \tdplotsetcoord{OO}{\r}{0}{0}
+    
+    \draw[thick,->,>=Stealth] (O) -- (A) node [anchor=south east]{$\ket{\psi_1}$};
+    \draw[thick,->,>=Stealth] (O) -- (A1) node [anchor=south west]{$\ket{\psi_2}$};
+    \draw[thick,->,>=Stealth] (O) -- (A2) node [anchor=south west]{$\ket{\psi_3}$};
+    \draw[thick,->,>=Stealth] (O) -- (A3) node [anchor=north east]{$\ket{\psi_4}$};
+    \draw[thick,->,>=Stealth] (O) -- (OO) node [anchor=south]{$\ket{0}$};
+    
+    \draw[dashed]  (O) -- (Axy);
+    \draw[dashed]  (A) -- (Axy);
+    \draw[dashed]  (O) -- (A1xy);
+    \draw[dashed]  (A1) -- (A1xy);
+    \draw[dashed]  (O) -- (A2xy);
+    \draw[dashed]  (A2) -- (A2xy);
+    \draw[dashed]  (O) -- (A3xy);
+    \draw[dashed]  (A3) -- (A3xy);
+
+    \def\alp{20}
+    \tdplotsetrotatedcoords{\alp}{0}{0}
+    \begin{scope}[tdplot_rotated_coords]
+      \draw[thick] (0,-\r) arc (-90:90:\r);
+      \draw[dashed] (0,\r) arc (90:270:\r);
+    \end{scope}
+
+    \tdplotsetrotatedcoords{\alp}{90}{0}
+    \begin{scope}[tdplot_rotated_coords]
+      \draw[thick] (0,\r) arc (90:270:\r);
+    \end{scope}
+
+  \end{tikzpicture}
+  \caption*{Figure: Bloch sphere representation of a mixed state created from pure state ensemble. The states \(\ket{\psi_2}\), \(\ket{\psi_3}\), and \(\ket{\psi_4}\) correspond to the coordinate constraints \((\theta,\phi)=(-\theta_1,-\phi_1)\), \((\theta_1,-\phi_1)\), and \((-\theta_1,\phi_1)\), respectively.
+}
+\end{figure}
+
+Recall the state evolution $\rho^{(1)}(0) \rightarrow \rho^{(N)}(t)$
+\begin{equation*}
   \begin{bmatrix}
-    1 -\rho_{11}(0)|f_N(t)|^2 & \rho_{01}(0)f_N(t)\\
-    [\rho_{01}(0)f_N(t)]^* & \rho_{11}(0)|f_N(t)|^2
+    1 -\rho_{11}^{(1)} & \rho_{01}^{(1)}\\
+    [\rho_{01}^{(1)}]^* & \rho_{11}^{(1)}
+  \end{bmatrix}
+  \rightarrow
+  \begin{bmatrix}
+    1 -\rho_{11}^{(1)}|f_N(t)|^2 & \rho_{01}^{(1)}f_N(t)\\
+    [\rho_{01}^{(1)}f_N(t)]^* & \rho_{11}^{(1)}|f_N(t)|^2
   \end{bmatrix}
 \end{equation*}
+The initial state determinant
+\begin{align*}
+    \det\rho^{(1)}
+& = \rho_{11}^{(1)}(1-\rho_{11}^{(1)}) - |\rho_{01}^{(1)}|^2
+ = \rho_{11}^{(1)} -\rho_{11}^{(1)}{}^2- |\rho_{01}^{(1)}|^2
+\end{align*}
+can be used to determine the evolved state
+\begin{align*}
+  \det \rho^{(N)}& = (1-\rho^{(1)}_{11}|f_N|^2)\rho^{(1)}_{11}|f_N|^2 - |\rho^{(1)}_{01}f_N|^2\\
+  & = |f_N|^2 (\rho^{(1)}_{11}-{\rho^{(1)}_{11}}{}^2|f_N|^2-|\rho^{(1)}_{01}|^2)\\
+  & = |f_N|^2(\rho^{(1)}_{11} - \rho^{(1)}_{11}{}^2-|\rho^{(1)}_{01}|^2 + \rho^{(1)}_{11}{}^2 - {\rho^{(1)}_{11}}{}^2|f_N|^2)\\
+  \det \rho^{(N)}& = |f_N|^2[\det \rho^{(1)}+ \rho^{(1)}_{11}{}^2(1-|f_N|^2)]
+\end{align*}
+
+
+We impose then the constraint of $C_2(\theta_1=-\theta_2,\phi_1=-\phi_2)$, to get
+\begin{align*}
+  \rho^{(1)}_{C_2} & = 
+  \begin{bmatrix}
+    \cos ^2 \theta/2 & \frac{\sin \theta  }{2} \left[p(e^{-i\phi}+e^{i\phi}) -e^{i\phi}  \right] \\
+   \frac{\sin \theta  }{2} \left[p(e^{i\phi} + e^{-i\phi} ) - e^{-i\phi}  \right] & \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix}\\
+    \rho ^{(1)}_{C_2} & = 
+    \begin{bmatrix}
+    \cos ^2 \theta/2 &   \frac{\sin \theta  }{2} \left[2p \cos \phi - e^{i\phi}  \right]\\
+      \frac{\sin \theta  }{2} \left[2p \cos\phi - e^{-i\phi}  \right] &  \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix}
+\end{align*}
 and the final state evolution
 \begin{equation*}
-  \rho (t)= \begin{bmatrix}
+  \rho ^{(N)}_{C_2} = \begin{bmatrix}
     1 - \sin^2 \frac{\theta }{2} |f_N|^2 & \frac{\sin \theta }{2} \left( 2p \cos \phi-e^{i\phi} \right)f_N\\
     \frac{\sin \theta }{2} \left( 2p \cos \phi-e^{-i\phi} \right) f_N ^*& \sin^2 \frac{\theta }{2 } |f_N|^2
   \end{bmatrix}
 \end{equation*}
-
-Let us find first the initial state determinant
+The determinants are 
 \begin{align*}
-    \det\rho
+    \det\rho^{(1)}_{C_2} 
 & = 
 \sin^2\frac{\theta}{2}\cos^2\frac{\theta}{2}
 -
@@ -725,35 +863,76 @@ Let us find first the initial state determinant
 -2p\cos\phi(e^{i\phi}+e^{-i\phi})
 +1
 \right]\\
-= &
+& = 
 \frac{\sin^2\theta}{4}
 -\frac{\sin^2\theta}{4}
 \left[
 4p^2\cos^2\phi-4p\cos^2\phi+1
 \right]\\
 & = 
-\sin ^2\theta(p \cos ^2\phi - p^2 \cos \phi)\\
-\det \rho & = 
+\sin ^2\theta(p \cos ^2\phi - p^2 \cos^2 \phi)\\
+\det \rho ^{(1)}_{C_2} & = 
 p(1-p)\sin ^2\theta \cos^2 \phi
 \end{align*}
-And the evolved determinant
+and
 \begin{align*}
-  \det \rho(t) & = (1-\rho_{11}|f_N|^2)\rho_{11}|f_N|^2 - |\rho_{01}f_N|^2\\
-  & = |f_N|^2 (\rho_{11}-\rho_{11}^2|f_N|^2-|\rho_{01}|^2)\\
-  & = |f_N|^2(\rho_{11} - \rho_{11}-|\rho_{01}|^2 + \rho_{11}^2 - \rho_{11}^2|f_N|^2)\\
-  & = |f_N|^2[\det \rho(0)+\rho_{11}^2(1-|f_N|^2)]\\
- \det \rho^{(N)}(t) & = |f_N|^2 \left[ p(1-p)\sin ^2\theta \cos \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] 
+ \det \rho^{(N)}_{C_2}& = |f_N|^2 \left[ p(1-p)\sin ^2\theta \cos \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] 
 \end{align*}
 Therefore the ergotropy is 
 \begin{align*}
-  \mathcal{E} [\rho^{(1)}_\text{mix}] & =  B \left( 2\rho_{11}^{(1)}- 1 + \sqrt{1-4 \det \rho^{(1)}} \right) \\
+  \mathcal{E} \left[ \rho^{(1)}_{C_2} \right]  & =  B \left( 2\rho_{11}^{(1)}- 1 + \sqrt{1-4 \det \rho^{(1)}} \right) \\
   & = B \left( 2\sin^2 \frac{\theta }{2} - 1 + \sqrt{1 - 4p(1-p)\sin ^2\theta \cos \phi}  \right) 
 \end{align*}
 and
 \begin{multline*}
-      \mathcal{E} [\rho^{(N)}_\text{mix}]    = B \bigg( 2\sin^2 \frac{\theta }{2} |f_N|^2 - 1 
+      \mathcal{E} \left[ \rho^{(N)}_{C_2} \right]     = B \bigg( 2\sin^2 \frac{\theta }{2} |f_N|^2 - 1 
   \\  \qquad+  \sqrt{1 - 4|f_N|^2 \left[ p(1-p)\sin ^2\theta \cos \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right]}  \bigg)    
 \end{multline*}
+
+
+
+Next $C_3(\theta_1=\theta_2,\phi_1=-\phi_2)$ 
+\begin{align*}
+  \rho^{(1)}_{C_3} & = 
+  \begin{bmatrix}
+    \cos ^2 \theta/2 & \frac{\sin \theta  }{2} \left[p(e^{-i\phi}-e^{i\phi}) + e^{i\phi}  \right] \\
+   \frac{\sin \theta  }{2} \left[p(e^{i\phi} - e^{-i\phi} ) + e^{-i\phi}  \right] & \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix}\\
+    \rho ^{(1)}_{C_3} & = 
+    \begin{bmatrix}
+    \cos ^2 \theta/2 & \frac{\sin \theta}{2} \left[-i2p \sin \phi + e^{i\phi}  \right]\\
+      \frac{\sin \theta  }{2} \left[i2p \sin\phi + e^{-i\phi}  \right] &  \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix}
+\end{align*}
+and the final state evolution
+\begin{equation*}
+      \rho ^{(N)}_{C_3}  = 
+    \begin{bmatrix}
+    1- \sin^2 \theta/2 |f_N|^2& \frac{\sin \theta}{2} \left[-i2p \sin \phi + e^{i\phi}  \right]f_N\\
+      \frac{\sin \theta  }{2} \left[i2p \sin\phi + e^{-i\phi}  \right]f_N ^* &  \sin ^2 \frac{\theta  }{2}|f_N|^2
+  \end{bmatrix}
+\end{equation*}
+
+Finally, the $C_4(\theta_1=-\theta_2,\phi_1=\phi_2)$ constraint
+\begin{align*}
+  \rho^{(1)}_{C_4} & = 
+  \begin{bmatrix}
+    \cos ^2 \theta/2 & \frac{\sin \theta  }{2} \left[p(e^{-i\phi}+e^{-i\phi}) - e^{-i\phi}  \right] \\
+   \frac{\sin \theta  }{2} \left[p(e^{i\phi} + e^{i\phi} ) - e^{i\phi}  \right] & \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix}\\
+    \rho ^{(1)}_{C_4} & = 
+    \begin{bmatrix}
+    \cos ^2 \theta/2 & \frac{\sin \theta}{2}(2p-1) e^{-i\phi}\\
+      \frac{\sin \theta  }{2} (2p-1)e^{i\phi}&  \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix}
+\end{align*}
+and the final state evolution
+\begin{equation*}
+    \rho ^{(N)}_{C_4} = 
+    \begin{bmatrix}
+      1- \sin^2 \theta/2|f_N|^2 & \frac{\sin \theta}{2}(2p-1) e^{-i\phi}f_N \\ \frac{\sin \theta  }{2} (2p-1)e^{i\phi}f_N ^*&  \sin ^2 \frac{\theta  }{2}|f_N|^2
+  \end{bmatrix}
+\end{equation*}
 
 \subsubsection{Derivation: average ergotropy.}
 In the same method as the fidelity derivation, we can determine the ergotropy transfer performance by averaging through all possible ergotropy value.
