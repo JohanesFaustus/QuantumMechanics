@@ -546,20 +546,21 @@ For the case of population inversion, the derivation is very simple
   & = B(\rho_{11}-\rho_{00}) +  B(\rho_{11}-\rho_{00})\\
   & = 2B(\rho_{11}-\rho_{00}) = 2B(2\rho_{11}-1)
 \end{align*}
-Alternatively, we can use our previous equation
+Alternatively, by assuming that $\rho_{11}\geq 0.5$ we can use our previous equation
 \begin{align*}
   \mathcal{E}_\text{pop} [\rho]  
 & = B \left[ 2\rho_{11}-1+ \sqrt{1-4(1-\rho_{11})\rho_{11}} \right] \\
 & = B \left[ 2\rho_{11}-1+ \sqrt{(1 - 2\rho_{11})^2 } \right] \\
-& = B \left[ 2\rho_{11}-1+ |1 - 2\rho_{11}| \right] \\
+& = B \left[ 2\rho_{11}-1+ ( 2\rho_{11} -1 )\right] \\ 
   \mathcal{E}_\text{pop} [\rho]  
 & = B \left[ 4\rho_{11}-2 \right]
 \end{align*}
+  
 The coherence-associated ergotropy from coherence can be calculated 
 \begin{align*}
   \mathcal{E}_\text{coh}[\rho] 
   & =  \mathcal{E}[\rho] -   \mathcal{E}_\text{pop}[\rho]\\
-  & = B \left[  1 - 2 \rho_{11} + \sqrt{1-4 \det \rho}  \right] \\
+  & = B \left[ 2 \rho_{11} - 1 + \sqrt{1-4 \det \rho} - 4\rho_{11} + 2  \right] \\
   & = B \left[  1 - 2 \rho_{11} + \sqrt{1-4 (\rho_{11}(1-\rho_{11}) - |\rho_{01}|^2)}  \right] \\
   \mathcal{E}_\text{coh}[\rho] 
   & = B \left[  1 - 2 \rho_{11} + \sqrt{(1-2\rho_{11})^2+ 4|\rho_{01}|^2}  \right] 
@@ -731,21 +732,6 @@ z'
 Note that negative \(\theta\) should be interpreted as a parameterization device, rather than as a conventional polar angle, since $0 \leq \theta \leq \pi$.
 Equivalently, the negative $\theta$ constraint can be represented by $C_2(\theta_2=\theta_1,\phi_2 = \pi-\phi_1)$ and $C_4\theta_2=\theta_1,\phi_2 = \pi+\phi_1$.
 
-
-% \begin{table}
-%     \centering
-%     \caption*{Table: List of Constraints}
-%     \begin{tabular}{ccc} 
-%         \toprule
-%         & Constraint&Transformation\\
-%         \midrule
-%         $C_2$& \(\theta_2=-\theta_1, \phi_2=-\phi_1\) & \((-x,y,z)\) \\
-%         $C_3$& \(\theta_2=\theta_1, \phi_2=-\phi_1\)  & \((x,-y,z)\)  \\
-%         $C_4$&\(\theta_2=-\theta_1, \phi_2=\phi_1\)  & \((-x,-y,z)\) \\
-%         \bottomrule
-%     \end{tabular}
-% \end{table}
-
 \begin{figure}
   \centering
   \begin{tikzpicture}[tdplot_main_coords,scale=4]
@@ -753,7 +739,7 @@ Equivalently, the negative $\theta$ constraint can be represented by $C_2(\theta
     \draw[thick,->] (0,0,0) -- (0,1.1,0) node[anchor=north west]{$y$};
 
     \def\r{1}
-    \def\th{50} 
+    \def\th{60} 
     \def\thm{-\th} 
     \def\ph{40}
     \def\phm{-\ph}
@@ -796,8 +782,10 @@ Equivalently, the negative $\theta$ constraint can be represented by $C_2(\theta
     \end{scope}
 
   \end{tikzpicture}
-  \caption*{Figure: Bloch sphere representation of a mixed state created from pure state ensemble. The states \(\ket{\psi_2}\), \(\ket{\psi_3}\), and \(\ket{\psi_4}\) correspond to the coordinate constraints \((\theta,\phi)=(-\theta_1,-\phi_1)\), \((\theta_1,-\phi_1)\), and \((-\theta_1,\phi_1)\), respectively.
-}
+  \caption*{
+    Figure: Bloch sphere representation of mixed states created from pure state ensemble. 
+    The states \(\ket{\psi_2}\), \(\ket{\psi_3}\), and \(\ket{\psi_4}\) correspond to the coordinate constraints \((\theta,\phi)=(-\theta_1,-\phi_1)\), \((\theta_1,-\phi_1)\), and \((-\theta_1,\phi_1)\), respectively.
+  }
 \end{figure}
 
 Recall the state evolution $\rho^{(1)}(0) \rightarrow \rho^{(N)}(t)$
@@ -826,7 +814,7 @@ can be used to determine the evolved state
   \det \rho^{(N)}& = |f_N|^2[\det \rho^{(1)}+ \rho^{(1)}_{11}{}^2(1-|f_N|^2)]
 \end{align*}
 
-
+\subsubsection{Derivation: ergotropy for second mixed state.}
 We impose then the constraint of $C_2(\theta_1=-\theta_2,\phi_1=-\phi_2)$, to get
 \begin{align*}
   \rho^{(1)}_{C_2} & = 
@@ -854,43 +842,61 @@ The determinants are
 \sin^2\frac{\theta}{2}\cos^2\frac{\theta}{2}
 -
 \frac{\sin^2\theta}{4}
-\left|p(e^{-i\phi}+e^{i\phi})-e^{i\phi}\right|^2\\
+\left|(2p-1) \cos \phi- i \sin \phi\right|^2\\
 & = 
 \frac{\sin^2\theta}{4}
 -\frac{\sin^2\theta}{4}
 \left[
-4p^2\cos^2\phi
--2p\cos\phi(e^{i\phi}+e^{-i\phi})
-+1
+(2p-1)^2\cos^2\phi
++\sin^2 \phi
 \right]\\
 & = 
 \frac{\sin^2\theta}{4}
--\frac{\sin^2\theta}{4}
 \left[
-4p^2\cos^2\phi-4p\cos^2\phi+1
+1-
+(4p^2-4p)\cos^2\phi-1
 \right]\\
-& = 
-\sin ^2\theta(p \cos ^2\phi - p^2 \cos^2 \phi)\\
 \det \rho ^{(1)}_{C_2} & = 
 p(1-p)\sin ^2\theta \cos^2 \phi
 \end{align*}
 and
 \begin{align*}
- \det \rho^{(N)}_{C_2}& = |f_N|^2 \left[ p(1-p)\sin ^2\theta \cos \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] 
+ \det \rho^{(N)}_{C_2}& = 
+ |f_N|^2 \left[ p(1-p)\sin ^2\theta \cos^2 \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] 
 \end{align*}
 Therefore the ergotropy is 
 \begin{align*}
   \mathcal{E} \left[ \rho^{(1)}_{C_2} \right]  & =  B \left( 2\rho_{11}^{(1)}- 1 + \sqrt{1-4 \det \rho^{(1)}} \right) \\
-  & = B \left( 2\sin^2 \frac{\theta }{2} - 1 + \sqrt{1 - 4p(1-p)\sin ^2\theta \cos \phi}  \right) 
+  & = B \left( 2\sin^2 \frac{\theta }{2} - 1 + \sqrt{1 - 4p(1-p)\sin ^2\theta \cos^2 \phi}  \right) 
 \end{align*}
 and
 \begin{multline*}
       \mathcal{E} \left[ \rho^{(N)}_{C_2} \right]     = B \bigg( 2\sin^2 \frac{\theta }{2} |f_N|^2 - 1 
-  \\  \qquad+  \sqrt{1 - 4|f_N|^2 \left[ p(1-p)\sin ^2\theta \cos \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right]}  \bigg)    
+  \\  \qquad+  \sqrt{1 - 4|f_N|^2 \left[ p(1-p)\sin ^2\theta \cos^2 \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right]}  \bigg)    
+\end{multline*}
+The population ergotropy for both 
+\begin{equation*}
+  \mathcal{E}_\text{pop} \left[ \rho^{(1)}_{C_2} \right]= 2B(2 \sin^2 \frac{\theta }{2 }-1)  
+\end{equation*}
+and
+\begin{equation*}
+  \mathcal{E}_\text{pop} \left[ \rho^{(N)}_{C_2} \right]= 2B(2 |f_N|^2\sin^2 \frac{\theta}{2 }-1)  
+\end{equation*}
+And the coherence ergotropy
+\begin{align*}
+  \mathcal{E}_\text{coh}\left[ \rho^{(1)}_{C_2}\right]
+  & = B \left[  1 - 2 \sin ^2 \frac{\theta }{2} + \sqrt{1-4p(1-p)\sin ^2\theta \cos^2 \phi}  \right] 
+\end{align*}
+and
+\begin{multline*}
+    \mathcal{E}_\text{coh}\left[ \rho^{(N)}_{C_2}\right]
+  = B \bigg[  1 - 2 |f_N|^2\sin ^2 \frac{\theta }{2} \\
+  + \sqrt{1-4 |f_N|^2 \left[ p(1-p)\sin ^2\theta \cos^2 \phi 
+  + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] }  \bigg] 
 \end{multline*}
 
 
-
+\subsubsection{Derivation: ergotropy for third mixed state.}
 Next $C_3(\theta_1=\theta_2,\phi_1=-\phi_2)$ 
 \begin{align*}
   \rho^{(1)}_{C_3} & = 
@@ -912,7 +918,66 @@ and the final state evolution
       \frac{\sin \theta  }{2} \left[i2p \sin\phi + e^{-i\phi}  \right]f_N ^* &  \sin ^2 \frac{\theta  }{2}|f_N|^2
   \end{bmatrix}
 \end{equation*}
+The determinants are 
+\begin{align*}
+    \det\rho^{(1)}_{C_3} 
+& = 
+\sin^2\frac{\theta}{2}\cos^2\frac{\theta}{2}
+-
+\frac{\sin^2\theta}{4}
+\left| \cos \phi+ i(1-2p) \sin \phi\right|^2\\
+& = 
+\frac{\sin^2\theta}{4}
+-\frac{\sin^2\theta}{4}
+\left[
+\cos^2\phi
++(1-2p)^2\sin^2 \phi
+\right]\\
+& = 
+\frac{\sin^2\theta}{4}
+\left[
+1-1-
+(4p^2-4p)\sin^2\phi
+\right]\\
+\det \rho ^{(1)}_{C_3} & = 
+p(1-p)\sin ^2\theta \sin^2 \phi
+\end{align*}
+and 
+\begin{equation*}
+\det \rho ^{(N)}_{C_3} =     |f_N|^2 \left[  p(1-p)\sin ^2\theta \sin^2 \phi + \sin^4 \frac{\theta}{2} (1-|f_N|^2)\right] 
+\end{equation*}
+The initial ergotropy is 
+\begin{align*}
+  \mathcal{E} \left[ \rho^{(1)}_{C_3} \right]  
+  & = B \left( 2\sin^2 \frac{\theta }{2} - 1 + \sqrt{1 - 4p(1-p)\sin ^2\theta \sin^2 \phi}  \right) 
+\end{align*}
+and the final state
+\begin{multline*}
+      \mathcal{E} \left[ \rho^{(N)}_{C_3} \right]     = B \bigg( 2\sin^2 \frac{\theta }{2} |f_N|^2 - 1 
+  \\  \qquad+  \sqrt{1 - 4|f_N|^2 \left[ p(1-p)\sin ^2\theta \sin^2 \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right]}  \bigg)    
+\end{multline*}
+The population ergotropy for both 
+\begin{equation*}
+  \mathcal{E}_\text{pop} \left[ \rho^{(1)}_{C_3} \right]= 2B(2 \sin^2 \frac{\theta }{2 }-1)  
+\end{equation*}
+and
+\begin{equation*}
+  \mathcal{E}_\text{pop} \left[ \rho^{(N)}_{C_3} \right]= 2B(2 |f_N|^2\sin ^2\frac{\theta}{2 }-1)  
+\end{equation*}
+And the coherence ergotropy
+\begin{align*}
+  \mathcal{E}_\text{coh}\left[ \rho^{(1)}_{C_3}\right]
+  & = B \left[  1 - 2 \sin ^2 \frac{\theta }{2} + \sqrt{1-4p(1-p)\sin ^2\theta \sin^2 \phi}  \right] 
+\end{align*}
+and
+\begin{multline*}
+    \mathcal{E}_\text{coh}\left[ \rho^{(N)}_{C_3}\right]
+  = B \bigg[  1 - 2 |f_N|^2\sin ^2 \frac{\theta }{2} \\
+  + \sqrt{1-4 |f_N|^2 \left[ p(1-p)\sin ^2\theta \sin^2 \phi 
+  + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] }  \bigg] 
+\end{multline*}
 
+\subsubsection{Derivation: ergotropy for fourth mixed state.}
 Finally, the $C_4(\theta_1=-\theta_2,\phi_1=\phi_2)$ constraint
 \begin{align*}
   \rho^{(1)}_{C_4} & = 
