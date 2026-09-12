@@ -538,6 +538,10 @@ and
 \begin{equation*}
   \mathcal{E}\left[ \rho_{\text{mix}}^{(N)} \right] = 2[2q |f_N|^2 - 1]
 \end{equation*}
+Both still dependent on $\theta$, so by averaging it over the Bloch sphere we can have a quantity that characterize the quantum channel as a channel for ergotropy transport
+\begin{equation*}
+    \braket{\mathcal{E}_\text{coh}} = |f_N|^2-1 + \frac{\arcsin 2|f_N|\sqrt{1-|f_N|^2 }}{4|f_N|\sqrt{1-|f_N|^2}} + \frac{1 }{2} |1-2|f_N|^2 |
+\end{equation*}
 
 Now suppose we create an ensemble the pure state
 \begin{equation*}
@@ -577,9 +581,9 @@ Equivalently, the negative $\theta$ constraint can be represented by $(\theta_2=
     \draw[thick,->] (0,0,0) -- (0,1.1,0) node[anchor=north west]{$y$};
 
     \def\r{1}
-    \def\th{50} 
+    \def\th{60} 
     \def\thm{-\th} 
-    \def\ph{40}
+    \def\ph{35}
     \def\phm{-\ph}
     \pgfmathsetmacro{\rxy }{sin(\th)}
     \pgfmathsetmacro{\rxym}{sin(\thm)}
@@ -593,14 +597,14 @@ Equivalently, the negative $\theta$ constraint can be represented by $(\theta_2=
     \tdplotsetcoord{OO}{\r}{0}{0}
     
     \draw[thick,->,>=Stealth] (O) -- (A) node [anchor=south east]{$\ket{\psi_1}$};
-    \draw[thick,->,>=Stealth] (O) -- (A1) node [anchor=south west]{$\ket{\psi_2}$};
+    \draw[thick,dashed,->,>=Stealth] (O) -- (A1) node [anchor=south west]{$\ket{\psi_2}$};
     \draw[thick,->,>=Stealth] (O) -- (A2) node [anchor=south west]{$\ket{\psi_3}$};
-    \draw[thick,->,>=Stealth] (O) -- (A3) node [anchor=north east]{$\ket{\psi_4}$};
+    \draw[thick,dashed,->,>=Stealth] (O) -- (A3) node [anchor=north east]{$\ket{\psi_4}$};
     \draw[thick,->,>=Stealth] (O) -- (OO) node [anchor=south]{$\ket{0}$};
     
     \tdplotdrawarc[->]{(O)}{\rxy}{0}{\ph}{anchor=south}{$\phi$}
     \tdplotsetthetaplanecoords{\ph}
-    \tdplotdrawarc[->,tdplot_rotated_coords]{(0,0,0)}{\r}{0}{\th}{anchor=south west}{$\theta/2$}
+    \tdplotdrawarc[->,tdplot_rotated_coords]{(0,0,0)}{\r}{0}{\th}{anchor=north west}{$\theta$}
 
     \draw[dashed]  (O) -- (Axy);
     \draw[dashed]  (A) -- (Axy);
@@ -645,7 +649,7 @@ and
 The population ergotropy for both 
 \begin{equation*}
   \mathcal{E}_\text{pop} \left[ \rho^{(1)}_{C_2} \right]= 2B(2 \sin^2 \frac{\theta }{2 }-1)  \qquad
-    \mathcal{E}_\text{pop} \left[ \rho^{(N)}_{C_2} \right]= 2B(2 |f_N|^2\sin^2 \frac{\theta}{2 }-1)  
+  \mathcal{E}_\text{pop} \left[ \rho^{(N)}_{C_2} \right]= 2B(2 |f_N|^2\sin^2 \frac{\theta}{2 }-1)  
 \end{equation*}
 And the coherence ergotropy
 \begin{align*}
@@ -659,6 +663,7 @@ and
   + \sqrt{1-4 |f_N|^2 \left[ p(1-p)\sin ^2\theta \cos^2 \phi 
   + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] }  \bigg] 
 \end{multline*}
+Recall that this only apply for $\rho_{11}>0.5$, else it's equal to the total ergotropy.
 
 Next the $C_3$ constraint.
 The full ergotropy is
@@ -740,22 +745,25 @@ Therefore the ergotropy
    = B(2\rho_{11}- 1 + \sqrt{1-4 \det \rho})
 \end{equation*}
 
-For the case of population inversion, the derivation is very simple
+For the case of population inversion, by assuming that $\rho_{11}\geq 0.5$, the derivation is very simple
 \begin{align*}
   \mathcal{E}_\text{pop}(\rho)
   & = B(\rho_{11}-\rho_{00}) -  B(\rho_{00}-\rho_{11})\\
   & = B(\rho_{11}-\rho_{00}) +  B(\rho_{11}-\rho_{00})\\
   & = 2B(\rho_{11}-\rho_{00}) = 2B(2\rho_{11}-1)
 \end{align*}
-Alternatively, by assuming that $\rho_{11}\geq 0.5$ we can use our previous equation
+Alternatively,  we can use our previous equation
 \begin{align*}
   \mathcal{E}_\text{pop} [\rho]  
   & = B \left[ 2\rho_{11}-1+ \sqrt{1-4(1-\rho_{11})\rho_{11}} \right] \\
   & = B \left[ 2\rho_{11}-1+ \sqrt{(1 - 2\rho_{11})^2 } \right] \\
-  & = B \left[ 2\rho_{11}-1+ ( 2\rho_{11} -1 )\right] \\ 
-    \mathcal{E}_\text{pop} [\rho]  
-  & = B \left[ 4\rho_{11}-2 \right]
+  \mathcal{E}_\text{pop} [\rho]  
+  & = B \left[ 2\rho_{11}-1+ |1 - 2\rho_{11}|\right] \\ 
 \end{align*}
+And by using $x+|x| = 2 \max (x,0)$ identify, we can obtain the most general formula without assuming $\rho_{11}>0.5$
+\begin{equation*}
+    \mathcal{E}_\text{pop} [\rho]  = 2B \max \left[ 2\rho_{11}-1,0 \right] 
+\end{equation*}
 
 The coherence-associated ergotropy from coherence can be calculated 
 \begin{align*}
