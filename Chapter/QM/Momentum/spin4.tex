@@ -383,12 +383,8 @@ The Hamiltonian now reads
 \end{equation*}
 and has the action on one excitation state of
 \begin{equation*}
-    H \ket{k } =
-    \begin{cases}
-        -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} +2 \sum_{j=2}^{N} J_{1j} \ket{k}  -2B\ket{k}      & k=1              \\\\
-        -2\sum_{i \neq k}J_{ik}  \ket{i} +2 \sum_{i \neq k}  J_{ik}\ket{k} -2B\ket{k}       & 2\leq k \leq N-1 \\\\
-        -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} +2 \sum_{i=1}^{N-1} J_{iN} \ket{k}  -2B \ket{k} & k=N
-    \end{cases}
+    H \ket{\mathbf{j} } =
+    -2\sum_{i \neq j}J_{ij}  \ket{\mathbf{i}} +2 \sum_{i \neq j}  J_{ij}\ket{\mathbf{j}} -2B\ket{\mathbf{j}}       
 \end{equation*}
 the boundary cases are already contained in the interior formula.
 The matrix element in this case is
@@ -648,56 +644,52 @@ Now at opposite end
     H \ket{\mathbf{N}}
      & =   -2\sum_{i<j}J_{ij}  P_{ij}\ket{\mathbf{N}}  + \sum_{i<j} J_{ij}\ket{\mathbf{N}} - \sum_{i } ^N B \sigma_{3i}\ket{\mathbf{N}} \\
      & =   -2 \sum_{i=1}^{N-1}  J_{iN} P_{iN} \ket{\mathbf{N}} - 2\sum_{\substack{i<j                                 \\j < N}} J_{ij}  P_{ij}\ket{\mathbf{N}} + \sum_{i<j}  J_{ij} \ket{\mathbf{N}} + B(N-2)\ket{\mathbf{N}} \\
-     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} - 2\sum_{\substack{i<j                                        \\j < N}} J_{ij} \ket{\mathbf{N}} + \sum_{i<j}  J_{ij} \ket{\mathbf{N}} + B(N-2)\ket{\mathbf{N}} \\
-     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} -\sum_{\substack{i<j                                          \\j<N}} J_{ij} \ket{\mathbf{N}} + \sum_{i=1}^{N-1} J_{iN} \ket{\mathbf{N}}  + B(N-2)\ket{\mathbf{N}}
+     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{\mathbf{i}} - 2\sum_{\substack{i<j                                        \\j < N}} J_{ij} \ket{\mathbf{N}} + \sum_{i<j}  J_{ij} \ket{\mathbf{N}} + B(N-2)\ket{\mathbf{N}} \\
+     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{\mathbf{i}} -\sum_{\substack{i<j                                          \\j<N}} J_{ij} \ket{\mathbf{N}} + \sum_{i=1}^{N-1} J_{iN} \ket{\mathbf{N}}  + B(N-2)\ket{\mathbf{N}}
 \end{align*}
 Now set the ground state to zero, that is we define $H \to H -E_0$
 \begin{equation*}
-    H \ket{\mathbf{N}} =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} +2 \sum_{i=1}^{N-1} J_{iN} \ket{\mathbf{N}}  -2B \ket{\mathbf{N}}
+    H \ket{\mathbf{N}} =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{\mathbf{i}} +2 \sum_{i=1}^{N-1} J_{iN} \ket{\mathbf{N}}  -2B \ket{\mathbf{N}}
 \end{equation*}
 Next on the interior site
 \begin{equation*}
-    H \ket{k}
-    =   -2\sum_{i<j}J_{ij}  P_{ij}\ket{k}  + \sum_{i<j} J_{ij}\ket{k} - \sum_{i } ^N B \sigma_{3i}\ket{k}
+    H \ket{\mathbf{k}}
+    =   -2\sum_{i<j}J_{ij}  P_{ij}\ket{\mathbf{k}}  + \sum_{i<j} J_{ij}\ket{\mathbf{k}} - \sum_{i } ^N B \sigma_{3i}\ket{\mathbf{k}}
 \end{equation*}
 Here we split the summation based on whether the pair $(i,j)$ contains the site $k$.
 There are 3 possible cases: $i=k$, $j \neq k$; $j=k$, $i \neq k$; $i \neq  k$, $j \neq k$
 \begin{align*}
-    -2\sum_{i<j}J_{ij}  P_{ij}\ket{k}
-     & =    -2\sum_{k<j}J_{kj}  P_{kj}\ket{k} -2\sum_{i<k}J_{ik}  P_{ik}\ket{k}  -2\sum_{\substack{i<j \\i,j \neq k}}J_{ij}  P_{ij}\ket{k} \\
-     & =    -2\sum_{k<j}J_{kj}\ket{\mathbf{j}} -2\sum_{i<k}J_{ik}  \ket{i}  -2\sum_{\substack{i<j               \\i,j \neq k}}J_{ij}\ket{k} \\
-     & = -2\sum_{i \neq k}J_{ik}  \ket{i} - 2\sum_{\substack{i<j                                       \\i,j \neq k}}J_{ij}\ket{k}
+    -2\sum_{i<j}J_{ij}  P_{ij}\ket{\mathbf{k}}
+     & =    -2\sum_{k<j}J_{kj}  P_{kj}\ket{\mathbf{k}} -2\sum_{i<k}J_{ik}  P_{ik}\ket{\mathbf{k}}  -2\sum_{\substack{i<j \\i,j \neq k}}J_{ij}  P_{ij}\ket{\mathbf{k}} \\
+     & =    -2\sum_{k<j}J_{kj}\ket{\mathbf{j}} -2\sum_{i<k}J_{ik}  \ket{\mathbf{i}}  -2\sum_{\substack{i<j               \\i,j \neq k}}J_{ij}\ket{\mathbf{k}} \\
+     & = -2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - 2\sum_{\substack{i<j                                       \\i,j \neq k}}J_{ij}\ket{\mathbf{k}}
 \end{align*}
 where we have combined the sum over $k<j$ with $j<k$ into single $i \neq k$.
 The action now reads
 \begin{align*}
-    H \ket{k}
-     & =-2\sum_{i \neq k}J_{ik}  \ket{i} - 2\sum_{\substack{i<j \\i,j \neq k}}J_{ij}\ket{k}   + \sum_{i<j} J_{ij}\ket{k} - \sum_{i } ^N B \sigma_{3i}\ket{k} \\
-     & =-2\sum_{i \neq k}J_{ik}  \ket{i} - 2\sum_{\substack{i<j \\i,j \neq k}}J_{ij}\ket{k}   + \sum_{\substack{i<j\\i,j \neq k}}J_{ij} \ket{k}+ \sum_{i \neq k}  J_{ik}\ket{k} + B(N-2)\ket{k} \\
-     & =-2\sum_{i \neq k}J_{ik}  \ket{i} - \sum_{\substack{i<j  \\i,j \neq k}}J_{ij}\ket{k} + \sum_{i \neq k}  J_{ik}\ket{k} + B(N-2)\ket{k}
+    H \ket{\mathbf{k}}
+     & =-2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - 2\sum_{\substack{i<j \\i,j \neq k}}J_{ij}\ket{\mathbf{k}}   + \sum_{i<j} J_{ij}\ket{\mathbf{k}} - \sum_{i } ^N B \sigma_{3i}\ket{\mathbf{k}} \\
+     & =-2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - 2\sum_{\substack{i<j \\i,j \neq k}}J_{ij}\ket{\mathbf{k}}   + \sum_{\substack{i<j\\i,j \neq k}}J_{ij} \ket{\mathbf{k}}+ \sum_{i \neq k}  J_{ik}\ket{\mathbf{k}} + B(N-2)\ket{\mathbf{k}} \\
+     & =-2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - \sum_{\substack{i<j  \\i,j \neq k}}J_{ij}\ket{\mathbf{k}} + \sum_{i \neq k}  J_{ik}\ket{\mathbf{k}} + B(N-2)\ket{\mathbf{k}}
 \end{align*}
 Setting the ground state to zero
 \begin{align*}
-    H \ket{k}
-     & =-2\sum_{i \neq k}J_{ik}  \ket{i} - \sum_{\substack{i<j                        \\i,j \neq k}}J_{ij}\ket{k} + \sum_{i \neq k}  J_{ik}\ket{k} + B(N-2)\ket{k} \\
-     & \qquad +\sum_{i \neq k}J_{ik}\ket{k} +\sum_{\substack{i<j                      \\i,j \neq k}}J_{ij}\ket{k} -BN   \ket{k}\\
-    H \ket{k}
-     & =-2\sum_{i \neq k}J_{ik}  \ket{i} +2 \sum_{i \neq k}  J_{ik}\ket{k} -2B\ket{k}
+    H \ket{\mathbf{k}}
+     & =-2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - \sum_{\substack{i<j                        \\i,j \neq k}}J_{ij}\ket{\mathbf{k}} + \sum_{i \neq k}  J_{ik}\ket{\mathbf{k}} + B(N-2)\ket{\mathbf{k}} \\
+     & \qquad +\sum_{i \neq k}J_{ik}\ket{\mathbf{k}} +\sum_{\substack{i<j                      \\i,j \neq k}}J_{ij}\ket{\mathbf{k}} -BN   \ket{\mathbf{k}}\\
+    H \ket{\mathbf{k}}
+     & =-2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} +2 \sum_{i \neq k}  J_{ik}\ket{\mathbf{k}} -2B\ket{\mathbf{k}}
 \end{align*}
 We see that by imposing $J= J\delta_{|i-j|,1}$,  we recover the nearest neighbor result
 \begin{align*}
-    H \ket{k}
-    = -2(J \ket{k-1}+J\ket{k+1}) + 2 (J+J) \ket{k}- 2B \ket{k}
+    H \ket{\mathbf{k}}
+    = -2(J \ket{\mathbf{k}-1}+J\ket{\mathbf{k}+1}) + 2 (J+J) \ket{\mathbf{k}}- 2B \ket{\mathbf{k}}
 \end{align*}
 for fixed $k$.
 Therefore
 \begin{equation*}
-    H \ket{k } =
-    \begin{cases}
-        -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} +2 \sum_{j=2}^{N} J_{1j} \ket{k}  -2B\ket{k}      & k=1              \\\\
-        -2\sum_{i \neq k}J_{ik}  \ket{i} +2 \sum_{i \neq k}  J_{ik}\ket{k} -2B\ket{k}       & 2\leq k \leq N-1 \\\\
-        -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} +2 \sum_{i=1}^{N-1} J_{iN} \ket{k}  -2B \ket{k} & k=N
-    \end{cases}
+    H \ket{\mathbf{j} } =
+    -2\sum_{i \neq j}J_{ij}  \ket{\mathbf{i}} +2 \sum_{i \neq j}  J_{ij}\ket{\mathbf{j}} -2B\ket{\mathbf{j}}       
 \end{equation*}
 the boundary cases are already contained in the interior formula.
 The matrix element in this case is
@@ -727,19 +719,38 @@ and
 \end{align*}
 Next on the interior
 \begin{align*}
-    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{k}
-     & =\sum_{k<j}J_{kj}\sigma^z_k \sigma^z_j\ket{k} + \sum_{i<k}J_{ik} \sigma^z_i \sigma^z_k\ket{k}  + \sum_{\substack{i<j \\i,j \neq k}}J_{ij}\sigma^z_i \sigma^z_j\ket{k} \\
-     & = - \sum_{k<j}J_{kj} \ket{k} - \sum_{i<k}J_{ik} \ket{k}  + \sum_{\substack{i<j                                       \\i,j \neq k}}J_{ij} \ket{k} \\
-     & = - \sum_{i \neq k} J_{ik} \ket{k}  + \sum_{\substack{i<j                                                            \\i,j \neq k}}J_{ij} \ket{k} 
+    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{\mathbf{k}}
+     & =\sum_{k<j}J_{kj}\sigma^z_k \sigma^z_j\ket{\mathbf{k}} + \sum_{i<k}J_{ik} \sigma^z_i \sigma^z_k\ket{\mathbf{k}}  + \sum_{\substack{i<j \\i,j \neq k}}J_{ij}\sigma^z_i \sigma^z_j\ket{\mathbf{k}} \\
+     & = - \sum_{k<j}J_{kj} \ket{\mathbf{k}} - \sum_{i<k}J_{ik} \ket{\mathbf{k}}  + \sum_{\substack{i<j                                       \\i,j \neq k}}J_{ij} \ket{\mathbf{k}} \\
+    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{\mathbf{k}}
+     & = - \sum_{i \neq k} J_{ik} \ket{\mathbf{k}}  + \sum_{\substack{i<j                                                            \\i,j \neq k}}J_{ij} \ket{\mathbf{k}} 
 \end{align*}
+The second sum is hard to perform computationally, so we split the sum like previously
+\begin{align*}
+    \sum_{k<l} J_{kl}
+     & = \sum_{k<i}J_{ki}+ \sum_{i<l}J_{il}   + \sum_{\substack{k<l \\k,l \neq i}}J_{kl}
+    =  \sum_{k \neq i} J_{ik}   + \sum_{\substack{k<l\\k,l \neq i}}J_{kl}\\
+    \sum_{\substack{k<l\\k,l \neq i}}J_{kl}
+     & =     \sum_{k<l} J_{kl} -  \sum_{k \neq i} J_{ik}
+\end{align*}
+% to obtain
+% \begin{equation*}
+%     H_{ij} =
+%     \begin{cases}
+%         H_{ij} = -2 J_{ij} & i\neq j    \\\\
+%         H_{ij} =  3 \sum_{k<l} J_{kl} - 4\sum_{k \neq i}  J_{ik} -2B & i=j
+%     \end{cases}
+% \end{equation*}
+% with $\sum_{k<l} J_{kl} = J_{\text{tot}}$.
+This simplifies the result
+\begin{equation*}
+    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{\mathbf{k}}
+    = - 2 \sum_{i \neq k} J_{ik} \ket{\mathbf{k}}  + \sum_{i<j} J_{ij} \ket{\mathbf{k}}
+\end{equation*}
 Adding these action
 \begin{equation*}
-    H \ket{k } =
-    \begin{cases}
-        -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} - \sum_{j=2}^{N} J_{1j} \ket{k}+3 \sum_{\substack{2\leq i   \\i<j}} J_{ij} \ket{k}  -2B\ket{k} & k=1              \\\\
-        -2\sum_{i \neq k}J_{ik}  \ket{i} - \sum_{i \neq k}  J_{ik}\ket{k} +3 \sum_{\substack{i<j      \\i,j \neq k}}J_{ij} \ket{k} -2B\ket{k} & \begin{matrix}1< k\\k<N \end{matrix} \\\\
-        -2 \sum_{i=1}^{N-1}  J_{iN} \ket{i} - \sum_{i=1}^{N-1} J_{iN} \ket{k} + 3 \sum_{\substack{i<j \\j<N}} J_{ij} \ket{k} -2B \ket{k}& k=N
-    \end{cases}
+    H \ket{\mathbf{k} } =
+    -2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - \sum_{i \neq k}  J_{ik}\ket{\mathbf{k}} +3 \sum_{\substack{i<j      \\i,j \neq k}}J_{ij} \ket{\mathbf{k}} -2B\ket{\mathbf{k}} 
 \end{equation*}
 we have the matrix element
 \begin{equation*}
@@ -749,23 +760,7 @@ we have the matrix element
         H_{ij} =  3 \sum_{\substack{k<l \\k,l \neq i}} J_{kl} - \sum_{k \neq i}  J_{ik} -2B & i=j
     \end{cases}
 \end{equation*}
-The first sum is hard to perform computationally, so we split the sum like previously
-\begin{align*}
-    \sum_{k<l} J_{kl}
-     & = \sum_{k<i}J_{ki}+ \sum_{i<l}J_{il}   + \sum_{\substack{k<l \\k,l \neq i}}J_{kl}
-    =  \sum_{k \neq i} J_{ik}   + \sum_{\substack{k<l\\k,l \neq i}}J_{kl}\\
-    \sum_{\substack{k<l\\k,l \neq i}}J_{kl}
-     & =     \sum_{k<l} J_{kl} -  \sum_{k \neq i} J_{ik}
-\end{align*}
-to obtain
-\begin{equation*}
-    H_{ij} =
-    \begin{cases}
-        H_{ij} = -2 J_{ij} & i\neq j    \\\\
-        H_{ij} =  3 \sum_{k<l} J_{kl} - 4\sum_{k \neq i}  J_{ik} -2B & i=j
-    \end{cases}
-\end{equation*}
-with $\sum_{k<l} J_{kl} = J_{\text{tot}}$ 
+
 
 \subsection{Open Chain XX Heisenberg Hamiltonian}
 The Heisenberg Hamiltonian in this case only exists in $xy$ plane
@@ -805,6 +800,34 @@ The eigenstates and eigenvalue of this Hamiltonian is
     E_m = -2J \cos \frac{m \phi }{N+1}
 \end{equation*}
 with $m=1,\dots$.
+
+For long-range interaction, the Hamiltonian action on one-excitation state is
+\begin{equation*}
+H_{\mathrm{XX}}\ket{\mathbf j}
+=
+-2\sum_{i\neq j}J_{ij}\ket{\mathbf i}
+-2B\ket{\mathbf j}
+\end{equation*}
+and the representation reads 
+\begin{equation*}
+    H_{ij} =
+    \begin{cases}
+        H_{ij} =- 2J_{ij}                     & i\neq j \\\\
+        H_{ii} = -2B & i=j
+    \end{cases}
+\end{equation*}
+This comes easily from
+\begin{gather*}
+    \sigma_i^x\sigma_j^x+\sigma_i^y\sigma_j^y=
+    2P_{ij}-I-\sigma_i^z\sigma_j^z\\
+    H_{XXX} \ket{\mathbf{j} } =
+    -2\sum_{i \neq j}J_{ij}  \ket{\mathbf{i}} +2 \sum_{i \neq j}  J_{ij}\ket{\mathbf{j}} -2B\ket{\mathbf{j}}    \\       
+    \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{\mathbf{k}}
+    = - 2 \sum_{i \neq k} J_{ik} \ket{\mathbf{k}}  + \sum_{i<j} J_{ij} \ket{\mathbf{k}}\\
+    E_0 = -\sum_{i<j}J_{ij}    
+\end{gather*}
+which I derived in long-range section.
+Also note that we use the shifted energy.
 
 \subsubsection{Derivation.}
 First we determine the ground state

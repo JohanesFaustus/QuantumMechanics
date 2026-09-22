@@ -528,7 +528,7 @@ First note that the local Hamiltonian in this case is
 The initial ergotropy for both cases are 
 \begin{equation*}
   \mathcal{E}\left[ \rho_{\text{pure}}^{(1)} \right]  = 2B|\beta|^2 \qquad
-  \mathcal{E}\left[ \rho_{\text{mix}}^{(1)} \right] 2B (2q-1) 
+  \mathcal{E}\left[ \rho_{\text{mix}}^{(1)} \right] = 2B (2q-1) 
 \end{equation*}
 As for the transferred ergotropy
 \begin{equation*}
@@ -694,7 +694,7 @@ and
   + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] }  \bigg] 
 \end{multline*}
 
-\subsubsection{Derivation: general ergotropy.}
+\subsubsection{Derivation: general ergotropy and purity.}
 Recall the state evolution $\rho^{(1)}(0) \rightarrow \rho^{(N)}(t)$
 \begin{equation*}
   \begin{bmatrix}
@@ -787,8 +787,62 @@ can be used to determine the evolved state
   \det \rho^{(N)}& = (1-\rho^{(1)}_{11}|f_N|^2)\rho^{(1)}_{11}|f_N|^2 - |\rho^{(1)}_{01}f_N|^2\\
   & = |f_N|^2 (\rho^{(1)}_{11}-{\rho^{(1)}_{11}}{}^2|f_N|^2-|\rho^{(1)}_{01}|^2)\\
   & = |f_N|^2(\rho^{(1)}_{11} - \rho^{(1)}_{11}{}^2-|\rho^{(1)}_{01}|^2 + \rho^{(1)}_{11}{}^2 - {\rho^{(1)}_{11}}{}^2|f_N|^2)\\
-  \det \rho^{(N)}& = |f_N|^2[\det \rho^{(1)}+ \rho^{(1)}_{11}{}^2(1-|f_N|^2)]
+  \det \rho^{(N)}& 
+  = |f_N|^2[\det \rho^{(1)}+ \rho^{(1)}_{11}{}^2(1-|f_N|^2)]
 \end{align*}
+
+The general expression for $2 \times 2$ density matrix purity is
+\begin{align*}
+\mathrm{Tr} 
+(\rho^2)
+&=
+\mathrm{Tr} 
+\begin{pmatrix}
+\rho_{00} & \rho_{01}\\
+\rho_{10} & \rho_{11}
+\end{pmatrix}
+\begin{pmatrix}
+\rho_{00} & \rho_{01}\\
+\rho_{10} & \rho_{11}
+\end{pmatrix}
+\\
+&=
+\mathrm{Tr} 
+\begin{pmatrix}
+\rho_{00}^2+\rho_{01}\rho_{10}
+&
+\rho_{00}\rho_{01}+\rho_{01}\rho_{11}
+\\
+\rho_{10}\rho_{00}+\rho_{11}\rho_{10}
+&
+\rho_{10}\rho_{01}+\rho_{11}^2
+\end{pmatrix}
+\\
+\mathrm{Tr} 
+(\rho^2)
+&=
+\rho_{00}^2+\rho_{11}^2
++2|\rho_{01}|^2
+\end{align*}
+Using $\lambda_\pm = (1\pm \sqrt{1- \det \rho})/2$ we have 
+\begin{equation*}
+    \lambda_+ + \lambda_-  = \mathrm{Tr} \rho =1\qquad 
+    \lambda_+\lambda_- = \det \rho
+\end{equation*}
+Hence we can express the trace in terms of determinant
+\begin{equation*}
+  \mathrm{Tr} (\rho^2) = (\lambda_1+\lambda_2)^2-2\lambda_1\lambda_2 = 1-2\det\rho
+\end{equation*}
+Alternatively, since $\det \rho = \rho_{00}\rho_{11}-|\rho_{01}|^2$
+\begin{align*}
+    \mathrm{Tr} (\rho^2) & =  (\rho_{00}+\rho_{11})^2  - 2\rho_{00}\rho_{11} + 2|\rho_{01}|^2\\
+&=1-2\left(\rho_{00}\rho_{11}-|\rho_{01}|^2\right)=1-2\det\rho
+\end{align*}
+The purity of the first state is trivial, so for the final state
+\begin{equation*}
+  \mathrm{Tr} [\rho^{(N)}] =
+  1-  2 |f_N|^2[\det \rho^{(1)}+ \rho^{(1)}_{11}{}^2(1-|f_N|^2)]
+\end{equation*}
 
 \subsubsection{Derivation: ergotropy for pure and mixed state.}
 The initial state can be written respectively as 
@@ -1171,4 +1225,39 @@ Therefore
 \begin{equation*}
     \braket{\mathcal{E}_\text{coh}} = |f_N|^2-1 + \frac{\arcsin 2|f_N|\sqrt{1-|f_N|^2 }}{4|f_N|\sqrt{1-|f_N|^2}} + \frac{1 }{2} |1-2|f_N|^2 |
 \end{equation*}
+
+\subsubsection{Derivation: Purity.}
+Using determinant obtained earlier, we plug into the general formula
+\begin{align*}
+\mathrm{Tr}\left[\left(\rho^{(N)}_{C_2}\right)^2\right]
+=
+1
+-2|f_N|^2
+\left[
+p(1-p)\sin^2\theta\cos^2\phi
++
+\sin^4\frac{\theta}{2}
+\left(1-|f_N|^2\right)
+\right]
+\end{align*}
+As sanity check, $p=1$ reduce into pure state case derived earlier
+\begin{equation*}
+\mathrm{Tr}\left[\left(\rho^{(N)}_{C_2}\right)^2\right] = 
+  1
+-2\sin^4\frac{\theta}{2}
+|f_N|^2(1-|f_N|^2)
+\end{equation*}
+As for the third constraints
+\begin{align*}
+\mathrm{Tr}\left[\left(\rho^{(N)}_{C_3}\right)^2\right]
+=
+1
+-2|f_N|^2
+\left[
+p(1-p)\sin^2\theta\sin^2\phi
++
+\sin^4\frac{\theta}{2}
+\left(1-|f_N|^2\right)
+\right]
+\end{align*}
 \end{document}
