@@ -838,11 +838,31 @@ Alternatively, since $\det \rho = \rho_{00}\rho_{11}-|\rho_{01}|^2$
     \mathrm{Tr} (\rho^2) & =  (\rho_{00}+\rho_{11})^2  - 2\rho_{00}\rho_{11} + 2|\rho_{01}|^2\\
 &=1-2\left(\rho_{00}\rho_{11}-|\rho_{01}|^2\right)=1-2\det\rho
 \end{align*}
-The purity of the first state is trivial, so for the final state
+The purity of the first state is trivial so for the final state
 \begin{equation*}
   \mathrm{Tr} [\rho^{(N)}] =
   1-  2 |f_N|^2[\det \rho^{(1)}+ \rho^{(1)}_{11}{}^2(1-|f_N|^2)]
 \end{equation*}
+Then the purity difference can be expressed as follows
+
+\begin{align*}
+P_N-P_1
+&=
+-2|f_N|^2\det\rho^{(1)}
+-2|f_N|^2(\rho_{11}^{(1)})^2(1-|f_N|^2)
++2\det\rho^{(1)}
+\\
+&=
+2\det\rho^{(1)}(1-|f_N|^2)
+-2|f_N|^2(\rho_{11}^{(1)})^2(1-|f_N|^2)
+\\
+&=
+2(1-|f_N|^2)
+\left[
+\det\rho^{(1)}
+-|f_N|^2(\rho_{11}^{(1)})^2
+\right]
+\end{align*}
 
 \subsubsection{Derivation: ergotropy for pure and mixed state.}
 The initial state can be written respectively as 
@@ -1009,6 +1029,33 @@ z'
 \end{cases}
 \end{equation*}
 
+\subsubsection{Derivation: Ideal initial state.}
+From the derived ergotropy
+\begin{align*}
+  \mathcal{E} \left[ \rho^{(1)}_{C_3} \right]  
+  & = B \left( 2\sin^2 \frac{\theta }{2} - 1 + \sqrt{1 - 4p(1-p)\sin ^2\theta \sin^2 \phi}  \right) 
+\end{align*}
+we want to obtain initial state in which the coherence and population have the same contribution.
+With $\theta > \pi/2$, we have 
+\begin{align*}
+  4 \sin^2 \frac{\theta }{2 }-2    & =   1 - 2 \sin ^2 \frac{\theta }{2} + \sqrt{1-4p(1-p)\sin ^2\theta \sin^2 \phi} \\
+  3\left( 2\sin^2\frac{\theta}{2}-1 \right) & = \sqrt{1-4p(1-p)\sin^2\theta\sin^2\phi}\\
+  - 3\cos\theta & = 
+  \sqrt{1-4p(1-p)\sin^2\theta\sin^2\phi}
+\end{align*}
+Since \(\theta>\pi/2\), the right-hand side is positive as required.
+Writing it as $3 \cos \theta$ then squaring it 
+\begin{align*}
+  9\cos^2\theta & = 
+  1-4p(1-p)\sin^2\theta\sin^2\phi\\
+  p^2-p & = 
+  - \frac{1-9\cos^2\theta}{4\sin^2\theta\sin^2\phi}\\
+  p & = \frac{1 }{2 }\pm \frac{1 }{2} \sqrt{1 - \frac{1-9\cos^2\theta}{\sin^2\theta\sin^2\phi}}
+\end{align*}
+Since qubit ergotropy is symmetric around $p=1/2$, we can select the minus branch 
+\begin{equation*}
+  p  = \frac{1 }{2 } - \frac{1 }{2} \sqrt{1 - \frac{1-9\cos^2\theta}{\sin^2\theta\sin^2\phi}}
+\end{equation*}
 
 \subsubsection{Derivation: ergotropy for second mixed state.}
 We impose then the constraint of $C_2(\theta_1=-\theta_2,\phi_1=-\phi_2)$, to get
