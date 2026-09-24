@@ -1,0 +1,931 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Ergotropy of Qubit}
+
+\subsubsection{General formula.}
+The ergotropy of a qubit in state $\rho$ is given by
+\begin{equation*}
+  \mathcal{E} [\rho]
+  = B(2\rho_{11}- 1 + \sqrt{1-4 \det \rho})
+\end{equation*}
+Assuming that the higher level energy have higher population, that is $\rho_{11}>0.5$, we have ergotropy due to population inversion
+\begin{equation*}
+  \mathcal{E}_\text{pop}(\rho)
+  = 2B(\rho_{11}-\rho_{00}) = 2B(2\rho_{11}-1)
+\end{equation*}
+Then the ergotropy associated with coherence is
+\begin{equation*}
+  \mathcal{E}_\text{coh}[\rho]
+  = B \left[  1 - 2 \rho_{11} + \sqrt{(1-2\rho_{11})^2+ 4|\rho_{01}|^2}  \right]
+\end{equation*}
+This value is basically how much ergotropy is lost when I remove the coherence while keeping the populations unchanged.
+Making the state diagonal, in other words.
+Note the explicit dependence on diagonal element of this ergotropy, the coherence ergotropy is zero if $\rho_{01}=0$.
+Writing the state as
+\begin{equation*}
+  \rho
+  =
+  \frac12\left(\mathbf{1}+\mathbf r\cdot\boldsymbol{\sigma}\right)
+  =
+  \frac12
+  \begin{pmatrix}
+    1+z  & x-iy \\
+    x+iy & 1-z
+  \end{pmatrix}
+\end{equation*}
+makes the geometric interpretation of coherence very clear: coherence is associated with $xy$ place projection.
+
+\subsubsection{Pure and mixed state.}
+Suppose we are given the pure and mixed state of spin chain in the form
+\begin{gather*}
+  \ket{\psi(0)} = \left(\alpha\ket{0}_1 + \beta\ket{1}_1\right)\bigotimes_{i=2}^{N}\ket{0}_i  = \alpha\ket{\mathbf{0}} + \beta\ket{\mathbf{1}}\\
+  \rho(0) = \left(q\ket{1}\bra{1}_1 + (1-q)\ket{0}\bra{0}_1\right)\bigotimes_{i=2}^{N}\ket{0}\bra{0}_i = q\ket{\mathbf{1}}\bra{\mathbf{1}} + (1-q)\ket{\mathbf{0}}\bra{\mathbf{0}}
+\end{gather*}
+with $q = (1+|\beta^2|)/2$.
+The first lines written in such way to demonstrate that the first site of spin chain is initially pure and mixed respectively.
+Also, we do not simply set $q=|\beta|^2$ so that, with the same choice of $\alpha$ and $\beta$, the initial state of both pure state and mixed state encode the same initial ergotropy.
+Alternatively, the state can be written as
+\begin{equation*}
+  \rho_\text{coh}
+  = \begin{bmatrix}
+    \alpha^2    & \alpha\beta^* \\
+    \alpha\beta & |\beta|^2
+  \end{bmatrix}
+  \qquad
+  \rho_\text{mix}
+  = \begin{bmatrix}
+    1-q & 0 \\
+    0   & q
+  \end{bmatrix}
+\end{equation*}
+As usual the pure state exist on the surface of Bloch sphere, while the mixed state on the interior, specifically on $z$ axis with $z = 1-2q$.
+First note that the local Hamiltonian in this case is
+\begin{equation*}
+  H = \begin{bmatrix}
+    -B & 0 \\
+    0  & B
+  \end{bmatrix}
+\end{equation*}
+The initial ergotropy for both cases are
+\begin{equation*}
+  \mathcal{E}\left[ \rho_{\text{pure}}^{(1)} \right]  = 2B|\beta|^2 \qquad
+  \mathcal{E}\left[ \rho_{\text{mix}}^{(1)} \right] = 2B (2q-1)
+\end{equation*}
+As for the transferred ergotropy
+\begin{equation*}
+  \mathcal{E}\left[ \rho_{\text{pure}}^{(N)} \right]= 2|f_N(t)|^2\sin^2\left(\frac{\theta}{2}\right)-1+\sqrt{1+4\sin^4\left(\frac{\theta}{2}\right)|f_N(t)|^2\left(|f_N(t)|^2-1\right)}
+\end{equation*}
+and
+\begin{equation*}
+  \mathcal{E}\left[ \rho_{\text{mix}}^{(N)} \right] = 2[2q |f_N|^2 - 1]
+\end{equation*}
+Both still dependent on $\theta$, so by averaging it over the Bloch sphere we can have a quantity that characterize the quantum channel as a channel for ergotropy transport
+\begin{equation*}
+  \braket{\mathcal{E}_\text{coh}} = |f_N|^2-1 + \frac{\arcsin 2|f_N|\sqrt{1-|f_N|^2 }}{4|f_N|\sqrt{1-|f_N|^2}} + \frac{1 }{2} |1-2|f_N|^2 |
+\end{equation*}
+
+\subsubsection{Arbitrary qubit state.}
+Now suppose we create an ensemble the pure state
+\begin{equation*}
+  \ket{\psi_i}
+  =
+  \cos\frac{\theta_i}{2}\ket{0}
+  +
+  e^{i\phi_i}\sin\frac{\theta_i}{2}\ket{1},
+\end{equation*}
+The expression for this state is
+\begin{equation*}
+  \rho^{(1)}  =
+  \begin{bmatrix}
+    p\cos^2\frac{\theta_i}{2}
+    +(1-p)\cos^2\frac{\theta_j}{2}
+     &
+    p e^{-i\phi_i}\frac{\sin \theta_i}{2}
+    +(1-p)e^{-i\phi_j}\frac{\sin \theta_j}{2}
+    \\\\
+    p e^{i\phi_i}\frac{\sin \theta_i}{2}
+    +(1-p)e^{i\phi_j}\frac{\sin \theta_j}{2}
+     &
+    p\sin^2\frac{\theta_i}{2}
+    +(1-p)\sin^2\frac{\theta_j}{2}
+  \end{bmatrix}
+\end{equation*}
+To simplify our expression, we can use the following parametrization: \((\theta_j,\phi_j)=(-\theta_i,-\phi_i)\), \((\theta_i,-\phi_i)\), and \((-\theta_i,\phi_i)\); respectively we define these constraints as $C_2$, $C_3$, and $C_4$.
+The constraints are sufficient to parameterize the complete single-qubit state space.
+By varying the parameters $(\theta,\phi,p)$, every physical qubit state within and on the surface of the Bloch sphere can be represented under each constraint.
+Note that negative \(\theta\) should be interpreted as a parametrization device, rather than as a conventional polar angle, since $0 \leq \theta \leq \pi$.
+Equivalently, the negative $\theta$ constraint can be represented by $(\theta_2=\theta_1,\phi_2 = \pi-\phi_1)$ and $(\theta_2=\theta_1,\phi_2 = \pi+\phi_1)$.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[tdplot_main_coords,scale=4]
+    \draw[thick,->] (0,0,0) -- (1.2,0,0) node[anchor=north east]{$x$};
+    \draw[thick,->] (0,0,0) -- (0,1.1,0) node[anchor=north west]{$y$};
+
+    \def\r{1}
+    \def\th{60}
+    \def\thm{-\th}
+    \def\ph{35}
+    \def\phm{-\ph}
+    \pgfmathsetmacro{\rxy }{sin(\th)}
+    \pgfmathsetmacro{\rxym}{sin(\thm)}
+
+    \coordinate (O) at (0,0,0);
+
+    \tdplotsetcoord{A}{\r}{\th}{\ph}
+    \tdplotsetcoord{A1}{\r}{\thm}{\phm}
+    \tdplotsetcoord{A2}{\r}{\th}{\phm}
+    \tdplotsetcoord{A3}{\r}{\thm}{\ph}
+    \tdplotsetcoord{OO}{\r}{0}{0}
+
+    \draw[thick,->,>=Stealth] (O) -- (A) node [anchor=south east]{$\ket{\psi_1}$};
+    \draw[thick,dashed,->,>=Stealth] (O) -- (A1) node [anchor=south west]{$\ket{\psi_2}$};
+    \draw[thick,->,>=Stealth] (O) -- (A2) node [anchor=south west]{$\ket{\psi_3}$};
+    \draw[thick,dashed,->,>=Stealth] (O) -- (A3) node [anchor=north east]{$\ket{\psi_4}$};
+    \draw[thick,->,>=Stealth] (O) -- (OO) node [anchor=south]{$\ket{0}$};
+
+    \tdplotdrawarc[->]{(O)}{\rxy}{0}{\ph}{anchor=south}{$\phi$}
+    \tdplotsetthetaplanecoords{\ph}
+    \tdplotdrawarc[->,tdplot_rotated_coords]{(0,0,0)}{\r}{0}{\th}{anchor=north west}{$\theta$}
+
+    \draw[dashed]  (O) -- (Axy);
+    \draw[dashed]  (A) -- (Axy);
+    \draw[dashed]  (O) -- (A1xy);
+    \draw[dashed]  (A1) -- (A1xy);
+    \draw[dashed]  (O) -- (A2xy);
+    \draw[dashed]  (A2) -- (A2xy);
+    \draw[dashed]  (O) -- (A3xy);
+    \draw[dashed]  (A3) -- (A3xy);
+
+    \def\alp{20}
+    \tdplotsetrotatedcoords{\alp}{0}{0}
+    \begin{scope}[tdplot_rotated_coords]
+      \draw[thick] (0,-\r) arc (-90:90:\r);
+      \draw[dashed] (0,\r) arc (90:270:\r);
+    \end{scope}
+
+    \tdplotsetrotatedcoords{\alp}{90}{0}
+    \begin{scope}[tdplot_rotated_coords]
+      \draw[thick] (0,\r) arc (90:270:\r);
+      % \draw[thick] (0,\r) arc (90:360+90:\r);
+    \end{scope}
+
+  \end{tikzpicture}
+  \caption*{
+    Figure: Bloch sphere representation of mixed states created from pure state ensemble.
+    The states \(\ket{\psi_2}\), \(\ket{\psi_3}\), and \(\ket{\psi_4}\) correspond to the coordinate constraints \((\theta,\phi)=(-\theta_1,-\phi_1)\), \((\theta_1,-\phi_1)\), and \((-\theta_1,\phi_1)\), respectively.
+  }
+\end{figure}
+
+To avoid misinterpretation, we therefore choose the third constrain \((\theta_1,-\phi_1)\).
+The state in this case is given by 
+\begin{equation*}
+    \rho ^{(1)} =
+    \begin{bmatrix}
+    \cos ^2 \theta/2                                                 & \frac{\sin \theta}{2} \left[-i2p \sin \phi + e^{i\phi}  \right] \\
+    \frac{\sin \theta  }{2} \left[i2p \sin\phi + e^{-i\phi}  \right] & \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix}
+\end{equation*}
+The last site then will carry the information from the first state and evolve as
+\begin{equation*}
+  \rho ^{(N)}  =
+  \begin{bmatrix}
+    1- \sin^2 \theta/2 |f_N|^2                                             & \frac{\sin \theta}{2} \left[-i2p \sin \phi + e^{i\phi}  \right]f_N \\
+    \frac{\sin \theta  }{2} \left[i2p \sin\phi + e^{-i\phi}  \right]f_N ^* & \sin ^2 \frac{\theta  }{2}|f_N|^2
+  \end{bmatrix}
+\end{equation*}
+
+\subsubsection{Specific state.}
+We can choose specific state such that the coherence and population have the same contribution.
+This family of state is given by
+\begin{gather*}
+      p = \frac{1 }{2 }- \frac{1 }{2} \sqrt{1 - \frac{1-9\cos^2\theta}{\sin^2\theta\sin^2\phi}}\\
+  \pi/2<\theta\le \pi - \theta_0 \qquad
+  \phi = \phi_0 + \lambda( \pi - 2\phi_0)
+\end{gather*}
+with $\theta_0 = \arccos(1/3)$, $\phi_0 = \arccos(\sqrt{ 1-8 \cot ^2 \theta}) $, and $0 \le \lambda \le 1$.
+For convenience’s sake, take $\lambda=1/2$ to obtain $\phi=\pi/2$ and simplify the expressions into 
+\begin{equation*}
+  p=\frac12+\sqrt2\cot\theta\qquad
+  \frac{\pi}{2}<\theta\le\pi-\theta_0.
+\end{equation*} 
+
+These conditions are generated by the equal contribution requirement
+\begin{equation*}
+    p^2-p=- \frac{1-9\cos^2\theta}{4\sin^2\theta\sin^2\phi}
+\end{equation*} 
+Notice that there are three independent parameters $(p,\theta,\phi)$ and one single constrain.
+Hence, the system has $N_\text{DOF} = 3-1 =2$ degree of freedom and a single parameter cannot determine all three variables. 
+Imposing additional constrain $\phi = \pi/2$, we can express both $p$ and $\phi$ in terms of $\theta$.
+Also do note that the population inversion requirement $\theta>\pi/2$ does not count as constrain since it only restrict the domain of $\theta$.
+
+Ignoring extra parameter $\lambda$, our state is given by
+\begin{gather*}
+  p = \frac{1 }{2 }- \frac{1 }{2} \sqrt{1 - \frac{1-9\cos^2\theta}{\sin^2\theta\sin^2\phi}}\\
+  \pi/2<\theta\le \pi - \theta_0 \qquad
+  \phi \in[\phi_0,\pi-\phi_0] \cup[\pi+\phi_0,2\pi-\phi_0]
+\end{gather*}
+Notice that the second branch is naturally paired under $(\theta_1,-\phi_1)$ construction.
+
+\subsubsection{Arbitrary qubit.}
+The full ergotropy is
+\begin{align*}
+  \mathcal{E} \left[ \rho^{(1)} \right]
+   & = B \left( 2\sin^2 \frac{\theta }{2} - 1 + \sqrt{1 - 4p(1-p)\sin ^2\theta \sin^2 \phi}  \right)
+\end{align*}
+and the final site
+\begin{multline*}
+  \mathcal{E} \left[ \rho^{(N)} \right]     = B \bigg( 2\sin^2 \frac{\theta }{2} |f_N|^2 - 1
+  \\  \qquad+  \sqrt{1 - 4|f_N|^2 \left[ p(1-p)\sin ^2\theta \sin^2 \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right]}  \bigg)
+\end{multline*}
+The population ergotropy for both
+\begin{equation*}
+  \mathcal{E}_\text{pop} \left[ \rho^{(1)} \right]= 2B\max(2 \sin^2 \frac{\theta }{2 }-1,0)  \quad
+  \mathcal{E}_\text{pop} \left[ \rho^{(N)} \right]= 2B\max(2 |f_N|^2\sin ^2\frac{\theta}{2 }-1,0)
+\end{equation*}
+And the coherence ergotropy
+\begin{align*}
+  \mathcal{E}_\text{coh}\left[ \rho^{(1)}\right]
+   & = B \left[  1 - 2 \sin ^2 \frac{\theta }{2} + \sqrt{1-4p(1-p)\sin ^2\theta \sin^2 \phi}  \right]
+\end{align*}
+and
+\begin{multline*}
+  \mathcal{E}_\text{coh}\left[ \rho^{(N)}\right]
+  = B \bigg[  1 - 2 |f_N|^2\sin ^2 \frac{\theta }{2} \\
+    + \sqrt{1-4 |f_N|^2 \left[ p(1-p)\sin ^2\theta \sin^2 \phi
+        + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] }  \bigg]
+\end{multline*}
+
+\subsubsection{Derivation: general ergotropy and purity.}
+Recall the state evolution $\rho^{(1)}(0) \rightarrow \rho^{(N)}(t)$
+\begin{equation*}
+  \begin{bmatrix}
+    1 -\rho_{11}^{(1)}  & \rho_{01}^{(1)} \\
+    [\rho_{01}^{(1)}]^* & \rho_{11}^{(1)}
+  \end{bmatrix}
+  \rightarrow
+  \begin{bmatrix}
+    1 -\rho_{11}^{(1)}|f_N(t)|^2 & \rho_{01}^{(1)}f_N(t)     \\
+    [\rho_{01}^{(1)}f_N(t)]^*    & \rho_{11}^{(1)}|f_N(t)|^2
+  \end{bmatrix}
+\end{equation*}
+The eigenvalue of this initial state is
+\begin{align*}
+  \det \begin{bmatrix}\rho_{00}-\lambda & \rho_{01}\\ \rho_{10} & \rho_{11}-\lambda\end{bmatrix} & = \lambda^2-(\rho_{00}+\rho_{11})\lambda+(\rho_{00}\rho_{11}-\rho_{01}\rho_{10}) \\
+                                                                                                 & = \lambda^2 - \mathrm{Tr} [\rho]\lambda+\det \rho                                \\
+  0                                                                                              & =  \lambda^2 -\lambda + \det \rho
+\end{align*}
+and using quadratic formula
+\begin{equation*}
+  \lambda_{\pm} = \frac{1 \pm \sqrt{1-4 \det \rho}}{2 }
+\end{equation*}
+From this the passive energy is
+\begin{equation*}
+  E_p [\rho]= \lambda_+ H_{00} + \lambda_- H_{11}  = (\lambda_--\lambda_+)B = - B \sqrt{1-4 \det \rho}
+\end{equation*}
+The energy is simply
+\begin{equation*}
+  E_i [\rho]= \mathrm{Tr}  \begin{bmatrix}
+    \rho_{00} & \rho_{01} \\
+    \rho_{10} & \rho_{11}
+  \end{bmatrix}
+  \begin{bmatrix}
+    -B & 0 \\
+    0  & B
+  \end{bmatrix}
+  = \mathrm{Tr}
+  \begin{bmatrix}
+    -B\rho_{00}  & B\rho_{01} \\
+    -B \rho_{10} & B\rho_{11}
+  \end{bmatrix}
+  = B(\rho_{11}-\rho_{00})
+\end{equation*}
+Therefore the ergotropy
+\begin{equation*}
+  \mathcal{E} [\rho]
+  = B(\rho_{11}-\rho_{00} + \sqrt{1-4 \det \rho})
+  = B(2\rho_{11}- 1 + \sqrt{1-4 \det \rho})
+\end{equation*}
+
+For the case of population inversion, by assuming that $\rho_{11}\geq 0.5$, the derivation is very simple
+\begin{align*}
+  \mathcal{E}_\text{pop}(\rho)
+   & = B(\rho_{11}-\rho_{00}) -  B(\rho_{00}-\rho_{11}) \\
+   & = B(\rho_{11}-\rho_{00}) +  B(\rho_{11}-\rho_{00}) \\
+   & = 2B(\rho_{11}-\rho_{00}) = 2B(2\rho_{11}-1)
+\end{align*}
+Alternatively,  we can use our previous equation
+\begin{align*}
+  \mathcal{E}_\text{pop} [\rho]
+   & = B \left[ 2\rho_{11}-1+ \sqrt{1-4(1-\rho_{11})\rho_{11}} \right] \\
+   & = B \left[ 2\rho_{11}-1+ \sqrt{(1 - 2\rho_{11})^2 } \right]       \\
+  \mathcal{E}_\text{pop} [\rho]
+   & = B \left[ 2\rho_{11}-1+ |1 - 2\rho_{11}|\right]                  \\
+\end{align*}
+And by using $x+|x| = 2 \max (x,0)$ identify, we can obtain the most general formula without assuming $\rho_{11}>0.5$
+\begin{equation*}
+  \mathcal{E}_\text{pop} [\rho]  = 2B \max \left[ 2\rho_{11}-1,0 \right]
+\end{equation*}
+
+The coherence-associated ergotropy from coherence can be calculated
+\begin{align*}
+  \mathcal{E}_\text{coh}[\rho]
+   & =  \mathcal{E}[\rho] -   \mathcal{E}_\text{pop}[\rho]                                      \\
+   & = B \left[ 2 \rho_{11} - 1 + \sqrt{1-4 \det \rho} - 4\rho_{11} + 2  \right]                \\
+   & = B \left[  1 - 2 \rho_{11} + \sqrt{1-4 (\rho_{11}(1-\rho_{11}) - |\rho_{01}|^2)}  \right] \\
+  \mathcal{E}_\text{coh}[\rho]
+   & = B \left[  1 - 2 \rho_{11} + \sqrt{(1-2\rho_{11})^2+ 4|\rho_{01}|^2}  \right]
+\end{align*}
+
+Next consider the determinant of initial and final state.
+The initial state determinant
+\begin{align*}
+  \det\rho^{(1)}
+   & = \rho_{11}^{(1)}(1-\rho_{11}^{(1)}) - |\rho_{01}^{(1)}|^2
+  = \rho_{11}^{(1)} -\rho_{11}^{(1)}{}^2- |\rho_{01}^{(1)}|^2
+\end{align*}
+can be used to determine the evolved state
+\begin{align*}
+  \det \rho^{(N)} & = (1-\rho^{(1)}_{11}|f_N|^2)\rho^{(1)}_{11}|f_N|^2 - |\rho^{(1)}_{01}f_N|^2                                               \\
+                  & = |f_N|^2 (\rho^{(1)}_{11}-{\rho^{(1)}_{11}}{}^2|f_N|^2-|\rho^{(1)}_{01}|^2)                                              \\
+                  & = |f_N|^2(\rho^{(1)}_{11} - \rho^{(1)}_{11}{}^2-|\rho^{(1)}_{01}|^2 + \rho^{(1)}_{11}{}^2 - {\rho^{(1)}_{11}}{}^2|f_N|^2) \\
+  \det \rho^{(N)} &
+  = |f_N|^2[\det \rho^{(1)}+ \rho^{(1)}_{11}{}^2(1-|f_N|^2)]
+\end{align*}
+
+The general expression for $2 \times 2$ density matrix purity is
+\begin{align*}
+  \mathrm{Tr}
+  (\rho^2)
+   & =
+  \mathrm{Tr}
+  \begin{pmatrix}
+    \rho_{00} & \rho_{01} \\
+    \rho_{10} & \rho_{11}
+  \end{pmatrix}
+  \begin{pmatrix}
+    \rho_{00} & \rho_{01} \\
+    \rho_{10} & \rho_{11}
+  \end{pmatrix}
+  \\
+   & =
+  \mathrm{Tr}
+  \begin{pmatrix}
+    \rho_{00}^2+\rho_{01}\rho_{10}
+     &
+    \rho_{00}\rho_{01}+\rho_{01}\rho_{11}
+    \\
+    \rho_{10}\rho_{00}+\rho_{11}\rho_{10}
+     &
+    \rho_{10}\rho_{01}+\rho_{11}^2
+  \end{pmatrix}
+  \\
+  \mathrm{Tr}
+  (\rho^2)
+   & =
+  \rho_{00}^2+\rho_{11}^2
+  +2|\rho_{01}|^2
+\end{align*}
+Using $\lambda_\pm = (1\pm \sqrt{1- \det \rho})/2$ we have
+\begin{equation*}
+  \lambda_+ + \lambda_-  = \mathrm{Tr} \rho =1\qquad
+  \lambda_+\lambda_- = \det \rho
+\end{equation*}
+Hence we can express the trace in terms of determinant
+\begin{equation*}
+  \mathrm{Tr} (\rho^2) = (\lambda_1+\lambda_2)^2-2\lambda_1\lambda_2 = 1-2\det\rho
+\end{equation*}
+Alternatively, since $\det \rho = \rho_{00}\rho_{11}-|\rho_{01}|^2$
+\begin{align*}
+  \mathrm{Tr} (\rho^2) & =  (\rho_{00}+\rho_{11})^2  - 2\rho_{00}\rho_{11} + 2|\rho_{01}|^2 \\
+                       & =1-2\left(\rho_{00}\rho_{11}-|\rho_{01}|^2\right)=1-2\det\rho
+\end{align*}
+The purity of the first state is trivial so for the final state
+\begin{equation*}
+  \mathrm{Tr} [\rho^{(N)}] =
+  1-  2 |f_N|^2[\det \rho^{(1)}+ \rho^{(1)}_{11}{}^2(1-|f_N|^2)]
+\end{equation*}
+Then the purity difference can be expressed as follows
+
+\begin{align*}
+  P_N-P_1
+   & =
+  -2|f_N|^2\det\rho^{(1)}
+  -2|f_N|^2(\rho_{11}^{(1)})^2(1-|f_N|^2)
+  +2\det\rho^{(1)}
+  \\
+   & =
+  2\det\rho^{(1)}(1-|f_N|^2)
+  -2|f_N|^2(\rho_{11}^{(1)})^2(1-|f_N|^2)
+  \\
+   & =
+  2(1-|f_N|^2)
+  \left[
+    \det\rho^{(1)}
+    -|f_N|^2(\rho_{11}^{(1)})^2
+    \right]
+\end{align*}
+
+\subsubsection{Derivation: ergotropy for pure and mixed state.}
+The initial state can be written respectively as
+\begin{equation*}
+  \rho_\text{coh}
+  = \begin{bmatrix}
+    \alpha^2    & \alpha\beta^* \\
+    \alpha\beta & |\beta|^2
+  \end{bmatrix}
+  \qquad
+  \rho_\text{mix}
+  = \begin{bmatrix}
+    1-q & 0 \\
+    0   & q
+  \end{bmatrix}
+\end{equation*}
+respectively.
+The initial encoded ergotropy for pure state is
+\begin{equation*}
+  \mathcal{E}[\rho_\text{coh}]
+  = B(2|\beta|^2-1 \sqrt{1-4(\alpha^2|\beta|^2-\alpha^2\beta^2)})
+  = 2B|\beta|^2
+\end{equation*}
+Whereas the mixed state
+\begin{equation*}
+  \mathcal{E}[\rho_\text{mix}] = 2B(2q- 1)
+\end{equation*}
+Suppose both case has the same initial ergotropy, then $q = (1+|\beta|^2)/2$.
+
+Next consider the transferred ergotropy.
+Let us then write the density matrix in the following form
+\begin{equation*}
+  \rho_\text{coh}^{(N)}
+  = \begin{bmatrix}
+    \alpha^2 + |\beta|^2 (1-|f_N|^2) & \alpha\beta^*  f_N^* \\
+    \alpha\beta  f_N                 & |\beta|^2 |f_N|^2
+  \end{bmatrix}
+\end{equation*}
+and for the mixed state
+\begin{equation*}
+  \rho_\text{mix}^{(N)}
+  = \begin{bmatrix}
+    q + (1-q) (1-|f_N|^2) & 0            \\
+    0                     & (1-q)|f_N|^2
+  \end{bmatrix}
+\end{equation*}
+Next finding the determinant.
+For the coherent
+\begin{align*}
+  \det \rho_\text{coh} & = [\alpha^2 + |\beta|^2 (1-|f_N|^2)]|\beta|^2|f_N|^2 - |\alpha|^2|\beta|^2|f_N|^2 \\
+  \det \rho_\text{coh} & = |\beta|^4|f_N|^2 (1-|f_N|^2)
+\end{align*}
+and for mixed state we'll just use population inversion like usual.
+Hence, the ergotropy for pure state
+\begin{equation*}
+  \mathcal{E}_\text{coh} (t) = 2|f_N(t)|^2\sin^2\left(\frac{\theta}{2}\right)-1+\sqrt{1+4\sin^4\left(\frac{\theta}{2}\right)|f_N(t)|^2\left(|f_N(t)|^2-1\right)}
+\end{equation*}
+and for mixed
+\begin{equation*}
+  \mathcal{E}_\text{mix}(t) = 2B((1-q)|f_N|^2-1)
+\end{equation*}
+
+
+\subsubsection{Derivation: general mixed state expression and constraint.}
+Now consider a mixed state created from an ensemble of pure state
+The pure state is given by
+\begin{equation*}
+  \ket{\psi_i}
+  =
+  \cos\frac{\theta_i}{2}\ket{0}
+  +
+  e^{i\phi_i}\sin\frac{\theta_i}{2}\ket{1},
+\end{equation*}
+The statistical mixed state with probabilities \(p\) and \(1-p\) is
+\begin{align*}
+  \rho^{(1)}
+             & =
+  p\ket{\psi_i}\bra{\psi_i}
+  +
+  (1-p)\ket{\psi_j}\bra{\psi_j}                              \\
+             & =
+  p
+  \begin{bmatrix}
+    \cos^2\frac{\theta_i}{2}
+     &
+    e^{-i\phi_i}\cos\frac{\theta_i}{2}\sin\frac{\theta_i}{2} \\\\
+    e^{i\phi_i}\cos\frac{\theta_i}{2}\sin\frac{\theta_i}{2}
+     &
+    \sin^2\frac{\theta_i}{2}
+  \end{bmatrix} \\
+             & \qquad
+  +(1-p)
+  \begin{bmatrix}
+    \cos^2\frac{\theta_j}{2}
+     &
+    e^{-i\phi_j}\cos\frac{\theta_j}{2}\sin\frac{\theta_j}{2} \\\\
+    e^{i\phi_j}\cos\frac{\theta_j}{2}\sin\frac{\theta_j}{2}
+     &
+    \sin^2\frac{\theta_j}{2}
+  \end{bmatrix} \\
+  \rho^{(1)} & =
+  \begin{bmatrix}
+    p\cos^2\frac{\theta_i}{2}
+    +(1-p)\cos^2\frac{\theta_j}{2}
+     &
+    p e^{-i\phi_i}\frac{\sin \theta_i}{2}
+    +(1-p)e^{-i\phi_j}\frac{\sin \theta_j}{2}
+    \\\\
+    p e^{i\phi_i}\frac{\sin \theta_i}{2}
+    +(1-p)e^{i\phi_j}\frac{\sin \theta_j}{2}
+     &
+    p\sin^2\frac{\theta_i}{2}
+    +(1-p)\sin^2\frac{\theta_j}{2}
+  \end{bmatrix}
+\end{align*}
+
+Looks complicated, so let's discuss the possible constraints.
+From this, three constraint can be made.
+Recall spherical coordinate
+\begin{equation*}
+  \mathbf r(x,y,z)
+  =
+  \mathbf r(\sin\theta\cos\phi,
+  \sin\theta\sin\phi,\;
+  \cos\theta)
+\end{equation*}
+First constraint is $\theta_2=-\theta_1=\theta$ and $ \phi_2=-\phi_1=\phi$
+\begin{equation*}
+  C_2=\begin{cases}
+    x'
+    =r\sin(-\theta)\cos(-\phi)
+    =-r\sin\theta\cos\phi=-x, \\
+    y'
+    =r\sin(-\theta)\sin(-\phi)
+    =r\sin\theta\sin\phi=y,   \\
+    z'
+    =r\cos(-\theta)=z
+  \end{cases}
+\end{equation*}
+Next is $\theta_2=\theta_1$ and $ \phi_2=-\phi_1$
+\begin{equation*}
+  C_3=\begin{cases}
+    x'
+    =r\sin(\theta)\cos(-\phi)
+    =r\sin\theta\cos\phi=x,   \\
+    y'
+    =r\sin(\theta)\sin(-\phi)
+    =-r\sin\theta\sin\phi=-y, \\
+    z'
+    =r\cos(\theta)=z
+  \end{cases}
+\end{equation*}
+Finally $\theta_2=-\theta_1$ and $ \phi_2=\phi_1$
+\begin{equation*}
+  C_4=\begin{cases}
+    x'
+    =r\sin(-\theta)\cos(\phi)
+    =-r\sin\theta\cos\phi=-x, \\
+    y'
+    =r\sin(-\theta)\sin(\phi)
+    =-r\sin\theta\sin\phi=-y, \\
+    z'
+    =r\cos(-\theta)=z
+  \end{cases}
+\end{equation*}
+
+\subsubsection{Derivation: specific initial state.}
+From the derived ergotropy
+\begin{align*}
+  \mathcal{E} \left[ \rho^{(1)}_{C_3} \right]
+   & = B \left( 2\sin^2 \frac{\theta }{2} - 1 + \sqrt{1 - 4p(1-p)\sin ^2\theta \sin^2 \phi}  \right)
+\end{align*}
+we want to obtain initial state in which the coherence and population have the same contribution.
+With $\theta > \pi/2$, we have
+\begin{align*}
+  4 \sin^2 \frac{\theta }{2 }-2             & =   1 - 2 \sin ^2 \frac{\theta }{2} + \sqrt{1-4p(1-p)\sin ^2\theta \sin^2 \phi} \\
+  3\left( 2\sin^2\frac{\theta}{2}-1 \right) & = \sqrt{1-4p(1-p)\sin^2\theta\sin^2\phi}                                        \\
+  - 3\cos\theta                             & =
+  \sqrt{1-4p(1-p)\sin^2\theta\sin^2\phi}
+\end{align*}
+Since \(\theta>\pi/2\), the right-hand side is positive as required.
+Writing it as $3 \cos \theta$ then squaring it
+\begin{align*}
+  9\cos^2\theta & =
+  1-4p(1-p)\sin^2\theta\sin^2\phi                                                                           \\
+  p^2-p         & =
+  - \frac{1-9\cos^2\theta}{4\sin^2\theta\sin^2\phi}                                                         \\
+  p             & = \frac{1 }{2 }\pm \frac{1 }{2} \sqrt{1 - \frac{1-9\cos^2\theta}{\sin^2\theta\sin^2\phi}}
+\end{align*}
+Since qubit ergotropy is symmetric around $p=1/2$, we can select the minus branch
+\begin{equation*}
+  p  = \frac{1 }{2 } - \frac{1 }{2} \sqrt{1 - \frac{1-9\cos^2\theta}{\sin^2\theta\sin^2\phi}}
+\end{equation*}
+
+Now the range $p \in [0,0.5]$, this  means that
+\begin{align*}
+  0\le
+  \frac{1-9\cos^2\theta}
+  {\sin^2\theta\sin^2\phi}
+   & \le1
+\end{align*}
+and we have two inequality
+\begin{equation*}
+    1-9\cos^2\theta\ge0\qquad
+  {1-9\cos^2\theta}\le
+  {\sin^2\theta\sin^2\phi}
+\end{equation*}
+For the first inequality, we write
+\begin{align*}
+  |\cos\theta|&\le\frac13\implies
+  \begin{cases}
+  \cos \theta\le\frac13\implies \theta \in [\theta_0,2\pi]    \\
+  \cos\theta\ge-\frac13 \implies\theta \in [0,\pi-\theta_0]
+  \end{cases}
+\end{align*}
+with $\theta_0 = \arccos(1/3)$ and $\theta_0 \approx 71^\circ$ numerically.
+Combining both requirement and also imposing the population inversion requirement, we have
+\begin{equation*}
+    \pi/2 < \theta \le \pi - \theta_0
+\end{equation*}
+
+For the second inequality, we write
+\begin{equation*}
+  |\sin\phi|\ge
+  \sqrt{  \frac{1-9\cos^2\theta}{\sin^2\theta}}
+  =\sqrt{  \frac{\sin^2\theta-8\cos^2\theta}{\sin ^2\theta}}
+  = \sqrt{ 1-8 \cot ^2 \theta}
+\end{equation*}
+The same applies to the second inequality
+\begin{align*}
+  \begin{cases}
+    \sin \phi\ge  \sqrt{ 1-8 \cot ^2 \theta} \implies \phi\in  [\phi_0,\pi-\phi_0]\\
+    \sin \phi \le -\sqrt{ 1-8 \cot ^2 \theta} \implies \phi\in [\pi+\phi_0,2\pi-\phi_0]
+  \end{cases}
+\end{align*}
+with $\phi_0 = \arcsin (\sqrt{ 1-8 \cot ^2 \theta} )$.
+The domain is then obtained by combining both of the requirement
+\begin{equation*}
+  \phi \in[\phi_0,\pi-\phi_0] \cup[\pi+\phi_0,2\pi-\phi_0]
+\end{equation*}
+Picking the first branch, we introduce another parameter to make $\phi$ dependent on $\theta$ as the case of $p$
+\begin{equation*}
+  \phi = \phi_0 + \lambda(\pi - 2\phi_0 )
+\end{equation*}
+with $0 \le \lambda \le 1$.
+In particular, at $\lambda=1/2$, $\phi=\pi/2$ become completely independent of $\theta$ and 
+\begin{align*}
+    p & = 
+  \frac{1 }{2 }- \frac{1 }{2} \sqrt{1 - \frac{1-9\cos^2\theta}{\sin^2\theta\sin^2\phi}} 
+  = \frac{1 }{2 }- \frac{1 }{2} \sqrt{8\cot^2\theta}\\
+  & = \frac{1 }{2 }-  \sqrt{2}|\cot\theta|=\frac{1 }{2 }-  \sqrt{2}\cot\theta
+\end{align*}
+
+\subsubsection{Derivation: ergotropy for second mixed state.}
+We impose then the constraint of $C_2(\theta_1=-\theta_2,\phi_1=-\phi_2)$, to get
+\begin{align*}
+  \rho^{(1)}_{C_2}  & =
+  \begin{bmatrix}
+    \cos ^2 \theta/2                                                               & \frac{\sin \theta  }{2} \left[p(e^{-i\phi}+e^{i\phi}) -e^{i\phi}  \right] \\
+    \frac{\sin \theta  }{2} \left[p(e^{i\phi} + e^{-i\phi} ) - e^{-i\phi}  \right] & \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix} \\
+  \rho ^{(1)}_{C_2} & =
+  \begin{bmatrix}
+    \cos ^2 \theta/2                                                & \frac{\sin \theta  }{2} \left[2p \cos \phi - e^{i\phi}  \right] \\
+    \frac{\sin \theta  }{2} \left[2p \cos\phi - e^{-i\phi}  \right] & \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix}
+\end{align*}
+and the final state evolution
+\begin{equation*}
+  \rho ^{(N)}_{C_2} = \begin{bmatrix}
+    1 - \sin^2 \frac{\theta }{2} |f_N|^2                                 & \frac{\sin \theta }{2} \left( 2p \cos \phi-e^{i\phi} \right)f_N \\
+    \frac{\sin \theta }{2} \left( 2p \cos \phi-e^{-i\phi} \right) f_N ^* & \sin^2 \frac{\theta }{2 } |f_N|^2
+  \end{bmatrix}
+\end{equation*}
+The determinants are
+\begin{align*}
+  \det\rho^{(1)}_{C_2}
+                         & =
+  \sin^2\frac{\theta}{2}\cos^2\frac{\theta}{2}
+  -
+  \frac{\sin^2\theta}{4}
+  \left|(2p-1) \cos \phi- i \sin \phi\right|^2 \\
+                         & =
+  \frac{\sin^2\theta}{4}
+  -\frac{\sin^2\theta}{4}
+  \left[
+    (2p-1)^2\cos^2\phi
+    +\sin^2 \phi
+  \right]                                      \\
+                         & =
+  \frac{\sin^2\theta}{4}
+  \left[
+    1-
+    (4p^2-4p)\cos^2\phi-1
+  \right]                                      \\
+  \det \rho ^{(1)}_{C_2} & =
+  p(1-p)\sin ^2\theta \cos^2 \phi
+\end{align*}
+and
+\begin{align*}
+  \det \rho^{(N)}_{C_2} & =
+  |f_N|^2 \left[ p(1-p)\sin ^2\theta \cos^2 \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right]
+\end{align*}
+Therefore the ergotropy is
+\begin{align*}
+  \mathcal{E} \left[ \rho^{(1)}_{C_2} \right] & =  B \left( 2\rho_{11}^{(1)}- 1 + \sqrt{1-4 \det \rho^{(1)}} \right)                            \\
+                                              & = B \left( 2\sin^2 \frac{\theta }{2} - 1 + \sqrt{1 - 4p(1-p)\sin ^2\theta \cos^2 \phi}  \right)
+\end{align*}
+and
+\begin{multline*}
+  \mathcal{E} \left[ \rho^{(N)}_{C_2} \right]     = B \bigg( 2\sin^2 \frac{\theta }{2} |f_N|^2 - 1
+  \\  \qquad+  \sqrt{1 - 4|f_N|^2 \left[ p(1-p)\sin ^2\theta \cos^2 \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right]}  \bigg)
+\end{multline*}
+The population ergotropy for both
+\begin{equation*}
+  \mathcal{E}_\text{pop} \left[ \rho^{(1)}_{C_2} \right]= 2B(2 \sin^2 \frac{\theta }{2 }-1)  \qquad
+  \mathcal{E}_\text{pop} \left[ \rho^{(N)}_{C_2} \right]= 2B(2 |f_N|^2\sin^2 \frac{\theta}{2 }-1)
+\end{equation*}
+And the coherence ergotropy
+\begin{align*}
+  \mathcal{E}_\text{coh}\left[ \rho^{(1)}_{C_2}\right]
+   & = B \left[  1 - 2 \sin ^2 \frac{\theta }{2} + \sqrt{1-4p(1-p)\sin ^2\theta \cos^2 \phi}  \right]
+\end{align*}
+and
+\begin{multline*}
+  \mathcal{E}_\text{coh}\left[ \rho^{(N)}_{C_2}\right]
+  = B \bigg[  1 - 2 |f_N|^2\sin ^2 \frac{\theta }{2} \\
+    + \sqrt{1-4 |f_N|^2 \left[ p(1-p)\sin ^2\theta \cos^2 \phi
+        + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] }  \bigg]
+\end{multline*}
+
+
+\subsubsection{Derivation: ergotropy for third mixed state.}
+Next $C_3(\theta_1=\theta_2,\phi_1=-\phi_2)$
+\begin{align*}
+  \rho^{(1)}_{C_3}  & =
+  \begin{bmatrix}
+    \cos ^2 \theta/2                                                               & \frac{\sin \theta  }{2} \left[p(e^{-i\phi}-e^{i\phi}) + e^{i\phi}  \right] \\
+    \frac{\sin \theta  }{2} \left[p(e^{i\phi} - e^{-i\phi} ) + e^{-i\phi}  \right] & \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix} \\
+  \rho ^{(1)}_{C_3} & =
+  \begin{bmatrix}
+    \cos ^2 \theta/2                                                 & \frac{\sin \theta}{2} \left[-i2p \sin \phi + e^{i\phi}  \right] \\
+    \frac{\sin \theta  }{2} \left[i2p \sin\phi + e^{-i\phi}  \right] & \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix}
+\end{align*}
+and the final state evolution
+\begin{equation*}
+  \rho ^{(N)}_{C_3}  =
+  \begin{bmatrix}
+    1- \sin^2 \theta/2 |f_N|^2                                             & \frac{\sin \theta}{2} \left[-i2p \sin \phi + e^{i\phi}  \right]f_N \\
+    \frac{\sin \theta  }{2} \left[i2p \sin\phi + e^{-i\phi}  \right]f_N ^* & \sin ^2 \frac{\theta  }{2}|f_N|^2
+  \end{bmatrix}
+\end{equation*}
+The determinants are
+\begin{align*}
+  \det\rho^{(1)}_{C_3}
+                         & =
+  \sin^2\frac{\theta}{2}\cos^2\frac{\theta}{2}
+  -
+  \frac{\sin^2\theta}{4}
+  \left| \cos \phi+ i(1-2p) \sin \phi\right|^2 \\
+                         & =
+  \frac{\sin^2\theta}{4}
+  -\frac{\sin^2\theta}{4}
+  \left[
+    \cos^2\phi
+    +(1-2p)^2\sin^2 \phi
+  \right]                                      \\
+                         & =
+  \frac{\sin^2\theta}{4}
+  \left[
+    1-1-
+    (4p^2-4p)\sin^2\phi
+  \right]                                      \\
+  \det \rho ^{(1)}_{C_3} & =
+  p(1-p)\sin ^2\theta \sin^2 \phi
+\end{align*}
+and
+\begin{equation*}
+  \det \rho ^{(N)}_{C_3} =     |f_N|^2 \left[  p(1-p)\sin ^2\theta \sin^2 \phi + \sin^4 \frac{\theta}{2} (1-|f_N|^2)\right]
+\end{equation*}
+The initial ergotropy is
+\begin{align*}
+  \mathcal{E} \left[ \rho^{(1)}_{C_3} \right]
+   & = B \left( 2\sin^2 \frac{\theta }{2} - 1 + \sqrt{1 - 4p(1-p)\sin ^2\theta \sin^2 \phi}  \right)
+\end{align*}
+and the final state
+\begin{multline*}
+  \mathcal{E} \left[ \rho^{(N)}_{C_3} \right]     = B \bigg( 2\sin^2 \frac{\theta }{2} |f_N|^2 - 1
+  \\  \qquad+  \sqrt{1 - 4|f_N|^2 \left[ p(1-p)\sin ^2\theta \sin^2 \phi + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right]}  \bigg)
+\end{multline*}
+The population ergotropy for both
+\begin{equation*}
+  \mathcal{E}_\text{pop} \left[ \rho^{(1)}_{C_3} \right]= 2B(2 \sin^2 \frac{\theta }{2 }-1)  \qquad
+  \mathcal{E}_\text{pop} \left[ \rho^{(N)}_{C_3} \right]= 2B(2 |f_N|^2\sin ^2\frac{\theta}{2 }-1)
+\end{equation*}
+And the coherence ergotropy
+\begin{align*}
+  \mathcal{E}_\text{coh}\left[ \rho^{(1)}_{C_3}\right]
+   & = B \left[  1 - 2 \sin ^2 \frac{\theta }{2} + \sqrt{1-4p(1-p)\sin ^2\theta \sin^2 \phi}  \right]
+\end{align*}
+and
+\begin{multline*}
+  \mathcal{E}_\text{coh}\left[ \rho^{(N)}_{C_3}\right]
+  = B \bigg[  1 - 2 |f_N|^2\sin ^2 \frac{\theta }{2} \\
+    + \sqrt{1-4 |f_N|^2 \left[ p(1-p)\sin ^2\theta \sin^2 \phi
+        + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] }  \bigg]
+\end{multline*}
+
+\subsubsection{Derivation: ergotropy for fourth mixed state.}
+Finally, the $C_4(\theta_1=-\theta_2,\phi_1=\phi_2)$ constraint
+\begin{align*}
+  \rho^{(1)}_{C_4}  & =
+  \begin{bmatrix}
+    \cos ^2 \theta/2                                                             & \frac{\sin \theta  }{2} \left[p(e^{-i\phi}+e^{-i\phi}) - e^{-i\phi}  \right] \\
+    \frac{\sin \theta  }{2} \left[p(e^{i\phi} + e^{i\phi} ) - e^{i\phi}  \right] & \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix} \\
+  \rho ^{(1)}_{C_4} & =
+  \begin{bmatrix}
+    \cos ^2 \theta/2                        & \frac{\sin \theta}{2}(2p-1) e^{-i\phi} \\
+    \frac{\sin \theta  }{2} (2p-1)e^{i\phi} & \sin ^2 \frac{\theta  }{2}
+  \end{bmatrix}
+\end{align*}
+and the final state evolution
+\begin{equation*}
+  \rho ^{(N)}_{C_4} =
+  \begin{bmatrix}
+    1- \sin^2 \theta/2|f_N|^2 & \frac{\sin \theta}{2}(2p-1) e^{-i\phi}f_N \\ \frac{\sin \theta  }{2} (2p-1)e^{i\phi}f_N ^*&  \sin ^2 \frac{\theta  }{2}|f_N|^2
+  \end{bmatrix}
+\end{equation*}
+
+\subsubsection{Derivation: average ergotropy.}
+In the same method as the fidelity derivation, we can determine the ergotropy transfer performance by averaging through all possible ergotropy value.
+By defining $a = |f_N|^2$ and $s = \sin ^2 (\theta/2)$, we average
+\begin{equation*}
+  \mathcal{E}_\text{coh} (t) = 2as-1+\sqrt{1+4a(a-1)s^2}
+\end{equation*}
+over the solid angle
+\begin{equation*}
+  \braket{\mathcal{E}_\text{coh}} = \int d\Omega\; \mathcal{E}_\text{coh} = \frac{1 }{2 }\int_{0}^{\pi} d\theta\;\sin\theta \left[  2as-1+\sqrt{1+4a(a-1)s^2} \right]
+\end{equation*}
+with the factor $1/2$ due to $\mathcal{E}_\text{coh}$ being independent of $\phi$.
+Substituting $ds = \sin (\theta/2)\cos (\theta/2)\;d\theta = \sin \theta\;d\theta/2$
+\begin{equation*}
+  \braket{\mathcal{E}_\text{coh}} = \int_{0}^{1} ds \left[  2as-1+\sqrt{1-4a(1-a)s^2} \right]
+\end{equation*}
+First and second term yield $a-1$, also note the sign changes on the third term.
+With $4a(1-a)s^2=k^2s^2=\sin ^2\phi$ and $k\;ds=\cos\theta\;d\phi$, the third term reads
+\begin{align*}
+  \frac{1}{k }\int_{0}^{\arcsin k }d\phi\;\cos \phi \sqrt{1-\sin ^2\theta} & =
+  \frac{1}{k }\int_{0}^{\arcsin k }d\phi\;\cos^2 \phi                                                                                                           \\
+                                                                           & = \frac{1}{k }\int_{0}^{\arcsin k }d\phi\;\frac{1+\cos 2\phi}{2}                   \\
+                                                                           & = \frac{1 }{k }\left[ \frac{\phi}{2}+ \frac{\sin 2\phi}{4} \right] _0^{\arcsin k } \\
+                                                                           & = \frac{1 }{k }\left[ \frac{\arcsin k}{2}+ \frac{\sin 2\arcsin k}{4} \right]
+\end{align*}
+We write
+\begin{equation*}
+  \sin 2\arcsin k = 2 \sin(\arcsin k) \cos (\arcsin k) = 2k \cos \arcsin k
+\end{equation*}
+Since $k= \sin \theta$, $\cos \theta = \pm\sqrt{1+k^2}$, and $0\leq k\leq 1$ or equivalently $0\leq \arcsin k\leq \pi/2$ we have
+\begin{equation*}
+  \sin 2\arcsin k = 2k \sqrt{1-k^2} = 2k \sqrt{1-4a+4a^2} = 2k \sqrt{(1-2a)^2} = 2k|1-2a|
+\end{equation*}
+Therefore
+\begin{equation*}
+  \braket{\mathcal{E}_\text{coh}} = |f_N|^2-1 + \frac{\arcsin 2|f_N|\sqrt{1-|f_N|^2 }}{4|f_N|\sqrt{1-|f_N|^2}} + \frac{1 }{2} |1-2|f_N|^2 |
+\end{equation*}
+
+\subsubsection{Derivation: Purity.}
+Using determinant obtained earlier, we plug into the general formula
+\begin{align*}
+  \mathrm{Tr}\left[\left(\rho^{(N)}_{C_2}\right)^2\right]
+  =
+  1
+  -2|f_N|^2
+  \left[
+    p(1-p)\sin^2\theta\cos^2\phi
+    +
+    \sin^4\frac{\theta}{2}
+    \left(1-|f_N|^2\right)
+    \right]
+\end{align*}
+As sanity check, $p=1$ reduce into pure state case derived earlier
+\begin{equation*}
+  \mathrm{Tr}\left[\left(\rho^{(N)}_{C_2}\right)^2\right] =
+  1
+  -2\sin^4\frac{\theta}{2}
+  |f_N|^2(1-|f_N|^2)
+\end{equation*}
+As for the third constraints
+\begin{align*}
+  \mathrm{Tr}\left[\left(\rho^{(N)}_{C_3}\right)^2\right]
+  =
+  1
+  -2|f_N|^2
+  \left[
+    p(1-p)\sin^2\theta\sin^2\phi
+    +
+    \sin^4\frac{\theta}{2}
+    \left(1-|f_N|^2\right)
+    \right]
+\end{align*}
+\end{document}
