@@ -389,35 +389,41 @@ Sender and receiver are still found at the two ends of the chain, but now their 
     \caption*{Figure: Maximum values of fidelity in dual-hole Hamiltonian as a function of the number of sites $N$ for various value of $\nu$.}
 \end{figure}
 
-The eigenvalue is obtained by considering the matrix element which is restricted to $\left\{ \ket{1},\ket{N} \right\} $
+We move to evaluating the eigenvalue using the discrete version $\textstyle\sum_{j} H_{ij}a_j^{\pm} = E_\pm a_i^{(\pm)}$.
+For eigenstate localized at either end, we have $a^\pm_i=0$ for all $i$ except the boundary, and the effective eigenvalue equation is
 \begin{equation*}
-    H_\text{eff} =
     \begin{bmatrix}
-        2\sum_{k \neq 1}  J_{1k}  - 2B & -2 J_{1N}                     \\
-        -2 J_{N1}                      & 2\sum_{k \neq N}  J_{Nk} - 2B
-    \end{bmatrix} =
-    \begin{bmatrix}
-        D_1 & A   \\
-        A   & D_N
-    \end{bmatrix}
+H_{11} & H_{1N}\\
+H_{N1} & H_{NN}
+\end{bmatrix}
+\begin{bmatrix}
+a_1\\
+a_N
+\end{bmatrix}
+=
+E
+\begin{bmatrix}
+a_1\\
+a_N
+\end{bmatrix}
 \end{equation*}
-The diagonal terms are equal, which can be seen from
-\begin{equation*}
-    \sum_{k \neq 1}  J_{1k} = \sum_{k=2}^{N}\frac{C}{\bigl(a|k-1|\bigr)^{\nu}} = \sum_{m=1}^{N-1}\frac{1}{(am)^{\nu}}
-\end{equation*}
-and
-\begin{equation*}
-    \sum_{k \neq N}  J_{Nk} = \sum_{k=1}^{N-1}\frac{C}{\bigl(a|k-N|\bigr)^{\nu}} = \sum_{m=1}^{N-1}\frac{1}{(am)^{\nu}}
-\end{equation*}
-The eigenvalue can be determined from characteristic equation
+From the entire Hamiltonian space, this effective equation is obtained by projecting into $\mathrm{span} \{\ket{m_+},\ket{m_-}\}$.
+Produce the characteristic equation
 \begin{align*}
-    (D_N-E)^2-A^2     & = 0                                                                              \\
-    E_\pm = D \pm |A| & =  3 \sum_{k<l} J_{kl} - 4\sum_{k \neq 1}  J_{1k} \pm \frac{2C}{a^\nu(N-1)^\nu }
+    (H_{11}-E)(H_{NN}-E)-H_{1N}H_{N1}& =  0\\
+    E^2-(H_{11}+H_{NN})E+\left(H_{11}H_{NN}-H_{1N}H_{N1}\right)& =  0
 \end{align*}
-Shifting in the asymmetric spectrum, we have
+Solving the quadratic equation
 \begin{equation*}
-    E_+ = 0 \qquad E_- = - \frac{4 C}{a^\nu(N-1)^{\nu}} \quad t = \frac{\pi }{4C }a^\nu(N-1 )^\nu
+    E_\pm=
+    \frac{H_{11}+H_{NN}}{2}\pm\sqrt{\left(\frac{H_{11}-H_{NN}}{2}\right)^2+|H_{1N}|^2}
 \end{equation*}
+Both in XX and XXX case, the diagonal is the same, hence
+\begin{equation*}
+    E_\pm = H_{11} \pm |H_{1N}|\qquad
+    \Delta E = 2|H_{1N}|
+\end{equation*}
+With $J_{1N} = 1/(2|N-1|^\nu)$, this reproduces $t_m = \pi(N-1)^\nu/2$.
 
 \subsection{Optimization For XXX Hamiltonian: Engineered Coupling}
 
@@ -469,7 +475,7 @@ Shifting in the asymmetric spectrum, we have
     \caption*{Figure: Engineered coupling}
 \end{figure}
 
-We begin by associating a fictitious spin $S = (N-1)/2$ particle with the chain and relabel the basis vectors as $\ket{m}$, where 
+We begin by associating a fictitious spin $S = (N-1)/2$ particle with the chain and relabel the basis vectors as $\ket{m}$, where
 \begin{equation*}
     m = -(N-1)/2+j-1 = -S +j -1
 \end{equation*}
@@ -480,12 +486,12 @@ Now recall the raising and lowering of spin operator
 \begin{equation*}
     S_{\pm}   \ket{S, m} =  \sqrt{S(S+1) - m(m \pm 1)}   \ket{S, m \pm 1}
 \end{equation*}
-or by substituting the mapping $2S = N-1$ and $m +1  = j-S$ 
+or by substituting the mapping $2S = N-1$ and $m +1  = j-S$
 \begin{gather*}
-        S_{+}   \ket{S, m} =  \frac{1 }{2 }\sqrt{j(N \mp j)}   \ket{S, m +  1}\\
+    S_{+}   \ket{S, m} =  \frac{1 }{2 }\sqrt{j(N \mp j)}   \ket{S, m +  1}\\
     S_{-}   \ket{S, m} =  \frac{1 }{2 }\sqrt{(j-1(N-j+1))}   \ket{S, m - 1}
 \end{gather*}
-With this, we can determine the matrix element of $x$ component $S_x = (S_++S_-)/2$ as 
+With this, we can determine the matrix element of $x$ component $S_x = (S_++S_-)/2$ as
 \begin{equation*}
     \braket{j+1 | S_x|j} = \frac{1 }{2 }\sqrt{j(N-j)}
 \end{equation*}
@@ -499,26 +505,26 @@ after we use the coupling constraints
 \end{equation*}
 In any case, we have the matrix element
 \begin{equation*}
-    H  = -\lambda\begin{pmatrix}
-        0      & J_{1}      & 0      & \cdots \\
-        J_1      & 0      & J_2      & \cdots \\
-        0      & J_2      & 0      & \cdots \\
+    H  = -\lambda\begin{bmatrix}
+        0      & J_{1}  & 0      & \cdots \\
+        J_1    & 0      & J_2    & \cdots \\
+        0      & J_2    & 0      & \cdots \\
         \vdots & \vdots & \vdots & \ddots
-    \end{pmatrix}
+    \end{bmatrix}
 \end{equation*}
 
-Next we can write the propagator as 
+Next we can write the propagator as
 \begin{equation*}
     U(t) = \exp (-i \lambda t S_x)
 \end{equation*}
 which responsible for internal spin rotation.
-The transfer amplitude $f_N = \braket{N |U(t)|1 }$ now reads after relabeling as 
+The transfer amplitude $f_N = \braket{N |U(t)|1 }$ now reads after relabeling as
 \begin{equation*}
-    f_N = \braket{S,S |U(t) |S,-S} =D^{(S)}_{S,-S} 
+    f_N = \braket{S,S |U(t) |S,-S} =D^{(S)}_{S,-S}
 \end{equation*}
 where $D^{(S)}_{S,-S} $ is the Wigner functions.
 Here it represents amplitude for the rotated state to be found in $\ket{S,S}$ when the original unrotated state is given by $\ket{S,-S}$.
-This element may be evaluated as 
+This element may be evaluated as
 \begin{equation*}
     f_N= \left[-i\sin\left(\frac{\lambda t}{2}\right)\right]^{N_-1}
 \end{equation*}
@@ -528,8 +534,8 @@ Compare to the coupling
 \begin{equation*}
     J_j = \frac{2J }{N} \sqrt{j(N-j)}
 \end{equation*}
-which scale $O(1)$ with $N$. 
-Using this coupling, the optimum time scale with $N$, that is 
+which scale $O(1)$ with $N$.
+Using this coupling, the optimum time scale with $N$, that is
 \begin{equation*}
     t = \left[\frac{\pi}{4G_N}\alpha^2 + \frac{\pi}{6}(1-\alpha^2)\right]N
 \end{equation*}

@@ -1,6 +1,6 @@
 \documentclass[../../../main.tex]{subfiles}
 \begin{document}
-\subsection{Time Evolution}
+\subsection{Time Evolution*}
 \subsubsection{Schrödinger picture.}
 This corresponds to active transformation where the  state is being act upon by the unitary transformation $\ket{\psi (t)} =  U(t)\ket{\psi}$.
 The observable is fixed $    O (t)= O$ and the expectation value reads 
@@ -120,8 +120,62 @@ The classical Hamiltonian is
 \end{equation*}
 The Hamiltonian is constructed by using the symmetric form
 \begin{equation*}
-    H=\frac{P^2 }{2m }\left( \mathbf{P }\cdot \mathbf{P }-\frac{q }{c }\mathbf{P }\cdot \mathbf{A}-\frac{q }{c}\mathbf{A}\cdot \mathbf{P}+\frac{q^2 }{c^2}\mathbf{A }\cdot \mathbf{A}\cdot \mathbf{A} \right) +q\phi
+    H=\frac{1}{2m }\left( \mathbf{P }\cdot \mathbf{P }-\frac{q }{c }\mathbf{P }\cdot \mathbf{A}-\frac{q }{c}\mathbf{A}\cdot \mathbf{P}+\frac{q^2 }{c^2}\mathbf{A }\cdot \mathbf{A} \right) +q\phi
 \end{equation*}
+
+\subsubsection{The Eigenvalue Equation.}
+Once the Hamiltonian has been constructed, one of the central problems in quantum mechanics is to determine its allowed energies and the corresponding quantum states. 
+These are obtained from the eigenvalue equation
+\begin{equation*}
+    H\ket{\psi}=E\ket{\psi},
+    \label{eq:hamiltonian_eigenvalue}
+\end{equation*}
+where $E$ is an eigenvalue of the Hamiltonian and $\ket{\psi}$ is the corresponding eigenstate. 
+The eigenvalue equation is therefore a special case of the general eigenvalue problem for a linear operator $    A\ket{v}=\lambda\ket{v}$.
+
+For the Hamiltonian, the eigenvalues have a direct physical interpretation: they are the possible results of an energy measurement when the system is in the corresponding energy eigenstate. 
+The eigenstates provide the quantum states associated with those energies.
+
+To obtain the component form, consider a complete orthonormal basis $\{\ket{j}\}$. 
+An arbitrary state can be expanded as
+\begin{equation*}
+    \ket{\psi} = \braket{j  | \phi} \sum_j a_j\ket{j} = \sum_j a_j\ket{j}
+\end{equation*}
+where $a_j$ is the component of the state along the basis state $\ket{j}$. 
+The Hamiltonian can likewise be expressed in this basis as
+\begin{equation*}
+    H = \sum_{i,j}\bra{i}H\ket{j}\ket{i}\bra{j} = \sum_{i,j}H_{ij}\ket{i}\bra{j}
+\end{equation*}
+where $H_{ij}$ are the matrix elements of the Hamiltonian.
+
+Substituting these expressions into the eigenvalue equation gives
+\begin{align*}
+    H\ket{\psi}
+    &=
+    E\ket{\psi},
+    \\
+    \sum_{i,j}H_{ij}\ket{i}\bra{j}
+    \sum_k a_k\ket{k}
+    &=
+    E\sum_k a_k\ket{k}
+\end{align*}
+Using the orthonormality relation $\braket{j|k}=\delta_{jk}$, the left-hand side becomes
+\begin{equation*}
+    \sum_{i,j}H_{ij}a_j\ket{j}
+    =
+    E\sum_k a_k\ket{k}.
+\end{equation*}
+Since the basis states are linearly independent, the coefficients of each basis state must be equal. 
+Equivalently, we can also apply $\bra{i}$ to both side.
+Thus,
+\begin{equation*}
+    \sum_j H_{ij}a_j=Ea_i
+\end{equation*}
+
+The equation $H\ket{\psi}=E\ket{\psi}$ is a basis-independent statement about the quantum state, whereas $\textstyle\sum_j H_{ij}a_j=Ea_i$ is its representation in a particular discrete basis.
+For a system defined on a one-dimensional lattice, the index $i$ can be
+identified with the position of a particle on the lattice. 
+In this case, $a_i$ represents the amplitude of the eigenstate at site $i$.
 
 \subsection{Parity}
 Parity refers to the transformation of spatial inversion about the origin $x \mapsto -x$.
@@ -166,7 +220,7 @@ Thus, its eigenfunctions are exactly the even and odd function
     \psi(-x) = +\psi(x) \qquad    \psi(-x) = -\psi(x)
 \end{equation*}
 
-\subsection{WKB Approximation}
+\subsection{WKB Approximation*}
 Wentzel--Kramers--Brillouin (WKB) is a technique to obtain approximate solutions to time independent problems, mainly in 1D or where only $r$ matters in 3D.
 The WKB method is valid when the potential varies slowly on the scale of the particle’s wavelength.
 
