@@ -14,10 +14,10 @@ It can be shown that the Hamiltonian commute with the third component of the tot
 This will make the computation easier, since according to Heisenberg equation, the $\sigma_3$ is conserved.
 We can then work in a state that is the both the simulnetaous eigenstate of $H$ and $\sigma_3$ along with state that has conserved angular momentum.
 
-With the ground state and one-excitation state as 
+With the ground state and one-excitation state as
 \begin{equation*}
-  \ket{\mathbf{0 } } = \bigotimes_{i=1}^N \ket{0_i} = \ket{\downarrow_1\ldots \downarrow_N}\qquad
-\ket{\mathbf{j } } = \bigotimes_{i \neq j} \ket{0_i}\otimes \ket{\mathbf{j}} = \ket{\downarrow_1\ldots\uparrow_j\ldots \downarrow_N}
+    \ket{\mathbf{0 } } = \bigotimes_{i=1}^N \ket{0_i} = \ket{\downarrow_1\ldots \downarrow_N}\qquad
+    \ket{\mathbf{j } } = \bigotimes_{i \neq j} \ket{0_i}\otimes \ket{\mathbf{j}} = \ket{\downarrow_1\ldots\uparrow_j\ldots \downarrow_N}
 \end{equation*}
 the action of the Heisenberg Hamiltonian in this state reads
 \begin{equation*}
@@ -44,8 +44,8 @@ Taking into account constant-energy $E_0$ offset and normalization due to Pauli 
 Following the periodic boundary, the condition $\ket{j+N} = \ket{\mathbf{j}}$
 \begin{align*}
     \sum_{j} e^{-ikaj} \ket{\mathbf{j}} & =  \sum_{j} e^{-ika(j+N)} \ket{j+N} \\
-    e^{-ikaj}                             & = e^{-ika(j+N)}                      \\
-    e^{ikaN}                             & = 1=e^{2n\pi i}
+    e^{-ikaj}                           & = e^{-ika(j+N)}                     \\
+    e^{ikaN}                            & = 1=e^{2n\pi i}
 \end{align*}
 yields discrete set for the wavenumber
 \begin{equation*}
@@ -98,8 +98,8 @@ Do note the $a ^\dagger$ here is defined as abstract operator that create excita
 For the ground state, simply use the permutation relation
 \begin{align*}
     \mathcal H \ket{\mathbf{0}} & =  -J \sum_{i=1}^{N} (\boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_{i+1}) \ket{\mathbf{0}}
-    = -J \sum_{i=1}^{N} (2P_{i,i+1}-1)\ket{\mathbf{0}}                                                               \\
-                       & =  -J \sum_{i=1}^{N} (2-1)\ket{\mathbf{0}}
+    = -J \sum_{i=1}^{N} (2P_{i,i+1}-1)\ket{\mathbf{0}}                                                                        \\
+                                & =  -J \sum_{i=1}^{N} (2-1)\ket{\mathbf{0}}
     = -J N = E_0
 \end{align*}
 since the permutation does nothing to the ground state.
@@ -112,8 +112,8 @@ When acting on $\ket{\mathbf{j}}$, terms with $i'$ act on pairs of spins that ar
 For the other two terms, we use the permutation relation once again
 \begin{align*}
     H \ket{\mathbf{j}}
-     & =   J\left[ (N-2)+ (2P_{j-1,m}-1) + (2P_{j,m+1}-1) \right] \ket{\mathbf{j}} \\
-     & = -J(N-4) \ket{\mathbf{j}} - 2J \ket{m-1} - 2J \ket{m+1}                    \\
+     & =   J\left[ (N-2)+ (2P_{j-1,m}-1) + (2P_{j,m+1}-1) \right] \ket{\mathbf{j}}        \\
+     & = -J(N-4) \ket{\mathbf{j}} - 2J \ket{m-1} - 2J \ket{m+1}                           \\
     H \ket{\mathbf{j}}
      & = E_0 \ket{\mathbf{j}} +2J \left(2 \ket{\mathbf{j}}-  \ket{m-1}- \ket{m+1} \right)
 \end{align*}
@@ -121,8 +121,8 @@ For the other two terms, we use the permutation relation once again
 Now consider the spin-wave state
 \begin{align*}
     \mathcal{H}|k\rangle
-     & =  \sum_m e^{-ikam} {H}\ket{\mathbf{j}}                                               \\
-     & =  \sum_{m} e^{-ikam} \left[J(N-4) \ket{\mathbf{j}} +2J \ket{m-1}+ 2J \ket{m+1} \right] \\
+     & =  \sum_m e^{-ikam} {H}\ket{\mathbf{j}}                                                    \\
+     & =  \sum_{m} e^{-ikam} \left[J(N-4) \ket{\mathbf{j}} +2J \ket{m-1}+ 2J \ket{m+1} \right]    \\
      & =  (E_0+4J)\sum_{m} e^{-ikam} \ket{\mathbf{j}} - 2J \sum_{m} e^{-ika(m+1)}\ket{\mathbf{j}}
     \\ &\qquad - 2J \sum_{m} e^{-ika(m-1)}\ket{\mathbf{j}} \\
      & = \left[ E_0  + J \left(4 - 2e^{-ika} - 2e^{ika} \right) \right]  \ket{\mathbf{j}}
@@ -342,9 +342,9 @@ With the ground state $ H \ket{\mathbf{0}}= -J (N-1) \ket{\mathbf{0}} + B N \ket
 \begin{equation*}
     H \ket{\mathbf{j}} =
     \begin{cases}
-        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j+1}}             & j=1              \\
+        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j+1}}                      & j=1              \\
         (4J-2B) \ket{\mathbf{j}} - 2J(\ket{\mathbf{j-1}}+\ket{\mathbf{j+1}}) & 2\leq j \leq N-1 \\
-        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j-1}}             & j=N              \\
+        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j-1}}                      & j=N              \\
     \end{cases}
 \end{equation*}
 and the matrix representation is
@@ -384,7 +384,7 @@ The Hamiltonian now reads
 and has the action on one excitation state of
 \begin{equation*}
     H \ket{\mathbf{j} } =
-    -2\sum_{i \neq j}J_{ij}  \ket{\mathbf{i}} +2 \sum_{i \neq j}  J_{ij}\ket{\mathbf{j}} -2B\ket{\mathbf{j}}       
+    -2\sum_{i \neq j}J_{ij}  \ket{\mathbf{i}} +2 \sum_{i \neq j}  J_{ij}\ket{\mathbf{j}} -2B\ket{\mathbf{j}}
 \end{equation*}
 the boundary cases are already contained in the interior formula.
 The matrix element in this case is
@@ -400,11 +400,11 @@ Suppose our Hamiltonian carries extra dipole like term
 \begin{equation*}
     H =  - \sum_{i<j} J_{ij} \boldsymbol{\sigma}_i \cdot\boldsymbol{\sigma}_{j} + 3\sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j  - \sum_{i } ^N B \sigma_{3i}
 \end{equation*}
-The matrix element in this case is 
+The matrix element in this case is
 \begin{equation*}
     H_{ij} =
     \begin{cases}
-        H_{ij} = -2 J_{ij} & i\neq j    \\\\
+        H_{ij} = -2 J_{ij}                                           & i\neq j \\\\
         H_{ij} =  3 \sum_{k<l} J_{kl} - 4\sum_{k \neq i}  J_{ik} -2B & i=j
     \end{cases}
 \end{equation*}
@@ -425,8 +425,8 @@ For the other end
 while for the interior is the same as the periodic boundary case
 \begin{align*}
     H \ket{\mathbf{j}}
-     & =   - 2J \sum_{\substack{i=1                                    \\i\neq j,j-1}}^{N-1}  P_{i,i+1}\ket{\mathbf{j}} -2JP_{j-1,j} \ket{\mathbf{j}} - 2JP_{j,j+1} \ket{\mathbf{j}} \\
-     & \qquad+  J(N-1) \ket{\mathbf{j}} - B\sigma_3 \ket{\mathbf{j}}                     \\
+     & =   - 2J \sum_{\substack{i=1                                                             \\i\neq j,j-1}}^{N-1}  P_{i,i+1}\ket{\mathbf{j}} -2JP_{j-1,j} \ket{\mathbf{j}} - 2JP_{j,j+1} \ket{\mathbf{j}} \\
+     & \qquad+  J(N-1) \ket{\mathbf{j}} - B\sigma_3 \ket{\mathbf{j}}                            \\
      & = -J(N-5) \ket{\mathbf{j}}+B(N-2) \ket{\mathbf{j}}-2J ( \ket{j-1 } + \ket{\mathbf{j+1}})
 \end{align*}
 Noting the ground state energy
@@ -439,9 +439,9 @@ and setting it to zero, we have the action of the Hamiltonian as
 \begin{equation*}
     H \ket{\mathbf{j}} =
     \begin{cases}
-        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j+1}}             & j=1              \\
+        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j+1}}                      & j=1              \\
         (4J-2B) \ket{\mathbf{j}} - 2J(\ket{\mathbf{j-1}}+\ket{\mathbf{j+1}}) & 2\leq j \leq N-1 \\
-        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j-1}}             & j=N              \\
+        (2J-2B)\ket{\mathbf{j}} -2 J \ket{\mathbf{j-1}}                      & j=N              \\
     \end{cases}
 \end{equation*}
 
@@ -453,14 +453,14 @@ We then introduce the magnon state
 This can be intrepreted as a basis change form eigenstate $\ket{\tilde{m}}$ to one excitation state.
 The action of the Heisenberg Hamiltonian in this state is
 \begin{align*}
-    H \ket{\tilde{m}  }                   & =
-    a ^{m} H \ket{\mathbf{1}} + \sum_{j=2 }^{N-1} a_j ^{m } H\ket{\mathbf{j}} + a_N ^{m} H \ket{\mathbf{N}}                                                                                                                    \\
-    \sum_{j=1} ^{N} a_j^m E_0 \ket{\mathbf{j}}     & = a_1 ^{m} \left[ (2J-2B) \ket{\mathbf{1}} - 2J \ket{\mathbf{2}}   \right]                                                                                               \\
-                                          & \qquad + a_N ^{m} \left[ (2J-2B) \ket{\mathbf{N}} - 2J \ket{\mathbf{N-1}}\right]                                                                                         \\
-                                          & \qquad + \sum_{j=2 } ^{N-1} a_j ^{m} \left[  (4J-2B) \ket{\mathbf{j}} - 2J ( \ket{\mathbf{j-1}} + \ket{\mathbf{j+1}}) \right]                                                      \\
-    \sum_{j=1} ^{N} a_j^m E_0 \delta_{pj} & = a_1 ^{m} \left[ (2J-2B) \delta_{p,1} - 2J \delta_{p,2}\right]                                                                                         \\
-                                          & \qquad + a_N ^{m} \left[ (2J-2B) \delta_{p,N} - 2J \delta_{p,N-1 }\right]                                                                               \\
-                                          & \qquad + \sum_{j=2 } ^{N-1} a_j ^{m} (4J-2B) \delta_{p,j} - \sum_{j=1 } ^{N-2}a_{j+1} ^{m}2J \delta_{p,j} - \sum_{j=3 } ^{N}a_{j-1} ^{m}2J \delta_{p,j}
+    H \ket{\tilde{m}  }                        & =
+    a ^{m} H \ket{\mathbf{1}} + \sum_{j=2 }^{N-1} a_j ^{m } H\ket{\mathbf{j}} + a_N ^{m} H \ket{\mathbf{N}}                                                                                              \\
+    \sum_{j=1} ^{N} a_j^m E_0 \ket{\mathbf{j}} & = a_1 ^{m} \left[ (2J-2B) \ket{\mathbf{1}} - 2J \ket{\mathbf{2}}   \right]                                                                              \\
+                                               & \qquad + a_N ^{m} \left[ (2J-2B) \ket{\mathbf{N}} - 2J \ket{\mathbf{N-1}}\right]                                                                        \\
+                                               & \qquad + \sum_{j=2 } ^{N-1} a_j ^{m} \left[  (4J-2B) \ket{\mathbf{j}} - 2J ( \ket{\mathbf{j-1}} + \ket{\mathbf{j+1}}) \right]                           \\
+    \sum_{j=1} ^{N} a_j^m E_0 \delta_{pj}      & = a_1 ^{m} \left[ (2J-2B) \delta_{p,1} - 2J \delta_{p,2}\right]                                                                                         \\
+                                               & \qquad + a_N ^{m} \left[ (2J-2B) \delta_{p,N} - 2J \delta_{p,N-1 }\right]                                                                               \\
+                                               & \qquad + \sum_{j=2 } ^{N-1} a_j ^{m} (4J-2B) \delta_{p,j} - \sum_{j=1 } ^{N-2}a_{j+1} ^{m}2J \delta_{p,j} - \sum_{j=3 } ^{N}a_{j-1} ^{m}2J \delta_{p,j}
 \end{align*}
 From this we obtain the cases for the interior and the boundary
 \begin{equation*}
@@ -614,7 +614,7 @@ Note that the interaction sum runs over all distinct pairs, not just the nearest
 
 The action in the ground state is
 \begin{align*}
-    H \ket{\mathbf{0}}& =  -\sum_{i<j}J_{ij}  (2P_{ij}-1)\ket{\mathbf{0}}   - B\sigma_3 \ket{\mathbf{0}} \\
+    H \ket{\mathbf{0}} & =  -\sum_{i<j}J_{ij}  (2P_{ij}-1)\ket{\mathbf{0}}   - B\sigma_3 \ket{\mathbf{0}} \\
     H \ket{\mathbf{0}} & =  -\sum_{i<j}J_{ij}\ket{\mathbf{0}} + B N \ket{\mathbf{0}}
 \end{align*}
 Using identity
@@ -630,9 +630,9 @@ The action at the first site is
 \begin{align*}
     H \ket{\mathbf{1}}
      & =   -2\sum_{i<j}J_{ij}  P_{ij}\ket{\mathbf{1}}  + \sum_{i<j} J_{ij}\ket{\mathbf{1}} - \sum_{i } ^N B \sigma_{3i}\ket{\mathbf{1}} \\
-     & =   -2 \sum_{j=2}^{N}  J_{1j} P_{1j} \ket{\mathbf{1}} - 2\sum_{\substack{2\leq i                               \\i<j}} J_{ij}  P_{ij}\ket{\mathbf{1}} + \sum_{i<j}  J_{ij} \ket{\mathbf{1}} + B(N-2)\ket{\mathbf{1}} \\
-     & =   -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} - 2\sum_{\substack{2\leq i                                      \\i<j}} J_{ij} \ket{\mathbf{1}} + \sum_{i<j}  J_{ij} \ket{\mathbf{1}} + B(N-2)\ket{\mathbf{1}} \\
-     & =   -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} -\sum_{\substack{2\leq i                                        \\i<j}} J_{ij} \ket{\mathbf{1}} + \sum_{j=2}^{N} J_{1j} \ket{\mathbf{1}}  + B(N-2)\ket{\mathbf{1}}
+     & =   -2 \sum_{j=2}^{N}  J_{1j} P_{1j} \ket{\mathbf{1}} - 2\sum_{\substack{2\leq i                                                 \\i<j}} J_{ij}  P_{ij}\ket{\mathbf{1}} + \sum_{i<j}  J_{ij} \ket{\mathbf{1}} + B(N-2)\ket{\mathbf{1}} \\
+     & =   -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} - 2\sum_{\substack{2\leq i                                                        \\i<j}} J_{ij} \ket{\mathbf{1}} + \sum_{i<j}  J_{ij} \ket{\mathbf{1}} + B(N-2)\ket{\mathbf{1}} \\
+     & =   -2 \sum_{j=2}^{N}  J_{1j} \ket{\mathbf{j}} -\sum_{\substack{2\leq i                                                          \\i<j}} J_{ij} \ket{\mathbf{1}} + \sum_{j=2}^{N} J_{1j} \ket{\mathbf{1}}  + B(N-2)\ket{\mathbf{1}}
 \end{align*}
 Setting the ground state energy $E_0 = -\sum_{i<j}J_{ij}+BN $ to zero,
 \begin{equation*}
@@ -643,9 +643,9 @@ Now at opposite end
 \begin{align*}
     H \ket{\mathbf{N}}
      & =   -2\sum_{i<j}J_{ij}  P_{ij}\ket{\mathbf{N}}  + \sum_{i<j} J_{ij}\ket{\mathbf{N}} - \sum_{i } ^N B \sigma_{3i}\ket{\mathbf{N}} \\
-     & =   -2 \sum_{i=1}^{N-1}  J_{iN} P_{iN} \ket{\mathbf{N}} - 2\sum_{\substack{i<j                                 \\j < N}} J_{ij}  P_{ij}\ket{\mathbf{N}} + \sum_{i<j}  J_{ij} \ket{\mathbf{N}} + B(N-2)\ket{\mathbf{N}} \\
-     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{\mathbf{i}} - 2\sum_{\substack{i<j                                        \\j < N}} J_{ij} \ket{\mathbf{N}} + \sum_{i<j}  J_{ij} \ket{\mathbf{N}} + B(N-2)\ket{\mathbf{N}} \\
-     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{\mathbf{i}} -\sum_{\substack{i<j                                          \\j<N}} J_{ij} \ket{\mathbf{N}} + \sum_{i=1}^{N-1} J_{iN} \ket{\mathbf{N}}  + B(N-2)\ket{\mathbf{N}}
+     & =   -2 \sum_{i=1}^{N-1}  J_{iN} P_{iN} \ket{\mathbf{N}} - 2\sum_{\substack{i<j                                                   \\j < N}} J_{ij}  P_{ij}\ket{\mathbf{N}} + \sum_{i<j}  J_{ij} \ket{\mathbf{N}} + B(N-2)\ket{\mathbf{N}} \\
+     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{\mathbf{i}} - 2\sum_{\substack{i<j                                                          \\j < N}} J_{ij} \ket{\mathbf{N}} + \sum_{i<j}  J_{ij} \ket{\mathbf{N}} + B(N-2)\ket{\mathbf{N}} \\
+     & =   -2 \sum_{i=1}^{N-1}  J_{iN} \ket{\mathbf{i}} -\sum_{\substack{i<j                                                            \\j<N}} J_{ij} \ket{\mathbf{N}} + \sum_{i=1}^{N-1} J_{iN} \ket{\mathbf{N}}  + B(N-2)\ket{\mathbf{N}}
 \end{align*}
 Now set the ground state to zero, that is we define $H \to H -E_0$
 \begin{equation*}
@@ -662,7 +662,7 @@ There are 3 possible cases: $i=k$, $j \neq k$; $j=k$, $i \neq k$; $i \neq  k$, $
     -2\sum_{i<j}J_{ij}  P_{ij}\ket{\mathbf{k}}
      & =    -2\sum_{k<j}J_{kj}  P_{kj}\ket{\mathbf{k}} -2\sum_{i<k}J_{ik}  P_{ik}\ket{\mathbf{k}}  -2\sum_{\substack{i<j \\i,j \neq k}}J_{ij}  P_{ij}\ket{\mathbf{k}} \\
      & =    -2\sum_{k<j}J_{kj}\ket{\mathbf{j}} -2\sum_{i<k}J_{ik}  \ket{\mathbf{i}}  -2\sum_{\substack{i<j               \\i,j \neq k}}J_{ij}\ket{\mathbf{k}} \\
-     & = -2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - 2\sum_{\substack{i<j                                       \\i,j \neq k}}J_{ij}\ket{\mathbf{k}}
+     & = -2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - 2\sum_{\substack{i<j                                                \\i,j \neq k}}J_{ij}\ket{\mathbf{k}}
 \end{align*}
 where we have combined the sum over $k<j$ with $j<k$ into single $i \neq k$.
 The action now reads
@@ -675,8 +675,8 @@ The action now reads
 Setting the ground state to zero
 \begin{align*}
     H \ket{\mathbf{k}}
-     & =-2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - \sum_{\substack{i<j                        \\i,j \neq k}}J_{ij}\ket{\mathbf{k}} + \sum_{i \neq k}  J_{ik}\ket{\mathbf{k}} + B(N-2)\ket{\mathbf{k}} \\
-     & \qquad +\sum_{i \neq k}J_{ik}\ket{\mathbf{k}} +\sum_{\substack{i<j                      \\i,j \neq k}}J_{ij}\ket{\mathbf{k}} -BN   \ket{\mathbf{k}}\\
+     & =-2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - \sum_{\substack{i<j                                          \\i,j \neq k}}J_{ij}\ket{\mathbf{k}} + \sum_{i \neq k}  J_{ik}\ket{\mathbf{k}} + B(N-2)\ket{\mathbf{k}} \\
+     & \qquad +\sum_{i \neq k}J_{ik}\ket{\mathbf{k}} +\sum_{\substack{i<j                                        \\i,j \neq k}}J_{ij}\ket{\mathbf{k}} -BN   \ket{\mathbf{k}}\\
     H \ket{\mathbf{k}}
      & =-2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} +2 \sum_{i \neq k}  J_{ik}\ket{\mathbf{k}} -2B\ket{\mathbf{k}}
 \end{align*}
@@ -689,7 +689,7 @@ for fixed $k$.
 Therefore
 \begin{equation*}
     H \ket{\mathbf{j} } =
-    -2\sum_{i \neq j}J_{ij}  \ket{\mathbf{i}} +2 \sum_{i \neq j}  J_{ij}\ket{\mathbf{j}} -2B\ket{\mathbf{j}}       
+    -2\sum_{i \neq j}J_{ij}  \ket{\mathbf{i}} +2 \sum_{i \neq j}  J_{ij}\ket{\mathbf{j}} -2B\ket{\mathbf{j}}
 \end{equation*}
 the boundary cases are already contained in the interior formula.
 The matrix element in this case is
@@ -731,14 +731,14 @@ Next on the interior
      & =\sum_{k<j}J_{kj}\sigma^z_k \sigma^z_j\ket{\mathbf{k}} + \sum_{i<k}J_{ik} \sigma^z_i \sigma^z_k\ket{\mathbf{k}}  + \sum_{\substack{i<j \\i,j \neq k}}J_{ij}\sigma^z_i \sigma^z_j\ket{\mathbf{k}} \\
      & = - \sum_{k<j}J_{kj} \ket{\mathbf{k}} - \sum_{i<k}J_{ik} \ket{\mathbf{k}}  + \sum_{\substack{i<j                                       \\i,j \neq k}}J_{ij} \ket{\mathbf{k}} \\
     \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{\mathbf{k}}
-     & = - \sum_{i \neq k} J_{ik} \ket{\mathbf{k}}  + \sum_{\substack{i<j                                                            \\i,j \neq k}}J_{ij} \ket{\mathbf{k}} 
+     & = - \sum_{i \neq k} J_{ik} \ket{\mathbf{k}}  + \sum_{\substack{i<j                                                                     \\i,j \neq k}}J_{ij} \ket{\mathbf{k}}
 \end{align*}
 The second sum is hard to perform computationally, so we split the sum like previously
 \begin{align*}
     \sum_{k<l} J_{kl}
      & = \sum_{k<i}J_{ki}+ \sum_{i<l}J_{il}   + \sum_{\substack{k<l \\k,l \neq i}}J_{kl}
-    =  \sum_{k \neq i} J_{ik}   + \sum_{\substack{k<l\\k,l \neq i}}J_{kl}\\
-    \sum_{\substack{k<l\\k,l \neq i}}J_{kl}
+    =  \sum_{k \neq i} J_{ik}   + \sum_{\substack{k<l               \\k,l \neq i}}J_{kl}\\
+    \sum_{\substack{k<l                                             \\k,l \neq i}}J_{kl}
      & =     \sum_{k<l} J_{kl} -  \sum_{k \neq i} J_{ik}
 \end{align*}
 % to obtain
@@ -758,7 +758,7 @@ This simplifies the result
 Adding these action
 \begin{equation*}
     H \ket{\mathbf{k} } =
-    -2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - \sum_{i \neq k}  J_{ik}\ket{\mathbf{k}} +3 \sum_{\substack{i<j      \\i,j \neq k}}J_{ij} \ket{\mathbf{k}} -2B\ket{\mathbf{k}} 
+    -2\sum_{i \neq k}J_{ik}  \ket{\mathbf{i}} - \sum_{i \neq k}  J_{ik}\ket{\mathbf{k}} +3 \sum_{\substack{i<j      \\i,j \neq k}}J_{ij} \ket{\mathbf{k}} -2B\ket{\mathbf{k}}
 \end{equation*}
 we have the matrix element
 \begin{equation*}
@@ -785,17 +785,17 @@ The action of this Hamiltonian in one excitation state is
 \begin{equation*}
     H \ket{\mathbf{j}} =
     \begin{cases}
-        - 2J \ket{\mathbf{j+1}}                            & j=1               \\
+        - 2J \ket{\mathbf{j+1}}                                     & j=1               \\
         - 2J \left( \ket{\mathbf{j-1}} + \ket{\mathbf{j+1}} \right) & 2 \leq j \leq N-1 \\
-        - 2J \ket{\mathbf{N-1}}                            & j=N
+        - 2J \ket{\mathbf{N-1}}                                     & j=N
     \end{cases}
 \end{equation*}
 with $H \ket{\mathbf{0}} = 0$.
 In the $N \times N$ matrix of the same basis
 \begin{equation*}
     H  = \begin{cases}
-        -2J,& |i-j|=1\\
-        0,&i=j\text{ or } |i-j|>1\\
+        -2J, & |i-j|=1                \\
+        0,   & i=j\text{ or } |i-j|>1 \\
     \end{cases}
 \end{equation*}
 The eigenstates and eigenvalue of this Hamiltonian is
@@ -805,39 +805,39 @@ The eigenstates and eigenvalue of this Hamiltonian is
     E_m = -2J \cos \frac{m \pi }{N+1}
 \end{equation*}
 with $m=1,\dots$.
-Introducing imperfection $\alpha$ can create localized eigenstate which generally make better transport channel. 
+Introducing imperfection $\alpha$ can create localized eigenstate which generally make better transport channel.
 The eigenvalue spectrum remain $E_k = -2J \cos k$, however the allowed $k $ must satisfy the transcendental equation below
 \begin{equation*}
-     \eta\cot k \left[ \cot\left(\frac{N-1}{2}k\right) \right]^\eta  = \frac{\alpha^2}{2-\alpha^2}
+    \eta\cot k \left[ \cot\left(\frac{N-1}{2}k\right) \right]^\eta  = \frac{\alpha^2}{2-\alpha^2}
 \end{equation*}
 with parity $\eta=\pm1$.
 The eigenvector component $\braket{\mathbf{j} |m }$ reads similarly in boundary
 \begin{equation*}
- a_1=\frac{\alpha}{c}\sin k \qquad
- a_N=\eta a_1 =\frac{\eta\alpha}{c}\sin k
+    a_1=\frac{\alpha}{c}\sin k \qquad
+    a_N=\eta a_1 =\frac{\eta\alpha}{c}\sin k
 \end{equation*}
 While the bulk
 \begin{equation*}
- a_i= \frac{1}{c} \left[ \sin(ik) + (1-\alpha^2)\sin((i-2)k) \right]     
+    a_i= \frac{1}{c} \left[ \sin(ik) + (1-\alpha^2)\sin((i-2)k) \right]
 \end{equation*}
 Here the normalization factor becomes
 \begin{equation*}
-     c^2 = (N-1) \left[ 2(1-\alpha^2)\cos^2k+\frac{\alpha^4}{2} \right] +2\alpha^2-\alpha^4
+    c^2 = (N-1) \left[ 2(1-\alpha^2)\cos^2k+\frac{\alpha^4}{2} \right] +2\alpha^2-\alpha^4
 \end{equation*}
 
 For long-range interaction, the Hamiltonian action on one-excitation state is
 \begin{equation*}
-H_{\mathrm{XX}}\ket{\mathbf j}
-=
--2\sum_{i\neq j}J_{ij}\ket{\mathbf i}
--2B\ket{\mathbf j}
+    H_{\mathrm{XX}}\ket{\mathbf j}
+    =
+    -2\sum_{i\neq j}J_{ij}\ket{\mathbf i}
+    -2B\ket{\mathbf j}
 \end{equation*}
-and the representation reads 
+and the representation reads
 \begin{equation*}
     H_{ij} =
     \begin{cases}
-        H_{ij} =- 2J_{ij}                     & i\neq j \\\\
-        H_{ii} = -2B & i=j
+        H_{ij} =- 2J_{ij} & i\neq j \\\\
+        H_{ii} = -2B      & i=j
     \end{cases}
 \end{equation*}
 This comes easily from
@@ -845,10 +845,10 @@ This comes easily from
     \sigma_i^x\sigma_j^x+\sigma_i^y\sigma_j^y=
     2P_{ij}-I-\sigma_i^z\sigma_j^z\\
     H_{XXX} \ket{\mathbf{j} } =
-    -2\sum_{i \neq j}J_{ij}  \ket{\mathbf{i}} +2 \sum_{i \neq j}  J_{ij}\ket{\mathbf{j}} -2B\ket{\mathbf{j}}    \\       
+    -2\sum_{i \neq j}J_{ij}  \ket{\mathbf{i}} +2 \sum_{i \neq j}  J_{ij}\ket{\mathbf{j}} -2B\ket{\mathbf{j}}    \\
     \sum_{i<j} J_{ij} \sigma^z_i \sigma^z_j \ket{\mathbf{k}}
     = - 2 \sum_{i \neq k} J_{ik} \ket{\mathbf{k}}  + \sum_{i<j} J_{ij} \ket{\mathbf{k}}\\
-    E_0 = -\sum_{i<j}J_{ij}    
+    E_0 = -\sum_{i<j}J_{ij}
 \end{gather*}
 which I derived in long-range section.
 Also note that we use the shifted energy, hence all you do to obtain the result is to obey the first equation and add the final $E_0$.
@@ -873,16 +873,16 @@ As for the other boundary
 On the interior, it act as
 \begin{align*}
     H \ket{\mathbf{j}} & =  - 2J (\sigma_{+} ^{j-1} \sigma_- ^{j} + \sigma_{-} ^{j-1} \sigma_+ ^{j}) \ket{\mathbf{j}}  - 2J (\sigma_{+} ^{j-1} \sigma_- ^{j} + \sigma_{-} ^{j-1} \sigma_+ ^{j}) \ket{\mathbf{j}} \\
-              & \qquad+ \sum_{i\neq j,j-1 }  (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{\mathbf{j}}                                                                                    \\
-              & = - 2J \left( \ket{\mathbf{j-1}} + \ket{\mathbf{j+1}} \right)
+                       & \qquad+ \sum_{i\neq j,j-1 }  (\sigma_{+} ^{i} \sigma_- ^{i+1} + \sigma_{-} ^{i} \sigma_+ ^{i+1}) \ket{\mathbf{j}}                                                                       \\
+                       & = - 2J \left( \ket{\mathbf{j-1}} + \ket{\mathbf{j+1}} \right)
 \end{align*}
 From this, it can be easily seen that the element $H_{i,j} = -2J\delta_{i,i\pm1}$.
 The eigenvalue equation in this case
 \begin{align*}
     \sum_j H_{ij}a_j
-    &=
-    Ea_i\\
-    -2J(a_{i-1}+a_{i+1})& =  Ea_i
+                         & =
+    Ea_i                           \\
+    -2J(a_{i-1}+a_{i+1}) & =  Ea_i
 \end{align*}
 We obtain three different equation after considering the boundary condition
 \begin{equation*}
@@ -895,7 +895,7 @@ We obtain three different equation after considering the boundary condition
 
 We again use the ansatz of $a=r^j$ for the interior equation
 \begin{align*}
-    a_{j-1} + a_{j+1}                    & =  - \frac{E_k}{2J }  a_j  = \lambda a_j      \\
+    a_{j-1} + a_{j+1}                    & =  - \frac{E_k}{2J }  a_j  = \lambda a_j       \\
     r ^{j+1 } + r ^{j-1} -\lambda r ^{j} & =  0                                           \\
     r^2 -\lambda r +1                    & =  0                                           \\
     r                                    & = \frac{\lambda \pm \sqrt{\lambda^2 -4 } }{2 }
@@ -903,7 +903,7 @@ We again use the ansatz of $a=r^j$ for the interior equation
 For the same reason, we once again use $\lambda =2 \cos k$, which then imply $a_j = e ^{\pm ikj}$.
 Now impose the boundary condition at $j=1$
 \begin{align*}
-    a_2                     & =  - \frac{E_m }{2J} a_1 = \lambda a_1          \\
+    a_2                     & =  - \frac{E_m }{2J} a_1 = \lambda a_1           \\
     Ae ^{2ik} + B e ^{-2ik} & = (e ^{ik } + e ^{-ik }) (Ae ^{ik} + B e ^{-ik}) \\
     Ae ^{2ik} + B e ^{-2ik} & = A(e ^{2ik } + 1) + B (1 + B e ^{-2ik})         \\
     A                       & = B
@@ -959,64 +959,64 @@ From this, it can be seen that the energy eigenvalue is
 \end{equation*}
 
 \subsubsection{Derivation: dual hole coupling.}
-Now suppose we introduce dual hole coupling, which turn the Hamiltonian into 
+Now suppose we introduce dual hole coupling, which turn the Hamiltonian into
 \begin{equation*}
     H_{ij}(\alpha)=
-\begin{cases}
--2Jg_{ij}(\alpha),&i \neq j\\
-0,&i=j
-\end{cases}
+    \begin{cases}
+        -2Jg_{ij}(\alpha), & i \neq j \\
+        0,                 & i=j
+    \end{cases}
 \end{equation*}
 with
 \begin{equation*}
     g_{ij}(\alpha)=
-\begin{cases}
-\alpha,
-& |i-j|=1
-\ \text{and}\ 
-\left(i\in\{1,N\}\ \text{or}\ j\in\{1,N\}\right),
-\\
-1,
-& |i-j|=1\\
-\end{cases}
+    \begin{cases}
+        \alpha,
+         & |i-j|=1
+        \ \text{and}\
+        \left(i\in\{1,N\}\ \text{or}\ j\in\{1,N\}\right),
+        \\
+        1,
+         & |i-j|=1 \\
+    \end{cases}
 \end{equation*}
-Aside, for long range coupling, we can modify $g(\alpha)$ into 
+Aside, for long range coupling, we can modify $g(\alpha)$ into
 \begin{equation*}
     g_{ij}(\alpha)=
-\begin{cases}
-\alpha,
-&    i\in\{1,N\}\ \text{or}\ j\in\{1,N\}\\
-1,
-& \text{otherwise}\\
-\end{cases}
+    \begin{cases}
+        \alpha,
+         & i\in\{1,N\}\ \text{or}\ j\in\{1,N\} \\
+        1,
+         & \text{otherwise}                    \\
+    \end{cases}
 \end{equation*}
 Of course, we change also the coupling itself into  site dependent one $J_{ij}$.
 In any case, the discrete Hamiltonian  $\textstyle\sum_j H_{ij}a_j = E a_i$ reads
 \begin{equation*}
-E a_i=
-\begin{cases}
--2J\alpha a_2, & i=1,\\
--2J(\alpha a_{1}+a_{3}),& i = 2,\\
--2J(a_{i-1}+a_{i+1}),& 3\le i\le N-2,\\
--2J( a_{N-2}+\alpha a_{N}),& i = N-1,\\
--2J\alpha a_{N-1},& i=N.
-\end{cases}
+    E a_i=
+    \begin{cases}
+        -2J\alpha a_2,              & i=1,           \\
+        -2J(\alpha a_{1}+a_{3}),    & i = 2,         \\
+        -2J(a_{i-1}+a_{i+1}),       & 3\le i\le N-2, \\
+        -2J( a_{N-2}+\alpha a_{N}), & i = N-1,       \\
+        -2J\alpha a_{N-1},          & i=N.
+    \end{cases}
 \end{equation*}
-From the bulk case, we earlier obtain the general form of 
+From the bulk case, we earlier obtain the general form of
 \begin{equation*}
     a_j = Ae^{ikj} + B e^{-ikj} = A \sin (kj+\delta)
 \end{equation*}
-With $\lambda = -E/2J = 2 \cos k$, at $i=1$ we have 
+With $\lambda = -E/2J = 2 \cos k$, at $i=1$ we have
 \begin{align*}
     \lambda a_1=\alpha a_2\implies a_1  = \alpha a_2/\lambda
 \end{align*}
 so that at $i=2$
 \begin{align*}
-\lambda a_2 & = \alpha a_1+a_3\\
-    \lambda a_2 & = \alpha(\alpha a_2/\lambda)+a_3\\
-(\lambda^2-\alpha^2)a_2 & = \lambda a_3\\
- a_2 & = \frac{\lambda}{\lambda^2-\alpha^2}a_3\\
- \frac{\sin (2j+\delta )}{\sin (3j+\delta )} & = \frac{2\cos ^2 k}{4 \cos ^2k-\alpha^2}a_3
+    \lambda a_2                                 & = \alpha a_1+a_3                            \\
+    \lambda a_2                                 & = \alpha(\alpha a_2/\lambda)+a_3            \\
+    (\lambda^2-\alpha^2)a_2                     & = \lambda a_3                               \\
+    a_2                                         & = \frac{\lambda}{\lambda^2-\alpha^2}a_3     \\
+    \frac{\sin (2j+\delta )}{\sin (3j+\delta )} & = \frac{2\cos ^2 k}{4 \cos ^2k-\alpha^2}a_3
 \end{align*}
 
 
@@ -1034,15 +1034,15 @@ Using the bulk form, the reflection condition becomes
 \end{equation*}
 In symmetric sector $\eta=+1$, the reflection reads
 \begin{align*}
-    \sin\left[k(N+1-j)+\delta\right]& = \sin(kj+\delta)\\
-    k(N+1-j)+\delta & = \pi-(kj+\delta)+2\pi n\\
-    k(N+1)+2\delta & = (2n+1)\pi\\
-    \delta & = \frac{(2n+1)\pi-k(N+1)}{2}
+    \sin\left[k(N+1-j)+\delta\right] & = \sin(kj+\delta)            \\
+    k(N+1-j)+\delta                  & = \pi-(kj+\delta)+2\pi n     \\
+    k(N+1)+2\delta                   & = (2n+1)\pi                  \\
+    \delta                           & = \frac{(2n+1)\pi-k(N+1)}{2}
 \end{align*}
 We have the arguments
 \begin{equation*}
     \begin{cases}
-        2k+\delta = \frac{(2n+1)\pi}{2} -\frac{N-3}{2}k 
+        2k+\delta = \frac{(2n+1)\pi}{2} -\frac{N-3}{2}k
         \\
         3k+\delta = \frac{(2n+1)\pi}{2} -\frac{N-5}{2}k
     \end{cases}
@@ -1055,40 +1055,40 @@ we have
 \begin{equation*}
     \begin{cases}
         \sin(2k+\delta) = (-1)^n \cos\left(\frac{N-3}{2}k\right) \\
-         \sin(3k+\delta) = (-1)^n \cos\left(\frac{N-5}{2}k\right)
+        \sin(3k+\delta) = (-1)^n \cos\left(\frac{N-5}{2}k\right)
     \end{cases}
 \end{equation*}
 Substituting to $i=2$ condition
 \begin{align*}
-\frac{ \cos\left(\frac{N-3}{2}k\right)} { \cos\left(\frac{N-5}{2}k\right) }
-&= \frac{\cos A}{\cos(A-k)}
- =  \frac{2\cos k}{4\cos^2k-\alpha^2}\\
- & = \frac{1}{\cos k+\tan A\sin k}\\
-  \tan A & =  \frac{4\cos^2k-\alpha^2-2\cos^2k}{2\cos k\sin k}
+    \frac{ \cos\left(\frac{N-3}{2}k\right)} { \cos\left(\frac{N-5}{2}k\right) }
+           & = \frac{\cos A}{\cos(A-k)}
+    =  \frac{2\cos k}{4\cos^2k-\alpha^2}                         \\
+           & = \frac{1}{\cos k+\tan A\sin k}                     \\
+    \tan A & =  \frac{4\cos^2k-\alpha^2-2\cos^2k}{2\cos k\sin k}
 \end{align*}
-then using 
+then using
 \begin{align*}
-    \tan(A+k) & = \frac{\tan A+\tan k} {1-\tan A\tan k}\\
-    & = \frac{ \dfrac{2\cos^2k-\alpha^2}{2\sin k\cos k} +\dfrac{\sin k}{\cos k} }{ 1- \dfrac{2\cos^2k-\alpha^2}{2\sin k\cos k} \dfrac{\sin k}{\cos k} }\\
-& = \frac{2-\alpha^2}{2\sin k\cos k} \frac{2\cos^2k}{\alpha^2}\\
-\tan\left(\frac{N-1}{2}k\right) & =  \frac{2-\alpha^2}{\alpha^2}\cot k\\
- \tan k\, \tan\left(\frac{N-1}{2}k\right) & =  \frac{2-\alpha^2}{\alpha^2} \\
-  \cot k\, \cot\left(\frac{N-1}{2}k\right) & =  \frac{\alpha^2}{2-\alpha^2}
+    \tan(A+k)                                & = \frac{\tan A+\tan k} {1-\tan A\tan k}                                                                                                           \\
+                                             & = \frac{ \dfrac{2\cos^2k-\alpha^2}{2\sin k\cos k} +\dfrac{\sin k}{\cos k} }{ 1- \dfrac{2\cos^2k-\alpha^2}{2\sin k\cos k} \dfrac{\sin k}{\cos k} } \\
+                                             & = \frac{2-\alpha^2}{2\sin k\cos k} \frac{2\cos^2k}{\alpha^2}                                                                                      \\
+    \tan\left(\frac{N-1}{2}k\right)          & =  \frac{2-\alpha^2}{\alpha^2}\cot k                                                                                                              \\
+    \tan k\, \tan\left(\frac{N-1}{2}k\right) & =  \frac{2-\alpha^2}{\alpha^2}                                                                                                                    \\
+    \cot k\, \cot\left(\frac{N-1}{2}k\right) & =  \frac{\alpha^2}{2-\alpha^2}
 \end{align*}
 
 Next for the antisymmetric $\eta=-1$, our reflection reads
 Now impose
 \begin{align*}
-    \sin\left[k(N+1-j)+\delta\right] & =  -\sin(kj+\delta)\\
-k(N+1-j)+\delta & =  -(kj+\delta)+2\pi n\\
-k(N+1)+2\delta & =  2\pi n\\
- \delta & =  n\pi-\frac{k(N+1)}{2}
+    \sin\left[k(N+1-j)+\delta\right] & =  -\sin(kj+\delta)      \\
+    k(N+1-j)+\delta                  & =  -(kj+\delta)+2\pi n   \\
+    k(N+1)+2\delta                   & =  2\pi n                \\
+    \delta                           & =  n\pi-\frac{k(N+1)}{2}
 \end{align*}
 Again, evaluate the two relevant arguments
 \begin{equation*}
     \begin{cases}
-        2k+\delta = n\pi-\frac{N-3}{2}k\\
-3k+\delta = n\pi-\frac{N-5}{2}k
+        2k+\delta = n\pi-\frac{N-3}{2}k \\
+        3k+\delta = n\pi-\frac{N-5}{2}k
     \end{cases}
 \end{equation*}
 and therefore
@@ -1098,42 +1098,262 @@ and therefore
         \sin(3k+\delta) = (-1)^{n+1} \sin\left(\frac{N-5}{2}k\right)
     \end{cases}
 \end{equation*}
-Then 
+Then
 \begin{align*}
-    \frac{ \sin\left(\frac{N-5}{2}k\right) }{ \sin\left(\frac{N-3}{2}k\right)}  & =  \frac{\sin(x-k)}{\sin(x)} = \frac{4\cos^2k-\alpha^2}{2\cos k}\\
-\cos k-\cot x\sin k & =  \frac{4\cos^2k-\alpha^2}{2\cos k}\\
--\cot x\sin k & =  \frac{2\cos^2k-\alpha^2}{2\cos k}\\
-\tan x & =  -\frac{2\sin k\cos k} {2\cos^2k-\alpha^2}
+    \frac{ \sin\left(\frac{N-5}{2}k\right) }{ \sin\left(\frac{N-3}{2}k\right)} & =  \frac{\sin(x-k)}{\sin(x)} = \frac{4\cos^2k-\alpha^2}{2\cos k} \\
+    \cos k-\cot x\sin k                                                        & =  \frac{4\cos^2k-\alpha^2}{2\cos k}                             \\
+    -\cot x\sin k                                                              & =  \frac{2\cos^2k-\alpha^2}{2\cos k}                             \\
+    \tan x                                                                     & =  -\frac{2\sin k\cos k} {2\cos^2k-\alpha^2}
 \end{align*}
 Using the same identity
 \begin{align*}
- \tan(x+k) & =  \frac{\tan x+\tan k} {1-\tan x\tan k}    \\
- & =  \frac{ -\dfrac{2\sin k\cos k}{2\cos^2k-\alpha^2} +\dfrac{\sin k}{\cos k} }{ 1+ \dfrac{2\sin^2k}{2\cos^2k-\alpha^2} }\\
- & = \frac{\sin k}{\cos k} \frac{ -(2\cos^2k)+(2\cos^2k-\alpha^2) }{ 2\cos^2k-\alpha^2 }\\
- &\qquad\bigg\slash\frac{ 2\cos^2k-\alpha^2+2\sin^2k }{ 2\cos^2k-\alpha^2 }\\
- & =  -\frac{\alpha^2\sin k} {\cos k(2\cos^2k-\alpha^2)}\frac{2\cos^2k-\alpha^2}{2-\alpha^2} \\
-  \tan\left(\frac{N-1}{2}k\right) 
-  & = -\frac{\alpha^2}{2-\alpha^2}\tan k\\
-  -\cot k\, \tan\left(\frac{N-1}{2}k\right) & =  \frac{\alpha^2}{2-\alpha^2}. 
+    \tan(x+k)                                 & =  \frac{\tan x+\tan k} {1-\tan x\tan k}                                                                                \\
+                                              & =  \frac{ -\dfrac{2\sin k\cos k}{2\cos^2k-\alpha^2} +\dfrac{\sin k}{\cos k} }{ 1+ \dfrac{2\sin^2k}{2\cos^2k-\alpha^2} } \\
+                                              & = \frac{\sin k}{\cos k} \frac{ -(2\cos^2k)+(2\cos^2k-\alpha^2) }{ 2\cos^2k-\alpha^2 }                                   \\
+                                              & \qquad\bigg\slash\frac{ 2\cos^2k-\alpha^2+2\sin^2k }{ 2\cos^2k-\alpha^2 }                                               \\
+                                              & =  -\frac{\alpha^2\sin k} {\cos k(2\cos^2k-\alpha^2)}\frac{2\cos^2k-\alpha^2}{2-\alpha^2}                               \\
+    \tan\left(\frac{N-1}{2}k\right)
+                                              & = -\frac{\alpha^2}{2-\alpha^2}\tan k                                                                                    \\
+    -\cot k\, \tan\left(\frac{N-1}{2}k\right) & =  \frac{\alpha^2}{2-\alpha^2}.
 \end{align*}
 Combining both result based on symmetry
 both equations become
 \begin{equation*}
-     \eta\cot k \left[ \cot\left(\frac{N-1}{2}k\right) \right]^\eta  = \frac{\alpha^2}{2-\alpha^2}
+    \eta\cot k \left[ \cot\left(\frac{N-1}{2}k\right) \right]^\eta  = \frac{\alpha^2}{2-\alpha^2}
 \end{equation*}
 
 Now let's do sanity check on the transcendental equation.
 For $\alpha=1$, the uniform coupling $k = m\pi/(N+1)$ should holds true.
 Write the parity $\eta = (-1)^{m+1}$
 \begin{align*}
-    (-1)^{m+1}\cot k \left[ \cot\left(\frac{m\pi}{2}-k\right) \right]^{(-1)^{m+1}} 
-    & = 1\\
-    s\cot k \left[ s\left\{ \tan k \right\}^{s}  \right]^{s} & = 1\\
-    s\cot (k) s^s \tan k & = 1\\
-    s^{1+s}& = 1
+    (-1)^{m+1}\cot k \left[ \cot\left(\frac{m\pi}{2}-k\right) \right]^{(-1)^{m+1}}
+                                                             & = 1 \\
+    s\cot k \left[ s\left\{ \tan k \right\}^{s}  \right]^{s} & = 1 \\
+    s\cot (k) s^s \tan k                                     & = 1 \\
+    s^{1+s}                                                  & = 1
 \end{align*}
 since $s=\eta = \pm1$, this is true.
 
+\subsubsection{Odd and even chain length performance.}
+For even \(N\), there is no symmetry-enforced zero mode.
+Suppose that the dynamics is dominated by the two central states.
+\begin{equation*}
+    \ket{\psi_\pm} = \frac{\ket{\mathbf{1 }\pm \ket{\mathbf{N } } } }{\sqrt{2}}
+\end{equation*}
+with eigenvalue $\pm \epsilon$ respectively.
+Their contribution to the transfer amplitude is
+\begin{equation*}
+    f_{N}(t)
+    \simeq
+    \sum_{\pm}
+    e^{-iE_\pm t}
+    \langle\mathbf N|\psi_\pm\rangle
+    \langle\psi_\pm|\mathbf1\rangle .
+\end{equation*}
+In the idealized limit in which the two states have the endpoint form above, this reduces, up to a convention-dependent phase, to
+\begin{align*}
+    f_{N}(t)&\simeq
+    \frac12
+    \left(e^{-i\epsilon t}-e^{i\epsilon t}\right)\\
+     & =
+    \frac{1}{2}
+    \left[
+        \cos(\epsilon t)-i\sin(\epsilon t)
+        -
+        \cos(\epsilon t)-i\sin(\epsilon t)
+    \right] \\
+     & =
+    -i\sin(\epsilon t)
+\end{align*}
+which reaches maximum at $t=\pi/2\epsilon$
+Hence, perfect transfer is obtained when the two central eigenstates acquire the appropriate relative phase, while their endpoint weights approach the limiting value (1/2).
 
+\begin{figure}
+    \centering
+    \fullfig{../../../Rss/QM/Momentum/eigenstate_oddeven.pdf}
+    \caption*{Figure: Eigenstate population for odd $N=99$ and even $N=100$. For even $N$, the population is dominated by two central eigenstates, corresponding to the symmetric and antisymmetric combinations of the endpoint states. For odd $N$, three central eigenstates dominate: the zero-energy state $E_0$ and the two states with energies $\pm\epsilon$.}
+\end{figure}
+
+The structure of odd \(N\)  enforces an exact zero-energy eigenstate, which contribute greatly to the transfer.
+Suppose that the dynamics is dominated by the three central states.
+In the small-$\alpha$ limit, these states can be written as
+\begin{equation*}
+    \ket{\psi_0}
+    \simeq
+    \frac{\ket{\mathbf{1}}-\ket{\mathbf{N}}}{\sqrt{2}},
+    \qquad
+    E_0=0,
+\end{equation*}
+and
+\begin{equation*}
+    \ket{\psi_\pm}
+    \simeq
+    - \frac{1}{2}
+    \left(
+        \ket{\mathbf{1}}
+        +
+        \ket{\mathbf{N}}
+    \right)
+    + \ket{\phi_\pm},
+    \qquad
+    E_\pm=\pm\epsilon,
+\end{equation*}
+where $\ket{\phi_\pm}$ denotes the bulk component required for normalization.
+Consequently, 
+\begin{align*}
+    f_{N}(t)
+    &\simeq
+    \sum_{m=0,\pm}
+    e^{-iE_m t}
+    \langle\mathbf N|\psi_m\rangle
+    \langle\psi_m|\mathbf1\rangle\\
+    f_{N}(t)
+    &\simeq
+    \frac{1}{2}
+    -
+    \frac{1}{4}e^{-i\epsilon t}
+    -
+    \frac{1}{4}e^{i\epsilon t} \\
+    &=
+    \frac{1}{2}
+    -
+    \frac{1}{4}
+    \left[
+        \cos(\epsilon t)-i\sin(\epsilon t)
+    \right]
+    -
+    \frac{1}{4}
+    \left[
+        \cos(\epsilon t)+i\sin(\epsilon t)
+    \right] \\
+    &=
+    \frac{1}{2}
+    -
+    \frac{1}{2}\cos(\epsilon t) \\
+    &=
+    \sin^2\left(\frac{\epsilon t}{2}\right).
+\end{align*}
+which reach maximum at $t = \pi/\epsilon$.
+We observe that the odd N guarantee $E_0$ eigenstate with weight of $(1/2)$ such that the remaining eigenstates only $(1/2)$, hence the localization requirement is less stringent in this case.
+We observe that for odd \(N\), the spectrum necessarily contains a zero-energy eigenstate \(E_0=0\).
+
+
+\begin{figure}
+    \centering
+    \fullfig{../../../Rss/QM/Momentum/Ergo_compare_oddeven.pdf}
+    \caption*{Figure: Optimal $\alpha$ for odd $N=99$ (blue curve) and even $N=100$ (red curve). The even-$N$ chain exhibits greater sensitivity to variations in $\alpha$, indicating a narrower range of $\alpha$ values that yields high transfer fidelity.}
+\end{figure}
+
+For even \(N\), the two central states must do essentially all the endpoint transfer.
+Therefore, their localization must be relatively strong before the two-state approximation works well.
+For odd \(N\), the zero mode already supplies approximately $1/2$ to the transfer amplitude.
+Since it accounts for half of the endpoint spectral weight, the non-zero eigenstates only the remaining $1/2$.
+Thus, the odd chain can retain good transfer even when \(\epsilon_\pm\) eigenstates are not as strongly localized.
+This means that, the odd chain can tolerate a broader range of \(\alpha\) while retaining substantial transfer.
+This is consistent with our observation where the optimal coupling for an odd $N$ is applied to an even chain, the transfer fidelity is strongly suppressed; whereas applying the optimal coupling for an even $N$ to an odd chain results in a comparatively smaller reduction in fidelity.
+
+
+We observe that odd-\(N\) chains exhibit a larger energy splitting than even-\(N\) chains, resulting in a shorter characteristic transfer timescale. 
+Consequently, the odd-\(N\) chains can achieve high-fidelity state transfer within the finite evolution window \(0<t<1000\), leading to improved transfer performance compared with even-\(N\) chains.
+
+\begin{figure}
+    \centering
+    \fullfig{../../../Rss/QM/Momentum/epsilon_vs_alp.pdf}
+    \caption*{Figure: Energy splitting each $N$ using optimum $\alpha$}
+\end{figure}
+
+This argument rest on the fact that odd $N$ guarantee ground state exist, and that the eigenstate associated is completely localized.
+This can be proved as follows.
+In the one-excitation subspace, the nearest-neighbor XX Hamiltonian has the form
+\begin{equation*}
+H =
+-2J
+\begin{pmatrix}
+0 & \alpha & 0 & \cdots & 0 \\
+\alpha & 0 & 1 & \cdots & 0 \\
+0 & 1 & 0 & \ddots & \vdots \\
+\vdots & \vdots & \ddots & \ddots & \alpha \\
+0 & 0 & \cdots & \alpha & 0
+\end{pmatrix}
+= \begin{pmatrix} 0 & c_1 & 0 & \cdots & 0 \\ b_1 & 0 & c_2 & \cdots & 0 \\ 0 & b_2 & 0 & \ddots & \vdots \\ \vdots & \vdots & \ddots & \ddots & c_{N-1} \\ 0 & 0 & \cdots & b_{N-1} & 0 \end{pmatrix}
+\end{equation*}
+The determinant satisfies the standard tridiagonal recurrence relation 
+\begin{align*}
+    \det(A_k) & =  d_k \det(A_{k-1}) - b_{k-1}c_{k-1} \det(A_{k-2})\\
+    \det(A_k) & = -b_{k-1}c_{k-1} \det(A_{k-2})
+\end{align*}
+$$$$where $d_k$ is the $k$-th entry on the main diagonal. 
+Starting with the base conditions of $k = 1$ we have $\det(A_1) = |0| = 0$, so that for every odd integer $N$, 
+\begin{equation*}
+    \det(A_N) = 0
+\end{equation*}
+Recall that the eigenvalues of $H$ are the roots of its characteristic polynomial
+\begin{equation*}
+    p(\lambda) = \det(A - \lambda I) = 0
+\end{equation*}
+It can be seen that $\det A = 0$ prove that $\lambda=0$ is one of the root
+\begin{equation*}
+    p(0) = \det(A - 0\cdot I) = \det A = 0
+\end{equation*}
+Hence odd $N$ does have $E_0$ eigenvalue.
+The corresponding eigenstate can be obtained directly from the eigenvalue equations
+\begin{equation*}
+    E a_i=
+    \begin{cases}
+        -2J\alpha a_2,              & i=1,           \\
+        -2J(\alpha a_{1}+a_{3}),    & i = 2,         \\
+        -2J(a_{i-1}+a_{i+1}),       & 3\le i\le N-2, \\
+        -2J( a_{N-2}+\alpha a_{N}), & i = N-1,       \\
+        -2J\alpha a_{N-1},          & i=N.
+    \end{cases}
+\end{equation*}
+For $\alpha\neq0$, $i=1$ and $i=N$ equations imply
+\begin{equation*}
+a_2=a_{N-1}=0.
+\end{equation*}
+The bulk recurrence relation then gives
+\begin{equation*}
+a_{i+2}=-a_{i}.
+\end{equation*}
+Writing $N=2M+1$, we see all even-site amplitudes vanish,
+\begin{equation*}
+a_{2m}=0,
+\end{equation*}
+whereas the odd-site $3,\dots,N-2$ amplitudes satisfy
+\begin{equation*}
+a_{2m+1}=(-1)^m\alpha a_1,
+\qquad
+1\leq m\leq M-1.
+\end{equation*}
+The right boundary condition yields
+\begin{equation*}
+a_N=-\frac{a_{N-2}}{\alpha}
+\end{equation*}
+so, using the result for $m=M-1$
+\begin{equation*}
+a_N = -(-1)^{M-1} a_1.=(-1)^M a_1.
+\end{equation*}
+Thus, up to normalization, the zero-energy eigenstate is
+\begin{equation*}
+\ket{\psi_0}
+\propto
+\left[
+\ket{1}
++(-1)^M\ket{N}
++\alpha\sum_{m=1}^{M-1}(-1)^m\ket{2m+1}
+\right],
+\end{equation*}
+Therefore,
+\begin{equation*}
+\lim_{\alpha\rightarrow0^+} 
+\ket{\psi_0}=
+\frac{
+\ket{1}+(-1)^M\ket{N}
+}{\sqrt{2}},
+\end{equation*}
+up to an overall phase. The zero-energy eigenstate is consequently localized entirely within the endpoint subspace in the weak-coupling limit.
+
+% This provides the origin of the reduced localization requirement for odd $N$. 
+% In the limit $\alpha\rightarrow0^+$, the zero-energy state already accounts for one half of the endpoint spectral weight at each endpoint. The remaining central eigenstates therefore need to account for only the remaining endpoint weight, in contrast to the even-$N$ case where the two central states must account for essentially the entire endpoint spectral weight.
 
 \end{document}
