@@ -1,0 +1,115 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+There exist several mechanisms that lead to bonding between atoms such that they form the structure of crystals.
+As in conventional chemistry, only a valence electrons participate in the bonding.
+The electrons in the inner shells are bound so tightly to the nucleus that their energies and wave functions are hardly influenced by the presence of other atoms in their neighborhood.
+
+There exist five principal types of binding energies governing solid cohesion.
+\begin{enumerate}
+    \item \textbf{Ionic.} Arises from long–range Coulombic attraction between oppositely charged ions in ionic crystals such as NaCl. Its magnitude is determined by the Madelung energy and depends on the lattice geometry and ionic charges.
+    \item \textbf{Covalent.} Originates from electron sharing between neighboring atoms, forming directional bonds as in diamond or silicon. Its magnitude reflects the overlap of atomic orbitals and the energy lowering associated with bond formation.
+    \item \textbf{Metallic.} The results of delocalization of valence electrons into a collective conduction band, producing a non-directional bond mediated by the electron gas. It characterizes metallic solids such as copper or aluminum.
+    \item  \textbf{Van der Waals.} Emerges from induced dipole–dipole interactions (London dispersion forces) or permanent dipole interactions. It is characteristic of molecular crystals such as solid argon or iodine and is relatively weak.
+    \item \textbf{Hydrogen.} A special case of dipole interaction occurring when a hydrogen atom covalently bound to an electronegative atom interacts with another electronegative atom. It contributes significantly to the cohesion of ice or certain organic molecular crystals.
+\end{enumerate}
+
+\subsection{Ionic Bonding}
+Ionic bonding fundamentally arises from the complete transfer of one or more valence electrons from an electropositive atom (one with low ionization energy) to an electronegative atom (one with high electron affinity).
+If $\ce{A}$ is electropositive and $\ce{B}$ is electronegative, it is energetically favorable for $\ce{A}$ to lose one or more electrons and for and for $\ce{B}$ to gain those electrons
+\begin{equation*}
+    \ce{A -> A+ + e-}\qquad \ce{B + e- -> B- }
+\end{equation*}
+
+Ionic binding energy represents the net result of two fundamental contributions: an attractive Colombia term and a repulsive quantum-mechanical term
+\begin{equation*}
+    U(r)=-M_d \frac{Ze^2 }{4\pi\epsilon_0r}+\frac{B }{r^n}
+\end{equation*}
+with $M_d$ as the Madelung constant, $Z$ as the ionic charge number, $n$ as the empirical repulsive exponent generally in range $8<n<12$.
+
+The electrostatic attractive energy in an ionic solid cannot be accurately represented by Coulomb potential energy because each ion interacts simultaneously with many oppositely and similarly charged ions distributed throughout the crystal.
+The Madelung constant modifies this expression to incorporate the geometry of the entire lattice
+\begin{equation*}
+    U_{coul}(r)=-M_d \frac{Ze^2 }{4\pi\epsilon_0r}
+\end{equation*}
+Typical values are $M_d=1.7476$ for the NaCl structure, $M_d=1.7627$ for CsCl, and  $M_d=1.6381$ for ZnS (sphalerite).
+
+The reason for the strong repulsion at short distances is the Pauli exclusion principle.
+For a strong overlap of the electron clouds of two atoms, the wave functions have to change in order to become orthogonal to each other, because the Pauli principle forbids having more than two electrons in the same quantum state.
+The orthogonalization costs much energy, hence the strong repulsion.
+The repulsion potential is approximated by a steeply increasing term of the form
+\begin{equation*}
+    U_{rep}(r)=\frac{B }{r^n}
+\end{equation*}
+The large exponent $8<n<12$ reflects the fact that the repulsion grows extremely rapidly when the ions are pushed closer than their equilibrium distance.
+
+\subsection{Covalent Bonding}
+
+Consider two atomic orbitals $\psi_A$ and $\psi_B$ centered on atoms $A$ and $B$, respectively.
+The molecular orbitals are constructed as symmetric and antisymmetric linear combinations:
+\begin{equation*}
+    \psi_{\pm} = \frac{1}{\sqrt{2(1 \pm S)}} \left( \psi_A \pm \psi_B \right),
+\end{equation*}
+where $S = \langle \psi_A | \psi_B \rangle$ is the overlap integral.
+
+The symmetric combination $\psi_{+}$ corresponds to the bonding molecular orbital, while the antisymmetric combination $\psi_{-}$ corresponds to the antibonding molecular orbital.
+
+If the atomic orbitals combine symmetrically (even), their amplitudes
+\begin{equation*}
+    \psi_{+} = \frac{1}{\sqrt{2(1 + S)}} \left( \psi_A + \psi_B \right),
+\end{equation*}
+add constructively in the region between the nuclei.
+So the corresponding probability density $|\psi_+(\mathbf{r})|^2$ is concentrated on the nuclei.
+This increased electron density produces a negative electrostatic potential energy, because the electron spends more time in regions where it is simultaneously close to both positive charges.
+This lowering of energy constitutes the covalent binding energy.
+
+In the antisymmetric (odd) combination
+\begin{equation*}
+    \psi_{+} = \frac{1}{\sqrt{2(1 + S)}} \left( \psi_A + \psi_B \right),
+\end{equation*}
+the atomic orbitals interfere destructively between the nuclei.
+Electron probability density in the internuclear region is therefore suppressed, producing a node.
+Because there is little or no electron density to screen the nuclear repulsion, the net electrostatic energy increases, leading to a higher-energy state known as an antibonding molecular orbital.
+
+The energy eigenvalue now 
+\begin{equation*}
+    E_+=\frac{H_{AA}+H_{AB }}{1+S}
+    \qquad
+    E_-=\frac{H_{AA}-H_{AB }}{1-S}
+\end{equation*}
+with 
+\begin{equation*}
+    H_{AA}=\braket{\psi_A|H|\psi_A}
+    H_{AB}=\braket{\psi_A|H|\psi_B}
+\end{equation*}
+
+\subsection{Metallic Bonding}
+Valence electrons are removed from the ion cores, but in contrast to ionic solids, there are no electronegative ions to bind them. 
+Therefore, they are free to migrate between the ion cores. 
+These delocalized valence electrons are involved in the conduction of electricity and are therefore often called conduction electrons
+
+Metallic bonding lacks directionality because the valence electrons in metals are delocalized and shared collectively by all atoms in the lattice, rather than confined to specific pairs as in covalent bonding.
+This isotropic nature of metallic bonding means that the most stable lattice is the one that maximizes the spatial overlap of atomic orbitals and minimizes the total energy.
+Therefore, metals naturally prefer close-packed structures—specifically, the face-centered cubic (fcc) and hexagonal close-packed (hcp) lattices, which maximize the packing efficiency (about 74\%) and ensure the maximum number of nearest neighbors (coordination number 12).
+
+\subsection{Hydrogen Bonding}
+Hydrogen bonding is an intermolecular interaction that occurs when a hydrogen atom, covalently bonded to a highly electronegative atom such as oxygen, nitrogen, or fluorine.
+Unlike ionic bond, no complete charge transfer occurs in hydrogen bonding.
+
+The bond arises instead from electronic polarization within a covalent bond $\ce{A-H}$ where $\ce{A}$ pulls electron density away from hydrogen.
+The effect of polarization is the electron cloud becomes distorted, producing a dipole moment
+\begin{equation*}
+    \mathbf{\mu}=q \mathbf{r}
+\end{equation*}
+where $q$ is the magnitude of the partial charge and $\mathbf{r}$ is the vector from the positive to the negative center of charge.
+
+\subsection{van der Waals Bonding}
+The bonding that arises from fluctuations in the instantaneous distribution of the electron cloud around atoms or molecules and is considered the weakest type of binding.
+Van der Waals interactions are non-directional and short-ranged, with bond energies typically between 0.01 eV and 0.1 eV.
+
+The potential energy of the interaction between two neutral atoms or molecules separated by distance $r$ is generally expressed as
+\begin{equation*}
+    U_W(\mathbf{r})=- \frac{C_6}{r^6}+\frac{C_{12}}{r^{12}}
+\end{equation*}
+where the first term represents the attractive dispersion interaction and the second term accounts for short-range Pauli repulsion due to electron cloud overlap. 
+This functional form is commonly known as the Lennard–Jones potential.
+\end{document}

@@ -1,0 +1,465 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+\subsection{Ensembles}
+The maximum entropy principle state that thermal equilibrium is described by such probability distribution of microstates for which the statistical entropy is maximum subject to the constraints on the system.
+The constraints of general interest are the ones pertaining to whether the system exchanges energy and/or particles with its environment.
+Those constraints define three types of ensembles:
+\begin{enumerate}
+	\item \textbf{Microcanonical.} Represents a system which is isolated and exchanges neither energy nor particles with the environment. System has fixed $N,\;V,\;E$.
+	\item \textbf{Canonical.} Represents a system which exchanges energy but not particles with the environment, as in system connected with heat bath. System has fixed $N,\;T,\;V$.
+	\item \textbf{Grand Canonical.} Represents a system which exchanges energy as well as particles with the environment. System has fixed $\mu,\;V,\;T$.
+\end{enumerate}
+
+\subsection{Partition function}
+For canonical ensembles, the partition function is defined as follows
+\begin{equation*}
+	Z\equiv \sum_i e^{-E_i/kT}
+\end{equation*}
+where $i$ denote the index for the microstates of the system.
+And
+\begin{equation*}
+	Z\equiv \sum_{s} g_se^{-E_s/kT}
+\end{equation*}
+In the context of quantum statistical mechanics, $g_s$ denotes the degeneracy of the $E_s$ energy, while in the context of classical quantum mechanics it denotes Number of distinguishable configurations with energy $E_s$. In quantum system, $s$ refers to the $s$-th energy level, while in classical system it refers to the $s$-th microstates.
+
+The generalized partition function for a gas of $N$ identical classical non-interacting particles in three dimensions, the partition function is
+\begin{equation*}
+	Z=\frac{1}{N!h^{3N}} \int \prod_{i=1}^{N} e^{-\beta \mathcal{H}(\mathbf{q}_i, \mathbf{p}_i)} \, d^{3N} \mathbf{q}_i \, d^{3N} \mathbf{p}_i
+\end{equation*}
+Alternatively
+\begin{equation*}
+	Z= \frac{Z^N_\text{single}}{N!}
+\end{equation*}
+where
+\begin{equation*}
+	Z_\text{single}= \frac{1}{h^{3}} \int e^{-\beta \mathcal{H}(\mathbf{q}, \mathbf{p})} \, d^{3} \mathbf{q} \, d^{3} \mathbf{p}
+\end{equation*}
+Using this expression, we obtain the partition function for the ideal gas
+\begin{equation*}
+	Z=\frac{1}{N!}\left(\frac{V}{\Lambda^3}\right)^N\quad\text{where}\quad \Lambda=\left(\frac{h^2}{2\pi mkT}\right)^{1/2}
+\end{equation*}
+with the single partition function itself as $Z_\text{single}=V/\Lambda^3$.
+Thus, note the difference of $N$ ensemble partition function with the single particle partition function.
+
+\subsubsection{Derivation.} For an ideal gas, the Hamiltonian is just kinetic energy
+\begin{equation*}
+	\mathcal{H}(p_i)=\frac{p_i^2}{2m}
+\end{equation*}
+which is also a function of momentum only.
+Then the partition function is written as
+\begin{align*}
+	Z & =\frac{1}{N!h^{3N}} \int \exp\left(-\beta\sum_{i=1}^{N}\frac{p_i^2}{2m}\right) \, d^{3N} \mathbf{p}_i \int\, d^{3N} \mathbf{q}_i \\
+	Z & =\frac{V^N}{N!h^{3N}}\left[ \int \exp\left(-\beta\frac{p^2}{2m}\right) \, d^{3} \mathbf{p} \right]^N
+\end{align*}
+Recall that $p^2=p_x^2 +p_y^2 +p_z^2$ and $d^{3} \mathbf{p}=dp_x\;dp_y\;dp_z$
+\begin{align*}
+	Z & =\frac{V^N}{N!h^{3N}}\left[ \int \exp\left(-\frac{p^2}{2mkT}\right) \, d\mathbf{p} \right]^{3N} \\
+	  & =\frac{V^N}{N!h^{3N}}(2\pi mkT )^{3N/2}                                                         \\
+	Z & =\frac{V^N}{N!h^{3N}}\left(\frac{2\pi mkT}{h^2}\right)^{3N}
+\end{align*}
+Then using the definition of the thermal de Broglie wavelength $\Lambda= (h^2/2\pi mkT)^{1/2}$
+\begin{equation*}
+	Z=\frac{1}{N!}\left(\frac{V}{\Lambda^3}\right)^N\quad\text{with} \quad Z_\text{single}\equiv\frac{V}{\Lambda^3}
+\end{equation*}
+
+\subsubsection{Another derivation.} Recall the definition of partition function and the degeneracy of the classical particles
+\begin{equation*}
+	Z=\sum_{s} g_se^{-E_s/kT}\quad\text{and}\quad g(E)\;dE=2\pi V\left(\frac{2m}{h^2}\right)^{3/2}E^{1/2}\;dE
+\end{equation*}
+At high $T$, we can assume the summation sign changes into integral due to $kT$ being larger compared to the typical energy level spacing $\Delta E$.
+Then
+\begin{align*}
+	Z & =2\pi V\left(\frac{2m}{h^2}\right)^{3/2}\int E^{1/2}\exp \left(\frac{E}{kT}\right)\;dE \\
+	Z & =2\pi V\left(\frac{2m}{h^2}\right)^{3/2}\left[(kT)^{3/2}\frac{\sqrt{\pi}}{2}\right]    \\
+	Z & =V\left(\frac{2\pi mkT}{h^2}\right)^{3/2}
+\end{align*}
+In terms of thermal de Broglie wavelength
+\begin{equation*}
+	Z=\frac{V}{\Lambda^3}
+\end{equation*}
+This is the partition function for the single particle; for many identical particles then, the partition function is simply the partition function for single particle raised to the power of the number of particle $N$ and multiplied by $1/N!$ to avoid the Gibbs paradox.
+
+To understand the reasoning, consider the classical configuration $\Omega_\text{MB}$.
+Here we treat the particle as truly distinguishable, yet they cause the Gibbs paradox due to over counting of the microstate.
+When we are dividing by $N!$ we treat $\Omega_\text{MB}$ as a permutation and the corrected configuration $\Omega'_\text{MB}$ as the combination.
+To obtain $\Omega_\text{MB}'$, we are then dividing $\Omega_\text{MB}$ by $N!$.
+
+\subsection{Probability}
+On using the defined partition function, the probability $P_i$ that our system is in microstate $i$ with energy $E_i$ is
+\begin{equation*}
+	P_i=\frac{1}{Z}e^{-E_i/kT}
+\end{equation*}
+
+\subsubsection{Derivation.} Probability of the system being in $i$-th state is proportional to the number of ways the reservoir can arrange itself with that its own energy
+\begin{equation*}
+	P_i\propto \Omega_R(E_T-E_i)
+\end{equation*}
+since $E_R=E_T-E_i$. By Boltzmann definition of entropy
+\begin{equation*}
+	\Omega_R(E_T-E_i)=\exp\left[\frac{S_R(E_T-E_i)}{k }\right]
+\end{equation*}
+Then
+\begin{equation*}
+	P_i\propto \exp\left[\frac{S_R(E_T-E_i)}{k }\right]
+\end{equation*}
+We know that $E_i\ll E_R$, thus $E_i\ll E_T$ and we can expand the reservoir entropy using Taylor expansion
+\begin{equation*}
+	S_R(E_T-E_i)\approx S_R(E_T)-\frac{\partial S_R(E_T)}{\partial E}E_i
+\end{equation*}
+Using the relation $\partial S/\partial E=1/T$
+\begin{equation*}
+	S_R(E_T-E_i)\approx S_R(E_T)-\frac{E_i}{T}
+\end{equation*}
+So
+\begin{equation*}
+	P_i\propto\exp\left[\frac{S_R}{k }\right]\exp\left[-\frac{E_i}{kT}\right]
+\end{equation*}
+Since $e^{S_R/k}$ is a constant which does not depend on the microstate $i$, we can define it as the normalization constant
+\begin{equation*}
+	\sum_i P_i=C\sum_i e^{-E_i/kT}=1
+\end{equation*}
+which can be evaluated as
+\begin{equation*}
+	C=\frac{1}{\sum_i e^{-E_i/kT}}=\frac{1}{Z}
+\end{equation*}
+Therefore
+\begin{equation*}
+	P_i=\frac{ e^{-E_i/kT}}{Z}
+\end{equation*}
+
+\subsection{Physical Quantities}
+We shall derive some physical quantities using partition function and prove them in the case of ideal gas by comparing them to the known ideal gas law.
+
+\subsubsection{Average energy.} Expressed as
+\begin{equation*}
+	\braket{E}=\frac{kT^2}{Z}\frac{\partial Z}{\partial T}=kT^2\frac{\partial}{\partial T}\ln Z=-\frac{1}{Z}\frac{\partial Z}{\partial \beta}=-\frac{\partial}{\partial \beta}\ln Z
+\end{equation*}
+with $\beta=1/kT$ as thermodynamics constant.
+
+\paragraph{Derivation.} Average energy is just the expectation value
+\begin{equation*}
+	\braket{E}=\sum_{_i}P_iE_i=\frac{1}{Z}\sum_{_i}E_ie^{E_i/kT}
+\end{equation*}
+To evaluate the summation, consider
+\begin{equation*}
+	\frac{\partial Z}{\partial T}=\frac{\partial}{\partial T}\sum_i e^{E_i/kT}=\frac{1}{kT^2}\sum_i E_ie^{E_i/kT}
+\end{equation*}
+This is simply the previous series. Thus,
+\begin{equation*}
+	\braket{E}=\frac{kT^2}{Z}\frac{\partial Z}{\partial T}
+\end{equation*}
+To obtain the next expression, we express the derivative term as
+\begin{equation*}
+	\frac{1}{Z}\frac{\partial Z}{\partial T}=\frac{\partial }{\partial T}\ln Z
+\end{equation*}
+
+To prove this expression, we are going to consider the case of ideal gas. Using the partition function of ideal gas for the case of single particle and multiparticle will result with the known result $E=3kT/2$ for single particle and $E=3NkT/2$
+\begin{equation*}
+	\braket{E}=kT^2\frac{\partial}{\partial T}\ln V\left(\frac{2\pi mkT}{h^2}\right)^{3/2}=\frac{3}{2}kT
+\end{equation*}
+and
+\begin{equation*}
+	\braket{E}=T^2\frac{\partial}{\partial T}\ln \frac{V^N}{N!}\left(\frac{2\pi mkT}{h^2}\right)^{3N/2}=\frac{3}{2}NkT
+\end{equation*}
+
+Writing the partition function in terms of thermodynamics constant
+\begin{equation*}
+	Z=\sum_se^{E_s\beta}
+\end{equation*}
+and its derivative with respect to the
+\begin{equation*}
+	\frac{\partial Z}{\partial \beta}=-\sum_sE_se^{E_s\beta}
+\end{equation*}
+Then the average energy is  simply
+\begin{equation*}
+	\braket{E}=\frac{1}{Z}\sum E_se^{E_s\beta}=-\frac{1}{Z}\frac{\partial Z}{\partial\beta}
+\end{equation*}
+which is equivalent with 
+\begin{equation*}
+	\braket{E}=-\frac{\partial}{\partial \beta}\ln Z
+\end{equation*}
+
+\subsubsection{Energy Fluctuation.}
+Energy fluctuation refers to statistical deviations of the energy of a system from its average value.
+This also referred as the variance $(\Delta E)^2=\sigma^2$.
+Another similar definition is the standard deviation $\Delta E=\sigma$
+\begin{equation*}
+	(\Delta E)^2=kT^2C_V\quad\text{and}\quad \Delta E=T\sqrt{kC_V}
+\end{equation*}
+
+\subsubsection{Derivation.}
+Recall 
+\begin{equation*}
+	\frac{\partial Z}{\partial \beta}=-\frac{1}{Z}\sum_sE_se^{-E_s\beta},\qquad\frac{\partial^2Z}{\partial \beta^2}=\frac{1}{Z}\sum_sE_se^{E_s\beta}
+\end{equation*}
+We can use these expressions to write the variance $\sigma^2$ and standard deviation $\sigma$. 
+The variance is evaluated by
+\begin{equation*}
+	\sigma^2=\braket{x^2}-\braket{x}^2
+\end{equation*}
+From this, we need to determine the square average energy 
+\begin{equation*}
+	\braket{E}^2=\frac{1}{Z}\sum_s E_se^{E_s\beta}=\frac{1}{Z^2}\left(\frac{\partial Z}{\partial \beta}\right)^2
+\end{equation*}
+and the average of energy squared
+\begin{equation*}
+	\bra{E^2}=\frac{1}{Z}\sum_sE_s^2e^{E_s\beta}=\frac{1}{Z}\frac{\partial^2Z}{\partial\beta}
+\end{equation*}
+Thus, we have the expression for variance
+\begin{equation*}
+	\braket{(\Delta E)^2}=\frac{1}{Z}\frac{\partial^2Z}{\partial\beta}-\frac{1}{Z}\left(\frac{\partial Z}{\partial \beta}\right)^2
+\end{equation*}
+But this is just 
+\begin{equation*}
+	\frac{\partial \epsilon}{\partial 2\beta}=\frac{\partial}{\partial \beta}\left(\frac{1}{Z}\frac{\partial Z}{\partial \beta}\right)=\frac{1}{Z^2}\left(\frac{\partial Z}{\partial \beta}\right)^2-\frac{1}{Z}\frac{\partial^2Z}{\partial\beta^2}
+\end{equation*}
+Therefore
+\begin{equation*}
+	\braket{(\Delta E )^2}=-\frac{\partial }{\partial\beta}\braket{E}
+\end{equation*}
+Calculating the derivative we have 
+\begin{equation*}
+	\braket{(\Delta E )^2}=-\frac{\partial\bra{E}}{\partial T}\frac{\partial T}{\partial \beta}=\frac{C_V}{k\beta^2}=kT^2C_V
+\end{equation*}
+
+\subsubsection{Entropy.} Expressed as follows.
+\begin{equation*}
+	S=NkT\ln \frac{V}{\Lambda}+\frac{E}{T}
+\end{equation*}
+This expression however, suffer from the Gibbs paradox. The expression for entropy that does not suffer from it usually expressed by Sackur-Tetrode equation
+\begin{equation*}
+	S=Nk\left(\ln\frac{V}{N\Lambda^3}+\frac{5}{2}\right)
+\end{equation*}
+
+\paragraph{Derivation.} Consider the logarithm of the configuration for the classical particle
+\begin{equation*}
+	\Omega=N!\prod_s \frac{g_s^{n_s}}{n_s!}\implies
+	\ln \Omega=N\ln N +\sum_s\ln\frac{g_s}{n_s}
+\end{equation*}
+Notice that
+\begin{equation*}
+	\frac{g_s}{n_s}=\frac{g_s}{g_s\exp(\alpha-\beta E_s)}=\exp(-\alpha+\beta E_s)
+\end{equation*}
+Thus
+\begin{align*}
+	\ln \Omega & =N\ln N -\sum_sn_s\alpha +\sum_sn_s\beta E_s \\
+	\ln\Omega  & = N\ln \frac{N}{e^\alpha}+\frac{E}{kT}
+\end{align*}
+Also notice that
+\begin{equation*}
+	\frac{N}{e^\alpha}=\sum_s\frac{n_s}{e^\alpha}=\sum_s\frac{\exp(\alpha+\beta E_s)}{\exp\alpha}=\sum_s\exp \frac{E_s}{kT}=Z_\text{single}
+\end{equation*}
+Therefore
+\begin{equation*}
+	S=NkT\ln Z+\frac{E}{T}
+\end{equation*}
+
+To derive the corrected version, consider the configuration number of the semi-classical particle
+\begin{equation*}
+	\Omega=\prod_s \frac{g_s^{n_s}}{n_s!}
+\end{equation*}
+Its logarithm reads
+\begin{equation*}
+	\ln \Omega=\sum_s n_s\ln g_s-n_s\ln n_s +n_s=\sum_s n_s+n_s\ln\frac{g_s}{n_s}
+\end{equation*}
+Using the previous result for $g_s/n_s$ and $N/e^\alpha$
+\begin{align*}
+	\ln \Omega & = \sum_s n_s+n_s\left(\frac{E_s}{kT}-\alpha\right) \\
+	           & = N+ N\ln\frac{Z_\text{single}}{N}+\frac{E}{kT}    \\
+	\ln \Omega & = N+ N\ln\frac{V}{N\Lambda^3}+\frac{3}{2}N
+\end{align*}
+Thus
+\begin{equation*}
+	S=Nk\left(\ln\frac{V}{N\Lambda^3}+\frac{5}{2}\right)
+\end{equation*}
+
+\subsubsection{Helmholtz Potential.} On using the definition of $F=E-TS$, we have
+\begin{equation*}
+	F=-NkT\ln Z
+\end{equation*}
+which is the wrong result derived from wrong entropy. For the correct one, we have
+\begin{equation*}
+	F=-NkT\left(\ln \frac{V}{N\Lambda^3}+1\right)
+\end{equation*}
+or in terms of multiparticle partition function
+\begin{equation*}
+	F=-kT\ln Z
+\end{equation*}
+
+\paragraph{Derivation.} The case single particle partition function is quite trivial, while for the case of multi particle one we can simply expand the definition
+\begin{align*}
+	F & =-kT\ln \frac{V^N}{N!\Lambda^{3N}}=-kT\left(N\ln\frac{V}{\Lambda^3}-N\ln N+N\right) \\
+	F & =-NkT\left(\ln \frac{V}{N\Lambda^3}+1\right)
+\end{align*}
+
+\subsubsection{Pressure.} For the case of the wrong and the corrected partition function respectively
+\begin{equation*}
+	P=NkT\frac{\partial}{\partial V} \ln Z\quad\text{and}\quad P=kT\frac{\partial}{\partial V} \ln Z
+\end{equation*}
+
+\paragraph{Derivation.} Consider the first law of thermodynamics
+\begin{equation*}
+	dE=dQ-P\;dV
+\end{equation*}
+and the differential of the Helmholtz potential
+\begin{equation*}
+	dF=dE-T\;dS-S\;dT
+\end{equation*}
+Thus
+\begin{equation*}
+	dF=-P\;dV-T\;dT\implies P=-\frac{\partial F}{\partial V}\bigg|_{T}
+\end{equation*}
+On using the expression for Helmholtz potential, we can express pressure in terms of partition function.
+
+We can obtain the ideal gas law using both the wrong and corrected version. For the case of the wrong version, we use the single particle partition function
+\begin{equation*}
+	P=NkT\frac{\partial}{\partial V} \ln \frac{V}{\Lambda^3}=\frac{NkT}{V}
+\end{equation*}
+While for the corrected version, we use the many particles partition function
+\begin{equation*}
+	P=kT\frac{\partial}{\partial V} \ln \frac{V^N}{N!\Lambda^{3N}}=\frac{NkT}{V}
+\end{equation*}
+
+\subsection{Gibbs Paradox}
+
+This problem occurs for the expression of entropy which does not takes into account the indistinguishability of particles. To illustrate this problem, consider two ensembles of ideal gas with the same $E,V,N,T,P,S$ which sat side-by-side.  No macroscopic changes occur, as the system is in equilibrium. But if the formula for entropy is not extensive, the entropy of the combined system will not be $2S$
+\begin{equation*}
+	S_T=2NkT\ln\frac{2V}{\Lambda}+\frac{E}{T}=2NkT\ln\frac{2V}{\Lambda}+\frac{2E}{T}+2NkT\ln2=2S+2NkT
+\end{equation*}
+If the entropy is extensive, however, it will produce total entropy of $2S$
+\begin{equation*}
+	S_T=2Nk\left(\ln\frac{2V}{2N\Lambda^3}+\frac{5}{2}\right)=2S
+\end{equation*}
+
+\subsection{Rotational Partition Function}
+
+Rotational partition function $Z_\text{rot}$ relates the rotational degrees of freedom $f$ to the rotational part of the energy and defined as
+\begin{equation*}
+	Z_\text{rot}=\sum_{J} g_Je^{-E_J/kT}
+\end{equation*}
+where $g_J=2J+1$ is the degeneracy of energy level $E_J$. Its contribution only become significant at temperatures above the molecule's characteristic rotational temperature $\theta_\text{rot}$, for diatomic molecule
+\begin{equation*}
+	\theta_\text{rot}=\frac{\hbar^2}{\mu r^2 k}
+\end{equation*}
+
+Molecule's $Z_\text{rot}$ depends on the structure of said molecule, since different molecules have different degrees of freedom; for example
+\begin{enumerate}
+	\item \textbf{Monatomic gas.} Noble gas such as He and Ar have $f=0$; thus $Z_\text{rot}=1$, $E_\text{rot}=0$, and $C_{V_\text{rot}=0}$.
+	\item \textbf{Linear molecule.} Examples are diatomic and linear triatomic. For this type of molecules, their $f=2$, with one axis parallel to the bond and the other perpendicular to it. Thermodynamically, $E_\text{rot}=NkT$, and $C_{V_\text{rot}}=N_Ak$.
+	\item \textbf{Nonlinear polyatomic.} They have 3 degrees of freedom: one for each three-dimensions. With $E_\text{rot}=3NkT/2$, their $C_{V_\text{rot}}=3N_Ak/2$.
+\end{enumerate}
+
+In general, the expression for the rotational partition function is
+\begin{equation*}
+	Z_\text{rot}=\sum_J(2J+1)\exp\left[-\frac{\theta_\text{rot}}{T}J(J+1)\right]
+\end{equation*}
+This expression, then, can be simplified for the case of high and low temperature.
+
+\subsubsection{Derivation.} Recall that in the case of electron, the magnetic quantum number $m_l$ is only allowed to have the values $-l\leq m_l\leq l$, thus $g_l=2l+1$. In the same principle, $g_J=2J+1$ In quantum mechanics, the rotational energy is defined
+\begin{equation*}
+	E_J=\frac{1}{2I}\braket{\hat{J^2}}
+\end{equation*}
+Recall also the orbital angular of electron $L=\sqrt{\hbar^2l(l+1)}$, in the case of total angular momentum then $\hat{J^2}= J(J+1)\hbar^2$, here however it acts as operator. Then we can write the rotational energy as
+\begin{equation*}
+	E_J=\frac{J(J+1)\hbar^2}{2\mu r^2 }
+\end{equation*}
+
+Substituting those expressions into the partition function
+\begin{equation*}
+	Z_\text{rot}=\sum_J(2J+1)\exp\left[-\frac{\hbar^2}{2\mu r^2 k}\frac{1}{T}J(J+1)\right]
+\end{equation*}
+On using the definition of the rotational temperature
+\begin{equation*}
+	Z_\text{rot}=\sum_J(2J+1)\exp\left[-\frac{\theta_\text{rot}}{T}J(J+1)\right]
+\end{equation*}
+
+\subsubsection{High temperature approximation.} At high temperature, we can approx the summation of $Z_\text{rot}$ by integral
+\begin{equation*}
+	Z_\text{rot}=\int_J (2J+1)\exp\left[-\frac{\theta_\text{rot}}{T}J(J+1)\right]\;dJ
+\end{equation*}
+Changing the variable into $u=2J+1$ and $du=d(2J+1)dJ$, we have
+\begin{equation*}
+	Z_\text{rot}=\int_J\exp\left[-\frac{\theta_\text{rot}}{T}u\right]\;du=\frac{T}{\theta_\text{rot}}\exp\left[-\frac{\theta_\text{rot}}{T}u\right]\bigg|_\infty^0=\frac{T}{\theta_\text{rot}}
+\end{equation*}
+Certain state will be over counted if we did not take into account the symmetry number $\sigma$. For example consider hetero nuclear diatomic molecule, where if we rotate the molecule in 180 deg results in a different orientation--atom A on the left and on the right. This means that we over count the configuration, thus we divide by $\sigma=2$ to fix it
+\begin{equation*}
+	Z_\text{rot}=\frac{T}{\sigma\theta_\text{rot}}
+\end{equation*}
+For the case of homo nuclear molecules, $\sigma=1$.
+
+The energy can be evaluated into
+\begin{equation*}
+	E=\frac{kT^2}{T/\sigma\theta_\text{rot}}\frac{d}{dT}\frac{T}{\sigma\theta_\text{rot}}=kT
+\end{equation*}
+and its heat capacitance
+\begin{equation*}
+	C_V=R
+\end{equation*}
+
+\begin{figure*}
+	\centering
+	\fullfig{../../../Rss/StatMech/Equilibrium/CvLowTemp.png}
+	\caption*{Figure: $C_V$ obtained by approximating $Z_\text{rot}$ at low temperature and high temperature}
+\end{figure*}
+
+\subsubsection{Low temperature approximation.} At low temperature, only low states $J$ are occupied, thus we can approximate the $Z_\text{rot}$ by its few first terms
+\begin{equation*}
+	Z_\text{rot}=1+3\exp\left(-\frac{2\theta_\text{rot}}{T}\right)
+\end{equation*}
+The energy can be evaluated into
+\begin{align*}
+	E & =\frac{kT^2}{1+3\exp\left(-\frac{2\theta_\text{rot}}{T}\right)}\frac{d}{dT}1+3\exp\left(-\frac{2\theta_\text{rot}}{T}\right)                              \\
+	  & =\frac{kT^2}{1+3\exp\left(-\frac{2\theta_\text{rot}}{T}\right)}\left(\frac{2\theta_\text{rot}}{T^2}\right)3\exp\left(-\frac{2\theta_\text{rot}}{T}\right) \\
+	E & =\frac{6k\theta_\text{rot}}{\exp\left(\frac{2\theta_\text{rot}}{T}\right)+3}
+\end{align*}
+and the heat capacitance
+\begin{align*}
+	C_V & =6R\theta_\text{rot}(-1)\left[\exp\left(\frac{2\theta_\text{rot}}{T}\right)+3\right]^{-2}\left(-\frac{2\theta_\text{rot}}{T^2}\right)\exp\left(\frac{2\theta_\text{rot}}{T}\right) \\
+	C_V & =\frac{12(\theta_\text{rot}/T)^2\exp(2\theta_\text{rot}/T)}{\left[\exp(\theta_\text{rot}/T)+3\right]^2}
+\end{align*}
+
+\subsection{Vibration Partition Function}
+The vibrational partition function refers to the vibrational components of a system canonical partition function.
+For the case of diatomic molecule, their vibrational degrees of freedom is one, however their total energy is $E=kT$ since they have both kinetic and potential energy based on the motion and the stretching of the bond.
+Assuming the diatomic molecule as harmonic oscillator, the partition function can be written as
+\begin{equation*}
+	Z_\text{vib}=\frac{\exp\left({\theta_v}/{2T}\right)}{1-\exp\left({\theta_\text{vib}}/{T}\right)}
+\end{equation*}
+where $\theta_\text{vib}\equiv h\nu/kT$ denote the vibrational temperature. Then the average energy
+\begin{equation*}
+	\braket{E}=k\theta_\text{vib}\left[\frac{1}{2}+\frac{1}{\exp\left(\theta_\text{vib}/T-1\right)}\right]
+\end{equation*}
+and the heat capacitance
+\begin{equation*}
+	C_V^{\text{vib}}=R\left(\frac{\theta_\text{vib}}{T}\right)^2\frac{e^{\theta_\text{vib}/T}}{(e^{\theta_\text{vib}}/T-1)^2}
+\end{equation*}
+
+\subsubsection{Derivation.} The energy eigenstate of harmonic oscillator is
+\begin{equation*}
+	E_n=\left(n+\frac{1}{2}\right)h\nu
+\end{equation*}
+Then the partition function reads
+\begin{align*}
+	Z_\text{vib}=\sum_n \exp\left(-\frac{n+1/2}{kT}h\nu\right)
+\end{align*}
+Using the defined rotational temperature
+\begin{align*}
+	Z_\text{vib} & = \exp\left(\frac{\theta_\text{vib}}{2T}\right)\sum_n \exp\left(-\frac{n\theta_\text{vib}}{T}\right) \\
+	Z_\text{vib} & =\frac{\exp(-\theta_\text{vib}/2T)}{1-\exp(\theta_\text{vib}/T)}
+\end{align*}
+Thus the average energy can be evaluated into
+\begin{align*}
+	\braket{E} & =kT^2\frac{\partial}{\partial T}\left[-\frac{\theta_\text{vib}}{2T}-\ln\left(1-e^{\theta_\text{vib}/T}\right)\right]                                     \\
+	           & =kT^2\left[\frac{\theta_\text{vib}}{2T^2} -\ln\left(1-e^{-\theta_\text{vib}/T}\right)\right]                                                             \\
+	           & =kT^2\left[\frac{\theta_\text{vib}}{2T^2} +\frac{1}{1-e^{-\theta_\text{vib}/T}}\left(\frac{\theta_\text{vib}}{T^2}\right)e^{-\theta_\text{vib}/T}\right] \\
+	\braket{E} & =k\theta_\text{vib}\left[\frac{1}{2}+\frac{1}{e^{\theta_\text{vib}/T}-1}\right]
+\end{align*}
+
+For the heat capacitance, we differentiate the expression for average energy respect to temperature
+\begin{align*}
+	C_V & =k\theta_\text{vib}\frac{\partial}{\partial T}\left[\frac{1}{2}+\frac{1}{e^{\theta_\text{vib}/T}-1}\right]                     \\
+	    & =N_Ak\theta_\text{vib} (-1)(e^{\theta_\text{vib}/T}-1)^{-2}\left(-\frac{-\theta_\text{vib}}{T^2}\right)e^{\theta_\text{vib}/T} \\
+	C_V & =\frac{(\theta_\text{vib}/T)^2e^{\theta_\text{vib}/T}}{(e^{\theta_\text{vib}/T}-1)^2}R
+\end{align*}
+
+\end{document}

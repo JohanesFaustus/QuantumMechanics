@@ -1,0 +1,102 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+\subsection{Zeroth Law}
+The zeroth law states that if a system $A$ is in thermal equilibrium with $B$ and also separately with $C$ then $B$ and $C$ are in thermal equilibrium with each other. 
+
+The consequences of this law is the equation
+\begin{equation*}
+    g(P_B , V_B ) = g(P_C , V_C )
+\end{equation*}
+This shows that there exists a function $g(P, V )$ which has the same value for systems--$B$ and $C$--in thermal equilibrium. However, neither this law nor the other laws of thermodynamics determine the form of the function $g(P, V )$.
+
+\subsection{First Law}
+The first law is the statement of conservation of energy. It states that the internal energy $dU$ of a thermodynamic system is a state function such that if $d Q$ is the amount of heat absorbed and $d W $ the amount of work done by the system in an arbitrary transformation then change $d U$ in its internal energy is given by
+\begin{equation*}
+    d U=\dbar Q- \dbar W
+\end{equation*}
+Some texts refer the work as positive $\dbar W$, instead of negative. This is due to difference of definition. As stated, $\dbar W$ here defined as the amount of work \textbf{done by} the system; on another, it may be defined as the amount \textbf{done on} system.
+
+The work may consist of several components each caused by change in some macroscopic control parameter, so that
+\begin{equation*}
+    \dbar W=-\sum_{i=1}^{m}F_id\xi_i
+\end{equation*}
+The $F_i$ is the “force” associated with the change in $\xi_i$. The negative sign is due to $\dbar W$ as work performed by the system. If the volume $V$ is the only macroscopic control parameter then the internal energy reads
+\begin{equation*}
+    dU=\dbar Q-P\;dV
+\end{equation*}
+or gas gains energy when its volume decreases and loses energy when its volume increases. By applying the second law, we can also say 
+\begin{equation*}
+    dU=T\;dS-P\;dV
+\end{equation*}
+
+\subsection{Second Law}
+There are two equivalent ways of stating the second law:
+\begin{enumerate}
+    \item \textbf{Kelvin statement}: There does not exist any thermodynamic transformation whose sole effect is to extract heat from a heat reservoir and convert it entirely into work.
+    \item \textbf{Clausius' statement}: There does not exist any thermodynamic transformation whose sole effect is to extract heat from a body at lower temperature and deliver it to the one at higher temperature.
+\end{enumerate}
+
+By yet another derivation that I do not show, the statement can be written as 
+\begin{equation*}
+    \oint\frac{\dbar Q}{T}=0
+\end{equation*}
+Note that the equation only holds true for reversible Carnot process. It is straightforward to prove that the equation above implies that the integral is independent of path between $A$ and $B$ if the process is reversible. For irreversible process
+\begin{equation*}
+    \int_{\text{irr}}\frac{\dbar Q}{T}<\int_{\text{rev}}\frac{\dbar Q}{T}
+\end{equation*}
+In other words, the change in entropy over an irreversible path between two states is less than that on any reversible path between same states.
+
+Here we also state some consequences of the second law.
+
+\subsubsection{Entropy of the universe.} Consider a system interacting with a reservoir, drawing the amount $\dbar Q$ of heat from it at temperature $T$ by reversible or irreversible process. The quantity $\dbar Q/T$ for the system therefore may or may not stand for change in its entropy. However, $-\dbar Q /T$ stands for the reservoir's, since all processes inside a reservoir are reversible. As the system changes from $A$ to $B$,
+\begin{align*}
+    \Delta S_{\text{sys}} &=\Delta S_{\text{sys}}+\Delta S_{\text{env}}\\
+    &=\big[S(B)-S{(A)}\big]-\int_A^B\frac{\dbar Q}{T}\\
+    \Delta S_{\text{sys}} &\geq0
+\end{align*}
+The equation above shows that entropy of the universe never decreases.
+
+\subsubsection{Entropy of thermally isolated system.} Assume that the system is thermally isolated, then $\dbar Q = 0$. Hence, $.\Delta S_{\text{env}}=0$. As a consequence of, as the system transforms from state $A$ to state $B$, its entropy cannot decrease:
+\begin{equation*}
+    S(B)-S(A)\geq0
+\end{equation*}
+
+\subsubsection{Maximum entropy principle.} In approaching thermodynamic equilibrium, the entropy of an isolated system must tend to a maximum, and the final equilibrium state is the one for which the entropy is greatest.
+
+\subsubsection{Work lost.} Consider a reversible process which takes a system from state $A$ to state $B$. By the first law, 
+\begin{equation*}
+    U_B-U_A=\int_{\text{rev}}T\;dS_{\text{sys}}-\dbar W_{\text{rev}}
+\end{equation*}
+since for reversible process, $\dbar Q=T\;dS_{\text{sys}}$. Now, consider another process which connects the same two states as in the said reversible process but now by an irreversible path, then
+\begin{equation*}
+    U_B-U_A=\int_{\text{irr}}dQ-\dbar W_{\text{irr}}
+\end{equation*}
+due to $\dbar Q\neq T\;dS_{\text{sys}}$ for irreversible process. Since internal energy is a state variable, the value of $U_B - U_A$ is same whether the process is reversible or not. Hence, on equating them 
+\begin{equation*}
+    W_{\text{rev}}-W_{\text{irr}}=W_{\text{lost}}= \int_{\text{rev}}T\;dS_{\text{sys}}-\int_{\text{irr}}\dbar Q
+\end{equation*}
+
+For an isothermal irreversible process
+\begin{align*}
+    W_{\text{lost}}&=T\bigg[ \int_{\text{rev}}dS_{\text{sys}}-\int_{\text{irr}}\frac{\dbar Q}{T} \bigg]\\
+    &=T\big(\Delta S_{\text{sys}+\Delta S_{\text{env}}}\big)\\
+    W_{\text{lost}}&=T\Delta S_\text{uni}
+\end{align*}
+where the second line is obtained from the definition of change of entropy in environment.
+
+\subsubsection{Isentropic process.} Adiabatic process is defined as the one which does not involve exchange of heat with the environment. We also know that $\dbar Q= T\; d S$ if the process is irreversible. Hence, entropy is unchanged in a reversible adiabatic process. Such a process is called isentropic. 
+
+\subsection{Third Law}
+The second law determines change in entropy but not its absolute value. Third law achieves that end. An interesting consequence of it, not elaborated here, is the question of unattainability of $T = 0$.
+
+\subsubsection{Planck’s formulation.} The entropy of any system at $T = 0$ is zero
+\begin{equation*}
+    S_{T=0}=0
+\end{equation*}
+
+\subsubsection{Nernst’s heat theorem.} The change in entropy is zero as $T \rightarrow 0$:
+\begin{equation*}
+    \lim_{T\rightarrow0}\Delta S=0
+\end{equation*}
+
+\end{document}

@@ -1,0 +1,176 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+In this approach, thermodynamics is built using entropy as its basis, instead of the traditional thermodynamics laws. We treat entropy as fundamental function characterizing thermodynamics state. We henceforth will discuss four postulates of thermodynamics and its connection with thermodynamics laws.
+
+\subsection{First Postulate}
+\begin{quote}
+    Simple system in equilibrium can be characterized by its internal energy $U$, volume $V$ and number molecule $N_1,\dots,N_r$ of its chemical components.
+\end{quote}
+
+In essence, this postulate simply confirm the existence of equilibrium state.
+
+\subsection{Second Postulate}
+\begin{quote}
+    The entropy function $S$ is a first order homogeneous function with the properties of assuming maximum value when external constrains are removed.
+\end{quote}
+
+Also called the maximum entropy principle.
+
+\subsection{Third Postulate}
+\begin{quote}
+    Entropy has the following properties.
+\begin{enumerate}
+    \item The total entropy system is the sum entropy of each subsystem. 
+    \item The entropy function is single-valued, continuous, differentiable, and monotonically increasing with respect to internal energy $U$ over its entire domain.
+\end{enumerate}
+\end{quote}
+
+We will also consider the implication next.
+
+\subsection{Fourth Law}
+\begin{quote}
+    If the system for which
+\begin{equation*}
+    \frac{\partial U}{\partial S}\bigg|_{V,N_{i|r}}=0
+\end{equation*}
+applies, the entropy of the system vanishes.
+\end{quote}
+
+The equivalent of Third thermodynamics law.
+
+\subsection{Implication}
+\subsubsection{Entropy's arguments.} Since the entropy function, implied by the second postulate, is an extensive parameter. Therefore, by the first postulate, entropy is a function of 
+\begin{equation*}
+    S=S(U,V,N_{i|r})\quad\text{where}\quad N_{i|r}=N_1,\dots,N_r
+\end{equation*}
+
+\subsubsection{Extensive properties.} Due to implication from the second postulate, the entropy function the relation 
+\begin{equation*}
+    S(\lambda U, \lambda V, \lambda N_{i|r} ). = \lambda S(U, V, N_{i|r} )
+\end{equation*}
+Since entropy is also homogeneous function of the first order, it also obeys 
+\begin{equation*}
+    S=U\frac{\partial S}{\partial V}\bigg|_{U,N_{i|r}}+V\frac{\partial S}{\partial V}\bigg|_{V,N_{i|r}}+ \sum_{j=1}^{r} N_j\frac{\partial S}{\partial N_j}\bigg|_{V,N_{i\neq r}}
+\end{equation*}
+Invoking the relation between intensive parameters and partial derivative of entropy, we have 
+\begin{equation*}
+    S=\frac{U}{T}+\frac{PV}{T}-\sum_{j=1}^{r}\frac{N_j\mu_j}{T}
+\end{equation*}
+This is also called Euler's equation, entropy version.
+
+\subsubsection{Monotonic function.} The property of increasing monotonically implies
+\begin{equation*}
+    \frac{\partial S}{\partial U}\bigg|_{V,N_{i|r}}>0
+\end{equation*}
+Invoking the relation of temperature with partial derivative of entropy
+\begin{equation*}
+    \frac{1}{T}>0\implies T>0
+\end{equation*}
+Another statement of the third law
+
+\subsubsection{Third thermodynamics law.} Using the relation of temperature and the partial derivative of entropy, we can write the fourth postulate as 
+\begin{equation*}
+    \frac{\partial U}{\partial S}\bigg|_{V,N_{i|r}}=T=0
+\end{equation*} 
+Which is the temperature when entropy of any system reaches zero.
+
+\subsubsection{Internal energy function.} All that properties with respect to internal energy imply that entropy might be converted into internal energy. We can therefore say that internal energy is a function of the same extensive parameter
+\begin{equation*}
+    U=U(S,V,N_{i|r})=ST-PV+\sum_{j=1}^{r}N_j\mu_j
+\end{equation*}
+where the last term is due to euler equation.
+
+\subsection{Connection With the Old Laws}
+We know that internal energy \(U\) is a function of entropy \(S \), volume \(V\), and number of particle \(N_{i|r}\). We can therefore write the total derivative of \(U\) as
+
+\begin{equation*}
+    dU=\frac{\partial U}{\partial S}\bigg|_{V,N_i} dS + \frac{ \partial U}{\partial V}\bigg|_{S,N_i} dV+ \sum_{j=1 }^{r}\frac{\partial U}{\partial N_j}\bigg|_{S,V,N_{i\neq j}}dN_j
+\end{equation*} 
+We then define 
+\begin{equation*} 
+    T=\frac{\partial U}{\partial S}\bigg|_{V, N_{i} }\quad 
+    ,P=-\frac{\partial U}{\partial V}\bigg|_{S, N_{i} }\quad 
+    ,\mu_j=\frac{\partial U}{\partial N}\bigg|_{S, V, N_{i\neq j} } 
+\end{equation*} 
+to write the total derivative as 
+\begin{equation*} 
+    dU=T\;dS-P\;dV+ \sum_{j=1 }^{r}\mu_j \; dN_j 
+\end{equation*} 
+
+We shall now consider the justification of these definitions.
+\subsubsection{Temperature.} Consider Isolated system containing gas. The system is the partitioned in such way so that there is no exchange of heat work, and particle. The system is said to be under these constrain
+\begin{equation*}
+    dU_T=dU_1+dU_2=0, \quad dV_1 =dV_2, \quad, dN_1=dN_2
+\end{equation*}
+By the extensive properties of entropy, we can say 
+\begin{equation*}
+    dS_T=dS_1+dS_2
+\end{equation*}
+and for the total differential of itself
+\begin{equation*}
+    dS_T= \frac{\partial S_T}{\partial U_T}\bigg|_{V_T,N_T} dU_T + \frac{ \partial S_T}{\partial V_T}\bigg|_{U_T,N_T} dV_T+ \frac{\partial S_T}{\partial N_T}\bigg|_{S_T,V_T,}dN_T
+\end{equation*}
+It follows that 
+\begin{equation*}
+    dS_T=\frac{\partial S_1}{\partial U_1}\bigg|_{V_1,N_1} dU_1 + \frac{\partial S_2}{\partial U_2}\bigg|_{V_2,N_2} dU_2  = \biggl(\frac{1}{T_1}-\frac{1}{T_2}\biggr)\;dU_1
+\end{equation*}
+At equilibrium, $dS_T=0$, by the second postulate. Since $dU_1=-dU_2$ is not implied to be zero, the expression inside parenthesis must be zero. This implies
+\begin{equation*}
+    \frac{1}{T_1}=\frac{1 }{T_2}\implies T_1=T_2
+\end{equation*}
+at equilibrium, which is consistent to our definition of thermodynamics equilibrium.
+
+\subsubsection{Pressure.} Suppose now that the system's partition does allow the flow of heat and work. The constraints change into
+\begin{equation*}
+    dU_T=dU_1+dU_2=0, \quad dV_T=dV_1 +dV_2=0, \quad, dN_1=dN_2
+\end{equation*}
+Thus
+\begin{equation*}
+    dS_T=\frac{\partial S_1}{\partial U_1}\bigg|_{V_1,N_1} dU_1 + \frac{\partial S_2}{\partial U_2}\bigg|_{V_2,N_2} dU_2  +\frac{\partial S_1}{\partial V_1}\bigg|_{U_1,N_1} dV_1 + \frac{\partial S_2}{\partial V_2}\bigg|_{U_2,N_2} dU_2
+\end{equation*}
+Applying the relation between temperature and pressure with partial derivative of entropy, we obtain 
+\begin{equation*}
+    dS_T=\biggl(\frac{1}{T_1}-\frac{1}{T_2}\biggr)\;dU_1+\biggl(\frac{P_1}{T_1}-\frac{P_2}{T_2}\biggr)\;dV_1
+\end{equation*}
+At equilibrium, this equation yields
+\begin{equation*}
+    \frac{1}{T_1}=\frac{1 }{T_2}
+    \quad\land\quad
+    \frac{P_1}{T_1}=\frac{P_2}{T_2}
+\end{equation*}
+Combining both of the equation, we get the result that
+\begin{equation*}
+    T_1=T_2
+    \quad\land\quad
+    P_1=P_2
+\end{equation*}
+at equilibrium, according to our understanding of thermodynamics equilibrium.
+
+\subsubsection{Chemical potential.} This time, we allow the exchange of particle inside the isolated system. However, we also design it in such a way so that the exchange of heat and work is not allowed. The constraints turn into 
+\begin{equation*}
+    dU_T=dU_1+dU_2=0, \quad dV_1 =dV_2=0, \quad dN_T=dN_1+dN_2=0
+\end{equation*}
+Hence 
+\begin{equation*}
+    dS_T=\frac{\partial S_1}{\partial U_1}\bigg|_{V_1,N_1} dU_1 + \frac{\partial S_2}{\partial U_2}\bigg|_{V_2,N_2} dU_2  +
+    \frac{\partial S_1}{\partial N_1}\bigg|_{U_1,V_1} dN_1 + \frac{\partial S_2}{\partial N_2}\bigg|_{U_2,V_2} dN_2
+\end{equation*}
+We then use the relation between temperature and chemical potential with partial derivative of entropy
+\begin{equation*}
+    dS_T=\biggl(\frac{1}{T_1}-\frac{1}{T_2}\biggr)\;dU_1+\biggl(\frac{\mu_2}{T_2}-\frac{\mu_1}{T_1}\biggr)\;dN_1
+\end{equation*}
+Using the maximum entropy principle, we have 
+\begin{equation*}
+    \frac{1}{T_1}=\frac{1 }{T_2}
+    \quad\land\quad
+    \frac{\mu_2}{T_2}=\frac{\mu_1}{T_1}
+\end{equation*}
+Which implies
+\begin{equation*}
+    T_1=T_2
+    \quad\land\quad
+    \mu_2=\mu_1
+\end{equation*}
+As before, this is according to the definition of thermodynamics equilibrium.
+
+\end{document}

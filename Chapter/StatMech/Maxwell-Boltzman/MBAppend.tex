@@ -1,0 +1,55 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+\subsection{Appendix: Contoh Soal (Buku Pak Rouf)}
+\begin{quotation}
+    Misalkan N buah partikel klasik didistribusikan pada 5 tingkat energi dengan energi $s = kT \ln s$ dan $g_s = 6-s$, dengan indeks $s$ adalah nomor tingkat energi. Dengan memanfaatkan distribusi MB: Hitunglah peluang untuk mendapatkan partikel dengan energi $\epsilon = kT \ln 3$ pada pengambilan pertama; Bila energi total asembel $E$ adalah $1000 \;kT$, hitunglah jumlah partikel $N$; jumlah partikel dengan energi $\epsilon=kT \ln 3$
+\end{quotation}
+
+Jumlah total partikel dapat diketahui dengan 
+\begin{equation*}
+    N=\sum_{s=1}^{5}n_s=n_1+n_2+n_3+n_4+n_5
+\end{equation*}
+Jumlah partikel yang menempati energi tertentu adalah
+\begin{equation*}
+    n(\epsilon_s)\approx g(\epsilon_s)\exp\left(-\frac{\epsilon}{kT}\right)
+\end{equation*}
+Meggunakan persamaan diatas, rasio masing-masing partikel adalah
+\begin{equation*}
+    n_1:n_2:n_3:n_4:n_5=5:8:9:8:5=1:\frac{8}{5}:\frac{9}{5}:\frac{8}{5}:1
+\end{equation*} 
+Dalam $n_1$, jumlah total partikel adalah
+\begin{equation*}
+    N=n_1\left(1+\frac{8}{5}+\frac{9}{5}+\frac{8}{5}+1\right)=7n_1
+\end{equation*}
+Dalam $N$, jumlah partikel pada tingkat energi ketiga adalah
+\begin{equation*}
+    n_3=\frac{9}{5}n_1=\frac{9}{35}N
+\end{equation*}
+Sehingga peluang mendapatkan partikel tersebut adalah
+\begin{equation*}
+    P(\epsilon_3)=\frac{9N/35}{N}\approx26\%
+\end{equation*}
+
+Jumlah energi total dapat diketahui dengan
+\begin{multline*}
+    E=\sum_{s=1}^{5}n_s2\epsilon_s=n_1\epsilon_1+n_2\epsilon_2+n_3\epsilon_3+n_4\epsilon_4+n_5\epsilon_5 \\
+    =n_1kT\left(1\cdot0+\frac{8}{5}\cdot\ln 2+\frac{9}{5}\cdot\ln 3+\frac{8}{5}\cdot\ln 4+1\cdot\ln 5\right)\approx6.914\;kTn_1
+\end{multline*}
+Jika diketahui bahwa energi total adalah $1000\;kT$, maka 
+\begin{equation*}
+    n_1=\frac{1000\;kT}{6.914\;kT}\approx145
+\end{equation*}
+Sehingga jumlah partikel total adalah
+\begin{equation*}
+    N=7n_1\approx1015
+\end{equation*}
+
+Jumlah partikel pada tingkat energi ke tiga adalah
+\begin{equation*}
+    n_3=\frac{9}{5}n_1=\frac{9}{5}\cdot145\approx260
+\end{equation*}
+atau dengan peluang pengambilan
+\begin{equation*}
+    n_3=P(\epsilon_3)\cdot N\approx 260
+\end{equation*}
+\end{document}

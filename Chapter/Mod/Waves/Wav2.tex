@@ -1,0 +1,459 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+
+\subsection{Mass on A Spring}
+For small displacements the force produced by the spring is described by Hooke's law:
+\begin{equation*}
+    F = -kx 
+\end{equation*}
+Using Newton's second law of motion, we obtain the equation of motion of the mass
+\begin{equation*}
+   \ddot{x}=-\omega^2 x
+\end{equation*}
+where\begin{equation*}
+    \omega^2=\frac{k}{m}
+\end{equation*}
+
+We can solve the equation using by rewritting in from
+\begin{equation*}
+    (D+\omega i)(D-\omega i)x=0
+\end{equation*}
+the roots of auxilary equation are therefore $D=\pm \omega i$. Thus, the general solution is
+\begin{equation*}
+    x=a\cos \omega t+ b \sin \omega t= A\cos \omega t +\phi
+\end{equation*}
+
+\subsubsection{Energy of a mass on a spring.} The work done on the spring, extending it from $x'$ to $ x' + dx'$, is $kx'dx'$. Hence the work done extending it from its unstretched length by an amount x
+\begin{equation*}
+    U=\int_{0}^{x}kx'dx'= \frac{1}{2} kx^2
+\end{equation*}
+Conservation of energy for the harmonic oscillator follows from Newton's second law
+\begin{equation*}
+    E=K+U=\frac{1}{2}mv^2+\frac{1}{2}kx^2=\text{const.}
+\end{equation*}
+substituting the value of $x$ and $v=dx/dt$, we get
+\begin{equation*}
+    E=\frac{1}{2}kA^2
+\end{equation*}
+
+\subsection{Pendulum}
+\begin{figure*}[b]
+    \centering
+    \normfig{../../../Rss/Mod/Waves/SHM/Pend.png}
+    \caption*{The geometry of the simple pendulum}
+\end{figure*}
+By Newton's second law 
+\begin{align*}
+    ml\ddot{\theta}&=-mg\sin\theta\\
+\ddot{\theta}&=-\frac{g}{l}\sin \theta
+\end{align*}
+expanding $\sin\theta $ in power series
+\begin{equation*}
+    \ddot{\theta}=-\frac{g}{l}\theta
+\end{equation*}
+This is the equation of SHM with $ \omega=\sqrt{g/ l}$ and its general solution 
+\begin{equation*}
+    \theta=\theta_0 \cos \omega t +\phi
+\end{equation*}
+
+\subsubsection{Energy of pendulum.} For small $\theta$, we have
+\begin{align*}
+    l^2& = (l - y)^2 + x^2\\
+    2ly&=Y^2+x^2
+\end{align*}
+For small displacements of the pendulum, $x\ll l $, it follows that $ y \ll x$, so that the term $y^2$ can be neglected and we can write
+\begin{equation*}
+    y=\frac{x^2}{2l}
+\end{equation*}
+The total energy of the system E is therefore\begin{equation*}
+    E=\frac{1}{2}mv^2+\frac{1}{2}mg\frac{x^2}{2l}
+\end{equation*}
+At the turning point of the motion, when x equals A, it follows that
+\begin{equation*}
+    \frac{1}{2}mg\frac{A^2}{2l}=\frac{1}{2}mv^2+\frac{1}{2}mg\frac{x^2}{2l}
+\end{equation*}
+We can use it to obtain expressions for velocity $v$ 
+\begin{equation*}
+    \frac{dx}{dt}=\sqrt{\frac{g(A^2-x^2)}{l}}
+\end{equation*}
+and for displacements $x$
+\begin{align*}
+    \int \frac{dx}{\sqrt{A^2-x^2}}&=\int \sqrt{\frac{g}{l}}dt\\
+    \arcsin \frac{x}{A}&= \sqrt{\frac{g}{l}}t+\phi\\
+    x&=A\sin \sqrt{\frac{g}{l}}t+\phi
+\end{align*}
+which describes SHM with $\omega = \sqrt{g/ l} $and $T = 2\pi \sqrt{l/g}$ as before.
+
+Notice that both equations have the form
+\begin{equation*}
+    E=\frac{1}{2}\alpha v^2+\frac{1}{2}\beta x^2
+\end{equation*}
+where $\alpha$ and $\beta$ are constants. The constant $\alpha$ corresponds to the inertia of the system through which it can store kinetic energy. The constant $\beta$ corresponds to the restoring force per unit displacement through which the system can store. When we differentiate the conservation of energy equation with respect to time 
+\begin{equation*}
+    \frac{dE}{dt}=\alpha v\frac{dv}{dt}+\beta x\frac{dx}{dt}=0
+\end{equation*}
+giving
+\begin{equation*}
+    \frac{d^2x}{dt^2}=-\frac{\beta}{\alpha}v
+\end{equation*}
+it follows that the angular frequency of oscillation $\omega$ is equal to $\sqrt{\beta/\alpha}$.
+
+\subsubsection{Physical pendulum.} In a physical pendulum the mass is not concentrated at a point as in the simple pendulum, but is distributed over the whole body. An example of a physical pendulum consists of a uniform rod of length $l$ that pivots about a horizontal axis at its upper end. 
+
+Noting that $\tau=I\ddot{\theta}=\mathbf{r}\times\mathbf{F}$
+\begin{align*}
+    I\ddot{\theta}&=\frac{l}{2}(-mg)\sin \pi-\theta\\
+    \frac{1}{3}ml^2\ddot{\theta}&=-\frac{1}{2}mgl\sin \theta\\
+    \ddot{\theta}&=\frac{3g}{2l}\sin\theta
+\end{align*}
+Again we can use the small-angle approximation to obtain
+\begin{equation*}
+    \ddot{\theta}=\frac{3g}{2l}\theta
+\end{equation*}
+This is SHM with $\omega = \sqrt{3g/2l} $ and $T = 2\pi \sqrt{2l/3g}$.
+\begin{figure*}[h]
+    \centering
+    \normfig{../../../Rss/Mod/Waves/SHM/PhysPend.png}
+    \caption*{Physical pendulum}
+\end{figure*}
+
+\subsection{Similarities in Physics}
+\subsubsection{LC circuit.} Initially, capacitor is charged to voltage $V_C=q/C$ . Switch then closed and  charge begins to flow through the inductor and a current $\dot{q}$ flows in the circuit. This is a time-varying current and produces a voltage across the inductor given $V_L=L\ddot{q}$. We can analyse the LC circuit using Kirchhoff's law, which states that the sum of the voltages around the circuit is zero
+\begin{align*}
+    V_C+V_L&=\\
+    \frac{q}{C}+L\ddot{q}&=0\\
+    \ddot{q}=-\frac{1}{LC}q
+\end{align*}
+It is of the same form as SHM equation and the frequency of the oscillation is given directly by, $\omega = \sqrt{1/LC}$. Since we have the initial condition that the charge on the capacitor has its maximum value at t = 0, then the solution is
+\begin{equation*}
+    q=q_0\cos\omega t
+\end{equation*}
+The energy stored in a capacitor charged to voltage $V_C$ is equal to $(1/2) CV_C^2$. This is electrostatic energy. The energy stored in an inductor is equal to $(1/2) LI^2$ and this is magnetic energy. Thus \begin{align*}
+    E&=\frac{1}{2}CV_C^2+\frac{1}{2}LI^2\\
+    &=\frac{1}{2}\frac{q^2}{C}+\frac{1}{2}LI^2
+\end{align*}
+
+\subsection{Potential approach.} Suppose a system is oscillating inside potential $V(x)$. Using Taylor series, we rewite the potential at $x=x_0$ as
+\begin{equation*}
+    V(x)=V(x_0)+x\frac{dV}{dx}\bigg|_{x=x_0}+\frac{x^2}{2}\frac{d^2V}{dx^2}\bigg|_{x=x_0}+\dots
+\end{equation*}
+The first term is a constant, while the second is zero due to $dV/dx$ evaluated at $x=x_0$ is zero. Therefore 
+\begin{equation*}
+    V(x)\approx V(x_0)+\frac{x^2}{2}\frac{d^2V}{dx^2}\bigg|_{x=x_0}
+\end{equation*}
+and 
+\begin{align*}
+    F=-\frac{dV(x)}{dx}\approx-x\frac{d^2V}{dx^2}\bigg|_{x=x_0}
+\end{align*}
+Thus its frequency
+\begin{equation*}
+    \omega=\biggl(\frac{1}{m}\frac{d^2V}{dx^2}\bigg|_{x=x_0}\biggr)^{1/2}
+\end{equation*} 
+
+\subsubsection{Similarities in physics.} We note the similarities in both cases 
+\begin{equation*}
+    \ddot{Z}=-\frac{\beta}{\alpha}Z\qquad E=\frac{1}{2}\alpha\dot{Z}^2+\frac{1}{2}\beta Z^2
+\end{equation*}
+where $\alpha$ and $\alpha$ are constants and $Z = Z(t)$ is the oscillating quantity. In the mechanical case Z stands for the displacement $x$, and in the electrical case for the charge $q$.
+
+\subsection{Damped harmonic oscillator} 
+The damping force $F_d$ acting on system is proportional to its velocity $v$ so long as $v$ is not too large. In another word
+\begin{equation*}
+    F_d=-bv
+\end{equation*}
+The resulting equation of motion is
+\begin{equation*}
+    m\ddot{x}=-kx-b\dot{x}
+\end{equation*}
+We introduce the parameters
+\begin{align*}
+    \omega_0&=\frac{k}{m}\\
+    \gamma&=\frac{b}{m}
+\end{align*}
+Using these parameter, the equation become
+\begin{equation*}
+    \ddot{x}+\gamma\dot{x}+\omega_0 x=0
+\end{equation*}
+Now we designate the angular frequency $\omega_0$ and describe it as the natural frequency of oscillation, or the oscillation frequency if there were no damping. We can write the equation as\begin{align*}
+    D^2x+D\gamma x+\omega_0^2x&=0\\
+    (D^2+D\gamma +\omega_0^2)x&=0
+\end{align*}
+Using the quadratic equation, we find the value of $D$
+\begin{equation*}
+    D=-\frac{\gamma}{2}\pm \sqrt{\frac{\gamma^2}{4}-\omega_0^2}
+\end{equation*}
+The solution is therefore depend on the value of the square root term; which can either be real, imaginary or simply zero. The value of the square root also determine the cases of damping that occur on the system. 
+
+
+\subsubsection{Light damping.} This case occur if $\gamma^2/4<\omega_0^2$, which causes the square root term to be imaginary. Let's us introduce yet another constant
+\begin{equation*}
+    \omega^2=\omega_0^2-\gamma^2/4
+\end{equation*}
+Substituting back into $D$
+\begin{equation*}
+    D=-\frac{\gamma}{2}\pm \sqrt{-\omega^2}=-\frac{\gamma}{2}\pm \omega i
+\end{equation*}
+
+Thus, we can say that the equation is second order differential equation with imaginary auxilary equation roots. The solution is
+\begin{equation*}
+    x=A\exp\biggl(-\frac{\gamma t}{2}\biggr)\cos\omega t +\phi
+\end{equation*} 
+
+Now consider the graph of $x$. The term $\exp -\gamma t/2$ represent an envelope for the oscillations. $x=0$ occur when $\cos\omega t$ is zero and so are separated by $\pi/\omega$ with period $T=2\pi/\omega$. Successive maxima are also separated by $T$. If $A_n$ occurs at time $t_0$ and $A_{n+1}$ at $t_0+T$, then 
+\begin{align*}
+    x(t_0)&=A\exp\biggl(-\frac{\gamma t_0}{2}\biggr)\cos\omega t_0\\
+    x(t_0+T)&=A\exp\biggl(-\frac{\gamma (t_0+T)}{2}\biggr)\cos\omega (t_0+T)
+\end{align*}
+Since $\cos\omega t_0=\cos\omega (t_0+T)=\cos\omega t_0+2\pi$
+\begin{equation*}
+    \frac{A_n}{A_{n+1}}=\exp \frac{\gamma T}{2}
+\end{equation*} 
+or the natural logarithm version
+\begin{equation*}
+    \ln \frac{A_n}{A_{n+1}}=\frac{\gamma T}{2}
+\end{equation*}
+which is called the logarithmic decrement and is a measure of this decrease. 
+\begin{figure*}[b]
+    \centering
+    \normfig{../../../Rss/Mod/Waves/DHM/Envelope}
+    \caption*{Figure: Graph of $x=A_0\exp(-\gamma^2t/4)\cos \omega t$}
+\end{figure*}
+
+\subsubsection{Heavy damping.} Heavy damping occurs when the degree of damping is sufficiently large that the system returns sluggishly to its equilibrium position without making any oscillations at all. In another words, $\gamma^2/4 > \omega_0^2$ and the square root term is real. Thus, we can say that the equation is second order differential equation with two real auxilary equation roots. The solution is
+\begin{equation*}
+    x=A\exp \biggl[\bigg(-\frac{\gamma}{2} + \big(\frac{\gamma^2}{4}-\omega_0^2\big)^{1/2}\bigg)t\biggr] +B \exp \biggl[\bigg(-\frac{\gamma}{2} - \big(\frac{\gamma^2}{4}-\omega_0^2\big)^{1/2}\bigg)t\biggr]
+\end{equation*}
+
+\subsubsection{Critical damping.} Occurs when $\gamma^2/4 = \omega_0^2$, which makes the suqre roots zero. Thus the equation is second order differential equation with one real auxilary equation roots. The solution is
+\begin{equation*}
+    x=(At+B)\exp\biggl(-\frac{\gamma t}{2}\biggr)
+\end{equation*}
+
+Here the mass, or whatever oscillating, returns to its equilibrium position in the shortest possible time without oscillating. 
+
+\subsubsection{Putting all together.} In summary we find three types of damped motion:
+\begin{enumerate}
+    \item $\gamma^2/4<\omega_0^2$ Light damping, Imaginary square root, Damped oscillations;
+    \item $\gamma^2/4>\omega_0^2$ Heavy damping, Real Square root, Exponential decay of displacement;
+    \item $\gamma^2/4=\omega_0^2$ Critical damping, Zero square root, Quickest return to equilibrium position without oscillation.
+\end{enumerate} 
+\begin{figure*}[h]
+    \centering
+    \normfig{../../../Rss/Mod/Waves/DHM/DampMotion.png}
+    \caption*{Figure: Motion of a damped oscillator for various cases}
+\end{figure*}
+
+\subsubsection{RLC circuit.} In the case of an electrical oscillator it is the resistance in the circuit that impedes the flow of current. Kirchoff's law gives
+\begin{align*}
+    L\ddot{q}+R\dot{q}+\frac{1}{C}q=0\\
+    \ddot{q}+\frac{R}{L}\dot{q}+\frac{1}{LC}q=0\\
+    \ddot{q}+\gamma\dot{q}+\omega_0^2q=0
+\end{align*}    
+This is the equation of DHO with q as x, L as m, k as 1/C and R as b; so R/L is the equivalent of $\gamma=b/m=R/L$ and $\omega_0^2=1/LC$. Now assuming that this this the case of light damping, in another words $ R^2/4L^2<1/LC$, the solution is
+\begin{equation*}
+    q=q_0\exp\biggl(-\frac{\gamma t}{2}\biggr)\cos\omega t
+\end{equation*} 
+with\begin{equation*}
+    \omega =\biggl(\frac{1}{LC}-\frac{R^2}{4L^2}\biggr)^{1/2}
+\end{equation*}Since the voltage $V_C$ across the capacitor is equal to $q/C$, dividing the solution by $C$\begin{equation*}
+    V_C=V_0\exp\biggl(-\frac{\gamma t}{2}\biggr)\cos\omega t
+\end{equation*}
+We find that the quality factor $Q$ of the circuit is given by
+\begin{equation*}
+    Q=\frac{\omega_0}{\gamma}=  \frac{1}{R}\sqrt{\frac{L}{C}}
+\end{equation*}
+
+\subsection{Energy of DHO}
+In the case of very lightly damped oscillator $\gamma^2/4\ll \omega_0^2$ we have
+\begin{align*}
+    x &= A_0\exp\biggl(-\frac{\gamma t}{2}\biggr)\cos\omega_0 t\\
+    v&=-A_0\omega_0\exp\biggl(-\frac{\gamma t}{2}\biggr)\biggl[\sin\omega_0t +\frac{\gamma}{2\omega_0}\cos\omega_0 t\biggr]
+\end{align*}
+where we approximate $\omega=\omega_0$. Since $\gamma \ll \omega_0$, we can ignore the second term at velocity equation
+\begin{equation*}
+    v=-A_0\omega_0\exp\biggl(-\frac{\gamma t}{2}\biggr)\sin\omega_0t 
+\end{equation*}
+Then
+\begin{equation*}
+    E=\frac{1}{2}A_0^2 \exp(-\gamma t)(m\omega_0^2\sin^2\omega_0t+k\cos\omega_0t)
+\end{equation*}
+considering $\omega_0^2=k/m$
+\begin{equation*}
+   E(t)= \frac{1}{2}kA_0^2\exp(-\gamma t) =E_0\exp(-\gamma t) 
+\end{equation*}
+The reciprocal of $\gamma$ is the time taken $\tau=1/\gamma$ for the energy of the oscillator to reduce by a factor of e, thus
+\begin{equation*}
+    E(t)=E_0\exp \biggl(-\frac{t}{\tau}\biggr)
+\end{equation*}
+
+\subsubsection{Rate of dissipation.} The energy of an oscillator is dissipated because it does work against the damping force at the rate (damping force $\times$ velocity). We can see this by differentiating energy with respectto time
+\begin{equation*}
+    \frac{dE}{dt}=m\dot{x}\ddot{x}+kx\dot{x}=(m\ddot{x}+kx)\dot{x}
+\end{equation*}
+since the damping force $F_d=m\ddot{x}+kx=-b\dot{x}$, we can write
+\begin{equation*}
+    \frac{dE}{dt}=-b\dot{x}^2
+\end{equation*}
+
+\subsection{Q factor}
+The quality factor Q of the oscillator describe how good an oscillator is, where we imply that the smaller the degree of damping the higher the quality of the oscillator. Oscillator with a high Q-value would make an appreciable number of oscillations before its energy is reduced substantially. The quality factor Q is defined as
+\begin{equation*}
+    Q=\frac{\omega_0}{\gamma}
+\end{equation*}
+
+Another way to define Q factor is 
+\begin{equation*}
+    Q=\frac{\text{energy stored in the oscillator}}{\text{energy dissipated per radian}}
+\end{equation*}
+Now, consider energy of a very lightly damped oscillator one period apart 
+\begin{align*}
+    E_1&=E_0\exp(-\gamma t) \\
+    E_2&=E_0\exp[-\gamma (t+T)]
+\end{align*}
+giving
+\begin{equation*}
+    \frac{E_2}{E_1}=\exp(-\gamma T)
+\end{equation*}
+Using series expansion
+\begin{equation*}
+    \frac{E_2}{E_1}=1-\gamma T
+\end{equation*}
+therefore
+\begin{equation*}
+    \frac{E-2-E_1}{E_1}\approx\gamma T\approx\frac{2\pi\gamma}{\omega_0}\approx\frac{2\pi}{Q}
+\end{equation*}
+where we have $\gamma T\ll 1$ and $\omega\approx\omega_0$. The fractional change in energy per cycle is equal to $2\pi/Q$ and so the fractional change in energy per radian is equal to 1/Q. Thus our definition is proved.
+
+We can also recast DHO equation using Q factor
+\begin{equation*}
+    \ddot{x}+\frac{\omega_0}{Q}\dot{x}\omega_0^2x=0
+\end{equation*}
+and the angular frequency $\omega$
+\begin{equation*}
+    \omega =\omega_0\biggl(1-\frac{1}{4Q^2}\biggr)^{1/2}
+\end{equation*}
+This confirm confirms our assumption that $\omega$ is equal to $\omega_0$ to a good approximation under most circumstances. Even when $Q$ is as low as 5, $\omega$ is different from $\omega_0$ by just $0.5\%$.
+
+\subsection{Forced Oscillations}
+\subsubsection{Undamped forced oscillations.} We begin with a mass $m$ on a horizontal spring with a periodic driving force $F = F_0 \cos \omega t$ is applied to it. We obtain
+\begin{equation*}
+    m\ddot{x}+kx=F_0 \cos \omega t
+\end{equation*}
+Another form of this equation is 
+\begin{align*}
+    m\ddot{x}&=-k(x-\xi)\\
+    m\ddot{x}+kx&=ka \cos \omega t
+\end{align*}
+with $\xi=a \cos \omega t$ as displacement due to driving force. We can rewrite the equation as
+\begin{align*}
+    \ddot{x}+\omega_0^2x&=\omega_0^2\;a \cos \omega t\\
+    (D+\omega_0^2i)(D-\omega_0^2i)x&=\omega_0^2\;a\cos \omega t\\
+\end{align*}
+To solve this, first we solve 
+\begin{equation*}
+    (D+\omega_0^2i)(D-\omega_0^2i)X=\omega_0^2\;a\exp i\omega t
+\end{equation*}
+This has a particular solution
+\begin{equation*}
+    X_p=C\exp{i\omega t}
+\end{equation*}
+Thus
+\begin{equation*}
+    \ddot{X}_p=-C\omega^2\exp{i\omega t}
+\end{equation*}
+Substituting back, we get
+\begin{align*}
+    (-\omega^2+\omega_0^2)C\exp{i\omega t}&=\omega_0^2a\exp{i\omega t}\\
+\end{align*}
+Solving for $C$
+\begin{equation*}
+    C=\frac{a}{1-\omega^2/\omega_0^2}
+\end{equation*}
+The solution to the exponential equation is 
+\begin{equation*}
+    X=\frac{a}{1-\omega^2/\omega_0^2}(\cos\omega t+i\sin \omega t)
+\end{equation*}
+To solve our original, we take the real part 
+\begin{equation*}
+    x=\frac{a}{1-\omega^2/\omega_0^2}\cos\omega t
+\end{equation*}
+The fractional term is the amplitude of our oscillator as function of $\omega$ or $A(\omega)$.
+
+\subsubsection{Damped forced oscillations.} We add the damping term into our equation
+\begin{equation*}
+    m\ddot{x}+b\dot{x}+kx=F_0 \cos \omega t
+\end{equation*}
+or
+\begin{equation*}
+    \ddot{x}+\gamma\dot{x}+\omega_0^2x=\omega_0^2\;a \cos \omega t
+\end{equation*}
+As before, we write the equation as 
+\begin{equation*}
+    \biggl(D-\frac{\gamma}{2}+\sqrt{\frac{\gamma}{4}-\omega_0^2}\biggr)\biggl(D-\frac{\gamma}{2}+\sqrt{\frac{\gamma}{4}-\omega_0^2}\biggr)x=\omega_0^2\;a \cos \omega t
+\end{equation*}
+By the method of complex exponentials, we solve first
+\begin{equation*}
+    \biggl(D-\frac{\gamma}{2}+\sqrt{\frac{\gamma}{4}-\omega_0^2}\biggr)\biggl(D-\frac{\gamma}{2}+\sqrt{\frac{\gamma}{4}-\omega_0^2}\biggr)X=\omega_0^2\;a \exp i\omega t
+\end{equation*}
+This has a particular solution
+\begin{equation*}
+    X_p=C\exp i\omega t
+\end{equation*}
+thus 
+\begin{align*}
+    \dot{X}&=C\omega i \exp i\omega t\\
+    \ddot{X}&=-C\omega \exp i\omega t
+\end{align*}
+Substituting back, we get
+\begin{align*}
+    (-\omega^2+\omega \gamma i+\omega_0^2)C\exp{i\omega t}&=\omega_0^2a\exp{i\omega t}\\
+\end{align*}
+Solving fo $C$
+\begin{equation*}
+    C=\frac{a\omega_0^2}{(\omega_0^2-\omega^2)+\omega\gamma i}= \frac{a\omega_0^2 \big[(\omega_0^2-\omega^2)-\omega\gamma i\big]}{(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2 }
+\end{equation*}
+It is convenient to write the complex number $C$ in the polar $|C|\exp i \delta$ form. We have
+\begin{align*}
+    |C|&=\Biggl( \frac{a\omega_0^2 \big[(\omega_0^2-\omega^2)-\omega\gamma i\big]}{(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2 } \frac{a\omega_0^2 \big[(\omega_0^2-\omega^2)+\omega\gamma i\big]}{(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2 }\Biggr)^{1/2}\\
+    &= \frac{a\omega_0^2 }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }
+\end{align*}
+Angle of $C=-\delta$ is formed by the real term $(\omega_0^2-\omega^2)$ and imaginary term $-\omega\gamma i$. Thus
+\begin{equation*}
+    C=\frac{a\omega_0^2 }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }\exp (-i\delta )
+\end{equation*}
+and 
+\begin{equation*}
+    X_p=\frac{a\omega_0^2 }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }\exp i(\omega t-\delta )
+\end{equation*}
+To find $x_p$ we take the real part of $X_p$:
+\begin{equation*}
+    x=\frac{a\omega_0^2 }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }\cos i(\omega t-\delta )
+\end{equation*}
+As before, the fractional term is the amplitude of our oscillator. Here $\delta $ is phase angle between the driving force and the resultant displacement. The minus sign of $\delta $ in Equation implies that the displacement lags behind the driving force and this is indeed the case in forced oscillations. 
+
+The amplitude
+\begin{equation*}
+    A(\omega)=\frac{a\omega_0^2 }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }
+\end{equation*}
+is maximum when the denominator is minimum
+\begin{equation*}
+    \frac{d}{d\omega}\biggl[\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} \biggr]= 0
+\end{equation*}
+from which 
+\begin{equation*}
+    \omega=\omega_0\bigg(1-\frac{\gamma^2}{2\omega_0^2}\bigg)^{1/2}\equiv\omega_{\text{max}}
+\end{equation*}
+follows. We can find the maximum value of the amplitude $A_{\text{max}}$ by substituting $\omega_{\text{max}}$
+\begin{equation*}
+    A_{\text{max}}=\frac{a\omega/\gamma}{\big(1-\gamma^2/4\omega_0^2 \big)^{1/2}}
+\end{equation*}
+Finally, in order to make our equation more general, we make use of the substitution $F_0 = ka$
+\begin{equation*}
+    x=\frac{F_0/m }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }\cos i(\omega t-\delta )
+\end{equation*}
+In the meantime we use the substitution $Q = \omega_0/\gamma$ in the equations for $\omega_{\text{max}}$ and $A_{\text{max}}$
+\begin{align*}
+    \omega_{\text{max}}&=\omega_0\bigg(1-\frac{1}{2Q^2}\bigg)^{1/2}\\
+    A_{\text{max}}&=\frac{aQ}{\big(1-1/4Q^2 \big)^{1/2}}
+\end{align*}
+\end{document}

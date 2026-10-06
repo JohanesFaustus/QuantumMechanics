@@ -1,0 +1,287 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+\subsection{Fermi-Dirac Distribution}
+The distribution of particle obeying the Pauli exclusion principle, also called fermion, is governed by Fermi-Dirac distribution. In general, the number of particle per unit energy interval is given by 
+\begin{equation*}
+    n(E)=\frac{g(E)}{\exp\left[(E-\mu)/k_BT\right]+1}
+\end{equation*}
+
+For free non-relativistic fermion--such as metals, conductor, and electron gases--the density of state is given by
+\begin{equation*}
+    g(E)=\frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E^{1/2}
+\end{equation*}
+then the distribution function simply evaluate into
+\begin{equation*}
+    n(E)=\frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}\frac{{E}^{1/2}}{\exp\left[(E-\mu)/k_BT\right]+1}
+\end{equation*}
+
+The Fermi-Dirac distribution may be expressed as a product of the Fermi function and the density of state
+\begin{equation*}
+    n(E)=f(E,T)g(E)
+\end{equation*}
+where
+\begin{equation*}
+    f(E,T)=\frac{1}{\exp\left[(E-\mu)/k_BT\right]+1}
+\end{equation*}
+\subsection{Einstein Derivation}
+The number of configuration in this case is the number of ways to choose $N_E$ particle from $P_E$ cells
+\begin{equation*}
+    \mathcal{P}_E={P_E \choose N_E}=\frac{P_E!}{(P_E-N_E)!N_E!}
+\end{equation*}
+with the number of cells given by
+\begin{equation*}
+    P_E= \frac{2\pi}{h^3}V(2m)^{3/2}\sqrt{E}\;dE
+\end{equation*}
+This is the same value that Bose derived. As for the total number of configuration across all interval of energy
+\begin{equation*}
+    \mathcal{P}=\prod_{E=0}^{\infty}\mathcal{P}_E
+\end{equation*}
+
+To find the distribution function, we need to determine the entropy of such system. Hence, we need to maximize the logarithm of said configuration. To such end, we write the logarithm as 
+\begin{align*}
+    \ln \mathcal{P}&= \sum_E \big[P_E\ln (P_E)- P_E - (P_E-N_E)\ln (P_E-N_E)+ (P_E-N_E) \\
+    &- N_E\ln (N_E) + N_E \big]\\
+    \ln \mathcal{P}&= \sum_E P_E\ln (P_E) - (P_E-N_E)\ln (P_E-N_E) - N_E\ln (N_E)
+\end{align*}
+By Lagrange's method, we consider the following constraints
+\begin{equation*}
+    N=\sum_{E=0}^{\infty}N_E,\quad U=\sum_{E=0}^{\infty}EN_E
+\end{equation*}
+and construct the following function
+\begin{equation*}
+    F=\ln \mathcal{P}+\lambda_1 N_E+ \lambda_2 E N_E
+\end{equation*}
+Setting the derivative to zero
+\begin{equation*}
+    \ln(P_E- N_E)+1 -\ln(N_E)-1\lambda_1 +\lambda_2E =0
+\end{equation*}
+and solving for $N_E$
+\begin{align*}
+    \frac{P_E-N_E}{N_E}&=\exp(\lambda_1 -\lambda_2E)\\
+    N_E&=\frac{P_E}{\exp(\lambda_1 -\lambda_2E)+1}
+\end{align*}
+
+The expression for entropy then reads
+\begin{multline*}
+    S=\sum_E  P_Ek_B\ln (P_E) -
+    \sum_E  (P_Ek_B-N_Ek_B)\\\left[\ln (P_E)+\ln \left(\frac{ \exp(\lambda_1 - \lambda_2E)}{\exp(\lambda_1 -\lambda_2E) +1}\right)\right]\\
+    -\sum_E N_E k_B\left[\ln (P_E)-\ln (\exp(\lambda_1 -\lambda_2E) +1)\right]
+\end{multline*}
+furthermore
+\begin{multline*}
+    S=\sum_E  (N_Ek_B- P_Ek_B)\ln \left(\frac{ \exp(\lambda_1 - \lambda_2E)}{\exp(\lambda_1 -\lambda_2E) +1}\right) \\
+    +\ln \sum_E  N_Ek_B \ln \left(\exp(\lambda_1 -\lambda_2E) +1\right)
+\end{multline*}
+additionally
+\begin{equation*}
+    S=Nk_B(-\lambda_1-\lambda_2E)-\sum_E P_E\ln \left(\frac{ \exp(\lambda_1 - \lambda_2E)}{\exp(\lambda_1 -\lambda_2E) +1}\right)
+\end{equation*}
+By using the thermodynamics relation
+\begin{align*}
+    \frac{1}{T}=\frac{\partial S}{\partial U}\bigg|_{V,N}=-\lambda_2k_B\implies
+    \lambda_2=-\frac{1}{k_BT}
+\end{align*}
+and 
+\begin{equation*}
+    -\frac{\mu}{T}=\frac{\partial S}{\partial N}=-k_B\lambda_1 \implies \lambda_1=\frac{\mu}{k_B T}
+\end{equation*}
+Therefore 
+\begin{equation*}
+    N_E=\frac{2\pi}{h^3} \frac{V (2m)^{3/2}\sqrt{E}}{\exp\left[(E-\mu)/k_BT\right]+1} \;dE
+\end{equation*}
+and for the distribution function
+\begin{equation*}
+    n_E=\frac{2\pi}{h^3} \frac{V (2m)^{3/2}\sqrt{E}}{\exp\left[(E-\mu)/k_BT\right]+1}
+\end{equation*}
+
+\subsection{Fermi Gas at Zero Temperature}
+The Fermi function at absolute zero can be written as step function
+\begin{equation*}
+    f(E,0)=\begin{cases}
+        1&E<\mu\\
+        0&\mu<E
+    \end{cases}
+\end{equation*}
+To see how this came to be, observe the behavior of the Fermi function, which depends on the value $E-\mu$, as $T$ approach zero. For $E<\mu$ and $\mu<E$ respectively, we have
+\begin{equation*}
+    f(E,0)=\frac{1}{\exp (-\infty)+1}\quad\text{and}\quad f(E,0)=\frac{1}{\exp(\infty)+1}
+\end{equation*}
+Since the Fermi-Dirac distribution is a product of Fermi function and density of state, DoS, function, we must have 
+\begin{equation*}
+    n(E)\big|_{T=0}=\begin{cases}
+        g(E)&E<\mu\\
+        0&\mu<E
+    \end{cases}
+\end{equation*}
+
+\subsubsection{Fermi energy.} The Fermi energy is the energy of the highest occupied state at absolute zero temperature.  It is given by
+\begin{equation*}
+    E_F=\frac{\hbar^2}{2m}\left(3\pi^2\frac{N}{V}\right)^{2/3}=\frac{3N}{2g(E_F)}
+\end{equation*}
+We define the chemical potential at absolute zero as the Fermi energy  $\mu\equiv E_F$. To derive the said quantity, we consider the total number of particle
+\begin{align*}
+    N&=\int_{0}^{\infty}n(E)\;dE=\int_{0}^{E_F}g(E)\;dE\\
+    &=\int_{0}^{E_F} \frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E^{1/2}\;dE\\
+    N&=\frac{V}{3\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E_F^{3/2}
+\end{align*}
+By solving for $E_F$, we obtain the expression for Fermi energy. Alternatively we can write it in terms of DoS by doing simple algebra
+\begin{align*}
+    g(E_F)&=\frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E_F^{1/2}\\
+    &=\frac{3N}{2}\frac{1}{3\pi^2}\frac{V}{N}\left(\frac{2m}{\hbar^2}\right)^{3/2}E_F^{1/2}\\
+    g(E_F)&=\frac{3N}{2}\frac{E_F^{1/2}}{E_F^{3/2}}=\frac{3N}{2E_F}
+\end{align*}
+
+\subsubsection{Fermi temperature.} The Fermi temperature is the temperature where the thermal energy $kT$ can be compared with the Fermi energy $E_F$. By comparing those two energy, we obtain the value of Fermi temperature
+\begin{equation*}
+    T_F=\frac{E_F}{k}=\frac{\hbar^2}{2mk}\left(3\pi^2\frac{N}{V}\right)^{2/3}
+\end{equation*}
+
+\subsubsection{Fermi velocity.} Like Fermi energy, the Fermi velocity is the highest velocity, or rather speed, of fermion at absolute zero. It is given by 
+\begin{equation*}
+    v_F=\left(\frac{2E_F}{m}\right)^{1/2}
+\end{equation*}
+It can be obtained by using the kinetic energy relation $E=mv^2/2$ for the Fermi energy. To be more explicit, we can also write
+\begin{equation*}
+    v_F=\frac{h}{m}\left(3\pi^2\frac{N}{V}\right)^{1/3}
+\end{equation*}
+
+\subsubsection{Fermi momentum.} The Fermi momentum is the highest momentum fermions at absolute zero can possibly have, and it is given by 
+\begin{equation*}
+    p=\hbar\left(3\pi^2\frac{N}{V}\right)^{1/3}
+\end{equation*}
+
+\subsubsection{Fermi wavevector and wavelength.} Since the momentum of a free fermion is $p=hk$, we have the Fermi wavevector as $k=p/h$ or 
+\begin{equation*}
+    k_F=\left(3\pi^2\frac{N}{V}\right)^{1/3}
+\end{equation*}
+
+Using the wave relation $k=2\pi/\lambda$, we can determine the Fermi wavelength
+\begin{equation*}
+    \lambda_F=\frac{2\pi}{\left(3\pi^2N/V\right)^{1/3}}
+\end{equation*}
+
+\subsubsection{Average energy.} At absolute zero, the average energy of fermion is given by 
+\begin{equation*}
+    \braket{E}=\frac{3}{5}E_F
+\end{equation*}
+It is derived by the following method.
+\begin{align*}
+    \braket{E}\big|_{T=0}&= \frac{1}{N}\int_{0}^{\infty}En(E)\;dE =\frac{1}{N}\int_{0}^{\infty} \frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E^{3/2}\;dE\\
+    &=\frac{V}{2\pi^2 N}\left(\frac{2m}{\hbar^2}\right)^{3/2}\frac{2}{5}E_F^{5/2}\\
+    &=\frac{V}{2\pi^2 N}\left(\frac{2m}{\hbar^2}\right)^{3/2}\frac{2}{5}\left(\frac{\hbar^2}{2m}\right)^{5/2}\left(3\pi^2\frac{N}{V}\right)^{5/3}\\
+    \braket{E}\big|_{T=0}&=\frac{1}{5}\left(\frac{\pi^2N}{V}\right)^{3/2}\left(\frac{\hbar}{2m}\right)3^{5/3}=\frac{3^{5/3}}{5}\frac{E_F}{3^{2/3}}=\frac{3}{5}E_F
+\end{align*}
+
+\subsubsection{Average velocity.} The average velocity of fermion at absolute zero is given by 
+\begin{equation*}
+    \braket{v}\big|_{T=0}= \frac{1}{N}\int_{0}^{\infty}En(E)\;dE 
+\end{equation*}
+It is derived in the following ways.
+\begin{align*}
+    \braket{v}\big|_{T=0}&=\frac{1}{N}\int_{0}^{\infty}vn(v)\;dv=\frac{1}{N}\int_{0}^{\infty} \frac{V}{2\pi^2}\left(\frac{\hbar}{2m}\right)^{3/2}\left(\frac{m}{2}\right)^{1/2}v^2\;mv\;dv\\
+    &=\frac{V}{\pi^2N}\left(\frac{m}{\hbar}\right)^3\frac{1}{4}v_F^4\\
+    &=\frac{V}{\pi^2N}\left(\frac{m}{\hbar}\right)^3\frac{1}{4} \left(\frac{h}{m}\right)^3\left(3\pi^2\frac{N}{V}\right)v_f=\frac{3}{4}v_F
+\end{align*}
+
+\subsection{Fermi Gas at Low Temperature}
+Unlike at the absolute zero, the Fermi function at low temperature can not be written as step function, instead it decreases smoothly around the Fermi energy. This also implies that the distribution function does not suffer from discontinuity.
+
+At low temperature, there are $N_0$ fermions occupying Fermi energy state and $\Delta N$ fermion occupying the higher energy state. Thus, the number of fermion is $N=N_0+\Delta N$.
+
+It is convenient to use the Sommerfeld expansion to evaluate Fermi-Dirac distribution at low temperature
+\begin{equation*}
+    \int_{0}^{\infty} f(E) g(E) dE = \int_{0}^{E_F} g(E) dE + \sum_{n=1}^{\infty} c_n  (kT)^{2n}g^{(2n-1)}(E)_{E_F}
+\end{equation*}
+In many practical applications, however, we can approximate the integral only using the first term. The so called first-order Sommerfeld expansion expressed as 
+\begin{equation*}
+    \int_{0}^{\infty} f(E) g(E) dE \approx \int_{0}^{E_F} g(E) dE +  \frac{(\pi kT)^2}{6}g'(E)_{E_F}
+\end{equation*}
+
+\subsubsection{Chemical potential.} Recall the integral for fermion at absolute zero 
+\begin{equation*}
+    N=\int_{0}^{\infty}n(E)\;dE=\int_{0}^{E_F}g(E)\;dE
+\end{equation*}
+
+We define chemical potential $\mu(T)$ such that the upper limit of the integral is shifted into 
+\begin{equation*}
+    N=\int_{0}^{\mu(T)}g(E)\;dE
+\end{equation*}
+
+The number of particle for given $T$ remain the same because chemical is defined in a way such that the number of particle also remain the same. This is also way at absolute zero the chemical energy is defined as Fermi energy $\mu\equiv E_F$. The Fermi function is also approximated to be $f(E)\approx1$ since the value is mostly 1 up to $E=\mu(T)$.
+
+The expression for chemical potential at low temperature is given by 
+\begin{equation*}
+    \mu=E_F\left[1-\frac{\pi^2}{12}\left(\frac{kT}{E_F}\right)^2\right]
+    =E_F\left[1-\frac{\pi^2}{12}\left(\frac{T}{T_F}\right)^2\right]
+\end{equation*}
+
+To derive the expression for chemical potential, we approximate the number of particle using Taylor expansion
+\begin{equation*}
+    N=\int_{0}^{\mu}g(E)\;dE\approx\int_{0}^{E_F}g(E)\;dE+g(E_F)(\mu-E_F)
+\end{equation*}
+and using the first order Sommerfeld expansion
+\begin{equation*}
+    N=\int_{0}^{\infty}f(E)g(E)\;dE\approx\int_{0}^{E_F}g(E)\;dE+ \frac{(\pi kT)^2}{6}g'(E)_{E_F}
+\end{equation*}
+
+Equating both expression for the number of particle
+\begin{align*}
+    g(E_F)(\mu-E_F)&=g'(E)\frac{(\pi kT)^2}{6}\\
+    \mu-E_F&=\frac{(\pi kT)^2}{6}\frac{g'(E)_{E_F}}{g(E)_{E_F}}
+\end{align*}
+We write the DoS and its derivative as 
+\begin{align*}
+    g(E)&=\frac{V}{2\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E^{1/2}\\
+    g'(E)&=\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}\frac{1}{E^{1/2}}=\frac{g(E)}{2E_F}
+\end{align*}
+Hence
+\begin{align*}
+    \mu-E_F&=\frac{(\pi kT)^2}{12E_F}\\
+    \mu&=E_F\left[1-\frac{\pi^2}{12}\left(\frac{kT}{E_F}\right)^2\right]
+\end{align*}
+Alternatively, using the Fermi temperature, we can rewrite the expression i terms of Fermi temperature.
+
+\subsubsection{Average energy.} Given by 
+\begin{equation*}
+    \braket{E}=E_F\left[\frac{3}{5}+\frac{\pi^2}{4}\left(\frac{kT}{E_F}\right)^2\right]= E_F\left[\frac{3}{5}+\frac{\pi^2}{4}\left(\frac{T}{T_F}\right)^2\right]
+\end{equation*}
+To derive this, we use the first order Sommerfeld expansion, however instead the function of $g(E)$, we use $Eg(E)$
+\begin{equation*}
+    \int_{0}^{\infty}E f(E) g(E) \;dE \approx \int_{0}^{E_F} g(E) \;dE +  \frac{(\pi kT)^2}{6}\left[Eg(E)\right]'_{E_F}
+\end{equation*}
+Since the integral above can be used to determine the average energy, then 
+\begin{align*}
+    \braket{E}&=\frac{1}{N}\int_{0}^{\mu}g(E) \;dE+ \frac{(\pi kT)^2}{6}\left[Eg(E)\right]'_{\mu}\\
+    \braket{E}&=\frac{1}{N}\int_{0}^{E_F}g(E) \;dE+ \frac{1}{N}\int_{E_F}^{\mu}g(E)\; dE+ \frac{(\pi kT)^2}{6}\left[Eg(E)\right]'_{\mu}
+\end{align*}
+We can approximate the second term as 
+\begin{align*}
+    \frac{1}{N}\int_{E_F}^{\mu}g(E) \;dE&=\frac{1}{N}E_Fg(E_F)(E_F-\mu) =-\frac{1}{N}\frac{3N}{2}\frac{(\pi kT)^2}{12E_F}\\
+    \frac{1}{N}\int_{E_F}^{\mu}g(E) \;dE&=-\frac{1}{8}\frac{(\pi kT)^2}{E_F}
+\end{align*}
+and the derivative term as 
+\begin{align*}
+    \left[Eg(E)\right]'_{\mu}&=g(\mu)+\mu g'(\mu)\approx g(E_F)+E_Fg'(E_F)\\
+    &\approx g(E_F)+\frac{3}{2}g(E_F)=\frac{3}{2}g(E_F)\\
+    \left[Eg(E)\right]'_{\mu}&\approx\frac{9N}{4E_F}
+\end{align*}
+Thus 
+\begin{align*}
+    \braket{E}=\frac{3}{5}E_F-\frac{1}{4}\frac{(\pi kT)^2}{E_F}+\frac{3}{8}\frac{(\pi kT)^2}{E_F}=E_F\left[\frac{3}{5}+\frac{\pi^2}{4}\left(\frac{kT}{E_F}\right)^2\right]
+\end{align*}
+
+\subsubsection{Heat capacitance.} Inside metal, heat capacitance is the sum of heat capacitance due to phonon, predicted by Debye's model, and due to the free electron, governed by Fermi-Dirac distribution 
+\begin{equation*}
+    C_V=C_{V\text{ph}}+C_{V\text{el}}=\begin{cases*}
+        AT^3+\gamma T &$T<\theta_D$\\
+        3R+\gamma T & $\theta_D<T<T_F$\\
+        \gamma T &$T_F<T$
+    \end{cases*}
+\end{equation*}
+For the first two case, the first term is the heat capacitance predicted by Debye, while the term $\gamma T$ is predicted by Fermi-Dirac distribution.
+
+To derive the quantity of heat capacitance, we use the thermodynamics define of heat capacitance for constant volume. On differentiating the total energy with respect to temperature, we have 
+\begin{align*}
+    \frac{d}{dt}\braket{NE}\bigg|_{V,N=N_A}&=N_A \frac{E_F\pi^2}{2T_F^2}T=N_A\frac{k\pi^2}{2T_F}=4.93R\frac{T}{T_F}
+\end{align*}
+\end{document}

@@ -1,0 +1,393 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Spherical Surfaces}
+I will discuss light behavior at spherical surfaces. Consider wave from the point source $S$ impinging on a spherical interface of radius $R$ centered at $C$. For the ray in question
+\begin{equation*}
+    OPL=n_1\ell_o+n_2\ell_i
+\end{equation*}
+Using the low of cosine in triangles $SAC$ and $ACP$
+\begin{equation*}
+    \ell_o=[R^2+(s_o+R)^2-2R(s_o+R)\cos \phi]^{1/2}\\
+\end{equation*}
+\begin{align*}
+    \ell_i&=[R^2+(s_i+R)^2-2R(s_i-R)\cos (\pi-\phi)]^{1/2}\\
+    &=[R^2+(s_i+R)^2+2R(s_i-R)\cos \phi]^{1/2}
+\end{align*}
+
+\begin{figure}[b]
+    \centering
+    \normfigL{../../../Rss/ED/Geometry/Spherical}
+    \caption*{Figure: Refraction at spherical surface.}
+\end{figure}
+
+Recall that the Fermat’s Principle state that the optical path is stationary with respect to its position variable, which is $\phi$ in this case. Then setting the derivative of $OPL$ to zero 
+\begin{multline*}
+    \frac{d}{d\phi}OPL=n_1\frac{R(s_o+R)\sin \phi}{[R^2+(s_o+R)^2-2R(s_o+R)\cos \phi]^{1/2}}\\
+    - n_2\frac{R(s_i-R)\sin \phi}{[R^2+(s_i+R)^2+2R(s_i-R)\cos \phi]^{1/2}}=0
+\end{multline*}
+Or simply
+\begin{align*}
+    n_1\frac{R(s_o+R)\sin \phi}{\ell_o}&=n_2\frac{R(s_i-R)\sin \phi}{\ell_i}\\
+    \frac{n_1Rs_o}{\ell_o}+\frac{n_1R^2}{\ell_o}&=\frac{n_2Rs_i}{\ell_i}-\frac{n_2R^2}{\ell_i}\\
+    \frac{n_1}{\ell_o}+\frac{n_2}{\ell_i}&=\frac{1}{R}\frac{n_2s_i}{\ell_i}-\frac{n_1s_o}{\ell_o}
+\end{align*}
+If we assume small $\phi$, the value of $\ell_o$ and $\ell_i$ approach $s_o$ and $s_i$ respectively. Then, we write
+\begin{equation*}
+    \frac{n_1}{s_o}+\frac{n_2}{s_i}=\frac{n_2-n_1}{R}
+\end{equation*}
+
+The object focus is defined as the object distance when the image is at infinity
+\begin{equation*}
+    f_o=\lim_{s_i\rightarrow\infty}\left(\frac{n_1}{s_o}+\frac{n_2}{s_i}=\frac{n_2-n_1}{R}\right)=\frac{n_1}{n_2-n_1}R
+\end{equation*}
+
+The image focus is defined as the image distance when the object is at infinity
+\begin{equation*}
+    f_o=\lim_{s_o\rightarrow\infty}\left(\frac{n_1}{s_o}+\frac{n_2}{s_i}=\frac{n_2-n_1}{R}\right)=\frac{n_2}{n_2-n_1}R
+\end{equation*}
+
+\subsection{Thin Lenses}
+\begin{figure}
+    \centering
+    \normfigL{../../../Rss/ED/Geometry/ThinLens}
+    \caption*{Figure: Light entering thin lens.}
+\end{figure}
+The equation for lenses equation, also called the lens-maker equation, is written as 
+\begin{equation*}
+    \frac{1}{s_0}+\frac{1}{s_i}=(n_l-1)\left(\frac{1}{R_1}-\frac{1}{R_2}\right)
+\end{equation*}
+or simply
+\begin{equation*}
+    \frac{1}{s_0}+\frac{1}{s_i}=\frac{1}{f}
+\end{equation*}
+where
+\begin{equation*}
+    \frac{1}{f}=(n_l-1)\left(\frac{1}{R_1}\frac{1}{R_2}\right)
+\end{equation*}
+
+The newtonian form of lenses equation is 
+\begin{equation*}
+    x_ox_i=f^2
+\end{equation*}
+
+To determine the transversal magnification of lenses, we use 
+\begin{equation*}
+    M_T\equiv \frac{y_i}{y_o}=-\frac{s_i}{s_o}=-\frac{x_i}{f}=-\frac{f}{x_o}
+\end{equation*}
+As for the longitudinal magnification
+\begin{equation*}
+    M_L\equiv \frac{dx_i}{dx_o}=-\frac{f^2}{x_o^2}=-M_T^2
+\end{equation*}
+
+\subsubsection{Sign convention.} All quantities used before are defined to be positive.
+
+\begin{table}
+    \centering
+    \caption*{Table: Sign convention for lenses with respect to light}
+    \begin{tabular}{c c c}
+        \toprule
+        Quantities & Positive & Negative\\ 
+        \midrule
+        $s_o,\;f_o$& front of $V $ & behind of $V $ \\ 
+        $x_0$& front of $F_o $ & behind of $F_o $\\
+        $s_i,\;f_i$& behind of $V $ & front of $V $\\
+        $x_f$& behind of $F_i $ & front of $F_ii $\\
+        $R$& $C$ is behind of $V $ & $C$ is front of $V $\\
+        $y_o,\;y_i$& above optical axis &below optical axis\\
+        \bottomrule        
+    \end{tabular}
+\end{table}
+
+\subsubsection{Image formed by lenses.} Summarized by tables.
+\begin{table}
+    \centering
+    \caption*{Table: Images formed by convex lenses}
+    \begin{tabular}{ccccc}
+        \toprule
+        Object & \multicolumn{4}{c}{Image}\\
+        \midrule
+        Location & Type & Location & Orientation & Size\\
+        \midrule
+        $s_o>2f$ &Real &$f<s_i<2f$ &Inverted &Minified \\
+        $s_0=2f$ &Real &$s_i=2f$ &Inverted &Same \\
+        $f<s_o<2f$ &Real &$s_i>2f$ &Inverted &Magnified \\
+        $s_o=f$ & &$\pm \infty$ & & \\
+        $s_0<f$ &Virtual &$|s_i|>s_o$ &Erect &Magnified \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption*{Table: Images formed by concave lenses}
+    \begin{tabular}{ccccc}
+        \toprule
+        Object & \multicolumn{4}{c}{Image}\\
+        \midrule
+        Location & Type & Location & Orientation & Size\\
+        \midrule
+        Anywhere &Virtual &$\begin{matrix}|s_i|<f \\|s_i|<s_o\end{matrix}$ &Erect &Minified \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\subsubsection{Derivation.} Thin lenses can be considered as two spherical surface, one is convex while other is convex. Now suppose we have lens of index $n_l$ surrounded by medium of index $n_m$. The position of object $s_{o1}$ and image $s_{i1}$ for the first surface is given by 
+\begin{equation*}
+    \frac{n_m}{s_{o1}}+\frac{n_l}{s_{i1}}=\frac{n_l-n_m}{R_1}
+\end{equation*}
+while for the second surface 
+\begin{equation*}
+    \frac{n_l}{s_{o2}}+\frac{n_m}{s_{i2}}=\frac{n_m-n_l}{R_2}
+\end{equation*}
+From figure, we also have 
+\begin{equation*}
+    |s_{o2}|=|s_{i1}|+d
+\end{equation*}
+Then by the definition, $s_{o2}$ is positive and $s_{i1}$is negative
+\begin{equation*}
+    s_{o2} =-s_{i1}+d
+\end{equation*}
+On using this, the equation for second surface reads as 
+\begin{equation*}
+    \frac{n_l}{-s_{i1}+d}+\frac{n_m}{s_{i2}}=\frac{n_m-n_l}{R_2}
+\end{equation*}
+Now we add the equation for both surface 
+\begin{align*}
+    \frac{n_m}{s_{01}}+\frac{n_m}{s_{i2}}&=(n_l-n_m)\left(\frac{1}{R_2}-\frac{1}{R_2}\right)-\frac{n_l}{s_{i1}-d}\frac{n_l}{s_{i1}}\\
+    \frac{n_m}{s_{01}}+\frac{n_m}{s_{i2}}&=(n_l-n_m)\left(\frac{1}{R_2}-\frac{1}{R_2}\right)+\frac{n_l d}{s_{i1(s_{i1}-d)}}
+\end{align*}
+For the case of thin lens, we then make the assumtion of small lens and that the surrounding medium is air 
+\begin{equation*}
+    \frac{n_m}{s_{01}}+\frac{n_m}{s_{i2}}=(n_l-n_m)\left(\frac{1}{R_2}-\frac{1}{R_2}\right)
+\end{equation*}
+
+\begin{figure}
+    \centering
+    \normfig{../../../Rss/ED/Geometry/Types.png}
+    \caption*{Figure: Crossection of various thin lenses.}
+\end{figure}
+
+To obtain the Newton's expression for lenses, consider an image in front of convex lens. Using the definition of lateral magnification 
+\begin{equation*}
+    \frac{y_o}{|y_i|}=\frac{f}{s_i-f}=\frac{f}{x_i}
+\end{equation*}
+This applies since the triangles $AOF_i$ and $P_2P_1F_i$ are similiar. Appliying the same logic to triagle $S_1S_2O$ and $P_2P_1O$
+\begin{equation*}
+    \frac{y_o}{|y_i|}=\frac{s_o}{s_i}
+\end{equation*}
+On equating them we obtain
+\begin{align*}
+    \frac{f}{s_o-f}&=\frac{s_o}{f}\\
+    \frac{s_i}{f}-1=\frac{s_i}{s_o}\\
+    \frac{1}{f}=\frac{1}{s_o}+\frac{1}{s_i}
+\end{align*}
+the lens maker equation. To obtain Newton's expression, we consider the triangles $BOF_o$ and $S_2S_1F_o$
+\begin{equation*}
+    \frac{y_o}{|y_i|}==\frac{s_o-f}{f}=\frac{x_o}{f}
+\end{equation*}
+then equating with the expression from $AOF_i$ and $P_2P_1F_i$.
+\begin{align*}
+    \frac{x_o}{f}&=\frac{f}{x_i}\\
+    x_ox_i&=f^2\quad\blacksquare
+\end{align*}
+
+\begin{figure}
+    \centering
+    \fullfig{../../../Rss/ED/Geometry/RayProp}
+    \caption*{Figure: Light refracted by thin lenses.}
+\end{figure}
+
+According to the figure, the image is inverted, thus the value of $y_o$ is negative. Hence, on using the value from triangle $P_2P_1O$ to the definition of lateral magnification
+\begin{equation*}
+    M_T=-\frac{s_i}{s_o}
+\end{equation*}
+on using the value of triangle $P_2P_1F_i$
+\begin{equation*}
+    M_T=-\frac{x_i}{x_f}
+\end{equation*}
+and on using the value of triangle $BOF_o$
+\begin{equation*}
+    M_T=-\frac{f}{x_o}
+\end{equation*}
+
+To obtain the expression for lateral magnification, we write the Newtonian form as $x_i=f^2/x_o$ and using the definition of lateral magnification
+\begin{equation*}
+    m_L\equiv\frac{dx_i}{dx_o}=-\frac{f^2}{x_o^2}=-M_T^2
+\end{equation*}
+
+\subsubsection{Types of thin lenses.} See figure.
+
+\subsubsection{Light behavior.} Also see figure.
+
+\subsection{Mirror}
+
+\subsubsection{Sign convention.} See table.
+\begin{table}
+    \centering
+    \caption*{Table: Sign convention for lenses with respect to light}
+    \begin{tabular}{ccc }
+        \toprule
+        Quantities & Positive & Negative\\ 
+        \midrule
+        $s_o$& front of $V $ & behind of $V $ \\ 
+    $s_i$& front of $V $ & behind of $V $\\
+    $f$& concave & convex \\
+    $R$& $C$ is behind of $V $ & $C$ is front of $V $\\
+    $y_o,\;y_i$& above optical axis &below optical axis\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Planar mirrors.} The equation for planar mirrors is simply
+\begin{equation*}
+    |s_o|=|s_i|
+\end{equation*}
+that is, the image and object  are equidistant from the surface.
+
+\subsubsection{Spherical mirrors.} The equation that governed spherical mirrors is the same with the one for lenses, albeit with different sign convention
+ \begin{equation*}
+    \frac{1}{s_o}+\frac{1}{s_i}=\frac{1}{f}
+ \end{equation*}
+ where
+ \begin{equation*}
+     \frac{1}{f}=-\frac{R}{2}
+ \end{equation*}
+The definition for transversal and lateral magnification is the same as the case for lenses. 
+
+\subsubsection{Derivation.}
+I shall not derive the equation for planar mirrors, as it was trivial. Now, consider a concave spherical mirror. From the triangle $SAP$, we observe 
+\begin{equation*}
+    \frac{SC}{SA}=\frac{CP}{PA}
+\end{equation*}
+Furthermore
+\begin{align*}
+    SC&=s_o-|R|=s_o+R\\
+    CP&=|R|-s_i=-(s_i-R)
+\end{align*}
+In the paraaxial region appoximation, $SA\approx s_o$ and $PA\approx s_i$
+\begin{align*}
+    \frac{s_o+R}{s_o}&=-\frac{s_i+R}{s_i}\\
+    \frac{R}{s_o}+\frac{R}{s_i}&=-2\\
+    \frac{1}{s_o}+\frac{1}{s_i}&=-\frac{2}{R}
+\end{align*}
+We define object focus and image focus respectively as 
+\begin{equation*}
+    \lim_{s_i\rightarrow\infty}s_o=f_o\quad\lim_{s_o\rightarrow\infty}s_i=f_i
+\end{equation*}
+Notice that $f_o=f_i$, so for convinience's sake we write 
+\begin{equation*}
+    \frac{1}{f}=-\frac{R}{2}
+\end{equation*}
+
+\subsubsection{Image.} Simply the opposite of lenses 
+\begin{table}
+    \centering
+    \caption*{Table: Images formed by concave lenses}
+    \begin{tabular}{ccccc}
+        \toprule
+        Object & \multicolumn{4}{c}{Image}\\
+        \midrule
+        Location & Type & Location & Orientation & Size\\
+        \midrule
+        $s_o>2f$ &Real &$f<s_i<2f$ &Inverted &Minified \\
+        $s_0=2f$ &Real &$s_i=2f$ &Inverted &Same \\
+        $f<s_o<2f$ &Real &$s_i>2f$ &Inverted &Magnified \\
+        $s_o=f$ & &$\pm \infty$ & & \\
+        $s_0<f$ &Virtual &$|s_i|>s_o$ &Erect &Magnified \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption*{Table: Images formed by convex lenses}
+    \begin{tabular}{ccccc}
+        \toprule
+        Object & \multicolumn{4}{c}{Image}\\
+        \midrule
+        Location & Type & Location & Orientation & Size\\
+        \midrule
+        Anywhere &Virtual &$\begin{matrix}|s_i|<f \\|s_i|<s_o\end{matrix}$ &Erect &Minified \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Prism}
+One of the most important function of the prism is to measure the index of refraction. For a refraction Prism, the refraction index of prism is given by 
+\begin{equation*}
+    n=\frac{\sin [(\delta_m+\alpha)/2]}{\sin (\alpha/2)}
+\end{equation*}
+where $\delta_m$ is the minimum angular deviation and $\alpha$ is the apex angle. Minimum angular deviation occur when 
+\begin{equation*}
+    \delta=\delta_m\begin{cases}
+        \theta_{i1}&=\theta_{t2}\\
+        \theta_{t1}&=\theta_{i2}
+    \end{cases}
+\end{equation*}
+or in other words, when the ray traverses the prism symmetrically or parallel to its base. Accidentally, angular deviation for arbitrary ray is given by 
+\begin{equation*}
+    \delta=\theta_{i1}+\arcsin\left[ \sin (\alpha)\left(n^2-\sin^2\theta_{i1}\right)^{1/2}-\sin\theta_{i1}\cos\alpha\right]
+\end{equation*}
+
+\begin{figure}
+    \centering
+    \fullfig{../../../Rss/ED/Geometry/PrismGeometry}
+    \caption*{Figure: Prism geometry.}
+\end{figure}
+
+\subsubsection{Derivation.} Consider ray entering prism at angle $\theta_{i1}$. From the geometry of prism, the total deviation is the sum of deviation due to the first interface and the second interface
+\begin{equation*}
+    \delta=(\theta_{i1}-\theta_{t1})+ (\theta_{t2}-\theta_{i2})
+\end{equation*}
+Also notice that $\alpha=\theta_{t1}+\theta_{i2}$, then we write
+\begin{equation*}
+    \delta=\theta_{i1}+\theta_{t2}-\alpha
+\end{equation*}
+Appliying Snell's law to both interface, we have 
+\begin{align*}
+    n_a\sin \alpha_{i1}&=n\sin \theta_{t1}\\
+    n\sin\theta_{i2}&=n_a\sin \theta_{t2}
+\end{align*}
+where the refraction index of air $n_a=1$. From the Snell's equations at the second interface, it follows
+\begin{align*}
+    \theta_{t2}&=\arcsin\left[n\sin \theta_{i2}\right]=\arcsin\left[n\sin (\alpha-\theta_{t1})\right]\\
+    &=\arcsin\left[n(\sin \alpha\cos\theta_{t1}-\sin\theta_{t1}\cos \alpha)\right]\\
+    \theta_{t2}&=\arcsin\left[\sin \alpha(n^2-\sin^2\theta_{i1})^{1/2}-\sin\theta_{i1}\cos \alpha\right]
+\end{align*}
+Recall the relation $\sin (x-y)=\sin x\cos y-\sin y\cos x$. On subsituting to the expression for angular deviation
+\begin{equation*}
+    \delta=\theta_{i1}+\arcsin\left[\sin \alpha(n^2-\sin^2\theta_{i1})^{1/2}-\sin\theta_{i1}\cos \alpha\right]-\alpha
+\end{equation*}
+
+To obtain the minimum deviation, we set the derivative of $\delta$ with respect to incidence $\theta_{i1}$ to zero 
+\begin{equation*}
+    \frac{d}{d\theta_{i1}}(\theta_{i1}+\theta_{t2}-\alpha)=1+\frac{d\theta_{t2}}{d\theta_{i1}}=0\implies d\theta_{t2}=-d\theta_{i1}
+\end{equation*}
+with the apex angle taken as constant. With that being said, we also have 
+\begin{equation*}
+    d\alpha=0\implies d\theta_{t1}=-d\theta_{i2}
+\end{equation*}
+Taking the derivative of both Snell's equation
+\begin{align*}
+    n_a\cos \theta_{i1}\;d\theta_{i1}&=n\cos \theta_{t1}\;d\theta_{t1}\\
+    n\cos\theta_{i2}\;d\theta_{i2}&=n_a\cos \theta_{t2}\;d\theta_{t2}
+\end{align*}
+Dividing the first equation with the second, using the angular differential relation, and finally inserting the value $n_a=1$
+\begin{align*}
+    -\frac{\cos \theta_{i1}\;d\theta_{i1}}{\cos \theta_{t2}\;d\theta_{i1}} &=-\frac{n \cos \theta_{t1}\;d\theta_{t1}}{n  \cos\theta_{i2}\;d\theta_{t1}}\\
+    \frac{1-\sin^\theta_{i1}}{1-\sin^2\theta_{t2}}&=\frac{n^2-\sin^2\theta_{i1}}{n^2-\sin^2\theta_{t2}}
+\end{align*}
+This equation can only be true when $\theta_{i1}=\theta_{t_2}$. By the Snell's equations, this implies $\theta_{t1}=\theta_{i2}$. Both of these requirements, then, are the condition for minimum deviation.
+
+Writing the Snell's equations at first interface in terms of refraction index
+\begin{equation*}
+    n=\frac{\sin \theta_{t2}}{\sin \theta_{i2}}
+\end{equation*}
+Now we write the equations for angular deviation and apex angle in terms of $\theta_{t2}$ and $\theta_{i2}$ respectively 
+\begin{align*}
+    \delta=\theta_{i1}+\theta_{t2}-\alpha\implies \theta_{t2}=\frac{\delta_m+\alpha}{2}\\
+    \alpha=\theta_{t1}+\theta_{i2}\implies \theta_{i2}=\frac{\alpha}{2}
+\end{align*}
+On subsituting these, we obtain the expression for index of refraction. 
+\end{document}

@@ -1,0 +1,138 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Introduction}
+Here's few short definition used in Statistical Mechanic 
+\begin{center}
+    \begin{longtable}{|p{0.2\textwidth}| p{0.8\textwidth}|}
+        \hline
+        Term&Definition\\\hline\hline
+        Binomial coefficient& Used to determine number of ways to choose a group of m items from a list of n distinct items: \begin{equation*} \binom{n}{m} = \frac{n!}{m!(n-m)!} \end{equation*}\\\hline
+        Boltzmann's constant $k_B$&  \begin{equation*}
+            k_B=1.38 \times 10^{-23} \text{ J/K} = 8.62 \times 10^{-5} \text{ eV/K}
+        \end{equation*}\\\hline
+        Density of states $g(E)$&The number of states per unit energy\\\hline
+        Entropy $S$&\begin{equation*}
+            S=k_B\ln \Omega
+        \end{equation*}\\\hline
+        Heat $Q$&Energy transferred spontaneously from a hot system to a cold system. When heat $Q$ flows into a system, \begin{equation*}
+            \Delta S \geq Q/T
+        \end{equation*}\\\hline
+        Heat capacity $C$&Formula for heat capacity is:\begin{equation*}
+            C=\frac{dE}{dT}
+        \end{equation*}taking $dE$ to be the heat input, not work. Heat capacity is written $C_P$ if heat is added at constant pressure,
+        and $C_V$ if it's added at constant volume. In general, $C_P > C_V$\\\hline
+        Ideal gas&A gas of non-interacting, free molecules\\\hline
+        Multiplicity $\Omega$&The number of microstates associated with a macrostate\\\hline
+        Temperature $T$&Defined using second law of Thermodynamics\begin{equation*}
+            T=\frac{1}{dS/dE}
+        \end{equation*}
+        assuming $dE$ is only heat and there are no other changes\\\hline
+        Work $W$&Any energy transfer other than heat (e.g. via macroscopic forces)\\\hline
+    \end{longtable}
+\end{center}
+
+\subsection{Boltzmann Distribution}
+For a system in equilibrium with a large reservoir at temperature $T$, the probability of its being in a given microstate with energy $E$ is
+\begin{equation*}
+    P=\frac{1}{Z}e^{-E/(k_BT)}
+\end{equation*}
+The “partition function” Z is defined to normalize  he probabilities:
+\begin{equation*}
+    Z=\sum_{\text{all microstates}}^{} e^{-E/k_BT} = \sum_{\text{all microstates}}^{}\Omega(E) e^{-E/k_BT}
+\end{equation*}
+
+\subsection{Equipartition Theorem}
+If the energy of a system in equilibrium with a large reservoir at temperature T depends quadratically on a continuous degree of freedom (e.g. $x$, $y$, $v_x$, $\omega_x$, $\dots$), the average thermal energy associated with that degree of freedom is $(1/2)k_B T$. If the degree of freedom is quantized, the equipartition theorem still holds in the limit where the spacing between energy levels is small compared to the system's energy. Even when the conditions for the equipartition theorem don't apply, it is usually still true that the thermal energy of a single particle, atom, or molecule is of order $ k_B T$, provided the density of states is relatively
+uniform and the spacing between available energy levels is much smaller than $k_B T$. Few examples where equipartition theorem holds
+\begin{enumerate}
+    \item A free, classical particle in three-space has a translational kinetic energy that depends quadratically on three degrees of freedom ($v_x$, $v_y$, and $v_z$), so its average thermal energy is $(3/2)k_B T$.
+    \item A monatomic atom (He) has no rotational degrees of freedom. A diatomic molecule ($\text{H}_2$ ) has two, so $K_{rot} = k_BT$. A polyatomic molecule ($\text{CO}_2$ ) has three, so $K_rot = (3/2)k_B T$. (Molecular vibrations are typically frozen out at room temperature.)
+    \item A one-dimensional simple harmonic oscillator has two quadratic degrees of freedom, $E = (1/2)mv^2 + (1/2)kx^2$,  so its average thermal energy is $k_B T$.
+\end{enumerate}
+
+\subsection{Quantum Statistics}
+For a system of identical particles in equilibrium with a large reservoir at temperature $T$, the average occupation number $\bar{n}$ of a microstate is given by Fermi-Dirac distribution (for fermions) and Bose-Einstein distribution (for bosons). Fermi-Dirac distribution predics
+\begin{equation*}
+    \bar{n}=\frac{1}{e^{(E-\mu)/(k_BT)}+1}
+\end{equation*}
+while Bose-Einstein distribution predics
+\begin{equation*}
+    \bar{n}=\frac{1}{e^{(E-\mu)/(k_BT)}-1}
+\end{equation*}
+The “chemical potential” $\mu$ is defined to normalize the total occupation number ($\sum \bar{n} = N$). The value $\mu$ for massless particles such as photons is $\mu=0 $; for fermions $\bar{n}$ is greater than 1/2 for energies below $\mu$, and less than 1/2 for higher energies; for bosons, $\mu$ is always below the ground state energy.
+
+\subsection{Blackbody Spectrum}
+An object that absorbs all electromagnetic radiation is called a “blackbody.” Many objects, ranging from stars to a human body, emit radiation that is approximately the same as what we find inside a cavity in equilibrium. The spectrum of radiation inside a cavity is also the spectrum emitted by a blackbody, because in equilibrium, the blackbody must be emitting the same spectrum that it's absorbing. 
+
+To find the energy density $\rho$ in a given range of frequency, we then integrate spectrum function $S(\nu)$ (energy density per unit frequency) with respect to frequency. 
+\begin{equation*}
+    \rho=\int_{0}^{\infty}S(\nu)\;dv
+\end{equation*}
+where
+\begin{equation*}
+    S(\nu)=\frac{8\pi}{c^3}v^2E_w(\nu)
+\end{equation*}
+The function $E_w(\nu)$ represents the energy of each wave of frequency $\nu$. We will now derive $E_w(\nu)$ classically, from which the ultraviolet catastrophe emerges. Now suppose a wave in our cavity has energy levels: $0$, $2k_B T$, $4k_B T$, $6k_B T$, and $8k_B T$. Using Boltzmann distribution, we find the expectation value:
+\begin{align*}
+    \langle E_w\rangle&=\sum_{E}^{}EP(E)=\frac{1}{Z}\sum_{n=0,2,4,\dots}^{}Ee^{-E/(k_BT)}\\
+    &=\frac{(0)(C)+(Ce^{-2})(2k_B T)+(Ce^{-4})(4k_B T)+(Ce^{-6})(6k_B T)+(Ce^{-8})(8k_B T)}{C+Ce^{-2}+Ce^{-4}+Ce^{-6}+Ce^{-8}}\\
+    &\approx 0.31k_B T
+\end{align*}
+Notice that the way we “chunk” our energy will result in different expectation value. Average energy of a given wavelength as a function of the “chunking” of discrete allowed energy levels are as follows
+\begin{center}
+    \begin{longtable}{|p{0.1\textwidth}|p{0.3\textwidth}|p{0.2\textwidth}|}
+        \hline
+        $\Delta E$&Allowed energy levels&Calculated $E_w$\\\hline\hline
+        $5k_B T$&$0, 5k_B T, 10k_B T, \dots$&$0.034k_B T$\\
+        $2k_B T$&$0, 2k_B T, 4k_B T, \dots$&$0.31k_B T$\\
+        $k_B T$&$0, k_B T, 2k_B T, \dots$&$0.58k_B T$\\
+        $0.5k_B T$&$0, 0.5k_B T, 1k_B T, \dots$&$0.77k_B T$\\
+        $0.1k_B T$&$0, 0.1k_B T, 0.2k_B T, \dots$&$0.95k_B T$\\\hline
+    \end{longtable}
+\end{center}
+As you the limit where $\Delta E$ approaches $0$, $E_w$ rises toward $k_B T$; on the other hand, $E_w$ drops toward $0$ as limit where $\Delta E$ approaches $\infty$. Classically, the next step was obvious. Energy can be any real positive number, so the correct $E_w$ is the limit of this process as $\Delta E$ approaches $0$. This result is called the “Rayleigh-Jeans spectrum.” The energy density then become
+\begin{equation*}
+    \rho=\int_{0}^{\infty}\frac{8\pi}{c^3}v^2k_B T\;dv\qquad\text{Diverges}
+\end{equation*}
+In other words, classical theory predicted that a cavity in equilibrium should have infinite energy density. Because the blow-up occurs at high frequencies, this prediction was called the “ultraviolet catastrophe.”
+
+To fix this problem, Planck made $\Delta E$ proportionalto the frequency, introducing a constant of proportionality that we now call Planck's constant:
+\begin{equation*}
+    \Delta E= h\nu
+\end{equation*}
+The Spectrum function, which can be expressed in terms of frequency or wavelength, become
+\begin{align*}
+    u(v)&=\frac{8\pi h}{c^3}\frac{v^3}{e^{hv/k_BT}-1}\\
+    u(\lambda)&=\frac{8\pi hc}{\lambda^5}\frac{1}{e^{hc/k_BT}-1}
+\end{align*}
+and energy density of radiation inside an enclosed cavity in equilibrium
+\begin{equation*}
+    \rho=\int_{0}^{\infty}u(v)\;dv=\int_{0}^{\infty}u(\lambda)\;d\lambda
+\end{equation*}
+actually converge this time.
+
+The intensity (energy per time per surface area) emitted by a blackbody is $c/4 $times the energy density of radiation in a cavity
+\begin{equation*}
+    I=\frac{c}{4}\rho=\sigma T^4
+\end{equation*}
+
+Wien's law for peak frequency
+\begin{equation*}
+    hv_{peak} = 2.82 k_B T
+\end{equation*}
+while wavelength
+\begin{equation*}
+    hc/\lambda_{peak} = 4.97 k_B T
+\end{equation*}
+Stefan's law for total intensity 
+\begin{equation*}
+    I=\sigma T^4\quad\text{where}\quad \sigma= 5.67 \times 10^{-8} \text{ Wm$^{-2}$K$^{-4}$}
+\end{equation*}
+
+\subsection{Maxwell Speed Distribution}
+The probability that a (non-relativistic) molecule of mass m in an ideal gas at temperature T has speed in the range $v_1 < v < v_2$ is
+\begin{eqnarray}
+    P=4\pi \biggl(\frac{m}{2\pi k_BT}\biggr)^{3/2} \int_{v_1}^{v_2}v^2e^{-mv^2/(2k_B T)}\;dv
+\end{eqnarray}
+
+\end{document}

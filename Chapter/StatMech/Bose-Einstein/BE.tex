@@ -1,0 +1,264 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+
+\subsection{Distribution for Boson}
+The distribution for indistinguishable ideal quantum gas--also called boson--the Bose-Einstein distribution. In general, the number of particle per unit energy interval is given by 
+\begin{equation*}
+    n(E)=\frac{g(E)}{\exp\left[(E-\mu)/k_BT\right]-1}
+\end{equation*}
+
+For a free bosonic gas, the density state is 
+\begin{equation*}
+    g(E)=\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}E^{1/2}
+\end{equation*}
+then the distribution function simply evaluate into
+\begin{equation*}
+    n(E)=\frac{V}{4\pi^2}\left(\frac{2m}{\hbar^2}\right)^{3/2}\frac{{E}^{1/2}}{\exp\left[(E-\mu)/k_BT\right]-1}
+\end{equation*}
+
+\subsection{Energy and Frequency Cells}
+Quintessential step in Einstein's method is to distribute state of particle into certain cells. There are two kinds of cells, one for distributing particle in terms of their energy $P_E$ and another in terms of their frequency $P_\nu$. For energy, we write
+\begin{equation*}
+    P_E=\frac{2\pi}{h^3}V(2m)^{3/2}\sqrt{E}\;dE
+\end{equation*}
+and for frequency
+\begin{equation*}
+    P_\nu=\frac{8\pi V\nu^2}{c^3}\;d\nu
+\end{equation*}
+
+\subsubsection{Energy Cells derivation.} He first considers the energy of non-relativistic particle, which is 
+\begin{equation*}
+    E=\frac{p^2}{2m}
+\end{equation*}
+This implies
+\begin{equation*}
+    p=\sqrt{2mE},\quad dp=\frac{m}{p}dE=\frac{m}{\sqrt{2mE}}dE
+\end{equation*}
+This will be used to determine the volume of $(\mathbf{r},\mathbf{p}+ d\mathbf{p})$ phase space
+\begin{multline*}
+    d\omega=V \frac{4}{3}\pi\left[(p+dp)^3-p^3\right] = \frac{4}{3}\pi V\left[3p^2\;dp+3p\;d^2p+d^3p\right]\\
+    =4\pi Vp^2\;dp =4\pi V \;2mE\;\frac{m}{\sqrt{2mE}}dE=2\pi(2m)^{3/2}\sqrt{E}\;dE
+\end{multline*} 
+The said volume then divided into cells of $h^3$ volume. Let this number of distinct cells as 
+\begin{equation*}
+    P_E=\frac{d\omega}{h^3}=\frac{2\pi}{h^3}V(2m)^{3/2}\sqrt{E}\;dE
+\end{equation*}
+
+\subsubsection{Frequency Cells derivation.} He considered gas of photon with energy of $E=h\nu$ and momentum $p=hv/c$. He assumed that quantum state is described by space and momentum phase space. Next he determined the volume of phase space within interval $(\nu,\nu+d\nu)$, which is
+\begin{equation*}
+    d\omega=V\;d\mathcal{V}
+\end{equation*}
+where $V$ is the spatial volume and $d\mathcal{V}$ is the momentum volume of the shell within radii $h(\nu+d\nu)/c,h\nu$. The said shell volume is given by
+\begin{multline*}
+    d\mathcal{V}=(\mathcal{V}+d\mathcal{V})-\mathcal{V}=\frac{4\pi h^3}{3c^3}\left[(\nu+d\nu)^3-\nu^3\right] \\= \frac{4\pi h^3}{3c^3}\left[3\nu^2\;d\nu+3\nu\;d^2\nu+d^3\nu\right]=\frac{4\pi h^3}{c^3}\nu^2\;d\nu
+\end{multline*}
+The resulting volume of phase space $d\omega$ is
+\begin{equation*}
+    d\omega=\frac{4\pi V h^3}{c^3}\nu^2\;d\nu
+\end{equation*}
+This volume then divided by Bose into cells of volume $h^3$. The number $P_\nu$ as phase space cells available to the photon within $(\nu,\nu+d\nu)$ expressed by
+\begin{equation*}
+    P_\nu=\frac{2}{c^3}d\omega=\frac{8\pi V\nu^2}{c^3}\;d\nu
+\end{equation*}
+where the factor of 2 comes after taking account the two direction of polarization. 
+
+\subsection{Bose's Derivation}
+
+The number of configuration $\mathcal{P}_E$ for distributing $N_E$ indistinguishable particle in $P_E$ boxes is given by 
+\begin{equation*}
+    \mathcal{P}_E=\frac{(N_E+P_E-1)}{N_E! (P_E-1)!}
+\end{equation*}
+This gives configuration for particle within $(E,E+dE)$, conversely the total configuration is given by 
+\begin{equation*}
+    \mathcal{P}=\prod_{E=0}^{\infty}\mathcal{P}_E
+\end{equation*}
+
+We then move to determining the entropy $S=k_B \ln \mathcal{P}_{\max}$ by maximizing the logarithm of $\mathcal{P}$ with respect to $N_E$ subjected to the following constraints.
+\begin{equation*}
+    N=\sum_{E=0}^{\infty}N_E,\quad U=\sum_{E=0}^{\infty}EN_E
+\end{equation*}
+Using Stirling's approximation on said logarithm, we have 
+\begin{align*}
+    \ln \mathcal{P}&=\sum_{E}\ln\frac{(N_E+P_E-1)}{N_E! (P_E-1)!}\\
+    \ln \mathcal{P}&=\sum_E (N_E+P_E)\ln (N_E+P_E)-N_E\ln(N_E)- P_E \ln (P_E)
+\end{align*}
+By Lagrange's method
+\begin{equation*}
+    F=\ln \mathcal{P} +\lambda_1\sum_{E} N_E +\lambda_2\sum_{E}EN_E
+\end{equation*}
+Setting its derivative to zero
+\begin{equation*}
+    \ln (N_E+P_E)+1-\ln (N_E)-1+\lambda_1+\lambda_2E=0
+\end{equation*}
+Taking the exponential and solving for $N_E$
+\begin{align*}
+    \frac{N_E+P_E}{N_E}&=\exp(-\lambda_1-\lambda_2E)\\
+    N_E&=\frac{P_E}{\exp(-\lambda_1-\lambda_2E)-1}
+\end{align*}
+Substituting this value into the logarithm of $\mathcal{P}$
+\begin{multline*}
+    \ln \mathcal{P}_{\max}=\sum_E\Bigg[ (N_E+P_E)\left[\ln (P_E)+\ln\left(\frac{\exp(-\lambda_1-\lambda_2E)}{\exp(-\lambda_1-\lambda_2E)-1}\right)\right]\\
+    - P_E \ln (P_E)-N_E\left[\ln(P_E)-\ln\left(\exp \{-\lambda_1-\lambda_2E\}-1\right)\right] \Bigg]
+\end{multline*}
+then 
+\begin{multline*}
+    \ln \mathcal{P}_{\max}=\sum_E \Bigg[ (N_E+P_E)\ln\left(\frac{\exp(-\lambda_1-\lambda_2E)}{\exp(-\lambda_1-\lambda_2E)-1}\right)\\
+    + N_E\ln\left(\exp \{-\lambda_1-\lambda_2E\}-1\right)\Bigg]
+\end{multline*}
+moreover
+\begin{equation*}
+    \ln \mathcal{P}_{\max}=\sum_E \Bigg[ N_E \left(-\lambda_1-\lambda_2E\right)
+    + P_E\ln\left(\frac{\exp(-\lambda_1-\lambda_2E)}{\exp(-\lambda_1-\lambda_2E)-1}\right) \Bigg]
+\end{equation*}
+Hence
+\begin{equation*}
+    S=\sum_E k_B P_E\ln\left(\frac{\exp(-\lambda_1-\lambda_2E)}{\exp(-\lambda_1-\lambda_2E)-1}\right)-k_B(N\lambda_1+U\lambda_2)
+\end{equation*}
+On using the following relations
+\begin{equation*}
+    \frac{1}{T}=\frac{\partial S}{\partial U}\bigg|_{V,N},\quad -\frac{\mu}{T}=\frac{\partial S}{\partial N}\bigg|_{U,V}
+\end{equation*}
+we have 
+\begin{align*}
+    \frac{1}{T}=-\lambda_2k_B\implies
+    \lambda_2=-\frac{1}{k_BT}
+\end{align*}
+and
+\begin{align*}
+    -\frac{\mu}{T}=\lambda_1k_B\implies
+    \lambda_1=\frac{\mu}{k_BT}
+\end{align*}
+Thus
+\begin{equation*}
+    N_E=\frac{2\pi}{h^3} \frac{V (2m)^{3/2}\sqrt{E}}{\exp\left[(E-\mu)/k_BT\right]-1} \;dE
+\end{equation*}
+The quantity $n_E$ is defined as the number of molecules per unit energy interval
+\begin{equation*}
+    n_E=\frac{N_E}{dE}=\frac{2\pi}{h^3} \frac{V (2m)^{3/2}\sqrt{E}}{\exp\left[(E-\mu)/k_BT\right]-1} \quad\blacksquare
+\end{equation*}
+ 
+\subsection{Phonon}
+A phonon is a quantum mechanical quantization of the modes of vibrations for elastic structures of interacting particles. Phonons behave as a quasi particle that carries energy and momentum. 
+
+As quantized lattice vibrations, phonons can have three polarization directions: one direction of longitudinal and two for transversal, all with respect to the direction of propagation. Thus, for $N$ phonons, the total state of frequency is $3N$. Two of the popular model for the frequency density of state is Einstein's and Debye.
+\begin{figure*}
+    \centering
+    \normfigL{../../../Rss/StatMech/BoseEinstein/DoS.png}
+    \caption*{Figure: Density of state based on Einstein's and Debye's model.}
+\end{figure*}
+
+Experimental result shows that
+\begin{equation*}
+    C_V=\begin{cases}
+        3NK=3R&\text{at high temperature}\\
+        AT^3&\text{at low temperature}
+    \end{cases}
+\end{equation*}
+Both Einstein and Debye were able to predict the result for high temperature, however only Debye were able to predict the result for low temperature.
+
+\subsubsection{Einstein's model.} Here, he assumed that all the $3N$ oscillator oscillate with the same frequency. Thus, all the $3N$ state is equal to $\nu_m$
+\begin{equation*}
+    g(\nu)=3N\delta(\nu-\nu_m)
+\end{equation*}
+
+\subsubsection{Debye's model.} Unlike Einstein, he assumed that the density of state is quadratic up to maximum frequency $n_m$. The said density of state is given by 
+\begin{equation*}
+    g(\nu)=\begin{cases}
+        \dfrac{9N}{\nu_m^3}\nu^2,&\nu\leq\nu_m\\
+        0,&\nu_m<\nu
+    \end{cases}
+\end{equation*}
+To derive said DoS, recall that it is proportional to the square of frequency. Hence, the DoS assumes the form of 
+\begin{equation*}
+    g(\nu)=A\nu^2
+\end{equation*}
+On integrating this within all allowed frequency $(0,\nu_m)$, we have 
+\begin{equation*}
+    3N=\int_{0}^{\nu_m}A\nu^2\;d\nu=A\frac{1}{3}\nu_m^3
+\end{equation*}
+Then simply solve for the constant 
+\begin{equation*}
+    A=\frac{9N}{\nu_m^3}
+\end{equation*}
+
+\subsection{Einstein' Solid}
+Einstein's theory on solid is only accurate for large $T$, experimental data disagree with his theory for small $T$. On using the DoS given by Einstein's model, the phonon density reads 
+\begin{equation*}
+    n(\nu)=\frac{3N\delta(\nu-\nu_m)}{\exp(h\nu/kT)-1}
+\end{equation*}
+We determine the total energy of given phonon as 
+\begin{equation*}
+    E=\int_{0}^{\infty}E(\nu)n(\nu)\;d\nu
+\end{equation*}
+Using said distribution
+\begin{align*}
+    E&=\int_{0}^{\infty}h\nu \frac{3N\delta(\nu-\nu_m)}{\exp(h\nu/kT)-1}\;d\nu\\
+    E&=\frac{3Nh\nu_m}{\exp(h\nu_m/kT)-1}
+\end{align*}
+The experimental data that was mentioned prior takes the form of heat capacitance, hence Einstein's theory should give the heat capacitance by using the definition 
+\begin{equation*}
+    C_V=\frac{\partial E}{\partial T}\bigg|_{V,N=N_A}
+\end{equation*}
+
+\subsubsection{Large temperature.} For this case, the exponential term is small, hence it can be approximated with
+\begin{equation*}
+    \exp\left(\frac{h\nu}{kT}\right)=1+\frac{h\nu}{kT}
+\end{equation*}
+and the expression for energy may be written
+\begin{equation*}
+    E=\frac{3Nh\nu_m}{h\nu_m/kT}=3NkT
+\end{equation*}
+We can then write the heat capacitance as 
+\begin{align*}
+    C_V=3N_Ak=3R
+\end{align*}
+
+\subsubsection{Small temperature.} In this case, the exponential term can be expanded and the expression for energy may be written
+\begin{equation*}
+    E=3Nh\nu_m\exp\left(-\frac{h\nu_m}{kT}\right)
+\end{equation*}
+We can then write the heat capacitance as 
+\begin{align*}
+    C_V&=3N_Ah\nu_m\left(\frac{h\nu_m}{kT^2}\right)\exp\left(-\frac{h\nu_m}{kT}\right)\\
+    C_V&=3N_Ak \left(\frac{\theta_D}{T}\right)^2\exp\left(-\frac{\theta_D}{T}\right)
+\end{align*}
+where $\theta_D=h\nu_m/k$ is the Debye temperature
+
+\subsection{Debye's Solid}
+Unlike Einstein's theory, Debye's theory agree with experimental data for both low and high $T$. Let us consider the phonon density
+\begin{equation*}
+    n(\nu)=\frac{9N}{\nu_m^3}\frac{\nu^2}{\exp(h\nu/kT)-1}\quad\nu\leq\nu_m
+\end{equation*} 
+Then the total energy
+\begin{equation*}
+    E=\int_{0}^{\nu_m}\frac{9Nh}{\nu_m^3}\frac{\nu^3}{\exp(h\nu/kT)-1}\;d\nu
+\end{equation*}
+Since the integral is expressed as incomplete Riemann-Zeta function, we need some simplification. In other word, we make assumption.
+
+\subsubsection{Large temperature.} For this case, the exponential term is small, thus the integral simplifies into
+\begin{align*}
+    E=\frac{9Nh}{\nu_m^3}\int_{0}^{\nu_m}\frac{\nu^3}{h\nu/kT}\;d\nu= \frac{9N}{\nu_m^3}kT\frac{1}{3}\nu_m^3=3NkT=3RT
+\end{align*}
+And we then have the heat capacitance 
+\begin{equation*}
+    C_V=3R
+\end{equation*}
+
+\subsubsection{Small temperature.} First we define $x=hv/kT$, then we have 
+\begin{equation*}
+    \nu=\frac{xkT}{h},\quad dv=\frac{kT}{h}\;dx
+\end{equation*}
+By making the substitution, our integral reads 
+\begin{equation*}
+    E=\int_{0}^{h\nu_m/KT}\frac{9Nh}{\nu_m^3}\left(\frac{xkT}{h}\right)^3\frac{1}{\exp(h\nu/kT)-1}\frac{kT}{h}\;dx
+\end{equation*}
+We also define Debye temperature $\theta_D=h\nu/k$
+\begin{align*}
+    E&=\frac{9Nk}{\delta_D^3}T^4\int_{0}^{\theta_D/T}\frac{x^3}{e^x-1}\;dx\\
+    E&=\frac{9Nk}{\delta_D^3}6\frac{\pi^4}{90}T^4=\frac{3\pi^4Nk}{5\theta_D}T^4
+\end{align*}
+Which mean that the heat capacitance
+\begin{equation*}
+    C_V=\frac{12\pi^4R}{5\theta_D}T^3
+\end{equation*}
+\end{document}

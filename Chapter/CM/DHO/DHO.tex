@@ -1,0 +1,181 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Equation of Motion} 
+The damping force $F_d$ acting on system is proportional to its velocity $v$ so long as $v$ is not too large. In another word
+\begin{equation*}
+    F_d=-bv
+\end{equation*}
+The resulting equation of motion is
+\begin{equation*}
+    m\ddot{x}=-kx-b\dot{x}
+\end{equation*}
+We introduce the parameters
+\begin{align*}
+    \omega_0^2&=\frac{k}{m}\\
+    \gamma&=\frac{b}{m}
+\end{align*}
+Using these parameters, the equation become
+\begin{equation*}
+    \ddot{x}+\gamma\dot{x}+\omega_0^2 x=0
+\end{equation*}
+Now we designate the angular frequency $\omega_0$ and describe it as the natural frequency of oscillation, or the oscillation frequency if there were no damping. We can write the equation as\begin{align*}
+    D^2x+D\gamma x+\omega_0^2x&=0\\
+    (D^2+D\gamma +\omega_0^2)x&=0
+\end{align*}
+Using the quadratic equation, we find the value of $D$
+\begin{equation*}
+    D=-\frac{\gamma}{2}\pm \sqrt{\frac{\gamma^2}{4}-\omega_0^2}
+\end{equation*}
+The solution is therefore depend on the value of the square root term; which can either be real, imaginary or simply zero. The value of the square root also determine the cases of damping that occur on the system. 
+
+
+\subsubsection{Light damping.} This case occur if $\gamma^2/4<\omega_0^2$, which causes the square root term to be imaginary. Let us introduce yet another constant
+\begin{equation*}
+    \omega^2=\omega_0^2-\gamma^2/4
+\end{equation*}
+Substituting back into $D$
+\begin{equation*}
+    D=-\frac{\gamma}{2}\pm \sqrt{-\omega^2}=-\frac{\gamma}{2}\pm \omega i
+\end{equation*}
+
+Thus, we can say that the equation is second order differential equation with imaginary auxiliary equation roots. The solution is
+\begin{equation*}
+    x=A\exp\biggl(-\frac{\gamma t}{2}\biggr)\cos\omega t +\phi
+\end{equation*} 
+
+Now consider the graph of $x$. The term $\exp -\gamma t/2$ represent an envelope for the oscillations. $x=0$ occur when $\cos\omega t$ is zero and so are separated by $\pi/\omega$ with period $T=2\pi/\omega$. Successive maxima are also separated by $T$. If $A_n$ occurs at time $t_0$ and $A_{n+1}$ at $t_0+T$, then 
+\begin{align*}
+    x(t_0)&=A\exp\biggl(-\frac{\gamma t_0}{2}\biggr)\cos\omega t_0\\
+    x(t_0+T)&=A\exp\biggl(-\frac{\gamma (t_0+T)}{2}\biggr)\cos\omega (t_0+T)
+\end{align*}
+Since $\cos\omega t_0=\cos\omega (t_0+T)=\cos\omega t_0+2\pi$
+\begin{equation*}
+    \frac{A_n}{A_{n+1}}=\exp \frac{\gamma T}{2}
+\end{equation*} 
+or the natural logarithm version
+\begin{equation*}
+    \ln \frac{A_n}{A_{n+1}}=\frac{\gamma T}{2}
+\end{equation*}
+which is called the logarithmic decrement and is a measure of this decrease. 
+\begin{figure*}[b]
+    \centering
+    \normfigL{../../../Rss/CM/Waves/DHM/Envelope.png}
+    \caption*{Figure: Graph of $x=A_0\exp(-\gamma^2t/4)\cos \omega t$}
+\end{figure*}
+
+\subsubsection{Heavy damping.} Heavy damping occurs when the degree of damping is sufficiently large that the system returns sluggishly to its equilibrium position without making any oscillations at all. In another words, $\gamma^2/4 > \omega_0^2$ and the square root term is real. Thus, we can say that the equation is second order differential equation with two real auxilary equation roots. The solution is
+\begin{equation*}
+    x=A\exp \biggl[\bigg(-\frac{\gamma}{2} + \big(\frac{\gamma^2}{4}-\omega_0^2\big)^{1/2}\bigg)t\biggr] +B \exp \biggl[\bigg(-\frac{\gamma}{2} - \big(\frac{\gamma^2}{4}-\omega_0^2\big)^{1/2}\bigg)t\biggr]
+\end{equation*}
+
+\subsubsection{Critical damping.} Occurs when $\gamma^2/4 = \omega_0^2$, which makes the suqre roots zero. Thus the equation is second order differential equation with one real auxilary equation roots. The solution is
+\begin{equation*}
+    x=(At+B)\exp\biggl(-\frac{\gamma t}{2}\biggr)
+\end{equation*}
+
+Here the mass, or whatever oscillating, returns to its equilibrium position in the shortest possible time without oscillating. 
+
+\subsubsection{Putting all together.} In summary we find three types of damped motion:
+\begin{enumerate}
+    \item $\gamma^2/4<\omega_0^2$ Light damping, Imaginary square root, Damped oscillations;
+    \item $\gamma^2/4>\omega_0^2$ Heavy damping, Real Square root, Exponential decay of displacement;
+    \item $\gamma^2/4=\omega_0^2$ Critical damping, Zero square root, Quickest return to equilibrium position without oscillation.
+\end{enumerate} 
+\begin{figure*}[h]
+    \centering
+    \normfig{../../../Rss/CM/Waves/DHM/DampMotion.png}
+    \caption*{Figure: Motion of a damped oscillator for various cases}
+\end{figure*}
+
+\subsection{RLC circuit.} In the case of an electrical oscillator it is the resistance in the circuit that impedes the flow of current. Kirchoff's law gives
+\begin{align*}
+    L\ddot{q}+R\dot{q}+\frac{1}{C}q=0\\
+    \ddot{q}+\frac{R}{L}\dot{q}+\frac{1}{LC}q=0\\
+    \ddot{q}+\gamma\dot{q}+\omega_0^2q=0
+\end{align*}    
+This is the equation of DHO with q as x, L as m, k as 1/C and R as b; so R/L is the equivalent of $\gamma=b/m=R/L$ and $\omega_0^2=1/LC$. Now assuming that this this the case of light damping, in another words $ R^2/4L^2<1/LC$, the solution is
+\begin{equation*}
+    q=q_0\exp\biggl(-\frac{\gamma t}{2}\biggr)\cos\omega t
+\end{equation*} 
+with\begin{equation*}
+    \omega =\biggl(\frac{1}{LC}-\frac{R^2}{4L^2}\biggr)^{1/2}
+\end{equation*}Since the voltage $V_C$ across the capacitor is equal to $q/C$, dividing the solution by $C$\begin{equation*}
+    V_C=V_0\exp\biggl(-\frac{\gamma t}{2}\biggr)\cos\omega t
+\end{equation*}
+We find that the quality factor $Q$ of the circuit is given by
+\begin{equation*}
+    Q=\frac{\omega_0}{\gamma}=  \frac{1}{R}\sqrt{\frac{L}{C}}
+\end{equation*}
+
+\subsection{Energy of DHO}
+In the case of very lightly damped oscillator $\gamma^2/4\ll \omega_0^2$ we have
+\begin{align*}
+    x &= A_0\exp\biggl(-\frac{\gamma t}{2}\biggr)\cos\omega_0 t\\
+    v&=-A_0\omega_0\exp\biggl(-\frac{\gamma t}{2}\biggr)\biggl[\sin\omega_0t +\frac{\gamma}{2\omega_0}\cos\omega_0 t\biggr]
+\end{align*}
+where we approximate $\omega=\omega_0$. Since $\gamma \ll \omega_0$, we can ignore the second term at velocity equation
+\begin{equation*}
+    v=-A_0\omega_0\exp\biggl(-\frac{\gamma t}{2}\biggr)\sin\omega_0t 
+\end{equation*}
+Then
+\begin{equation*}
+    E=\frac{1}{2}A_0^2 \exp(-\gamma t)(m\omega_0^2\sin^2\omega_0t+k\cos\omega_0t)
+\end{equation*}
+considering $\omega_0^2=k/m$
+\begin{equation*}
+   E(t)= \frac{1}{2}kA_0^2\exp(-\gamma t) =E_0\exp(-\gamma t) 
+\end{equation*}
+The reciprocal of $\gamma$ is the time taken $\tau=1/\gamma$ for the energy of the oscillator to reduce by a factor of $e^{-1}$, thus
+\begin{equation*}
+    E(t)=E_0\exp \biggl(-\frac{t}{\tau}\biggr)
+\end{equation*}
+
+\subsubsection{Rate of dissipation.} The energy of an oscillator is dissipated because it does work against the damping force at the rate (damping force $\times$ velocity). We can see this by differentiating energy with respect to time
+\begin{equation*}
+    \frac{dE}{dt}=m\dot{x}\ddot{x}+kx\dot{x}=(m\ddot{x}+kx)\dot{x}
+\end{equation*}
+since the damping force $F_d=m\ddot{x}+kx=-b\dot{x}$, we can write
+\begin{equation*}
+    \frac{dE}{dt}=-b\dot{x}^2
+\end{equation*}
+
+\subsection{Q factor}
+The quality factor Q of the oscillator describe how good an oscillator is, where we imply that the smaller the degree of damping the higher the quality of the oscillator. Oscillator with a high Q-value would make an appreciable number of oscillations before its energy is reduced substantially. The quality factor Q is defined as
+\begin{equation*}
+    Q=\frac{\omega}{\gamma}\approx\frac{\omega_0}{\gamma}
+\end{equation*}
+
+Another way to define Q factor is 
+\begin{equation*}
+    Q=\frac{\text{energy stored in the oscillator}}{\text{energy dissipated per radian}}
+\end{equation*}
+Now, consider energy of a very lightly damped oscillator one period apart 
+\begin{align*}
+    E_1&=E_0\exp(-\gamma t) \\
+    E_2&=E_0\exp[-\gamma (t+T)]
+\end{align*}
+giving
+\begin{equation*}
+    \frac{E_2}{E_1}=\exp(-\gamma T)
+\end{equation*}
+Using series expansion
+\begin{equation*}
+    \frac{E_2}{E_1}\approx1-\gamma T
+\end{equation*}
+therefore
+\begin{equation*}
+    \frac{E_1-E_2}{E_1}\approx\gamma T\approx\frac{2\pi\gamma}{\omega_0}\approx\frac{2\pi}{Q}
+\end{equation*}
+where we have $\gamma T\ll 1$ and $\omega\approx\omega_0$. The fractional change in energy per cycle is equal to $2\pi/Q$ and so the fractional change in energy per radian is equal to 1/Q. Thus our definition is proved.
+
+We can also recast DHO equation using Q factor
+\begin{equation*}
+    \ddot{x}+\frac{\omega_0}{Q}\dot{x}+\omega_0^2x=0
+\end{equation*}
+and the angular frequency $\omega$
+\begin{equation*}
+    \omega =\omega_0\biggl(1-\frac{1}{4Q^2}\biggr)^{1/2}
+\end{equation*}
+This confirm confirms our assumption that $\omega$ is equal to $\omega_0$ to a good approximation under most circumstances. Even when $Q$ is as low as 5, $\omega$ is different from $\omega_0$ by just $0.5\%$.
+
+\end{document}

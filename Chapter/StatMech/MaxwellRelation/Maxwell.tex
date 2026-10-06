@@ -1,0 +1,38 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+\subsection{Maxwell Relations}
+Since internal energy $U$ is a state function, its Legendre transform, the thermodynamics potentials, is also a state function. One of the characteristic of state function is that their differential is an exact differential. 
+
+For constant particle $dN=0$, we write those the state functions differential as 
+\begin{align*}
+    dU(S,V)&=\frac{\partial U}{\partial S}\bigg|_V dS+\frac{\partial U}{\partial V}\bigg|_S dV= T\;dS-P\;dV\\
+    dF(T, V ) &=\frac{\partial F}{\partial T}\bigg|_V dT+\frac{\partial F}{\partial V}\bigg|_T dV=  -S\;dT - P\;dV\\
+    dG(T, P)&=\frac{\partial G}{\partial T}\bigg|_P dT+\frac{\partial G}{\partial P}\bigg|_T dP= -S\;dT + V\; d P\\
+    dH (S, P) &=\frac{\partial H}{\partial S}\bigg|_P dS+\frac{\partial H}{\partial P}\bigg|_S dP=  T\; dS + V \;d P
+\end{align*}
+Them being exact would imply
+\begin{align*}
+    \frac{\partial T}{\partial V}\bigg|_S=-\frac{\partial P}{\partial S}\bigg|_V
+    &&
+    \frac{\partial S}{\partial V}\bigg|_T=\frac{\partial P}{\partial T}\bigg|_V \\
+    \frac{\partial S}{\partial P}\bigg|_T  =-\frac{\partial V}{\partial T}\bigg|_P  
+    &&
+    \frac{\partial T}{\partial P}\bigg|_S =\frac{\partial V}{\partial S}\bigg|_P
+\end{align*}
+
+\subsection{Fundamental Set}
+\subsubsection{Definition.} Three fundamental set are: heat capacity at constant volume $C_V$, adiabatic compressibility $\kappa_S$, and adiabatic thermal expansion $\alpha_S$; which are defined as follows.
+\begin{equation*}
+    C_V=\frac{\partial Q}{\partial T}\bigg|_V=\frac{\partial U}{\partial T}\bigg|_V,\quad 
+    \kappa_S=-\frac{1}{V}\frac{\partial V}{\partial P}\bigg|_S,\quad
+    \alpha_s=\frac{1}{V}\frac{\partial V}{\partial T}\bigg|_S
+\end{equation*}
+
+\subsection{Primary Set}
+\subsubsection{Definition.} Primary set also contain three parametes: heat capacity at constant pressure $C_P$, isothermal compressibility $\kappa_T$, and isobaric thermal expansion $\alpha_S$; which are defined as follows.
+\begin{equation*}
+    C_P=\frac{\partial Q}{\partial T}\bigg|_P=\frac{\partial H}{\partial T}\bigg|_P,\quad 
+    \kappa_T=-\frac{1}{V}\frac{\partial V}{\partial P}\bigg|_P,\quad
+    \alpha_s=\frac{1}{V}\frac{\partial V}{\partial T}\bigg|_P
+\end{equation*}
+\end{document}

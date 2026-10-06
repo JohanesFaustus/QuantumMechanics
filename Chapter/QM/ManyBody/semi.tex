@@ -1,0 +1,96 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Electron Model}
+The total molecular Hamiltonian for a molecule with $N$ nuclei and $n$ electrons is
+\begin{multline*}
+    \hat{H} = - \sum_{i=1}^{n} \frac{\hbar^2}{2m_e} \nabla_i^2 - \sum_{A=1}^{N} \frac{\hbar ^2}{2M_A} \nabla_A^2 - \sum_{i,A} \frac{Z_A e^2}{4 \pi \varepsilon_0 r_{iA}}\\
+    + \sum_{i<j} \frac{e^2}{4 \pi \varepsilon_0 r_{ij}} + \sum_{A<B} \frac{Z_A Z_B e^2}{4 \pi \varepsilon_0 R_{AB}}
+\end{multline*}
+Here, the first two terms are kinetic energies of electrons and nuclei, meanwhile the remaining terms represent Coulomb interactions of electron-nucleus, electron-electron, and nucleus-nucleus.
+We then make the following assumption
+\begin{enumerate}
+    \item \textbf{Heavy and slowly moving nuclei.} The mass of ions is much larger than the electron mass; therefore, the kinetic term for nuclei (second term) can be neglected when first solving for electronic states.
+    \item \textbf{Rigid lattice approximation.} With nuclei fixed, they produce a static potential $V_{\text{periodic}}(\mathbf{r})$ that is periodic according to the crystal structure. This absorbs the electron-nucleus attraction (third term) and the nucleus-nucleus repulsion (fifth term) into an effective potential.
+    \item \textbf{Approximate treatment of electron-electron interaction.} The electron-electron repulsion (fourth term) is treated in a mean-field or independent-electron approximation, effectively incorporated into $V_{\text{periodic}}(\mathbf{r})$.
+    \item \textbf{Periodic boundary conditions.} The crystal is assumed infinite or sufficiently large, allowing Bloch’s theorem to apply.
+\end{enumerate}
+Then, the total Hamiltonian can be written as a sum of single-electron Hamiltonian
+\begin{equation*}
+    \hat{H}_{\mathrm{elec}} \approx \sum_{i=1}^{n} \hat{H}_{i},\qquad
+    \hat{H}_{i} = -\frac{\hbar^{2}}{2m_{e}} \nabla_{i}^{2} + V_{\mathrm{eff}}(\mathbf{r}_{i})
+\end{equation*}
+
+
+\subsection{Bloch Theorem}
+The theorem states that all eigenfunctions of this Hamiltonian can be written in the form
+\begin{equation*}
+    \psi_{k}(\mathbf{r}) = e^{i k \cdot \mathbf{r}} u_{k}(\mathbf{r}),
+\end{equation*}
+where $u_\mathbf{k}(\mathbf{r})$ has the same periodicity as the lattice, namely
+\begin{equation*}
+    u_{k}(\mathbf{r} + \mathbf{R}) = u_{k}(\mathbf{r})
+\end{equation*}
+One consequence in that
+\begin{align*}
+    \psi_{\mathbf{k}}(r + a) & = e^{ik(r+a)}u_{\mathbf{k}}(r + a)  \\
+                             & = e^{ikr} e^{ika} u_{\mathbf{k}}(r) \\
+                             & = \psi_{\mathbf{k}}(r) e^{ika}w
+\end{align*}
+In other words, a shift by $r$, yields extra phase constant $e^{ika}$.
+
+\subsection{Nearly Free Electron Model: Band Gap}
+The Hamiltonian in this model maybe written as
+\begin{equation*}
+    \hat{H} = -\frac{\hbar^{2}}{2m_{e}} \nabla^{2} + V_{\mathrm{eff}}(\mathbf{r})
+\end{equation*}
+with periodic potential $V_\text{eff}(\mathbf{r }+\mathbf{R })=V_\text{eff}(\mathbf{r})$.
+The eigenfunctions corresponding, according to Bloch theorem, is
+\begin{equation*}
+    \psi_{k}(\mathbf{r} + \mathbf{R}) = e^{i \mathbf{k} \cdot \mathbf{r}} u_{\mathbf{k}}(\mathbf{r}),
+\end{equation*}
+
+Consider a one-dimensional chain of \(N\) atoms labeled \(0,1,\dots ,N-1\).
+If the chain is closed into a ring, site \(N\) is identical to site \(0\), so the system satisfies a periodic boundary condition
+\begin{align*}
+    \psi_{k}(r + Na)    & =  \psi_{k}(r) \\
+    \psi_{k}(r)e^{ikNa} & =  \psi_{k}(r) \\
+    e^{ikNa}            & = 1
+\end{align*}
+which is satisfied by
+\begin{equation*}
+    k = \pm \frac{2 \pi m}{N a} = 0, \pm \frac{2 \pi}{L}, \pm \frac{4 \pi}{L}, ...,
+\end{equation*}
+with $L=Na$.
+The degeneracy in $k$ is expressed as
+\begin{equation*}
+    k(m + N) = \frac{2\pi(m + N)}{Na} = \frac{2\pi m}{Na} + \frac{2\pi}{a}
+\end{equation*}
+Due to periodic potential, degenerate $k$ generate the same wavefunction.
+AS such, we need not represent the system using the value of $k$ within $[-\infty,\infty]$, instead we use $[0,2 \pi/a]$.
+This is the reciprocal vector $G=2\pi/a.$
+If we choose $k=0$ as the midpoint, we can represent the wave function uniquely within $[-\pi/a,\pi/a]$.
+This is known as the first Brillouin zone.
+
+
+We next consider the edge of Brillouin zone $k_\pm = \pm \pi /a$.
+Since the distance between them is $k_+ - k_- = 2\pi/2 = G$, they have the same wavefunction.
+This mean that there are two wavefunction that represent the quantum state that the edges of the Brillouin zone
+\begin{equation*}
+    \psi_{\overline{k}}(r)^{\pm} \propto e^{i\pi r/a} \pm e^{-i\pi r/a}
+\end{equation*}
+or
+\begin{align*}
+    \psi^{+}(r) & \propto \cos \left(\frac{\pi r}{a}\right) \\
+    \psi^{-}(r) & \propto \sin \left(\frac{\pi r}{a}\right)
+\end{align*}
+The essential point is that the periodic potential $V(r)$ is minimal at the ionic positions $r=na$ and maximal between ions.
+The probability density of the even state $\psi^+$ attains maxima at the ionic sites, whereas the probability density of the odd state $\psi^-$ vanishes at the ionic sites and attains maxima between ions.
+Consequently, the expectation value of the potential energy is lower for $\psi^+$ and higher for $\psi^-$.
+This energy split is the reason band gap exist in semiconductor.
+The lower-energy branch associated with $\psi^+$  forms the top of the valence band and the higher-energy branch associated with $\psi^-$ forms the bottom of the conduction band.
+
+
+\end{document}
+
+% semi conductor: resistivity \approx 1/T. carrier increase
+% metal: resistivity \approx T. more electron nucleus collision

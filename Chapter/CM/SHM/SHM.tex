@@ -1,0 +1,160 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Mass on A Spring}
+For small displacements the force produced by the spring is described by Hooke's law:
+\begin{equation*}
+    F = -kx 
+\end{equation*}
+Using Newton's second law of motion, we obtain the equation of motion of the mass
+\begin{equation*}
+   \ddot{x}=-\omega^2 x
+\end{equation*}
+where
+\begin{equation*}
+    \omega^2=\frac{k}{m}
+\end{equation*}
+
+We can solve the equation using by rewritting in from
+\begin{equation*}
+    (D+\omega i)(D-\omega i)x=0
+\end{equation*}
+the roots of auxilary equation are therefore $D=\pm \omega i$. Thus, the general solution is
+\begin{equation*}
+    x=a\cos \omega t+ b \sin \omega t= A\cos \omega t +\phi
+\end{equation*}
+
+\subsubsection{Energy of a mass on a spring.} The work done on the spring, extending it from $x'$ to $ x' + dx'$, is $kx'dx'$. Hence, the work done extending it from its unstretched length by an amount x
+\begin{equation*}
+    U=\int_{0}^{x}kx'dx'= \frac{1}{2} kx^2
+\end{equation*}
+Conservation of energy for the harmonic oscillator follows from Newton's second law
+\begin{equation*}
+    E=K+U=\frac{1}{2}mv^2+\frac{1}{2}kx^2=\text{const.}
+\end{equation*}
+Substituting the value of $x$ and $v=dx/dt$, we get
+\begin{equation*}
+    E=\frac{1}{2}kA^2
+\end{equation*}
+
+\subsection{Pendulum}
+\begin{figure*}[b]
+    \centering
+    \normfig{../../../Rss/CM/Waves/SHM/Pend.png}
+    \caption*{The geometry of the simple pendulum}
+\end{figure*}
+By Newton's second law 
+\begin{align*}
+    ml\ddot{\theta}&=-mg\sin\theta\\
+\ddot{\theta}&=-\frac{g}{l}\sin \theta
+\end{align*}
+expanding $\sin\theta $ in power series
+\begin{equation*}
+    \ddot{\theta}=-\frac{g}{l}\theta
+\end{equation*}
+This is the equation of SHM with $ \omega=\sqrt{g/ l}$ and its general solution 
+\begin{equation*}
+    \theta=\theta_0 \cos \omega t +\phi
+\end{equation*}
+
+\subsubsection{Energy of pendulum.} For small $\theta$, we have
+\begin{align*}
+    l^2& = (l - y)^2 + x^2\\
+    2ly&=Y^2+x^2
+\end{align*}
+For small displacements of the pendulum, $x\ll l $, it follows that $ y \ll x$, so that the term $y^2$ can be neglected, and we can write
+\begin{equation*}
+    y=\frac{x^2}{2l}
+\end{equation*}
+The total energy of the system E is therefore\begin{equation*}
+    E=\frac{1}{2}mv^2+\frac{1}{2}mg\frac{x^2}{2l}
+\end{equation*}
+At the turning point of the motion, when x equals A, it follows that
+\begin{equation*}
+    \frac{1}{2}mg\frac{A^2}{2l}=\frac{1}{2}mv^2+\frac{1}{2}mg\frac{x^2}{2l}
+\end{equation*}
+We can use it to obtain expressions for velocity $v$ 
+\begin{equation*}
+    \frac{dx}{dt}=\sqrt{\frac{g(A^2-x^2)}{l}}
+\end{equation*}
+and for displacements $x$
+\begin{align*}
+    \int \frac{dx}{\sqrt{A^2-x^2}}&=\int \sqrt{\frac{g}{l}}dt\\
+    \arcsin \frac{x}{A}&= \sqrt{\frac{g}{l}}t+\phi\\
+    x&=A\sin \sqrt{\frac{g}{l}}t+\phi
+\end{align*}
+which describes SHM with $\omega = \sqrt{g/ l} $and $T = 2\pi \sqrt{l/g}$ as before.
+
+Notice that both equations have the form
+\begin{equation*}
+    E=\frac{1}{2}\alpha v^2+\frac{1}{2}\beta x^2
+\end{equation*}
+where $\alpha$ and $\beta$ are constants. The constant $\alpha$ corresponds to the inertia of the system through which it can store kinetic energy. The constant $\beta$ corresponds to the restoring force per unit displacement through which the system can store. When we differentiate the conservation of energy equation with respect to time 
+\begin{equation*}
+    \frac{dE}{dt}=\alpha v\frac{dv}{dt}+\beta x\frac{dx}{dt}=0
+\end{equation*}
+giving
+\begin{equation*}
+    \frac{d^2x}{dt^2}=-\frac{\beta}{\alpha}v
+\end{equation*}
+it follows that the angular frequency of oscillation $\omega$ is equal to $\sqrt{\beta/\alpha}$.
+
+\subsubsection{Physical pendulum.} In a physical pendulum the mass is not concentrated at a point as in the simple pendulum, but is distributed over the whole body. An example of a physical pendulum consists of a uniform rod of length $l$ that pivots about a horizontal axis at its upper end. 
+
+Noting that $\tau=I\ddot{\theta}=\mathbf{r}\times\mathbf{F}$
+\begin{align*}
+    I\ddot{\theta}&=\frac{l}{2}(-mg)\sin \pi-\theta\\
+    \frac{1}{3}ml^2\ddot{\theta}&=-\frac{1}{2}mgl\sin \theta\\
+    \ddot{\theta}&=\frac{3g}{2l}\sin\theta
+\end{align*}
+Again we can use the small-angle approximation to obtain
+\begin{equation*}
+    \ddot{\theta}=\frac{3g}{2l}\theta
+\end{equation*}
+This is SHM with $\omega = \sqrt{3g/2l} $ and $T = 2\pi \sqrt{2l/3g}$.
+\begin{figure*}[h]
+    \centering
+    \normfig{../../../Rss/CM/Waves/SHM/PhysPend.png}
+    \caption*{Physical pendulum}
+\end{figure*}
+
+\subsection{Potential approach.} Suppose a system is oscillating inside potential $V(x)$. Using Taylor series, we rewite the potential at $x=x_0$ as
+\begin{equation*}
+    V(x)=V(x_0)+x\frac{dV}{dx}\bigg|_{x=x_0}+\frac{x^2}{2}\frac{d^2V}{dx^2}\bigg|_{x=x_0}+\dots
+\end{equation*}
+The first term is a constant, while the second is zero due to $dV/dx$ evaluated at $x=x_0$ is zero. Therefore, 
+\begin{equation*}
+    V(x)\approx V(x_0)+\frac{x^2}{2}\frac{d^2V}{dx^2}\bigg|_{x=x_0}
+\end{equation*}
+and 
+\begin{align*}
+    F=-\frac{dV(x)}{dx}\approx-x\frac{d^2V}{dx^2}\bigg|_{x=x_0}
+\end{align*}
+Thus its frequency
+\begin{equation*}
+    \omega=\biggl(\frac{1}{m}\frac{d^2V}{dx^2}\bigg|_{x=x_0}\biggr)^{1/2}
+\end{equation*} 
+
+\subsection{Similarities in Physics}
+\subsubsection{LC circuit.} Initially, capacitor is charged to voltage $V_C=q/C$. Switch then closed and  charge begins to flow through the inductor and a current $\dot{q}$ flows in the circuit. This is a time-varying current and produces a voltage across the inductor given $V_L=L\ddot{q}$. We can analyse the LC circuit using Kirchhoff's law, which states that the sum of the voltages around the circuit is zero
+\begin{align*}
+    V_C+V_L&=\\
+    \frac{q}{C}+L\ddot{q}&=0\\
+    \ddot{q}=-\frac{1}{LC}q
+\end{align*}
+It is of the same form as SHM equation and the frequency of the oscillation is given directly by, $\omega = \sqrt{1/LC}$. Since we have the initial condition that the charge on the capacitor has its maximum value at t = 0, then the solution is
+\begin{equation*}
+    q=q_0\cos\omega t
+\end{equation*}
+The energy stored in a capacitor charged to voltage $V_C$ is equal to $(1/2) CV_C^2$. This is electrostatic energy. The energy stored in an inductor is equal to $(1/2) LI^2$ and this is magnetic energy. Thus \begin{align*}
+    E&=\frac{1}{2}CV_C^2+\frac{1}{2}LI^2\\
+    &=\frac{1}{2}\frac{q^2}{C}+\frac{1}{2}LI^2
+\end{align*}
+
+\subsubsection{Similarities in physics.} We note the similarities in both cases 
+\begin{equation*}
+    \ddot{Z}=-\frac{\beta}{\alpha}Z\qquad E=\frac{1}{2}\alpha\dot{Z}^2+\frac{1}{2}\beta Z^2
+\end{equation*}
+where $\alpha$ and $\alpha$ are constants and $Z = Z(t)$ is the oscillating quantity. In the mechanical case Z stands for the displacement $x$, and in the electrical case for the charge $q$.
+
+
+\end{document}

@@ -1,4 +1,4 @@
-\usepackage{amsmath, esdiff, esint, indentfirst, titlesec, mathdots, amssymb, upgreek, amsthm, graphicx, subfiles, caption, longtable, csquotes,amsopn, braket, relsize, mathtools,mhchem, array, mathtools, comment, booktabs, mhchem, listing, fancyvrb,tikz,tikz-3dplot, pgfplots, xcolor}
+\usepackage{amsmath, esdiff, esint, indentfirst, titlesec, mathdots, amssymb, upgreek, amsthm, graphicx, subfiles, caption, longtable, csquotes,amsopn, braket, relsize, mathtools,mhchem, array, mathtools, comment, booktabs, mhchem, listing, fancyvrb,tikz,tikz-3dplot, pgfplots, xcolor, lastpage}
 
 \usepackage{pgf,lmodern}
 \def\mathdefault#1{#1}
@@ -9,6 +9,18 @@
 \newcommand{\normfigL}[1]{\includegraphics[width=0.8\textwidth]{#1}}
 \newcommand{\dfig}[1]{\includegraphics[width=0.4\textwidth]{#1}}
 \newcommand{\fullfig}[1]{\includegraphics[width=\textwidth]{#1}}
+
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\erfi}{erfi}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\newcommand{\zero}{\dfrac{3^0}{0!}}
+\newcommand{\one}{\dfrac{3^1}{1!}}
+\newcommand{\two}{\dfrac{3^2}{2!}}
+\newcommand{\three}{\dfrac{3^3}{3!}}
+\newcommand{\four}{\dfrac{3^4}{4!}}
+\newcommand{\five}{\dfrac{3^5}{5!}}
+\newcommand{\six}{\dfrac{3^6}{6!}}
 
 \newtheorem{definition}{Definition}[section]
 
@@ -28,7 +40,7 @@
 
 \allowdisplaybreaks
 
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \hypersetup{bookmarksopen=false}
 \setcounter{tocdepth}{3}
 

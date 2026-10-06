@@ -1,0 +1,239 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+
+We write the interference conditions as
+\begin{align*}
+    s &= n\lambda &&\text{constructive interference}\\
+    s &= \biggl(n+\frac{1}{2}\biggr)\lambda&&\text{destructive interference}
+\end{align*}
+where $s$ is the difference in their path lengths from the common source. For other values of path difference s the resulting amplitude will lie between these two extremes of total constructive and destructive interference. Since phase difference $\phi=2\pi s/\lambda$, we can also write the interference conditions as:
+\begin{align*}
+    \phi &= 2n\pi &&\text{constructive interference}\\
+    \phi &= (2n+1)\pi&&\text{destructive interference}
+\end{align*}
+These are the basic results for the interference of waves.
+
+\subsection{Huygen's Principle}
+Huygen postulated that each point on a primary wavefront acts as a source of secondary wavelets such that the wavefront at some later time is the envelope of these wavelets. Consider a plane wave. Each point on the primary wavefront acts as a source of secondary wavelets. These secondary wavelets combine and their envelope represents the new wavefront, which is also a plane wave.
+
+\begin{figure*}[h]
+    \centering
+    \normfig{../../../Rss/CM/Waves/Int/Huygen.png}
+\end{figure*}
+
+
+\subsection{Young's double-slit experiment}
+A monochromatic plane wave of wavelength $\lambda$ is incident upon an opaque barrier that contains two very narrow slits $S_1$ and $S_2$. Since these secondary wavelets are driven by the same incident wave there is a well-defined phase relationship between them. This condition is called coherence and implies a systematic phase relationship between the secondary wavelets when they are superposed at some distant point $P$. 
+
+The separation of the slits is $a$, typically $\approx0.5$ mm while the 
+distance $L$ to the screen is typically of the order of a few metres. Hence, $L \gg a$ and $\lambda\approx da$. The point of this approximation is that the small slit only able to pass piece of wave, unlike the cases of diffraction.
+
+\begin{figure*}[h]
+    \centering
+    \normfigL{../../../Rss/CM/Waves/Int/Young.png}
+    \caption*{Figure: Schematic diagram of Young's double-slit experiment}
+\end{figure*}
+
+We consider the secondary wavelets from $S_1$ and $S_2$ arriving at an arbitrary point $P$ on the screen. The superposition of the wavelets at $P$ gives the resultant amplitude. 
+\begin{align*}
+    R &= A[\cos(\omega t - kl_1) + \cos(\omega t - kl_2)]\\
+    &=2A\cos\bigg[\omega t-\frac{k(l_1+l_2)}{2}\bigg] \cos \bigg[\frac{k(l_2-l_1)}{2}\bigg]
+\end{align*}
+Since $L \gg a$, the lines from $S_1$ and $S_2$ to $P$ can be assumed to be parallel and also to make the same angle $\theta$ with respect to the horizontal axis. Hence,
+\begin{equation*}
+    l_1\approx\frac{L}{\cos \theta}\approx l_2
+\end{equation*}
+and so 
+\begin{equation*}
+    l_1+l_2=\frac{2L}{\cos \theta}\approx2L
+\end{equation*}
+Hence, we can write the resultant amplitude as
+\begin{equation*}
+    R= 2A\cos (\omega t -kL) \cos (k\Delta l/2)
+\end{equation*}
+
+The intensity $I$ at point $P$ is equal to the square of the resultant amplitude $R$:
+\begin{equation*}
+    I=4A^2\cos^2 (\omega t -kL) \cos^2 (k\Delta l/2)
+\end{equation*}
+This equation describes the instantaneous intensity at $P $. The time average of the intensity is given by
+\begin{equation*}
+    I=2A^2\cos^2 (k\Delta l/2)=I_0\cos^2 (k\Delta l/2)
+\end{equation*}
+We see that $\Delta l\approx a\sin \theta$. Substituting for $\Delta l$ and making the small angle approximation, we get 
+\begin{equation*}
+    I(\theta)=I_0\cos^2  \frac{\pi a \theta}{\lambda}
+\end{equation*}
+\begin{figure*}
+    \centering
+    \normfig{../../../Rss/CM/Waves/Int/InterferencePattern.png}
+    \caption*{Figure: The interference pattern observed in Young's double-slit experiment} 
+\end{figure*}
+
+Intensity maxima occur when
+\begin{equation*}
+    \theta=\frac{n\lambda}{a}
+\end{equation*}
+and so the bright fringes occur at distances from the point $O$ given by
+\begin{equation*}
+    x=L\theta=\frac{n\lambda}{a}L
+\end{equation*}
+Similarly, intensity minima occur when
+\begin{equation*}
+    \theta=(n+1/2)\frac{\lambda}{a}
+\end{equation*}
+and so the dark fringe 
+\begin{equation*}
+    x=\frac{(n+1/2)}{a}\lambda L
+\end{equation*}
+
+\subsubsection{Another Derivation.} From the figure we have 
+\begin{align*}
+    l_1^2=l^2+\frac{a^2}{4}-al\cos \frac{\pi}{2}+\theta=l^2+\frac{a^2}{4}+al\sin \theta\\
+    l_2^2=l^2+\frac{a^2}{4}-al\cos \frac{\pi}{2}-\theta=l^2+\frac{a^2}{4}-al\sin \theta
+\end{align*}
+Then 
+\begin{equation*}
+    l_2^2- l_1^2=2al\sin\theta
+\end{equation*}
+Rewriting the right side as 
+\begin{equation*}
+    l_2^2- l_1^2=(l_2+l_1)(l_2-l_1)\approx 2l\Delta l
+\end{equation*}
+Thus we have 
+\begin{equation*}
+    \Delta l=a \sin \theta
+\end{equation*}
+Applying the interference conditions, we get the same results.
+
+\subsubsection{Critical angle.} We emphasise that there would be no interference pattern if the two sources of secondary wavelets $S_1$ and $S_2$ were not coherent. Instead, the resultant intensity would be uniform across the screen with a value equal to $I_o/2$. We could ensure that the secondary wavelets from the two slits are coherent  by illuminating them with a point source. However, we can still obtain an interference pattern with such a source if its spatial extent is smaller than a critical value.
+
+Consider an extended source of width $w$ that is used to illuminate the two slits $S_1$ and $S_2$.  An extended source of width $w$ behaves like a coherent light source so long
+\begin{equation*}
+    w\ll \frac{2l\lambda}{a}
+\end{equation*}
+is satisfied. The extended source subtends an angle $\theta$ at each slit where
+\begin{equation*}
+    \theta\ll \frac{2\lambda}{a}=\frac{w}{l}
+\end{equation*}
+which gives the maximum divergence angle that the source can have to produce clear interference fringes.
+
+\subsubsection{Finite Width.} Consider each of the two slits to be composed of infinitely narrow strips that act as sources of secondary wavelets. Then the resultant amplitude $R$ at a point $P$ is the superposition of the secondary wavelets from both slits. This is given by
+\begin{multline*}
+    R=\int_{-a/2-d/2}^{-a2+d/2}\alpha \cos[\omega t- k(l-x\sin \theta)]\;dx+\\ \int_{a/2-d/2}^{a2+d/2}\alpha \cos[\omega t- k(l-x\sin \theta)]\;dx
+\end{multline*}
+where $d$ is the width of each slit and $a$ is their separation. Evaluating these integrals gives
+\begin{equation*}
+    R=2\alpha d \cos(2\omega t - kl)\frac{\sin \beta}{\beta}\cos \beta
+\end{equation*}
+The resultant intensity is
+\begin{equation*}
+    I(\theta)=I_0\frac{\sin^2 \beta}{\beta^2}\cos^2 \beta
+\end{equation*}
+where $I_o$ is the maximum intensity of the pattern. This result is the product of two functions: square of a sinc function--corresponding to diffraction at a single slit--and cosine-squared term--corresponding to double-slit interference pattern.
+
+\subsection{Michelson Spectral Interferometer}
+\begin{figure*}
+    \centering
+    \normfig{../../../Rss/CM/Waves/Int/MichelsonInt.png}
+    \caption*{Figure: Schematic diagram of the Michelson spectral interferometer.}
+\end{figure*}
+Michelson spectral interferometer is an important example of interference by division of amplitude, whereas Young's double-slit experiment is an example of interference by division of wavefront. Consider beam of light froma monochromatic source is split into two equal beams by the semi-reﬂecting front face of the beam splitter. The two separate beams travel to mirror $M_1$ and $M_2$, respectively, and then return to the beamsplitter from where they travel along the same path to the detector. Mirror $M_1$ is ﬁxed in position. The position of mirror $M_2$ can be adjusted with a very ﬁne micrometer screw. 
+
+If the path difference is an integral number of wavelengths, the beams will interfere constructively. However, if the path lengths are different by an odd number of half-wavelengths, there will be destructive interference and the detected light intensity will be zero. When the detected light intensity is plotted as a function of the displacement $x$ of mirror $M_2$ an interference pattern is obtained.
+\begin{figure*}
+    \centering
+    \normfig{../../../Rss/CM/Waves/Int/IntPat.png}
+    \caption*{Figure: The measured light intensity is plotted as a function of the displacement $x$ of the moveable mirror$M_2$.}
+\end{figure*}
+
+\subsection{Another example}
+\subsubsection{Bragg's law.} The angles for constructive interference are given by
+\begin{equation*}
+    2d \sin \theta = n\lambda
+\end{equation*}
+where $d$ is the separation of the atomic planes and $\lambda$ is the wavelength. 
+
+\subsection{Diffraction at a Single Slit}
+\begin{figure*}
+    \centering
+    \normfigL{../../../Rss/CM/Waves/Int/SingleDiff.png}
+    \caption*{Figure: (Fraunhofer) Diffraction at a single slit.}
+\end{figure*}
+Any obstacle in the path of the wave affects the way it spreads out; the wave appears to "bend" around the obstacle. Similarly, the wave spreads out beyond any aperture that it meets. Such bending or spreading of the wave is called diffraction. Diffraction can also be thought as interfere from many sources.
+
+In our discussion of Young's double-slit experiment, we considered the width of each slit to be very narrow. In practice a real slit is not arbitrarily narrow but has a ﬁnite extent. Hence, the path lengths from different points across the slit to the point $P$ will be different and consequently the secondary wavelets arriving at $P$ will have a variation in phase.
+
+\subsubsection{Fraunhofer's diffraction.} Consider a monochromatic plane wave of wavelength $\lambda$ that is incident on a single slit in an opaque barrier. The point $P$ was sufﬁciently far from the slit that the secondary wavelets had become plane waves by the time they reached $P$.
+
+The amplitude $dR$ of the wavelet arriving at $P$ from the strip $dx$ at $x$ is proportional to the width $dx$ of the strip, and its phase depends on the distance of $P$ from the strip
+\begin{equation*}
+    dR=\alpha \cos[\omega t- k(l-x\sin \theta)]\;dx
+\end{equation*}
+where $\alpha$ is a constant. The resultant amplitude at $P$ due to the contributions of the secondary 
+wavelets from all the strips is
+\begin{equation*}
+    R=\int_{-d/2}^{d/2}\alpha \cos[\omega t- k(l-x\sin \theta)]\;dx
+\end{equation*}
+The integral can be evaluated to 
+\begin{equation*}
+    R=-\frac{\lambda }{k\sin\theta}\sin[\omega t -k l -kx\sin\theta]
+\end{equation*}
+Inserting the limit and doing some algebraic manipulation, we get 
+\begin{equation*}
+    R=\frac{\alpha d}{(kd/2)\sin \theta}\sin \biggl(\frac{kd}{2}\sin\theta\biggr)\cos (\omega t-kl)
+\end{equation*}
+
+Since, the instantaneous intensity $I$ at $P$ is equal to the square of the amplitude $R$ and that the time average over many cycles of $\cos^2(\omega t - kl)$ is equal to 1/2, the time average of the intensity is given by
+\begin{equation*}
+    I(\theta)=I_0\frac{\sin^2 \beta}{\beta^2}
+\end{equation*}
+where 
+\begin{equation*}
+    I_0=\frac{\alpha^2d^2}{2}\quad\text{and}\quad\beta=\frac{kd}{2}\sin\theta
+\end{equation*}
+The square of a sinc function has its maximum value of unity when $\beta = 0$. The maximum intensity $I_o$ thus occurs when $\theta = 0$. The zeros in the intensity occur when
+\begin{align*}
+    \frac{\sin^2 \beta}{\beta^2}=0\\
+    \sin^2 \beta=0
+\end{align*}
+where I have assumed that $\beta$ is not zero. Then 
+\begin{equation*}
+    \frac{kd}{2}\sin\theta=n\pi
+\end{equation*}
+using $k = 2\pi/\lambda$
+\begin{equation*}
+    \sin\theta=n\frac{\lambda}{d}
+\end{equation*}
+In general, zeros in intensity occur when
+\begin{equation*}
+    \theta=n\frac{\lambda}{d}
+\end{equation*}
+where $n$ is any interger except zero.
+
+\subsubsection{Fresnel diffraction.} The case of Fresnel diffraction occurs when the source of the primary waves or $P$ is so close to the slit that we have to take into account the curvature of the incoming or outgoing wavefronts. The path-length difference $s$ at a distance $x$ from the centre of the slit is not linearly proportional to $x$. It is easy to show that $s$ is given by
+\begin{equation*}
+    s=\frac{x^2}{2R}
+\end{equation*}
+when $x^2/R^2 \ll 1$. Hence, the phase difference $\phi(x)$ for a point at $x$ is
+\begin{equation*}
+    \phi(x)=\frac{2\pi x^2}{2\lambda R}
+\end{equation*}
+
+\begin{figure*}
+    \centering
+    \normfig{../../../Rss/CM/Waves/Int/Fresnel.png}
+    \caption*{Figure: (Fresnel) Diffraction at a single slit.}
+\end{figure*}
+
+\subsubsection{Circular apertures}
+A circular aperture will also produce a diffraction pattern. For an aperture of diameter $d$, the ﬁrst zeros on either side of the central maximum occur at angles $\pm \theta_R$, where
+\begin{equation*}
+    \theta_R=1.22\frac{\lambda}{d}
+\end{equation*}
+
+The Rayleigh criterion states that the images of the two point objects can be just resolved when the maximum of one diffraction pattern overlaps the ﬁrst minimum of the other. If two objects with a spatial separation $b$ are at a large distance $L$ from a lens or mirror, then we can write $\theta = b/L.$ Hence, we can just resolve them if
+\begin{equation*}
+    b=1.22\frac{\lambda L}{d}
+\end{equation*}
+\end{document}

@@ -1,0 +1,739 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+\subsection{Ludwig Boltzmann}
+\begin{figure*}[h]
+    \centering
+    \normfigL{../../../Rss/StatMech/BoltzmannDistribution/kdacew.png}
+    \caption*{Figure: Ludwig Boltzmann, by P. L. Dutton}
+\end{figure*}
+\subsection{Discrete Energy Levels}
+In this model, Boltzmann postulates in a gas of $N$ particle, that each particle has discretely spaced value of energy kinetic $\epsilon$. The permutation of configuration $E_{k|P}\equiv E_1,\dots E_P$ denote distinct configuration. State of system is then defined as set $n_k\equiv n_0,\dots, n_P$ where $n_k$ is the number of molecule having $k\epsilon$ energy level.
+
+\begin{table}[h]
+    \centering
+    \caption*{Table: system with two possible energy level $(0, \epsilon)$}
+    \begin{tabular}{cc} 
+        \toprule
+        $\begin{array}{c}\text{Macrostate} \\n_{k|P}=(n_0,n_1)\end{array}$  &  $\begin{array}{c}\text{Microtate} \\ E_{k|P}=(E_1 , E_2 , E_3 )\end{array}$ \\
+        \midrule
+        $(3, 0)$&$(0, 0, 0)$\\
+        $(2, 1)$&$(\epsilon, 0, 0), (0, \epsilon, 0), (0, 0, \epsilon)$\\
+        $(1, 2)$&$(\epsilon, \epsilon, 0), (\epsilon, 0, \epsilon), (0, \epsilon, \epsilon)$\\
+        $(0, 3)$&$(\epsilon, \epsilon, \epsilon)$\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Each configuration must also obey the following restriction.
+\begin{equation*}
+    \sum_{k=0}^{P}n_k=N,\quad U=\epsilon\sum_{k=0}^{P} kn_k
+\end{equation*}
+or simply
+\begin{equation*}
+    \sum_{k=0}^{P}n_k=N,\quad \sum_{k=0}^{P} kn_k=L
+\end{equation*}
+The first restriction says that each configuration is in such way that the sum of each element $n_k$ is the total number of particle $N$, while the second restriction rule the total energy $U$ of the system.
+
+To determine the total configuration of a specific configuration $n_{k|P}$, we use
+\begin{equation*}
+    D(N,P,n_{k|P})=\prod_{i=0}^{P}\frac{N!}{n_i!}
+\end{equation*}
+To find the total configuration of a system, we're then summing all possible state that can be achieved by the system in question. After that, we obtain
+\begin{equation*}
+    D_T(N,P)=(P+1)^N
+\end{equation*}
+For a special case when $L\leq P$, the equation above turns into
+\begin{equation*}
+\mathcal{P}(N,L)=\frac{1}{L!}\frac{(N+L-1)!}{(N-1)!}
+\end{equation*}
+\begin{table}[h]
+    \centering
+    \caption*{Table: State and configuration a system with $N=P=7$ and $L\leq P$}
+    \begin{tabular}{cc} 
+        \toprule
+        $\begin{array}{c}\text{State} \\n_{k|P}=(n_0,\dots, n_7)\end{array}$&$\begin{array}{c}\text{Number of configuration}\\  D(N,P,n_{k|P})\end{array}$\\
+        \midrule
+        $(6, 0, 0, 0, 0, 0, 0, 1)$&$\frac{7!}{6!0!0!0!0!0!0!1!} =7 $ \\
+        $(5, 1, 0, 0, 0, 0, 1, 0)$&$\frac{7!}{5!1!0!0!0!0!1!0!} =42 $ \\
+        $(5, 0, 1, 0, 0, 1, 0, 0)$&$\frac{7!}{5!0!1!0!0!1!0!0!} =42$\\
+        $(5, 0, 0, 1, 1, 0, 0, 0)$&$\frac{7!}{5!0!0!1!1!0!0!0!} =42 $\\
+        $(4, 2, 0, 0, 0, 1, 0, 0)$&$\frac{7!}{4!2!0!0!0!1!0!0!} =105$\\
+        $(4, 1, 1, 0, 1, 0, 0, 0)$&$\frac{7!}{4!1!1!0!1!0!0!0!} =210 $\\
+        $(4, 0, 2, 1, 0, 0, 0, 0)$&$\frac{7!}{4!0!2!1!0!0!0!0!} =105 $\\
+        $(4, 1, 0, 2, 0, 0, 0, 0)$&$\frac{7!}{4!1!0!2!0!0!0!0!} =105 $\\
+        $(3, 3, 0, 0, 1, 0, 0, 0)$&$\frac{7!}{3!3!0!0!1!0!0!0!} =140 $\\
+        $(3, 2, 1, 1, 0, 0, 0, 0)$&$\frac{7!}{ 3!2!1!1!0!0!0!0!} =420 $\\
+        $(3, 1, 3, 0, 0, 0, 0, 0)$&$\frac{7!}{3!1!3!0!0!0!0!0!} =140 $\\
+        $(2, 4, 0, 1, 0, 0, 0, 0)$&$\frac{7!}{2!4!0!1!0!0!0!0!} =105 $\\
+        $(2, 3, 2, 0, 0, 0, 0, 0)$&$\frac{7!}{2!3!2!0!0!0!0!0!} =210 $\\
+        $(1, 5, 1, 0, 0, 0, 0, 0)$&$\frac{7!}{1!5!1!0!0!0!0!0!} =42 $\\
+        $(0, 7, 0, 0, 0, 0, 0, 0)$&$\frac{7!}{0!7!0!0!0!0!0!0!} =1 $\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\subsubsection{ Real\textsuperscript{\texttrademark} System.} Boltzmann postulates that thermal equilibrium correspond to state with the largest number of configuration. The previous example with $N=7$ we know that the state in question is $n_{k|P}=(3, 2, 1, 1, 0, 0, 0, 0)$. In real system with large $N$, it is impossible to determine the equilibrium state using method above.
+
+Boltzmann then derive the logarithm of the largest number of configuration, which of course correspond to equilibrium state. The logarithm in question expressed as 
+\begin{equation*}
+    \ln(\mathcal{P}_\text{max})=N\left[\ln \left(\frac{1}{1-x}\right)+\frac{x}{1-x}\ln \left(\frac{1}{x}\right)\right]
+\end{equation*}
+or
+\begin{equation*}
+    \ln(\mathcal{P}_\text{max})= (N+L)\ln (N+L) - L\ln (L)-N\ln (N)
+\end{equation*}
+where $x=L/(L+N)$. 
+
+The number of particle $n_k$ inside configuration above is 
+\begin{equation*}
+    n_k=N(1-x)x^k
+\end{equation*}
+The expression $n_k$ above maximize the $D$. If the average kinetic energy $u=U/N=L\epsilon/N$ is much bigger separation $\epsilon$, $n_k$ can be approximated as 
+\begin{equation*}
+    n_k=\frac{N_\epsilon}{u+\epsilon}\left(1+\frac{\epsilon}{u}\right)^{-k}\approx\frac{N\epsilon}{u}e^{-k\epsilon/u}
+\end{equation*}
+In terms of observable quantity, this expression reads 
+\begin{equation*}
+    n_k=N\left[1-\exp\left(-\frac{\epsilon}{k_BT}\right)\right]\exp\left[-\frac{k\epsilon}{k_BT}\right]
+\end{equation*}
+
+\emph{Proof.} By Stirling’s formula, the logarithm of $D(N , P, n_{k|P} )$ is expressed as
+\begin{equation*}
+    \ln\left[D(N , P, n_{k|P} )\right]=N\ln N-N-\sum_{k=0}^{P}\left(n_k\ln n_k-n_k\right)
+\end{equation*}
+
+Using equation above,  we can find the desired maximum function. We will maximize $D(N , P, n_{k|P})$ for $P\rightarrow\infty$
+\begin{equation*}
+    F(n_k)=\ln\left[D(N , P, n_{k|P} )\right]- \sum_{k=0}^{P}(\alpha + k\gamma )n_k
+\end{equation*}
+with respect to $n_k$. Invoking Stirling's formula for$\ln\left[D(N , P, n_{k|P} )\right]$, we have
+\begin{equation*}
+    F(n_k)=N\ln N-N-\sum_{k=0}^{P}(\ln n_k -1 +\alpha + k\gamma )n_k
+\end{equation*}
+We will now begin the maximization by
+\begin{equation*}
+    \frac{\partial F}{\partial n_k}=0\implies\begin{array}{r l}
+        \dfrac{\partial }{\partial n_k}\left(n_k\ln n_k\right)-1+ \alpha +k\gamma&=0\\
+        \ln n_k+\alpha +k\gamma&=0
+    \end{array}
+\end{equation*}
+Solving for $n_k$
+\begin{equation*}
+    n=e^{-\alpha-k\gamma}=\left(e^{-\alpha}\right)\left(e^{-\gamma}\right)^k
+\end{equation*}
+for convenience’s sake, we use 
+\begin{equation*}
+    n_k=Ax^k\quad \text{with}\quad A=e^{-\alpha}\land x=e^{-\gamma}
+\end{equation*}
+
+Using this result for $n_k$, the first restriction can be written as
+\begin{equation*}
+    \sum_{k=0}^{P}n_k=N\implies A\sum_{k=0}^{P}x^k=N
+\end{equation*}
+the series in the equation above is a simple geometric series
+\begin{equation*}
+    \sum_{k=0}^{P}x^k=1+x+x^2+\cdots x^P=\sum_{k=1}^{P+1}x^{k-1}
+\end{equation*}
+which can be evaluated as 
+\begin{equation*}
+    A\frac{1-x^{P+1}}{1-x}=N
+\end{equation*}
+Hence 
+\begin{equation*}
+    A=N\frac{1-x}{1-x^{P+1}}
+\end{equation*}
+
+Whereas the second restriction reads
+\begin{equation*}
+    \sum_{k=0}^{P}kn_k=L\implies A\sum_{k=0}^{P}kx^k=L
+\end{equation*}
+This series is more complicated than before, however it still might be evaluated into 
+\begin{equation*}
+    L=Ax\frac{\left\{\left[P\left(x-1\right)-1\right]x^P+1\right\}}{(x-1)^2}
+\end{equation*}  
+where we have invoked WolframAlpha to evaluate the said series. For a real\textsuperscript{\texttrademark} system, we have $P\rightarrow\infty $, therefore those two expression turn into
+\begin{equation*}
+    A=\lim_{P\rightarrow\infty}N\frac{1-x}{1-\exp (-\gamma P-\gamma)}=N(1-x)
+\end{equation*}  
+and
+\begin{equation*} 
+    L=\frac{Ax}{(x-1)^2}\lim_{P\rightarrow\infty}\left[(P(x-1)e^{-\gamma P}+1)+1\right]=-\frac{Nx(x-1)}{(x-1)^2}=\frac{Nx}{1-x}
+\end{equation*}
+Rearranging the equation above 
+\begin{equation*}
+    x=\frac{L}{L+N}
+\end{equation*}
+
+Since have found the expression for $A$, $L$, and $x$, we can then write the complete expression for $n_k$
+\begin{equation*}
+    n_k=\frac{N(1-x)}{1-x^{P+1}}x^k 
+\end{equation*}
+applying the condition for real system, we have $n_k$ which maximize the configuration
+\begin{equation*}
+    n_k=\lim_{P\rightarrow\infty}\frac{N(1-x)x^k}{1-\exp\left[-\gamma (P+1)\right]}=N(1-x)x^k \quad \blacksquare
+\end{equation*}
+Using $u=L\epsilon/N$, we $x=L/(L+N)$ as 
+\begin{equation*}
+    x=\frac{Nu/\epsilon}{Nu/\epsilon+L\epsilon/u}=\frac{u}{u+L\epsilon^2/Nu}= \frac{u}{u+\epsilon}
+\end{equation*}
+Substituting it inside the expression of $n_k$
+\begin{equation*}
+    n_k=N(1-x)x^k =N\left(1-\frac{u}{u+\epsilon}\right)\left(\frac{u}{u+\epsilon}\right)^k= \frac{N_\epsilon}{u+\epsilon}\left(1+\frac{\epsilon}{u}\right)^{-k} \quad \blacksquare
+\end{equation*}
+I suppose we can also solve $x$ for $u$
+\begin{align*}
+    xu+x\epsilon&=u\\
+    u(1-x)&=x\epsilon\\
+    u&=\frac{x\epsilon}{1-x}
+\end{align*}
+Then plug in the equation for average molecular energy
+\begin{align*}
+    \frac{\epsilon}{\exp(\epsilon/k_BT)-1}&=\frac{x\epsilon}{1-x}\\
+    \frac{1-x}{x}&=\exp(\epsilon/k_BT)-1\\
+    1&=x\exp(\epsilon/k_BT)\\
+    x&=\exp(-\epsilon/k_BT)
+\end{align*}
+Substituting the value of $x$ inside the expression for $n_k$, we have
+\begin{equation*}
+    n_k=N(1-x)x^k =N\left[1-\exp\left(-\frac{\epsilon}{k_BT}\right)\right]\exp\left[-\frac{k\epsilon}{k_BT}\right]\quad\blacksquare
+\end{equation*}
+
+Substituting $n_k$ inside the expression of $\ln D$, we get 
+\begin{equation*}
+    \ln(\mathcal{P}_\text{max})=-N\left(\ln (1-x)+\frac{x}{1-x}\ln (x)\right)\quad \blacksquare
+\end{equation*}
+expressing the equation above in terms of $L$ and $N$ to get 
+\begin{equation*}
+    \ln(\mathcal{P}_\text{max})= (N+L)\ln (N+L) - L\ln (L)-N\ln (N) \quad \blacksquare
+\end{equation*}
+
+\subsubsection{Result.} We shall now discuss the result of Boltzmann derivation. The case in this discussion will be the same as previously, which is $N = P = 7 , L \leq P$. Here we will compare those three results: 
+
+\paragraph{Small system.} By this consideration, we know the equilibrium state represented by the following state \begin{equation*}
+    n_{k|P}=(3, 2, 1, 1, 0, 0, 0, 0)
+\end{equation*} which has 420 number of configuration.
+
+\paragraph{Large system.} Tools we used in this consideration are Stirling's approximation and Lagrange multiplier. We obtain the formula for number of particle $n_k$ with $k\epsilon$ energy \begin{equation*}
+    n_k=\frac{N(1-x)}{1-x^{P+1}}x^k
+\end{equation*}
+where $x$ is obtained by solving the following equation
+\begin{equation*}
+    (N P - L)x^{P+2} - (NP + N - L)x^{P+1} + (L + N ) = 0.
+\end{equation*}
+Boltzmann solved the equation numerically and obtained $x=0.5078125$.
+
+\paragraph{Large system with large $P$ approximation.} The equation for $n_k$ in this consideration is written as \begin{equation*}
+    n_k= N (1 - x)x^k 
+\end{equation*}
+
+\begin{table}[h]
+    \centering
+    \caption*{Table: The result of those three considerations. Quite accurate except few numbers.}
+    \begin{tabular}{cccc} 
+        \toprule
+        $k$&$\begin{array}{c}
+            n_k\\
+            \text{for small system}
+        \end{array}$ &$\begin{array}{c}
+            n_k\\
+            \text{for large system}
+        \end{array}$ &$\begin{array}{c}
+            \text{Same but with large}\\
+            P\text{ approximation}
+        \end{array}$\\ 
+        \midrule
+        0 &3&3.4535&3.5 \\
+        1 &2&1.7574&1.75 \\
+        2 &1&0.8943&0.875 \\
+        3 &1&0.4551&0.4375 \\
+        4 &0&0.2316&0.2187 \\
+        5 &0&0.1178&0.10937 \\
+        6 &0&0.0599&0.05468 \\
+        7 &0&0.0304&0.02734 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Heat, work, and Thermodynamics.} In statistical mechanics, heat given to a system corresponds to energy transfer through particle exchange and cause the number of particle per energy level changes. For example, consider particle inside potential box. Suppose we are giving energy without changing the system structure such as volume, shape of the potential, external field, and its Hamiltonian. In thermodynamics lens, we are doing transfer of energy via heat. 
+
+In other hand, work represents the energy change due to changes in the energy levels themselves. This could be done by  changing the system structure. The change of energy level $s$ due to work $W$ is 
+\begin{equation*}
+    d\epsilon_s=\frac{W}{E}\epsilon_s
+\end{equation*}
+
+Now consider the first thermodynamics in the lens of thermodynamics
+\begin{equation*}
+    dE=dQ-PdV
+\end{equation*}
+and with the lens of statistical mechanics
+\begin{equation*}
+    dE=\sum_s\left[\epsilon_s\;dn_s+n_s\;d\epsilon_s\right]
+\end{equation*}
+Here we can see that 
+\begin{equation*}
+    \sum_s\epsilon_s \;dn_s=dQ \quad\text{and}\quad\sum_s n_s\;d\epsilon_s =-P\;dV
+\end{equation*}
+
+Next consider the second law. Thermodynamics define entropy as state function where 
+\begin{equation*}
+    dS\geq\frac{dQ}{T}
+\end{equation*}
+We use the equal sign for reversible process and inequality for the irreversible process. According to statistical mechanics however, this law reads 
+\begin{equation*}
+    S=k\ln\Omega
+\end{equation*}
+According to this law, a system will evolve to the direction with more entropy. This is a consequences of the definition of the entropy: a measure how many microscopic ways a system can realize a given macroscopic state. Naturally, macrostate with more microstate is more probable, thus any given system will evolve toward it.
+
+Finally, we consider the last law. According to this law, the entropy at absolute zero is $S=0$. This is due to at that temperature, a system will only have one microstate, thus by definition of entropy, $S=0$.
+
+\paragraph{Change of energy level proof.} Consider the energy eigenstate of particle in a potential box
+\begin{equation*}
+    \epsilon_s=\frac{h^2}{8mL^2}(n_x^2+n_y^2+n_z^2)=\frac{h^2}{8m}B_sV^{-2/3}
+\end{equation*}
+Its logarithm reads 
+\begin{equation*}
+    \ln \epsilon_s=\ln\frac{h^2}{8m}B_s -\frac{2}{3}\ln V
+\end{equation*}
+and its differential
+\begin{equation*}
+    \frac{d\epsilon_s}{\epsilon_s}=-\frac{2}{3}\ln V
+\end{equation*}
+Recall 
+\begin{equation*}
+    -\frac{2}{3}\ln V=-\frac{P\;dV}{\frac{3}{2}NkT}=\frac{dW}{E}
+\end{equation*}
+Hence 
+\begin{equation*}
+    d\epsilon_s=\frac{dW}{E}\epsilon_s
+\end{equation*}
+
+\subsection{Two Level System}
+This model describes a system that can only exist in two discrete energy states, which might occur naturally in diatomic molecule. The population number of the excitation state is given by 
+\begin{equation*}
+    n_2=\frac{Ng_2}{g_2+g_1\exp(\Delta\epsilon/kT)}
+\end{equation*}
+The energy of said system is 
+\begin{equation*}
+    U=N\epsilon_1+\frac{Ng_2\Delta\epsilon}{g_2+g_1\exp(\Delta\epsilon/kT)}
+\end{equation*}
+The heat capacitance is written as 
+\begin{equation*}
+    C_V=N_Ak\left(\frac{\Delta\epsilon}{kT}\right)^2\frac{g_1g_2\exp(\Delta\epsilon/kT)}{\left[g_2+g_1\exp(\Delta\epsilon/kT)\right]^2}
+\end{equation*}
+In general, the maximum value of $C_V$ occur at
+\begin{equation*}
+   e^{-x}=\frac{(x^2-2x)g_1}{(2x+x^2)g_2e^{-x}} 
+\end{equation*}
+where $x=\Delta\epsilon/kT$. In the special case of $g_1=g_2=1$, the $C_{Vm}$ occur at $x_m=2.4$ and $C_V(x=2.4)=0.44\;Nk$
+
+\subsubsection{Population number derivation.} Consider $N$ classical particle with two level of energy $g_1$ and $g_2$. Recall the configuration for classical particle
+\begin{equation*}
+    \Omega=N!\prod_s \frac{g_s^{n_s}}{n_s!}
+\end{equation*}
+On using the Stirling approximation and the Boltzmann entropy
+\begin{align*}
+    S&=k\sum_s\left[n_s\ln g_s+N\ln N-N-n_s\ln n_s+n_s\right]\\
+    S&=k\sum_s\left[n_s\ln \frac{g_s}{n_s}+N\ln N\right]
+\end{align*}
+We express the total energy as 
+\begin{equation*}
+    U=(N-n_2)\epsilon_1+n_2\epsilon_2=N\epsilon_1+n_2\Delta\epsilon
+\end{equation*}
+where $n_1=N-n_2$ as the occupation number of the ground state. Here we want to find the distribution function for the second state particle. To do so, we begin by maximizing the Helmholtz potential, since at equilibrium its value is minimum
+\begin{align*}
+    F&=E-TS\\
+    &=(N-n_2)\epsilon_1+n\epsilon_2\notag\\
+    &\qquad-kT\sum_s\left[n_s\ln \frac{g_s}{n_s}+N\ln N\right]\\
+    &=(N-n_2)\epsilon_1+n\epsilon_2\notag\\
+    &\qquad-kT\left[(N-n_2)\ln \frac{g_1}{N-n_2}+n_2\ln\frac{g_2}{n_2}+N\ln N\right]
+\end{align*}
+Then we differentiate it with respect to $n_2$ 
+\begin{align*}
+    \frac{\partial F}{\partial n}&=-\epsilon_1+\epsilon_2 -kT\bigg[-\ln\frac{g_1}{N-n_2}\notag\\
+    &\qquad+(N-n_2)\frac{N-n_2}{g_1}\frac{g_1}{N-n_2} +\ln\frac{g_2}{n} -n\frac{n}{g_2}\frac{g_2}{n^2}\bigg]\\
+    &=\Delta\epsilon-kT\bigg[\ln\left(\frac{g_2}{g_1}\frac{N-n_2}{n}\right)\bigg]\label{eq:dFdn}
+\end{align*}
+and set it to zero
+\begin{align*}
+    kT\bigg[\ln\left(\frac{g_2}{g_1}\frac{N-n_2}{n_2}\right)\bigg]&=\Delta\epsilon\\
+    \frac{g_2}{g_1}\frac{N-n_2}{n_2}&=\exp \frac{\Delta\epsilon}{kT}\\
+    \frac{g_2}{g_1}N&=n_2\left[1+\exp \frac{\Delta\epsilon}{kT}\right]\\
+    n_2&=\frac{g_2}{g_1}\frac{N}{g_2/g_1+\frac{g_2}{g_1}\exp(\Delta\epsilon/kT)}\\
+    n_2&=\frac{Ng_2}{g_2+g_1\exp(\Delta\epsilon/kT)}
+\end{align*}
+
+\subsubsection{Heat capacitance.} We this on the expression for energy 
+\begin{equation*}
+    U=N\epsilon_1+\frac{Ng_2\Delta\epsilon}{g_2+g_1\exp(\Delta\epsilon/kT)}
+\end{equation*}
+to evaluate its derivative with respect to temperature at constant $V$ and $N=N_A$ to obtain the heat capacitance
+\begin{align*}
+    C_V&=\frac{N_Ag_2\Delta\epsilon\left[-g_1(-\Delta/kT^2)\exp (\Delta \epsilon/kT) \right]}{\left[g_2+g_1\exp(\Delta\epsilon/kT)\right]^2}\\
+    C_V&=N_Ak\left(\frac{\Delta\epsilon}{kT}\right)^2\frac{g_1g_2\exp(\Delta\epsilon/kT)}{\left[g_2+g_1\exp(\Delta\epsilon/kT)\right]^2}
+\end{align*}
+To find the maximum value of $C_V$ we shall differentiate it once more, but we first define $x=\Delta\epsilon/kT$. Then 
+\begin{align*}
+    \frac{d}{dx}N_Akx^2\frac{g_1g_2e^x}{\left[g_2+g_1e^x\right]^2}&=0\\
+    \frac{\left[(2xe^x+x^2e^x)(g_2+g_1e^x)^2-x^2e^x(2(g_2+g_1e^x)g_1e^x)\right]}{(g_2+g_1e^x)^4}&=0\\
+    (2xe^x+x^2e^x)(g_2+g_1e^x)^2-2g_1x^2e^{2x}&=0\\
+    (x^2-2x)g_1-(2x+x^2)g_2e^{-x}=0\\
+   \frac{(x^2-2x)g_1}{(2x+x^2)g_2e^{-x}} &=e^{-x}
+\end{align*}
+The value of $x\equiv x_m$ that satisfies above equation is the value of $x$ where $C_V$ assumes the maximum value, or $C_V(x_m)\equiv C_{Vm}$.
+
+\subsection{Continuous Energy Distribution}
+Assume continuous energy $E$ within interval $(0,\infty)$, with a space of $\epsilon$. The function $f(E)$ denote the number of atoms per unit energy. The density function $f(E) $ for continuous energy levels at equilibrium is given by
+\begin{equation*}
+    f(E)=\frac{N}{u}e^{-E/u}
+\end{equation*}
+Permutability measure is defined as 
+\begin{equation*}
+    \Omega=-\int_{0}^{\infty}f(E)\ln\left[f(E)\right]\;dE
+\end{equation*}
+which, on using the given expression for density function evaluates into 
+\begin{equation*}
+    \Omega=N(1+\ln u-\ln N)
+\end{equation*}
+
+\subsubsection{Derivation.} Let $n_k$ be the number of atoms whose energy lies between $(k\epsilon, k\epsilon+\epsilon)$. For any positive integer $k$, 
+\begin{equation*}
+    n_k=\epsilon f(k\epsilon)
+\end{equation*}
+By taking the limit of $\epsilon\rightarrow0$, $n_k$ now denote the number of atoms whose energy lies between $(E, E+dE)$
+\begin{equation*}
+   n=f(E)\lim_{\epsilon\rightarrow0}\epsilon
+\end{equation*}
+As it the case with discrete model, we have the following restriction
+\begin{equation*}
+    \sum_{k=0}^{P}n_k=N,\quad \epsilon\sum_{k=0}^{P} kn_k=Nu
+\end{equation*}
+By using the expression for $n_k$ when $\epsilon\rightarrow0$ these restrictions now read as
+\begin{equation*}
+    \int_{0}^{\infty}f(E)\;dE=N,\quad \int_{0}^{\infty}Ef(E)\;dE=Nu
+\end{equation*}
+
+Now we consider the expression for number of configuration in the limit $D\rightarrow\mathcal{P}$. The expression for the logarithm of $D$ written as
+\begin{equation*}
+    \ln D=N\ln N-N-\sum_{k=0}^{\infty}\left(n_k\ln n_k-n_k\right)
+\end{equation*}
+By taking the limit $\epsilon\rightarrow0$, we have
+\begin{align*}
+    \ln \mathcal{P} &= N\ln N-N-\int_{0}^{\infty}\left[f(E)\ln (n_k)-f(E)\right]\;dE\\
+    & = N\ln N-N-\int_{0}^{\infty}f(E)\ln[ f(E)]\;dE - \lim_{\epsilon\rightarrow0}\int_{0}^{\infty}f(E)\ln(\epsilon)\;dE \\
+    &\quad+  \int_{0}^{\infty}f(E)\;dE \\
+    \ln \mathcal{P}&=N\ln N-\int_{0}^{\infty}f(E)\ln [f(E)]\;dE - N\lim_{\epsilon\rightarrow0}\ln(\epsilon) 
+\end{align*}
+
+Recall that equilibrium state correspond to the largest number of configuration. Although the equation above, due to the last term, diverges; it can be ignored since maximization does not concern constant. In essence, we what to maximize the logarithm of $\mathcal{P}$ by varying the expression for $f(E)$. Therefore, we maximize the quantity of 
+\begin{equation*}
+    \Omega\equiv-\int_{0}^{\infty}f(E)\ln [f(E)]\;dE
+\end{equation*}
+which is defined as permutability measure, with $N$ and $Nu$ constraint. By the Lagrange multiplier method, we have the following auxiliary function
+\begin{equation*}
+    F(f)=\int_{0}^{\infty}[f\ln (f)+\lambda_1f+\lambda_2Ef]\;dE
+\end{equation*}
+Then, we set its derivative to zero
+\begin{equation*}
+    \frac{dF}{df}=\int_{0}^{\infty}[\ln f+1\lambda_1+\lambda_2E]\;dE=0
+\end{equation*}
+One possible way for an integral to be zero is that the integrand is zero, hence we have 
+\begin{equation*}
+    \ln (f)+1+\lambda_1+\lambda_2E=0
+\end{equation*}
+which implies
+\begin{align*}
+    f(E)&=\exp (-1-\lambda_1-\lambda_2E)\\
+    f(E)&=Ce^{-\lambda_2E}
+\end{align*}
+On Using this expression, $N$ constraint now may be evaluated as 
+\begin{equation*}
+    N=\int_{0}^{\infty}Ce^{-\lambda_2E}\;dE=\frac{Ce^{\lambda_2E}}{\lambda_2}\bigg|_{\infty}^{0}=\frac{C}{\lambda_2}
+\end{equation*}
+As for $Nu$ constraint
+\begin{align*}
+    Nu&=\int_{0}^{\infty}ECe^{-\lambda_2E}\;dE= Ce^{-\lambda_2E}\left( \frac{E}{-\lambda_2}-\frac{1}{\lambda_2^2}\right) \bigg|_{0}^{\infty} \\
+    &= \frac{CEe^{\lambda_2E}}{\lambda_2}\bigg|_{\infty}^{0} + \frac{Ce^{-\lambda_2E}}{\lambda_2^2}\bigg|_{\infty}^{0}=\frac{C}{\lambda_2^2}=\frac{N}{\lambda_2}
+\end{align*}
+We have
+\begin{equation*}
+    C=\frac{N}{u}\quad\land\quad\lambda_2=\frac{1}{u}
+\end{equation*}
+Hence
+\begin{equation*}
+    f(E)=Ce^{-\lambda_2E}=\frac{N}{u}e^{-E/u}\quad\blacksquare
+\end{equation*}
+
+Now we evaluate the expression permutability measure
+\begin{align*}
+    \Omega&=-\int_{0}^{\infty}\frac{N}{u}e^{-E/u}\ln\left[\frac{N}{u}e^{-E/u}\right]\;dE\\
+    &=-\int_{0}^{\infty}\frac{N}{u}e^{-E/u}\left[\ln\left(\frac{N}{u}\right)-\frac{E}{u}\right]\;dE\\
+    &=Ne^{E/u}\ln\left(\frac{N}{u}\right)\bigg|_{0}^{\infty}+\frac{N}{u^2}\left(-Eu-u^2\right)e^{E/u}\bigg|_{0}^{\infty}\\
+    \Omega&=-N\ln\left(\frac{N}{u}\right)+N=N(1+\ln U-\ln N)\quad\blacksquare
+\end{align*}
+
+\subsection{Velocity Distribution}
+Consider continuous varying value of velocity $\mathbf{v}$ within $(-\infty,\infty)$. The number of particle per unit interval is given by 
+\begin{equation*}
+    f(\mathbf{v})=N\left(\frac{3m}{4\pi u}\right)^{3/2}\exp\left(-\frac{3mv^2}{4u}\right)
+\end{equation*}
+Using the relation for gas ideal $u=3k_BT/2$, one can obtain the same distribution function that Maxwell derived
+\begin{equation*}
+    f(\mathbf{v})=N\left(\frac{m}{2\pi k_B T}\right)^{3/2}\exp\left(-\frac{m v^2}{2k_B T}\right)
+\end{equation*} 
+
+\subsubsection{Derivation.} Let $n_\mathbf{k}$ be the number of particle whose velocity lies within $(\boldsymbol{\epsilon}\mathbf{v},\boldsymbol{\epsilon}\mathbf{v}+\boldsymbol{\epsilon})$, so
+\begin{equation*}
+    n_\mathbf{k}=\boldsymbol{\epsilon}f(\mathbf{kv})
+\end{equation*}
+and as $\boldsymbol{\epsilon}\rightarrow0$
+\begin{equation*}
+    n=f(\mathbf{v})\lim_{\boldsymbol{\epsilon}\rightarrow0}\boldsymbol{\epsilon}=f(\mathbf{v})\;d^3v
+\end{equation*}
+As before, we want to find the equilibrium distribution function, $f(\mathbf{ v})$ in this case, by maximizing the said distribution function, constrained by $N$ and $Nu$ function. The $N$ constraint simply evaluate into 
+\begin{equation*}
+    N=\int_{\mathbb{R}^3}  f(\mathbf{v})\;d^3v
+\end{equation*}
+Recall that $Nu$ stands for total energy. In the present case, we involve velocity into our consideration, hence the energy in question is the kinetic energy, which is evaluated by
+\begin{equation*}
+    Nu=\frac{m}{2}\braket{v^2}=\frac{m}{2}\int_{\mathbb{R}^3} v^2f(\mathbf{v})\;d^3v
+\end{equation*} 
+Since $f(\mathbf{v})$ is a function of $v$ alone, we can make the change of variable $d^3v=v^2\sin\theta\;dv\,; d\theta\; d\phi$. Thus, our constraint equations read
+\begin{equation*}
+    4\pi\int_{0}^{\infty}v^2f(\mathbf{v})\;dv=N, \quad 4\pi \int_{0}^{\infty}v^4f(\mathbf{v})\;dv=Nu
+\end{equation*}
+
+We then consider the number of configuration $\mathcal{P}$, which is given by 
+\begin{equation*}
+    \mathcal{P}=N!\left(\prod_{\mathbf{k}=-\infty}^{\infty}n_\mathbf{k}!\right)
+\end{equation*}
+Taking the logarithm and applying Stirling's approximation,
+\begin{align*}
+    \ln \mathcal{P}=N\ln N-N-\sum_{\mathbf{k=-\infty}}^{\infty}\left(n_\mathbf{k}\ln n_\mathbf{k}-n_\mathbf{k} \right)
+\end{align*}
+Taking the limit $\boldsymbol{\epsilon}\rightarrow0$
+\begin{align*}
+    \ln \mathcal{P}&=N\ln N-N - \int_{\mathbb{R}^3}f(\mathbf{v})\ln [f(\mathbf{v})]\;d^3v - \lim_{\boldsymbol{\epsilon}\rightarrow0} \int_{\mathbb{R}^3}f(\mathbf{v})\ln (\boldsymbol{\epsilon})\;d^3v\\
+    &\quad+\int_{\mathbb{R}^3}f(\mathbf{v})\;d^3v\\
+    \ln \mathcal{P}&=N\ln N - \int_{\mathbb{R}^3}f(\mathbf{v})\ln [f(\mathbf{v})]\;d^3v -N\lim_{\boldsymbol{\epsilon}\rightarrow0}\ln (\boldsymbol{\epsilon})
+\end{align*}
+
+To maximize the logarithm of $\mathcal{P}$, we defined permutability measure by 
+\begin{equation*}
+    \Omega = - \int_{\mathbb{R}^3}f(\mathbf{v})\ln [f(\mathbf{v})]\;d^3v
+\end{equation*}
+and maximize it with the $N$ and $Nu$ constraint. We use the first form of those constraints, since they look simpler, and use the second form to evaluate the resulting maximized function, since we can't evaluate it using the first form. Anyway, the auxiliary function reads as
+\begin{equation*}
+    F(f)=\int_{\mathbb{R}^3} \left[f\ln (f)+\lambda_1f+\lambda_2\frac{m}{2}v^2f\right]\;d^3v
+\end{equation*}
+As for its derivative,
+\begin{equation*}
+    \frac{dF}{df}=\int_{\mathbb{R}^3} \left[\ln(f)+1+\lambda_1+\lambda_2\frac{m}{2}v^2\right]\;d^3v=0
+\end{equation*}
+which implies
+\begin{equation*}
+    \ln(f)+1+\lambda_1+\lambda_2\frac{m}{2}v^2=0
+\end{equation*}
+Thus
+\begin{equation*}
+    f(\mathbf{v})=\exp \left(-1-\lambda_1-\lambda_2\frac{m}{2}v^2\right)=C\exp\left(-\frac{\lambda_2m}{2}v^2\right)
+\end{equation*}
+We now use this to evaluate both constraints and determine the value for each constant. For the $N$ constraint
+\begin{multline*}
+    N=4\pi\int_{0}^{\infty}v^2C\exp\left(-\frac{\lambda_2m}{2}v^2\right)\; dv=\frac{4\pi C}{2}\left(\frac{2}{m\lambda_2}\right)^{3/2}\frac{\sqrt{\pi}}{2}\\
+    = C\left(\frac{2\pi}{m\lambda_2}\right)^{3/2}
+\end{multline*} 
+Then the $Nu$ constraint
+\begin{multline*}
+    Nu=4\pi \int_{0}^{\infty}v^4C\exp\left(-\frac{\lambda_2m}{2}v^2\right)\;dv = \frac{4\pi Cm}{4} \left(\frac{2}{m\lambda_2}\right)^{5/2}\frac{3\sqrt{\pi}}{4}\\
+    =\frac{3}{4} Cm\left(\frac{2\pi^{3/5}}{m\lambda_2}\right)^{5/2}
+\end{multline*}
+Solving both for $N$ and equating them 
+\begin{align*}
+    C\left(\frac{2\pi}{m\lambda_2}\right)^{3/2} & = \frac{3}{4u} Cm\left(\frac{2\pi^{3/5}}{m\lambda_2}\right)^{5/2}\\
+    \frac{4u}{3}&=\frac{2m}{m\lambda_2}\\
+    \lambda_2&=\frac{3}{2u}
+\end{align*}
+On using this to the previously evaluated $N$ constraint
+\begin{equation*}
+    N=C\left(\frac{2\pi}{m}\frac{2u}{3}\right)^{3/2}\implies C=N \left(\frac{3m}{4\pi u}\right)^{3/2}
+\end{equation*}
+Hence
+\begin{equation*}
+    f(\mathbf{v})=C\exp\left(-\frac{\lambda_2m}{2}v^2\right)= N \left(\frac{3m}{4\pi u}\right)^{3/2}\exp\left(-\frac{3m}{4u}v^2\right)\quad\blacksquare
+\end{equation*}
+
+\subsection{6$\boldsymbol{n}$ Phase Space Distribution}
+Boltzmann then generalize the distribution function as a function of position and velocity $f=f(\mathbf{r},\mathbf{v})$ such that the number of particle whose position and velocity lies within  $(\mathbf{r}+d\mathbf{r},\mathbf{v}+d\mathbf{v})$ is given by 
+\begin{equation*}
+    n=f(\mathbf{r},\mathbf{v})\;d^3r\;d^3v
+\end{equation*}
+where the distribution function itself is given by
+\begin{equation*}
+    f(\mathbf{r},\mathbf{v})=\frac{N}{V} \left(\frac{3m}{4\pi u}\right)^{3/2}\exp\left(-\frac{3m}{4u}v^2\right)
+\end{equation*}
+Boltzmann also extend the definition of permutability measure using the said distribution function into
+\begin{equation*}
+    \Omega=-\int\limits_{V,\mathbb{R}^3} f(\mathbf{r},\mathbf{v})\ln [f(\mathbf{r},\mathbf{v})]\;d^3r\;d^3v
+\end{equation*} 
+which then evaluate into 
+\begin{equation*}
+    \Omega=N\left[\frac{3}{2}\ln (u)+\ln (V)\right]-N\ln (N)+\frac{3}{2}N\;\left[\ln\left(\frac{4\pi}{3m}\right)+1\right]
+\end{equation*}
+
+\subsubsection{Derivation.} To obtain the said distribution function we begin by maximizing the permutability measure
+\begin{equation*}
+    \Omega=-\int f(\mathbf{r},\mathbf{v})\ln [f(\mathbf{r},\mathbf{v})]\;d^3r\;d^3v
+\end{equation*}
+constrained with 
+\begin{equation*}
+    N=\int f(\mathbf{r},\mathbf{v})\;d^3r\;d^3v,\quad Nu=\frac{m}{2}\int  v^2f(\mathbf{r},\mathbf{v})\;d^3r\;d^3v
+\end{equation*}
+By assuming that the distribution function is only a function of $r$ and $v$, we can evaluate both constraints into
+\begin{equation*}
+    N=16\pi^2\int r^2v^2 f(\mathbf{r},\mathbf{v})\;dr\;dv,\quad Nu=8m\pi^2\int r^2v^4f(\mathbf{r},\mathbf{v})\;dr\;dv
+\end{equation*}
+Some remark, this evaluation method works since we assume that the particle are uniformly distributed. By Lagrange's method, we define the auxiliary function
+\begin{equation*}
+    F(f)=\int \left[f\ln (f)+ \lambda_1f+\lambda2\frac{m}{2}v^2f\right] \;d^3r\;d^3v
+\end{equation*}
+Setting its derivative to zero 
+\begin{equation*}
+    \frac{dF}{df} = \int \left[\ln(f+) +1 + \lambda_1 +\lambda2\frac{m}{2}v^2\right] =0
+\end{equation*}
+which implies
+\begin{equation*}
+    \ln(f) +1 + \lambda_1 +\lambda2\frac{m}{2}v^2=0
+\end{equation*}
+Solving for $f$, we have the expression for our distribution function, albeit with some constant that needed to be determined
+\begin{equation*}
+    f=C\exp\left(- \frac{\lambda_2m}{2}v^2\right)
+\end{equation*}
+
+Now we plug into $N$ constraint
+\begin{multline*}
+    N=16\pi^2\int r^2v^2 C\exp\left(- \frac{\lambda_2m}{2}v^2\right)\;dr\;dv\\
+    = 16\pi^2C\frac{r^3}{3}\frac{1}{2}\left(\frac{2}{\lambda_2m}\right)^{3/2}\frac{\sqrt{\pi}}{2}
+    =CV\left(\frac{2\pi}{\lambda_2m}\right)^{3/2}
+\end{multline*}
+and the $Nu$ constraint
+\begin{multline*}
+    Nu=8m\pi^2\int r^2v^4 C\exp\left(- \frac{\lambda_2m}{2}v^2\right)\;dr\;dv\\
+    = 8m\pi^2C \frac{r^3}{3}\frac{1}{2}\left(\frac{2}{\lambda_2m}\right)^{3/2}\frac{3}{4}\sqrt{\pi}
+    = \frac{3}{4}mCV\left(\frac{2\pi^{3/5}}{\lambda_2m}\right)^{5/2}
+\end{multline*}
+Solving both for $N$ and equating them 
+\begin{align*}
+    CV\left(\frac{2\pi}{\lambda_2m}\right)^{3/2}&=\frac{3}{4u}mCV\left(\frac{2\pi^{3/5}}{\lambda_2m}\right)^{5/2}\\
+    \frac{4u}{3}&=\frac{2m}{\lambda_2m}\\
+    \lambda_2&=\frac{3}{2u}
+\end{align*}
+On using this to the previously evaluated $N$ constraint
+\begin{equation*}
+    N=CV\left(\frac{2\pi}{m}\frac{2u}{3}\right)^{3/2}\implies C=\frac{N}{V}\left(\frac{3m}{4\pi u}\right)^{3/2}
+\end{equation*}
+Hence
+\begin{equation*}
+    f(\mathbf{r},\mathbf{v})=C\exp\left(- \frac{\lambda_2m}{2}v^2\right)= \frac{N}{V} \left(\frac{3m}{4\pi u}\right)^{3/2}\exp\left(-\frac{3m}{4u}v^2\right)\quad \blacksquare
+\end{equation*}
+
+Now we evaluate the expression permutability measure
+\begin{equation*}
+    \Omega=-\int f(\mathbf{r},\mathbf{v})\ln [f(\mathbf{r},\mathbf{v})]\;d^3r\;d^3v
+\end{equation*}
+We have Assumed that $f(\mathbf{r},\mathbf{v})$ is independent of $\mathbf{r}$, thus $f(\mathbf{r},\mathbf{v})\rightarrow f(\mathbf{v})$ and the equation may be written as
+\begin{equation*}
+    \Omega=-\int 4\pi r^2\;dr\int  f( \mathbf{v})\ln [f( \mathbf{v})]\;d^3v=-V\int  f( \mathbf{v}) \ln [f( \mathbf{v})]\;d^3v
+\end{equation*}
+We evaluate this in \enquote{spherical} coordinate
+\begin{multline*}
+    \Omega=-4\pi V\int v^2 \frac{N}{V} \left(\frac{3m}{4\pi u}\right)^{3/2}\exp\left(-\frac{3m}{4u}v^2\right)\\
+     \ln \left[\frac{N}{V} \left(\frac{3m}{4\pi u}\right)^{3/2}\exp\left(-\frac{3m}{4u}v^2\right)\right]\;dv
+\end{multline*}
+This looks hard, but it is actually very easy. Watch this.
+\begin{multline*}
+    \Omega=-4\pi N \left(\frac{3m}{4\pi u}\right)^{3/2}\int v^2 \exp\left(-\frac{3m}{4u}v^2\right)\\
+      \left[\ln\left\{\frac{N}{V} \left(\frac{3m}{4\pi u}\right)^{3/2}\right\} -\frac{3m}{4u}v^2\right]\;dv
+\end{multline*}
+then
+\begin{multline*}
+    \Omega=-4\pi N \left(\frac{3m}{4\pi u}\right)^{3/2}\Bigg[ \ln\left\{\frac{N}{V} \left(\frac{3m}{4\pi u}\right)^{3/2}\right\} \frac{1}{2}\left(\frac{4u}{3m}\right)^{3/2}\frac{\sqrt{\pi}}{2}\\
+    -\frac{3m}{4u}\frac{1}{2}\left(\frac{4u}{3m}\right)^{5/2}\frac{3\sqrt{\pi}}{4}\Bigg]
+\end{multline*}
+and then
+\begin{multline*}
+    \Omega=-4\pi N \left(\frac{3m}{4\pi u}\right)^{3/2}\Bigg[\frac{\sqrt{\pi}}{4}\left(\frac{4u}{3m}\right)^{3/2} \ln\left\{\frac{N}{V} \left(\frac{3m}{4\pi u}\right)^{3/2}\right\} \\
+    -\frac{3\sqrt{\pi}}{8} \left(\frac{4u}{3m}\right)^{3/2}\Bigg]
+\end{multline*}
+and then 
+\begin{equation*}
+    \Omega=-4\pi N \left(\frac{3m}{4\pi u}\right)^{3/2}\frac{\sqrt{\pi}}{4}\left(\frac{4u}{3m}\right)^{3/2} \left[\ln\left\{\frac{N}{V} \left(\frac{3m}{4\pi u}\right)^{3/2}\right\} 
+    -\frac{3}{2}\right]
+\end{equation*}
+and then 
+\begin{equation*}
+    \Omega=-N\left[\ln\left\{N\right\}+\frac{3}{2}\ln\left\{\frac{3m}{4\pi}\right\} - \ln \left\{V\right\}-\frac{3}{2}\ln\left\{u\right\}-\frac{3}{2}\right]
+\end{equation*}
+and finally then
+\begin{equation*}
+    \Omega=N\left[\frac{3}{2}\ln\left\{u\right\}+\ln \left\{V\right\}\right] -N\ln\left\{N\right\}+\frac{3}{2}N\left[\ln\left\{\frac{4\pi}{3m}\right\}+1\right] \quad\blacksquare
+\end{equation*}
+
+\subsection{Relation With Thermodynamics}
+Recall the identity of
+\begin{align*}
+    dQ&=N\;du+P\;dV&\impliedby &dU=dQ+P\;dV,\; dN=0\\
+    PV&=\frac{2}{3}Nu&\impliedby &PV=Nk_BT,\;u=\frac{3}{2}k_BT
+\end{align*}
+We then use it to obtain
+\begin{multline*}
+    \int \frac{dQ}{u}=\int\frac{N}{u}du+\int \frac{2N}{3V}dV=N\ln u+\frac{2N}{3}\ln V+C\\
+    =\frac{2}{3}N\left(\frac{3}{2}\ln u+\ln V\right)+C
+\end{multline*}
+and to write it in other way
+\begin{equation*}
+    \int \frac{dQ}{u}=\frac{2}{3k_BT}dQ=\frac{2}{3k_B}S_{T}
+\end{equation*}
+On equating both of them, we obtain an expression for thermodynamics entropy 
+\begin{equation*}
+    S_{T}=Nk_B\left(\frac{3}{2}\ln u+\ln V\right)+C
+\end{equation*}
+Hence with appropriate value for $C$, we can obtain the desired link between Boltzmann's permutability measure and thermodynamics entropy
+\begin{equation*}
+    S_T=k_B\Omega\equiv S_{B}\implies\frac{1}{T}=\frac{\partial S_B}{\partial U}
+\end{equation*}
+In terms of macroscopic properties, the Boltzmann entropy written as
+\begin{equation*}
+    S_B=Nk_B\left[\frac{3}{2}\ln \frac{U}{N}+\ln \left(\frac{V}{N}\right)+\frac{3}{2}\ln\left(\frac{4\pi}{3m}\right)+\frac{3}{2}\right]
+\end{equation*}
+which is extensive; unlike thermodynamics entropy, which require pro-per constant.
+
+\subsubsection{Discrete model.} Recall the expression for logarithm of maximum configuration $\mathcal{P}_m$ in terms of $x$. By Boltzmann definition of entropy, we have
+\begin{equation*}
+    S_B=k_B\ln(\mathcal{P}_\text{max})=Nk_B\left[\ln \left(\frac{1}{1-x}\right)+\frac{x}{1-x}\ln \left(\frac{1}{x}\right)\right]
+\end{equation*} 
+Substituting the value of $x$
+\begin{align*}
+    S_B&=Nk_B\left[\ln \left(\frac{1}{1-u/(u+\epsilon)}\right)+\frac{u/(u+\epsilon)}{1-u/(u+\epsilon)}\ln \left(\frac{1}{u/(u+\epsilon)}\right)\right]\\
+    &=Nk_B\left[\ln \left(\frac{u+\epsilon}{\epsilon}\right)+\frac{u}{\epsilon}\ln \left(\frac{u+\epsilon}{u}\right)\right]\\
+    &=Nk_B\left[\ln \left(1+\frac{u}{\epsilon}\right)+\frac{u}{\epsilon}\ln \left(1+\frac{\epsilon}{u}\right)\right]\\
+    &=Nk_B\left[\ln \left(1+\frac{u}{\epsilon}\right)+\frac{u}{\epsilon}\ln \left\{\frac{\epsilon}{u}\left(\frac{u}{\epsilon}+1\right)\right\}\right]\\
+    S_B&=Nk_B\left[\left(1+\frac{u}{\epsilon} \right) \ln \left(1+\frac{u}{\epsilon}\right)-\frac{u}{\epsilon}\ln\left(\frac{u}{\epsilon}\right)\right]
+\end{align*}  
+Using this we can determine another expression of $u$ in terms of $\epsilon$
+\begin{align*}
+    \frac{1}{T}&=Nk_B\frac{\partial}{N\partial u}\left[\left(1+\frac{u}{\epsilon} \right) \ln \left(1+\frac{u}{\epsilon}\right)-\frac{u}{\epsilon}\ln\left(\frac{u}{\epsilon}\right)\right]\\
+    &=k_B\left[\frac{\partial}{\partial \alpha}\left(\alpha\ln \alpha\right)\frac{\partial}{\partial u}\left(1+\frac{u}{\epsilon}\right)-\frac{1}{\epsilon}\frac{\partial}{\partial u}\left(u\ln u-u\ln\epsilon\right)\right]\\
+    &=k_B\left[\left\{\ln\left(1+\frac{u}{\epsilon} \right)+1\right\}\frac{1}{\epsilon}-\frac{1}{\epsilon}\left\{\ln (u)+1-\ln (\epsilon)\right\}\right]\\
+    \frac{1}{T}&=\frac{k_B}{\epsilon}\left[\ln\left(1+\frac{u}{\epsilon}\right)-\ln\left(\frac{u}{\epsilon}\right)\right]\\
+    \frac{\epsilon}{k_BT}&=\ln\left(\frac{\epsilon}{u}+1\right)
+\end{align*}
+Raising $e$ to the power of it, we have 
+\begin{align*}
+    \exp\left(\frac{\epsilon}{k_BT}\right)&=\frac{\epsilon}{u}+1\\
+    u\left[\exp\left(\frac{\epsilon}{k_BT}\right)-1\right]&=\epsilon\\
+    u&=\frac{\epsilon}{\exp(\epsilon/k_BT)-1}
+\end{align*}
+As an aside, using $\epsilon=h\nu$ would result in Planck's entropy and average molecular energy to $S_B$ and $u$ respectively.
+
+\end{document}

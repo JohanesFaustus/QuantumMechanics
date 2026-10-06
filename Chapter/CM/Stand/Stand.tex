@@ -1,0 +1,158 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Standing Wave on a String}
+We shall explore the physical characteristics of standing waves by considering transverse waves on a taut string. The string is stretched between two fixed points, which we take to be at $x = 0$ and $x = L$, respectively. However, midway between the fixed ends we can see that the displacement of the string is also zero at all times. This point is called a node. Midway between this node and each end point the wave reaches its maximum displacement. These points are called antinodes. The positions of these maxima and minima do not move along the $x$-axis with time and hence the name standing or stationary waves. The number of antinodes in each standing wave is equal to the respective value of $n$.
+\begin{figure*}[h]
+    \centering
+    \normfigL{../../../Rss/CM/Waves/Stand/TautSring.png}
+\end{figure*}
+
+These characteristics suggest that the displacement $y$ can be represented by
+\begin{equation*}
+    y(x, t) = f (x) \cos(\omega t + \phi)
+\end{equation*}
+If we choose the maximum displacements of the particles to occur at  $t = 0$, then the phase angle $\phi$ is zero and 
+\begin{equation*}
+    y(x, t) = f (x) \cos\omega t
+\end{equation*}
+We now substitute this solution into the one-dimensional wave equation,
+\begin{equation*}
+    \frac{\partial^2 y}{\partial t^2}= v^2 \frac{\partial^2 y}{\partial x^2}
+\end{equation*}
+and we obtain
+\begin{align*}
+    -\omega^2f (x) \cos \omega t&=v^2\frac{\partial^2 f(x)}{\partial t^2}\cos \omega t\\
+    \frac{\partial^2 f(x)}{\partial t^2}\cos \omega t&=-\frac{\omega^2}{v^2}\cos \omega t
+\end{align*}
+Compare this result with the equation of SHM
+\begin{equation*}
+    f(x)=A\sin \frac{\omega}{v}x+B\cos \frac{\omega}{v}x
+\end{equation*}
+The boundary conditions are $f (x) = 0$ at $x = 0$ and at $x = L$. The ﬁrst  condition gives B = 0. The second condition gives
+\begin{equation*}
+    A\sin \frac{\omega}{v}L=0
+\end{equation*}
+which is satisﬁed if
+\begin{equation*}
+    \frac{\omega}{v}L=n\pi
+\end{equation*}
+Thus, $\omega $ must take one of the values given by $n$, and so we write it as
+\begin{equation*}
+    \omega_n=\frac{n\pi v}{L}
+\end{equation*}
+Substituting for $\omega = \omega_n$ and recalling that B = 0, we obtain
+\begin{equation*}
+    f_n(x) = A_n \sin k_nx
+\end{equation*}
+where 
+\begin{equation*}
+    k_n=\frac{n\pi}{L}
+\end{equation*}
+Therefore, we ﬁnally obtain
+\begin{equation*}
+    y_n(x, t) = A_n \sin k_n x\;\cos \omega_n t
+\end{equation*}
+This equation describes the standing waves on the string, where each value of  $n$ corresponds to a different standing wave pattern. The standing wave patterns  are alternatively called the modes of vibration of the string.
+
+\subsubsection{Parameter.} Here's some parameter used in this section
+\begin{align*}
+    \omega_n&=\frac{n\pi v}{L}&& k_n=\frac{n\pi}{L}\\
+    T&=\frac{2\pi}{\omega_n}=\frac{2L}{nv}&&\lambda_n=\frac{2L}{n}\\
+    \nu_n&=\frac{vn}{2L}=\frac{v}{\lambda}&&v=\lambda\nu
+\end{align*}
+For open-ended wave, we have these parameters 
+\begin{align*}
+    \omega_n&=(n-1/2)\frac{\pi v}{L}&& k_n=(n-1/2)\frac{\pi}{L}\\
+    \nu_n&=(n-1/2)\frac{v}{2L}&&\lambda_n=\frac{2L}{n-1/2}\\
+\end{align*}
+In general, sin and cos waves will reach their minima or maxima at 
+\begin{equation*}
+    2n\pi\quad(2n-1)\pi\quad\frac{2n-1}{2}\pi
+\end{equation*}
+
+\subsection{Standing Wave as Superposition of Two Travelling Waves}
+A standing wave is the superposition of two travelling waves  of the same frequency and amplitude travelling in opposite directions. The general solution of the one-dimensional wave 
+equation is
+\begin{equation*}
+    y = f (x - vt) + g(x + vt)
+\end{equation*}
+A speciﬁc example is
+\begin{equation*}
+    y=\frac{A}{2}\sin (kx-\omega t)+\frac{A}{2}\sin (kx+\omega t)
+\end{equation*}
+The ﬁrst term in the right-hand side of this equation represents a sinusoidal wave of amplitude $A/2$ travelling in the positive $x$-direction and the second term represents a sinusoidal wave of amplitude $A/2$ travelling in the negative $x$-direction. Using the identity $\sin(x + y) + \sin(x - y) = 2 \sin x \cos y$, we obtain
+\begin{equation*}
+    y=A \sin kx \cos \omega t
+\end{equation*}
+
+\subsection{Energy}
+The general expression for the total energy $E$ contained in a portion $a \leq x \leq b$ of a string vibrating in a single normal mode
+\begin{equation*}
+    y_n (x, t) = A_n \sin k_nx \cos \omega_nt
+\end{equation*}
+that carries a transverse wave
+\begin{equation*}
+    E=\frac{1}{2}\mu\int_{a}^{b}\biggl[ \biggl(\frac{\partial y}{\partial t}\biggr)^2 + v^2 \biggl(\frac{\partial y}{\partial x}\biggr)^2\biggr]dx
+\end{equation*}
+The ﬁrst term in the integral relates to the kinetic energy of the string and the second term to its potential energy. We now use this expression to ﬁnd the total energy associated with a standing wave, i.e. the energy of a string of length $L$ vibrating in a single mode.
+\begin{align*}
+    E_n&=\frac{1}{2}\mu\int_{0}^{L}\biggl[ A_n^2\omega_n^2\sin^2\omega_nt \sin^2k_nx + v^2 A_n^nk_n^2\cos^2\omega_n t\cos^2 k_nx\biggr]dx\\
+    E_n&=\frac{1}{2}\mu\biggl[ A_n^2\omega_n^2\sin^2\omega_nt \frac{L}{2} + v^2 A_n^nk_n^2\cos^2\omega_nt \frac{L}{2}\biggr]\\
+    E_n&=\frac{1}{2}\mu A_n^2\biggl[ \frac{v^2\pi^2 n^2}{2L}\sin^2\omega_nt  +  \frac{v^2\pi^2 n^2}{2L}\cos^2\omega_nt \biggr]\\
+    E_n&=\frac{1}{2}\mu A_n^2\frac{v^2\pi^2 n^2}{2L}\\
+    E_n&=\frac{1}{4}\mu LA_n^2\omega_n^2
+\end{align*}
+
+\subsubsection{Multiple modes.} The general superposition of normal modes is given by,
+\begin{equation*}
+    y (x, t) =\sum_{n} A_n \sin k_nx \cos \omega_nt
+\end{equation*}
+and we must use this expression, for calculating the energy $E$ of the wave 
+\begin{equation*}
+    E=\frac{1}{2}\mu\int_{a}^{b}\biggl[ \biggl(\frac{\partial y}{\partial t}\biggr)^2 + v^2 \biggl(\frac{\partial y}{\partial x}\biggr)^2\biggr]dx
+\end{equation*}
+The expressions for the derivatives are 
+\begin{equation*}
+    \frac{\partial y}{\partial t}=-\sum_n A_n \omega_n \sin \biggl(\frac{n\pi }{L}x\biggr) \sin\omega_n t
+\end{equation*}
+and 
+\begin{equation*}
+    \frac{\partial y}{\partial x}=\sum_n A_n k_n \cos \biggl(\frac{n\pi }{L}x\biggr) \cos\omega_n t
+\end{equation*}
+Squaring these derivatives
+\begin{equation*}
+    \biggl(\frac{\partial y}{\partial t}\biggr)^2= \sum_m A_m \omega_m \sin \biggl(\frac{m\pi }{L}x\biggr) \sin\omega_m t\sum_n A_n \omega_n \sin \biggl(\frac{n\pi }{L}x\biggr) \sin\omega_n t
+\end{equation*}
+and
+\begin{equation*}
+    \biggl(\frac{\partial y}{\partial x}\biggr)^2=\sum_m A_m k_m \cos \biggl(\frac{m\pi }{L}x\biggr) \cos\omega_m t\sum_n A_n k_n \cos \biggl(\frac{n\pi }{L}x\biggr) \cos\omega_n t
+\end{equation*}
+will lead to cross terms containing the products
+\begin{equation*}
+    \sin \biggl(\frac{m\pi }{L}x\biggr)\sin \biggl(\frac{n\pi }{L}x\biggr)\quad\text{and}\quad \cos \biggl(\frac{m\pi }{L}x\biggr)\cos \biggl(\frac{n\pi }{L}x\biggr)
+\end{equation*}
+As a consequence, the expression for the energy $E$ will contain integrals over these product terms. However, the integrals involving the cross terms ($m\neq n$) have the value 0. Hence, the cross terms with $m  \neq n$ vanish in the integration and the total energy $E$ is given by 
+\begin{equation*}
+    E=\frac{1}{4}\mu L\sum_n A_n^2\omega_n^2
+\end{equation*}
+
+\subsection{Fourier Analysis}
+The idea that an essentially arbitrary function $f (x)$ can be expanded in a Fourier series of these sine functions with appropriate values for the coefficients
+\begin{equation*}
+    f(x)=\sum_{n}A_n\sin \frac{n\pi}{L}x
+\end{equation*}
+The expression for the Fourier amplitude is 
+\begin{equation*}
+    A_n=\frac{2}{L}\int_{0}^{L}f(x)\sin \biggl(\frac{n\pi}{L}x\biggr)dx
+\end{equation*}
+
+\emph{Proof.} Multiplying the expression for Fourier expansion with sin $(m \pi x/L)$ and integrating the resulting equation with respect to $x$ over the range $x = 0$ to $x = L$ gives
+\begin{equation*}
+    \int_{0}^{L}f(x)\sin \biggl(\frac{m\pi}{L}x\biggr)dx=\int_{0}^{L}f(x)\sum_{n}A_n\sin \biggl(\frac{n\pi}{L}x\biggr)\sin \biggl(\frac{m\pi}{L}x\biggr)dx
+\end{equation*}
+Since only the term with $m = n$ is different from zero, and has the value $L/2$
+\begin{equation*}
+    \int_{0}^{L}f(x)\sin \biggl(\frac{m\pi}{L}x\biggr)dx=A_n\frac{L}{2}
+\end{equation*}
+In this way we obtain the final expression for the Fourier amplitude.
+\end{document}

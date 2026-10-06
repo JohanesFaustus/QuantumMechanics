@@ -1,0 +1,38 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+\subsubsection{Problem 5.5 from Pain.} A point mass $M$ is concentrated at a point on a string of characteristic impedance $\rho c$. A transverse wave of frequency $\omega$ moves in the positive $x$ direction and is partially reflected and transmitted at the mass. The boundary conditions are that the string displacements just to the left and right of the mass are equal $y_i+y_r=y_t$ and that the difference between the transverse forces just to the left and right of the mass equal the mass times its acceleration. If $A_1$, $B_1$ and $A_2$ are respectively the incident, reflected and transmitted wave amplitudes show that
+\begin{equation*}
+    \frac{B_1}{A_1}=\frac{-iq}{1+iq}\qquad \text{and}\qquad \frac{A_2}{A_1}=\frac{1}{1+iq}
+\end{equation*}
+where $q=M\omega/ 2\rho c$. 
+
+Let us assume that the force acting on the point mass is described by
+\begin{equation*}
+    F=M\frac{\partial^2 y}{\partial t^2}=M \frac{\partial^2 }{\partial t^2} A\exp i(kx-\omega t)=-M\omega^2 y
+\end{equation*}
+Where I have assumed $y=A \exp i(kx-\omega t)$. Its velocity thus
+\begin{equation*}
+    v_p=\frac{\partial }{\partial t} A\exp i(kx-\omega t)=\omega i y
+\end{equation*}
+The Impedance of the point mass M is therefore
+\begin{equation*}
+    Z_M=\frac{F}{v_p}=\frac{-M\omega^2 y}{\omega i y}=M\omega i
+\end{equation*}
+
+We now can evaluate the impedance $Z_2$ of string with point mass
+\begin{equation*}
+    Z_2=Z_{\text{string}}+Z_M=\rho c+M\omega i
+\end{equation*}
+
+The transmission coefficient is
+\begin{equation*}
+    t=\frac{A_2}{A_1}=\frac{2Z_1}{Z_1+Z_2}=\frac{2\rho c}{2\rho c+M\omega i}=\frac{1}{1+\frac{\omega M}{2\rho c}i}=\frac{1}{1+iq}\qquad \blacksquare
+\end{equation*}
+
+while the reflected coefficient
+\begin{equation*}
+    r=\frac{B_1}{A_1}=\frac{Z_1-Z_2}{Z_1+Z_2}=\frac{-M\omega i}{2\rho c+M\omega i}=\frac{-i\frac{\omega M}{2\rho c}}{1+\frac{\omega M}{2\rho c}i}=\frac{-iq}{1+iq}\qquad \blacksquare
+\end{equation*}
+
+\end{document}

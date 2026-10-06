@@ -1,0 +1,161 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Appendix I: Tugas Gelombang 20 November 2024}
+\subsubsection{King 7.3:} \emph{\enquote{Plane waves of monochromatic light of wavelength 500 nm are incident upon a pair of very narrow slits producing an interference pattern on a screen. When one of the slits is covered by a thin ﬁlm of transparent material of refractive index 1.60 the central ($n$ = 0) bright fringe moves to the position previously occupied by the $n = 15$ bright fringe. What is the thickness of the ﬁlm?}}
+
+Jarak titik terang $n=15$ setelah diberikan film tipis adalah
+\begin{equation*}
+  x_{15}=\frac{15\lambda_u L}{a},
+\end{equation*}
+dengan $a$ sebagai jarak antar celah dan $\lambda_u$ sebagai panjang gelombang di udara. Perbedaan lintasan $\Delta l$ timbul akibat adanya film tipis. Panjang $\Delta l$ adalah 
+\begin{equation*}
+  \Delta l=a\sin\theta=a\frac{x_{15}}{L}=a\frac{15\lambda L}{aL}=15\lambda_u.
+\end{equation*}
+Mengingat syarat terjadinya interferensi konstruktif 
+\begin{equation*}
+  s=m\lambda.
+\end{equation*}
+Maka, panjang $\Delta l$ adalah 
+\begin{align*}
+  \Delta l=m\Delta \lambda=m( \lambda_u-\lambda_r).
+\end{align*}
+dimana $\lambda_r$ sebagai panjang gelombang setelah diberikan film tipis. Nilai $m$ meupakan interger yang dipengaruhi oleh panjang film tipis $t$:
+\begin{equation*}
+  m=\frac{t}{\lambda_r}.
+\end{equation*}
+Sehingga
+\begin{align*}
+  \frac{t}{\lambda_r}( \lambda_u-\lambda_r)&=15\lambda_u\\
+  t&=15\frac{\lambda_u\lambda_r}{ \lambda_u-\lambda_r}\\
+  t&=15\frac{\lambda_u\lambda_u/n}{ \lambda_u-\lambda_u/n}\\
+  t&=15\frac{\lambda_u^2}{ n\lambda_u-\lambda_u}\\
+  t&=15\frac{\lambda_u}{ n-1}
+\end{align*}
+dan diperoleh 
+\begin{equation*}
+  t=15\frac{500\cdot10^{-9} \text{ m}}{ 1.6-1}=\boxed{1.25 \cdot 10^{-5} \text{ m}}
+\end{equation*}
+
+\subsubsection{King 7.4:}  \emph{\enquote{(a) Estimate the divergence angle of the sunlight we receive on Earth given that the diameter of the Sun is $1.4 \cdot10^6$ km and its distance from the Earth is $1.5 \cdot 10^8$ km. (b) In a Young’s double-slit experiment, the slit spacing is 0.75 mm and the wavelength of the incident light is 550 nm. What should be the maximum divergence angle of the source for the interference fringes to be clearly visible? Compare this value with your answer from (a).}}
+
+\textbf{(a)} Sudut maksimum divergensi diberikan oleh 
+\begin{equation*}
+  \theta\approx\frac{w}{l}.
+\end{equation*}
+dengan $w$ dengan panjang sumber cahaya dan $l$ sebagai jarak dari sumber. Maka,
+\begin{equation*}
+  \theta\approx\frac{1.4 \cdot10^6 \text{ km}}{1.5 \cdot 10^8\text{ km}}=\boxed{9.3\cdot10^{-3}\text{ rad.}}
+\end{equation*}
+
+\textbf{(b)} Sudut maksimum divergensi juga diberikan oleh
+\begin{equation*}
+  \theta\approx\frac{2\lambda}{a},
+\end{equation*}
+dengan $a$ sebagai jarak antar celah. Maka,
+\begin{equation*}
+  \theta\approx\frac{2\cdot 550\cdot10^{-9} \text{ m}}{0.75\cdot10^{-3} \text{ m}}=\boxed{1.47\cdot10^{-3}\text{ rad}.}
+\end{equation*}
+Nilai yang diperoleh pada bagian (b) lebih kecil dibandingkan nilai pada bagian (a).
+
+\subsubsection{King 7.5:} \emph{\enquote{The two slits in a Young’s double-slit experiment each have a width of 0.06 mm and are separated by a distance $a$. If an $n = 15$ bright fringe of the double-slit interference pattern falls at the ﬁrst minimum of the diffraction pattern due to each slit, what is the value of the separation of the slits $a$?}}
+
+Titik terang pada interferensi celah ganda diberikan oleh 
+\begin{equation*}
+  \theta_i=n\frac{\lambda}{a},
+\end{equation*}
+sedangkan titik gelap pada celah difraksi adalah
+\begin{equation*}
+  \theta_d=n\frac{\lambda}{d}
+\end{equation*}
+Diketahui bahwa titik terang interferensi ke 15 jatuh pada titik gelap difraksi pertama, maka 
+\begin{align*}
+  \theta_i(n=15)&=\theta_d(n=1)\\
+  \frac{\lambda}{d}&=15\frac{\lambda}{a}\\
+  a&=15d
+\end{align*}
+dan diperoleh
+\begin{equation*}
+  a=15\cdot0.06 \text{ mm}=\boxed{0.9 \text{ mm}}
+\end{equation*}
+
+\subsubsection{King 7.6:} \emph{\enquote{Two loudspeakers are separated by a distance of 1.36 m. They are connected to the same ampliﬁer and emit sound waves of frequency 1.0 kHz. How many maxima in sound intensity would you hear if you walked in a complete circle around the loudspeakers at a large distance from them? Assume that the sound waves are emitted isotropically.}}
+
+Panjang gelombang diberikan oleh 
+\begin{equation*}
+  \lambda=\frac{v}{f}=\frac{340\text{ m/s}}{10^3\text{ kHz}}=0.34 \text{ m}.
+\end{equation*}
+dimana kecepatan gelombang suara diasumsikan 340 m/s (perintah soal). Kemudian, syarat terjadinya interferensi maksima adalah 
+\begin{equation*}
+  \sin \theta =n\frac{\lambda}{d}=n\frac{0.34 \text{ m}}{1.36 \text{ m}}=\frac{n}{4}.
+\end{equation*}
+Nilai $\sin \theta$ akan berubah seiring kita melingkari speaker. Selajutnya dicari nilai $n$ yang memenuhi persamaan
+\begin{equation*}
+  \sin \theta =\frac{n}{4}
+\end{equation*}
+selama satu siklus fungsi sinus. Pada kuadran pertama $(0\leq \sin \theta<1)$, nilai $n$ yang memenuhi adalah 
+\begin{equation*}
+  n=\{0,1,2,3\}.
+\end{equation*}
+Pada kuadran kedua $(1\leq \sin \theta<0)$,
+\begin{equation*}
+  n=\{4,3,2,1\}.
+\end{equation*}
+Pada kuadran ketiga $(0\leq \sin \theta<-1)$,
+\begin{equation*}
+  n=\{0,1-,2,-3\}.
+\end{equation*}
+Terakhir, pada kuadran kedua $(-1\leq \sin \theta<0)$,
+\begin{equation*}
+  n=\{-4,-3,-2,-1\}
+\end{equation*}
+Karena terdapat 16 nilai $n$ yang memenuhi, maka maksima terjadi sebanyak \boxed{\text{16 kali}}.
+\subsubsection{King 7.7:} \emph{\enquote{ (a) Monochromatic light is directed into a Michelson spectral interferometer. It is observed that 4001 maxima in the detected light intensity span exactly 1.0 mm of mirror movement. What is the wavelength of the light? (b) Light from a sodium discharge lamp is directed into a Michelson spectral interferometer. The light contains two wavelength components having wavelengths of 589.0 nm and 589.6 nm, respectively. The interferometer is initially set up with its two arms of equal length so that a maximum in the detected light is observed. How far must the moveable mirror be moved so that the 589.0 nm component produces one more maximum in the detected intensity than the 589.6 nm component?}}
+
+\textbf{(a)} Panjang gelombang dapat diperoleh dengan 
+\begin{equation*}
+  \lambda=2\cdot M,
+\end{equation*}
+dimana $M$ adalah jarak antar maksima. Jarak tersebut diperoleh dengan 
+\begin{equation*}
+  M=\frac{\text{Perpindahan cermin}}{\text{Maxima terdeteksi}}.
+\end{equation*}
+Sehingga diperoleh 
+\begin{equation*}
+  \lambda=2\frac{10^{-3}\text{ m}}{4001}=\boxed{5\cdot10^{-7}\text{ m}}
+\end{equation*}
+
+\textbf{(b)} Diketahui syarat terjadinya peristiwa tersebut adalah 
+\begin{equation*}
+  \Delta l=n\lambda_1=(n+1)\lambda_2,
+\end{equation*}
+dimana $\lambda_1= 589.6 $ nm dan $\lambda_2=  589.0 $ nm. Sedangkan, 
+\begin{equation*}
+  \Delta l=2x
+\end{equation*}
+dimana $x$ adalah perpindahan cermin. Maka diperoleh 
+\begin{align}
+  \lambda_1&=\frac{2x}{n},\label{eq1}\\
+  \lambda_2&=\frac{2x}{n+1}\label{eq2}.
+\end{align}
+Mengalikan persamaan \ref{eq1} dan \ref{eq2}, diperoleh
+\begin{align*}
+  \lambda_1\lambda_2&=\frac{4x^2}{n(n+1)}\\
+  n(n+1)&=\frac{4x^2}{\lambda_1\lambda_2}.
+\end{align*}
+Mengurangi persamaan \ref{eq1} dan \ref{eq2}, diperoleh
+\begin{align*}
+  \lambda_1-\lambda_2&=\frac{2x(n+1)-2xn}{n(n+1)}\\
+  &=\frac{2x}{n(n+1)}\\
+  n(n+1)&=\frac{2x}{\lambda_1-\lambda_2}.
+\end{align*}
+Dengan demikian,
+\begin{align*}
+  \frac{4x^2}{\lambda_1\lambda_2}=\frac{2x}{\lambda_1-\lambda_2}\\
+  x=\frac{\lambda_1\lambda_2}{2(\lambda_1-\lambda_2)},
+\end{align*}
+dan diperoleh
+\begin{equation*}
+  x=\frac{589.6\cdot 589\cdot10^{-16}\text{ m}^2}{2\cdot10^{-9}(589.6-589)\text{ m}}=\boxed{2.89\cdot10^{-4}\text{ m}}
+\end{equation*}
+\end{document}

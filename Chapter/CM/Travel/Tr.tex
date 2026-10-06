@@ -1,0 +1,480 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+Travelling waves may be either transverse waves or longitudinal waves. In transverse waves the change in the corresponding physical quantity, e.g. displacement, occurs in the direction at right angles to the direction of travel of the wave, as for the outgoing ripples on a pond. For longitudinal waves, the change occurs along the direction of travel. 
+
+\subsection{The Wave Equation}
+One-dimensional wave equation is written as 
+\begin{equation*}
+    \frac{\partial^2 y}{\partial t^2}= v^2 \frac{\partial^2 y}{\partial x^2}
+\end{equation*}
+The general solution of it is 
+\begin{equation*}
+    y = f (x - vt) + g(x + vt)
+\end{equation*}
+
+We can write the wave equation more generally as
+\begin{equation*}
+    \frac{\partial^2 \psi}{\partial t^2}= v^2 \frac{\partial^2 \psi}{\partial x^2}
+\end{equation*}
+and its general solution as
+\begin{equation*}
+    \psi=f (x - vt) + g(x + vt)
+\end{equation*}
+
+\subsection{Traveling Sinusoidal Wave}
+We represent the travelling sinusoidal wave by
+\begin{equation*}
+    y(x, t) = A\sin \frac{2\pi  }{\lambda} (x-vt)=A \sin(kx - \omega t)
+\end{equation*}
+where $A$ is the amplitude and $\lambda$ is the wavelength. This function repeats itself each time $x$ increases by the distance $\lambda$. The frequency $\nu$ is equal to the velocity v of the
+wave divided by the wavelength $\lambda$
+\begin{equation*}
+    \lambda \nu = v 
+\end{equation*}
+The time or period T that a wave crest takes to travel a distance $\lambda$ is equal to $\lambda/v$
+\begin{equation*}
+    \nu=\frac{1}{T}
+\end{equation*}
+Displacement varies sinusoidally with time t with an angular frequency $\omega$ where
+\begin{equation*}
+    \omega=\frac{2\pi v}{\lambda}=2\pi \nu
+\end{equation*}
+We define the quantity $2\pi/\lambda$ as the wavenumber
+\begin{equation*}
+    k=\frac{2\pi}{\lambda}
+\end{equation*}
+Using the relationships $\nu\lambda = v$ and $2\pi\nu = \omega$, we have
+\begin{equation*}
+    v=\frac{\omega}{k}
+\end{equation*}
+Finally, we can write the following alternative mathematical expressions for travelling sinusoidal waves
+\begin{align*}
+    y(x,t)&=A\exp \frac{2\pi  }{\lambda}i (x-vt)\\
+    &=A\exp 2\pi i (\frac{x}{\lambda}-\nu t)\\
+    &=A\exp i (kx-\omega t)\\
+\end{align*}
+
+\subsection{Direction of propagation.} Traveling wave will propagate to positive $x$ direction if the wave number $k$ and angular frequency $\omega$ have different sign
+\begin{equation*}
+    y=A\exp i (kx-\omega t)\longleftrightarrow y=A\exp i (\omega t-ky)
+\end{equation*}
+
+In another hand, wave will propagate to negative $x$ if the wave number $k$ and angular frequency $\omega$ have same sign
+\begin{equation*}
+    y=A\exp i (kx+\omega t)\longleftrightarrow y=A\exp i (\omega t+ky)
+\end{equation*}
+
+\subsubsection{Velocity.} Three types of velocity. First, particle velocity
+\begin{equation*}
+    v_p=\frac{\partial y}{\partial t}
+\end{equation*}
+which describes oscillation velocity of particle in respect to equilibrium. Second, wave velocity
+\begin{equation*}
+    v=\frac{\partial x}{\partial t}
+\end{equation*}
+which describes velocity of point wave with respect to propagation direction. Third, group velocity
+\begin{equation*}
+    v_g=\frac{d\omega}{d k}
+\end{equation*}
+which describes displacement velocity of group wave, which formed from superposition of multiple waves with different frequency. 
+
+\subsection{Vibrating String}
+\begin{figure*}[t]
+    \centering
+    \normfigL{../../../Rss/CM/Waves/Tr/String.png}
+    \caption*{Figure: Vibrating string}
+\end{figure*}
+The segment of the string will be subject to a restoring force due to the tension T in the string. We can resolve this force into its components in the $x$ and $y$ direction. At $x$ the $y$ component of the force $F_y$ is equal to $T \sin \theta$. For small values of $\theta$ we have
+\begin{equation*}
+    \sin \theta \approx \tan \theta=\frac{\partial y}{\partial x}
+\end{equation*}
+and thus 
+\begin{equation*}
+    F_y(x)= T \frac{\partial y}{\partial x}
+\end{equation*}
+Similarly, the transverse force at $x + dx$ is equal to the tension $T$ times the slope at that point, which equal slope at $x$ plus rate of change of slope times $dx$
+\begin{equation*}
+    \frac{\partial y}{\partial x}\bigg |_{x + dx} =\frac{\partial y}{\partial x}\bigg |_{x}+ \frac{\partial }{\partial x} \frac{\partial y}{\partial x} dx= \frac{\partial y}{\partial x}\bigg |_{x}+ \frac{\partial^2 y}{\partial^2 x} dx
+\end{equation*}
+and thus 
+\begin{equation*}
+    F_y(x+dx)= T \biggl[\frac{\partial y}{\partial x}\bigg |_{x}+ \frac{\partial^2 y}{\partial^2 x} dx\biggr]
+\end{equation*}
+This acts in the opposite direction to the transverse force at x, therefore
+\begin{equation*}
+    \Sigma F_y=T  \frac{\partial^2 y}{\partial^2 x} dx
+\end{equation*}
+We now use Newton's second law 
+\begin{align*}
+    \mu dx \frac{\partial^2 y}{\partial^2 t}&= T  \frac{\partial^2 y}{\partial^2 x} dx\\
+    \frac{\partial^2 y}{\partial^2 t}&=\frac{T}{\mu} \frac{\partial^2 y}{\partial^2 x}
+\end{align*}
+This is the equation that describes wave motion on a taut string, with
+\begin{equation*}
+    v=\sqrt{\frac{T}{\mu}}
+\end{equation*}
+
+\subsection{Kenergy and Venergy and Eenergy} 
+\begin{figure*}
+    \centering
+    \normfigL{../../../Rss/CM/Waves/Tr/String2.png}
+    \caption*{Figure: String under tension}
+\end{figure*}
+As the wave moves along the string, short segments of width $dx$ will oscillate in the transverse direction and so will have kinetic energy $K$ given by
+\begin{equation*}
+    K=\frac{1}{2}\mu \biggl(\frac{\partial y}{\partial t}\biggr)^2 dx 
+\end{equation*}
+In addition, the segments will be slightly stretched, therefore also have potential energy $V$. This potential energy is equal to the extension times the tension $V$ in the string, which we assume to be constant. To a good approximation, the extended length of a segment $ds$ is related to the unstretched length $dx$ by
+\begin{multline*}
+    ds=\frac{dx}{\cos \theta}=\frac{dx}{(1-\sin^2\theta)^{1/2}}\approx \frac{dx}{(1-\theta^2)^{1/2}} \approx dx\biggl(1+\frac{1}{2}\theta^2\biggr) \\
+    \approx dx\biggl[1+\frac{1}{2}\biggl(\frac{\partial y}{\partial x}\biggr)^2\biggr]
+\end{multline*}
+To a good approximation the potential energy is therefore given by
+\begin{equation*}
+    V=T(ds-dx)=\frac{1}{2}Tdx \biggl(\frac{\partial y}{\partial x}\biggr)^2
+\end{equation*}
+The energy in a portion $a \leq x \leq b$ of a string at time $t$ is given by
+\begin{align*}
+    E&=\frac{1}{2}\int_{a}^{b}\biggl[\mu \biggl(\frac{\partial y}{\partial t}\biggr)^2 + T \biggl(\frac{\partial y}{\partial x}\biggr)^2\biggr]dx\\
+    E&=\frac{1}{2}\mu\int_{a}^{b}\biggl[ \biggl(\frac{\partial y}{\partial t}\biggr)^2 + v^2 \biggl(\frac{\partial y}{\partial x}\biggr)^2\biggr]dx\\
+\end{align*}
+
+\subsubsection{Example.} As an example of the above discussion, we consider the sinusoidal wave
+\begin{equation*}
+    y=A\sin kx-\omega t
+\end{equation*}
+In particular we consider a length of the string equal to one wavelength $\lambda$. The kinetic energy of a segment $dx$ is
+\begin{equation*}
+    K=\frac{1}{2}\mu\omega^2 A^2 \cos^2 (kx-\omega t) dx
+\end{equation*}
+with resultant Kenergy of
+\begin{equation*}
+    K=\frac{1}{2}\mu\omega^2 A^2\int_{0}^{\lambda}\cos^2 (kx-\omega t) dx=\frac{1}{4}\mu\lambda\omega^2 A^2
+\end{equation*}
+Similarly, we find potential energy U of a string 
+\begin{equation*}
+    U=\frac{1}{4}\mu\lambda\omega^2 A^2
+\end{equation*}
+Therefore
+\begin{equation*}
+    E=\frac{1}{2}\mu\lambda\omega^2 A^2
+\end{equation*}
+
+\subsection{Power}
+Energy distribution is carried along with the wave at the velocity $v$. The distance travelled by the wave in unit time is equal to v. The energy contained within this length is therefore
+\begin{equation*}
+    E\times \frac{v}{\lambda}=\frac{1}{2}\mu v\omega^2 A^2
+\end{equation*}
+In another word
+\begin{equation*}
+    P=\frac{1}{2}\mu v\omega^2 A^2
+\end{equation*}
+or by using impedance
+\begin{equation*}
+    P=\frac{1}{2}Z\omega^2 A^2
+\end{equation*}
+
+\subsection{Impedance}
+Impedance of travelling wave defined as 
+\begin{equation*}
+    Z\equiv\frac{\text{Transversal force}}{\text{Transversal velocity}} = \frac{F}{v_p}
+\end{equation*}
+
+In vibrating wave, the transversal force is the tension, while its transversal velocity is $v=\sqrt{T/\mu}$. For vibrating wave, therefore
+\begin{equation*}
+    Z=\frac{T}{\sqrt{T/\mu}}=\mu v
+\end{equation*}
+
+We also define transmission coefficient $t$ 
+\begin{equation*}
+    t\equiv\frac{A_T}{A_I}
+\end{equation*}
+and reflection coefficient $r$
+\begin{equation*}
+    r\equiv\frac{A_R}{A_I}
+\end{equation*}
+
+Not only that, we define, again, reflectance $R$
+\begin{equation*}
+    R\equiv\frac{\text{Reflected wave power}}{\text{Incident Wave power}}=\frac{Z_1A_R^2}{Z_1A_I^2}=r^2
+\end{equation*} 
+and transmittance $T$
+\begin{equation*}
+    T\equiv\frac{\text{Transmitted wave power}}{\text{Incident Wave power}}=\frac{Z_2A_T^2}{Z_1A_I^2}=\frac{Z_2}{Z_1}t^2
+\end{equation*}
+It can also be proven that
+\begin{equation*}
+    R+T=1
+\end{equation*}
+
+\subsection{Wave at Discontinuites}
+The following conditions exist at the boundary between the two strings.
+
+$\mathbf{y_1=y_2\; \textbf{at boundary}.}$ Since the two ends of the strings are joined they must move up and down together, the displacements of the strings at the boundary must be the same at $x = 0$, if we define it as the position of the discontinuites, for all times. 
+
+$\mathbf{\sum F=0.}$ Otherwise a finite difference in the force would act on an infinitesimally small mass of the string giving an infinite acceleration, which is unphysical. The transverse force is equal to $T (\partial y/\partial x)$; since the tension $T$ is constant, the slopes$ (\partial y/\partial x)$ therefore must be the same at $x = 0$ for all times.
+
+We now use these boundary conditions to determine the relative amplitudes and phases of the incident, transmitted and reflected waves. We let the incident wave be
+\begin{equation*}
+    y_I = A_I \cos(\omega t - k_1x)
+\end{equation*}
+while the reflected wave
+\begin{equation*}
+    y_R = A_R \cos(\omega t + k_1x)
+\end{equation*}
+and the transmitted wave
+\begin{equation*}
+    y_T = A_T \cos(\omega t - k_2x)
+\end{equation*}
+Thus, applying condition 1, we get the resultant wave at boundary
+\begin{equation*}
+    A_I \cos(\omega t - k_1x)+ A_R \cos(\omega t + k_1x) =  A_T \cos(\omega t - k_2x)
+\end{equation*}
+Since this equation must be true for all times we can take $ t = 0$ to obtain
+\begin{equation*}
+    A_I+A_R=A_T
+\end{equation*}
+Condition 2 gives 
+\begin{equation*}
+    k_1A_I \sin(\omega t - k_1x)+ k_1A_R \sin(\omega t + k_1x) =  k_2A_T \sin(\omega t - k_2x)
+\end{equation*}
+This time we choose $t = \pi/2\omega$, which gives
+\begin{equation*}
+    k_1A_I + k_1A_R  =  k_2A_T  
+\end{equation*}
+Using those two equation, we get the transmission coefficient of amplitude t:
+\begin{equation*}
+    t=\frac{A_T}{A_I}=\frac{2k_1}{k_1+k_2}
+\end{equation*}
+and the reflection coefficient of amplitude
+\begin{equation*}
+    r=\frac{A_R}{A_I}=\frac{k_1-k_2}{k_1+k_2}
+\end{equation*}
+The transmission coefficient $t$ is always a positive quantity and can have a value within the range 0 to 2. The reflection coefficient $r$ can have both positive and negative values within the range +1 to -1. It also readily follows that
+\begin{equation*}
+    t=1+r
+\end{equation*}
+
+\subsubsection{Another method.} I will now solve the boundaries condition using impedance. For the first condition, I get the same result
+\begin{equation*}
+    A_I+A_R=A_T
+\end{equation*}
+For the second condition however, I get 
+\begin{equation*}
+    T_1\frac{\partial y_I}{\partial t}+T_1\frac{\partial y_R}{\partial t}=T_2\frac{\partial y_T}{\partial t}
+\end{equation*}
+Before, we assume that $T_1=T_2$; now, however, do not use that assumption and proceed as it is. Then 
+\begin{equation*}
+    T_1k_1A_I \sin(\omega t - k_1x)+ T_2k_1A_R \sin(\omega t + k_1x) =  T_2k_2A_T \sin(\omega t - k_2x)
+\end{equation*}
+As before, we're also evaluating at $x=0, t=0$
+\begin{equation*}
+    T_1k_1A_I + T_2k_1A_R  =  T_2k_2A_T
+\end{equation*}
+This is where I insert concept impedance. Since $Z=\mu v$ for vibrating string, 
+\begin{equation*}
+    Tk=\mu v^2\frac{\omega}{v}=Z\omega
+\end{equation*}
+and since $\omega$ is the same for all wave,
+\begin{equation*}
+    Z_1A_I +Z_1A_R  =  Z_2k_2A_T
+\end{equation*}
+Solving for $t$
+\begin{equation*}
+    t=\frac{2Z_1}{Z_1+Z_2}
+\end{equation*}
+while for $r$
+\begin{equation*}
+    r =\frac{Z_1-Z_2}{Z_1+Z_2}
+\end{equation*}
+And 
+\begin{equation*}
+    t=1+r
+\end{equation*}
+also applies.
+
+\subsection{Impedance Compatibility}
+
+When a wave encounters the discontinuity at the boundary between two different strings, there will be a reﬂected wave. However, by inserting a third string between them, there will be two discontinuities each of which produces a reﬂection. 
+
+\begin{figure*}
+    \centering
+    \normfig{../../../Rss/CM/Waves/Tr/Compa.png}
+    \caption*{Figure: Two long strings of different mass per unit length connected by an intermediate piece of string.}
+\end{figure*}
+
+If we assume that the wavenumbers in the three strings are $k_3 > k_2 > k_1$, then the reﬂected waves $y_4$ and $y_5$ suffer a phase change of $\pi$ upon reﬂection. However, wave $y_5$ has to travel the additional distance $2L$ before it reaches $x=0$. Hence, there will be a phase difference $\Delta \phi$
+\begin{equation*}
+    \Delta\phi=2\pi\times \frac{2L}{2\lambda_2}
+\end{equation*}
+Since maximum destructive interference will occur when $\Delta \phi$ is equal to $\pi$
+\begin{equation*}
+    L=\frac{\lambda_2}{4}
+\end{equation*}
+
+Then, we consider reflected the amplitude $A_4$ of reﬂected wave $y_4$
+\begin{equation*}
+    A_4=r_{1}A_1
+\end{equation*}
+for amplitude $A_6$
+\begin{equation*}
+    A_6=t_1A_5=t_1r_2A_2=t_1r_2t_2A_1
+\end{equation*}
+Hence
+\begin{equation*}
+    \frac{A_6}{A_4}=\frac{t_1r_2t_2A_1}{r_{1}A_1}=\frac{r_2}{r_1}
+\end{equation*}
+where we have assumed that $t_1$ and $t_2$ are equal to unity. Putting $A_6 = A_4$ as required and subsituting the values of reflection coefficient, we get
+\begin{equation*}
+    k_2=\sqrt{k_1+k_3}
+\end{equation*}
+or
+\begin{equation*}
+    Z_2=\sqrt{Z_1+Z_3}
+\end{equation*}
+
+\subsection{Waves in Two Dimension}
+\begin{figure*}
+    \centering
+    \dfig{../../../Rss/CM/Waves/Tr/2D.png}
+    \dfig{../../../Rss/CM/Waves/Tr/2DProj.png}
+    \caption*{Figure: Taut membrane in the $xyz$ plane and its projection in the $xz$}
+\end{figure*}
+We start by considering waves on a taut membrane which is the two-dimensional analogue of the taut string. The membrane has a mass per unit area $\sigma$ and is stretched uniformly under surface tension S, which has units of force per unit length. From comparison with the one-dimensional result, we see that the resultant force acting on the element in the $x-z$ plane is given by
+\begin{equation*}
+    \sum F_{xz}=S\;dy\biggl[\frac{\partial z}{\partial x}\bigg|_x+\frac{\partial^2 z}{\partial x^2}dx-\frac{\partial z}{\partial x}\bigg|_x\biggr]=S\;dy\frac{\partial^2 z}{\partial x^2}dx
+\end{equation*}
+Similarly, the result force in the $y-z$ plane is given by
+\begin{equation*}
+    \sum F_{xz}=S\;dx\biggl[\frac{\partial z}{\partial y}\bigg|_y+\frac{\partial^2 z}{\partial y^2}dx-\frac{\partial z}{\partial y}\bigg|_y\biggr]=S\;dx\frac{\partial^2 z}{\partial y^2}dy    
+\end{equation*}
+Thus the total force acting on the element in the $z$-direction is equal to
+\begin{equation*}
+    \sum F_z=S\;dy\;dx\biggl[\frac{\partial^2 z}{\partial x^2}+\frac{\partial^2 z}{\partial y^2}\biggr]
+\end{equation*}
+
+Since the mass of the element is $\sigma\;dx\;dy$, we have as the equation of motion
+\begin{equation*}
+    \sigma dx dy \frac{\partial^2 z}{\partial t^2}=S\;dy\;dx\biggl[\frac{\partial^2 z}{\partial x^2}+\frac{\partial^2 z}{\partial y^2}\biggr]
+\end{equation*}
+giving
+\begin{equation*}
+    \frac{\partial^2 z}{\partial t^2}=\frac{S}{\sigma}\biggl[\frac{\partial^2 z}{\partial x^2}+\frac{\partial^2 z}{\partial y^2}\biggr]
+\end{equation*}
+This is the two-dimensional wave equation with
+\begin{equation*}
+    v=\sqrt{\frac{S}{\sigma}}
+\end{equation*}
+
+For a sinusoidal wave travelling in two dimensions, the corresponding solution of is
+\begin{equation*}
+    z(x,y,t)=A\cos k_1x+k_2y-\omega t
+\end{equation*}
+Substituting this solution into our equation gives
+\begin{equation*}
+    \omega^2=v^2(k_1^2+k_2^2)
+\end{equation*}
+and hence
+\begin{equation*}
+    v=\frac{\omega}{k}
+\end{equation*}
+with $k=\sqrt{k_1+k_2}$.
+
+$k_1$ and $k_2$ determine the direction of travel as well as the velocity $v$.
+\begin{align*}
+    \tan \alpha&=\frac{k_2}{k_1}\\
+    \tan\phi&=-\frac{k_1}{k_2}
+\end{align*}
+
+\begin{figure*}
+    \centering
+    \normfig{../../../Rss/CM/Waves/Tr/Wavefront.png}
+    \caption*{Figure: Wavefront}
+\end{figure*}
+
+\subsection{Waves of Circular Symmetry}
+In some situations the wavefronts are circular as in outgoing ripples on a pond. Then it is more appropriate to use the polar coordinate. In this coordinate system a point is speciﬁed in terms of $r, \theta,$ and $z$. Again, we specify the displacement of the element by $z=z(r,t)$. Then
+\begin{equation*}
+    \frac{\partial z}{\partial x}=\frac{\partial z}{\partial r}\frac{\partial r}{\partial x}
+\end{equation*}
+and
+\begin{equation*}
+    \frac{\partial^2 z}{\partial x^2}=\frac{\partial^2 z}{\partial r^2}\biggl(\frac{\partial r}{\partial x}\biggr)^2+ \frac{\partial z}{\partial r}\frac{\partial z}{\partial r}\frac{\partial^2 z}{\partial x^2}
+\end{equation*}
+We evaluate
+\begin{equation*}
+    \frac{\partial r}{\partial x}=\frac{\partial }{\partial x}(\sqrt{x^2+y^2}) = \frac{x}{r}
+\end{equation*}
+and
+\begin{equation*}
+    \frac{\partial^2 r}{\partial x^2}= \frac{y^2}{r^3}
+\end{equation*}
+Thus
+\begin{equation*}
+    \frac{\partial^2 z}{\partial x^2}= \frac{\partial^2 z}{\partial r^2}\biggl(\frac{x}{r}\biggr)^2 + \frac{y^2}{r^3}\frac{\partial z}{\partial r}
+\end{equation*}
+Similarly
+\begin{equation*}
+    \frac{\partial^2 z}{\partial y^2}= \frac{\partial^2 z}{\partial r^2}\biggl(\frac{y}{r}\biggr)^2 + \frac{x^2}{r^3}\frac{\partial z}{\partial r}
+\end{equation*}
+
+Substituting our result to the equation for two-dimensional wave, we get
+\begin{equation*}
+    \frac{\partial^2 z}{\partial r^2}+\frac{1}{r}\frac{\partial z}{\partial r}=\frac{1}{v^2}\frac{\partial^2 z}{\partial t^2}
+\end{equation*}
+This is the wave equation for two-dimensional waves of circular symmetry. Its solutions are special functions called Bessel functions. However, at sufﬁciently large values of r the second term on the left-hand side of becomes negligible compared with the ﬁrst. The equation then approximates to
+\begin{equation*}
+    \frac{\partial^2 z}{\partial r^2}=\frac{1}{v^2}\frac{\partial^2 z}{\partial t^2}
+\end{equation*}
+This equation has the same form as the one-dimensional wave equation and has analogous solutions such as
+\begin{equation*}
+    z(r,t)=A\cos kr-\omega t
+\end{equation*}
+where $v$ now corresponds to the radial velocity $dr/dt$. Hence, circular waves emanating from a point source become plane waves at large distances from the source.
+
+\subsection{Waves in Three Dimension}
+For the case of a wave propagating in a three-dimensional medium the wave equation becomes
+\begin{equation*}
+    \frac{1}{v^2}\frac{\partial^2 \psi}{\partial t^2}=  \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} + \frac{\partial^2 \psi}{\partial y^2}
+\end{equation*}
+with solution
+\begin{equation*}
+    \psi(x,y,z,t)=A\sin k_1x+k_2y+k_3z-\omega t
+\end{equation*}
+and the velocity $v$ is given by
+\begin{equation*}
+    v=\frac{\omega}{\sqrt{k_1^2+k_2^2+k_3^2}}
+\end{equation*}
+
+Spherical waves $\psi$ depends only on the radial distance $r = (x^2 + y^2 + z^2)^{1/2}$ and the time $t$. Hence, we can write $\psi = \psi(r, t)$ for which it can be shown that the wave equation is
+\begin{equation*}
+    \frac{\partial^2 \psi}{\partial r^2}+\frac{2}{r}\frac{\partial \psi}{\partial r}=\frac{1}{v^2} \frac{\partial^2 \psi}{\partial t^2}
+\end{equation*}
+To ﬁnd the solutions, we consider the quantity
+\begin{equation*}
+    u(r,t)=r\psi(r,t)
+\end{equation*}
+instead of $\psi(r,t)$. Then
+\begin{align*}
+    \frac{\partial u}{\partial r}&=r \frac{\partial \psi}{\partial r}+\psi\\
+    \frac{\partial u^2}{\partial r^2}&=r \frac{\partial^2 \psi}{\partial r^2}+2\psi
+\end{align*}
+giving
+\begin{align*}
+    \frac{\partial \psi}{\partial r}=\frac{1}{r}\biggl(\frac{\partial u}{\partial r}-\frac{u}{r}\biggr)\\
+    \frac{\partial \psi^2}{\partial r^2}=\frac{1}{r}\biggl[\frac{\partial^2 u}{\partial r^2}-\frac{2}{r}\biggl(\frac{\partial u}{\partial r}-\frac{u}{r}\biggr)\biggr]
+\end{align*}
+and
+\begin{equation*}
+    \frac{\partial^2 \psi}{\partial t^2}=\frac{1}{r}\frac{\partial^2 u}{\partial t^2}
+\end{equation*}
+Substituting our result to the wave equation, we get
+\begin{equation*}
+    \frac{\partial^2 u}{\partial r^2}=\frac{1}{v^2}\frac{\partial^2 u}{\partial t^2}
+\end{equation*}
+one-dimensional wave equation in the variable $u$, which satisfied by $u=A\cos \omega t - kr$. Thus
+\begin{equation*}
+    \psi=\frac{A}{r}\cos \omega t - kr
+\end{equation*}
+
+\end{document}

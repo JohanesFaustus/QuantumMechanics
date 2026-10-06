@@ -1,0 +1,206 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+\subsection{Maxwell Distribution} 
+Maxwell assumes that the random velocity of particles can be described by some probability distribution. He then derived the formula for average number of particles whose velocity lies between $(\mathbf{v},\mathbf{v}+d\mathbf{v})$. The single-particle distribution function $f(\mathbf{v})$ is given by Maxwell distribution:
+\begin{equation*}
+    f(\mathbf{v})\;d^3\mathbf{v}=\left(\frac{m}{2\pi k_B T}\right)^{3/2}\exp\left(-\frac{m v^2}{2k_B T}\right)d^3\mathbf{v}
+\end{equation*} 
+where $d^3\mathbf{v}=dv_x\; dv_y\; dv_z$. This can be simplified into
+\begin{equation*}
+    f(v)\;dv=4\pi N\left(\frac{m}{2\pi k_B T}\right)^{3/2}\int_{v_1}^{v_2} v^2\exp\left(-\frac{m v^2}{2k_B T}\right)\;dv
+\end{equation*}
+
+\subsection{Maxwell Distribution Derivation}
+Maxwell first noted that the distribution function $F(\mathbf{v})$ with res-pect to $x$-axis does not affect $F(\mathbf{v})$ with respect to $y$-axis and $z$-axis, since they are at right angle, orthogonal, and independent. Hence, He wrote that a particle velocity lies at $(\mathbf{v}, \mathbf{v}+d\mathbf{v})$ as 
+\begin{equation*}
+    F(\mathbf{v})\;d^3\mathbf{v}=f(v_x)f(x_y)f(v_z)\;dx\;dy\;dz
+\end{equation*}
+Then also argued that the probability only depend on the magnitude of $\mathbf{v}$, thus
+\begin{equation*}
+    f(v_x)f(x_y)f(v_z)= g(v_x^2+v_y^2+v_z^2)
+\end{equation*}
+should apply. This functional equation is solved by
+\begin{equation*}
+    f(\alpha)=Be^{-A\alpha^2}d\alpha
+\end{equation*}
+Substituting this solution back, we obtain 
+\begin{equation*}
+    F(\mathbf{v})=B \exp \left[-A\left(v_x^2+v_y^2+v_y^2\right)\right]
+\end{equation*}
+All that left is normalization
+\begin{equation*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} B \exp \left[-A\left(v_x^2+v_y^2+v_y^2\right)\right]\; d^3\mathbf{v}=1
+\end{equation*}
+The integral may be evaluated as three product of the same integral
+\begin{equation*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} \exp \left[-A\left(v_x^2+v_y^2+v_z^2\right)\right]\; d^3\mathbf{v} = \left(\int_{-\infty}^{\infty}e^{-A\alpha^2}d\alpha \right)^3
+\end{equation*}
+This is Gaussian integral if $A=1$, since it is not however, we substitute $\omega=A\alpha^2$ and $d\omega=\sqrt{A}d\alpha$
+\begin{equation*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} \exp \left[-A\left(v_x^2+v_y^2+v_y^2\right)\right]\; d^3\mathbf{v} = \left(\frac{1}{\sqrt{A}}\int_{-\infty}^{\infty}e^{-A\omega^2}d\omega\right)^3=\left(\frac{\pi}{2}\right)^{3/2}
+\end{equation*}
+It follows that the normalization constant is $B=(A/\pi)^{3/2}$. Putting it all together
+\begin{equation*}
+    F(\mathbf{v})= \left(\frac{A}{\pi}\right)^{3/2}e^{-Av^2}
+\end{equation*}
+with $v^2=v_x^2+v_y^2+v_z^2$. All that left then is to find the value of $A$, which is determined by some physical quantity--for no mathematics technique can determine the value of $A$.
+
+To do so, let us do some physics. Consider an area orthogonal to $x$-axis $dA$ of a container $V$ with $N$ particles of gases. The number of particles moving at positive $x$-axis is
+\begin{equation*}
+    dN=\frac{1}{V}N\;dV=\frac{Nv_{x+}}{V}\;dt\;dA
+\end{equation*}
+where $dV$ is the volume occupied by $dN$ particle
+\begin{equation*}
+    dV=v_{x+}\;dt\;dA
+\end{equation*}
+Each particle hits the wall with momentum $p$ and reflected--perfectly--back, thus changing its momentum 
+\begin{equation*}
+    p=mv_{x+}\implies dp=2mv_{v+}
+\end{equation*} 
+Hence the total change of momentum of particles $dN$
+\begin{equation*}
+    dp_{x}=dp\;dN=\frac{2mv_{x+}^2N}{V} \;dt\;dA
+\end{equation*}
+Since force is the change of momentum, we can say
+\begin{equation*}
+    F_{x}=\frac{dp_{x}}{dt}
+\end{equation*}
+Finally we can determine the one of macroscopic observable, which is pressure
+\begin{equation*}
+    P=\frac{F_x}{dA}=\frac{2mN}{V}\braket{v_{x+}^2}
+\end{equation*}
+
+The expression for pressure $P$ is not yet complete. We need to evaluate the term $\braket{v_{x+}^2}$. To do so, consider an observable $G(\mathbf{v})$, which is a function of $v$ alone. The observed value $\braket{G(\mathbf{v})}$ is 
+\begin{equation*}
+    \braket{G(\mathbf{v})}=\int\displaylimits_{\displaystyle\mathbb{R}^3} G(\mathbf{v}) F(\mathbf{v})d^3\mathbf{v} 
+\end{equation*}
+Since both $G$ and $F$ are a function of $v$ alone, the integral can be easily evaluated in spherical coordinate
+\begin{equation*}
+    \braket{G(\mathbf{v})}=\int\displaylimits_{0}^{2\pi} \int\displaylimits_{0}^{ \pi} \int\displaylimits_{0}^{\infty} 
+    G(v)F(v)v^2\sin\theta\;dv\;d\theta\;d\phi=4\pi  \int\displaylimits_{0}^{\infty} v^2G(v)F(v)\;dv
+\end{equation*}
+Next we will determine the expectation value of $\braket{v}$ and $\braket{v^2}$. For $\braket{v}$,we have
+\begin{equation*}
+    \braket{v}=\frac{4A^{3/2}}{\sqrt{\pi}} \int\displaylimits_{0}^{\infty} v^3 e^{-Av^2}\;dv=\frac{2A^{3/2}}{\sqrt{\pi A^{4}}}\Gamma\left(2\right)=\frac{2}{\sqrt{A\pi}}
+\end{equation*}
+As for $\braket{v^2}$, we find
+\begin{equation*}
+    \braket{v^2}=\frac{4A^{3/2}}{\sqrt{\pi}} \int\displaylimits_{0}^{\infty} v^4e^{-Av^2}\;dv
+    =\frac{2A^{3/2}}{\sqrt{\pi A^{5}}}\Gamma \left(\frac{5}{2} \right) =\frac{3}{2A}
+\end{equation*}
+Eliminating $A$
+\begin{equation*}
+    \begin{rcases*}
+    \dfrac{1}{A}=\dfrac{\pi }{4}\braket{v}^2\\
+    \dfrac{1}{A}=\dfrac{2}{3}\braket{v^2}
+    \end{rcases*}
+    \braket{v^2}=\frac{3\pi}{8}\braket{v}^2
+\end{equation*}
+As we stated before, our choice of axis is the one such that they are orthogonal, and independent. Thus,
+\begin{equation*}
+    \braket{v_x^2}=\braket{v_y^2}=\braket{v_z^2}=\frac{\braket{v_x^2+v_y^2 +v_z^2}}{3}
+\end{equation*}
+Since $\braket{v_{x+}^2}=\braket{v_{x}^2}/2$
+\begin{equation*}
+    \braket{v_{x+}^2}=\frac{\braket{v^2}}{6}
+\end{equation*}
+
+Substituting this into our expression for $P$
+\begin{equation*}
+    P=\frac{mN}{3V}\braket{v^2}=\frac{2N}{3V}u
+\end{equation*}
+where $u$ is the average kinetic energy per particles
+\begin{equation*}
+    u=\frac{1}{2}m\braket{v^2}
+\end{equation*}
+The equation above implies that for two gases with the same pressure, the equation
+\begin{equation*}
+    \frac{m_1N_1}{3V_1}\braket{v_1^2}=\frac{m_2 N_2}{3V_2}\braket{v_2^2}
+\end{equation*}
+should apply. Since we are considering an ideal gas, we can therefore invoke Avogadro's hypothesis and obtain
+\begin{equation*}
+    m_1\braket{v_1^2}=m_2\braket{v_2^2}
+\end{equation*}
+In other words, ideal gas with the same mass, number of particles, pressure, and volume, have the same amount of kinetic energy and obey both our equation of pressure $P$ and kinetic energy $u$. Now, using the equation of ideal gas, we have the relation
+\begin{equation*}
+    \frac{Nk_bT}{V}=\frac{mN}{3V}\braket{v^2}=\frac{2N}{3V}u
+\end{equation*}
+Solving for $u$ and $\braket{v^2}$
+\begin{equation*}
+    u=\frac{3}{2}k_bT\quad \text{and} \quad\braket{v^2}=3 \frac{k_bT}{m}
+\end{equation*}
+Result for $u$ also prove the same conclusion obtained from thermodynamics. Finally, we can solve for $A$ by using both results we obtained form $\braket{v^2}$
+\begin{equation*}
+    \braket{v^2}=3 \frac{k_bT}{m}=\frac{3}{2A} \implies A=\frac{m}{2k_BT}
+\end{equation*}
+
+To put a nice little bow over everything, we write the complete form of Maxwell distribution
+\begin{equation*}
+    F(\mathbf{v})=\left(\frac{m}{2\pi k_B T}\right)^{3/2}\exp\left(-\frac{mv^2}{2k_B T}\right) \quad\blacksquare
+\end{equation*}
+where, as before, $v^2=v_x^2+v_y^2+v_z^2$
+
+\subsection{Maxwell Distribution for Relative Velocities}
+Maxwell distribution also works on composite system. This is due to it also works on relative velocities. We shall prove this.
+
+Consider two system with $N_1$ and $N_2$ Particles. We then want to find the probability of pairs of particles whose relative velocity is $\mathbf{V}$. We define such probability density function as 
+\begin{equation*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} G(\mathbf{V}) \; d^3\mathbf{V} = \iint\displaylimits_{ \displaystyle \mathbb{R}^3} N_1 N_2 F_1(\mathbf{v}) F_2(\mathbf{v+V}) \; d^3\mathbf{v}\; d^3\mathbf{V}
+\end{equation*}
+To avoid ambiguity, we shall write it more explicitly as 
+\begin{multline*}
+    G(\mathbf{V}) = N_1 N_2 \left(\frac{m_1 m_2}{4\pi^2 k_B^2 T_1 T_2}\right)^{3/2} 
+    \exp\left[-\frac{m_1}{2k_B T_1 }\left( v_x^2+v_y^2+v_z^2 \right)\right] \\
+    \exp\left[-\frac{m_2}{2k_B T_2 }\left( \left\{v_x+V_x\right\}^2+ \left\{v_y+V_y\right\}^2 + \left\{v_z+V_z\right\}^2\right)\right] 
+\end{multline*}
+Then, as is the case from before, the integral can be evaluated as product of three identical integrals
+\begin{multline*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} G(\mathbf{V}) \; d^3\mathbf{V} =N_1 N_2 \left(\frac{m_1 m_2}{4\pi^2 k_B^2 T_1 T_2}\right)^{3/2} \\
+    \int_{\mathbb{R}^3}\left[  \int_{-\infty}^{\infty}\exp\left( -\frac{m_1}{2k_BT_1} \omega^2-\frac{m_2}{2k_BT_2}\left\{\omega + \Omega\right\}^2 \right)\;d\omega \right]^3\;d^3\mathbf{V}
+\end{multline*}
+\dots Scary integrals. Let's first try to evaluate the term inside square parenthesis
+\begin{equation*}
+    \int_{-\infty}^{\infty}\exp\left[-\left(\frac{m_1}{2k_BT_1} +\frac{m_2}{2k_BT_2} \right) \omega^2 -2\frac{m_2}{2k_BT_2}\Omega\omega -\frac{m_2}{2k_BT_2}\Omega^2\right] \;d\omega 
+\end{equation*}
+Since the last term is a constant, we can take it outside the integral
+\begin{equation*}
+    \exp\left[-\frac{m_2}{2k_BT_2}\Omega^2\right]\int_{-\infty}^{\infty}\exp\left[-\left(\frac{m_1T_2+ m_2T_1}{2k_BT_1T_2} \right) \omega^2 -\frac{m_2\Omega}{k_BT_2}\omega \right] \;d\omega 
+\end{equation*}
+The integral itself can be evaluated using the general form of Gaussian integral
+\begin{equation*}
+    \int_{-\infty}^{\infty}\exp \left( -\alpha x^2+\beta x+\gamma\right)\;dx= \sqrt{\frac{\pi}{\alpha}} \exp \left(\frac{\beta^2}{4\alpha}+\gamma\right)
+\end{equation*}
+Using the equation above
+\begin{equation*}
+    \exp\left[-\frac{m_2}{2k_BT_2}\Omega^2\right] \exp \left[\Omega^2\frac{m_2^2}{k_B^2T_2^2}\frac{1}{4}\frac{2k_BT_1T_2}{m_1T_2+ m_2T_1}\right]\left[\pi\frac{2k_BT_1T_2}{m_1T_2+ m_2T_1}\right]^{1/2}
+\end{equation*}
+Combining the exponent, we get 
+\begin{equation*}
+     \exp \left[\Omega^2 \left(\frac{m_2^2k_BT_1T_2}{2k_B T_2^2 (m_1T_2+ m_2T_1)}- \frac{m_2}{2k_BT_2}\right)\right] \left[\pi\frac{2k_BT_1T_2}{m_1T_2+ m_2T_1}\right]^{1/2}
+\end{equation*}
+Next simply evaluate the terms inside parenthesis 
+\begin{equation*}
+    \exp \left[\Omega^2 \left(\frac{m_2\left\{m_2k_BT_1T_2-m_1k_BT_2-m_2k_BT_1T_2\right\}}{2k_B T_2^2 (m_1T_2+ m_2T_1)}\right)\right] \left[\dots\right]^{1/2}
+\end{equation*}
+where I have taken some liberties to not write the last term constant due to \verb|\hbox overfull| problem. Anyway, we obtain
+\begin{equation*}
+    \exp \left[-\frac{m_2m_1k_BT_2T_2}{2k_B T_2^2 (m_1T_2+ m_2T_1)} \Omega^2 \right] \left[\pi\frac{2k_BT_1T_2}{m_1T_2+ m_2T_1}\right]^{1/2}
+\end{equation*}
+Before substituting back into our original integral, note that $\Omega$ is the dummy variable we used for the term $\mathbf{V}$; or rather $V_i$, where $i$ is $i$-th component of Cartesian coordinate. Hence,
+\begin{multline*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} G(\mathbf{V}) \; d^3\mathbf{V} =N_1 N_2 \left(\frac{m_1 m_2}{4\pi^2 k_B^2 T_1 T_2}\right)^{3/2} \\
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} \left[  \exp \left[-\frac{m_2m_1k_BT_2T_2}{2k_B T_2^2 (m_1T_2+ m_2T_1)} V_i^2 \right] \left[\frac{2\pi k_BT_1T_2}{m_1T_2+ m_2T_1}\right]^{1/2}\right]^3\;d^3\mathbf{V}
+\end{multline*}
+Recall that $V^2=V_x^2+V_y^2+V_z^2$, then we can simply our equation
+\begin{multline*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} G(\mathbf{V}) \; d^3\mathbf{V} 
+    =\int\displaylimits_{\displaystyle\mathbb{R}^3}N_1 N_2 \left(\frac{1}{2\pi k_B}\frac{m_1m_2}{m_1T_2+ m_2T_1}\right)^{3/2}\\
+    \exp \left[-\frac{m_2m_1}{2 (m_1T_2+ m_2T_1)} V^2\right] \;d^3\mathbf{V}
+\end{multline*}
+Since we are integrating over the same limit, we can conclude that 
+\begin{equation*}
+    G(\mathbf{V})= N_1 N_2 \left(\frac{1}{2\pi k_B}\frac{m_1m_2}{m_1T_2+ m_2T_1}\right)^{3/2}\\
+    \exp \left[-\frac{m_2m_1}{2 (m_1T_2+ m_2T_1)} V^2\right] 
+\end{equation*} 
+The equation above shows that the probability distribution function for composite system has the same form as Maxwell distribution, hence Maxwell distribution function also works on composite system. $\qed$
+\end{document}

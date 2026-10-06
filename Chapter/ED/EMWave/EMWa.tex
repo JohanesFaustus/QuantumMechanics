@@ -1,0 +1,238 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Wave Equation}
+The wave equation for electromagnetic waves are
+\begin{equation*}
+    \nabla^2\mathbf{E}=\mu_0\epsilon_0\frac{\partial^2\mathbf{E}}{\partial t^2},\quad\text{and}\quad \nabla^2\mathbf{B}=\mu_0\epsilon_0\frac{\partial^2\mathbf{B}}{\partial t^2},
+\end{equation*}
+Comparing to the classical wave equation, we have the speed at which the waves travel
+\begin{equation*}
+    v=\frac{1}{\sqrt{\mu_0\epsilon_0}}
+\end{equation*}
+
+\subsubsection{Derivation.}
+The Maxwell equations in empty space transform
+\begin{gather*}
+    \nabla\cdot\mathbf{E}=0\\
+    \nabla\cdot\mathbf{B}=0\\
+    \nabla\times\mathbf{E}=-\frac{\partial \mathbf{E}}{\partial t}\\
+    \nabla\times\mathbf{B}=\mu_0\epsilon_0\frac{\partial \mathbf{E}}{\partial t}
+\end{gather*}
+Applying curl into the curl of $\mathbf{E}$
+\begin{equation*}
+    \nabla\times\nabla\times\mathbf{E}=\nabla(\nabla\cdot\mathbf{E})-\nabla^2\mathbf{E}=-\nabla^2\mathbf{E}
+\end{equation*}
+We then equate it with
+\begin{equation*}
+    \nabla\times\nabla\times\mathbf{E}=\nabla\times\left(-\frac{\partial \mathbf{B}}{\partial t}\right)=-\frac{\partial}{\partial t}\nabla\times\mathbf{B}=-\mu_0\epsilon_0\frac{\partial^2\mathbf{B}}{\partial t^2}
+\end{equation*}
+to obtain the wave equation for electric wave
+\begin{equation*}
+    \nabla^2\mathbf{E}=\mu_0\epsilon_0\frac{\partial^2\mathbf{E}}{\partial t^2}
+\end{equation*}
+For the case of magnetic wave, we apply the curl into the curl of $\mathbf{B}$
+\begin{equation*}
+    \nabla\times\nabla\times\mathbf{B}=\nabla(\nabla\cdot\mathbf{B})-\nabla^2\mathbf{B}=-\nabla^2\mathbf{B}
+\end{equation*}
+and equate it with
+\begin{equation*}
+    \nabla\times\nabla\times\mathbf{B}=\nabla\times\left(\mu_0\epsilon_0\frac{\partial \mathbf{E}}{\partial t}\right)=\mu_0\epsilon_0\frac{\partial}{\partial t}\nabla\times\mathbf{E}=-\mu_0\epsilon_0\frac{\partial^2\mathbf{B}}{\partial t^2}
+\end{equation*}
+to obtain
+\begin{equation*}
+    \nabla^2\mathbf{B}=\mu_0\epsilon_0\frac{\partial^2\mathbf{B}}{\partial t^2}
+\end{equation*}
+
+\subsection{Monochromatic Plane Waves}
+The field of monochromatic plane waves are expressed as
+\begin{gather*}
+    \mathbf{E}(z,t)=\mathbf{E}_0e^{i(kz-\omega t)}\\
+    \mathbf{B}(z,t)=\mathbf{B}_0e^{i(kz-\omega t)}
+\end{gather*}
+This wave will propagate on the $z$ axis, but we can generalize it using wave vector $\mathbf{k}$ which points to direction of propagation and has the magnitude of wave number $k$
+\begin{equation*}
+    \mathbf{E}(\mathbf{r},t)=E_0e^{i(\mathbf{k}\cdot\mathbf{r}-\omega t)}\;\mathbf{\hat{n}},\quad\text{and}\quad
+    \mathbf{B}(\mathbf{r},t)=B_0e^{i(\mathbf{k}\cdot\mathbf{r}-\omega t)}\;\mathbf{\hat{n}}
+\end{equation*}
+where $\mathbf{\hat{n}}$ is the polarization vector and that $\mathbf{\hat{n}}\cdot\mathbf{\hat{k}}=0$ since electromagnetic waves are transversal.
+
+Maxwell equation also acts as constrain that yield the relation
+\begin{equation*}
+    \mathbf{B}=\frac{1}{c}\;\mathbf{\hat{z}}\times\mathbf{E}_0
+\end{equation*}
+or the general form
+\begin{equation*}
+    \mathbf{B}(\mathbf{r},t)=\frac{1}{c}\;\mathbf{\hat{k}}\times\mathbf{E}(\mathbf{r},t)
+\end{equation*}
+
+\subsubsection{Derivation.}
+Evaluate the curl of electric field for this case
+\begin{align*}
+    \nabla\times\mathbf{E} & =
+    \begin{vmatrix}
+        \mathbf{\hat{x}}              & \mathbf{\hat{y}}             & \mathbf{\hat{z}}              \\
+        \dfrac{\partial }{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial }{\partial z} \\
+        E_x                           & E_y                          & 0
+    \end{vmatrix}=-\frac{\partial E_y}{\partial z}\;\mathbf{\hat{x}}+\frac{\partial E_x}{\partial z}\;\mathbf{\hat{y}} \\
+    \nabla\times\mathbf{E} & =-E_{0y}ike^{i(kz-\omega t)}\mathbf{\hat{x}}-E_{0x}ike^{i(kz-\omega t)}\mathbf{\hat{y}}
+\end{align*}
+and the changes in magnetic field
+\begin{equation*}
+    -\frac{\partial \mathbf{B}}{\partial t}=-B_{0x}i\omega e^{i(kz-\omega t)}\mathbf{\hat{x}}-B_{0y}i\omega e^{i(kz-\omega t)}\mathbf{\hat{y}}
+\end{equation*}
+According to Maxwell equation, we can equate both to obtain
+\begin{equation*}
+    -E_{0y}k=B_{0x}\omega,\quad\text{and}\quad E_{0x}k=B_{0y}\omega
+\end{equation*}
+or
+\begin{equation*}
+    \mathbf{B}_0=\frac{k}{\omega}\;\mathbf{\hat{z}}\times\mathbf{E}_0
+\end{equation*}
+since
+\begin{align*}
+    B_{0x}\mathbf{\hat{x}}+  B_{0y}\mathbf{\hat{y}} & = \frac{1}{c}\;\mathbf{\hat{z}}\times(E_{0x}\mathbf{\hat{x}}+  E_{0y}\mathbf{\hat{y}}) \\
+    B_{0x}\mathbf{\hat{x}}+  B_{0y}\mathbf{\hat{y}} & = \frac{1}{c}(E_{0x}\mathbf{\hat{y}}-  E_{0y}\mathbf{\hat{x}})
+\end{align*}
+
+\subsection{Electromagnetic Wave in Matter}
+Inside matter, the Maxwell equations turn into
+\begin{gather*}
+    \nabla\cdot\mathbf{E}=0\\
+    \nabla\cdot\mathbf{B}=0\\
+    \nabla\times\mathbf{E}=-\frac{\partial \mathbf{E}}{\partial t}\\
+    \nabla\times\mathbf{B}=\mu\epsilon\frac{\partial \mathbf{E}}{\partial t}
+\end{gather*}
+With the wave equations
+\begin{equation*}
+    \nabla^2\mathbf{E}=\mu\epsilon\frac{\partial^2\mathbf{E}}{\partial t^2},\quad\text{and}\quad \nabla^2\mathbf{B}=\mu\epsilon\frac{\partial^2\mathbf{B}}{\partial t^2},
+\end{equation*}
+and the speed
+\begin{equation*}
+    v=\frac{1}{\sqrt{\mu\epsilon}}
+\end{equation*}
+On using the definition of refractive index $n=c/v$, we have
+\begin{equation*}
+    n=\sqrt{\frac{\epsilon\mu}{\epsilon_0\mu_0}}\approx\sqrt{\epsilon_r}
+\end{equation*}
+since for most material $\mu\approx\mu_0$.
+
+\subsection{Reflection and Transmission of Electromagnetic Wave}
+Consider a monochromatic plane wave
+\begin{equation*}
+    \tilde{\mathbf{E }}_I(\mathbf{r},t )=\tilde{E}_0e^{\mathbf{k}_I\cdot \mathbf{r}-\omega t}
+    \qquad
+    \tilde{\mathbf{B }}_I(\mathbf{r},t )=\frac{1 }{v_1}(\mathbf{k}_I \times \mathbf{\tilde{E}}_I)
+\end{equation*}
+approaches from the left, giving rise to a reﬂected wave,
+\begin{equation*}
+    \tilde{\mathbf{E }}_R(\mathbf{r},t )=\tilde{E}_0e^{\mathbf{k}_R\cdot \mathbf{r}-\omega t}
+    \qquad
+    \tilde{\mathbf{B }}_R(\mathbf{r},t )=\frac{1 }{v_1}(\mathbf{k}_R \times \mathbf{\tilde{E}}_R)
+\end{equation*}
+and transmitted  wave
+\begin{equation*}
+    \tilde{\mathbf{E }}_T(\mathbf{r},t )=\tilde{E}_0e^{\mathbf{k}_T\cdot \mathbf{r}-\omega t}
+    \qquad
+    \tilde{\mathbf{B }}_T(\mathbf{r},t )=\frac{1 }{v_1}(\mathbf{k}_T \times \mathbf{\tilde{E}}_T)
+\end{equation*}
+
+The boundary conditions for electromagnetic wave is the boundary conditions of Maxwell equation with zero charge
+\begin{align*}
+    \epsilon_1 E_1^{\perp}                   & =  \epsilon_2 E_2^{\perp}                   \\
+    \mathbf{B}_1^{\perp}                     & =  \mathbf{B}_2^{\perp}                     \\
+    \mathbf{E}_1^{\parallel}                 & =  \mathbf{E}_2^{\parallel}                 \\
+    \frac{1}{\mu_1} \mathbf{B}_1^{\parallel} & =  \frac{1}{\mu_2} \mathbf{B}_2^{\parallel} \\
+\end{align*}
+With the supposed wave, this now reads
+\begin{align*}
+    \epsilon_1 \left(\mathbf{\tilde{E}}_{0I} + \mathbf{\tilde{E}}_{0R}\right)_{z}        & =  \epsilon_2 \left(\mathbf{\tilde{E}}_{0T}\right)_{z}       \\
+    \left(\mathbf{\tilde{B}}_{0I} + \mathbf{\tilde{B}}_{0R}\right)_{z}                   & = \left(\mathbf{\tilde{B}}_{0T}\right)_{z}                   \\
+    \left(\mathbf{\tilde{E}}_{0I} + \mathbf{\tilde{E}}_{0R}\right)_{x,y}                 & = \left(\mathbf{\tilde{E}}_{0T}\right)_{x,y}                 \\
+    \frac{1}{\mu_1} \left(\mathbf{\tilde{B}}_{0I} + \mathbf{\tilde{B}}_{0R}\right)_{x,y} & = \frac{1}{\mu_2} \left(\mathbf{\tilde{B}}_{0T}\right)_{x,y}
+\end{align*}
+First condition gives
+\begin{equation*}
+    \epsilon_1 (-\tilde{E}_{0_I} \sin \theta_I + \tilde{E}_{0_R} \sin \theta_R) = \epsilon_2(-\tilde{E}_{0_T} \sin \theta_T)
+\end{equation*}
+The second gives nothing, since the magnetic field have no $z$ components.
+The third gives
+\begin{equation*}
+    \tilde{E}_{0_{I}} \cos{\theta_{I}} + \tilde{E}_{0_{R}} \cos{\theta_{R}} = \tilde{E}_{0_{T}} \cos{\theta_{T}}
+\end{equation*}
+The fourth gives
+\begin{equation*}
+    \frac{1}{\mu_1 v_1} \left( \tilde{E}_{0_I} - \tilde{E}_{0_R} \right) = \frac{1}{\mu_2 v_2} \tilde{E}_{0_T}
+\end{equation*}
+Using the laws of reflection and reflection, the first and the fourth conditions reads
+\begin{equation*}
+    \tilde{E}_{0_{I}} - \tilde{E}_{0_{R}} = \beta \tilde{E}_{0_{T}}
+\end{equation*}
+where
+\begin{equation*}
+    \beta \equiv \frac{\mu_1 v_1}{\mu_2 v_2} = \frac{\mu_1 n_2}{\mu_2 n_1}
+\end{equation*}
+We also can rewrite the third condition as
+\begin{equation*}
+    \tilde{E}_{0_{I}} + \tilde{E}_{0_{R}}  = \alpha\tilde{E}_{0_{T}}
+\end{equation*}
+where
+\begin{equation*}
+    \alpha \equiv \frac{\cos \theta_T }{\cos  \theta_I}
+\end{equation*}
+Then, solving for the transmitted amplitude, we obtain the Fresnel’s equations
+\begin{align*}
+    \tilde{E}_{0R} & =  \left(\frac{\alpha - \beta}{\alpha + \beta}\right)\tilde{E}_{0I} \\
+    \tilde{E}_{0T} & =  \left(\frac{2}{\alpha + \beta}\right)\tilde{E}_{0I}
+\end{align*}
+
+\begin{figure}[b]
+    \centering
+    \normfig{../../../Rss/ED/EM/ RTRT}
+    \caption*{Figure: Incident, reflected, and transmitted waves}
+\end{figure}
+
+We then define the Brewster angle $\theta_B$  at which the reﬂected wave is completely extinguished $E_R=0$.
+At this angle, the reflected ray is fully s-polarized (normal), because the p-component (parallel) is extinguished.
+This occurs when $\alpha=\beta$, or
+\begin{equation*}
+    \sin^2  \theta_B =\frac{1-\beta^2 }{(n_1/n_2)^2-\beta^2}
+\end{equation*}
+For the typical case $\mu_1 \approx\mu_2$, so "$\beta\approx n_2/n_1$ and
+\begin{align*}
+    \sin^2 \theta_B & = \frac{1 - \beta^2}{(n_1/n_2)^2 - \beta^2}
+    =  \frac{1 - \beta^2}{{1}/{\beta^2} - \beta^2}
+    =  \frac{1 - \beta^2}{(1 - \beta^4)/{\beta^2}}                     \\
+                    & =  \beta^2 \cdot \frac{1 - \beta^2}{1 - \beta^4}
+    =  \frac{\beta^2}{1 + \beta^2}.
+\end{align*}
+With $\sin^2 \theta_B + \cos^2 \theta_B = 1$
+\begin{equation*}
+    \cos^2 \theta_B = 1 - \frac{\beta^2}{1 + \beta^2}
+    = \frac{1 + \beta^2 - \beta^2}{1 + \beta^2}
+    = \frac{1}{1 + \beta^2}
+\end{equation*}
+and hence
+\begin{equation*}
+    \tan^2 \theta_B = \frac{\sin^2 \theta_B}{\cos^2 \theta_B}
+    = \frac{{\beta^2}/{1 + \beta^2}}{{1}/{(1 + \beta^2)}}
+    = \beta^2\approx \frac{n_2 }{n_1}
+\end{equation*}
+
+The power per unit area striking the interface is $\mathbf{S}\cdot \mathbf{\hat{z}}$, with $S=\epsilon v E_0^2/2$.
+Thus the incident intensity
+\begin{equation*}
+    I_I=\frac{1 }{2}\epsilon_Iv_IE_{0I}^2\cos \theta_I
+\end{equation*}
+while the reﬂected and transmitted intensities are
+\begin{equation*}
+    I_I=\frac{1 }{2}\epsilon_Iv_IE_{0I}^2\cos \theta_I
+    I_I=\frac{1 }{2}\epsilon_Iv_IE_{0I}^2\cos \theta_I
+\end{equation*}
+
+The reﬂection and transmission coefﬁcients for waves polarized parallel to the plane of incidence are
+\begin{align*}
+    R & \equiv \frac{I_{R}}{I_{I}} = \left(\frac{E_{0_{R}}}{E_{0_{I}}}\right)^{2} = \left(\frac{\alpha - \beta}{\alpha + \beta}\right)^{2}                                                                                      \\
+    T & \equiv \frac{I_{T}}{I_{I}} = \frac{\epsilon_{2}v_{2}}{\epsilon_{1}v_{1}} \left(\frac{E_{0_{T}}}{E_{0_{I}}}\right)^{2} \frac{\cos \theta_{T}}{\cos \theta_{I}} = \alpha \beta \left(\frac{2}{\alpha + \beta}\right)^{2}.
+\end{align*}
+
+\end{document}

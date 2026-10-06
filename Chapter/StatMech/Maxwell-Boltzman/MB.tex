@@ -1,0 +1,581 @@
+\documentclass[../../../Main.tex]{subfiles}
+
+\begin{document}
+\subsection{Maxwell-Boltzman Distribution} 
+Maxwell assumes that the random velocity of particles can be described by some probability distribution. He then derived the formula for average number of particles whose velocity lies between $(\mathbf{v},\mathbf{v}+d\mathbf{v})$. The 3D distribution function $f(\mathbf{v})$ is given by Maxwell distribution:
+\begin{equation*}
+    n(\mathbf{v})\;d^3\mathbf{v}=N\left(\frac{m}{2\pi k T}\right)^{3/2}\exp\left(-\frac{m v^2}{2k T}\right)d^3\mathbf{v}
+\end{equation*} 
+where $v^2=v_x^2+v_y^2+v_z^2$ and $d^3\mathbf{v}=dv_x\; dv_y\; dv_z$. The single component distribution is given by 
+\begin{equation*}
+    n(v_x)\;dv_x=N\left(\frac{m}{2\pi k T}\right)^{1/2}\exp\left(-\frac{m v_x^2}{2k T}\right)dv_x
+\end{equation*} This can be transformed into speed distribution function as 
+\begin{equation*}
+    n(v)\;dv=4\pi N\left(\frac{m}{2\pi k T}\right)^{3/2}v^2\exp\left(-\frac{m v^2}{2k T}\right)\;dv
+\end{equation*}
+
+By using $\mathbf{v}=\mathbf{p}/m$ and $d^3\mathbf{v}=d^3\mathbf{p}/m^3$, we can also express it in terms of momentum
+\begin{equation*}
+    n(\mathbf{p})\; d^3\mathbf{p}=N\left(\frac{1}{2\pi mkT}\right)^{3/2}\exp\left(-\frac{p^2}{2mkT}\right)\; d^3\mathbf{p}
+\end{equation*}
+and 
+\begin{equation*}
+    n(p)\; dp=4\pi N \left(\frac{1}{ 2\pi mkT}\right)^{3/2}p^2\exp\left(-\frac{p^2}{2mkT}\right)\;dp
+\end{equation*}
+
+In terms of energy, the distribution function is given by 
+\begin{equation*}
+    n(E)\;dE=\frac{2\pi N}{(\pi kT)^{3/2}}\sqrt{E}\exp\left(-\frac{E}{k_BT}\right)\;dE
+\end{equation*}
+
+In general, the number of particle in $g(E)$ energy state is 
+\begin{equation*}
+    n(E)\;dE\approx g(E)\exp\left(-\frac{E}{kT}\right)\;dE
+\end{equation*}
+
+\subsection{Maxwell's Derivation}
+Maxwell first noted that the distribution function $F(\mathbf{v})$ with res-pect to $x$-axis does not affect $F(\mathbf{v})$ with respect to $y$-axis and $z$-axis, since they are at right angle, orthogonal, and independent. Hence, He wrote that a particle velocity lies at $(\mathbf{v}, \mathbf{v}+d\mathbf{v})$ as 
+\begin{equation*}
+    F(\mathbf{v})\;d^3\mathbf{v}=f(v_x)f(v_y)f(v_z)\;dv_x\;dv_y\;dv_z
+\end{equation*}
+Then also argued that the probability only depend on the magnitude of $\mathbf{v}$, thus
+\begin{equation*}
+    f(v_x)f(v_y)f(v_z)= g(v_x^2+v_y^2+v_z^2)
+\end{equation*}
+should apply. This functional equation is solved by
+\begin{equation*}
+    f(\alpha)=Be^{-A\alpha^2}d\alpha
+\end{equation*}
+Substituting this solution back, we obtain 
+\begin{equation*}
+    F(\mathbf{v})=B \exp \left[-A\left(v_x^2+v_y^2+v_y^2\right)\right]
+\end{equation*}
+All that left is normalization
+\begin{equation*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} B \exp \left[-A\left(v_x^2+v_y^2+v_y^2\right)\right]\; d^3\mathbf{v}=1
+\end{equation*}
+The integral may be evaluated as three product of the same integral
+\begin{equation*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} \exp \left[-A\left(v_x^2+v_y^2+v_z^2\right)\right]\; d^3\mathbf{v} = \left(\int_{-\infty}^{\infty}e^{-A\alpha^2}d\alpha \right)^3
+\end{equation*}
+with $\alpha$ as dummy variable. This is Gaussian integral if $A=1$, since it is not however, we substitute $\omega=A\alpha^2$ and $d\omega=\sqrt{A}d\alpha$
+\begin{equation*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} \exp \left[-A\left(v_x^2+v_y^2+v_y^2\right)\right]\; d^3\mathbf{v} = \left(\frac{1}{\sqrt{A}}\int_{-\infty}^{\infty}e^{-A\omega^2}d\omega\right)^3=\left(\frac{\pi}{2}\right)^{3/2}
+\end{equation*}
+It follows that the normalization constant is $B=(A/\pi)^{3/2}$. Putting it all together
+\begin{equation*}
+    F(\mathbf{v})= \left(\frac{A}{\pi}\right)^{3/2}e^{-Av^2}
+\end{equation*}
+with $v^2=v_x^2+v_y^2+v_z^2$. All that left then is to find the value of $A$, which is determined by some physical quantity--for no mathematics technique can determine the value of $A$.
+
+To do so, let us do some physics. Consider an area orthogonal to $x$-axis $dA$ of a container $V$ with $N$ particles of gases. The number of particles moving at positive $x$-axis is
+\begin{equation*}
+    dN=\frac{N}{V}\;dV=\frac{N}{V}v_{x+}\;dA\;dt
+\end{equation*}
+where $dV$ is the volume occupied by $dN$ particle
+\begin{equation*}
+    dV=v_{x+}\;dt\;dA
+\end{equation*}
+Each particle hits the wall with momentum $p$ and reflected--perfectly--back, thus changing its momentum 
+\begin{equation*}
+    p=mv_{x+}\implies dp=2mv_{v+}
+\end{equation*} 
+Hence the total change of momentum of particles $dN$
+\begin{equation*}
+    dp_{x}=dp\;dN=\frac{2mv_{x+}^2N}{V} \;dt\;dA
+\end{equation*}
+Since force is the change of momentum, we can say
+\begin{equation*}
+    F_{x}=\frac{dp_{x}}{dt}
+\end{equation*}
+Finally we can determine the one of macroscopic observable, which is pressure
+\begin{equation*}
+    P=\frac{F_x}{dA}=\frac{2mN}{V}\braket{v_{x+}^2}
+\end{equation*}
+
+The expression for pressure $P$ is not yet complete. We need to evaluate the term $\braket{v_{x+}^2}$. To do so, consider an observable $G(\mathbf{v})$, which is a function of $v$ alone. The observed value $\braket{G(\mathbf{v})}$ is 
+\begin{equation*}
+    \braket{G(\mathbf{v})}=\int\displaylimits_{\displaystyle\mathbb{R}^3} G(\mathbf{v}) F(\mathbf{v})d^3\mathbf{v} 
+\end{equation*}
+Since both $G$ and $F$ are a function of $v$ alone, the integral can be easily evaluated in spherical coordinate
+\begin{equation*}
+    \braket{G(\mathbf{v})}=\int\displaylimits_{0}^{2\pi} \int\displaylimits_{0}^{ \pi} \int\displaylimits_{0}^{\infty} 
+    G(v)F(v)v^2\sin\theta\;dv\;d\theta\;d\phi=4\pi  \int\displaylimits_{0}^{\infty} v^2G(v)F(v)\;dv
+\end{equation*}
+Next we will determine the expectation value of $\braket{v}$ and $\braket{v^2}$. For $\braket{v}$,we have
+\begin{equation*}
+    \braket{v}=\frac{4A^{3/2}}{\sqrt{\pi}} \int\displaylimits_{0}^{\infty} v^3 e^{-Av^2}\;dv=\frac{2A^{3/2}}{\sqrt{\pi A^{4}}}\Gamma\left(2\right)=\frac{2}{\sqrt{A\pi}}
+\end{equation*}
+As for $\braket{v^2}$, we find
+\begin{equation*}
+    \braket{v^2}=\frac{4A^{3/2}}{\sqrt{\pi}} \int\displaylimits_{0}^{\infty} v^4e^{-Av^2}\;dv
+    =\frac{2A^{3/2}}{\sqrt{\pi A^{5}}}\Gamma \left(\frac{5}{2} \right) =\frac{3}{2A}
+\end{equation*}
+Eliminating $A$
+\begin{equation*}
+    \begin{rcases*}
+    \dfrac{1}{A}=\dfrac{\pi }{4}\braket{v}^2\\
+    \dfrac{1}{A}=\dfrac{2}{3}\braket{v^2}
+    \end{rcases*}
+    \braket{v^2}=\frac{3\pi}{8}\braket{v}^2
+\end{equation*}
+As we stated before, our choice of axis is the one such that they are orthogonal, and independent. Thus,
+\begin{equation*}
+    \braket{v_x^2}=\braket{v_y^2}=\braket{v_z^2}=\frac{\braket{v_x^2+v_y^2 +v_z^2}}{3}
+\end{equation*}
+Since $\braket{v_{x+}^2}=\braket{v_{x}^2}/2$
+\begin{equation*}
+    \braket{v_{x+}^2}=\frac{\braket{v^2}}{6}
+\end{equation*}
+
+Substituting this into our expression for $P$
+\begin{equation*}
+    P=\frac{mN}{3V}\braket{v^2}=\frac{2N}{3V}u
+\end{equation*}
+where $u$ is the average kinetic energy per particles
+\begin{equation*}
+    u=\frac{1}{2}m\braket{v^2}
+\end{equation*}
+The equation above implies that for two gases with the same pressure, the equation
+\begin{equation*}
+    \frac{m_1N_1}{3V_1}\braket{v_1^2}=\frac{m_2 N_2}{3V_2}\braket{v_2^2}
+\end{equation*}
+should apply. Since we are considering an ideal gas, we can therefore invoke Avogadro's hypothesis and obtain
+\begin{equation*}
+    m_1\braket{v_1^2}=m_2\braket{v_2^2}
+\end{equation*}
+In other words, ideal gas with the same mass, number of particles, pressure, and volume, have the same amount of kinetic energy and obey both our equation of pressure $P$ and kinetic energy $u$. Now, using the equation of ideal gas, we have the relation
+\begin{equation*}
+    \frac{NkT}{V}=\frac{mN}{3V}\braket{v^2}=\frac{2N}{3V}u
+\end{equation*}
+Solving for $u$ and $\braket{v^2}$
+\begin{equation*}
+    u=\frac{3}{2}kT\quad \text{and} \quad\braket{v^2}=3 \frac{kT}{m}
+\end{equation*}
+Result for $u$ also prove the same conclusion obtained from thermodynamics. Finally, we can solve for $A$ by using both results we obtained form $\braket{v^2}$
+\begin{equation*}
+    \braket{v^2}=3 \frac{kT}{m}=\frac{3}{2A} \implies A=\frac{m}{2kT}
+\end{equation*}
+
+To put a nice little bow over everything, we write the complete form of Maxwell distribution
+\begin{equation*}
+    f(\mathbf{v})=\left(\frac{m}{2\pi k T}\right)^{3/2}\exp\left(-\frac{mv^2}{2k T}\right) \quad\blacksquare
+\end{equation*}
+where, as before, $v^2=v_x^2+v_y^2+v_z^2$
+\subsection{Boltzmann's Derivation}
+We will now derive the Maxwell distribution using Boltzmann's method. Let $n_\mathbf{k}$ be the number of particle whose velocity lies within $(\boldsymbol{\epsilon}\mathbf{v},\boldsymbol{\epsilon}\mathbf{v}+\boldsymbol{\epsilon})$, so
+\begin{equation*}
+    n_\mathbf{k}=\boldsymbol{\epsilon}f(\mathbf{kv})
+\end{equation*}
+and as $\boldsymbol{\epsilon}\rightarrow0$
+\begin{equation*}
+    n=f(\mathbf{v})\lim_{\boldsymbol{\epsilon}\rightarrow0}\boldsymbol{\epsilon}=f(\mathbf{v})\;d^3v
+\end{equation*}
+As before, we want to find the equilibrium distribution function, $f(\mathbf{ v})$ in this case, by maximizing the said distribution function, constrained by $N$ and $Nu$ function. The $N$ constraint simply evaluate into 
+\begin{equation*}
+    N=\int_{\mathbb{R}^3}  f(\mathbf{v})\;d^3v
+\end{equation*}
+Recall that $Nu$ stands for total energy. In the present case, we involve velocity into our consideration, hence the energy in question is the kinetic energy, which is evaluated by
+\begin{equation*}
+    Nu=\frac{m}{2}\braket{v^2}=\frac{m}{2}\int_{\mathbb{R}^3} v^2f(\mathbf{v})\;d^3v
+\end{equation*} 
+Since $f(\mathbf{v})$ is a function of $v$ alone, we can make the change of variable $d^3v=v^2\sin\theta\;dv\,; d\theta\; d\phi$. Thus, our constraint equations read
+\begin{equation*}
+    4\pi\int_{0}^{\infty}v^2f(\mathbf{v})\;dv=N, \quad 4\pi \int_{0}^{\infty}v^4f(\mathbf{v})\;dv=Nu
+\end{equation*}
+
+We then consider the number of configuration $\mathcal{P}$, which is given by 
+\begin{equation*}
+    \mathcal{P}=\prod_{\mathbf{k}=-\infty}^{\infty}\frac{N!}{n_\mathbf{k}!}
+\end{equation*}
+Taking the logarithm and applying Stirling's approximation,
+\begin{align*}
+    \ln \mathcal{P}=N\ln N-N-\sum_{\mathbf{k=-\infty}}^{\infty}\left(n_\mathbf{k}\ln n_\mathbf{k}-n_\mathbf{k} \right)
+\end{align*}
+Taking the limit $\boldsymbol{\epsilon}\rightarrow0$
+\begin{align*}
+    \ln \mathcal{P}&=N\ln N-N - \int_{\mathbb{R}^3}f(\mathbf{v})\ln [f(\mathbf{v})]\;d^3v - \lim_{\boldsymbol{\epsilon}\rightarrow0} \int_{\mathbb{R}^3}f(\mathbf{v})\ln (\boldsymbol{\epsilon})\;d^3v\\
+    &\quad+\int_{\mathbb{R}^3}f(\mathbf{v})\;d^3v\\
+    \ln \mathcal{P}&=N\ln N - \int_{\mathbb{R}^3}f(\mathbf{v})\ln [f(\mathbf{v})]\;d^3v -N\lim_{\boldsymbol{\epsilon}\rightarrow0}\ln (\boldsymbol{\epsilon})
+\end{align*}
+
+To maximize the logarithm of $\mathcal{P}$, we defined permutability measure by 
+\begin{equation*}
+    \Omega = - \int_{\mathbb{R}^3}f(\mathbf{v})\ln [f(\mathbf{v})]\;d^3v
+\end{equation*}
+and maximize it with the $N$ and $Nu$ constraint. We use the first form of those constraints, since they look simpler, and use the second form to evaluate the resulting maximized function, since we can't evaluate it using the first form. Anyway, the auxiliary function reads as
+\begin{equation*}
+    F(f)=\int_{\mathbb{R}^3} \left[f\ln (f)+\lambda_1f+\lambda_2\frac{m}{2}v^2f\right]\;d^3v
+\end{equation*}
+As for its derivative,
+\begin{equation*}
+    \frac{dF}{df}=\int_{\mathbb{R}^3} \left[\ln(f)+1+\lambda_1+\lambda_2\frac{m}{2}v^2\right]\;d^3v=0
+\end{equation*}
+which implies
+\begin{equation*}
+    \ln(f)+1+\lambda_1+\lambda_2\frac{m}{2}v^2=0
+\end{equation*}
+Thus
+\begin{equation*}
+    f(\mathbf{v})=\exp \left(-1-\lambda_1-\lambda_2\frac{m}{2}v^2\right)=C\exp\left(-\frac{\lambda_2m}{2}v^2\right)
+\end{equation*}
+We now use this to evaluate both constraints and determine the value for each constant. For the $N$ constraint
+\begin{multline*}
+    N=4\pi\int_{0}^{\infty}v^2C\exp\left(-\frac{\lambda_2m}{2}v^2\right)\; dv=\frac{4\pi C}{2}\left(\frac{2}{m\lambda_2}\right)^{3/2}\frac{\sqrt{\pi}}{2}\\
+    = C\left(\frac{2\pi}{m\lambda_2}\right)^{3/2}
+\end{multline*} 
+Then the $Nu$ constraint
+\begin{multline*}
+    Nu=4\pi \int_{0}^{\infty}v^4C\exp\left(-\frac{\lambda_2m}{2}v^2\right)\;dv = \frac{4\pi Cm}{4} \left(\frac{2}{m\lambda_2}\right)^{5/2}\frac{3\sqrt{\pi}}{4}\\
+    =\frac{3}{4} Cm\left(\frac{2\pi^{3/5}}{m\lambda_2}\right)^{5/2}
+\end{multline*}
+Solving both for $N$ and equating them 
+\begin{align*}
+    C\left(\frac{2\pi}{m\lambda_2}\right)^{3/2} & = \frac{3}{4u} Cm\left(\frac{2\pi^{3/5}}{m\lambda_2}\right)^{5/2}\\
+    \frac{4u}{3}&=\frac{2m}{m\lambda_2}\\
+    \lambda_2&=\frac{3}{2u}
+\end{align*}
+On using this to the previously evaluated $N$ constraint
+\begin{equation*}
+    N=C\left(\frac{2\pi}{m}\frac{2u}{3}\right)^{3/2}\implies C=N \left(\frac{3m}{4\pi u}\right)^{3/2}
+\end{equation*}
+Hence
+\begin{equation*}
+    f(\mathbf{v})=C\exp\left(-\frac{\lambda_2m}{2}v^2\right)= N \left(\frac{3m}{4\pi u}\right)^{3/2}\exp\left(-\frac{3m}{4u}v^2\right)\quad\blacksquare
+\end{equation*}
+
+
+\subsection{Einstein's Derivation}
+The number of way to distribute $N_E$ distinct particle into $P_E$ distinct cells is 
+\begin{equation*}
+    \mathcal{P}_e=P_E^{N_E}
+\end{equation*}
+where
+\begin{equation*}
+    P_E=\frac{2\pi}{h^3}V(2m)^{3/2}\sqrt{E}\;dE
+\end{equation*}
+Hence the number of distribution for all energy interval is 
+\begin{equation*}
+    \mathcal{P}_E=\prod_{E=0}^{\infty}P_E^{N_E}
+\end{equation*}
+The total number of configuration is obtained by multiplying the number of configuration for distinct case $\mathcal{P}_E$ by the number of ways to distribute $N_E$ particle from $N$
+\begin{equation*}
+    \mathcal{P}=N! \prod_{E} \frac{P_E^{N_E}}{N_E!}
+\end{equation*}
+By applying Stirling's approximation, the logarithm reads
+\begin{align*}
+    \ln \mathcal{P}&=\sum_E N_E \ln P_E+ N\ln N -N-\sum_E N_E \ln N_E+ N_E\\
+    \ln \mathcal{P}&=\sum_E N_E \ln \left(\frac{P_E}{N_E}\right)+ N\ln (N)
+\end{align*} 
+Then define the following function according to Lagrange's method
+\begin{equation*}
+    F=\sum_E N_E \ln \left(\frac{P_E}{N_E}\right)+ N\ln (N) +\lambda_1\sum_E N_E +\lambda_2\sum_E EN_E
+\end{equation*}
+where we have used the $N$ and $U$ constraints. Then set its derivative to zero 
+\begin{equation*}
+    \ln \left(\frac{P_E}{N_E}\right)-1+\lambda_1+\lambda_2E=0
+\end{equation*}
+Solving for $N_E$
+\begin{align*}
+    \frac{P_E }{N_E}&=C_1\exp\left(-\lambda_2E\right)\\
+    N_E&=P_E C_2 \exp\left(-\beta E\right)
+\end{align*}
+Inserting this into $N$ constraint
+\begin{equation*}
+    N=\sum_E P_E C_2 e^{-\beta E}= \frac{2\pi}{h^3}V(2m)^{3/2} C_2\int_{0}^{\infty} \sqrt{E}e^{-\beta E}\;dE
+\end{equation*}
+
+The integral is solved as follows. Consider
+\begin{equation*}
+    I=\int_{0}^{\infty} \sqrt{x}e^{-ax}\;dx
+\end{equation*}
+Make change of variable $u=-ax$. We have then $d\alpha=-a\;dx$ and $\sqrt{x}=i\sqrt{\alpha/a}$. The integral then reads
+\begin{equation*}
+    I=-\frac{i}{a^{3/2}}\int_{0}^{-\infty}\sqrt{\alpha}e^\alpha\;d\alpha
+\end{equation*}
+By choosing $u=\sqrt{\alpha}$ and $dv=e^\alpha$, consequently we have $du=1/2 \sqrt{\alpha}$ and $v=e^\alpha$. Using method of integral by parts,
+\begin{equation*}
+    I=-\frac{i}{a^{3/2}}\left[e^\alpha \sqrt{\alpha}\bigg|_{0}^{-\infty} -\int_{0 }^{-\infty }\frac{e^\alpha}{2\sqrt{\alpha}}\;d\alpha\right] =\frac{i}{2a^{3/2}}\int_{0 }^{- \infty }\frac{e^\alpha}{\sqrt{\alpha}}\;d\alpha
+\end{equation*}
+We again make the change of variable $t^2=\alpha$; which implies $d\alpha=2t \;dt$. Although in this case, the lower limit remains the same, namely zero, the upper limit has two possible value due to quadratic nature of our variable
+\begin{equation*}
+    t^2=-\infty\implies t=\pm \infty i
+\end{equation*}
+The value we pick is the negative one; this is due to the nature of logarithm. Recalling the definition of imaginary error function. The integral above can be recast as 
+\begin{equation*}
+    I= \frac{i}{a^{3/2}}\int_{0 }^{- \infty i}e^{t^2} \;dt=\frac{i\pi}{2a^{3/2}}\erfi(- \infty i)
+\end{equation*}
+Hence, the result is
+\begin{equation*}
+    I=\frac{\pi}{2a^{3/2}}
+\end{equation*}
+a positive value. For positive value $t=-\infty i$, the resulting integral will be negative instead. We want the positive value of the integral since we will be taking the logarithm. Positive argument will ensure the value of our logarithm is real, since it represent the logarithm of number a configuration, which is positive real. 
+
+Now plugging the result of previous integral, we have
+\begin{equation*}
+    N=\frac{2\pi}{h^3}V(2m)^{3/2}C_2\frac{\sqrt{\pi}}{2\beta^{3/2}}=C_2V\left(\frac{2\pi m}{h^2\beta}\right)^{3/2}
+\end{equation*}
+or by solving of $C_2$, 
+\begin{equation*}
+    C_2=\frac{N}{V} \left(\frac{h^2\beta}{2\pi m}\right)^{3/2}
+\end{equation*}
+And by plugging this into $N_E$, we also have 
+\begin{equation*}
+    N_E=\frac{N}{V}P_E \exp\left(-\beta E\right) \left(\frac{h^2\beta}{2\pi m}\right)^{3/2}
+\end{equation*}
+
+The logarithm of maximum configuration then 
+\begin{align*}
+    \ln \mathcal{P}_{\max}&=\sum_E N_E\ln\left[ \frac{V}{N}\exp\left(\beta E\right) \left(\frac{2\pi m}{h^2\beta}\right)^{3/2}\right]+N\ln (N)\\
+    \ln \mathcal{P}_{\max}&=N\ln(V)+\frac{3}{2}N\ln\left(\frac{2\pi m}{h^2\beta}\right) +\beta U
+\end{align*}
+As for the entropy
+\begin{equation*}
+    S=Nk_B\ln(V)+\frac{3}{2}Nk_B\ln\left(\frac{2\pi m}{h^2\beta}\right) +k_B\beta U
+\end{equation*}
+Using the thermodynamics relationship of 
+\begin{equation*}
+    \frac{1}{T}=\frac{\partial S}{\partial U}\bigg|_{V,N}= k_B U \implies \beta=\frac{1}{T}
+\end{equation*}
+
+Now the number of particle within $(\nu,\nu+d\nu)$ can be evaluated as 
+\begin{align*}
+    N_E&=\frac{N}{V}\frac{2\pi}{h^3}V(2m)^{3/2}\sqrt{E} \exp\left(-\frac{E}{k_BT}\right) \left(\frac{h^2}{2\pi k_BT m}\right)^{3/2}\;dE\\
+    N_E&=\left(\frac{\sqrt[3]{4} N^{2/3}}{\sqrt{\pi}k_B T}\right)^{3/2} \sqrt{E}\exp\left(-\frac{E}{k_BT}\right)\;dE
+\end{align*}
+and the distribution function as 
+\begin{equation*}
+    n_E=\left(\frac{\sqrt[3]{4} N^{2/3}}{\sqrt{\pi}k_B T}\right)^{3/2} \sqrt{E}\exp\left(-\frac{E}{k_BT}\right)
+\end{equation*}
+
+We can also recover the ideal gas law using the thermodynamics relationship
+\begin{equation*}
+    \frac{P}{T}=\frac{\partial S}{\partial V}\bigg|_{S,N}=\frac{Nk_B}{V} \implies PV=Nk_BT
+\end{equation*}
+
+\subsection{Thermodynamics Derivation}
+We consider the number of configuration of classical particle
+\begin{equation*}
+    \mathcal{W}=N! \prod_{s} \frac{g_s^{n_S}}{n_s!}
+\end{equation*}
+where 
+\begin{equation*}
+    g_s=2\pi V(2m)^{3/2}\sqrt{E}\;dE
+\end{equation*}
+Unlike Einstein's derivative, we did not divide it by $h^3$. Here $s$ denote the number of energy level; the product then start from the lowest energy level to the highest. Then by applying Stirling's formula
+\begin{equation*}
+    \ln \mathcal{W}=\sum_s n_s \ln \left(\frac{g_s}{n_s}\right)+ N\ln (N)
+\end{equation*}
+Since $\mathcal{W}$, or rather its logarithm, is a function of $(N,g_s,n_s)$, we write its total differential as 
+\begin{equation*}
+    d(\ln \mathcal{W})=\frac{\partial \ln \mathcal{W}}{\partial N}dN+\frac{\partial \ln \mathcal{W}}{\partial g_s}dg_s+ \frac{\partial \ln \mathcal{W}}{\partial n_s}dn_s
+\end{equation*} 
+Recall that $N$ stands for the number of particle and $g_s$ is the number of degeneracy within said energy. Both values are constant, hence
+\begin{equation*}
+    d(\ln \mathcal{W})=\frac{\partial \ln \mathcal{W}}{\partial n_s}dn_s=\sum_E \left[\ln \left(\frac{g_s}{n_s}\right)-1 \right] dn_s
+\end{equation*}
+
+Now we consider the constraints, which are number of particle and energy
+\begin{equation*}
+    N=\sum_s n_s,\quad\text{and}\quad E=\sum_s n_s\epsilon_s 
+\end{equation*}
+In equilibrium, both are also constant, hence
+\begin{equation*}
+    \sum_s dn_s=0 \quad\text{and}\quad\sum_s \left( \epsilon_s \;dn_s +n_s\;d\epsilon_s \right)=0
+\end{equation*}
+To simplify the energy constraint, recall the first thermodynamics law
+\begin{equation*}
+    dE=dQ-P\;dV
+\end{equation*} 
+The change of energy by $\epsilon_s \;dn_s $ corresponds to energy transfer through particle exchange, which is related to heat transfer in thermodynamics; while the change by $n_s\;d\epsilon_s$ represents the energy change due to changes in the energy levels themselves, which is associated with work, such as change of volume. Hence, the relations 
+\begin{equation*}
+    \sum_s\epsilon_s \;dn_s=dQ \quad\text{and}\quad\sum_s n_s\;d\epsilon_s =-P\;dV
+\end{equation*}
+In equilibrium, the volume of system is also constant, hence our constraints
+\begin{equation*}
+    \sum_s dn_s=0 \quad\text{and}\quad \sum_s\epsilon_s \;dn_s=0
+\end{equation*}
+
+By Lagrange's method, we construct the following auxiliary function
+\begin{equation*}
+    F(n_s)=\sum_s\left[\ln \left(\frac{g_s}{n_s}\right)-1+\lambda_1 +\lambda_2\epsilon_s\right]\;dn_s
+\end{equation*}
+Setting its derivative to zero
+\begin{equation*}
+    \ln \left(\frac{g_s}{n_s}\right)-1+\lambda_1 +\lambda_2\epsilon_s=0
+\end{equation*}
+Solving for $n_s$, we have 
+\begin{equation*}
+    n_s=g_s\alpha\exp (-\beta \epsilon_s)
+\end{equation*}
+
+To determine the value of $\beta$, we write the auxiliary function as 
+\begin{equation*}
+    F=d(\ln \mathcal{W})+\lambda_1\;dN+\lambda_2 \;dQ
+\end{equation*}
+Consider the case closed reversible process. We have $dN=0$ and $dQ=T\;dS$. Using this result and setting the value of the auxiliary function to zero, as it was before, we have
+\begin{equation*}
+    d(\ln \mathcal{W})=-\beta \;dQ=-\beta T\;dS=-\beta Tk\;d(\ln \mathcal{W})\implies\beta=-\frac{1}{kT}
+\end{equation*}
+The relation between the constant $\lambda_2$ and $\beta$ is simply $\lambda_2=\beta$. I write it that way thinking there are some changes to the constant, not realizing both are the same. $\lambda_1$ and $\alpha$ are different though.
+
+Next we determine the value of $\alpha$. Consider the number of particle constraint. By substituting the value of $n_s$ and $g_s$ we have
+\begin{multline*}
+    N=\int_0^{\infty}\alpha2\pi V(2m)^{3/2}\sqrt{E}\exp \left(-\frac{E}{kT}\right)\;dE\\
+    =A2\pi V(2m)^{3/2}\frac{\sqrt{\pi}}{2}(kT)^{3/2}= \alpha\left(2\pi m kT\right)^{3/2}V
+\end{multline*}
+Hence,
+\begin{equation*}
+    \alpha=\frac{N}{\left(2\pi m kT\right)^{3/2}V}
+\end{equation*}
+
+The complete form of our distribution function is then
+\begin{align*}
+    n(E)\;dE&=\frac{N}{\left(2\pi m kT\right)^{3/2}V} 2\pi V(2m)^{3/2}\sqrt{E}\exp \left(-\frac{E}{kT}\right)\;dE\\
+    n(E)\;dE&=\frac{2\pi N}{(\pi kT)^{3/2}}\sqrt{E}\exp\left(-\frac{E}{k_BT}\right)\;dE\quad\blacksquare
+\end{align*}
+
+\subsection{Maxwell Distribution for Relative Velocities}
+Maxwell distribution also works on composite system. This is due to it also works on relative velocities. We shall prove this.
+
+Consider two system with $N_1$ and $N_2$ Particles. We then want to find the probability of pairs of particles whose relative velocity is $\mathbf{V}$. We define such probability density function as 
+\begin{equation*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} G(\mathbf{V}) \; d^3\mathbf{V} = \iint\displaylimits_{ \displaystyle \mathbb{R}^3} N_1 N_2 F_1(\mathbf{v}) F_2(\mathbf{v+V}) \; d^3\mathbf{v}\; d^3\mathbf{V}
+\end{equation*}
+To avoid ambiguity, we shall write it more explicitly as 
+\begin{multline*}
+    G(\mathbf{V}) = N_1 N_2 \left(\frac{m_1 m_2}{4\pi^2 k^2 T_1 T_2}\right)^{3/2} 
+    \exp\left[-\frac{m_1}{2k T_1 }\left( v_x^2+v_y^2+v_z^2 \right)\right] \\
+    \exp\left[-\frac{m_2}{2k T_2 }\left( \left\{v_x+V_x\right\}^2+ \left\{v_y+V_y\right\}^2 + \left\{v_z+V_z\right\}^2\right)\right] 
+\end{multline*}
+Then, as is the case from before, the integral can be evaluated as product of three identical integrals
+\begin{multline*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} G(\mathbf{V}) \; d^3\mathbf{V} =N_1 N_2 \left(\frac{m_1 m_2}{4\pi^2 k^2 T_1 T_2}\right)^{3/2} \\
+    \int_{\mathbb{R}^3}\left[  \int_{-\infty}^{\infty}\exp\left( -\frac{m_1}{2kT_1} \omega^2-\frac{m_2}{2kT_2}\left\{\omega + \Omega\right\}^2 \right)\;d\omega \right]^3\;d^3\mathbf{V}
+\end{multline*}
+\dots Scary integrals. Let's first try to evaluate the term inside square parenthesis
+\begin{equation*}
+    \int_{-\infty}^{\infty}\exp\left[-\left(\frac{m_1}{2kT_1} +\frac{m_2}{2kT_2} \right) \omega^2 -2\frac{m_2}{2kT_2}\Omega\omega -\frac{m_2}{2kT_2}\Omega^2\right] \;d\omega 
+\end{equation*}
+Since the last term is a constant, we can take it outside the integral
+\begin{equation*}
+    \exp\left[-\frac{m_2}{2kT_2}\Omega^2\right]\int_{-\infty}^{\infty}\exp\left[-\left(\frac{m_1T_2+ m_2T_1}{2kT_1T_2} \right) \omega^2 -\frac{m_2\Omega}{kT_2}\omega \right] \;d\omega 
+\end{equation*}
+The integral itself can be evaluated using the general form of Gaussian integral
+\begin{equation*}
+    \int_{-\infty}^{\infty}\exp \left( -\alpha x^2+\beta x+\gamma\right)\;dx= \sqrt{\frac{\pi}{\alpha}} \exp \left(\frac{\beta^2}{4\alpha}+\gamma\right)
+\end{equation*}
+Using the equation above
+\begin{equation*}
+    \exp\left[-\frac{m_2}{2kT_2}\Omega^2\right] \exp \left[\Omega^2\frac{m_2^2}{k^2T_2^2}\frac{1}{4}\frac{2kT_1T_2}{m_1T_2+ m_2T_1}\right]\left[\pi\frac{2kT_1T_2}{m_1T_2+ m_2T_1}\right]^{1/2}
+\end{equation*}
+Combining the exponent, we get 
+\begin{equation*}
+     \exp \left[\Omega^2 \left(\frac{m_2^2kT_1T_2}{2k T_2^2 (m_1T_2+ m_2T_1)}- \frac{m_2}{2kT_2}\right)\right] \left[\pi\frac{2kT_1T_2}{m_1T_2+ m_2T_1}\right]^{1/2}
+\end{equation*}
+Next simply evaluate the terms inside parenthesis 
+\begin{equation*}
+    \exp \left[\Omega^2 \left(\frac{m_2\left\{m_2kT_1T_2-m_1kT_2-m_2kT_1T_2\right\}}{2k T_2^2 (m_1T_2+ m_2T_1)}\right)\right] \left[\dots\right]^{1/2}
+\end{equation*}
+where I have taken some liberties to not write the last term constant due to \verb|\hbox overfull| problem. Anyway, we obtain
+\begin{equation*}
+    \exp \left[-\frac{m_2m_1kT_2T_2}{2k T_2^2 (m_1T_2+ m_2T_1)} \Omega^2 \right] \left[\pi\frac{2kT_1T_2}{m_1T_2+ m_2T_1}\right]^{1/2}
+\end{equation*}
+Before substituting back into our original integral, note that $\Omega$ is the dummy variable we used for the term $\mathbf{V}$; or rather $V_i$, where $i$ is $i$-th component of Cartesian coordinate. Hence,
+\begin{multline*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} G(\mathbf{V}) \; d^3\mathbf{V} =N_1 N_2 \left(\frac{m_1 m_2}{4\pi^2 k^2 T_1 T_2}\right)^{3/2} \\
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} \left[  \exp \left[-\frac{m_2m_1kT_2T_2}{2k T_2^2 (m_1T_2+ m_2T_1)} V_i^2 \right] \left[\frac{2\pi kT_1T_2}{m_1T_2+ m_2T_1}\right]^{1/2}\right]^3\;d^3\mathbf{V}
+\end{multline*}
+Recall that $V^2=V_x^2+V_y^2+V_z^2$, then we can simply our equation
+\begin{multline*}
+    \int\displaylimits_{\displaystyle\mathbb{R}^3} G(\mathbf{V}) \; d^3\mathbf{V} 
+    =\int\displaylimits_{\displaystyle\mathbb{R}^3}N_1 N_2 \left(\frac{1}{2\pi k}\frac{m_1m_2}{m_1T_2+ m_2T_1}\right)^{3/2}\\
+    \exp \left[-\frac{m_2m_1}{2 (m_1T_2+ m_2T_1)} V^2\right] \;d^3\mathbf{V}
+\end{multline*}
+Since we are integrating over the same limit, we can conclude that 
+\begin{equation*}
+    G(\mathbf{V})= N_1 N_2 \left(\frac{1}{2\pi k}\frac{m_1m_2}{m_1T_2+ m_2T_1}\right)^{3/2}\\
+    \exp \left[-\frac{m_2m_1}{2 (m_1T_2+ m_2T_1)} V^2\right] 
+\end{equation*} 
+The equation above shows that the probability distribution function for composite system has the same form as Maxwell distribution, hence Maxwell distribution function also works on composite system. $\qed$
+
+\subsection{Physical Quantity}
+Few physical quantities that can be derived from the MB distribution function are as follows. First we have the average velocity
+\begin{equation*}
+    \braket{v}=\sqrt{\frac{8kT}{\pi m}}
+\end{equation*}
+then the most probable velocity 
+\begin{equation*}
+    v_\text{mp}=\sqrt{\frac{2kT}{m}}
+\end{equation*}
+and the root-mean-square 
+\begin{equation*}
+    v_\text{rms}=\sqrt{\frac{3kT}{m}}
+\end{equation*}
+
+We also have flux, that is a number of particles per unit area per unit time
+\begin{equation*}
+    \Gamma=\frac{1}{4}\rho\braket{v}
+\end{equation*}
+
+To determine the fraction of particle within certain range of value, say energy
+\begin{equation*}
+    \text{Fraction}=\int_{x_1}^{x_2}f(x)\;dx
+\end{equation*}
+where $f(x)=n(x)/N$ is normalized distribution function. Alternately, for small range, we can use Leibniz formula
+\begin{equation*}
+    \text{Fraction}=\left[f\left(\frac{x_1+x_2}{2}\right)\right](x_2-x_1)
+\end{equation*}
+
+\subsubsection{Derivation.} The derivation of $\braket{v}$ and $v_\text{rms}$ are quite trivial. For the expectation value of velocity
+\begin{multline*}
+    \braket{v}=4\pi \left(\frac{m}{2\pi k T}\right)^{3/2} \int_{0}^{\infty}v^3\exp\left(-\frac{m v^2}{2k T}\right)\;dv\\
+    =4\pi \left(\frac{m}{2\pi k T}\right)^{3/2} \frac{1}{2}\left(\frac{2kT}{m}\right)^{4/2}\Gamma(2)=\sqrt{\frac{8kT}{\pi m}}
+\end{multline*} 
+And for root-mean-square-velocity
+\begin{multline*}
+    v_\text{rms}=\left[4\pi \left(\frac{m}{2\pi k T}\right)^{3/2} \int_{0}^{\infty}v^4\exp\left(-\frac{m v^2}{2k T}\right)\;dv\right]^{1/2}\\
+    =4\pi \left(\frac{m}{2\pi k T}\right)^{3/2} \frac{1}{2}\left(\frac{2kT}{m}\right)^{5/2}\Gamma\left(\frac{5}{2}\right)=\sqrt{\frac{3kT}{m}}
+\end{multline*} 
+\begin{figure*}
+    \centering
+    \fullfig{../../../Rss/StatMech/Maxwell-Boltzman/0jklyest5w.png}
+    \caption*{Figure: MB distribution function. In general, $v_\text{mp}<\braket{v}<v_\text{rms}$}
+\end{figure*}
+
+To find the most probable velocity, we maximize the distribution function. Hence, setting the derivative with respect to velocity to zero
+\begin{equation*}
+    4N\left(\frac{m}{2\pi kT}\right)^{3/2}\left[2v\exp\left(-\frac{m v^2}{2k T}\right)-v^2\frac{mv}{kT}\exp\left(-\frac{m v^2}{2k T}\right)\right]=0
+\end{equation*}
+Solving for velocity, we have 
+\begin{align*}
+    2v\exp\left(-\frac{m v^2}{2k T}\right)&=\frac{mv^3}{kT}\exp\left(-\frac{m v^2}{2k T}\right)\\
+    v&=\sqrt{\frac{2kT}{m}}
+\end{align*}
+
+To derive flux, we need to recall
+\begin{equation*}
+    dN\frac{N}{V}v_{x+}\;dA\;dt
+\end{equation*}
+Using the definition of particle density $\rho=N/V$ and flux $\Gamma=N/At$, we conclude 
+\begin{equation*}
+    \Gamma=\rho v_{x+}
+\end{equation*}
+We find the $x$ component of the velocity by 
+\begin{equation*}
+    \braket{v_x}=\int v_xf(v_x)\;dv_x
+\end{equation*} 
+We find 
+\begin{align*}
+    \braket{v_x}&=\left(\frac{m}{2\pi kT}\right)^{1/2}\int v_x\exp\left(\frac{-m v^2}{2kT}\right)\;dv_x\\
+    &=\left(\frac{m}{2\pi kT}\right)^{1/2}\frac{1}{2}\left(\frac{2\pi kT}{m}\right)^{1/2}\Gamma(2)=\sqrt{\frac{kT}{2\pi m}}
+\end{align*}
+We could simply substitute this result into our flux equation, or alternately we write 
+\begin{equation*}
+    \braket{v}=\sqrt{\frac{8kT}{m}}=4\braket{v_x}
+\end{equation*}
+and substituting into the flux equation for much cleaner result
+\begin{equation*}
+    \Gamma=\frac{1}{4}\rho\braket{v}
+\end{equation*}
+\end{document}

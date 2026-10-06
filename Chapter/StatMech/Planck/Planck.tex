@@ -1,0 +1,409 @@
+\documentclass[../../../Main.tex]{subfiles}
+\begin{document}
+\subsection{Blackbody radiation}
+In his theory of blackbody radiation, energy density at frequency $\nu$ inside cavity with temperature $T$ is given by
+\begin{equation*}
+    \mathcal{U}(\nu,T)=\rho u
+\end{equation*}
+where $\rho$ is the number of radiation modes per unit volume and $u$ is the average energy at said frequency. Both quantity respectively are given by 
+\begin{equation*}
+    \rho=\frac{8\pi\nu^2}{c^3},\quad u=\frac{h\nu}{\exp(h\nu/k T)-1}
+\end{equation*}
+Hence
+\begin{equation*}
+    \mathcal{U}(\nu,T)=\frac{8\pi h}{c^3}\frac{\nu^3}{\exp(h\nu/k T)-1}
+\end{equation*}
+or, we can write it in terms of $\lambda$
+\begin{equation*}
+    \mathcal{U}(\lambda,T)=\frac{8\pi hc}{\lambda^5}\frac{1}{\exp(hc/\lambda k T)-1}
+\end{equation*}
+
+The particle density as function of wavelength
+\begin{equation*}
+    n(\lambda,T)=\frac{8\pi}{\lambda^4}\frac{1}{\exp(hc/\lambda k T)-1}
+\end{equation*} 
+And the relation with energy density
+\begin{equation*}
+    \mathcal{U}(\lambda)=n(\lambda)E(\lambda)
+\end{equation*}
+with $E=hc/\lambda$. 
+
+\subsection{Planck's Derivation}
+
+In his work, Planck assumes that the walls of the cavity act as oscillator with  energy of integer multiple $\epsilon$. This has some similarity with Boltzmann discrete model. We denote $n_k$ as the number particle with $k\epsilon$ energy, with maximum energy of $P\epsilon$. Therefore, we have the following constraints.
+\begin{equation*}
+    \sum_{k=0}^{P}n_k=N,\quad\sum_{k=0}^{P}kn_k=P
+\end{equation*}
+
+Planck he defined entropy as 
+\begin{equation*}
+    S_P=k \ln (W)+C
+\end{equation*}
+where
+\begin{equation*}
+    W=\frac{\mathcal{R}}{\mathcal{J}}
+\end{equation*}
+is the probability of the $N$ atoms have $p\epsilon$ energy. In other hand, $\mathcal{R}$ denotes the number of said configuration and $\mathcal{J}$ denotes the total configuration. It then may be written as
+\begin{equation*}
+    S_P=k \ln \mathcal{R}
+\end{equation*}
+where $\mathcal{R}$ is given by 
+\begin{equation*}
+    \mathcal{R}=\frac{(L+N-1)!}{L!(N-1)!}
+\end{equation*}
+The logarithm of $\mathcal{R}$ can be evaluated as
+\begin{multline*}
+    \ln \mathcal{R}=(N+L-1)[\ln (N+L-1)-1]-L[\ln (L)-1]\\
+    -(N-1)[\ln(N-1)-1]
+\end{multline*}
+and then
+\begin{equation*}
+    \ln \mathcal{R}=(N+L-1)\ln(N+L-1)-L\ln L-(N-1)\ln(N-1)
+\end{equation*}
+and then 
+\begin{multline*}
+    \ln \mathcal{R}=(N+L)\ln(N+L-1)-\ln(N+L-1)-L\ln L \\
+    -N\ln(N-L)+\ln(N-1)
+\end{multline*}
+and then 
+\begin{multline*}
+    \ln \mathcal{R}=(N+L)\left[\ln\left(\frac{N+L-1}{N+L}\right) +\ln\left(N+L\right)\right]-L\ln L \\
+    -N\left[\ln \left(\frac{N-1}{N}\right)+\ln (N)\right]-\ln\left(\frac{N+L-1}{N+L}\right)
+\end{multline*}
+then finally we rewrite it as
+\begin{multline*}
+    \ln \mathcal{R}=(N+L)\ln(N+L) -L\ln L - N\ln N \\
+    -N\ln\left(\frac{N-1}{N}\right) +(N+L-1)\ln\left(\frac{N+L-1}{N+L}\right)
+\end{multline*}
+For large $N,L$; those last two terms will approach zero. Hence,
+\begin{equation*}
+    \ln \mathcal{R}=(N+L)\ln(N+L) -L\ln L - N\ln N 
+\end{equation*}
+This equation give the same result for $\ln(\mathcal{P}_\text{max})$ in the case of Boltzmann discrete model. Therefore, we write 
+\begin{equation*}
+    S_P=Nk \left[\left(1+\frac{u}{\epsilon} \right) \ln \left(1+\frac{u}{\epsilon}\right)-\frac{u}{\epsilon}\ln\left(\frac{u}{\epsilon}\right)\right]
+\end{equation*}
+
+Based on empirical data, Planck concludes that entropy is a function of energy and frequency
+\begin{equation*}
+    S_P=f\left(\frac{u}{\nu}\right)
+\end{equation*}
+On comparing those two equation, it can be seen that energy $\epsilon$ is proportional to frequency $\nu$. To show this relationship, we then write $\epsilon=h\nu$. By solving the equation of entropy $S_P$ for average energy $u$ we will have the desired result.
+
+To do so, we use the thermodynamics relationship
+\begin{equation*}
+    \frac{\partial S}{\partial U}\bigg|_{V, N_i}=\frac{1}{T}
+\end{equation*}
+Change the variable we are differentiating against to average energy 
+\begin{equation*}
+    \frac{\partial S_P}{\partial U}=\frac{1}{N}\frac{\partial S_P}{\partial u}
+\end{equation*}
+Then 
+\begin{equation*}
+    \frac{1}{T}=k\bigg[ \frac{1}{\epsilon}\ln\left(1+\frac{u}{\epsilon}\right) +\left(1+\frac{u}{\epsilon}\right) \left(1+\frac{u}{\epsilon}\right)^{-1 }\frac{1}{\epsilon} -\frac{1}{\epsilon}\ln\left(\frac{u}{\epsilon}\right) -\frac{u}{\epsilon}\frac{\epsilon}{u}\frac{1}{\epsilon}\bigg]
+\end{equation*}
+Moreover
+\begin{equation*}
+    \frac{1}{T}=\frac{k}{\epsilon}\left[\ln\left(1+\frac{u}{\epsilon}\right)-\ln \left(\frac{u}{\epsilon}\right)\right]=\frac{k}{\epsilon}\ln \left(\frac{\epsilon}{u}+1\right)
+\end{equation*}
+Furthermore
+\begin{equation*}
+    \frac{\epsilon}{u}+1=\exp \left(\frac{\epsilon}{kT}\right)
+\end{equation*}
+Hence
+\begin{equation*}
+    u=\frac{\epsilon}{\exp(\epsilon/k T)-1}
+\end{equation*}
+Substituting $\epsilon=h\nu$ from our empirical observation, we obtain
+\begin{equation*}
+    u=\frac{hv}{\exp(hv/k T)-1}\quad\blacksquare
+\end{equation*}
+
+\subsection{Bose's Derivation}
+Bose derived Planck's law independent of classical electrodynamics to obtain coefficient $8\pi \nu^2/c^3$. He defined the cell $\mathcal{P}_v$ as a box which photon are distributed. Let $n_{k\nu}$ defined as the number of boxes that contain $k$ photon of frequency $\nu$. We have then the following constraints.
+\begin{equation*}
+    P_\nu=\sum_{k=0}^{\infty}n_{k\nu},\quad U_\nu= hv\sum_{k=0}^{\infty}kn_{k\nu}
+\end{equation*}
+or simply
+\begin{equation*}
+    P_\nu=\sum_{k=0}^{\infty}n_{k\nu},\quad N_\nu= \sum_{k=0}^{\infty} kn_{k\nu}
+\end{equation*}
+where $N_\nu$ is the number of photon with frequency $\nu$. The number of configuration is given by 
+\begin{equation*}
+    \mathcal{P}_\nu=P_\nu!\left(\prod_{k=0}^{\infty}n_{k\nu}\right)^{-1}
+\end{equation*}  
+All of those equations applies for distinct frequency $\nu$, what we what however distribution over all frequency $(0,\infty)$. The expression for constraints is
+\begin{equation*}
+    P_\nu=\sum_{k=0}^{\infty}n_{k\nu},\quad U= h\sum_{k=0}v\sum_{k=0}^{\infty}kn_{k\nu}
+\end{equation*}
+and the expression for the number of configuration is 
+\begin{equation*}
+    \mathcal{P}=\sum_{\nu=0}^{\infty}\mathcal{P}_\nu
+\end{equation*} 
+
+As usual, the equation that we want to maximize not the configuration $\mathcal{P}$ itself, but rather its logarithm; which may be written as 
+\begin{equation*}
+    \ln \mathcal{P}=\sum_{\nu=0}^{\infty}\ln\left[\mathcal{P}_v!\left( \prod_{k=0}^{\infty} n_{k\nu}\right)^{-1}\right]
+\end{equation*}
+On using Stirling's approximation
+\begin{align*}
+    \ln \mathcal{P}&=\sum_\nu^\infty\left[\mathcal{P}_\nu\ln \left(\mathcal{P}_\nu\right)-\mathcal{P}_\nu - \sum_{k}^{\infty}\left\{n_{k\nu}\ln \left(n_{k\nu} \right)-n_{k\nu} \right\}\right]\\
+    \ln \mathcal{P}&=\sum_\nu^\infty\left[\mathcal{P}_\nu\ln \left(\mathcal{P}_\nu\right) - \sum_{k}^{\infty}n_{k\nu}\ln \left(n_{k\nu} \right)\right]
+\end{align*}
+Since we want to maximize said logarithm with respect to $n_{k\nu}$, we construct the following function using Lagrange's method.
+\begin{equation*}
+    F(n_{k\nu})=\sum_\nu \left[\mathcal{P}\ln \mathcal{P}_\nu - \sum_{k} n_{k\nu}\ln n_{k\nu} \right]+ 
+    \lambda_1\sum_{k}n_{k\nu}+
+    \lambda_2h\sum_{v,k}vkn_{k\nu}
+\end{equation*}
+Setting its derivative to zero
+\begin{equation*}
+    \frac{dF}{dn_{k\nu}}=-\ln(n_{k\nu})-1+\lambda_1+\lambda_2hk\nu=0
+\end{equation*}
+which implies
+\begin{equation*}
+    n_{k\nu}=\exp\left(1-\lambda_1-\lambda_2hk\nu\right)=C\exp\left(-\lambda_2hk\nu\right)
+\end{equation*}
+Substituting the result into $\mathcal{P}_\nu$ constraints
+\begin{equation*}
+    \mathcal{P}_\nu=C\sum_{k } \exp\left(-\lambda_2hk\nu\right) \implies C=\mathcal{P}_\nu\left[\sum_{k } \exp\left(-\lambda_2hk\nu\right)\right]^{-1}
+\end{equation*}
+
+The term inside parenthesis is a geometric series with ratio of $\exp(-\lambda_2h\nu)$. The constant then can be simply evaluated into 
+\begin{equation*}
+    C=\mathcal{P}_\nu\left[\frac{1}{1-\exp(-\lambda_2h\nu)}\right]^{-1} = \mathcal{P}_\nu\left[1-\exp(-\lambda_2h\nu)\right]
+\end{equation*}
+Hence the $n_{k\nu}$ assumes the form 
+\begin{equation*}
+    n_{k\nu}=\mathcal{P}_\nu\left[1-\exp(-\lambda_2h\nu)\right]\exp\left(-\lambda_2hk\nu\right)
+\end{equation*}
+On using this to the expression for logarithm of $\mathcal{P}$, we obtain
+\begin{multline*}
+    \ln \mathcal{P}_{\max}= \sum_\nu \bigg[ \mathcal{P}_\nu \ln \left(\mathcal{P}_\nu\right) \\
+    - \sum_{k} n_{k\nu}\ln \{\mathcal{P}_\nu\left[1-\exp(-\lambda_2h\nu)\right]\exp\left(-\lambda_2hk\nu\right) \} \bigg]
+\end{multline*}
+Then by definition of Boltzmann entropy, we have
+\begin{multline*}
+    S_B=k  \ln \mathcal{P}_{\max}= \sum_\nu k  \bigg[ \mathcal{P}_\nu \ln \left(\mathcal{P}_\nu\right) \\
+    - \sum_{k} n_{k\nu}\ln \{\mathcal{P}_\nu\left[1-\exp(-\lambda_2h\nu)\right]\exp\left(-\lambda_2hk\nu\right) \} \bigg]
+\end{multline*}
+We then write it as such 
+\begin{multline*}
+    S_B= \sum_\nu k  \bigg[ \mathcal{P}_\nu \ln \left(\mathcal{P}_\nu\right) \\
+    - \sum_{k} n_{k\nu}\left\{\ln(\mathcal{P}_\nu)+\ln (1-\exp\{-\lambda_2h\nu\})-\lambda_2vkh\right\} \bigg]
+\end{multline*}
+additionally
+\begin{equation*}
+    S_B= \sum_\nu k  \bigg[\lambda_2hv\sum_{k}kn_{k\nu} - \sum_{k} n_{k\nu}\ln (1-\exp\{-\lambda_2h\nu\})\bigg]
+\end{equation*}
+Recall the $\mathcal{P}_\nu$ and $U_\nu$ constraints
+\begin{equation*}
+    S_B= k  \bigg[\lambda_2U- \sum_\nu\mathcal{P}_\nu \ln (1-\exp\{-\lambda_2h\nu\})\bigg]
+\end{equation*}
+Using the following relationship
+\begin{equation*}
+    \frac{1}{T}=\frac{\partial S}{\partial U}
+\end{equation*}
+we have
+\begin{equation*}
+    \frac{1}{T}=k \lambda_2\implies \lambda_2=\frac{1}{k T}
+\end{equation*}
+At last, we have 
+\begin{equation*}
+    n_{k\nu}=\mathcal{P}_\nu\left[1-\exp\left(-\frac{h\nu}{k T}\right)\right]\exp\left(-\frac{hk\nu}{k T}\right)
+\end{equation*}
+and
+\begin{equation*}
+    S_B= \frac{U}{T}- \sum_\nu k \mathcal{P}_\nu \ln \left[1-\exp\left(-\frac{h\nu}{k T}\right)\right]
+\end{equation*}
+
+Henceforward, we use these result to evaluate the following quantity. First we evaluate the number of quanta of frequency $\nu$ denoted as $N_\nu$
+\begin{equation*}
+    N_\nu=\sum_k^{\infty} kn_{k\nu}
+\end{equation*}
+Substituting the known value of $n_{k\nu}$, we get 
+\begin{align*}
+    N_\nu&=\sum_k k \mathcal{P}_\nu\left[1-\exp\left(-\frac{h\nu}{k T}\right)\right]\exp\left(-\frac{hk\nu}{k T}\right)\\
+    &=\mathcal{P}_\nu\left[1-\exp\left(-\frac{h\nu}{k T}\right)\right] \sum_k^{\infty} k \exp\left(-\frac{hk\nu}{k T}\right)
+\end{align*}
+
+To evaluate such sum we consider the geometric series
+\begin{equation*}
+    \sum_{k=0}^{\infty}r^{k}=\frac{1}{1-r}
+\end{equation*}
+for $r<1$. Taking a derivative of both sides to get
+\begin{equation*}
+    \sum_{k=0}^{\infty}kr^{k-1}=\frac{1}{(1-r)^2}
+\end{equation*}
+Then shift the index down by one 
+\begin{equation*}
+    \sum_{k=-1}^{\infty}(k+1)r^{k}=\sum_{k=0}^{\infty}(k+1)r^{k}
+\end{equation*}
+where the left side is allowed since the series is zero at $k=-1$. Then subtract this series with the first series
+\begin{equation*}
+    \sum_{k=0}^{\infty}(k+1)r^{k}-r^k=\sum_{k=0}^{\infty} kr^k=\frac{1-(1-r)}{(1-r)^2}=\frac{r}{(1-r)^2}
+\end{equation*}
+
+Using the formula above, with 
+\begin{equation*}
+    r=\exp\left(-\frac{h\nu}{k T}\right)
+\end{equation*}
+
+we can now evaluate the number of quanta
+\begin{align*}
+    N_\nu&=\mathcal{P}_\nu\left[1-\exp\left(-\frac{h\nu}{k T}\right) \right]\exp\left(-\frac{h\nu}{k T}\right)\left[1-\exp\left(-\frac{h\nu}{k T}\right)\right]^{-2}\\
+    &=\mathcal{P}_\nu\exp\left(-\frac{h\nu}{k T}\right)\left[1-\exp\left(-\frac{h\nu}{k T}\right)\right]^{-1}\\
+    &=\mathcal{P}_\nu\left[\exp\left(\frac{h\nu}{k T}\right)-1 \right]^{-1}
+\end{align*}
+\begin{equation*}
+    N_\nu=\sum_k kn_{k\nu}=\frac{\nu^2}{c^3}\frac{8\pi V}{\exp(h\nu/k T)-1}\;d\nu
+\end{equation*}
+
+The second is energy within the same frequency
+\begin{equation*}
+    U_\nu=h\nu N_\nu =\frac{\nu^3}{c^3}\frac{8\pi h V}{\exp(h\nu/k T)-1}\;d\nu
+\end{equation*}
+To obtain the average energy per unit frequency, we divide $U_\nu$ by spatial volume (since we derived it from phase space volume) $V$ and by unit frequency $d\nu$
+\begin{equation*}
+    \mathcal{U}(\nu,T)=\frac{U_\nu}{V\;d\nu}=\frac{\nu^3}{c^3}\frac{8\pi h}{\exp(h\nu/k T)-1}
+\end{equation*}
+
+\subsection{Einstein's Method}
+Suppose we use Einstein method to rederive Planck's law, just like Bose did. In his method, he distributed the number of identical quanta $N_\nu$ within distinct $P_\nu$ cells. The number of configuration in this case is given by 
+\begin{equation*}
+    \mathcal{P}_\nu=\frac{(N_\nu+P_\nu-1)}{N_\nu! (P_\nu-1)!}
+\end{equation*}
+The logarithm for total frequency reads
+\begin{equation*}
+    \ln \mathcal{P}=\sum_\nu (N_\nu+P_\nu)\ln (N_\nu+P_\nu)-N_\nu\ln(N_\nu)- P_\nu \ln (P_\nu)
+\end{equation*}
+
+We want to maximize this logarithm constrained by 
+\begin{equation*}
+    U=h\sum_{\nu=0}^{\infty} \nu N_\nu
+\end{equation*}
+The constraints on number of quanta simply does not exist since the quanta continuously created and destroyed by the cavity walls. To maximize the said logarithm, we then construct
+\begin{equation*}
+    F=\ln \mathcal{P}+\lambda_1h\sum_{\nu} \nu N_\nu
+\end{equation*}
+We then set its derivative to zero 
+\begin{equation*}
+    \ln(N_\nu+P_\nu) +1 -\ln(N_\nu) -1 +\lambda h\nu=0
+\end{equation*}
+Hence
+\begin{align*}
+    \frac{N_\nu+P_\nu}{N_\nu}&\exp(-\lambda_1h\nu)\\
+    N_\nu&=\frac{P_\nu}{\exp(-\lambda_1 h\nu)-1}
+\end{align*}
+Substituting this into the logarithm of $\mathcal{P}$ to obtain
+\begin{equation*}
+    \ln \mathcal{P}_{\max}=\sum_\nu \Bigg[N_\nu \left(-\lambda_1-\lambda_1 E\right)
+    + P_\nu\ln\left(\frac{\exp(-\lambda_1E)}{\exp(-\lambda_1E)-1}\right)\Bigg]
+\end{equation*}
+
+The entropy reads
+\begin{equation*}
+    S=\sum_\nu k_B P_E \ln\left(\frac{\exp(-\lambda_1E)}{\exp(-\lambda_1E)-1}\right)-k_B\lambda_1 U
+\end{equation*}
+Hence 
+\begin{equation*}
+    \frac{1}{T}=\frac{\partial S}{\partial U}=-k_B\lambda\implies \lambda_1=\frac{1}{T}
+\end{equation*}
+Substituting this constant back, we have
+\begin{equation*}
+    N_\nu=\frac{\nu^3}{c^3}\frac{8\pi h V}{\exp(h\nu/k_BT)-1}\;d\nu,\quad     U_\nu=\frac{\nu^3}{c^3}\frac{8\pi h V}{\exp(h\nu/k_BT)-1}\;d\nu 
+\end{equation*}
+and
+\begin{equation*}
+    \mathcal{U}(\nu,T) =\frac{\nu^3}{c^3}\frac{8\pi h}{\exp(h\nu/k_BT)-1}
+\end{equation*}
+which is the same as Bose's result.
+
+\subsection{Rayleigh-Jeans Model}
+This model is only accurate for large $\lambda$ or small $\nu$. The energy density described by this model is 
+\begin{equation*}
+    \mathcal{U}(\lambda,T)=\frac{8\pi}{\lambda^4}kT\quad\text{or}\quad\mathcal{U}(\nu,T)=\frac{8\pi\nu^2}{c^3}kT
+\end{equation*}
+\subsubsection{Derivation.} For large $\lambda$, the exponential term approaches zero, so it can be approximated with 
+\begin{equation*}
+    \exp\left(\frac{hc}{\lambda kT}\right)\approx\frac{hc}{\lambda kT}-1
+\end{equation*}
+Hence, the energy density as function of wavelength is 
+\begin{equation*}
+    \mathcal{U}(\lambda,T)\approx\frac{8\pi hc}{\lambda^5}\frac{1}{(hc/\lambda kT)}=\frac{8\pi}{\lambda^4}kT\quad\blacksquare
+\end{equation*}
+
+\subsection{Wien's Law}
+In other hand, this model only accurate for small $\lambda$ or large $\nu$. The energy density based this model is 
+\begin{equation*}
+    \mathcal{U}(\lambda,T)=\frac{8\pi hc}{\lambda^5}\exp\left(-\frac{hc}{\lambda kT}\right)
+\end{equation*}
+Wien's model is able to obtain the fact that the product maximum wavelength and temperature is constant, in particular
+\begin{equation*}
+    \lambda_m T=2.897 \text{ mmK}
+\end{equation*}
+\subsubsection{Derivation.} For small $\lambda$, the exponential term approach infinity, so the denominator term of the Plack distribution can be approximated with
+\begin{equation*}
+    \left[\exp\left(\frac{hc}{\lambda kT}\right)-1\right]^{-1}\approx \exp\left(-\frac{hc}{\lambda kT}\right)
+\end{equation*}
+Hence 
+\begin{equation*}
+    \mathcal{U}(\lambda,T)=\frac{8\pi hc}{\lambda^5}\exp\left(-\frac{hc}{\lambda kT}\right)
+\end{equation*}
+
+To find the maximum wavelength given by Wien's distribution, we set 
+\begin{equation*}
+    \frac{du}{d\lambda}=8\pi hc\left[-\frac{5}{\lambda^6}\exp\left( -\frac{hc}{\lambda kT}+\right)\frac{1}{\lambda^5}\frac{hc}{\lambda^2kT}\exp\left( -\frac{hc}{\lambda kT}+\right)\right]
+\end{equation*}
+into zero to obtain
+\begin{align*}
+    \frac{5}{\lambda_m^6}&=\frac{hc}{\lambda_m^7kT}\\
+    \lambda_m T&=\frac{hc}{5k}=2.897 \text{ mmK}
+\end{align*}
+
+
+\subsection{Stefan's Law}
+\begin{equation*}
+    u=\alpha T^4
+\end{equation*}
+where $\alpha=1.65\cdot10^{-16}$ J/K$^{4}$m$^{3}$.
+
+\subsubsection{Derivation.} Integrating $\mathcal{U}(\lambda)$ over all possible wavelength to obtain
+\begin{equation*}
+    u=\int_0^\infty\frac{8\pi hc}{\lambda^5}\frac{1}{\exp(hc/\lambda k T)-1}d\lambda\\
+\end{equation*}
+
+Substituting $x=hc/\lambda kT$, we have $1/\lambda=xkT/hc$ and $d\lambda=-hc/x^2kT\;dx$. Thus,
+\begin{align*}
+    u&=\int_0^\infty 8\pi hc \left(\frac{xkT}{hc}\right)^5\frac{1}{e^x-1}\left(-\frac{hc}{x^2kT}\right)\;dx\\
+    &=\frac{8\pi (kT)^4}{(hc)^3}\int_{0}^{\infty}\frac{x^3}{e^x-1}\;dx\\
+    u&=\frac{8\pi (kT)^4}{(hc)^3}6\frac{\pi^2}{90}
+\end{align*}
+Evaluating the constant, we finally have 
+\begin{equation*}
+    u=7.65\cdot10^{-16} T^4\quad\blacksquare
+\end{equation*}
+
+\subsection{Stefan-Boltzman's Law}
+\begin{equation*}
+    I=\sigma T^4
+\end{equation*}
+where $\sigma=5.57\cdot10^{-8}$ J/K$^{4}$m$^{2}$.
+
+\subsubsection{Derivation.} Based on MB distribution, the flux of a gas is 
+\begin{equation*}
+    \Gamma=\frac{1}{4}\rho\braket{v}
+\end{equation*}
+On using this to gas of photon we have 
+\begin{equation*}
+    \Gamma=\frac{1}{4}nc
+\end{equation*} 
+By using the relation 
+\begin{equation*}
+    \mathcal{U}(\lambda)=n(\lambda)E(\lambda)
+\end{equation*}
+we have our intensity as 
+\begin{equation*}
+    I=\frac{1}{4}uc=\frac{1}{4}7.65\cdot10^{-16} T^4c=5.57\cdot10^{-8}\; T^4
+\end{equation*}
+\end{document}

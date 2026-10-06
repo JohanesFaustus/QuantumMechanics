@@ -15,45 +15,15 @@
 \input{./Chapter/Preamble/pre.tex}
 
 \begin{document}
-% \pagestyle{empty}
 \subfile{./Chapter/COV/Cover.tex}\clearpage
-\pagestyle{empty}
-\chapter{Classical Mechanics}\clearpage
+\setcounter{tocdepth}{2}
+\tableofcontents
 
-\section{Unasorted Classical Mechanics Topics}
-\subfile{./Chapter/CM/etc/file.tex}\clearpage
-\subfile{./Chapter/CM/Problems/Prob.tex}\clearpage
-
-\section{Central Force}
-\subfile{./Chapter/CM/CentralForce/CF.tex}\clearpage
-
-\section{Energy}
-\subfile{./Chapter/CM/Energy/Energy.tex}\clearpage
-
-\section{Lagrangian Mechanics}
-\subfile{./Chapter/CM/Lagrange/Lagrangian.tex}\clearpage
-\subfile{./Chapter/CM/Lagrange/LgAppl.tex}\clearpage
-
-\section{Hamiltonian Mechanics}
-\subfile{./Chapter/CM/Hamiltion/Hamiltonian.tex}\clearpage
-\subfile{./Chapter/CM/Hamiltion/ApplHamltn.tex}\clearpage
-
-\chapter{Modern Physics}\clearpage
-
-\section{Atomic Theory}
-\subfile{./ModernPhysics/Sec/Atom/Atom.tex}\clearpage
-\subfile{./ModernPhysics/Sec/Atom/AtomAppen.tex}\clearpage
-
-\section{Hydrogen Atom}
-\subfile{./ModernPhysics/Sec/HAtom/HA.tex}\clearpage
 
 \chapter{Quantum Mechanics}\clearpage
 \section{Unasorted Quantum Mechanics Topics}
 \subfile{./Chapter/QM/etc/file.tex}\clearpage
 \subfile{./Chapter/QM/etc/fileAppend.tex}\clearpage
-
-\section{Introduction to Quantum Mechanics}
-\subfile{./ModernPhysics/Sec/QM/QM.tex}\clearpage
 
 \section{Quantum Mechanics Postulate}
 \subfile{./Chapter/QM/Postulate/Pos.tex}
@@ -86,9 +56,14 @@
 \subfile{./Chapter/QM/SecondQuatization/SQAppend.tex}\clearpage
 
 \section{Many-Body System}
-\subfile{./Chapter/QM/ManyBody/mb.tex}\clearpage
-\subfile{./Chapter/QM/ManyBody/mb2.tex}\clearpage
+\subfile{./Chapter/QM/ManyBody/mb.tex}
+\subfile{./Chapter/QM/ManyBody/mb2.tex}
 \subfile{./Chapter/QM/ManyBody/mb3.tex}\clearpage
+
+\section{Solid State}
+\subfile{./Chapter/QM/ManyBody/Crystal.tex}
+\subfile{./Chapter/QM/ManyBody/bind.tex}
+\subfile{./Chapter/QM/ManyBody/semi.tex}\clearpage
 
 \chapter{Nuclear Physics}\clearpage
 \section{Introduction}
@@ -102,6 +77,157 @@
 
 \section{Nuclear Model}
 \subfile{./Chapter/Nuclear/NuclearModel/NM.tex}\clearpage
+
+\chapter{Modern Physics}\clearpage
+
+\section{Modern Physics Chronology}
+\subfile{./Chapter/Mod/Chronology/Chrono.tex}
+\clearpage 
+
+\section{Relativity}
+\subfile{./Chapter/Mod/Relativity/Rel.tex}
+\clearpage
+\subfile{./Chapter/Mod/Relativity/Appen.tex}
+\clearpage
+
+\section{Quantum Mechanics}
+\subfile{./Chapter/Mod/QM/QM.tex}
+\clearpage
+
+\section{Atom}
+\subfile{./Chapter/Mod/Atom/Atom.tex}
+\clearpage
+\subfile{./Chapter/Mod/Atom/AtomAppen.tex}
+\clearpage
+
+\section{Statistical Mechanics}
+\subfile{./Chapter/Mod/StatMech/StatMech.tex}
+\clearpage
+
+\section{Wave}
+\subfile{./Chapter/Mod/Waves/Wav.tex}
+\clearpage
+
+\chapter{Classical Mechanics}\clearpage
+
+\section{Unasorted Classical Mechanics Topics}
+\subfile{./Chapter/CM/etc/file.tex}\clearpage
+\subfile{./Chapter/CM/Problems/Prob.tex}\clearpage
+
+\section{Central Force}
+\subfile{./Chapter/CM/CentralForce/CF.tex}\clearpage
+
+\section{Energy}
+\subfile{./Chapter/CM/Energy/Energy.tex}\clearpage
+
+\section{Lagrangian Mechanics}
+\subfile{./Chapter/CM/Lagrange/Lagrangian.tex}\clearpage
+\subfile{./Chapter/CM/Lagrange/LgAppl.tex}\clearpage
+
+\section{Hamiltonian Mechanics}
+\subfile{./Chapter/CM/Hamiltion/Hamiltonian.tex}\clearpage
+\subfile{./Chapter/CM/Hamiltion/ApplHamltn.tex}\clearpage
+
+\section{Simple Harmonic Motion}
+\subfile{./Chapter/CM//SHM/SHM.tex}\clearpage
+
+\section{Damped Harmonic Oscillation}
+\subfile{./Chapter/CM//DHO/DHO.tex}\clearpage
+
+\section{Forced Oscillation}
+\subfile{./Chapter/CM//Forced/FO.tex}\clearpage
+
+\section{Traveling Waves}
+\subfile{./Chapter/CM//Travel/Tr.tex}\clearpage
+\subfile{./Chapter/CM//Travel/TrAppend.tex}\clearpage
+
+\section{Standing Waves}
+\subfile{./Chapter/CM//Stand/Stand.tex}\clearpage
+
+\section{Interference}
+\subfile{./Chapter/CM//Interference/Inter.tex}\clearpage
+\subfile{./Chapter/CM//Interference/IntAppend.tex}\clearpage
+
+\subsubsection{Dispersion}
+\subfile{./Chapter/CM//Dispersion/Disp.tex}\clearpage
+
+\chapter{Electrodynamics}
+
+\section{Electrostatics}
+\subfile{./Chapter/ED/Electrostatics/Elecstat.tex}\clearpage
+\subfile{./Chapter/ED/Electrostatics/EstatAppen.tex}\clearpage
+
+\section{Potential}
+\subfile{./Chapter/ED/Potential/Potential.tex}\clearpage
+\subfile{./Chapter/ED/Potential/Appendix.tex}\clearpage
+
+\section{Electric Field in Matter}
+\subfile{./Chapter/ED/Field in Matter/EMatter.tex}\clearpage
+
+\section{Magnetostatics}
+\subfile{./Chapter/ED/Magnetostat/Magnetostat.tex}\clearpage
+\subfile{./Chapter/ED/Magnetostat/MagAppend.tex}\clearpage
+
+\section{Magnetic Field in Matter}
+\subfile{./Chapter/ED/Field in Matter/Bmatter.tex}\clearpage
+
+\section{Electrodynamics}
+\subfile{./Chapter/ED/Electrodynamics/Electrodynamics.tex}\clearpage
+\subfile{./Chapter/ED/Electrodynamics/EldAppend.tex}\clearpage
+
+\section{Conservation Laws}
+\subfile{./Chapter/ED/Conserv/Conserv.tex}\clearpage
+
+\section{Electromagnetic Waves}
+\subfile{./Chapter/ED/EMWave/EMWa.tex}\clearpage
+
+\section{Introduction to Optics}
+\subfile{./Chapter/ED/OpticIntro/intro.tex}\clearpage
+
+\section{Optical Geometry}
+\subfile{./Chapter/ED/Geometry/Geometry.tex}\clearpage
+
+
+\chapter{Statistical Mechanics}\clearpage
+\section{Key Concepts}
+\subfile{./Chapter/StatMech/KeyConcept/KeyConcept.tex}\clearpage
+
+\section{Thermodynamics' Law}
+\subfile{./Chapter/StatMech/ThermoLaw/ThermoLaw.tex}\clearpage
+
+\section{Thermodynamics Postulate}
+\subfile{./Chapter/StatMech/Postulate/Postulate.tex}\clearpage
+
+\section{Thermodynamics' Potentials}
+\subfile{./Chapter/StatMech/Potential/Potential.tex}\clearpage
+
+\section{Maxwell Relations}
+\subfile{./Chapter/StatMech/MaxwellRelation/Maxwell.tex}\clearpage
+
+\section{Introduction to Statistical Mechanics}
+\subfile{./Chapter/StatMech/Intro/Intro.tex}\clearpage
+
+\section{Maxwell-Boltzman Distribution}
+\subfile{./Chapter/StatMech/Maxwell-Boltzman/MB.tex}\clearpage
+\subfile{./Chapter/StatMech/Maxwell-Boltzman/MBAppend.tex}\clearpage
+
+\section{Bose-Einstein Distribution}
+\subfile{./Chapter/StatMech/Bose-Einstein/BE.tex}\clearpage
+
+\section{Planck Distribution}
+\subfile{./Chapter/StatMech/Planck/Planck.tex}\clearpage
+
+\section{Fermi-Dirac Distribution}
+\subfile{./Chapter/StatMech/Fermi-Dirac/FD.tex}\clearpage
+
+\section{Boltzmann Entropy}
+\subfile{./Chapter/StatMech/BoltzmannEntropy/Boltzmann.tex}\clearpage
+
+\section{Equilibrium Distribution}
+\subfile{./Chapter/StatMech/Equilibrilium/eq.tex}\clearpage
+
+
+
 
 \nocite{*}
 \printbibliography

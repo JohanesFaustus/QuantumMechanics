@@ -1,0 +1,210 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Dielectrics}
+We have already talked about conductors; these are substances that contain an “unlimited” supply of charges that are free to move about through the material. In dielectrics, by contrast, all charges are attached to specific atoms or molecules—they’re on a tight leash, and all they can do is move a bit within the atom or molecule. 
+
+Such microscopic displacements are not as dramatic as the wholesale rearrangement of charge in a conductor, but their cumulative effects account for the characteristic behavior of dielectric materials. There are actually two principal mechanisms by which electric fields can distort the charge distribution of a dielectric atom or molecule: stretching and rotating. 
+
+\subsubsection{Stretching.} When a neutral atom is placed in an electric field \textbf{E}, the nucleus is pushed in the direction of the field, and the electrons the opposite way; stretching the atom. If the field is large enough, it can pull the atom apart completely, “ionizing” it. With less extreme fields, however, an equilibrium is soon established. The atom now has a tiny dipole moment \textbf{p}, which points in the same direction as \textbf{E}:
+\begin{equation*}
+    \mathbf{p} = \alpha \mathbf{E}
+\end{equation*}     
+the constant of proportionality $\alpha$ is called atomic polarizability. 
+
+\subsubsection{Rotating.} When molecules with built-in, permanent dipole moments are placed in a uniform electric field, the force on the positive end $\mathbf{F}_+$ exactly cancels the force on the negative end $\mathbf{F}_-$. However, there will be a torque:
+\begin{equation*}
+    \mathbf{N}=\mathbf{p}\times\mathbf{E}
+\end{equation*}
+about the center of the dipole.; about any other point $\mathbf{N}=(\mathbf{p}\times\mathbf{E}) + (\mathbf{r}\times \mathbf{F})$. Notice that \textbf{N} is in such a direction as to line \textbf{p} up parallel to \textbf{E}; a polar molecule that is free to rotate will swing around until it points in the direction of the applied field. 
+
+If the field is nonuniform, so that $\mathbf{F}_+$ does not exactly balance $\mathbf{F}_-$, there will be
+a net force on the dipole, in addition to the torque
+\begin{equation*}
+    \mathbf{F} = \mathbf{F}_+ + \mathbf{F}_- = q(\mathbf{E}_++ \mathbf{E}_-) = q(\Delta \mathbf{E})
+\end{equation*}
+Assuming the dipole is very short, we may write
+\begin{equation*}
+    \Delta \mathbf{E}=\nabla  \mathbf{E}\cdot \mathbf{d}=(\mathbf{d}\cdot\nabla) \mathbf{E}
+\end{equation*}
+and therefore
+\begin{equation*}
+    \mathbf{F} = (\mathbf{p}\cdot\nabla) \mathbf{E}
+\end{equation*}
+
+\subsection{Polarization}
+Notice that those two mechanisms produce the same basic result: a lot of little dipoles pointing along the direction of the field—the material becomes polarized. A convenient measure of this effect is
+\begin{equation*}
+    \mathbf{P}\equiv\text{ dipole moment per unit volume}=\frac{\mathbf{p}}{V}
+\end{equation*}
+which is called the polarization. 
+
+\subsection{Bound Charges}
+Suppose we have a piece of polarized material--that is, an object containing a lot of microscopic dipoles lined up. The potential for a single dipole \textbf{p}
+\begin{equation*}
+    V_{\text{dip}}(\mathbf{r})=\frac{1}{4\pi \epsilon_0} \frac{\mathbf{p} \cdot \hrcurs}{\rcurs^2}
+\end{equation*} 
+we have a dipole moment $\mathbf{p} = \mathbf{P} \;d\tau'$ in each volume element $d\tau'$, so the total potential is
+\begin{equation*}
+    V_{\text{dip}}(\mathbf{r}) =\frac{1}{4\pi \epsilon_0} \int_{\mathcal{V}} \frac{\mathbf{P} \cdot \hrcurs}{\rcurs^2}\;d\tau'
+\end{equation*}
+That does it, in principle. However, observing that $\nabla' (1/\rcurs)=\hrcurs/\hrcurs$, where the differentiation is with respect to the source coordinates $(r')$, we have
+\begin{equation*}
+    V=\frac{1}{4\pi\epsilon_0}\biggl(\oint_S\frac{1}{\rcurs}\mathbf{P}\cdot d\mathbf{a}'+\int_V\frac{1}{\rcurs}(\nabla'\cdot \mathbf{P})d\tau'\biggr)
+\end{equation*}
+The ﬁrst term looks like the potential of a surface charge
+\begin{equation*}
+    \sigma_b\equiv\mathbf{P}\cdot\mathbf{\hat{n}}
+\end{equation*}
+(where $\mathbf{\hat{n}}$ is the normal unit vector), while the second term looks like the potential 
+of a volume charge
+\begin{equation*}
+    \rho_b\equiv-\nabla\cdot\mathbf{P}
+\end{equation*}
+With these deﬁnitions
+\begin{equation*}
+    V=\frac{1}{4\pi\epsilon_0}\biggl(\oint_S\frac{\sigma_b}{\rcurs}da'+\int_V\frac{ \rho_b}{\rcurs}d\tau'\biggr)
+\end{equation*}
+
+What this means is that the potential (and hence also the ﬁeld) of a polarized object is the same as that produced by a volume charge density $ \rho_b$ plus a surface charge density $\sigma_b$. Instead of integrating the contributions of all the inﬁnitesimal dipoles, we could ﬁrst ﬁnd those bound charges, and then calculate the ﬁelds they produce, in the same way we calculate the ﬁeld of any other volume and surface charges (for example, using Gauss's law).
+
+\subsubsection{Physical interpretation.} Suppose we have a long string of di-poles. Along the line, the head of one effectively cancels the tail of its neighbor, but at the ends there are two charges left over. We call the net charge at the ends a bound charge to remind ourselves that it cannot be removed. 
+
+To calculate the actual amount of bound charge resulting from a given polarization, examine a “tube” of dielectric parallel to $\mathbf{P}$. The dipole moment is given by
+\begin{equation*}
+    p=PAd
+\end{equation*}
+where $A$ is the cross-sectional area of the tube and $d$ is the length of the chunk. In terms of the charge
+\begin{equation*}
+    q=PA
+\end{equation*}
+If the ends have been sliced off perpendicularly, the surface charge density is
+\begin{equation*}
+    \sigma_b=\frac{q}{A}=P
+\end{equation*}
+For an oblique cut, the charge is still the same, but $A = A_{end} \cos \theta$, so
+\begin{equation*}
+    \sigma_b=\frac{q}{A_{end} \cos \theta}=P
+\end{equation*}
+and thus
+\begin{equation*}
+    \sigma_b=\mathbf{P}\cdot\mathbf{\hat{n}}
+\end{equation*}
+The effect of the polarization, then, is to paint a bound charge $\sigma_b\equiv \mathbf{P} \cdot \mathbf{\hat{n}} $ over the surface of the material.
+
+If the polarization is nonuniform, we get accumulations of bound charge within the material, as well as on the surface. Indeed, the net bound charge in a given volume is equal and opposite to the amount that has been pushed out through the surface:
+\begin{equation*}
+    \int_V\rho_b\;d\tau=-\oint_S\mathbf{P}\cdot d\mathbf{a}=-\int_V(\nabla\cdot\mathbf{P})\;d\tau
+\end{equation*}
+Since this is true for any volume, we have
+\begin{equation*}
+    \rho_b=-\nabla\cdot\mathbf{P}
+\end{equation*}
+
+\subsection{Electric Displacement}
+The effect of polarization is to produce accumulations of (bound) charge $\rho_b$ within the dielectric and $\sigma_b$ on the surface. The ﬁeld due to polarization of the medium is just the ﬁeld of this bound charge. We are now ready to put it all together: the ﬁeld attributable to bound charge plus the ﬁeld due to everything else (which, for want of a better term, we call free charge, $\rho$). Within the dielectric, the total charge density can be written:
+\begin{equation*}
+    \rho=\rho_b+\rho_f
+\end{equation*}
+and Gauss's law reads
+\begin{align*}
+    \epsilon_0\nabla\cdot\mathbf{E}&=\rho\\
+    &=\rho_b+\rho_f\\
+    &=-\nabla\cdot\mathbf{P}+\rho_f
+\end{align*}
+
+It is convenient to combine the two divergence terms
+\begin{equation*}
+    \rho_f=\nabla\cdot(\epsilon_0\mathbf{E}+\mathbf{P})
+\end{equation*}
+The expression in parentheses is known as the electric displacement
+\begin{equation*}
+    \mathbf{D}\equiv\epsilon_0\mathbf{E}+\mathbf{P}
+\end{equation*}
+In terms of $\mathbf{D}$, Gauss's law reads
+\begin{equation*}
+    \nabla\cdot\mathbf{D}=\rho_f
+\end{equation*}
+or, in integral form
+\begin{equation*}
+    \oint\mathbf{D}\cdot d\mathbf{a}=Q_{f_{enc}}
+\end{equation*}
+where $_{f_{enc}}$ denotes the total free charge enclosed in the volume. This is a particularly useful way to express Gauss's law, in the context of dielectrics, because it makes reference only to free charges, and free charge is the stuff we control. Bound charge comes along for the ride: when we put the free charge in place, a certain polarization automatically ensues, and this polarization produces the bound charge.
+
+\subsubsection{Deceptive parallel.} You may be tempted to conclude that \textbf{D} is “just like” \textbf{E}, but the conclusion is false; in particular, there is no “Coulomb’s law” for \textbf{D}:
+\begin{equation*}
+    \mathbf{D}(\mathbf{r})\neq\frac{1}{4\pi}\int\frac{\hrcurs}{\rcurs^2}\rho_f(\mathbf{r})\;d\tau'
+\end{equation*}
+
+The parallel between \textbf{E} and \textbf{D} is more subtle than that. For the divergence alone is insufﬁcient to determine a vector ﬁeld; you need to know the curl as well. One tends to forget this in the case of electrostatic ﬁelds  because the curl of \textbf{E} is always zero. But the curl of \textbf{D} is not always zero.
+\begin{equation*}
+    \nabla\times\mathbf{D}=\epsilon_0\nabla\times\mathbf{E}+\nabla\times\mathbf{P}= \nabla\times\mathbf{P}
+\end{equation*}
+and there is no reason, in general, to suppose that the curl of \textbf{P} vanishes.
+
+\subsection{Linear Dielectrics}
+I shall call materials that obey
+\begin{equation*}
+    \mathbf{P}=\epsilon_0\chi_e\mathbf{E}
+\end{equation*}
+as linear dielectrics. For linear dielectric, the polarization is proportional to the ﬁeld, provided \textbf{E} is not too strong. The constant of proportionality, $\chi_e$, is called the electric susceptibility of the medium (a factor of $\epsilon_0$ has been extracted to make $\chi_e$ dimensionless). \textbf{E} is the total ﬁeld; it may be due in part to free charges and in part to the polarization itself. 
+
+If, for instance, we put a piece of dielectric into an external ﬁeld $E_0$, we cannot compute \textbf{P} directly; the external ﬁeld will polarize the material, and this polarization will produce its own ﬁeld, which then contributes to the total ﬁeld, and this in turn modiﬁes the polarization, which...
+
+In linear media we have
+\begin{equation*}
+    \mathbf{D}=\epsilon_0\mathbf{E}+\mathbf{P}=\epsilon_0(1+\chi_e)\mathbf{E}
+\end{equation*}
+So \textbf{D} is also proportional to \textbf{E}
+\begin{equation*}
+    \mathbf{D}=\epsilon\mathbf{E}
+\end{equation*}
+where
+\begin{equation*}
+    \epsilon=\epsilon_0(1+\chi_e)
+\end{equation*}
+This new constant $\epsilon$ is called the permittivity of the material. In vacuum, where there is no matter to polarize, the susceptibility $\chi_e$ is zero, and the permittivity is $\epsilon_0$. That’s why $\epsilon_0$ is called the permittivity of free space. 
+
+If you remove a factor of $\epsilon_0$, the remaining dimensionless quantity
+\begin{equation*}
+    \epsilon_r\equiv1+\chi_e=\frac{\epsilon}{\epsilon_0}
+\end{equation*}
+is called the relative permittivity, or dielectric constant, of the material.
+
+\subsubsection{Deceptive (?) parallel.} You might suppose that linear dielec-trics escape the defect in the parallel between \textbf{E} and \textbf{D}; since \textbf{P} and \textbf{D} are now proportional to \textbf{E}, does it not follow that their curls must vanish? Unfortunately, it does not, for the line integral of \textbf{P} around a closed path that straddles the boundary between one type of material and another need not be zero, even though the integral of \textbf{E} around the same loop must be.
+
+Of course, if the space is entirely ﬁlled with a homogeneous, that is medium is one whose properties (in this case the susceptibility) do not vary with position, linear dielectric, then this objection is void; in this rather special circumstance
+\begin{equation*}
+    \mathbf{E}=\frac{1}{\epsilon}\mathbf{D}=\frac{1}{\epsilon_r}\mathbf{E}_{\text{vac}}
+\end{equation*}
+Conclusion: When all space is filled with a homogeneous linear dielectric, the field everywhere is simply reduced by a factor of one over the dielectric constant.
+
+For example, if a free charge $q$ is embedded in a large dielectric, the field it produces is
+\begin{equation*}
+    \mathbf{E}=\frac{1}{1\pi\epsilon}\frac{q}{r^2}\mathbf{\hat{r}}
+\end{equation*}
+
+A common way to beef up a capacitor is to fill parallel-plate capacitor with insulating material of dielectric constant $\epsilon_r$. Since the field is confined to the space between the plates, the dielectric will reduce \textbf{E}, and hence also the potential difference $V$, by a factor $1/\epsilon_r$. Accordingly, the capacitance $C = Q/V$ is increased by a factor of the dielectric constant
+\begin{equation*}
+    C=\epsilon_rC_{\text{vac}}
+\end{equation*}
+
+\subsubsection{Energy in Dielectric Systems}
+It takes work to charge up a capacitor 
+\begin{equation*}
+    W=\frac{1}{2}CV^2
+\end{equation*}
+If the capacitor is filled with linear dielectric
+\begin{equation*}
+    C=\epsilon_rC_{\text{vac}}
+\end{equation*}
+
+I have also derived a general formula for the energy stored in any electrostatic system
+\begin{equation*}
+    W=\frac{\epsilon_0}{2}\int E^2\;d\tau
+\end{equation*}
+The case of the dielectric-filled capacitor suggests that this should be changed to
+\begin{equation*}
+    W=\frac{\epsilon_0}{2}\int \epsilon_rE^2\;d\tau=\frac{1}{2} \int\mathbf{D}\cdot\mathbf{E}\;d\tau
+\end{equation*}
+\end{document}

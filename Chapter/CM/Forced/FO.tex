@@ -1,0 +1,250 @@
+\documentclass[../../../main.tex]{subfiles}
+\begin{document}
+\subsection{Undamped forced oscillations.} We begin with a mass $m$ on a horizontal spring with a periodic driving force $F = F_0 \cos \omega t$ is applied to it. We obtain
+\begin{equation*}
+    m\ddot{x}+kx=F_0 \cos \omega t
+\end{equation*}
+Another form of this equation is 
+\begin{align*}
+    m\ddot{x}&=-k(x-\xi)\\
+    m\ddot{x}+kx&=ka \cos \omega t
+\end{align*}
+with $\xi=a \cos \omega t$ as displacement due to driving force. Furthermore, we can rewrite the equation as
+\begin{align*}
+    \ddot{x}+\omega_0^2x&=\omega_0^2\;a \cos \omega t\\
+    (D+\omega_0^2i)(D-\omega_0^2i)x&=\omega_0^2\;a\cos \omega t\\
+\end{align*}
+To solve this, first we solve 
+\begin{equation*}
+    (D+\omega_0^2i)(D-\omega_0^2i)X=\omega_0^2\;a\exp i\omega t
+\end{equation*}
+This has a particular solution
+\begin{equation*}
+    X_p=C\exp{i\omega t}
+\end{equation*}
+Thus
+\begin{equation*}
+    \ddot{X}_p=-C\omega^2\exp{i\omega t}
+\end{equation*}
+Substituting back, we get
+\begin{align*}
+    (-\omega^2+\omega_0^2)C\exp{i\omega t}&=\omega_0^2a\exp{i\omega t}\\
+\end{align*}
+Solving for $C$
+\begin{equation*}
+    C=\frac{a}{1-\omega^2/\omega_0^2}
+\end{equation*}
+The solution to the exponential equation is 
+\begin{equation*}
+    X=\frac{a}{1-\omega^2/\omega_0^2}(\cos\omega t+i\sin \omega t)
+\end{equation*}
+To solve our original, we take the real part 
+\begin{equation*}
+    x=\frac{a}{1-\omega^2/\omega_0^2}\cos\omega t
+\end{equation*}
+The fractional term is the amplitude of our oscillator as function of $\omega$ or $A(\omega)$.
+
+\subsection{Damped forced oscillations.} We add the damping term into our equation
+\begin{equation*}
+    m\ddot{x}+b\dot{x}+kx=F_0 \cos \omega t
+\end{equation*}
+or
+\begin{equation*}
+    \ddot{x}+\gamma\dot{x}+\omega_0^2x=\omega_0^2\;a \cos \omega t
+\end{equation*}
+As before, we write the equation as 
+\begin{equation*}
+    \biggl(D-\frac{\gamma}{2}+\sqrt{\frac{\gamma}{4}-\omega_0^2}\biggr)\biggl(D-\frac{\gamma}{2}+\sqrt{\frac{\gamma}{4}-\omega_0^2}\biggr)x=\omega_0^2\;a \cos \omega t
+\end{equation*}
+By the method of complex exponentials, we solve first
+\begin{equation*}
+    \biggl(D-\frac{\gamma}{2}+\sqrt{\frac{\gamma}{4}-\omega_0^2}\biggr)\biggl(D-\frac{\gamma}{2}+\sqrt{\frac{\gamma}{4}-\omega_0^2}\biggr)X=\omega_0^2\;a \exp i\omega t
+\end{equation*}
+This has a particular solution
+\begin{equation*}
+    X_p=C\exp i\omega t
+\end{equation*}
+thus 
+\begin{align*}
+    \dot{X}&=C\omega i \exp i\omega t\\
+    \ddot{X}&=-C\omega \exp i\omega t
+\end{align*}
+Substituting back, we get
+\begin{align*}
+    (-\omega^2+\omega \gamma i+\omega_0^2)C\exp{i\omega t}&=\omega_0^2a\exp{i\omega t}\\
+\end{align*}
+Solving fo $C$
+\begin{equation*}
+    C=\frac{a\omega_0^2}{(\omega_0^2-\omega^2)+\omega\gamma i}= \frac{a\omega_0^2 \big[(\omega_0^2-\omega^2)-\omega\gamma i\big]}{(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2 }
+\end{equation*}
+It is convenient to write the complex number $C$ in the polar $|C|\exp i \delta$ form. We have
+\begin{align*}
+    |C|&=\Biggl( \frac{a\omega_0^2 \big[(\omega_0^2-\omega^2)-\omega\gamma i\big]}{(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2 } \frac{a\omega_0^2 \big[(\omega_0^2-\omega^2)+\omega\gamma i\big]}{(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2 }\Biggr)^{1/2}\\
+    &= \frac{a\omega_0^2 }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }
+\end{align*}
+Angle of $C=-\delta$ is formed by the real term $(\omega_0^2-\omega^2)$ and imaginary term $-\omega\gamma i$. Thus,
+\begin{equation*}
+    C=\frac{a\omega_0^2 }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }\exp (-i\delta )
+\end{equation*}
+and 
+\begin{equation*}
+    X_p=\frac{a\omega_0^2 }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }\exp i(\omega t-\delta )
+\end{equation*}
+To find $x_p$ we take the real part of $X_p$:
+\begin{equation*}
+    x=\frac{a\omega_0^2 }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }\cos (\omega t-\delta )
+\end{equation*}
+As before, the fractional term is the amplitude of our oscillator. Here $\delta $ is phase angle between the driving force and the resultant displacement. The minus sign of $\delta $ in Equation implies that the displacement lags behind the driving force and this is indeed the case in forced oscillations. Finally, in order to make our equation more general, we make use of the substitution $F_0 = ka$
+\begin{equation*}
+    x=\frac{F_0/m }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }\cos (\omega t-\delta )
+\end{equation*}
+\subsubsection{Mechanical impedance.} I will now try to solve the damped forced oscillations' equation by introducing mechanical impedance
+\begin{equation*}
+    \mathbf{Z}_m= \Re \;b+\Im\; (m\omega- \frac{k}{\omega}) 
+\end{equation*}
+where it has complex value. I have also written it in bold to imply that it is a vector quantity, this will be important later. First, I write the constant $C$ not in polar form, but instead I write
+\begin{align*}
+    C=\frac{F_0}{-m\omega^2+b\omega i+k}
+\end{align*}
+where I have substituted the constant. Factoring $\omega i$
+\begin{equation*}
+    C=\frac{F_0}{\omega i \big[b+(m\omega-k\omega)i\big]}=\frac{F_0}{\omega i\mathbf{Z}_m}
+\end{equation*}
+Multiplying with its conjugate
+\begin{equation*}
+    C=-\frac{F_0i}{\omega i Z_m\exp i\delta}
+\end{equation*}
+where I have written the mechanical impedance in its polar form. Therefore, the solution is
+\begin{equation*}
+    x=-\frac{F_0i}{\omega Z_m\exp i\delta}\exp i\omega t
+\end{equation*}
+by Euler's formula
+\begin{equation*}
+    x=\frac{F_0 }{\omega Z_m}\sin \omega t-\delta
+\end{equation*}
+
+\subsubsection{Maximum amplitude.} The amplitude
+\begin{equation*}
+    A(\omega)=\frac{a\omega_0^2 }{\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} }
+\end{equation*}
+is maximum when the denominator is minimum
+\begin{equation*}
+    \frac{d}{d\omega}\biggl[\big[(\omega_0^2- \omega^2)^2 +\omega^2\gamma^2\big]^{1/2} \biggr]= 0
+\end{equation*}
+from which 
+\begin{equation*}
+    \omega=\omega_0\bigg(1-\frac{\gamma^2}{2\omega_0^2}\bigg)^{1/2}\equiv\omega_{\text{max}}
+\end{equation*}
+follows. We can find the maximum value of the amplitude $A_{\text{max}}$ by substituting $\omega_{\text{max}}$
+\begin{equation*}
+    A_{\text{max}}=\frac{a\omega/\gamma}{\big(1-\gamma^2/4\omega_0^2 \big)^{1/2}}
+\end{equation*}
+In the meantime we use the substitution $Q = \omega_0/\gamma$ in the equations for $\omega_{\text{max}}$ and $A_{\text{max}}$
+\begin{align*}
+    \omega_{\text{max}}&=\omega_0\bigg(1-\frac{1}{2Q^2}\bigg)^{1/2}\\
+    A_{\text{max}}&=\frac{aQ}{\big(1-1/4Q^2 \big)^{1/2}}
+\end{align*}
+
+\subsection{Power Absorbed}
+The rate of energy loss due to damping is equal to the damping force times the velocity of the mass. 
+Since the damping force and the velocity are time-dependent, we must define the instantaneous power absorbed in time $t$ by
+\begin{equation*}
+    P(t)=b\big[v(t)\big]^2
+\end{equation*}
+with
+\begin{equation*}
+    v=-\frac{a\omega\omega_0^2}{\big[(\omega_0^2-\omega^2)^2+\omega^2\gamma^2\big]^{1/2}} \sin \omega t -\delta=-v_0(\omega) \sin \omega t -\delta
+\end{equation*}
+
+It is more convenient to talk about average power $ \bar{P} (\omega)$ absorbed over a complete cycle of oscillation between times $t_o$ and $t_o + T$
+\begin{align*}
+    \bar{P} (\omega)&=\frac{1}{T}\int_{t_0}^{t_0+T}P(t) \;dt=\frac{b\big[v_0(\omega)\big]^2}{2}
+\end{align*}
+substituting for $b, \omega_0^2,$ and $a$
+\begin{equation*}
+    \bar{P} (\omega)=\frac{\omega^2F_0^2\gamma}{2m\big[(\omega_0^2-\omega^2)^2+\omega^2 \gamma^2\big]}
+\end{equation*}
+
+\subsubsection{Another method.} I will now try tofind the rate of energy loss by using mechanical impedance. The solution of damped forced oscillation has the solution
+\begin{equation*}
+    x=\frac{F_0 }{\omega Z_m}\sin \omega t-\delta
+\end{equation*}
+with first derivative
+\begin{equation*}
+    \dot{x}=\frac{F_0}{Z_m}\cos  \omega t-\delta
+\end{equation*}
+The power of the oscillator is
+\begin{equation*}
+    P(t)=b\dot{x}^2=\frac{b F_0^2}{Z_m^2}\cos  \omega t-\delta
+\end{equation*}
+with average power of
+\begin{equation*}
+    \bar{P}=\frac{1}{T}\int_{0}^{T} \frac{b F_0^2}{Z_m^2}\cos  \omega t-\delta \; dt=\frac{1}{T}\frac{F_0^2}{Z_m} \frac{b}{Z_m} \frac{T}{2}
+\end{equation*}
+thus
+\begin{equation*}
+    \bar{P}=\frac{F_0^2}{2Z_m}\cos \delta
+\end{equation*}
+
+
+\subsubsection{Full width half height.} An important parameter of a power resonance curve is its full width at half height $\omega_\text{fwhh}$; which characterises the sharpness of the response of the oscillator to an applied force. When the driving frequency is close to the frequency $\omega_0$, we can replace
+\begin{equation*}
+    \omega^2-\omega_0^2=(\omega_0+\omega)\approx 2\omega_0 \Delta \omega
+\end{equation*}
+where
+\begin{equation*}
+    \Delta \omega \equiv \omega -\omega_0
+\end{equation*}
+With these approximations, 
+\begin{equation*}
+    \bar{P} (\omega)=\frac{F_0^2}{2m\gamma(4\Delta\omega^2/\gamma+1)}
+\end{equation*}
+with maximum value
+\begin{equation*}
+    \bar{P}_{\text{max}}=\frac{F_0^2}{2m\gamma}
+\end{equation*}
+which occur at $\Delta\omega=0$. The half heights of the curve, equal to $\bar{P}_{\text{max}}/2$. Thus,
+\begin{equation*}
+    \omega_\text{fwhh}=2\Delta\omega=\gamma=\frac{\omega_0}{Q}
+\end{equation*}
+or 
+\begin{equation*}
+    Q=\frac{\omega_0}{\omega_\text{fwhh}}=\frac{\text{resonance frequency}}{\text{full width at half height of power curve}}
+\end{equation*}
+
+\subsection{Electrical Circuit}
+Applying Kirchoff's law to circuit driven by an alternative (AC) voltage $V (t) = V_0 \cos \omega t$ gives the equation
+\begin{equation*}
+    \ddot{q}+\frac{R}{L}\dot{q}+\frac{1}{LC}q=\frac{V_0}{L} \cos \omega t
+\end{equation*}
+Corresponding replacements are
+\begin{equation*}
+    \omega_0^2=\frac{1}{LC}\quad\gamma=\frac{R}{L}\quad Q=R\sqrt{\frac{L}{C}}
+\end{equation*}
+The solution is 
+\begin{equation*}
+    q=q(\omega)\cos (\omega t-\delta )
+\end{equation*}
+where
+\begin{align*}
+    q(\omega)&=\frac{V_0/L}{\big[(\omega_0^2- \omega^2)^2 +(\omega R/L)^2\big]^{1/2}}\\
+    &= \frac{V_0}{\omega\big[(1/\omega C- \omega L)^2 +R^2\big]^{1/2} }
+\end{align*}
+The current I flowing in the circuit is given by
+\begin{equation*}
+    I=-\frac{V_0\sin \omega t-\delta}{\big[(1/\omega C- \omega L)^2 +R^2\big]^{1/2} }
+\end{equation*}
+The resultant alternating voltage $V_C$ across the capacitor is equal to $q/C$, hence
+\begin{equation*}
+    V_C=V_C(\omega)\cos (\omega t-\delta )
+\end{equation*}
+where
+\begin{equation*}
+    V_(\omega)= \frac{V_0/LC}{\big[(\omega_0^2- \omega^2)^2 +(\omega R/L)^2\big]^{1/2}} 
+\end{equation*}
+At resonance when $\omega = \omega_0$, we have
+\begin{equation*}
+    V_C(\omega_0)=\frac{V_0}{RC\omega_0}=QV_0
+\end{equation*}
+We see that the resonance circuit has amplified the AC voltage applied to the circuit by the Q-value of the circuit. 
+\end{document}
