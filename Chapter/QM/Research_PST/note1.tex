@@ -21,92 +21,92 @@ with transition amplitude
 \begin{figure}
   \centering
   \subfloat[]{
-      \begin{tikzpicture}[x=1.3cm,y=1cm]
-    \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
-    \usetikzlibrary{decorations.pathmorphing}
-    \draw[] (0,0) -- (3,0);
-    \draw[] (3,0) -- (3.5,0);
-    \draw[dotted] (3.5,0) -- (4.5,0);
-    \draw[]  (4.5,0) -- (5,0);
-    \draw[] (5,0) -- (8,0);
+    \begin{tikzpicture}[x=1.3cm,y=1cm]
+      \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
+      \usetikzlibrary{decorations.pathmorphing}
+      \draw[] (0,0) -- (3,0);
+      \draw[] (3,0) -- (3.5,0);
+      \draw[dotted] (3.5,0) -- (4.5,0);
+      \draw[]  (4.5,0) -- (5,0);
+      \draw[] (5,0) -- (8,0);
 
-    \node at (0.5, 0.5) {$J_1$};
-    \node at (1.5, 0.5) {$J_1$};
-    \node at (2.5, 0.5) {$J_1$};
-    \node at (5.5, 0.5) {$J_1$};
-    \node at (6.5, 0.5) {$J_1$};
-    \node at (7.5, 0.5) {$J_1$};
+      \node at (0.5, 0.5) {$J_1$};
+      \node at (1.5, 0.5) {$J_1$};
+      \node at (2.5, 0.5) {$J_1$};
+      \node at (5.5, 0.5) {$J_1$};
+      \node at (6.5, 0.5) {$J_1$};
+      \node at (7.5, 0.5) {$J_1$};
 
-    \node[circle,fill=white] at (0,0) {};
-    \draw[thick,->,>=Stealth,red] (0,-0.25) -- (0,0.25);
-    \foreach \x in {1,2,3,5,6,7,8}{
-        \node[circle,fill=white] at (\x,0) {};
-        \draw[thick,->,>=Stealth,blue] (\x,0.25) -- (\x,-0.25);
-      }
+      \node[circle,fill=white] at (0,0) {};
+      \draw[thick,->,>=Stealth,red] (0,-0.25) -- (0,0.25);
+      \foreach \x in {1,2,3,5,6,7,8}{
+          \node[circle,fill=white] at (\x,0) {};
+          \draw[thick,->,>=Stealth,blue] (\x,0.25) -- (\x,-0.25);
+        }
 
-    \node[anchor=north] at (0, -0.4) {$1$};
-    \node[anchor=north] at (1, -0.4) {$2$};
-    \node[anchor=north] at (2, -0.4) {$3$};
-    \node[anchor=north] at (4, -0.4) {$t=0$};
-    \node[anchor=north] at (6, -0.4) {$N-2$};
-    \node[anchor=north] at (7, -0.4) {$N-1$};
-    \node[anchor=north] at (8, -0.4) {$N$};
-  \end{tikzpicture}
+      \node[anchor=north] at (0, -0.4) {$1$};
+      \node[anchor=north] at (1, -0.4) {$2$};
+      \node[anchor=north] at (2, -0.4) {$3$};
+      \node[anchor=north] at (4, -0.4) {$t=0$};
+      \node[anchor=north] at (6, -0.4) {$N-2$};
+      \node[anchor=north] at (7, -0.4) {$N-1$};
+      \node[anchor=north] at (8, -0.4) {$N$};
+    \end{tikzpicture}
   }
   \hfil
   \subfloat[]{
-      \begin{tikzpicture}[x=1.3cm,y=1cm]
-    \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
-    \usetikzlibrary{decorations.pathmorphing}
-    \draw[] (0,0) -- (2.5,0);
-    \draw[dotted] (2.5,0) -- (3.5,0);
-    \draw[] (3.5,0) -- (4.5,0);
-    \draw[dotted]  (4.5,0) -- (5.5,0);
-    \draw[] (5.5,0) -- (8,0);
+    \begin{tikzpicture}[x=1.3cm,y=1cm]
+      \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
+      \usetikzlibrary{decorations.pathmorphing}
+      \draw[] (0,0) -- (2.5,0);
+      \draw[dotted] (2.5,0) -- (3.5,0);
+      \draw[] (3.5,0) -- (4.5,0);
+      \draw[dotted]  (4.5,0) -- (5.5,0);
+      \draw[] (5.5,0) -- (8,0);
 
-    \node[circle,fill=white] at (4,0) {};
-    \draw[thick,->,>=Stealth,red] (4,-0.25) -- (4,0.25);
-    \foreach \x in {0,1,2,6,7,8}{
-        \node[circle,fill=white] at (\x,0) {};
-        \draw[thick,->,>=Stealth,blue] (\x,0.25) -- (\x,-0.25);
-      }
+      \node[circle,fill=white] at (4,0) {};
+      \draw[thick,->,>=Stealth,red] (4,-0.25) -- (4,0.25);
+      \foreach \x in {0,1,2,6,7,8}{
+          \node[circle,fill=white] at (\x,0) {};
+          \draw[thick,->,>=Stealth,blue] (\x,0.25) -- (\x,-0.25);
+        }
 
-    \node[anchor=north] at (0, -0.4) {$1$};
-    \node[anchor=north] at (1, -0.4) {$2$};
-    \node[anchor=north] at (2, -0.4) {$3$};
-    \node[anchor=north] at (4, -0.4) {$N/2$};
-    \node[anchor=north] at (4, -1) {$t = t_\mathrm{max}/2$};
-    \node[anchor=north] at (6, -0.4) {$N-2$};
-    \node[anchor=north] at (7, -0.4) {$N-1$};
-    \node[anchor=north] at (8, -0.4) {$N$};
-  \end{tikzpicture}
+      \node[anchor=north] at (0, -0.4) {$1$};
+      \node[anchor=north] at (1, -0.4) {$2$};
+      \node[anchor=north] at (2, -0.4) {$3$};
+      \node[anchor=north] at (4, -0.4) {$N/2$};
+      \node[anchor=north] at (4, -1) {$t = t_\mathrm{max}/2$};
+      \node[anchor=north] at (6, -0.4) {$N-2$};
+      \node[anchor=north] at (7, -0.4) {$N-1$};
+      \node[anchor=north] at (8, -0.4) {$N$};
+    \end{tikzpicture}
   }
   \hfil
-    \subfloat[]{
-      \begin{tikzpicture}[x=1.3cm,y=1cm]
-    \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
-    \usetikzlibrary{decorations.pathmorphing}
-    \draw[] (0,0) -- (3,0);
-    \draw[] (3,0) -- (3.5,0);
-    \draw[dotted] (3.5,0) -- (4.5,0);
-    \draw[]  (4.5,0) -- (5,0);
-    \draw[] (5,0) -- (8,0);
+  \subfloat[]{
+    \begin{tikzpicture}[x=1.3cm,y=1cm]
+      \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
+      \usetikzlibrary{decorations.pathmorphing}
+      \draw[] (0,0) -- (3,0);
+      \draw[] (3,0) -- (3.5,0);
+      \draw[dotted] (3.5,0) -- (4.5,0);
+      \draw[]  (4.5,0) -- (5,0);
+      \draw[] (5,0) -- (8,0);
 
-    \node[circle,fill=white] at (8,0) {};
-    \draw[thick,->,>=Stealth,red] (8,-0.25) -- (8,0.25);
-    \foreach \x in {0,1,2,3,5,6,7}{
-        \node[circle,fill=white] at (\x,0) {};
-        \draw[thick,->,>=Stealth,blue] (\x,0.25) -- (\x,-0.25);
-      }
+      \node[circle,fill=white] at (8,0) {};
+      \draw[thick,->,>=Stealth,red] (8,-0.25) -- (8,0.25);
+      \foreach \x in {0,1,2,3,5,6,7}{
+          \node[circle,fill=white] at (\x,0) {};
+          \draw[thick,->,>=Stealth,blue] (\x,0.25) -- (\x,-0.25);
+        }
 
-    \node[anchor=north] at (0, -0.4) {$1$};
-    \node[anchor=north] at (1, -0.4) {$2$};
-    \node[anchor=north] at (2, -0.4) {$3$};
-    \node[anchor=north] at (4, -0.4) {$t=t_\mathrm{max}$};
-    \node[anchor=north] at (6, -0.4) {$N-2$};
-    \node[anchor=north] at (7, -0.4) {$N-1$};
-    \node[anchor=north] at (8, -0.4) {$N$};
-  \end{tikzpicture}
+      \node[anchor=north] at (0, -0.4) {$1$};
+      \node[anchor=north] at (1, -0.4) {$2$};
+      \node[anchor=north] at (2, -0.4) {$3$};
+      \node[anchor=north] at (4, -0.4) {$t=t_\mathrm{max}$};
+      \node[anchor=north] at (6, -0.4) {$N-2$};
+      \node[anchor=north] at (7, -0.4) {$N-1$};
+      \node[anchor=north] at (8, -0.4) {$N$};
+    \end{tikzpicture}
   }
   \caption*{Figure: Schematic illustration of quantum state transfer in a spin chain of length $N$. (a) Initial state localized at site 1 at $t=0$. (b) Intermediate stage at $t=t_{\max}/2$, illustrating the propagation of the excitation. (c) State localized at site $N$ at the transfer time $t=t_{\max}$.}
 \end{figure}
@@ -465,53 +465,6 @@ Using this coupling, the optimum time scale with $N$, that is
 with $\alpha=1$ at PST.
 
 \subsection{Localized eigenstates}
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[x=1.3cm,y=1cm]
-    \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
-    \usetikzlibrary{decorations.pathmorphing}
-    \draw[] (0,0) -- (3,0);
-    \draw[] (3,0) -- (3.5,0);
-    \draw[dotted] (3.5,0) -- (4.5,0);
-    \draw[]  (4.5,0) -- (5,0);
-    \draw[] (5,0) -- (8,0);
-
-    coupling strength
-    \node at (0.5, 0.5) {$\alpha J_1$};
-    \node at (1.5, 0.5) {$J_1$};
-    \node at (2.5, 0.5) {$J_1$};
-    \node at (5.5, 0.5) {$J_1$};
-    \node at (6.5, 0.5) {$J_1$};
-    \node at (7.5, 0.5) {$\alpha J_1$};
-    \node at (1, 1.7) {$\alpha J_2$};
-    \node at (2, 1.7) {$J_2$};
-    \node at (6, 1.7) {$J_2$};
-    \node at (7, 1.7) {$\alpha J_2$};
-
-
-    \node[circle,fill=white] at (0,0) {};
-    \draw[thick,->,>=Stealth] (0,-0.25) -- (0,0.25);
-    \foreach \x in {1,2,3,5,6,7,8}{
-        \node[circle,fill=white] at (\x,0) {};
-        \draw[thick,->,>=Stealth] (\x,0.25) -- (\x,-0.25);
-      }
-
-
-    \node[anchor=north] at (0, -0.4) {$1$};
-    \node[anchor=north] at (1, -0.4) {$2$};
-    \node[anchor=north] at (2, -0.4) {$3$};
-    \node[anchor=north] at (6, -0.4) {$N-2$};
-    \node[anchor=north] at (7, -0.4) {$N-1$};
-    \node[anchor=north] at (8, -0.4) {$N$};
-
-    \draw[dash pattern=on 6pt off 1pt] (0,0.6) .. controls (0,1.4) and (2,1.4) .. (2,0.6);
-    \draw[dash pattern=on 6pt off 1pt] (1,0.6) .. controls (1,1.4) and (3,1.4) .. (3,0.6);
-    \draw[dash pattern=on 6pt off 1pt] (5,0.6) .. controls (5,1.4) and (7,1.4) .. (7,0.6);
-    \draw[dash pattern=on 6pt off 1pt] (6,0.6) .. controls (6,1.4) and (8,1.4) .. (8,0.6);
-  \end{tikzpicture}
-  \caption*{Figure: Localized eigenstates realization via dangling coupling.}
-\end{figure}
-
 We start by considering the transition amplitude
 \begin{equation*}
   f(t) = \sum_{j=1}^{N} e^{-i E_j t}\braket{\mathbf{r}|\tilde{m}_j }\braket{\tilde{m}_j |\mathbf{s} }
@@ -627,16 +580,88 @@ Both in XX and XXX case, the diagonal is the same, hence
 \end{equation*}
 With $J_{1N} = 1/(2|N-1|^\nu)$, this reproduces $t_m = \pi(N-1)^\nu/2$.
 
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1.3cm,y=1cm]
+    \tikzset{point/.style={circle, fill=black, inner sep=2pt}}
+    \usetikzlibrary{decorations.pathmorphing}
+    \draw[] (0,0) -- (3,0);
+    \draw[] (3,0) -- (3.5,0);
+    \draw[dotted] (3.5,0) -- (4.5,0);
+    \draw[]  (4.5,0) -- (5,0);
+    \draw[] (5,0) -- (8,0);
+
+    coupling strength
+    \node at (0.5, 0.5) {$\alpha J_1$};
+    \node at (1.5, 0.5) {$J_1$};
+    \node at (2.5, 0.5) {$J_1$};
+    \node at (5.5, 0.5) {$J_1$};
+    \node at (6.5, 0.5) {$J_1$};
+    \node at (7.5, 0.5) {$\alpha J_1$};
+    \node at (1, 1.7) {$\alpha J_2$};
+    \node at (2, 1.7) {$J_2$};
+    \node at (6, 1.7) {$J_2$};
+    \node at (7, 1.7) {$\alpha J_2$};
+
+
+    \node[circle,fill=white] at (0,0) {};
+    \draw[thick,->,>=Stealth] (0,-0.25) -- (0,0.25);
+    \foreach \x in {1,2,3,5,6,7,8}{
+        \node[circle,fill=white] at (\x,0) {};
+        \draw[thick,->,>=Stealth] (\x,0.25) -- (\x,-0.25);
+      }
+
+
+    \node[anchor=north] at (0, -0.4) {$1$};
+    \node[anchor=north] at (1, -0.4) {$2$};
+    \node[anchor=north] at (2, -0.4) {$3$};
+    \node[anchor=north] at (6, -0.4) {$N-2$};
+    \node[anchor=north] at (7, -0.4) {$N-1$};
+    \node[anchor=north] at (8, -0.4) {$N$};
+
+    \draw[dash pattern=on 6pt off 1pt] (0,0.6) .. controls (0,1.4) and (2,1.4) .. (2,0.6);
+    \draw[dash pattern=on 6pt off 1pt] (1,0.6) .. controls (1,1.4) and (3,1.4) .. (3,0.6);
+    \draw[dash pattern=on 6pt off 1pt] (5,0.6) .. controls (5,1.4) and (7,1.4) .. (7,0.6);
+    \draw[dash pattern=on 6pt off 1pt] (6,0.6) .. controls (6,1.4) and (8,1.4) .. (8,0.6);
+  \end{tikzpicture}
+  \caption*{Figure: Localized eigenstates realization via weakened coupling.}
+\end{figure}
+
 \subsection{Localized Eigenstates for XX Hamiltonian}
 XX Hamiltonian is known to be generally better at state transfer.
-In particular, we choose the Hamiltonian
+In nearest neighborhood regime, the Hamiltonian reads
 \begin{equation*}
-  H =   -\sum_{r=1}^{N-1}J_r \sum_{i=1}^{N-r}  (\sigma_{z} ^{i} \sigma_z ^{i+r} + \sigma_{y} ^{i} \sigma_y ^{i+r})
+  H=-\sum_{i=1}^{N-1}J_i\left(\sigma_x^i\sigma_x^{i+1}+\sigma_y^i\sigma_y^{i+1}\right)
   - \sum_{i } ^N B \sigma_{z}^i
 \end{equation*}
-where we considered also long-range effect $J_{ij} = C /(a|i-j|)^\nu$.
+where
+\begin{equation*}
+  J_i=
+  \begin{cases}
+    \alpha J, & i=1 \text{ or } i=N-1, \\
+    J,        & \text{otherwise}.
+  \end{cases}
+\end{equation*}
 Here the magnetic field shall function for qubit energy splitting, so that its ergotropy exist.
 In can be thought as merely energy shift in state transfer case.
+We can extend this model by introducing long-range interaction as follows
+consider the Hamiltonian
+\begin{equation*}
+  H=-\sum_{r=1}^{N-1}J_r\sum_{i=1}^{N-r}g_{i,i+r}\left(\sigma_x^i\sigma_x^{i+r}+\sigma_y^i\sigma_y^{i+r}\right)
+  -B\sum_{i=1}^{N}\sigma_z^i
+\end{equation*}
+where the distance-dependent coupling is $J_r=1/(ar)^\nu$.
+The modulation factor is defined as
+\begin{equation*}
+  g_{ij} =
+  \begin{cases}
+    \alpha, & i\in\{1,N\}\ \text{or}\ j\in\{1,N\}, \\
+    1,      & \text{otherwise},
+  \end{cases}
+\end{equation*}
+The boundary-coupling parameter \(\alpha\) rescales interactions involving either boundary site.
+Physically, this modification can be represented by an effective distance \(r_{\mathrm{eff}}=\alpha^{-1/\nu}r\).
 
 Introducing imperfection $\alpha$ can create localized eigenstate which generally make better transport channel.
 The Hamiltonian can be modified as
@@ -652,7 +677,7 @@ and matrix representation
   H_{ij}(\alpha)=
   \begin{cases}
     -2Jg_{ij}(\alpha), & i \neq j \\
-    0,                 & i=j
+    -2B,               & i=j
   \end{cases}
 \end{equation*}
 
@@ -720,7 +745,300 @@ This comes easily from
 which I derived in long-range section of XXX Hamiltonian.
 Also note that we use the shifted energy, hence all you do to obtain the result is to obey the first equation and add the final $E_0$.
 
-\subsubsection{Odd and even chain length performance.}
+
+\subsubsection{Derivation: dual hole coupling eigenvalue.}
+Now suppose we introduce dual hole coupling, which turn the Hamiltonian into
+You can define the Hamiltonian as
+\begin{equation*}
+  H=-\sum_{i=1}^{N-1}J_i\left(\sigma_x^i\sigma_x^{i+1}+\sigma_y^i\sigma_y^{i+1}\right)
+\end{equation*}
+where
+\begin{equation*}
+  J_i=
+  \begin{cases}
+    \alpha J, & i=1 \text{ or } i=N-1, \\
+    J,        & \text{otherwise}.
+  \end{cases}
+\end{equation*}
+The element still reads the same
+\begin{equation*}
+  H_{ij}(\alpha)=
+  \begin{cases}
+    -2J_{ij}(\alpha), & i \neq j \\
+    0,                & i=j
+  \end{cases}
+\end{equation*}
+In any case, the discrete Hamiltonian  $\textstyle\sum_j H_{ij}a_j = E a_i$ reads
+\begin{equation*}
+  E a_i=
+  \begin{cases}
+    -2J\alpha a_2,              & i=1,           \\
+    -2J(\alpha a_{1}+a_{3}),    & i = 2,         \\
+    -2J(a_{i-1}+a_{i+1}),       & 3\le i\le N-2, \\
+    -2J( a_{N-2}+\alpha a_{N}), & i = N-1,       \\
+    -2J\alpha a_{N-1},          & i=N.
+  \end{cases}
+\end{equation*}
+From the bulk case, we earlier obtain the general form of
+\begin{equation*}
+  a_j = Ae^{ikj} + B e^{-ikj} = A \sin (kj+\delta)
+\end{equation*}
+With $\lambda = -E/2J = 2 \cos k$, at $i=1$ we have
+\begin{align*}
+  \lambda a_1=\alpha a_2\implies a_1  = \alpha a_2/\lambda
+\end{align*}
+so that at $i=2$
+\begin{align*}
+  \lambda a_2                                 & = \alpha a_1+a_3                            \\
+  \lambda a_2                                 & = \alpha(\alpha a_2/\lambda)+a_3            \\
+  (\lambda^2-\alpha^2)a_2                     & = \lambda a_3                               \\
+  a_2                                         & = \frac{\lambda}{\lambda^2-\alpha^2}a_3     \\
+  \frac{\sin (2j+\delta )}{\sin (3j+\delta )} & = \frac{2\cos ^2 k}{4 \cos ^2k-\alpha^2}a_3
+\end{align*}
+
+Because the Hamiltonian is invariant under the reflection \(j\mapsto N+1-j\), its eigenstates can be chosen to have definite parity $a_{N+1-j}=\eta a_j$, with $\eta=\pm1$.
+Using the bulk form, the reflection condition becomes
+\begin{equation*}
+  \sin\left[k(N+1-j)+\delta\right]=\eta\sin(kj+\delta)
+\end{equation*}
+In symmetric sector $\eta=+1$, the reflection reads
+\begin{align*}
+  \sin\left[k(N+1-j)+\delta\right] & = \sin(kj+\delta)            \\
+  k(N+1-j)+\delta                  & = \pi-(kj+\delta)+2\pi n     \\
+  k(N+1)+2\delta                   & = (2n+1)\pi                  \\
+  \delta                           & = \frac{(2n+1)\pi-k(N+1)}{2}
+\end{align*}
+We have the arguments
+\begin{equation*}
+  \begin{cases}
+    2k+\delta = \frac{(2n+1)\pi}{2} -\frac{N-3}{2}k
+    \\
+    3k+\delta = \frac{(2n+1)\pi}{2} -\frac{N-5}{2}k
+  \end{cases}
+\end{equation*}
+Since
+\begin{equation*}
+  \sin\left(\frac{(2n+1)\pi}{2}-x\right) = (-1)^n\cos x
+\end{equation*}
+we have
+\begin{equation*}
+  \begin{cases}
+    \sin(2k+\delta) = (-1)^n \cos\left(\frac{N-3}{2}k\right) \\
+    \sin(3k+\delta) = (-1)^n \cos\left(\frac{N-5}{2}k\right)
+  \end{cases}
+\end{equation*}
+Substituting to $i=2$ condition
+\begin{align*}
+  \frac{ \cos\left(\frac{N-3}{2}k\right)} { \cos\left(\frac{N-5}{2}k\right) }
+         & = \frac{\cos A}{\cos(A-k)}
+  =  \frac{2\cos k}{4\cos^2k-\alpha^2}                         \\
+         & = \frac{1}{\cos k+\tan A\sin k}                     \\
+  \tan A & =  \frac{4\cos^2k-\alpha^2-2\cos^2k}{2\cos k\sin k}
+\end{align*}
+then using
+\begin{align*}
+  \tan(A+k)                                & = \frac{\tan A+\tan k} {1-\tan A\tan k}                                                                                                           \\
+                                           & = \frac{ \dfrac{2\cos^2k-\alpha^2}{2\sin k\cos k} +\dfrac{\sin k}{\cos k} }{ 1- \dfrac{2\cos^2k-\alpha^2}{2\sin k\cos k} \dfrac{\sin k}{\cos k} } \\
+                                           & = \frac{2-\alpha^2}{2\sin k\cos k} \frac{2\cos^2k}{\alpha^2}                                                                                      \\
+  \tan\left(\frac{N-1}{2}k\right)          & =  \frac{2-\alpha^2}{\alpha^2}\cot k                                                                                                              \\
+  \tan k\, \tan\left(\frac{N-1}{2}k\right) & =  \frac{2-\alpha^2}{\alpha^2}                                                                                                                    \\
+  \cot k\, \cot\left(\frac{N-1}{2}k\right) & =  \frac{\alpha^2}{2-\alpha^2}
+\end{align*}
+
+Next for the antisymmetric $\eta=-1$, our reflection reads
+Now impose
+\begin{align*}
+  \sin\left[k(N+1-j)+\delta\right] & =  -\sin(kj+\delta)      \\
+  k(N+1-j)+\delta                  & =  -(kj+\delta)+2\pi n   \\
+  k(N+1)+2\delta                   & =  2\pi n                \\
+  \delta                           & =  n\pi-\frac{k(N+1)}{2}
+\end{align*}
+Again, evaluate the two relevant arguments
+\begin{equation*}
+  \begin{cases}
+    2k+\delta = n\pi-\frac{N-3}{2}k \\
+    3k+\delta = n\pi-\frac{N-5}{2}k
+  \end{cases}
+\end{equation*}
+and therefore
+\begin{equation*}
+  \begin{cases}
+    \sin(2k+\delta) = (-1)^{n+1} \sin\left(\frac{N-3}{2}k\right) \\
+    \sin(3k+\delta) = (-1)^{n+1} \sin\left(\frac{N-5}{2}k\right)
+  \end{cases}
+\end{equation*}
+Then
+\begin{align*}
+  \frac{ \sin\left(\frac{N-5}{2}k\right) }{ \sin\left(\frac{N-3}{2}k\right)} & =  \frac{\sin(x-k)}{\sin(x)} = \frac{4\cos^2k-\alpha^2}{2\cos k} \\
+  \cos k-\cot x\sin k                                                        & =  \frac{4\cos^2k-\alpha^2}{2\cos k}                             \\
+  -\cot x\sin k                                                              & =  \frac{2\cos^2k-\alpha^2}{2\cos k}                             \\
+  \tan x                                                                     & =  -\frac{2\sin k\cos k} {2\cos^2k-\alpha^2}
+\end{align*}
+Using the same identity
+\begin{align*}
+  \tan(x+k)                                 & =  \frac{\tan x+\tan k} {1-\tan x\tan k}                                                                                \\
+                                            & =  \frac{ -\dfrac{2\sin k\cos k}{2\cos^2k-\alpha^2} +\dfrac{\sin k}{\cos k} }{ 1+ \dfrac{2\sin^2k}{2\cos^2k-\alpha^2} } \\
+                                            & = \frac{\sin k}{\cos k} \frac{ -(2\cos^2k)+(2\cos^2k-\alpha^2) }{ 2\cos^2k-\alpha^2 }                                   \\
+                                            & \qquad\bigg\slash\frac{ 2\cos^2k-\alpha^2+2\sin^2k }{ 2\cos^2k-\alpha^2 }                                               \\
+                                            & =  -\frac{\alpha^2\sin k} {\cos k(2\cos^2k-\alpha^2)}\frac{2\cos^2k-\alpha^2}{2-\alpha^2}                               \\
+  \tan\left(\frac{N-1}{2}k\right)
+                                            & = -\frac{\alpha^2}{2-\alpha^2}\tan k                                                                                    \\
+  -\cot k\, \tan\left(\frac{N-1}{2}k\right) & =  \frac{\alpha^2}{2-\alpha^2}.
+\end{align*}
+Combining both result based on symmetry
+both equations become
+\begin{equation*}
+  \eta\cot k \left[ \cot\left(\frac{N-1}{2}k\right) \right]^\eta  = \frac{\alpha^2}{2-\alpha^2}
+\end{equation*}
+
+Now let's do sanity check on the transcendental equation.
+For $\alpha=1$, the uniform coupling $k = m\pi/(N+1)$ should holds true.
+Write the parity $\eta = (-1)^{m+1}$
+\begin{align*}
+  (-1)^{m+1}\cot k \left[ \cot\left(\frac{m\pi}{2}-k\right) \right]^{(-1)^{m+1}}
+                                                           & = 1 \\
+  s\cot k \left[ s\left\{ \tan k \right\}^{s}  \right]^{s} & = 1 \\
+  s\cot (k) s^s \tan k                                     & = 1 \\
+  s^{1+s}                                                  & = 1
+\end{align*}
+since $s=\eta = \pm1$, this is true.
+
+\subsubsection{Derivation: Nearest ground state eigenvalue (energy split).}
+\begin{table}
+  \centering
+  \begin{tabular}{cc}
+    \toprule
+    $N\bmod4$ & form        \\
+    \midrule
+    0         & $ N=4\ell$  \\
+    1         & $N=4\ell+1$ \\
+    2         & $N=4\ell+2$ \\
+    3         & $N=4\ell+3$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+With the eigenvalue $E = -4J \cos k$, the eigenvalue closest to $E_0$ correspond to $k = \pi/2$.
+Then
+\begin{equation*}
+  E=-4J\cos\left(\frac{\pi}{2}+\delta\right) =4J\sin\delta \simeq 4J\delta
+\end{equation*}
+we need to determine $\delta$.
+Consider the transcendental equation in this approximation
+\begin{align*}
+  \eta\cot \left(\frac{\pi}{2}+\delta\right) \left[ \cot\left(\frac{(N-1)\pi}{4} +\frac{N-1}{2}\delta\right) \right]^\eta
+                                                                                              & =  \frac{\alpha^2}{2-\alpha^2}     \\
+  -\eta\delta \left[ \cot\left( \frac{(N-1)\pi}{4} + \frac{N-1}{2}\delta \right) \right]^\eta & \simeq \frac{\alpha^2}{2-\alpha^2}
+\end{align*}
+Cotangent term behavior depend on \(N\bmod 4\); in particular, odd $N$ can be written as $4N\ell+1$ and $4N\ell+3$, while even $N$ as $4N\ell$ and $4N\ell+2$.
+For $N \bmod4 = 0$, we write $N=4\ell$ so that the cotangent argument reads
+\begin{equation*}
+  \frac{(4\ell-1)\pi}{4}+\frac{N-1}{2}\delta
+  =\ell\pi -\frac{\pi}{4}+\frac{N-1}{2}\delta
+  = -\frac{\pi}{4}+\frac{N-1}{2}\delta
+\end{equation*}
+Then for small $\delta\ll 2/(N-1)$, we can approximate
+\begin{align*}
+  -\eta\delta \left[-1\right]^\eta
+   & \simeq \frac{\alpha^2}{2-\alpha^2}                \\
+  \delta_{0}
+   & \simeq \frac{\alpha^2}{\eta(-1)^\eta(\alpha^2-2)}
+  =\frac{\eta\alpha^2}{(2-\alpha^2)}
+\end{align*}
+using $\cot x-\pi/4 = -1-2x+O(x^2)$.
+To put it in other way, this approximation valid if $N\alpha^2\ll1$.
+
+Now for $N\bmod4=1$ using $N=4\ell+1$,
+\begin{equation*}
+  \frac{(4\ell)\pi}{4}+\frac{N-1}{2}\delta
+  =\ell\pi+\frac{N-1}{2}\delta
+  = \frac{N-1}{2}\delta
+\end{equation*}
+Approximating
+\begin{align*}
+  -\eta\delta
+  \left[
+    \frac{2}{(N-1)\delta}
+    \right]^\eta
+   & \simeq \frac{\alpha^2}{2-\alpha^2} \\
+\end{align*}
+using $\cot x = 1/x+O(x)$.
+Now consider for $\eta=+1$, we have $\delta^{1-1}$ and the equation
+Thus
+\begin{equation*}
+  -\frac{2}{N-1} = \frac{\alpha^2}{2-\alpha^2}
+\end{equation*}
+For the physical regime \(0<\alpha<1\), the right-hand side is positive, so this equation cannot be satisfied by this approximation around $k=\pi/2$.
+For the other parity, we have
+\begin{align*}
+  \delta_1^2 & =  \frac{2\alpha^2} {(N-1)(2-\alpha^2)}              \\
+  \delta_1   & =  \pm \sqrt{ \frac{2\alpha^2} {(N-1)(2-\alpha^2)} }
+\end{align*}
+
+Next $N \bmod 4 =2$ using $N=4\ell+2$, we expect it produces the same behavior as $\delta_0$ since both denote even $N$.
+\begin{equation*}
+  \frac{(4\ell+1)\pi}{4}+\frac{N-1}{2}\delta
+  =\ell\pi +\frac{\pi}{4}+\frac{N-1}{2}\delta
+  = -\frac{\pi}{4}+\frac{N-1}{2}\delta
+\end{equation*}
+Then for small $\delta\ll 2/(N-1)$, we can approximate
+\begin{align*}
+  -\eta\delta \left[-1\right]^\eta
+   & \simeq \frac{\alpha^2}{2-\alpha^2}       \\
+  \delta_{2}
+   & \simeq \frac{\alpha^2}{\eta(\alpha^2-2)}
+  =\frac{\eta\alpha^2}{(2-\alpha^2)}
+\end{align*}
+using $\cot x+\pi/4 = 1+2x+O(x^2)$ again.
+
+In the same manner, we hope $N\bmod4=3$ using $N=4\ell+3$ produces the same result as $\delta_3$
+\begin{equation*}
+  \frac{(4\ell+2)\pi}{4}+\frac{N-1}{2}\delta
+  =\ell\pi+ \frac{\pi}{2}+\frac{N-1}{2}\delta
+  = \frac{\pi}{2}+\frac{N-1}{2}\delta
+\end{equation*}
+Approximating
+\begin{align*}
+  \eta\delta
+  \left[
+    \frac{(N-1)}{2}\delta
+    \right]^\eta
+   & \simeq \frac{\alpha^2}{2-\alpha^2} \\
+\end{align*}
+using $\cot x+\pi/2=-\tan x = -x+O(x^2)$.
+In this case, we throw the parity $\eta=-1$, which reads
+\begin{equation*}
+  -\frac{2}{N-1} = \frac{\alpha^2}{2-\alpha^2}
+\end{equation*}
+For the other parity, we have
+\begin{align*}
+  \delta_3^2 & =  \frac{2\alpha^2} {(N-1)(2-\alpha^2)}              \\
+  \delta_3   & =  \pm \sqrt{ \frac{2\alpha^2} {(N-1)(2-\alpha^2)} }
+\end{align*}
+This give the nearest eigenvalue
+\begin{equation*}
+  \epsilon = \begin{cases} \dfrac{4J\alpha^2}{2-\alpha^2},                & N\; \mathrm{even}, \\\\
+              4J\sqrt{\dfrac{2\alpha^2}{(N-1)(2-\alpha^2)}}, & N\ \mathrm{odd}
+  \end{cases}
+\end{equation*}
+
+Now that the energy splitting expression is obtained, we can determine the optimum alpha under time constrain $(0,T)$.
+For even $N$, the maximum time is $t=\pi/2\epsilon$, hence
+\begin{align*}
+  T                              & =  \frac{\pi}{2} \frac{2-\alpha^2}{4J\alpha^2} \\
+  8JT\alpha^2                    & = \pi(2-\alpha^2)                              \\
+  (8JT+\pi)\alpha^2              & = 2\pi                                         \\
+  \alpha_{\rm opt}^{\rm even}(T) & =  \sqrt{\frac{2\pi}{8JT+\pi}}
+\end{align*}
+Whereas odd $N$ we have
+\begin{align*}
+  T                                          & = \frac{\pi}{4J} \sqrt{ \frac{(N-1)(2-\alpha^2)} {2\alpha^2} } \\
+  \frac{16J^2T^2}{\pi^2}                     & = \frac{(N-1)(2-\alpha^2)} {2\alpha^2}                         \\
+  32J^2T^2\alpha^2                           & = \pi^2(N-1)(2-\alpha^2)                                       \\
+  \left[ 32J^2T^2+\pi^2(N-1) \right]\alpha^2 & = 2\pi^2(N-1)                                                  \\
+  \alpha_{\rm opt}^{\rm odd}(N,T)            & = \sqrt{ \frac{2\pi^2(N-1)} {32J^2T^2+\pi^2(N-1)} }
+\end{align*}
+
+\subsection{Odd-Even NN Chain Performance}
 For even \(N\), there is no symmetry-enforced zero mode.
 Suppose that the dynamics is dominated by the two central states.
 \begin{equation*}
@@ -952,308 +1270,77 @@ up to an overall phase. The zero-energy eigenstate is consequently localized ent
   \caption*{Figure: Numerical (red) and analytic (blue) optimal $\alpha$ for each spin length $N$.}
 \end{figure}
 
-\subsubsection{Derivation: dual hole coupling eigenvalue.}
-Now suppose we introduce dual hole coupling, which turn the Hamiltonian into
-\begin{equation*}
-  H_{ij}(\alpha)=
-  \begin{cases}
-    -2Jg_{ij}(\alpha), & i \neq j \\
-    0,                 & i=j
-  \end{cases}
-\end{equation*}
-with
-\begin{equation*}
-  g_{ij}(\alpha)=
-  \begin{cases}
-    \alpha,
-     & |i-j|=1
-    \ \text{and}\
-    \left(i\in\{1,N\}\ \text{or}\ j\in\{1,N\}\right),
-    \\
-    1,
-     & |i-j|=1 \\
-  \end{cases}
-\end{equation*}
-Aside, for long range coupling, we can modify $g(\alpha)$ into
-\begin{equation*}
-  g_{ij}(\alpha)=
-  \begin{cases}
-    \alpha,
-     & i\in\{1,N\}\ \text{or}\ j\in\{1,N\} \\
-    1,
-     & \text{otherwise}                    \\
-  \end{cases}
-\end{equation*}
-Of course, we change also the coupling itself into  site dependent one $J_{ij}$.
-In any case, the discrete Hamiltonian  $\textstyle\sum_j H_{ij}a_j = E a_i$ reads
+\subsection{Long range interaction}
+A general analytical solution for the finite LR dual-hole chain 
 \begin{equation*}
   E a_i=
-  \begin{cases}
-    -2J\alpha a_2,              & i=1,           \\
-    -2J(\alpha a_{1}+a_{3}),    & i = 2,         \\
-    -2J(a_{i-1}+a_{i+1}),       & 3\le i\le N-2, \\
-    -2J( a_{N-2}+\alpha a_{N}), & i = N-1,       \\
-    -2J\alpha a_{N-1},          & i=N.
-  \end{cases}
+\begin{cases}
+-2\sum_{j=2}^{N}
+\frac{C}{[a(j-1)]^\nu}\,g_{1j}a_j,
+& i=1,\\[1.2em]
+-2\sum_{\substack{j=1\\j\neq 2}}^{N}
+\frac{C}{[a|2-j|]^\nu}\,\alpha a_j,
+& i=2,\\[1.2em]
+-2\sum_{\substack{j=1\\j\neq i}}^{N}
+\frac{C}{[a|i-j|]^\nu}\,g_{ij}a_j,
+& 3\le i\le N-2,\\[1.2em]
+-2\sum_{\substack{j=1\\j\neq N-1}}^{N}
+\frac{C}{[a|N-1-j|]^\nu}\,\alpha a_j,
+& i=N-1,\\[1.2em]
+-2\sum_{j=1}^{N-1}
+\frac{C}{[a(N-j)]^\nu}\,g_{Nj}a_j,
+& i=N.
+\end{cases}
 \end{equation*}
-From the bulk case, we earlier obtain the general form of
+is substantially more difficult, and its existence in a useful form should not be assumed.
+Ideally, we want an approximation of the form
 \begin{equation*}
-  a_j = Ae^{ikj} + B e^{-ikj} = A \sin (kj+\delta)
+  \epsilon(N,\alpha,\nu)\approx A(\nu)\,g(\alpha)\,h(N,\nu)
 \end{equation*}
-With $\lambda = -E/2J = 2 \cos k$, at $i=1$ we have
-\begin{align*}
-  \lambda a_1=\alpha a_2\implies a_1  = \alpha a_2/\lambda
-\end{align*}
-so that at $i=2$
-\begin{align*}
-  \lambda a_2                                 & = \alpha a_1+a_3                            \\
-  \lambda a_2                                 & = \alpha(\alpha a_2/\lambda)+a_3            \\
-  (\lambda^2-\alpha^2)a_2                     & = \lambda a_3                               \\
-  a_2                                         & = \frac{\lambda}{\lambda^2-\alpha^2}a_3     \\
-  \frac{\sin (2j+\delta )}{\sin (3j+\delta )} & = \frac{2\cos ^2 k}{4 \cos ^2k-\alpha^2}a_3
-\end{align*}
+or some more appropriate expression suggested by the numerical data.
+\begin{enumerate}
+  \item Hypothesis for $\epsilon$ against $\alpha$: Fix $N$ and vary \(\alpha\), repeating the calculation for several \(\nu\).
 
-Because the Hamiltonian is invariant under the reflection \(j\mapsto N+1-j\), its eigenstates can be chosen to have definite parity $a_{N+1-j}=\eta a_j$, with $\eta=\pm1$.
-Using the bulk form, the reflection condition becomes
-\begin{equation*}
-  \sin\left[k(N+1-j)+\delta\right]=\eta\sin(kj+\delta)
-\end{equation*}
-In symmetric sector $\eta=+1$, the reflection reads
-\begin{align*}
-  \sin\left[k(N+1-j)+\delta\right] & = \sin(kj+\delta)            \\
-  k(N+1-j)+\delta                  & = \pi-(kj+\delta)+2\pi n     \\
-  k(N+1)+2\delta                   & = (2n+1)\pi                  \\
-  \delta                           & = \frac{(2n+1)\pi-k(N+1)}{2}
-\end{align*}
-We have the arguments
-\begin{equation*}
-  \begin{cases}
-    2k+\delta = \frac{(2n+1)\pi}{2} -\frac{N-3}{2}k
-    \\
-    3k+\delta = \frac{(2n+1)\pi}{2} -\frac{N-5}{2}k
-  \end{cases}
-\end{equation*}
-Since
-\begin{equation*}
-  \sin\left(\frac{(2n+1)\pi}{2}-x\right) = (-1)^n\cos x
-\end{equation*}
-we have
-\begin{equation*}
-  \begin{cases}
-    \sin(2k+\delta) = (-1)^n \cos\left(\frac{N-3}{2}k\right) \\
-    \sin(3k+\delta) = (-1)^n \cos\left(\frac{N-5}{2}k\right)
-  \end{cases}
-\end{equation*}
-Substituting to $i=2$ condition
-\begin{align*}
-  \frac{ \cos\left(\frac{N-3}{2}k\right)} { \cos\left(\frac{N-5}{2}k\right) }
-         & = \frac{\cos A}{\cos(A-k)}
-  =  \frac{2\cos k}{4\cos^2k-\alpha^2}                         \\
-         & = \frac{1}{\cos k+\tan A\sin k}                     \\
-  \tan A & =  \frac{4\cos^2k-\alpha^2-2\cos^2k}{2\cos k\sin k}
-\end{align*}
-then using
-\begin{align*}
-  \tan(A+k)                                & = \frac{\tan A+\tan k} {1-\tan A\tan k}                                                                                                           \\
-                                           & = \frac{ \dfrac{2\cos^2k-\alpha^2}{2\sin k\cos k} +\dfrac{\sin k}{\cos k} }{ 1- \dfrac{2\cos^2k-\alpha^2}{2\sin k\cos k} \dfrac{\sin k}{\cos k} } \\
-                                           & = \frac{2-\alpha^2}{2\sin k\cos k} \frac{2\cos^2k}{\alpha^2}                                                                                      \\
-  \tan\left(\frac{N-1}{2}k\right)          & =  \frac{2-\alpha^2}{\alpha^2}\cot k                                                                                                              \\
-  \tan k\, \tan\left(\frac{N-1}{2}k\right) & =  \frac{2-\alpha^2}{\alpha^2}                                                                                                                    \\
-  \cot k\, \cot\left(\frac{N-1}{2}k\right) & =  \frac{\alpha^2}{2-\alpha^2}
-\end{align*}
+        $\mathbf{H}_1$: The splitting increases with \(\alpha\), and its functional dependence on \(\alpha\) varies with the interaction exponent \(\nu\).
 
-Next for the antisymmetric $\eta=-1$, our reflection reads
-Now impose
-\begin{align*}
-  \sin\left[k(N+1-j)+\delta\right] & =  -\sin(kj+\delta)      \\
-  k(N+1-j)+\delta                  & =  -(kj+\delta)+2\pi n   \\
-  k(N+1)+2\delta                   & =  2\pi n                \\
-  \delta                           & =  n\pi-\frac{k(N+1)}{2}
-\end{align*}
-Again, evaluate the two relevant arguments
+        $\mathbf{O}_1$: The splitting is monotonically increasing with $\alpha$, with it approach 0 as $\alpha\to0$. Seems that curve shape have the form relation $\epsilon\simeq A(\nu,N)\alpha^{p(\nu,N)}$.
+
+  \item Hypothesis for \(\epsilon\) against \(N\): Fix \(\alpha\) and vary \(N\), again repeating the calculation for several \(\nu\).
+
+        $\mathbf{H}_2$: The splitting decreases with chain length, with a scaling law that depends on the interaction exponent.
+
+        $\mathbf{O}_2$: No visible patern observed at LR regime, oscillates without pattern. At NN, we observe odd-even effect like previous result.
+
+  \item Hypothesis for \(R\) against \(\nu\): Define
+        \begin{equation*}
+          R(N,\alpha,\nu) =\frac{\epsilon_{\mathrm{LR}}(N,\alpha,\nu)}{\epsilon_{\mathrm{NN}}(N,\alpha)}
+        \end{equation*}
+
+        $\mathbf{H}_3$: At fixed \(N\) and \(\alpha\), the LR splitting converges to the NN splitting as \(\nu\rightarrow\infty\), provided the interaction is normalized consistently and the same eigenstate pair is tracked.
+
+        $\mathbf{O}_3$: It does converge to 1 as expected.
+\end{enumerate}
+
+
+\subsubsection{Derivation: incorrect result.}
+If we neglect the bulk-mediated contribution and retain only the direct coupling between the endpoints, the reduced Hamiltonian is
 \begin{equation*}
-  \begin{cases}
-    2k+\delta = n\pi-\frac{N-3}{2}k \\
-    3k+\delta = n\pi-\frac{N-5}{2}k
-  \end{cases}
+  H_{\mathrm{red}}=
+\begin{pmatrix}
+-2B & -2\alpha J_{1N}\\
+-2\alpha J_{1N} & -2B
+\end{pmatrix}
 \end{equation*}
-and therefore
+Its eigenvalues are
 \begin{equation*}
-  \begin{cases}
-    \sin(2k+\delta) = (-1)^{n+1} \sin\left(\frac{N-3}{2}k\right) \\
-    \sin(3k+\delta) = (-1)^{n+1} \sin\left(\frac{N-5}{2}k\right)
-  \end{cases}
-\end{equation*}
-Then
-\begin{align*}
-  \frac{ \sin\left(\frac{N-5}{2}k\right) }{ \sin\left(\frac{N-3}{2}k\right)} & =  \frac{\sin(x-k)}{\sin(x)} = \frac{4\cos^2k-\alpha^2}{2\cos k} \\
-  \cos k-\cot x\sin k                                                        & =  \frac{4\cos^2k-\alpha^2}{2\cos k}                             \\
-  -\cot x\sin k                                                              & =  \frac{2\cos^2k-\alpha^2}{2\cos k}                             \\
-  \tan x                                                                     & =  -\frac{2\sin k\cos k} {2\cos^2k-\alpha^2}
-\end{align*}
-Using the same identity
-\begin{align*}
-  \tan(x+k)                                 & =  \frac{\tan x+\tan k} {1-\tan x\tan k}                                                                                \\
-                                            & =  \frac{ -\dfrac{2\sin k\cos k}{2\cos^2k-\alpha^2} +\dfrac{\sin k}{\cos k} }{ 1+ \dfrac{2\sin^2k}{2\cos^2k-\alpha^2} } \\
-                                            & = \frac{\sin k}{\cos k} \frac{ -(2\cos^2k)+(2\cos^2k-\alpha^2) }{ 2\cos^2k-\alpha^2 }                                   \\
-                                            & \qquad\bigg\slash\frac{ 2\cos^2k-\alpha^2+2\sin^2k }{ 2\cos^2k-\alpha^2 }                                               \\
-                                            & =  -\frac{\alpha^2\sin k} {\cos k(2\cos^2k-\alpha^2)}\frac{2\cos^2k-\alpha^2}{2-\alpha^2}                               \\
-  \tan\left(\frac{N-1}{2}k\right)
-                                            & = -\frac{\alpha^2}{2-\alpha^2}\tan k                                                                                    \\
-  -\cot k\, \tan\left(\frac{N-1}{2}k\right) & =  \frac{\alpha^2}{2-\alpha^2}.
-\end{align*}
-Combining both result based on symmetry
-both equations become
-\begin{equation*}
-  \eta\cot k \left[ \cot\left(\frac{N-1}{2}k\right) \right]^\eta  = \frac{\alpha^2}{2-\alpha^2}
+  \epsilon_\pm=-2B\pm2\alpha J_{1N} = -2B \pm \frac{2C\alpha}{[a(N-1)]^\nu}.
 \end{equation*}
 
-Now let's do sanity check on the transcendental equation.
-For $\alpha=1$, the uniform coupling $k = m\pi/(N+1)$ should holds true.
-Write the parity $\eta = (-1)^{m+1}$
-\begin{align*}
-  (-1)^{m+1}\cot k \left[ \cot\left(\frac{m\pi}{2}-k\right) \right]^{(-1)^{m+1}}
-                                                           & = 1 \\
-  s\cot k \left[ s\left\{ \tan k \right\}^{s}  \right]^{s} & = 1 \\
-  s\cot (k) s^s \tan k                                     & = 1 \\
-  s^{1+s}                                                  & = 1
-\end{align*}
-since $s=\eta = \pm1$, this is true.
-
-\subsubsection{Derivation: Nearest ground state eigenvalue.}
-\begin{table}
+\begin{figure}
   \centering
-  \begin{tabular}{cc}
-    \toprule
-    $N\bmod4$ & form        \\
-    \midrule
-    0         & $ N=4\ell$  \\
-    1         & $N=4\ell+1$ \\
-    2         & $N=4\ell+2$ \\
-    3         & $N=4\ell+3$ \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-With the eigenvalue $E = -4J \cos k$, the eigenvalue closest to $E_0$ correspond to $k = \pi/2$.
-Then
-\begin{equation*}
-  E=-4J\cos\left(\frac{\pi}{2}+\delta\right) =4J\sin\delta \simeq 4J\delta
-\end{equation*}
-we need to determine $\delta$.
-Consider the transcendental equation in this approximation
-\begin{align*}
-  \eta\cot \left(\frac{\pi}{2}+\delta\right) \left[ \cot\left(\frac{(N-1)\pi}{4} +\frac{N-1}{2}\delta\right) \right]^\eta
-                                                                                              & =  \frac{\alpha^2}{2-\alpha^2}     \\
-  -\eta\delta \left[ \cot\left( \frac{(N-1)\pi}{4} + \frac{N-1}{2}\delta \right) \right]^\eta & \simeq \frac{\alpha^2}{2-\alpha^2}
-\end{align*}
-Cotangent term behavior depend on \(N\bmod 4\); in particular, odd $N$ can be written as $4N\ell+1$ and $4N\ell+3$, while even $N$ as $4N\ell$ and $4N\ell+2$.
-For $N \bmod4 = 0$, we write $N=4\ell$ so that the cotangent argument reads
-\begin{equation*}
-  \frac{(4\ell-1)\pi}{4}+\frac{N-1}{2}\delta
-  =\ell\pi -\frac{\pi}{4}+\frac{N-1}{2}\delta
-  = -\frac{\pi}{4}+\frac{N-1}{2}\delta
-\end{equation*}
-Then for small $\delta\ll 2/(N-1)$, we can approximate
-\begin{align*}
-  -\eta\delta \left[-1\right]^\eta
-   & \simeq \frac{\alpha^2}{2-\alpha^2}                \\
-  \delta_{0}
-   & \simeq \frac{\alpha^2}{\eta(-1)^\eta(\alpha^2-2)}
-  =\frac{\eta\alpha^2}{(2-\alpha^2)}
-\end{align*}
-using $\cot x-\pi/4 = -1-2x+O(x^2)$.
-To put it in other way, this approximation valid if $N\alpha^2\ll1$.
-
-Now for $N\bmod4=1$ using $N=4\ell+1$,
-\begin{equation*}
-  \frac{(4\ell)\pi}{4}+\frac{N-1}{2}\delta
-  =\ell\pi+\frac{N-1}{2}\delta
-  = \frac{N-1}{2}\delta
-\end{equation*}
-Approximating
-\begin{align*}
-  -\eta\delta
-  \left[
-    \frac{2}{(N-1)\delta}
-    \right]^\eta
-   & \simeq \frac{\alpha^2}{2-\alpha^2} \\
-\end{align*}
-using $\cot x = 1/x+O(x)$.
-Now consider for $\eta=+1$, we have $\delta^{1-1}$ and the equation
-Thus
-\begin{equation*}
-  -\frac{2}{N-1} = \frac{\alpha^2}{2-\alpha^2}
-\end{equation*}
-For the physical regime \(0<\alpha<1\), the right-hand side is positive, so this equation cannot be satisfied by this approximation around $k=\pi/2$.
-For the other parity, we have
-\begin{align*}
-  \delta_1^2 & =  \frac{2\alpha^2} {(N-1)(2-\alpha^2)}              \\
-  \delta_1   & =  \pm \sqrt{ \frac{2\alpha^2} {(N-1)(2-\alpha^2)} }
-\end{align*}
-
-Next $N \bmod 4 =2$ using $N=4\ell+2$, we expect it produces the same behavior as $\delta_0$ since both denote even $N$.
-\begin{equation*}
-  \frac{(4\ell+1)\pi}{4}+\frac{N-1}{2}\delta
-  =\ell\pi +\frac{\pi}{4}+\frac{N-1}{2}\delta
-  = -\frac{\pi}{4}+\frac{N-1}{2}\delta
-\end{equation*}
-Then for small $\delta\ll 2/(N-1)$, we can approximate
-\begin{align*}
-  -\eta\delta \left[-1\right]^\eta
-   & \simeq \frac{\alpha^2}{2-\alpha^2}       \\
-  \delta_{2}
-   & \simeq \frac{\alpha^2}{\eta(\alpha^2-2)}
-  =\frac{\eta\alpha^2}{(2-\alpha^2)}
-\end{align*}
-using $\cot x+\pi/4 = 1+2x+O(x^2)$ again.
-
-In the same manner, we hope $N\bmod4=3$ using $N=4\ell+3$ produces the same result as $\delta_3$
-\begin{equation*}
-  \frac{(4\ell+2)\pi}{4}+\frac{N-1}{2}\delta
-  =\ell\pi+ \frac{\pi}{2}+\frac{N-1}{2}\delta
-  = \frac{\pi}{2}+\frac{N-1}{2}\delta
-\end{equation*}
-Approximating
-\begin{align*}
-  \eta\delta
-  \left[
-    \frac{(N-1)}{2}\delta
-    \right]^\eta
-   & \simeq \frac{\alpha^2}{2-\alpha^2} \\
-\end{align*}
-using $\cot x+\pi/2=-\tan x = -x+O(x^2)$.
-In this case, we throw the parity $\eta=-1$, which reads
-\begin{equation*}
-  -\frac{2}{N-1} = \frac{\alpha^2}{2-\alpha^2}
-\end{equation*}
-For the other parity, we have
-\begin{align*}
-  \delta_3^2 & =  \frac{2\alpha^2} {(N-1)(2-\alpha^2)}              \\
-  \delta_3   & =  \pm \sqrt{ \frac{2\alpha^2} {(N-1)(2-\alpha^2)} }
-\end{align*}
-This give the nearest eigenvalue
-\begin{equation*}
-  \epsilon = \begin{cases} \dfrac{4J\alpha^2}{2-\alpha^2},                & N\; \mathrm{even}, \\\\
-              4J\sqrt{\dfrac{2\alpha^2}{(N-1)(2-\alpha^2)}}, & N\ \mathrm{odd}
-  \end{cases}
-\end{equation*}
-
-Now that the energy splitting expression is obtained, we can determine the optimum alpha under time constrain $(0,T)$.
-For even $N$, the maximum time is $t=\pi/2\epsilon$, hence
-\begin{align*}
-  T                              & =  \frac{\pi}{2} \frac{2-\alpha^2}{4J\alpha^2} \\
-  8JT\alpha^2                    & = \pi(2-\alpha^2)                              \\
-  (8JT+\pi)\alpha^2              & = 2\pi                                         \\
-  \alpha_{\rm opt}^{\rm even}(T) & =  \sqrt{\frac{2\pi}{8JT+\pi}}
-\end{align*}
-Whereas odd $N$ we have
-\begin{align*}
-  T                                          & = \frac{\pi}{4J} \sqrt{ \frac{(N-1)(2-\alpha^2)} {2\alpha^2} } \\
-  \frac{16J^2T^2}{\pi^2}                     & = \frac{(N-1)(2-\alpha^2)} {2\alpha^2}                         \\
-  32J^2T^2\alpha^2                           & = \pi^2(N-1)(2-\alpha^2)                                       \\
-  \left[ 32J^2T^2+\pi^2(N-1) \right]\alpha^2 & = 2\pi^2(N-1)                                                  \\
-  \alpha_{\rm opt}^{\rm odd}(N,T)            & = \sqrt{ \frac{2\pi^2(N-1)} {32J^2T^2+\pi^2(N-1)} }
-\end{align*}
+  \fullfig{../../../Rss/QM/Research_PST/epsilon_vs_variationAlpha.pdf}
+  \caption*{Figure: Energy splitting as a function of $\alpha$ for $\nu=[1,2,3]$, which are denoted by red, green, and blue curve respectively. Nearest-neighborhood, for comparison, is shown by black curve. Dotted curve denote the, still incorrect, analytic energy split}
+\end{figure}
 
 \subsection{Arbitrary Qubit State}
 \subsubsection{Coherrence and population state.}
@@ -1795,7 +1882,25 @@ Writing the state as
 makes the geometric interpretation of coherence as something associated with $xy$ place projection.
 We can also write the ergotropy in terms of Bloch coordinate
 \begin{equation*}
-  \mathcal{E}[\rho] = B(|\mathbf{r}|-z)
+  \mathcal{E}[\rho] = B(|\mathbf{r}|-z) = B|\mathbf{r}|(1-\cos \theta)
+\end{equation*}
+where
+\begin{equation*}
+  \mathbf{r}_N
+  =
+  \begin{bmatrix}
+    |f_N|\sin\theta
+    \left[
+      \cos\phi\cos\delta
+      -(1-2p)\sin\phi\sin\delta
+    \right] \\
+    |f_N|\sin\theta
+    \left[
+      (2p-1)\sin\phi\cos\delta
+      -\cos\phi\sin\delta
+    \right] \\
+    1-|f_N|^2(1-\cos\theta).
+  \end{bmatrix}
 \end{equation*}
 This reproduces previous formula, since $|\mathbf{r}| = \sqrt{1-4\det\rho}$ and $z = 1-2\rho_{11}$.
 
@@ -2136,7 +2241,138 @@ and the final state evolution
 \end{equation*}
 Not used, so I won't derive it further.
 
-\subsubsection{Derivation: average ergotropy.}
+\subsection{Qubit Transfer Efficiency}
+\subsubsection{Derivation: transfer efficiency.}
+The expression for efficiency averaged over Bloch sphere $\mathcal{B}$ is
+\begin{equation*}
+  \eta_N(t)
+  = \left\langle \frac{\mathcal E_N(t)}{\mathcal E_{\mathrm{in}}} \right\rangle
+=\frac{1}{V}\int_{\mathcal B}dV\; \frac{\mathcal E_N(t)}{\mathcal E_{\mathrm{in}}}
+\end{equation*}
+Note the integrand ins independent of $\Phi$, hence
+\begin{equation*}
+    \eta_N(t) 
+=\frac{3}{4\pi}2\pi \int_{0}^1\int_{0 }^{\pi}dr\;d\Theta\; \frac{r_N\left[1-\cos\Theta_N\right]}{r\left[1-\cos\Theta\right]}
+\end{equation*}
+And explicitly
+\begin{multline*}
+  \eta_N(t)
+=\frac{3}{2}\int_0^1 r^2\,dr
+\int_0^\pi \sin\Theta\,d\Theta\\
+\frac{\sqrt{qr^2\sin^2\Theta+(1-q+qr\cos\Theta)^2}-(1-q+qr\cos\Theta)}{r(1-\cos\Theta)}
+\end{multline*}
+
+
+\subsubsection{Derivation: average output over average input.}
+For a qubit, the passive state has Bloch vector aligned with the ground-state direction, with magnitude \(r=|\mathbf r|\).
+Consequently,
+\begin{equation*}
+  \mathcal E[\rho]=B(|\mathbf r|-z) = Br(1-\cos\Theta)
+\end{equation*}
+To characterize the channel over arbitrary qubit density matrices, consider the  Bloch-ball volume element is $dV=r^2\sin\Theta\,dr\,d\Theta\,d\Phi,$ so that the normalized measure is therefore
+\begin{equation*}
+  d\mu = \frac{1 }{V }\;dV = \frac{3}{4\pi}r^2\sin\Theta\;dr\;d\Theta\;d\Phi
+\end{equation*}
+Dividing by \(V\)  normalizes the measure so that the total probability is \(1\).
+The average initial ergotropy is
+\begin{align*}
+  \langle\mathcal E_{\mathrm{in}}\rangle
+   & =\frac{3}{4\pi}\int_0^1r^2\,dr\int_0^\pi\sin\Theta\,d\Theta\int_0^{2\pi}d\Phi\,Br(1-\cos\Theta) \\
+  \langle\mathcal E_{\mathrm{in}}\rangle
+   & =\frac{3B}{4\pi}\left(\frac14\right)(2)(2\pi)=\frac{3B}{4}
+\end{align*}
+Then the efficiency is
+\begin{equation*}
+  \eta_N(t)
+=\frac{\langle\mathcal E_N(t)\rangle}
+{\langle\mathcal E_{\mathrm{in}}\rangle}
+=\frac{\frac{1}{V}\int_{\mathcal B}\mathcal E_N(t)\,dV}
+{\frac{1}{V}\int_{\mathcal B}\mathcal E_{\mathrm{in}}\,dV}\\[2pt]
+= \frac{\int_{\mathcal B}\mathcal E_N(t)\,dV}
+{\int_{\mathcal B}\mathcal E_{\mathrm{in}}\,dV}
+\end{equation*}
+So normalization can be omitted in this case.
+In any case, the efficiency reads 
+\begin{equation*}
+\eta_N(t) =  \frac{1}{\pi}\int_0^1r^2\,dr\int_0^\pi\sin\Theta\,d\Theta\int_0^{2\pi}d\Phi\; r_N\left[1-\cos\Theta_N\right]
+\end{equation*}
+Important thing, we integrate over the input states and evaluate the receiver ergotropy produced by each one.
+The input coordinates \(r\) and \(\Theta\) vary over the Bloch ball, and each input state generally produces different values of \(r_N\) and \(\cos\Theta_N\) at the receiver.
+The receiver ergotropy is independent of the input azimuthal angle \(\Phi\) and it  contributes a factor \(2\pi\)
+\begin{equation*}
+  \eta_N(t)=2\int_0^1r^2\,dr\int_0^\pi\sin\Theta\,d\Theta\,r_N(r,\Theta;t)\left[1-\cos\Theta_N(r,\Theta;t)\right].
+\end{equation*}
+Using affine transformation 
+\begin{equation*}
+  \mathbf r^{(N)}  =  D(|f_N|)\,R_z(-\delta) \mathbf r^{(1)} +\mathbf t(|f_N|)
+\end{equation*}
+with
+\begin{equation*}
+  D(|f_N|) = \operatorname{diag}(|f_N|,|f_N|,|f_N|^2)
+  \qquad
+  \textbf{t} = \begin{bmatrix} 0, 0,1-|f_N|^2 \end{bmatrix}
+\end{equation*}
+The input Bloch vector in spherical coordinates is
+\begin{equation*}
+  \mathbf r^{(1)}=
+r\begin{pmatrix}
+\sin\Theta\cos\Phi\\
+\sin\Theta\sin\Phi\\
+\cos\Theta
+\end{pmatrix}
+\end{equation*}
+Therefore, the output vector has squared magnitude
+\begin{equation*}
+  r_N^2 = |f_N|^2r^2\sin^2\Theta+\left[|f_N|^2 r\cos\Theta+(1-|f_N|^2 )\right]^2
+\end{equation*}
+Hence,the efficiency becomes
+\begin{multline*}
+  \eta_N(t)=2\int_0^1r^2\,dr
+\int_0^\pi\sin\Theta\,d\Theta\\
+\Bigg[
+\sqrt{|f_N|^2r^2\sin^2\Theta+(1-|f_N|^2 +|f_N|^2 r\cos\Theta)^2}-(1-|f_N|^2+|f_N|^2 r\cos\Theta)
+\Bigg]
+\end{multline*}
+
+\begin{figure}
+  \centering
+  \fullfig{../../../Rss/QM/Research_PST/eff_vs_N.pdf}
+  \caption*{Figure: Maximum ergotropy transfer efficiency as a function of chain length (N). The purple and brown curves represent dual-hole and uniform coupling, respectively.}
+\end{figure}
+
+Next sanity check.
+At PST, we have 
+\begin{align*}
+  \eta_N
+&=2\int_0^1r^2\,dr\int_0^\pi\sin\Theta\,d\Theta\left[\sqrt{r^2\sin^2\Theta+r^2\cos^2\Theta}-r\cos\Theta\right]\\
+&=2\int_0^1r^3\,dr\int_0^\pi(1-\cos\Theta)\sin\Theta\,d\Theta=2\left(\frac14\right)(2) = 1
+\end{align*}
+while at no transfer regime 
+\begin{align*}
+ \eta_N
+&=2\int_0^1r^2\,dr\int_0^\pi\sin\Theta\,d\Theta\left[\sqrt{(1-0)^2}-1\right] = 0
+\end{align*}
+
+We can also find the analytic expression
+Combining the results,
+\begin{multline*}
+  \eta(q)=
+\frac{2}{3q}
+\bigg[
+\frac{
+2\sqrt{q(1-q)}
+\sqrt{1-4q(1-q)}
+[5-8q(1-q)]
++3\arcsin\!\left(2\sqrt{q(1-q)}\right)
+}{
+8\sqrt{q(1-q)}
+}\\
+-\frac{1-(1-2q)|1-2q|^3}{4q}
+\bigg]
+-\frac43(1-q)
+\end{multline*}
+
+\subsubsection{Derivation: pure state average coherence ergotropy.}
 In the same method as the fidelity derivation, we can determine the ergotropy transfer performance by averaging through all possible ergotropy value.
 By defining $a = |f_N|^2$ and $s = \sin ^2 (\theta/2)$, we average
 \begin{equation*}
@@ -2174,16 +2410,13 @@ Therefore
   \braket{\mathcal{E}_\text{coh}} = |f_N|^2-1 + \frac{\arcsin 2|f_N|\sqrt{1-|f_N|^2 }}{4|f_N|\sqrt{1-|f_N|^2}} + \frac{1 }{2} |1-2|f_N|^2 |
 \end{equation*}
 
-\subsection{Qubit Ergotropy Transfer}
-
-
 \begin{figure}
   \centering
   \fullfig{../../../Rss/QM/Research_PST/heatmap_p[0, 0.3, 0.5].pdf}
   \caption*{Figure: Ergotropy heatmaps as functions of the initial-state parameters $\theta$ and $\phi$ for $N=100$ and $\nu=10$. From left to right, the columns show the total, population, and coherence contributions to the ergotropy, respectively. The rows correspond to (a) $p=0$, (b) $p=0.3$, and (c) $p=0.5$.}
 \end{figure}
 
-\subsubsection{Physical interpretation.}
+\subsection{Qubit Transfer Dynamic}
 We consider the effect of imperfect transfer to final state, given by
 \begin{align*}
   \rho^{(N)}
@@ -2429,6 +2662,7 @@ We have in this case $q_c=1$, thus (b) coincide with (a) and the evolution reads
   r_N(1)=r_1
 \end{equation*}
 
+
 \subsection{Paper}
 \subsubsection{Rough draft.} Introduction
 \begin{quote}
@@ -2447,24 +2681,24 @@ We have in this case $q_c=1$, thus (b) coincide with (a) and the evolution reads
 \end{quote}
 The rough idea for introduction is as follows.
 \begin{enumerate}
-  \item 
-  Arguments: miniaturization leads to the study of quantum effect in electronic, quantum effect in storage system leads to quantum battery, difference with conventional battery, elaborate on quantum battery, ergotropy definition, importance of transport in real quantum battery architecture.
+  \item
+        Arguments: miniaturization leads to the study of quantum effect in electronic, quantum effect in storage system leads to quantum battery, difference with conventional battery, elaborate on quantum battery, ergotropy definition, importance of transport in real quantum battery architecture.
 
-  \item 
-  Arguments: approach to ergotropy transport, spin chain as channel candidate, introduce PST, elaborate why PST support ergotropy transfer and not merely storred energy transfer, introduce the treatment that create PST (engineered coupling), practical drawback of engineered coupling (fine-tuning), introduce weakened coupling as alternative (simpler and more resistant to disorder), practical drawback of weakened coupling (large time transport), hence we limit the time constraint into relevant practical timescale (to avoid decoherence).
+  \item
+        Arguments: approach to ergotropy transport, spin chain as channel candidate, introduce PST, elaborate why PST support ergotropy transfer and not merely storred energy transfer, introduce the treatment that create PST (engineered coupling), practical drawback of engineered coupling (fine-tuning), introduce weakened coupling as alternative (simpler and more resistant to disorder), practical drawback of weakened coupling (large time transport), hence we limit the time constraint into relevant practical timescale (to avoid decoherence).
 
 
   \item Research gap. We have two main arguments.
-  \begin{enumerate}
-    \item Thermodynamic consequences of imperfect state transfer for general qubit states.
-    This only obtain that coherence better for transport, even the decomposition ergotropy as contribution from coherence and population have also yet to be made. We also obtain the relation of imperfect transfer with related thermodynamic quantity to explain why this is the case. 
+        \begin{enumerate}
+          \item Thermodynamic consequences of imperfect state transfer for general qubit states.
+                This only obtain that coherence better for transport, even the decomposition ergotropy as contribution from coherence and population have also yet to be made. We also obtain the relation of imperfect transfer with related thermodynamic quantity to explain why this is the case.
 
-    \item Spectral explanation of even-odd dependence.
-    This spectral explanation only give the result eigenvalue, time evolution and other without physical origin. We then add the physical origin analysis to explain why that is the case.
-  \end{enumerate}
+          \item Spectral explanation of even-odd dependence.
+                This spectral explanation only give the result eigenvalue, time evolution and other without physical origin. We then add the physical origin analysis to explain why that is the case.
+        \end{enumerate}
 
-  \item 
-  Other scientific contribution.
+  \item
+        Other scientific contribution.
         \begin{enumerate}
           \item Introduce long range interaction. We expect it to be a trade-off between fidelity and optimum transfer time.
           \item Characterize the channel performance by average the ratio ergotropy in the final site vs initial site over all qubit state.
@@ -2494,15 +2728,15 @@ The continued miniaturization of electronic devices has increased interest of st
 In the development that follows, understanding how energy can be stored, manipulated, and extracted in quantum systems becomes increasingly relevant.
 One particular research direction is the study of quantum batteries, an energy storage system in which quantum-mechanical properties are considered.
 Unlike conventional electrochemical batteries, whose commonly described by electrochemical processes, quantum battery  description allow quantum-mechanical properties, such as coherence and entanglement, to be used.
-Theoretical study have shown that genuine quantum-mechanical properties can enhance charging performance and storage capacity compared to conventional battery. 
+Theoretical study have shown that genuine quantum-mechanical properties can enhance charging performance and storage capacity compared to conventional battery.
 Previous study have already explored [Several works on coherence], [Several works on entanglement], [Several proposed battery model].
 Experimental realizations of quantum batteries have also been demonstrated in [citation].
 
-Although energy storage and changing performance are central questions of quantum-battery research, a complete quantum battery architecture must also address how useful energy distribution which powers the subsystem components. 
+Although energy storage and changing performance are central questions of quantum-battery research, a complete quantum battery architecture must also address how useful energy distribution which powers the subsystem components.
 The total energy stored in system, generally, is not equal to the amount of useful energy  that can be extracted from it.
 The latter quantity, defined as ergotropy $\mathcal{E}$, measures the maximum extractable energy content of a quantum state under cyclic unitary operation.
 This subtle distinction is of importance subject, for it is possible a quantum state to possess non-zero stored energy while remaining having zero ergotropy.
-Beyond theoretical description, the distinction lies in that the existence ergotropy is what permits external subsystem to be powered. 
+Beyond theoretical description, the distinction lies in that the existence ergotropy is what permits external subsystem to be powered.
 Understanding how the ergotropy of a quantum battery is transported, and how it is affected by imperfect transfer, are therefore relevant problems in the development of quantum battery architectures.
 
 One possible approach to ergotropy transport is to transfer the quantum state of a battery, in which ergotropy is encoded, between spatially separated locations.
@@ -2514,7 +2748,7 @@ Naive realization of uniform nearest-neighbor spin chains, however, do not gener
 In a well-known construction, inter-spin couplings are engineered in such way to produce a spectrum and eigenstate structure whose contributions to the transfer amplitude interfere constructively at a specific time, thereby allowing PST.
 Such engineered coupling, however, require precise fine-tuning, which on larger value of $N$ become increasingly impractical.
 An alternative approach is to weaken the boundary couplings relative $\alpha J_r$to those in the bulk $J_r$, where $\alpha$ controls the boundary-coupling strength (Fig. \ref{fig:chain}).
-Nevertheless, transfer performance at PST regime may require long evolution times, particularly in regimes of weak boundary coupling $\alpha \to 0$. 
+Nevertheless, transfer performance at PST regime may require long evolution times, particularly in regimes of weak boundary coupling $\alpha \to 0$.
 Such prolonged evolution can increase exposure to environmental noise and decoherence, which may degrade the transferred state.
 Hence, it is important to characterize not only the maximum transfer performance, but also attainable performance within relevant practical timescale.
 
@@ -2522,8 +2756,8 @@ Recent work by Murphy et al. [citation] has established the role of coherence in
 However, the thermodynamic consequences of imperfect transfer, in particular the relationship between the evolution of receiver state with the contributions of population and coherence ergotropy, requires further investigation.
 In addition, even-odd effect in state transfer through weakened coupling spin chain has been observed previously.
 Nonetheless, the spectral structure and physical mechanisms underlying the parity dependence in the present setting, and their implications for ergotropy transport within a finite observation time, warrant further investigation.
-In this work, we address these question by characterize the transfer of arbitrary qubit states and examining the evolution of the receiver's stored energy, passive energy. 
-We continue our investigation in the chain spectral structure to explain the previously observed even-odd behavior. 
+In this work, we address these question by characterize the transfer of arbitrary qubit states and examining the evolution of the receiver's stored energy, passive energy.
+We continue our investigation in the chain spectral structure to explain the previously observed even-odd behavior.
 We extend the analysis to long-range interactions to examine how the interaction range affects the ergotropy transfer performance.
 
 
