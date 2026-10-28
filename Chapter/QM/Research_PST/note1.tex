@@ -469,7 +469,7 @@ We start by considering the transition amplitude
 \begin{equation*}
   f(t) = \sum_{j=1}^{N} e^{-i E_j t}\braket{\mathbf{r}|\tilde{m}_j }\braket{\tilde{m}_j |\mathbf{s} }
 \end{equation*}
-Defining the projection of eigenstates $\ket{\tilde{m}_j}$ to sender as $|\sigma_j| e ^{\phi_j}$ and to receiver as $|\rho_j| e ^{\psi_j}$, we have
+Defining the projection of eigenstates $\ket{\tilde{m}_j}$ to sender as $|\sigma_j| e ^{\phi_j}$ and to receiver as $|\rho_j| e ^{\psi_j}$, we have 
 \begin{equation*}
   f(t) = \sum_{j=1}^{N} e^{-i E_j t}\rho_j \sigma_j ^*
 \end{equation*}
@@ -592,7 +592,6 @@ With $J_{1N} = 1/(2|N-1|^\nu)$, this reproduces $t_m = \pi(N-1)^\nu/2$.
     \draw[]  (4.5,0) -- (5,0);
     \draw[] (5,0) -- (8,0);
 
-    coupling strength
     \node at (0.5, 0.5) {$\alpha J_1$};
     \node at (1.5, 0.5) {$J_1$};
     \node at (2.5, 0.5) {$J_1$};
@@ -689,10 +688,10 @@ with parity $\eta=\pm1$.
 The eigenvalue nearest to $E_0$ is given by
 \begin{equation*}
   \epsilon = \begin{cases} \dfrac{4J\alpha^2}{2-\alpha^2}\simeq2J\alpha^2,                                            & N\; \mathrm{even}, \\\\
-              4J\sqrt{\dfrac{2\alpha^2}{(N-1)(2-\alpha^2)}}\simeq \frac{2 \sqrt{2}J\alpha }{\sqrt{N-1}}, & N\ \mathrm{odd}
+              4J\sqrt{\dfrac{2\alpha^2}{(N-1)(2-\alpha^2)}}\simeq \frac{4J\alpha }{\sqrt{N-1}}, & N\ \mathrm{odd}
   \end{cases}
 \end{equation*}
-The ratio $\epsilon_\text{odd}/\epsilon_\text{even}\simeq1/\alpha$ increase for small value of $\alpha \ll1$, hence under timescale $\tau\sim1/\epsilon$ odd $N$ evolves on a shorter thus resulting in better fidelity.
+The ratio $\epsilon_\text{odd}/\epsilon_\text{even}\simeq 2 /(\alpha \sqrt{N-1})$ increase for small value of $\alpha \ll1$, hence under timescale $\tau\sim1/\epsilon$ odd $N$ evolves on a shorter thus resulting in better fidelity.
 We can evaluate the optimum $\alpha$ under time constrain $(0,T)$ from this expression
 \begin{equation*}
   \alpha_{\rm opt}=
@@ -1845,7 +1844,7 @@ Finally $\theta_2=-\theta_1$ and $ \phi_2=\phi_1$
 \begin{figure}
   \centering
   \fullfig{../../../Rss/QM/Research_PST/Ergo_compare_an_num.pdf}
-  \caption*{Figure:  Maximum ergotropy $\mathcal{E}$ for against spin length $N$. Coupling $\alpha$ used are numerical (red) and analytic (blue) respectively.}
+  \caption*{Figure:  Maximum receiver ergotropy $\mathcal{E}$ for against spin length $N$. Coupling $\alpha$ used are numerical (red) and analytic (blue) respectively.}
 \end{figure}
 
 \subsubsection{General formula.}
@@ -1863,6 +1862,12 @@ Then the ergotropy associated with coherence is
 \begin{equation*}
   \mathcal{E}_\text{coh}[\rho]
   = B \left[  1 - 2 \rho_{11} + \sqrt{(1-2\rho_{11})^2+ 4|\rho_{01}|^2}  \right]
+\end{equation*}
+in the population inversion regime, $\rho_{11}>1/2$.
+Equivalently,
+\begin{equation*}
+  \mathcal E_{\mathrm{coh}}[\rho]
+=B\left[\sqrt{(1-2\rho_{11})^2+4|\rho_{01}|^2}-|1-2\rho_{11}|\right]
 \end{equation*}
 This value is basically how much ergotropy is lost when I remove the coherence while keeping the populations unchanged.
 Making the state diagonal, in other words.
@@ -1903,6 +1908,11 @@ where
   \end{bmatrix}
 \end{equation*}
 This reproduces previous formula, since $|\mathbf{r}| = \sqrt{1-4\det\rho}$ and $z = 1-2\rho_{11}$.
+We can also write the contribution in terms of Bloch vector
+\begin{equation*}
+\mathcal E_{\mathrm{pop}}=2B\max(-z,0),\qquad
+\mathcal E_{\mathrm{coh}}=B\left(|\mathbf r|-|z|\right)
+\end{equation*}
 
 First Note that the Hamiltonian we use here is
 \begin{equation*}
@@ -1972,12 +1982,6 @@ and
     + \sqrt{1-4 |f_N|^2 \left[ p(1-p)\sin ^2\theta \sin^2 \phi
         + \sin ^4 \frac{\theta }{2 }(1-|f_N|^2) \right] }  \bigg]
 \end{multline*}
-
-\begin{figure}
-  \centering
-  \fullfig{../../../Rss/QM/Research_PST/Ergo_compare.pdf}
-  \caption*{Figure: Receiver site maximum ergotropy $\mathcal{E}_\text{max}$ as a function of chain length $N$ using initial condition such that the contribution from coherence and population are the same. (a) The total ergotropy due to dual-hole coupling and uniform coupling are shown by purple and brown curve repectively. (b) Population (red) and coherence (blue) contributions for dual-hole and (c) uniform coupling}
-\end{figure}
 
 \subsubsection{Derivation: arbitrary qubit ergotropy.}
 First consider the coherence and population case.
@@ -2259,7 +2263,7 @@ And explicitly
   \eta_N(t)
 =\frac{3}{2}\int_0^1 r^2\,dr
 \int_0^\pi \sin\Theta\,d\Theta\\
-\frac{\sqrt{qr^2\sin^2\Theta+(1-q+qr\cos\Theta)^2}-(1-q+qr\cos\Theta)}{r(1-\cos\Theta)}
+\frac{\sqrt{|f_N|^2r^2\sin^2\Theta+(1-|f_N|^2+|f_N|^2r\cos\Theta)^2}-(1-|f_N|^2+|f_N|^2r\cos\Theta)}{r(1-\cos\Theta)}
 \end{multline*}
 
 
@@ -2334,12 +2338,6 @@ Hence,the efficiency becomes
 \Bigg]
 \end{multline*}
 
-\begin{figure}
-  \centering
-  \fullfig{../../../Rss/QM/Research_PST/eff_vs_N.pdf}
-  \caption*{Figure: Maximum ergotropy transfer efficiency as a function of chain length (N). The purple and brown curves represent dual-hole and uniform coupling, respectively.}
-\end{figure}
-
 Next sanity check.
 At PST, we have 
 \begin{align*}
@@ -2410,12 +2408,6 @@ Therefore
   \braket{\mathcal{E}_\text{coh}} = |f_N|^2-1 + \frac{\arcsin 2|f_N|\sqrt{1-|f_N|^2 }}{4|f_N|\sqrt{1-|f_N|^2}} + \frac{1 }{2} |1-2|f_N|^2 |
 \end{equation*}
 
-\begin{figure}
-  \centering
-  \fullfig{../../../Rss/QM/Research_PST/heatmap_p[0, 0.3, 0.5].pdf}
-  \caption*{Figure: Ergotropy heatmaps as functions of the initial-state parameters $\theta$ and $\phi$ for $N=100$ and $\nu=10$. From left to right, the columns show the total, population, and coherence contributions to the ergotropy, respectively. The rows correspond to (a) $p=0$, (b) $p=0.3$, and (c) $p=0.5$.}
-\end{figure}
-
 \subsection{Qubit Transfer Dynamic}
 We consider the effect of imperfect transfer to final state, given by
 \begin{align*}
@@ -2438,11 +2430,11 @@ We consider the effect of imperfect transfer to final state, given by
   \rho^{(N)}
    & = \frac{1 }{2}
   \begin{bmatrix}
-    2- 2|f_N|^2\sin^2 \theta/2                                 & \sin \theta \left[-i2p \sin \phi + e^{i\phi}  \right]f_N \\
-    \sin \theta \left[i2p \sin\phi + e^{-i\phi}  \right]f_N ^* & 2|f_N|^2 \sin ^2 \theta/2
+    2- 2|f_N|^2\sin^2 \theta/2                                 & \sin \theta \left[-i2p \sin \phi + e^{i\phi}  \right]f_N ^*\\
+    \sin \theta \left[i2p \sin\phi + e^{-i\phi}  \right]f_N & 2|f_N|^2 \sin ^2 \theta/2
   \end{bmatrix}
 \end{align*}
-We can determine its final state Bloch vector.
+We can determine its final state Bloch vector (Note there is sign inconsistency in the off-diag).
 Note that $f_N = |f_N|e^{i\delta}$, so the off diagonal matrices without prefactor can be written as
 \begin{align*}
   \rho_{01}
@@ -2505,8 +2497,8 @@ Then factoring receiver vector can then be written as
   \mathbf r^{(N)} & =
   \begin{bmatrix} |f_N|&0&0\\ 0&|f_N|&0\\ 0&0&|f_N|^2 \end{bmatrix}
   \begin{bmatrix}
-    \cos\delta  & \sin\delta & 0 \\
-    -\sin\delta & \cos\delta & 0 \\
+    \cos\delta  & -\sin\delta & 0 \\
+    \sin\delta & \cos\delta & 0 \\
     0           & 0          & 1
   \end{bmatrix}
   \begin{bmatrix} \sin\theta\cos\phi\\ (2p-1)\sin\theta\sin\phi\\ \cos\theta \end{bmatrix} \\
@@ -2514,7 +2506,7 @@ Then factoring receiver vector can then be written as
 \end{align*}
 or
 \begin{equation*}
-  \mathbf r^{(N)}  =  D(|f_N|)\,R_z(-\delta) \mathbf r^{(1)} +\mathbf t(|f_N|)
+  \mathbf r^{(N)}  =  D(|f_N|)\,R_z(\delta) \mathbf r^{(1)} +\mathbf t(|f_N|)
 \end{equation*}
 This is the affine transformation interpretation.
 We can also interpret it in terms of initial state contribution
@@ -2666,27 +2658,25 @@ We have in this case $q_c=1$, thus (b) coincide with (a) and the evolution reads
 \subsection{Paper}
 \subsubsection{Rough draft.} Introduction
 \begin{quote}
-  The transport of ergotropy encoded in arbitrary qubit state through weak coupling of spin chain is investigated.
-  Beyond its straightforward construction, the weak coupling also enable perfect state transfer (PST), which let initial encoded ergotropy to reach the final state given enough time.
-  We therefore focus on the transfer dynamics over given finite, short time interval, where ergotropy transport is on relevant practical timescale.
-  We show that the simple coupling engineering was able to perform better than uniform coupling under same time constrain.
-  Our result shown that ergotropy initially stored via coherence and population inversion can, due to excitation dispersion during transport, emerge at final site as entirely coherence based ergotropy.
-  % To examine the transfer protocol under realistic condition, we introduce interaction between the channel and its environment during transport.
-  % We show that [RESULTS].
+  Ergotropy is a key quantity of a quantum battery that measures the maximum extractable energy. When the extraction process is not local, a faithful transfer of ergotropy across distance is necessary. In this work, we investigate such transfer by using spin chains with weakened coupling as mediator. Weakening the coupling at the two edges of the chain gives rise to localized edge states allowing high fidelity transfer within given time duration. In particular for long spin chains, the transferred ergotropy shows even-odd effect. 
+  % The transport of ergotropy encoded in arbitrary qubit state through weak coupling of spin chain is investigated.
+  % Beyond its straightforward construction, the weak coupling also enable perfect state transfer (PST), which let initial encoded ergotropy to reach the final state given enough time.
+  % We therefore focus on the transfer dynamics over given finite, short time interval, where ergotropy transport is on relevant practical timescale.
+  % We show that the simple coupling engineering was able to perform better than uniform coupling under same time constrain.
+  % Our result shown that ergotropy initially stored via coherence and population inversion can, due to excitation dispersion during transport, emerge at final site as entirely coherence based ergotropy.
   We characterize the transfer efficiency as ratio of ergotropy received at final site to ergotropy initial stored at first site, averaged over all possible qubit state.
-  % TODO
-  % nu
-  % purity
-  % 
 \end{quote}
 The rough idea for introduction is as follows.
 \begin{enumerate}
   \item
-        Arguments: miniaturization leads to the study of quantum effect in electronic, quantum effect in storage system leads to quantum battery, difference with conventional battery, elaborate on quantum battery, ergotropy definition, importance of transport in real quantum battery architecture.
+        Arguments: miniaturization leads to the study of quantum effect in electronic, quantum effect in storage system leads to quantum battery, difference with conventional battery, elaborate on quantum battery, ergotropy definition, 
+  \item
+        Arguments: importance of transport in real quantum battery architecture.
 
   \item
-        Arguments: approach to ergotropy transport, spin chain as channel candidate, introduce PST, elaborate why PST support ergotropy transfer and not merely storred energy transfer, introduce the treatment that create PST (engineered coupling), practical drawback of engineered coupling (fine-tuning), introduce weakened coupling as alternative (simpler and more resistant to disorder), practical drawback of weakened coupling (large time transport), hence we limit the time constraint into relevant practical timescale (to avoid decoherence).
-
+        Arguments: approach to ergotropy transport, spin chain as channel candidate, introduce PST, elaborate why PST support ergotropy transfer and not merely storred energy transfer, 
+  \item
+        Arguments:introduce the treatment that create PST (engineered coupling), practical drawback of engineered coupling (fine-tuning), introduce weakened coupling as alternative (simpler and more resistant to disorder), practical drawback of weakened coupling (large time transport), hence we limit the time constraint into relevant practical timescale (to avoid decoherence).
 
   \item Research gap. We have two main arguments.
         \begin{enumerate}
@@ -2706,20 +2696,63 @@ The rough idea for introduction is as follows.
         \end{enumerate}
 \end{enumerate}
 
-Here's for theory
+Here's for model. We answer system that transports and what state is being transported.
 \begin{enumerate}
-  \item Ergotropy definition: stored energy, passive state, and passive energy.
-        Define the decomposition of population and coherence contribution.
-        Use Hamiltonian $H=-B\sigma_z$ and write the general qubit state ergotropy under that.
-  \item The system; Hamiltonian, coupling and such. Eigenstate in uniform coupling and dangling. State transfer, fidelity and such. localized eigenstate.
+    \item Spin-chain model. 
+    XX Hamiltonian.
+    Define both NN and LR, also introduce weakened coupling. 
+    Establish the single-excitation reduction.
+    Analytic eigenvalue of NN, and approximation in LR.
+    \item State-transfer dynamics. 
+    Initial state of the chain. 
+    Transfer amplitude. 
+    Site N as partial trace of total system.
+    How localized eigenstate can produce PST.
+    \item Thermodynamic quantities.
+    Ergotropy, stored energy, passive state, and passive energy.
+    Define the decomposition of population and coherence contribution.
+    Use Hamiltonian $H=-B\sigma_z$ and write the general qubit state ergotropy under that.
 \end{enumerate}
 
-And this for model
+And this for method. We answer how to quantify successful transport.
 \begin{enumerate}
-  \item General qubit state from superposition, specify the parametrization.
-        Why consider arbitrary mixed/pure qubit state: they allow us to investigate transport beyond the special case of pure-state inputs.
-        Ergotropy quantities of these state.
-  \item Elaborate the coupling used. Explain the protocol next.
+  \item Initial-state parametrization.
+  General qubit state from superposition, specify the parametrization. 
+  \item Ergotropy quantities of these state, in terms of their parameters.
+  Explain which pure and mixed states are sampled and why
+  \item Transfer performance characterization.
+  Efficiency and how it is calculated.
+\end{enumerate}
+
+Next the result and how to present it.
+\begin{enumerate}
+  \item FIG: max ergotropy vs $N$ where we compare weakened coupling with uniform coupling. Both NN case. 
+  Three total curve, though: one uniform and two weakened coupling, respectively in weakened case we use optimized $\alpha$ for each $N$ and same $\alpha$ for each $N$. We also show the population and coherence ergotropy contribution for uniform and optimized weakened case.
+
+  Discussion. We show that weakened coupling, in both case, perform better than uniform. 
+  We state that in the weakened case, we observe odd-even case, with the curve using constant $\alpha$ for each $N$ performing worse. 
+  We explain this odd-even result using spectral analysis.
+  
+  Discussion. The next point is the ergotropy contribution. In the initial state that use the same amount of contribution, we show that coherent ergotropy generally higher compared to population.
+  Both does show odd even effect as expected, however, we see that coherent ergotropy can become higher than initial amount.
+  Use this as motivation to study the ergotropy transfer across all qubit state
+
+  \item FIG. $3 \times 3$ ergotropy heatmaps as functions of the initial-state parameters $\theta$ and $\phi$ for $N=100$ and $\nu=10$. From left to right, the columns show the total, population, and coherence contributions to the ergotropy, respectively. The rows correspond to (a) $p=0$, (b) $p=0.3$, and (c) $p=0.5$.
+  
+  Discussion. We state that there is region where initial state contain population and coherent contribution, however at the receiver only coherence remain.
+  The opposite case where only population contribution remain does not exist.
+  This is related to previous Fig. observation where coherence ergotropy generally higher, so I think it is better to elaborate it here after including this FIG.
+  We explain these results by expressing receiver Bloch vector in terms of sender Bloch vector to see the effect of imperfect state. 
+  
+  \item FIG. Introducing long-range interaction.
+  
+  Discussion. We observe worse performance, although in general transport time, especially in higher $N$, is lower. 
+  We don't give expliit analytic result to explain the result, only from approximation of energy splitting.
+  We only want to present this as a trade-off, not the main result, so not doing such work I think can be justified.
+
+  \item FIG. Efficiency average of NN optimized weakened coupling, LR optimized weakened coupling, NN uniform coupling in order of performance.
+  
+  Discussion. No further explaination should necessary here, we only present this as figure of merit.
 \end{enumerate}
 
 \subsubsection{Introduction draft.}
@@ -2740,6 +2773,7 @@ Beyond theoretical description, the distinction lies in that the existence ergot
 Understanding how the ergotropy of a quantum battery is transported, and how it is affected by imperfect transfer, are therefore relevant problems in the development of quantum battery architectures.
 
 One possible approach to ergotropy transport is to transfer the quantum state of a battery, in which ergotropy is encoded, between spatially separated locations.
+By modeling the first site as a quantum battery, the receiving site can likewise function as a quantum battery, which can then be coupled to a target subsystem to provide extractable work.
 Quantum-state transfer has been extensively investigated in spin chains, where interactions between neighboring or more distant spins can mediate the propagation of quantum state along a one-dimensional system.
 In particular, perfect state transfer (PST), in which the received state is an exact replica of initial state, provides a means of transporting ergotropy rather than merely transferring stored energy.
 Assuming first sender and receiver have equivalent local Hamiltonian, ergotropy of the transferred state is always preserved.
@@ -2749,17 +2783,326 @@ In a well-known construction, inter-spin couplings are engineered in such way to
 Such engineered coupling, however, require precise fine-tuning, which on larger value of $N$ become increasingly impractical.
 An alternative approach is to weaken the boundary couplings relative $\alpha J_r$to those in the bulk $J_r$, where $\alpha$ controls the boundary-coupling strength (Fig. \ref{fig:chain}).
 Nevertheless, transfer performance at PST regime may require long evolution times, particularly in regimes of weak boundary coupling $\alpha \to 0$.
-Such prolonged evolution can increase exposure to environmental noise and decoherence, which may degrade the transferred state.
+Such prolonged evolution can increase exposure to environmental effect such as dissipation, which may degrade the transferred state.
 Hence, it is important to characterize not only the maximum transfer performance, but also attainable performance within relevant practical timescale.
 
 Recent work by Murphy et al. [citation] has established the role of coherence in ergotropy transport  through one-dimensional spin chains.
 However, the thermodynamic consequences of imperfect transfer, in particular the relationship between the evolution of receiver state with the contributions of population and coherence ergotropy, requires further investigation.
-In addition, even-odd effect in state transfer through weakened coupling spin chain has been observed previously.
+In addition, even-odd effect in state transfer through weakened coupling spin chain has been observed previously [citation].
 Nonetheless, the spectral structure and physical mechanisms underlying the parity dependence in the present setting, and their implications for ergotropy transport within a finite observation time, warrant further investigation.
 In this work, we address these question by characterize the transfer of arbitrary qubit states and examining the evolution of the receiver's stored energy, passive energy.
 We continue our investigation in the chain spectral structure to explain the previously observed even-odd behavior.
 We extend the analysis to long-range interactions to examine how the interaction range affects the ergotropy transfer performance.
 
+\subsubsection{Model draft.}
+As mentioned previously, spin chain is a convenient channel to transfer quantum state between spatially separated locations.
+Experimental channel such as trapped ion can realize effective spin-spin interaction described by spin chain model [citation].
+We consider a one dimensional chain  of $N$ linearly arranged spin-$\tfrac12$, each under the influence of uniform non-modulating field $B$.
+Let us denote each spin site by $i$, we introduce weakened coupling at boundary such that the system Hamiltonian is given by 
+\begin{equation}
+  H= -\sum_{r=1}^{N-1}J_r \sum_{i=1}^{N-r} g_{i,r}(\alpha) \left( \sigma_x^i\sigma_x^{i+r} + \sigma_y^i\sigma_y^{i+r} \right) -B\sum_{i=1}^{N}\sigma_z^i,
+\end{equation}
+with $J_r = 1/(ar)^\nu$ denote the interaction between spins separated by distance $r$, $a$ as the lattice distance and $\nu>0$ control its spatial decay.
+We introduce dimensionless parameter alpha through
+\begin{equation}
+  g_{i,r}(\alpha)= 
+  \begin{cases} 
+    \alpha, & i=1\ \text{or}\ i+r=N, \\[2mm] 
+    1, &\text{otherwise},
+  \end{cases},
+\end{equation}
+to control the interaction between bulk and boundary.
+Physically, this modification can be represented by an effective distance \((ar)_{\mathrm{eff}}=\alpha^{-1/\nu}(ar)\).
+This formulation allow us to investigate the effect of long-range (LR) spin interaction and nearest-neighborhood (NN) approximation, the latter obtained by keeping $r=1$ term.
+The case at $\alpha=1$ recover uniform coupling, which will serve as our transfer benchmark, whereas the small $\alpha\ll1$ define weakened boundary coupling.
+The XX Hamiltonian conserve excitation number $[H,\textstyle\sum_{i=1}^{N}\sigma_z^i]=0$, consequently the state evolution remain in one-excitation sector if the initial state also lies in the one-excitation sector.
+We denote  $\ket{\mathbf{j}}$ as the one-excitation basis state in which the excitation is localized at site $j$.
+Within this sector, the eigenvalue of NN regime is given by $E = -2B - 4J \cos k$, where $k$ must satisfy the transcendental equation
+\begin{equation}
+  \eta\cot k \left[ \cot\left(\frac{N-1}{2}k\right) \right]^\eta  = \frac{\alpha^2}{2-\alpha^2},
+\end{equation}
+with parity $\eta=\pm1$.
+In uniform coupling $\alpha=1$, the spectrum  reduce into familiar $k = m\pi/(N+1)$, with integer $m=1,\ldots,N$.
+Introducing imperfection $\alpha$ can create localized eigenstate which generally make better transport channel.
+As we shall see, the system dynamics can be approximated into such states. 
+By projecting the Hamiltonian into such subspace, the eigenvalue evaluates into
+A useful approximation is obtained by projecting the Hamiltonian onto the subspace spanned by the two endpoint-localized states. 
+The resulting LR eigenvalue approximation are
+\begin{equation}
+  E_\pm =  -2B \pm \frac{2J\alpha}{[a(N-1)]^\nu}.
+\end{equation}
+
+We consider that the first site have excitation in it and the rest of the chain initially set to ground state $\ket{0}$ such that the chain can be decomposed into $\rho(0) = \rho^{(1)}\otimes_{i=2}^{N}\ket{0}\bra{0}$.
+We then turned on the interaction at $t=0$, and the Hamiltonian generate the state evolution as $\rho(t) = e^{-iHt}\rho(0)e^{iHt}$ (we set $\hbar =1$). 
+Rather than the chain evolution, our interest lies in the $N$-th spin site which can be expressed in terms of initial state as 
+\begin{equation}
+  \rho^{(N)}(t)
+  = \begin{bmatrix}
+    \rho_{00}^{(1)} + \rho_{11}^{(1)} [1-|f_N|^2(t)] & \rho_{01}^{(1)}  f_N^*(t) \\
+    \rho_{10}^{(1)}  f_N(t)                  & \rho_{11}^{(1)}|f_N|^2(t)
+  \end{bmatrix}
+\end{equation}
+with $f_N(t) = \braket{\mathbf{N } | e^{-iHt}|\mathbf{1}}$ denote the probabilities amplitude excitation initially at site 1 to arrive at site $N$ at time $t$.
+Specifically, $f_N(t) = 1$ correspond to (PST).
+An important point worth emphasizing at this point is that population of the excitation at the receiver scales with $|f_N|^2$, whereas the receiver's coherence scales with $f_N^*$.
+This scaling difference shall become important in our consideration to population and coherence associated transfer.
+It might be a particular interest to us to express the transfer amplitude in terms of eigenstate 
+\begin{equation}
+  f(t) = \sum_{j=1}^{N} e^{-i E_j t}\braket{\mathbf{N}|\tilde{m}_j }\braket{\tilde{m}_j |\mathbf{1} }
+  \label{eq:transamp}
+\end{equation}
+Under the idealized condition of perfectly localized eigenstate $\ket{m_\pm} = (\ket{\mathbf{1 }\pm \ket{N}})/\sqrt{2}$, the transfer dynamics is dominated by the symmetric and antisymmetric eigenstate pair.
+Transfer amplitude in eq. \ref{eq:transamp} now reads $|f_N| = \sin (\Delta E t)/2$, and consequently PST occurs at $t=\pi/\Delta E$.
+
+We consider a qubit with Hamiltonian $H=-B\sigma_z$.
+Let the spectral resolutions
+\begin{gather*}
+      \rho_0 =\textstyle \sum_{j} r_j \ket{ r_j}\bra{ r_j}, \\
+H = \textstyle\sum_{k} \epsilon_k \ket{\epsilon_k}\bra{\epsilon_k},
+\end{gather*}
+where $  r_1 \geq r_2 \geq \ldots$ and $ \epsilon_1 \leq \epsilon_2 \leq \ldots$.
+Unitary operation may assigns the largest eigenvalue to the
+lowest energy level
+\begin{equation*}
+\rho_p = \sum_{j}r_j \ket{\epsilon_j} \bra{\epsilon_j}
+\end{equation*}
+  Ergotropy is the maximum work extractable through unitary operations:
+\[
+  \mathcal E[\rho]=\operatorname{Tr}(\rho H)
+  -\operatorname{Tr}(\rho_p H),
+\]
+For a general qubit state,
+\begin{equation*}
+  \mathcal E[\rho]
+  =B\left(2\rho_{11}-1+
+  \sqrt{1-4\det\rho}\right).
+\end{equation*}
+Stored energy is not necessarily extractable work.
+There exist a state with non-zero stored energy but zero ergotropy. 
+Ergotropy can be decomposed into population and
+coherence contributions:
+      \[
+        \mathcal E(\rho)
+        =\mathcal E_{\mathrm{pop}}(\rho)
+        +\mathcal E_{\mathrm{coh}}(\rho).
+      \]
+
+Population inversion, \(\rho_{11}>\frac12\), is the
+necessary condition for nonzero population
+ergotropy:
+\[
+  \mathcal E_{\mathrm{pop}}(\rho)
+  =2B\max(2\rho_{11}-1,0).
+\]
+The coherence contribution is the ergotropy associated with the off-diagonal elements are removed $        \mathcal E_{\mathrm{coh}}(\rho)
+  =\mathcal E(\rho)-\mathcal E_{\mathrm{pop}}(\rho).$
+Explicitly,
+\begin{equation*}
+  \mathcal E_{\mathrm{coh}}[\rho]
+=B\left[\sqrt{(1-2\rho_{11})^2+4|\rho_{01}|^2}-|1-2\rho_{11}|\right]
+\end{equation*}
+Write the general qubit state as
+\[
+  \rho=\frac12(\mathbf 1+\mathbf r\cdot\boldsymbol\sigma)
+  =\frac12
+  \begin{bmatrix}
+    1+z & x-iy\\
+    x+iy & 1-z
+  \end{bmatrix}.
+\]
+The ergotropy becomes
+\[
+\mathcal E[\rho]=B(|\mathbf r|-z)=        B|\mathbf r|(1-\cos\theta).
+\]
+We can also write the contribution in terms of Bloch vector
+\begin{equation*}
+\mathcal E_{\mathrm{pop}}=2B\max(-z,0),\qquad
+\mathcal E_{\mathrm{coh}}=B\left(|\mathbf r|-|z|\right)
+\end{equation*}
+
+\subsubsection{Method draft.}
+We parametrize each pure qubit state as
+\[
+\ket{\psi_i}
+=\cos\frac{\theta_i}{2}\ket{0}
++e^{i\phi_i}\sin\frac{\theta_i}{2}\ket{1}.
+\]
+A general state is then constructed as a statistical mixture of two pure states,
+\[
+\rho^{(1)}
+=p\ket{\psi_1}\bra{\psi_1}
++(1-p)\ket{\psi_2}\bra{\psi_2}.
+\]
+
+To reduce the number of independent parameters, we impose the constraint
+\[
+\theta_2=\theta_1\equiv\theta,
+\qquad
+\phi_2=-\phi_1\equiv-\phi.
+\]
+
+  Under this constrain, the initial state is
+  \[
+    \rho^{(1)}=
+    \begin{bmatrix}
+      \cos^2\frac{\theta}{2}
+      & \frac{\sin\theta}{2}
+        \left(e^{i\phi}-i2p\sin\phi\right)\\[2mm]
+      \frac{\sin\theta}{2}
+        \left(e^{-i\phi}+i2p\sin\phi\right)
+      & \sin^2\frac{\theta}{2}
+    \end{bmatrix}.
+  \]
+
+  Its evolution gives the receiver state
+  \[
+    \rho^{(N)}(t)=
+    \begin{bmatrix}
+      1-\sin^2\frac{\theta}{2}|f_N|^2
+      & \frac{\sin\theta}{2}
+        \left(e^{i\phi}-i2p\sin\phi\right)f_N\\[2mm]
+      \frac{\sin\theta}{2}
+        \left(e^{-i\phi}+i2p\sin\phi\right)f_N^*
+      & \sin^2\frac{\theta}{2}|f_N|^2
+    \end{bmatrix}.
+  \]
+        We characterize transfer performance by averaging the state-dependent efficiency $\eta_N(t;\rho^{(1)})=\frac{\mathcal E[\rho^{(N)}(t)]}{\mathcal E[\rho^{(1)}]}$ uniformly over the Bloch ball $\mathcal B$:
+      \[
+        \eta_N(t)
+        =\frac{1}{V}\int_{\mathcal B}
+        dV\;\frac{\mathcal E[\rho^{(N)}(t)]}{\mathcal E[\rho^{(1)}]},
+      \]
+      where $V=4\pi/3$ is the Bloch-ball volume.
+  The integrand is independent of the azimuthal angle $\Phi$.
+  With $q = |f_N(t)|^2$, simplification yields
+\begin{equation*}
+      \eta_N(t)=\frac{3}{2}\int_0^1 r^2\,dr
+    \int_0^\pi \sin\Theta\,d\Theta\,
+    \frac{
+      \sqrt{qr^2\sin^2\Theta+(1-q+qr\cos\Theta)^2}
+      -(1-q+qr\cos\Theta)}
+    {r(1-\cos\Theta)}
+\end{equation*}
+
+\subsubsection{Result.}
+
+\begin{figure}
+  \centering
+  \fullfig{../../../Rss/QM/Research_PST/Ergo_compare.pdf}
+  \caption{Receiver site maximum ergotropy $\mathcal{E}_\text{max}$ as a function of chain length $N$ using initial condition with equal contribution from population and coherence component. (a) The total ergotropy due to dual-hole coupling and uniform coupling are shown by purple and brown curve respectively. Solid and dashed purple curve correspond to optimized and fixed $\alpha$ across $N$ respectively. (b) Population (red) and coherence (blue) contributions for dual-hole and (c) uniform coupling}
+  \label{fig:ergocontribution}
+\end{figure}
+
+To investigate the transport of population and coherence ergotropy, we consider initial states with equal contributions from both components. 
+Fig. \ref{fig:ergocontribution} (a) compares the maximum receiver ergotropy for NN weakened and uniform couplings, represented by the purple and brown curves, respectively. 
+The weakened-coupling configuration consistently outperforms the uniform chain, including for large \(N\). 
+For each chain length, we optimize the boundary-coupling parameter \(\alpha\) within \(0<\alpha<1\) to maximize the receiver ergotropy. 
+As expected, this optimized choice (solid curve) yields better performance than using a fixed value of \(\alpha\) (dashed curve) across all chain lengths. 
+Furthermore, the weakened-coupling results exhibit odd-even dependence on \(N\), consistent with previously reported parity effects in state transfer through weakened coupling spin chain [citation].
+This observation can be understood by considering the spectral structure of NN Hamiltonian.
+The spectrum of odd chain contain band center $E=-2B$ eigenvalue whose state $\ket{m_0}$, under weakened coupling $\alpha\ll1$ regime, is guaranteed to be localized in the boundary $\ket{m_0} = (\ket{\mathbf{1}}-\ket{\mathbf{N}})/ {\sqrt{2}}$. 
+In addition to the two near center band, this band center state $\ket{m_0}$ another supplies $1/2$ to the transfer amplitude.
+For even \(N\), however, the two central states $\ket{m_\pm}$ must do essentially all the endpoint transfer, therefore their localization must be relatively strong before the two-state approximation works well.
+Consequently, substantial ergotropy transfer can persist in odd chain, even when the neighboring modes are less strongly localized at the boundaries.
+In addition, further explanation can be made from the energy splitting $\epsilon$ between dominant state. 
+Expanding \ref{eq:ktranscendental} around band-center gives
+\begin{equation*}
+  \epsilon = \begin{cases} \dfrac{4J\alpha^2}{2-\alpha^2}\simeq2J\alpha^2,  & N\; \mathrm{even}, \\\\
+              4J\sqrt{\dfrac{2\alpha^2}{(N-1)(2-\alpha^2)}}\simeq \dfrac{4J\alpha }{\sqrt{N-1}}, & N\ \mathrm{odd}
+  \end{cases}.
+\end{equation*}
+The different scaling with $\alpha$ means that, in the regime $\alpha<2/\sqrt{N+1}$, the odd-chain splitting is larger than the even-chain splitting. 
+Since the characteristic transfer time scales inversely with the energy splitting $t \sim 1/\epsilon$, the odd chain can reach substantial transfer more quickly. 
+Under restricted timescale, this generally gives odd chain better ergotropy transfer.
+
+\begin{figure}
+  \centering
+  \fullfig{../../../Rss/QM/Research_PST/heatmap_p[0, 0.3, 0.5].pdf}
+  \caption*{Figure: Ergotropy heatmaps as functions of the initial-state parameters $\theta$ and $\phi$ for $N=100$ and $\nu=10$. From left to right, the columns show the total, population, and coherence contributions to the ergotropy, respectively. The rows correspond to (a) $p=0$, (b) $p=0.3$, and (c) $p=0.5$.}
+  \label{fig:heatmap}
+\end{figure}
 
 
+Fig. \ref{fig:ergocontribution} (b) and (c) show the population (red) and coherence (blue) ergotropy contribution to total ergotropy, both which also display odd-even behavior.
+As $N$ increases, the population contribution appears to decay more rapidly than the coherence contribution.
+Interestingly, the coherence ergotropy contribution can exceed its initial value, despite imperfect state transfer.
+To understand how imperfect transfer affect these contributions we seek to examine ergotropy transport across different initial state.
+Fig. \ref{fig:heatmap} show the distribution of total, population and coherence ergotropy.
+The column from left depict total, population, and coherence ergotropy respectively; in other hand, the row show different value parameters $p=(0,0.3,0.5)$.
+We identify a region in which the initial state has nonzero population and coherence contributions, whereas the receiver, due to imperfect transfer, retains only a coherence contribution
+This family of state is given by $\pi/2<\theta<2 \arcsin(1/\sqrt{2|f_N|^2})$ and indicated by the blue shading.
+In contrast, we find no corresponding region in which only the population contribution remains receiver.
+The physical mechanics behind this can be made clear by expressing the receiver Bloch vector in terms of initial sender Bloch vector as follows
+\begin{equation*}
+  \mathbf r^{(N)}  =  D(|f_N|)\,R_z(\delta) \mathbf r^{(1)} +\mathbf t(|f_N|)
+\end{equation*}
+where 
+\begin{gather}
+  R_z (\delta) =
+  \begin{bmatrix}
+    \cos\delta  & -\sin\delta & 0 \\
+    \sin\delta & \cos\delta & 0 \\
+    0           & 0          & 1
+  \end{bmatrix}\\
+  D(|f_N|) = \operatorname{diag}(|f_N|,|f_N|,|f_N|^2)\\
+  \textbf{t} (|f_N|)= \begin{bmatrix} 0, 0,1-|f_N|^2 \end{bmatrix}
+\end{gather}
+From this decomposition, it can be understood that the imperfect transfer action to receiver state as follows. 
+The complex transfer amplitude $f_N = |f_N|e^{i\delta}$ introduce rotation about $z$ axis by angle $\delta$, represented by $R_z(\delta)$.
+This does not have any effect on ergotropy transfer since ergotropy is invariant to azimuthal rotation.
+The diagonal matrix $D$ then produce anisotropic contraction where it acts differently on transverse $(x,y)$ and longitudinal $(z)$ component.
+Finally, $\textbf{t}$ add affine displacement along the \(+z\) direction which represent relaxation toward the ground-state. 
+This contraction and displacement explain why imperfect transfer reduces population ergotropy more than coherence ergotropy.
+Geometrically, for a state to contain both population and coherence ergotropy, it must lie somewhere on southern hemisphere, excluding the $z$ axis.
+The blue dashed region, then, denote the state in Bloch sphere that gets mapped out into northern hemisphere by imperfect transfer.
+In contrast, a receiver state with population ergotropy alone would have to lie on the negative$z$ axis.
+Such state, however, is not possible to obtain under imperfect transfer $f_N \neq 0$.
+Furthermore, both contraction and affine translation can reduce the magnitude of its longitudinal component $|z|$ faster than its Bloch vector length $|\mathbf{r}|$ decreases.
+Consequently the coherence ergotropy $\mathcal E_{\mathrm{coh}}=B(|\mathbf r|-|z|)$ can increase even as the transverse components contract.
+
+\begin{figure}
+  \centering
+  \fullfig{../../../Rss/QM/Research_PST/Ergo_compare_nu.pdf}
+  \caption{Maximum receiver ergotropy $\mathcal{E}_{\max}$ (a) and the corresponding transfer time $t{\max}$ (b) as functions of chain length $N$. The purple and green curves represent nearest-neighbor (NN) and long-range (LR) interactions, respectively.}
+  \label{fig:lrinteraction}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \fullfig{../../../Rss/QM/Research_PST/epsilon_vs_alp_nn-lr.pdf}
+  \caption{Energy splitting $\epsilon$ across chain length $N$. Purple circles and green diamonds denote NN and LR interactions, respectively}
+  \label{fig:lrenergy}
+\end{figure}
+
+We  continue our investigate on the effect of long-range interactions. 
+Fig. \ref{fig:lrinteraction} shows the maximum receiver ergotropy along the chain for $\nu=3$, corresponding to dipole-dipole interactions with couplings decaying as $r^{-3}$.
+As the case with NN, we also optimize $\alpha$ for each $N$. 
+Compared with the NN case, the LR model generally exhibits lower maximum ergotropy but reaches its maximum at shorter times. 
+This behavior is accompanied by an increased energy splitting between, as shown in \ref{fig:lrenergy}.
+This trend is consistent with the energy splitting approximation in Eq. \ref{eq:lrsplit}, which state that energy splitting is conversely proportional to characteristic interaction $\nu$. 
+These results highlight a trade-off between transfer performance with transfer time.
+LR model can accelerate ergotropy transfer, but this speedup comes at the cost of reduced maximum transfer performance.
+More definitively, we compare the models using the average efficiency defined in Eq. \ref{eq:eff}, with the results shown in Fig. \ref{fig:eff}.
+NN model achieve the greatest average efficiency among the considered model, nonetheless weakened coupling still able to improve LR model compared to uniform coupling.
+
+\begin{figure}
+  \centering
+  \fullfig{../../../Rss/QM/Research_PST/eff_vs_N.pdf}
+  \caption{Figure: Average transfer efficiency as a function of chain length $N$. The purple and green curve brown curves denote NN and LR model with weakened coupling.  The uniform coupling, shown by brown curve, serve as benchmark.}
+\end{figure}
+
+\subsubsection{Conclusion draft.}
+We have investigated ergotropy transfer in spin chains with weakened boundary couplings, considering both nearest-neighbor (NN) and long-range (LR) interactions. 
+In both model, weakening the boundary couplings improves the maximum receiver ergotropy compared with the uniform chain. 
+The distinct spectral structures of NN chains with even and odd lengths reflect to the ergotropy transfer performance. 
+Although the LR model generally achieves lower maximum receiver ergotropy, it can reduce the transfer time, particularly for longer chains. 
+This highlight highlights a trade-off between transfer performance and speed.
+
+We observe that imperfect transfer action to receiver ergotropy and its population and coherence contributions.
+It contract the transverse components, while the longitudinal component is both contracted and displaced toward the ground-state pole.
+Using this action, we are able to explain observed ergotropy component behavior under imperfect transfer.
+This transformation explains why coherence ergotropy is generally better preserved than population ergotropy.
+Additionaly, this also explain why coherence ergotropy may exceed its initial value.
+Overall, these results establish weakened boundary couplings as a practical means of improving ergotropy transfer in spin chains.
+Moreover, understanding how imperfect state transfer affect receiver ergotropy and its components provides insight into the design of quantum energy-storage applications.
 \end{document}
